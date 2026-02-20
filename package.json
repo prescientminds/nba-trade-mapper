@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "update": "npx tsx scripts/scrape-today.ts",
+    "update:full": "npx tsx scripts/scrape-bbref-trades.ts && npx tsx scripts/enrich-picks.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.95.3",
