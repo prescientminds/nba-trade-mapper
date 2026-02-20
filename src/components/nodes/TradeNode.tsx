@@ -1,12 +1,19 @@
 'use client';
 
-import { memo, useMemo } from 'react';
+import { memo, useMemo, useState, useEffect } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
 import { TEAMS } from '@/lib/teams';
 import { useGraphStore, TradeNodeData } from '@/lib/graph-store';
 import { SeasonTable } from '@/components/SeasonTable';
 import type { TransactionAsset } from '@/lib/supabase';
 import { ensureReadable } from '@/lib/colors';
+import { getSupabase } from '@/lib/supabase';
+
+interface TradeScoreRow {
+  team_scores: Record<string, { score: number }>;
+  winner: string | null;
+  lopsidedness: number;
+}
 
 function TradeNodeComponent({ id, data }: NodeProps) {
   const { trade, teamColors, teamIds, inlinePlayers } = data as TradeNodeData;
@@ -24,6 +31,20 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const isLoading = loadingNodes.has(id);
   const isCore = coreNodes.has(id);
   const primaryColor = teamColors[0] || '#ff6b35';
+
+  // Trade score — fetched lazily when card first expands
+  const [tradeScore, setTradeScore] = useState<TradeScoreRow | null>(null);
+  const [scoreFetched, setScoreFetched] = useState(false);
+  useEffect(() => {
+    if (!isExpanded || scoreFetched) return;
+    setScoreFetched(true);
+    getSupabase()
+      .from('trade_scores')
+      .select('team_scores,winner,lopsidedness')
+      .eq('trade_id', trade.id)
+      .single()
+      .then(({ data }) => { if (data) setTradeScore(data as TradeScoreRow); });
+  }, [isExpanded, scoreFetched, trade.id]);
   const hasInlineData = inlinePlayers && Object.keys(inlinePlayers).length > 0;
   const cardWidth = hasInlineData ? 280 : 240;
 
@@ -76,6 +97,20 @@ function TradeNodeComponent({ id, data }: NodeProps) {
     }
     return groups;
   }, [trade.transaction_assets]);
+
+  // Score entries sorted best → worst, null if no meaningful data
+  const scoreEntries = useMemo(() => {
+    if (!tradeScore) return null;
+    const entries = Object.entries(tradeScore.team_scores)
+      .sort((a, b) => b[1].score - a[1].score);
+    if (entries.every(([, ts]) => ts.score === 0)) return null;
+    return entries;
+  }, [tradeScore]);
+
+  const maxScore = useMemo(() => {
+    if (!scoreEntries) return 1;
+    return Math.max(...scoreEntries.map(([, ts]) => ts.score), 0.01);
+  }, [scoreEntries]);
 
   // Check if an asset's forward stint/node is already on canvas
   const isInGraph = (asset: TransactionAsset) => {
@@ -252,9 +287,56 @@ function TradeNodeComponent({ id, data }: NodeProps) {
         )}
       </div>
 
-      {/* Expanded: inline asset list */}
+      {/* Expanded: score key + asset list */}
       {isExpanded && (
         <div style={{ marginTop: 6 }}>
+          {/* Trade value — compact key at top */}
+          {scoreEntries && (
+            <div style={{ marginBottom: 5, display: 'flex', flexDirection: 'column', gap: 2 }}>
+              {scoreEntries.map(([teamId, ts]) => {
+                const team = TEAMS[teamId];
+                const color = ensureReadable(team?.color || '#888888');
+                const pct = (ts.score / maxScore) * 100;
+                const isWinner = teamId === tradeScore!.winner;
+                return (
+                  <div key={teamId} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                    <span style={{
+                      fontSize: 8, fontWeight: 700,
+                      color: isWinner ? color : 'var(--text-muted)',
+                      width: 22, flexShrink: 0,
+                    }}>
+                      {teamId}
+                    </span>
+                    <div style={{
+                      flex: 1, height: 2,
+                      background: 'rgba(255,255,255,0.06)',
+                      borderRadius: 1, overflow: 'hidden',
+                    }}>
+                      <div style={{
+                        width: `${pct}%`, height: '100%',
+                        background: isWinner ? color : 'rgba(255,255,255,0.15)',
+                        borderRadius: 1,
+                        transition: 'width 0.5s ease-out',
+                      }} />
+                    </div>
+                    <span style={{
+                      fontSize: 8, fontFamily: 'var(--font-mono)',
+                      color: isWinner ? color : 'var(--text-muted)',
+                      width: 24, textAlign: 'right', flexShrink: 0,
+                    }}>
+                      {ts.score.toFixed(1)}
+                    </span>
+                    <span style={{ width: 8, flexShrink: 0 }}>
+                      {isWinner && tradeScore!.lopsidedness >= 1.5 && (
+                        <span style={{ fontSize: 8, color }}>↑</span>
+                      )}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
           {/* Separator */}
           <div
             style={{
@@ -531,6 +613,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
               </div>
             );
           })}
+
         </div>
       )}
 
