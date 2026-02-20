@@ -1,0 +1,1958 @@
+[
+  {
+    "id": "bda8f3e0-3f23-4c92-b25e-db9c5bfe4c84",
+    "date": "1989-08-07",
+    "season": "1989-90",
+    "title": "Sonics / Warriors Trade",
+    "description": "On 1989-08-07:  Warriors acquire Alton Lister  Sonics acquire 1990 first round pick (#2-Gary Payton)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "OKC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Gary Payton",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Alton Lister",
+        "from_team_id": "OKC",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "373987b2-a22d-4142-81a2-93cf3fd81d3d",
+    "date": "1989-08-15",
+    "season": "1989-90",
+    "title": "Rockets / Spurs Trade",
+    "description": "On 1989-08-15:  Spurs acquire cash  Rockets acquire Anthony Bowie",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "HOU",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Anthony Bowie",
+        "from_team_id": "SAS",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "96240042-dc2b-4ce3-b88d-05f47551ebf6",
+    "date": "1989-08-28",
+    "season": "1989-90",
+    "title": "Johnny Dawkins Trade",
+    "description": "On 1989-08-28:  Spurs acquire Maurice Cheeks  76ers acquire Johnny Dawkins",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Johnny Dawkins",
+        "from_team_id": "SAS",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jay Vincent",
+        "from_team_id": "SAS",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Maurice Cheeks",
+        "from_team_id": "PHI",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "David Wingate",
+        "from_team_id": "PHI",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Christian Welp",
+        "from_team_id": "PHI",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ba5e34ec-bd2d-4045-a138-d1c0adb1c871",
+    "date": "1989-09-05",
+    "season": "1989-90",
+    "title": "Cavaliers / Suns Trade",
+    "description": "On 1989-09-05:  Suns acquire 1993 second round pick (#49-Mark Buford)  Cavaliers acquire Steve Kerr",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Steve Kerr",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mark Buford",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "fde02e1d-981a-4a92-8717-6c36469fe84b",
+    "date": "1989-09-11",
+    "season": "1989-90",
+    "title": "Hornets / Nuggets Trade",
+    "description": "On 1989-09-11:  Nuggets acquire Tim Kempton  Hornets acquire 1991 second round pick (#28-Kevin Lynch)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kevin Lynch",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Tim Kempton",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "3868fbfa-e6f9-46bc-be83-a513445ac00e",
+    "date": "1989-09-27",
+    "season": "1989-90",
+    "title": "Ralph Sampson Trade",
+    "description": "On 1989-09-27:  Warriors acquire Jim Petersen  Kings acquire Ralph Sampson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ralph Sampson",
+        "from_team_id": "GSW",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jim Petersen",
+        "from_team_id": "SAC",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "0595f748-60a1-47dd-9b45-c030b229baec",
+    "date": "1989-10-02",
+    "season": "1989-90",
+    "title": "Heat / Warriors Trade",
+    "description": "On 1989-10-02:  Warriors acquire Cavaliers 1990 or 1992 second round pick (1990 #41-Stephen Bardo / Steve Bardo)  Heat acquire Tellis Frank",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Tellis Frank",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Stephen Bardo / Steve Bardo",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e4d12dfc-f160-4c13-b631-4bc61c28617c",
+    "date": "1989-10-05",
+    "season": "1989-90",
+    "title": "Celtics / Nets Trade",
+    "description": "On 1989-10-05:  Nets acquire 1991 second round pick (#51-Zan Tabak)  Celtics acquire John Bagley",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "John Bagley",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Zan Tabak",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Richard Petruska",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e9df50b7-d5c1-4eb6-b3ab-bb493108712b",
+    "date": "1989-10-17",
+    "season": "1989-90",
+    "title": "Robert Reid Trade",
+    "description": "On 1989-10-17:  Hornets acquire Richard Anderson  Blazers acquire Robert Reid",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CHA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Robert Reid",
+        "from_team_id": "CHA",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Richard Anderson",
+        "from_team_id": "POR",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "2f727710-29b2-4c2a-aeb0-d9e2ff75ff5e",
+    "date": "1989-10-26",
+    "season": "1989-90",
+    "title": "Bucks / Mavericks Trade",
+    "description": "On 1989-10-26:  Mavericks acquire 1993 second round pick (#33-Eric Riley)  Bucks acquire rights to Pat Durham",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Pat Durham",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Eric Riley",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "84eed4af-cf9b-4d3a-bdfc-3676544fb09b",
+    "date": "1989-10-27",
+    "season": "1989-90",
+    "title": "76ers / Timberwolves Trade",
+    "description": "On 1989-10-27:  Timberwolves acquire 1990 first round pick (#20-Gerald Glass)  76ers acquire Rick Mahorn",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rick Mahorn",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Gerald Glass",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Alvaro Teheran",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Duane Cooper",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "56d5d90b-22a6-4119-8e34-dbb3bd612132",
+    "date": "1989-11-16",
+    "season": "1989-90",
+    "title": "Reggie Williams Trade",
+    "description": "On 1989-11-16:  Clippers acquire Ron Harper  Cavaliers acquire Reggie Williams",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "LAC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Reggie Williams",
+        "from_team_id": "LAC",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Danny Ferry",
+        "from_team_id": "LAC",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ron Harper",
+        "from_team_id": "CLE",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Loy Vaught",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Joe Wylie",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Elmore Spencer",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "5b4e5b21-46ba-4187-9c3a-ef1c2efe0042",
+    "date": "1989-12-13",
+    "season": "1989-90",
+    "title": "Armon Gilliam / Armen Gilliam Trade",
+    "description": "On 1989-12-13:  Suns acquire Kurt Rambis  Hornets acquire Armon Gilliam / Armen Gilliam",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Armon Gilliam / Armen Gilliam",
+        "from_team_id": "PHX",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kurt Rambis",
+        "from_team_id": "CHA",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Negele Knight",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Chad Gallagher",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "cbffde7a-f95a-4849-abea-0215ed74c735",
+    "date": "1990-01-04",
+    "season": "1989-90",
+    "title": "Brad Lohaus Trade",
+    "description": "On 1990-01-04:  Timberwolves acquire Randy Breuer  Bucks acquire Brad Lohaus",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Brad Lohaus",
+        "from_team_id": "MIN",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Duane Cooper",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Randy Breuer",
+        "from_team_id": "MIL",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Chris Smith (b)",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e82e9612-7afa-4d17-99da-28a2a1897ae3",
+    "date": "1990-02-13",
+    "season": "1989-90",
+    "title": "Kenny Smith, Mike Williams Trade",
+    "description": "On 1990-02-13:  Kings acquire Antoine Carr  Hawks acquire Kenny Smith",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kenny Smith",
+        "from_team_id": "SAC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mike Williams",
+        "from_team_id": "SAC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Antoine Carr",
+        "from_team_id": "ATL",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sedric Toney",
+        "from_team_id": "ATL",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Steve Hood",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "d0c70f2f-e2d7-42f0-a9f8-091a23db6e56",
+    "date": "1990-02-21",
+    "season": "1989-90",
+    "title": "Maurice Cheeks Trade",
+    "description": "On 1990-02-21:  Spurs acquire Rod Strickland  Knicks acquire Maurice Cheeks",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Maurice Cheeks",
+        "from_team_id": "SAS",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rod Strickland",
+        "from_team_id": "NYK",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e495b9e9-7997-415d-90fe-fcec4f12eb80",
+    "date": "1990-02-21",
+    "season": "1989-90",
+    "title": "Michael Cutright Trade",
+    "description": "On 1990-02-21:  Nuggets acquire Joe Barry Carroll  Nets acquire Michael Cutright",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BKN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Michael Cutright",
+        "from_team_id": "DEN",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Joe Barry Carroll",
+        "from_team_id": "BKN",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "8f63ab1b-35ac-498c-b0f3-a6f2e1c38fd1",
+    "date": "1990-02-21",
+    "season": "1989-90",
+    "title": "Rockets / Spurs Trade",
+    "description": "On 1990-02-21:  Spurs acquire cash (reportely $25K, plus $25K if Maxwell is on Rockets roster at the end of the season)  Rockets acquire Vernon Maxwell",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "HOU",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Vernon Maxwell",
+        "from_team_id": "SAS",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "5e773d3e-59a4-4e8c-923e-48e9b04c5f62",
+    "date": "1990-02-21",
+    "season": "1989-90",
+    "title": "Cavaliers / Nets Trade",
+    "description": "On 1990-02-21:  Nets acquire Chris Dudley  Cavaliers acquire 1991 second round pick (#51-Zan Tabak)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Zan Tabak",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Richard Petruska",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Chris Dudley",
+        "from_team_id": "CLE",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "8dc9bc4a-ca4c-4e61-a8d0-186ad994dfb9",
+    "date": "1990-02-21",
+    "season": "1989-90",
+    "title": "Cavaliers / Rockets Trade",
+    "description": "On 1990-02-21:  Rockets acquire 1991 second round pick (#51-Zan Tabak)  Cavaliers acquire Derrick Chievous",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Derrick Chievous",
+        "from_team_id": "HOU",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Zan Tabak",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Curtis Blair",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Richard Petruska",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "5bc53f2b-e6c1-4343-a1d3-e8a4632d2840",
+    "date": "1990-02-22",
+    "season": "1989-90",
+    "title": "Clippers / Warriors Trade",
+    "description": "On 1990-02-22:  Warriors acquire 1990 second round pick (#34-Kevin Pritchard)  Clippers acquire Winston Garland",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Winston Garland",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kevin Pritchard",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Predrag Danilovic / Sasha Danilovic",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "34711f45-d48e-4ab1-9023-11795e0b78d1",
+    "date": "1990-02-22",
+    "season": "1989-90",
+    "title": "Steve Johnson Trade",
+    "description": "On 1990-02-22:  Timberwolves acquire Brad Sellers  Sonics acquire Steve Johnson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "OKC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Steve Johnson",
+        "from_team_id": "MIN",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brad Sellers",
+        "from_team_id": "OKC",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "189e4322-5296-406d-8c98-268ca0eb741f",
+    "date": "1990-02-22",
+    "season": "1989-90",
+    "title": "Uwe Blab Trade",
+    "description": "On 1990-02-22:  Warriors acquire Christian Welp  Spurs acquire Uwe Blab",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Uwe Blab",
+        "from_team_id": "GSW",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Christian Welp",
+        "from_team_id": "SAS",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ef7e0f24-b545-4ea5-a334-c9d5a8182a0e",
+    "date": "1990-02-22",
+    "season": "1989-90",
+    "title": "Hornets / Knicks Trade",
+    "description": "On 1990-02-22:  Knicks acquire Stuart Gray  Hornets acquire 1991 second round pick (#39-Jimmy Oliver)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "NYK",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jimmy Oliver",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Stuart Gray",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "64061d1b-0545-47bb-95bb-69f985f74f82",
+    "date": "1990-02-22",
+    "season": "1989-90",
+    "title": "Cavaliers / Hornets Trade",
+    "description": "On 1990-02-22:  Hornets acquire Randolph Keys  Cavaliers acquire 1991 second round pick (#39-Jimmy Oliver)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CHA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jimmy Oliver",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Randolph Keys",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e5a0ea7f-f990-4749-b689-60963bc47480",
+    "date": "1990-06-02",
+    "season": "1989-90",
+    "title": "76ers / Timberwolves Trade",
+    "description": "On 1990-06-02:  Timberwolves acquire Scott Brooks  76ers acquire 1990 second round pick (#32-Brian Oliver)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Brian Oliver",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Scott Brooks",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "33579620-1465-4b05-9538-a148b117db35",
+    "date": "1990-06-21",
+    "season": "1989-90",
+    "title": "Mavericks / Nuggets Trade",
+    "description": "On 1990-06-21:  Nuggets acquire 1990 first round pick (#9-Willie Burton)  Mavericks acquire Lafayette Lever / Fat Lever",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Lafayette Lever / Fat Lever",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Willie Burton",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "LaBradford Smith",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "fb39b650-60df-4a56-9d49-3a90c93fd9bf",
+    "date": "1990-06-22",
+    "season": "1989-90",
+    "title": "Heat / Nuggets Trade",
+    "description": "On 1990-06-22:  Nuggets acquire 1990 first round pick (#3-Chris Jackson / Mahmoud Abdul-Rauf)  Heat acquire 1990 first round pick (#9-Willie Burton)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Willie Burton",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Dave Jamerson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rauf",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "7c404eae-cf07-4d9f-ba82-8af54a361ec7",
+    "date": "1990-06-25",
+    "season": "1989-90",
+    "title": "Pervis Ellison, Jeff Malone Trade",
+    "description": "On 1990-06-25:  Bullets acquire Pervis Ellison  Kings acquire Bobby Hansen Other Team(s) Involved in Trade:Jazz",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "UTA",
+        "role": "participant"
+      },
+      {
+        "team_id": "SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Pervis Ellison",
+        "from_team_id": "UTA",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jeff Malone",
+        "from_team_id": "WAS",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mike Iuzzolino",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "5532337d-2e00-46cf-a8f3-b4257e4304f0",
+    "date": "1990-06-25",
+    "season": "1989-90",
+    "title": "Magic / Nets Trade",
+    "description": "On 1990-06-25:  Nets acquire Reggie Theus  Magic acquire 1993 second round pick (#42-Adonis Jordan)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ORL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Adonis Jordan",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rashard Griffith",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Reggie Theus",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "d4d0e4fc-1028-4501-b0ca-95e507bf8a7c",
+    "date": "1990-06-26",
+    "season": "1989-90",
+    "title": "Bulls / Nets Trade",
+    "description": "On 1990-06-26:  Nets acquire 1990 first round pick (#22-Tate George)  Bulls acquire Dennis Hopson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Dennis Hopson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Tate George",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Von McDade",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "P.J. Brown",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "9074fcb7-4c9a-4e2a-9360-ef43461ed38a",
+    "date": "1990-06-26",
+    "season": "1989-90",
+    "title": "Bill Wennington Trade",
+    "description": "On 1990-06-26:  Mavericks acquire Rodney McCray  Kings acquire Bill Wennington",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Bill Wennington",
+        "from_team_id": "DAL",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Travis Mays",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Duane Causwell",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rodney McCray",
+        "from_team_id": "SAC",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Phil Henderson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mike Iuzzolino",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "d0a65c49-4ae5-490b-ab10-1881bd363dee",
+    "date": "1990-06-27",
+    "season": "1989-90",
+    "title": "John Lucas Sr., Tim McCormick Trade",
+    "description": "On 1990-06-27:  Rockets acquire Kenny Smith  Hawks acquire John Lucas Sr.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "John Lucas Sr.",
+        "from_team_id": "HOU",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tim McCormick",
+        "from_team_id": "HOU",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Charlie Ward",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kenny Smith",
+        "from_team_id": "ATL",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Roy Marble (a)",
+        "from_team_id": "ATL",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "68632a4b-4d2a-4952-af45-a73fae9da312",
+    "date": "1990-06-27",
+    "season": "1989-90",
+    "title": "Hawks / Warriors Trade",
+    "description": "On 1990-06-27:  Warriors acquire 1990 first round pick (#11-Tyrone Hill)  Hawks acquire 1990 first round pick (#10-Rumeal Robinson)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rumeal Robinson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Trevor Wilson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Stephen Bardo / Steve Bardo",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Tyrone Hill",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Les Jepsen",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "59fbbee7-093a-4296-afbc-de2c00fa1da9",
+    "date": "1990-06-27",
+    "season": "1989-90",
+    "title": "Heat / Rockets Trade",
+    "description": "On 1990-06-27:  Rockets acquire rights to Dave Jamerson  Heat acquire rights to Alec Kessler",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Alec Kessler",
+        "from_team_id": "HOU",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dave Jamerson",
+        "from_team_id": "MIA",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Carl Herrera",
+        "from_team_id": "MIA",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "c786cc21-2877-4831-a31f-1a56155f6aad",
+    "date": "1990-06-27",
+    "season": "1989-90",
+    "title": "Heat / Kings Trade",
+    "description": "On 1990-06-27:  Kings acquire Rory Sparrow  Heat acquire rights to Vernell Coles / Bimbo Coles",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Vernell Coles / Bimbo Coles",
+        "from_team_id": "SAC",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rory Sparrow",
+        "from_team_id": "MIA",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

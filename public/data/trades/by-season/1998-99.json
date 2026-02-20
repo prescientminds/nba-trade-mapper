@@ -1,0 +1,1381 @@
+[
+  {
+    "id": "3c53c9d3-2f19-4599-886a-84322f878bd7",
+    "date": "1999-01-21",
+    "season": "1998-99",
+    "title": "76ers / Rockets Trade",
+    "description": "On 1999-01-21:  Rockets acquire conditional first round pick (2003 #25-Carlos Delfino)  76ers acquire rights to Mirsad Turkcan",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mirsad Turkcan",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Carlos Delfino",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "3135c8e2-73de-472e-aba9-5145e78ca5b1",
+    "date": "1999-01-21",
+    "season": "1998-99",
+    "title": "Blazers / Pistons Trade",
+    "description": "On 1999-01-21:  Pistons acquire 1999 conditional first round pick (protected top 4- also if pick is #20-29, Blazers have option of giving 2000 or 2001 second round pick) (1999 #27-Jumaine Jones)  Blazers acquire rights to Bonzi Wells",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Bonzi Wells",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jumaine Jones",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "James Penn / Scoonie Penn",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "89b54ed8-f9d1-4ef6-bbde-31a27de6cbdc",
+    "date": "1999-01-21",
+    "season": "1998-99",
+    "title": "Tony Battie Trade",
+    "description": "On 1999-01-21:  Lakers acquire Travis Knight  Celtics acquire Tony Battie",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "LAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tony Battie",
+        "from_team_id": "LAL",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Travis Knight",
+        "from_team_id": "BOS",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "21ef0500-44ed-47ed-8ee7-b3c4bfe66f95",
+    "date": "1999-01-21",
+    "season": "1998-99",
+    "title": "Latrell Sprewell Trade",
+    "description": "On 1999-01-21:  Warriors acquire Chris Mills  Knicks acquire Latrell Sprewell",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Latrell Sprewell",
+        "from_team_id": "GSW",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chris Mills",
+        "from_team_id": "NYK",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Terry Cummings",
+        "from_team_id": "NYK",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "John Starks",
+        "from_team_id": "NYK",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e56dd566-52ac-4bb4-a90b-11e13ad37645",
+    "date": "1999-01-21",
+    "season": "1998-99",
+    "title": "Magic / Nuggets Trade",
+    "description": "On 1999-01-21:  Nuggets acquire Johnny Taylor  Magic acquire 1999 first round pick (lessfavorable of Nuggets, Bucks picks) or 2000 first round pick (Nuggets) (Magic's option) (2000 #10-Keyon Dooling)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ORL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Keyon Dooling",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Johnny Taylor",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Keon Clark",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "f5935794-e6e0-47bb-9b6a-a2bcbc000720",
+    "date": "1999-01-21",
+    "season": "1998-99",
+    "title": "Jim McIlvaine Trade",
+    "description": "On 1999-01-21:  Sonics acquire Michael Cage  Nets acquire Jim McIlvaine",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BKN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jim McIlvaine",
+        "from_team_id": "OKC",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Michael Cage",
+        "from_team_id": "BKN",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Don MacLean",
+        "from_team_id": "BKN",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "40a26777-3a07-4301-9fb0-c0ba934291a1",
+    "date": "1999-01-21",
+    "season": "1998-99",
+    "title": "Chauncey Billups, Micheal Williams Trade",
+    "description": "On 1999-01-21:  Nuggets acquire Chauncey Billups  Raptors acquire Micheal Williams Other Team(s) Involved in Trade:Timberwolves",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "DEN",
+        "role": "participant"
+      },
+      {
+        "team_id": "TOR",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Chauncey Billups",
+        "from_team_id": "MIN",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tyson Wheeler",
+        "from_team_id": "MIN",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dean Garrett",
+        "from_team_id": "DEN",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bobby Jackson",
+        "from_team_id": "DEN",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jonathan Bender",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ddbaf170-aacc-405e-b3a8-a07fd30ae832",
+    "date": "1999-01-21",
+    "season": "1998-99",
+    "title": "Roy Rogers Trade",
+    "description": "On 1999-01-21:  Rockets acquire Scottie Pippen  Bulls acquire Roy Rogers",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Roy Rogers",
+        "from_team_id": "HOU",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jake Voskuhl",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Scottie Pippen",
+        "from_team_id": "CHI",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e70db5d8-b5a3-4f7f-94cf-31ed8297b64a",
+    "date": "1999-01-21",
+    "season": "1998-99",
+    "title": "Chuck Person Trade",
+    "description": "On 1999-01-21:  Spurs acquire Steve Kerr  Bulls acquire Chuck Person",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Chuck Person",
+        "from_team_id": "SAS",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Dalibor Bagaric",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Steve Kerr",
+        "from_team_id": "CHI",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "82d487aa-30d6-41aa-bb88-b5793db0fa19",
+    "date": "1999-01-22",
+    "season": "1998-99",
+    "title": "Bucks / Bulls Trade",
+    "description": "On 1999-01-22:  Bulls acquire Andrew Lang  Bucks acquire conditional second round pick (2001 #51-Andre Hutson)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CHI",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Andre Hutson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Andrew Lang",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "6127163a-66f3-4a7e-abb1-583e75c884a0",
+    "date": "1999-01-22",
+    "season": "1998-99",
+    "title": "Scot Pollard Trade",
+    "description": "On 1999-01-22:  Pistons acquire Christian Laettner  Hawks acquire Scot Pollard",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Scot Pollard",
+        "from_team_id": "DET",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jumaine Jones",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Christian Laettner",
+        "from_team_id": "ATL",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "3fed6d27-250b-4b97-b6a7-267141a36385",
+    "date": "1999-01-23",
+    "season": "1998-99",
+    "title": "Mark Bryant, Martin Muursepp, Bubba Wells Trade",
+    "description": "On 1999-01-23:  Suns acquire Luc Longley  Bulls acquire Mark Bryant",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mark Bryant",
+        "from_team_id": "PHX",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Martin Muursepp",
+        "from_team_id": "PHX",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bubba Wells",
+        "from_team_id": "PHX",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ron Artest / Metta World Peace",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Luc Longley",
+        "from_team_id": "CHI",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "31faa172-692c-4bb9-86e9-240f5a50a9bb",
+    "date": "1999-02-04",
+    "season": "1998-99",
+    "title": "Jazz / Warriors Trade",
+    "description": "On 1999-02-04:  Warriors acquire 2000 second round pick (#55-Chris Porter)  Jazz acquire Todd Fuller",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Todd Fuller",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Chris Porter",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "aca457e1-3a5c-4ebc-a372-77d947c0c0aa",
+    "date": "1999-03-10",
+    "season": "1998-99",
+    "title": "Eddie Jones Trade",
+    "description": "On 1999-03-10:  Lakers acquire Glen Rice Sr.  Hornets acquire Eddie Jones",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "LAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Eddie Jones",
+        "from_team_id": "LAL",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Elden Campbell",
+        "from_team_id": "LAL",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Glen Rice Sr.",
+        "from_team_id": "CHA",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "J.R. Reid",
+        "from_team_id": "CHA",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "B.J. Armstrong",
+        "from_team_id": "CHA",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "a60503ef-9561-4b9e-ad9a-ad9b84d80e21",
+    "date": "1999-03-11",
+    "season": "1998-99",
+    "title": "Tyrone Hill, Jerald Honeycutt Trade",
+    "description": "On 1999-03-11:  Bucks acquire Tim Thomas  76ers acquire Tyrone Hill",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tyrone Hill",
+        "from_team_id": "MIL",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jerald Honeycutt",
+        "from_team_id": "MIL",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tim Thomas",
+        "from_team_id": "PHI",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Scott Williams",
+        "from_team_id": "PHI",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "977d47a2-d61d-4419-8a5a-07236a82b0a9",
+    "date": "1999-03-11",
+    "season": "1998-99",
+    "title": "Sam Cassell, Chris Gatling Trade",
+    "description": "On 1999-03-11:  Nets acquire Stephon Marbury  Timberwolves acquire Terrell Brandon Other Team(s) Involved in Trade: Bucks",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "participant"
+      },
+      {
+        "team_id": "BKN",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sam Cassell",
+        "from_team_id": "MIN",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chris Gatling",
+        "from_team_id": "MIN",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Paul Grant",
+        "from_team_id": "MIN",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Terrell Brandon",
+        "from_team_id": "MIL",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Elliot Perry",
+        "from_team_id": "MIL",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ceb3cce9-76f7-4844-ab4d-26e21a84fc39",
+    "date": "1999-03-11",
+    "season": "1998-99",
+    "title": "Andrew DeClercq Trade",
+    "description": "On 1999-03-11:  Celtics acquire Vitaly Potapenko  Cavaliers acquire Andrew DeClercq",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BOS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Andrew DeClercq",
+        "from_team_id": "BOS",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Andre Miller",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Vitaly Potapenko",
+        "from_team_id": "CLE",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "f29797e0-18e8-446c-a7ee-f83c30548472",
+    "date": "1999-03-11",
+    "season": "1998-99",
+    "title": "Rodrick Rhodes Trade",
+    "description": "On 1999-03-11:  Rockets acquire Sam Mack  Grizzlies acquire Rodrick Rhodes",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Rodrick Rhodes",
+        "from_team_id": "HOU",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sam Mack",
+        "from_team_id": "MEM",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "487a0a12-6dbf-412c-b0cd-1d75ed61072f",
+    "date": "1999-06-29",
+    "season": "1998-99",
+    "title": "Vernell Coles / Bimbo Coles, Duane Ferrell Trade",
+    "description": "On 1999-06-29:  Warriors acquire Mookie Blaylock  Hawks acquire Vernell Coles / Bimbo Coles",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Vernell Coles / Bimbo Coles",
+        "from_team_id": "GSW",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Duane Ferrell",
+        "from_team_id": "GSW",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jason Terry",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mookie Blaylock",
+        "from_team_id": "ATL",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jeff Foster",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "6b73b7e8-2fc7-4c73-94d8-6db3ca665533",
+    "date": "1999-06-30",
+    "season": "1998-99",
+    "title": "Blazers / Hawks Trade",
+    "description": "On 1999-06-30:  Hawks acquire cash  Blazers acquire rights to Roberto Bergersen",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ATL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Roberto Bergersen",
+        "from_team_id": "ATL",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "fb2f3d3b-ec79-420b-a8c3-5d84fecfbc13",
+    "date": "1999-06-30",
+    "season": "1998-99",
+    "title": "Mavericks / Spurs Trade",
+    "description": "On 1999-06-30:  Spurs acquire rights to Gordan Giricek  Mavericks acquire rights to Leon Smith",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Leon Smith",
+        "from_team_id": "SAS",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gordan Giricek",
+        "from_team_id": "DAL",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Chris Carrawell",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "26c5d465-e39e-4dd5-a648-4e6102f32845",
+    "date": "1999-06-30",
+    "season": "1998-99",
+    "title": "Pacers / Warriors Trade",
+    "description": "On 1999-06-30:  Warriors acquire rights to Vonteego Cummings  Pacers acquire rights to Jeff Foster",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "IND",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jeff Foster",
+        "from_team_id": "GSW",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Vonteego Cummings",
+        "from_team_id": "IND",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Troy Murphy",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "c1114a15-7f18-41cb-a40d-73b25a4ffbec",
+    "date": "1999-06-30",
+    "season": "1998-99",
+    "title": "76ers / Hawks Trade",
+    "description": "On 1999-06-30:  Hawks acquire first round pick (lottery protected) (2000 #18-Quentin Richardson)  76ers acquire rights to Jumaine Jones",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ATL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jumaine Jones",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Quentin Richardson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ee01a963-dc1d-429c-91c8-1746179227d0",
+    "date": "1999-06-30",
+    "season": "1998-99",
+    "title": "Dale Ellis, Billy Owens, Don MacLean Trade",
+    "description": "On 1999-06-30:  Sonics acquire Horace Grant  Magic acquire Dale Ellis",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ORL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dale Ellis",
+        "from_team_id": "OKC",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Billy Owens",
+        "from_team_id": "OKC",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Don MacLean",
+        "from_team_id": "OKC",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Corey Maggette",
+        "from_team_id": "OKC",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Horace Grant",
+        "from_team_id": "ORL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Olumide Oyedeji",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Bobby Simmons",
+        "notes": null
+      }
+    ]
+  }
+]

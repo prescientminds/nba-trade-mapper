@@ -1,0 +1,2986 @@
+[
+  {
+    "id": "12792591-1cd5-43ea-8e12-4ecf299e1d07",
+    "date": "2012-07-11",
+    "season": "2012-13",
+    "title": "Jarrett Jack Trade",
+    "description": "On 2012-07-11:  Hornets acquire rights to Edin Bavcic  76ers acquire Dorell Wright Other Team(s) Involved in Trade:Warriors",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "CHA",
+        "role": "participant"
+      },
+      {
+        "team_id": "GSW",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dorell Wright",
+        "from_team_id": "GSW",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Darryl Watkins",
+        "from_team_id": "GSW",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Edin Bavcic",
+        "from_team_id": "PHI",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e176c8f2-dee7-48f7-b591-814a2d91e343",
+    "date": "2012-07-11",
+    "season": "2012-13",
+    "title": "Devin Harris Trade",
+    "description": "On 2012-07-11:  Jazz acquire Marvin Williams  Hawks acquire Devin Harris",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "UTA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Devin Harris",
+        "from_team_id": "UTA",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Marvin Williams",
+        "from_team_id": "ATL",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "3f773174-ab3a-486d-bc9d-f467effaf04f",
+    "date": "2012-07-11",
+    "season": "2012-13",
+    "title": "Kyle Lowry Trade",
+    "description": "On 2012-07-11:  Rockets acquire Gary Forbes  Raptors acquire Kyle Lowry",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "TOR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kyle Lowry",
+        "from_team_id": "HOU",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gary Forbes",
+        "from_team_id": "TOR",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Steven Adams",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "109e47a3-346e-49f6-b124-31f561161cb0",
+    "date": "2012-07-11",
+    "season": "2012-13",
+    "title": "Clippers / Nets Trade",
+    "description": "On 2012-07-11:  Nets acquire Reggie Evans  Clippers acquire Clippers option to swap 2016 second round picks (if Clippers pick is #31-55) (#33-Cheick Diallo)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Cheick Diallo",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Reggie Evans",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Marcus Paige",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ccdf6956-5a95-4855-bdc6-bf780c95ea73",
+    "date": "2012-07-11",
+    "season": "2012-13",
+    "title": "Anthony Morrow, Jordan Farmar, Jordan Williams Trade",
+    "description": "On 2012-07-11:  Nets acquire Joe Johnson  Hawks acquire Anthony Morrow",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Anthony Morrow",
+        "from_team_id": "BKN",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jordan Farmar",
+        "from_team_id": "BKN",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jordan Williams",
+        "from_team_id": "BKN",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "DeShawn Stevenson",
+        "from_team_id": "BKN",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Johan Petro",
+        "from_team_id": "BKN",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Shane Larkin",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kelly Oubre Jr.",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Frank Jackson",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Joe Johnson",
+        "from_team_id": "ATL",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Chris McCullough",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "64e9dbf5-de6d-4b3d-88a4-6e23dc5a503c",
+    "date": "2012-07-11",
+    "season": "2012-13",
+    "title": "Ryan Anderson Trade",
+    "description": "On 2012-07-11:  Magic acquire Gustavo Ayon  Hornets acquire Ryan Anderson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ORL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ryan Anderson",
+        "from_team_id": "ORL",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gustavo Ayon",
+        "from_team_id": "CHA",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "5ca4e8a3-04d9-4102-b51e-e7d93b18fa8f",
+    "date": "2012-07-11",
+    "season": "2012-13",
+    "title": "Marcus Camby Trade",
+    "description": "On 2012-07-11:  Rockets acquire Toney Douglas  Knicks acquire Marcus Camby",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Marcus Camby",
+        "from_team_id": "HOU",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Toney Douglas",
+        "from_team_id": "NYK",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jerome Jordan",
+        "from_team_id": "NYK",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Josh Harrellson",
+        "from_team_id": "NYK",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Nick Johnson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Montrezl Harrell",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "2b561c87-fd16-4156-94c9-b4e8d47f759f",
+    "date": "2012-07-11",
+    "season": "2012-13",
+    "title": "Lakers / Suns Trade",
+    "description": "On 2012-07-11:  Suns acquire 2013 first round pick (least favorable of Cavaliers, Heat, Kings (top 13 protected), Lakers (top 14 protected) picks) (#30-Nemanja Nedovic)  Lakers acquire Steve Nash",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Steve Nash",
+        "from_team_id": "PHX",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Nemanja Nedovic",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Alex Oriakhi",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Johnny O'Bryant III",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mikal Bridges",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "db1259b7-d70f-4583-b694-7848f0d9f5c2",
+    "date": "2012-07-11",
+    "season": "2012-13",
+    "title": "Darren Collison, Dahntay Jones Trade",
+    "description": "On 2012-07-11:  Pacers acquire Ian Mahinmi  Mavericks acquire Darren Collison",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Darren Collison",
+        "from_team_id": "IND",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dahntay Jones",
+        "from_team_id": "IND",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ian Mahinmi",
+        "from_team_id": "DAL",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "5aa9b9c7-2e2b-4dfb-b1f5-cc126e9b9030",
+    "date": "2012-07-15",
+    "season": "2012-13",
+    "title": "Jared Jeffries, Dan Gadzuric Trade",
+    "description": "On 2012-07-15:  Knicks acquire Raymond Felton  Blazers acquire Jared Jeffries",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "NYK",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jared Jeffries",
+        "from_team_id": "NYK",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dan Gadzuric",
+        "from_team_id": "NYK",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kostas Papanikolaou",
+        "from_team_id": "NYK",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Giorgos Printezis",
+        "from_team_id": "NYK",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Raymond Felton",
+        "from_team_id": "POR",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kurt Thomas",
+        "from_team_id": "POR",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "13b6b589-87c3-43fd-bb79-c25292586eaf",
+    "date": "2012-07-16",
+    "season": "2012-13",
+    "title": "trade exception Trade",
+    "description": "On 2012-07-16:  Hawks acquire Kyle Korver  Bulls acquire ~$5M trade exception",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ATL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "trade exception",
+        "from_team_id": "ATL",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kyle Korver",
+        "from_team_id": "CHI",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "33f34421-beb5-4fab-b55e-50c6bf257e60",
+    "date": "2012-07-16",
+    "season": "2012-13",
+    "title": "Kings / Raptors Trade",
+    "description": "On 2012-07-16:  Raptors acquire 2014 conditional second round pick (if pick is #31-55) (#37-DeAndre Daniels)  Kings acquire James Johnson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "TOR",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "James Johnson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "DeAndre Daniels",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "23b54995-9e5b-4021-ab7a-55866372ae45",
+    "date": "2012-07-20",
+    "season": "2012-13",
+    "title": "Courtney Lee Trade",
+    "description": "On 2012-07-20:  Rockets acquire rights to Jon Diebler  Blazers acquire Aleksandar Pavlovic / Sasha Pavlovic Other Team(s) Involved in Trade: Celtics",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "participant"
+      },
+      {
+        "team_id": "BOS",
+        "role": "participant"
+      },
+      {
+        "team_id": "HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Aleksandar Pavlovic / Sasha Pavlovic",
+        "from_team_id": "HOU",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jeff Withey",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Marko Todorovic",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Jon Diebler",
+        "from_team_id": "POR",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "1c0a8684-067b-46ce-be6d-50b197104666",
+    "date": "2012-07-24",
+    "season": "2012-13",
+    "title": "Wayne Ellington Trade",
+    "description": "On 2012-07-24:  Timberwolves acquire Dante Cunningham  Grizzlies acquire Wayne Ellington",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Wayne Ellington",
+        "from_team_id": "MIN",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dante Cunningham",
+        "from_team_id": "MEM",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "11915d0a-a26f-4082-92a6-996051113db8",
+    "date": "2012-07-25",
+    "season": "2012-13",
+    "title": "Jeremy Pargo Trade",
+    "description": "On 2012-07-25:  Grizzlies acquire D.J. Kennedy  Cavaliers acquire Jeremy Pargo",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MEM",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jeremy Pargo",
+        "from_team_id": "MEM",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Vasilije Micic",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "D.J. Kennedy",
+        "from_team_id": "CLE",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "22f5d86d-9841-4389-9723-94505de1be4b",
+    "date": "2012-07-27",
+    "season": "2012-13",
+    "title": "Robin Lopez, Hakim Warrick Trade",
+    "description": "On 2012-07-27:  Suns acquire Wesley Johnson / Wes Johnson  Timberwolves acquire 2013 second round pick (from Hornets) (#52-Lorenzo Brown) Other Team(s) Involved in Trade: Hornets",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "participant"
+      },
+      {
+        "team_id": "PHX",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Robin Lopez",
+        "from_team_id": "MIN",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Hakim Warrick",
+        "from_team_id": "MIN",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Brad Miller",
+        "from_team_id": "CHA",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jerome Dyson",
+        "from_team_id": "CHA",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Lorenzo Brown",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rade Zagorac",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "3ad4c592-85c8-4523-b87f-1f91d7399d98",
+    "date": "2012-07-30",
+    "season": "2012-13",
+    "title": "Willie Green Trade",
+    "description": "On 2012-07-30:  Hawks acquire rights to Sofoklis Schortsanitis  Clippers acquire Willie Green",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ATL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Willie Green",
+        "from_team_id": "ATL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sofoklis Schortsanitis",
+        "from_team_id": "LAC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "trade exception",
+        "from_team_id": "LAC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "87c2a26f-4314-40a5-b285-4496732d6c29",
+    "date": "2012-08-10",
+    "season": "2012-13",
+    "title": "Andrew Bynum Trade",
+    "description": "On 2012-08-10:  Magic acquire Arron Afflalo  Nuggets acquire Andre Iguodala Other Team(s) Involved in Trade: 76ers, Lakers",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "LAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "ORL",
+        "role": "participant"
+      },
+      {
+        "team_id": "DEN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Andrew Bynum",
+        "from_team_id": "DEN",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jason Richardson",
+        "from_team_id": "DEN",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Andre Iguodala",
+        "from_team_id": "PHI",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Maurice Harkless / Moe Harkless",
+        "from_team_id": "PHI",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nikola Vucevic",
+        "from_team_id": "PHI",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "De'Aaron Fox",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "f696d8e9-4d51-4130-908e-4d028dc820ae",
+    "date": "2012-10-27",
+    "season": "2012-13",
+    "title": "James Harden, Cole Aldrich Trade",
+    "description": "On 2012-10-27:  Thunder acquire Kevin Martin  Rockets acquire James Harden",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "HOU",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "James Harden",
+        "from_team_id": "OKC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cole Aldrich",
+        "from_team_id": "OKC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Lazar Hayward",
+        "from_team_id": "OKC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Daequan Cook",
+        "from_team_id": "OKC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kevin Martin",
+        "from_team_id": "HOU",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jeremy Lamb",
+        "from_team_id": "HOU",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Steven Adams",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Alex Abrines",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mitch McGary",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "d71dcf7a-7f67-4c12-8f22-77cd4d10ea46",
+    "date": "2012-11-13",
+    "season": "2012-13",
+    "title": "Hakim Warrick Trade",
+    "description": "On 2012-11-13:  Hornets acquire Matt Carroll  Bobcats acquire Hakim Warrick",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NOP",
+        "role": "sender"
+      },
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Hakim Warrick",
+        "from_team_id": "NOP",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Matt Carroll",
+        "from_team_id": "CHA",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "f579d8f5-dc15-4535-899e-c9ba36a973ab",
+    "date": "2013-01-22",
+    "season": "2012-13",
+    "title": "Marreese Speights, Josh Selby Trade",
+    "description": "On 2013-01-22:  Grizzlies acquire Jon Leuer  Cavaliers acquire Marreese Speights",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MEM",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Marreese Speights",
+        "from_team_id": "MEM",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Josh Selby",
+        "from_team_id": "MEM",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Wayne Ellington",
+        "from_team_id": "MEM",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Harry Giles",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jon Leuer",
+        "from_team_id": "CLE",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "trade exception",
+        "from_team_id": "CLE",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "6f7c18f9-39ee-4bde-93ac-80cf265c119c",
+    "date": "2013-01-30",
+    "season": "2012-13",
+    "title": "Ed Davis (a), Tayshaun Prince Trade",
+    "description": "On 2013-01-30:  Grizzlies acquire Tayshaun Prince  Pistons acquire Jose Calderon Other Team(s) Involved in Trade:Raptors",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      },
+      {
+        "team_id": "DET",
+        "role": "participant"
+      },
+      {
+        "team_id": "TOR",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ed Davis (a)",
+        "from_team_id": "DET",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tayshaun Prince",
+        "from_team_id": "DET",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Austin Daye",
+        "from_team_id": "DET",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jamaal Franklin",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Rudy Gay",
+        "from_team_id": "MEM",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Hamed Haddadi",
+        "from_team_id": "MEM",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "71bfc78d-d646-4f34-a51d-3ebfbd77688f",
+    "date": "2013-02-20",
+    "season": "2012-13",
+    "title": "Patrick Patterson Trade",
+    "description": "On 2013-02-20:  Rockets acquire Thomas Robinson  Kings acquire Patrick Patterson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Patrick Patterson",
+        "from_team_id": "HOU",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cole Aldrich",
+        "from_team_id": "HOU",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Toney Douglas",
+        "from_team_id": "HOU",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Thomas Robinson",
+        "from_team_id": "SAC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Francisco Garcia",
+        "from_team_id": "SAC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tyler Honeycutt",
+        "from_team_id": "SAC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "a484467b-48e5-4f5c-8275-8e8cf7c78536",
+    "date": "2013-02-21",
+    "season": "2012-13",
+    "title": "Blazers / Thunder Trade",
+    "description": "On 2013-02-21:  Thunder acquire rights to Giorgos Printezis  Blazers acquire Eric Maynor",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Eric Maynor",
+        "from_team_id": "OKC",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Giorgos Printezis",
+        "from_team_id": "POR",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "f7c1849e-6a05-42ec-ba03-d728c58d2db8",
+    "date": "2013-02-21",
+    "season": "2012-13",
+    "title": "J.J. Redick Trade",
+    "description": "On 2013-02-21:  Magic acquire Doron Lamb  Bucks acquire J.J. Redick",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ORL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "J.J. Redick",
+        "from_team_id": "ORL",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gustavo Ayon",
+        "from_team_id": "ORL",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ishmael Smith / Ish Smith",
+        "from_team_id": "ORL",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Doron Lamb",
+        "from_team_id": "MIL",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Beno Udrih",
+        "from_team_id": "MIL",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tobias Harris",
+        "from_team_id": "MIL",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "964ad098-a26c-4c7b-a9c4-997d0f62e9f1",
+    "date": "2013-02-21",
+    "season": "2012-13",
+    "title": "Jordan Crawford Trade",
+    "description": "On 2013-02-21:  Wizards acquire Jason Collins  Celtics acquire Jordan Crawford",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "WAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jordan Crawford",
+        "from_team_id": "WAS",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jason Collins",
+        "from_team_id": "BOS",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Leandro Barbosa",
+        "from_team_id": "BOS",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e8962327-d4e0-45f5-aaac-57e6304b618e",
+    "date": "2013-02-21",
+    "season": "2012-13",
+    "title": "Grizzlies / Heat Trade",
+    "description": "On 2013-02-21:  Heat acquire rights to Ricky Sanchez  Grizzlies acquire Dexter Pittman",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dexter Pittman",
+        "from_team_id": "MIA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Janis Timma",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Ricky Sanchez",
+        "from_team_id": "MEM",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "04e996b7-9018-4299-a4ed-fafbef963b43",
+    "date": "2013-02-21",
+    "season": "2012-13",
+    "title": "Dahntay Jones Trade",
+    "description": "On 2013-02-21:  Mavericks acquire Anthony Morrow  Hawks acquire Dahntay Jones",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dahntay Jones",
+        "from_team_id": "DAL",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Anthony Morrow",
+        "from_team_id": "ATL",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "b226fb83-7284-4134-a9c5-8357aec6050b",
+    "date": "2013-02-21",
+    "season": "2012-13",
+    "title": "Hawks / Warriors Trade",
+    "description": "On 2013-02-21:  Warriors acquire cash  Hawks acquire Jeremy Tyler",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jeremy Tyler",
+        "from_team_id": "GSW",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "f90beab2-cb34-4c25-bf40-1fec95faafc8",
+    "date": "2013-02-21",
+    "season": "2012-13",
+    "title": "Knicks / Thunder Trade",
+    "description": "On 2013-02-21:  Thunder acquire Ronnie Brewer  Knicks acquire 2014 second round pick (#59-Xavier Thames)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Xavier Thames",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Ronnie Brewer",
+        "from_team_id": "NYK",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "b96db1d5-f959-4a1f-9209-365c95abca7b",
+    "date": "2013-02-21",
+    "season": "2012-13",
+    "title": "Sebastian Telfair Trade",
+    "description": "On 2013-02-21:  Suns acquire Hamed Haddadi  Raptors acquire Sebastian Telfair",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "TOR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sebastian Telfair",
+        "from_team_id": "PHX",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Hamed Haddadi",
+        "from_team_id": "TOR",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Lamar Patterson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "0c99dc05-2c82-425d-9b6a-2d26ccbc1e64",
+    "date": "2013-02-21",
+    "season": "2012-13",
+    "title": "Rockets / Suns Trade",
+    "description": "On 2013-02-21:  Suns acquire Marcus Morris  Rockets acquire 2013 second round pick (#34-Isaiah Canaan)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "HOU",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Isaiah Canaan",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Marcus Morris",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "14b5ff84-760b-4379-9c22-002bff273ef9",
+    "date": "2013-02-21",
+    "season": "2012-13",
+    "title": "Josh McRoberts Trade",
+    "description": "On 2013-02-21:  Magic acquire Hakim Warrick  Bobcats acquire Josh McRoberts",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ORL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Josh McRoberts",
+        "from_team_id": "ORL",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Hakim Warrick",
+        "from_team_id": "CHA",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "62f9f7b3-d8ca-4a99-af1a-3556894de1d3",
+    "date": "2013-06-27",
+    "season": "2012-13",
+    "title": "76ers / Wizards Trade",
+    "description": "On 2013-06-27:  Wizards acquire rights to Glen Rice Jr.  76ers acquire rights to Nate Wolters",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "WAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nate Wolters",
+        "from_team_id": "WAS",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Arsalan Kazemi",
+        "from_team_id": "WAS",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Glen Rice Jr.",
+        "from_team_id": "PHI",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "b4fb6973-1822-4abb-9f91-1247f255da30",
+    "date": "2013-06-27",
+    "season": "2012-13",
+    "title": "Blazers / Thunder Trade",
+    "description": "On 2013-06-27:  Thunder acquire rights to Grant Jerrett  Blazers acquire cash",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Grant Jerrett",
+        "from_team_id": "POR",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "43ecedf5-7d4c-44cb-a74d-b4a0167d3730",
+    "date": "2013-06-27",
+    "season": "2012-13",
+    "title": "Blazers / Cavaliers Trade",
+    "description": "On 2013-06-27:  Cavaliers acquire 2015 second round pick (#53-Sir'Dominic Pointer)  Blazers acquire rights to Allen Crabbe",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CLE",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Allen Crabbe",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sir'Dominic Pointer",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Paul Zipser",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e0d269e7-426f-4b71-b450-ba1a0a097237",
+    "date": "2013-06-27",
+    "season": "2012-13",
+    "title": "Celtics / Pacers Trade",
+    "description": "On 2013-06-27:  Pacers acquire cash  Celtics acquire rights to Colton Iverson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Colton Iverson",
+        "from_team_id": "IND",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "d265a333-a1da-4042-a6a8-58f9a9b1c1c5",
+    "date": "2013-06-27",
+    "season": "2012-13",
+    "title": "Celtics / Mavericks Trade",
+    "description": "On 2013-06-27:  Mavericks acquire rights to Lucas Nogueira  Celtics acquire rights to Kelly Olynyk",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kelly Olynyk",
+        "from_team_id": "DAL",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Lucas Nogueira",
+        "from_team_id": "BOS",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Cleanthony Early",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Russ Smith",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "3ac09aec-3ecb-44ae-8741-935ad8557d11",
+    "date": "2013-06-27",
+    "season": "2012-13",
+    "title": "Kosta Koufos Trade",
+    "description": "On 2013-06-27:  Nuggets acquire Darrell Arthur  Grizzlies acquire Kosta Koufos",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kosta Koufos",
+        "from_team_id": "DEN",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Darrell Arthur",
+        "from_team_id": "MEM",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Joffrey Lauvergne",
+        "from_team_id": "MEM",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "7b7b1431-7374-42c0-a915-b330a97fd8ab",
+    "date": "2013-06-27",
+    "season": "2012-13",
+    "title": "Hawks / Jazz Trade",
+    "description": "On 2013-06-27:  Jazz acquire rights to Raulzinho Neto / Raul Neto  Hawks acquire 2015 second round pick (#41-Pat Connaughton)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "UTA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Pat Connaughton",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Raulzinho Neto / Raul Neto",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "43d2e591-5837-4be5-a52f-8c8c5a00e074",
+    "date": "2013-06-27",
+    "season": "2012-13",
+    "title": "Hawks / Heat Trade",
+    "description": "On 2013-06-27:  Heat acquire rights to James Ennis  Hawks acquire second round pick (protected top 40 in 2017, unprotected in 2018) (2017 #46-Sterling Brown)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sterling Brown",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "James Ennis",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "37678ad0-18f1-4b9c-ab4f-5a2e4e4fc222",
+    "date": "2013-06-27",
+    "season": "2012-13",
+    "title": "Jazz / Nuggets Trade",
+    "description": "On 2013-06-27:  Nuggets acquire rights to Erick Green  Jazz acquire rights to Rudy Gobert",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Rudy Gobert",
+        "from_team_id": "DEN",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Erick Green",
+        "from_team_id": "UTA",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "7136b6f7-0378-4b18-84f2-df292c32c35a",
+    "date": "2013-06-27",
+    "season": "2012-13",
+    "title": "Jazz / Timberwolves Trade",
+    "description": "On 2013-06-27:  Timberwolves acquire rights to Shabazz Muhammad  Jazz acquire rights to Trey Burke",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Trey Burke",
+        "from_team_id": "MIN",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shabazz Muhammad",
+        "from_team_id": "UTA",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gorgui Dieng",
+        "from_team_id": "UTA",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "28d93375-4d0e-4494-a0de-d02d8f5999c1",
+    "date": "2013-06-27",
+    "season": "2012-13",
+    "title": "Timberwolves / Warriors Trade",
+    "description": "On 2013-06-27:  Warriors acquire Malcolm Lee / Malcom Lee  Timberwolves acquire 2014 second round pick (#53-Alessandro Gentile)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Alessandro Gentile",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Malcolm Lee / Malcom Lee",
+        "from_team_id": "MIN",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Andre Roberson",
+        "from_team_id": "MIN",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "6af307fc-9a65-427b-81f2-ed4206930871",
+    "date": "2013-06-27",
+    "season": "2012-13",
+    "title": "76ers / Bucks Trade",
+    "description": "On 2013-06-27:  Bucks acquire rights to Nate Wolters  76ers acquire rights to Ricky Ledo",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ricky Ledo",
+        "from_team_id": "MIL",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Nemanja Dangubic",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nate Wolters",
+        "from_team_id": "PHI",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "f53980db-6bee-4c10-a611-bbfc637aee6d",
+    "date": "2013-06-27",
+    "season": "2012-13",
+    "title": "Hawks / Mavericks Trade",
+    "description": "On 2013-06-27:  Mavericks acquire rights to Shane Larkin  Hawks acquire Jared Cunningham",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jared Cunningham",
+        "from_team_id": "DAL",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Lucas Nogueira",
+        "from_team_id": "DAL",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mike Muscala",
+        "from_team_id": "DAL",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shane Larkin",
+        "from_team_id": "ATL",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "b75114f9-4503-4c5e-9ac7-4e6be95e6126",
+    "date": "2013-06-27",
+    "season": "2012-13",
+    "title": "Thunder / Warriors Trade",
+    "description": "On 2013-06-27:  Warriors acquire rights to Archie Goodwin  Thunder acquire rights to Andre Roberson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "OKC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Andre Roberson",
+        "from_team_id": "GSW",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Archie Goodwin",
+        "from_team_id": "OKC",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "deded040-7edb-4ecd-9b8f-8eebf22e31da",
+    "date": "2013-06-27",
+    "season": "2012-13",
+    "title": "76ers / Mavericks Trade",
+    "description": "On 2013-06-27:  Mavericks acquire rights to Ricky Ledo  76ers acquire 2014 second round pick (#47-Russ Smith)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Russ Smith",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ricky Ledo",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "02cfc742-e7bd-4c7a-ac0c-d43d6433e259",
+    "date": "2013-06-27",
+    "season": "2012-13",
+    "title": "Suns / Warriors Trade",
+    "description": "On 2013-06-27:  Warriors acquire rights to Nemanja Nedovic  Suns acquire Malcolm Lee / Malcom Lee",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHX",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Malcolm Lee / Malcom Lee",
+        "from_team_id": "GSW",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Archie Goodwin",
+        "from_team_id": "GSW",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nemanja Nedovic",
+        "from_team_id": "PHX",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

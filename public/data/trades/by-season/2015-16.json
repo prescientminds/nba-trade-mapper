@@ -1,0 +1,1467 @@
+[
+  {
+    "id": "8da508fe-65df-488b-8633-86e38e452795",
+    "date": "2015-07-09",
+    "season": "2015-16",
+    "title": "76ers / Kings Trade",
+    "description": "On 2015-07-09:  Kings acquire rights to Arturas Gudaitis  76ers acquire Nik Stauskas",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nik Stauskas",
+        "from_team_id": "SAC",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jason Thompson",
+        "from_team_id": "SAC",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Carl Landry",
+        "from_team_id": "SAC",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jayson Tatum",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Arturas Gudaitis",
+        "from_team_id": "PHI",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Luka Mitrovic",
+        "from_team_id": "PHI",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "De'Aaron Fox",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "932f2a19-a507-4a54-80aa-68b4e1a280ad",
+    "date": "2015-07-09",
+    "season": "2015-16",
+    "title": "Hawks / Spurs Trade",
+    "description": "On 2015-07-09:  Spurs acquire rights to Giorgos Printezis  Hawks acquire Tiago Splitter",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tiago Splitter",
+        "from_team_id": "SAS",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Giorgos Printezis",
+        "from_team_id": "ATL",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "4b728a3e-10ad-4c2a-a644-53e961ae0b1c",
+    "date": "2015-07-09",
+    "season": "2015-16",
+    "title": "Kings / Spurs Trade",
+    "description": "On 2015-07-09:  Spurs acquire Ray McCallum Jr.  Kings acquire 2016 second round pick (#59-Isaiah Cousins)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Isaiah Cousins",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ray McCallum Jr.",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "005fc8aa-7f25-42e9-b477-9e16df972efd",
+    "date": "2015-07-11",
+    "season": "2015-16",
+    "title": "Chase Budinger Trade",
+    "description": "On 2015-07-11:  Timberwoves acquire Damjan Rudez  Pacers acquire Chase Budinger",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "IND",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Chase Budinger",
+        "from_team_id": "MIN",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Damjan Rudez",
+        "from_team_id": "IND",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "567a4e01-3d4b-4b02-9408-e5ec380a16b2",
+    "date": "2015-07-13",
+    "season": "2015-16",
+    "title": "Quincy Miller Trade",
+    "description": "On 2015-07-13:  Pistons acquire Steve Blake  Nets acquire Quincy Miller",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BKN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Quincy Miller",
+        "from_team_id": "DET",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Steve Blake",
+        "from_team_id": "BKN",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bcb855a0-0c3a-4df3-b8da-eb6482582ae9",
+    "date": "2015-07-14",
+    "season": "2015-16",
+    "title": "Celtics / Thunder Trade",
+    "description": "On 2015-07-14:  Thunder acquire 2018 second round pick (protected top 55) (#57-Kevin Hervey)  Celtics acquire Perry Jones III",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Perry Jones III",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kevin Hervey",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "79542bfc-1ba6-4c17-aa67-dd6ef5e531bb",
+    "date": "2015-07-20",
+    "season": "2015-16",
+    "title": "Nick Johnson, Kostas Papanikolaou, Pablo Prigioni Trade",
+    "description": "On 2015-07-20:  Rockets acquire Ty Lawson  Nuggets acquire Nick Johnson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DEN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nick Johnson",
+        "from_team_id": "HOU",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kostas Papanikolaou",
+        "from_team_id": "HOU",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Pablo Prigioni",
+        "from_team_id": "HOU",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Joey Dorsey",
+        "from_team_id": "HOU",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Juancho Hernangomez / Juan Hernangomez",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ty Lawson",
+        "from_team_id": "DEN",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Isaiah Hartenstein",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "a198864a-40ae-4ccf-a831-fe2372ab9d11",
+    "date": "2015-07-27",
+    "season": "2015-16",
+    "title": "David Lee Trade",
+    "description": "On 2015-07-27:  Warriors acquire Gerald Wallace  Celtics acquire David Lee",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "David Lee",
+        "from_team_id": "GSW",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gerald Wallace",
+        "from_team_id": "BOS",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chris Babb",
+        "from_team_id": "BOS",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "f34e2208-e91d-4230-8bbd-11ecde2d4ffd",
+    "date": "2015-07-31",
+    "season": "2015-16",
+    "title": "Gerald Wallace Trade",
+    "description": "On 2015-07-31:  Warriors acquire Jason Thompson  76ers acquire Gerald Wallace",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Gerald Wallace",
+        "from_team_id": "GSW",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jason Thompson",
+        "from_team_id": "PHI",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "b4ea1f93-019b-4bc3-be71-8150a4fb6c9f",
+    "date": "2015-11-10",
+    "season": "2015-16",
+    "title": "Mario Chalmers, James Ennis Trade",
+    "description": "On 2015-11-10:  Heat acquire Beno Udrih  Grizzlies acquire Mario Chalmers",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mario Chalmers",
+        "from_team_id": "MIA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "James Ennis",
+        "from_team_id": "MIA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Beno Udrih",
+        "from_team_id": "MEM",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jarnell Stokes",
+        "from_team_id": "MEM",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "a7ba7973-75d6-4721-a939-a92cba6a9fb9",
+    "date": "2015-12-24",
+    "season": "2015-16",
+    "title": "76ers / Pelicans Trade",
+    "description": "On 2015-12-24:  Pelicans acquire 2016 second round pick (#39-David Michineau)  76ers acquire Ishmael Smith / Ish Smith",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "NOP",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NOP",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ishmael Smith / Ish Smith",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "David Michineau",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Frank Mason",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "6e5ced7e-f632-48e2-bab7-56c832b27770",
+    "date": "2016-01-22",
+    "season": "2015-16",
+    "title": "Clippers / Rockets Trade",
+    "description": "On 2016-01-22:  Rockets acquire Josh Smith  Clippers acquire rights to Maarty Leunen",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Maarty Leunen",
+        "from_team_id": "HOU",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Josh Smith",
+        "from_team_id": "LAC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sergei Lishouk / Sergei Lishchuk",
+        "from_team_id": "LAC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "37604c0e-cefd-4226-91d3-10b1537c1828",
+    "date": "2016-02-11",
+    "season": "2015-16",
+    "title": "Kris Humphries, DeJuan Blair Trade",
+    "description": "On 2016-02-11:  Wizards acquire Markieff Morris  Suns acquire Kris Humphries",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHX",
+        "role": "receiver"
+      },
+      {
+        "team_id": "WAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kris Humphries",
+        "from_team_id": "WAS",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "DeJuan Blair",
+        "from_team_id": "WAS",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Georgios Papagiannis / Giorgios Papagiannis / George Papagiannis",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Markieff Morris",
+        "from_team_id": "PHX",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "4145d465-196c-4549-a6a7-796bd7f5a0b3",
+    "date": "2016-02-16",
+    "season": "2015-16",
+    "title": "P.J. Hairston, Chris Andersen, Brian Roberts Trade",
+    "description": "On 2016-02-16:  Grizzlies acquire Chris Andersen  Heat acquire Brian Roberts Other Team(s) Involved in Trade:Hornets",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIA",
+        "role": "participant"
+      },
+      {
+        "team_id": "CHA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "P.J. Hairston",
+        "from_team_id": "MIA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chris Andersen",
+        "from_team_id": "MIA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jarred Vanderbilt",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "De'Anthony Melton",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Courtney Lee",
+        "from_team_id": "MEM",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "941144fb-2519-4c8f-be18-47b61967530d",
+    "date": "2016-02-16",
+    "season": "2015-16",
+    "title": "Brandon Jennings, Ersan Ilyasova Trade",
+    "description": "On 2016-02-16:  Pistons acquire Tobias Harris  Magic acquire Brandon Jennings",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ORL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Brandon Jennings",
+        "from_team_id": "DET",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ersan Ilyasova",
+        "from_team_id": "DET",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tobias Harris",
+        "from_team_id": "ORL",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "d81b0011-0996-4fe0-b279-6bb820554bf9",
+    "date": "2016-02-18",
+    "season": "2015-16",
+    "title": "Channing Frye Trade",
+    "description": "On 2016-02-18:  Magic acquire Jared Cunningham  Cavaliers acquire Channing Frye",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ORL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Channing Frye",
+        "from_team_id": "ORL",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jared Cunningham",
+        "from_team_id": "CLE",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "d9c1a7dd-8d91-4cb6-b019-20448245fda5",
+    "date": "2016-02-18",
+    "season": "2015-16",
+    "title": "Justin Holiday, Kirk Hinrich Trade",
+    "description": "On 2016-02-18:  Bulls acquire 2018 second round pick (#47-Sviatoslav Mykhailiuk / Svi Mykhailiuk)  Jazz acquire Shelvin Mack Other Team(s) Involved in Trade:Hawks",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "UTA",
+        "role": "participant"
+      },
+      {
+        "team_id": "ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Justin Holiday",
+        "from_team_id": "ATL",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sviatoslav Mykhailiuk / Svi Mykhailiuk",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kirk Hinrich",
+        "from_team_id": "CHI",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "4c2f67a7-7080-47fb-a861-d8c0270ce697",
+    "date": "2016-02-18",
+    "season": "2015-16",
+    "title": "D.J. Augustine, Steve Novak Trade",
+    "description": "On 2016-02-18:  Thunder acquire Randy Foye  Nuggets acquire D.J. Augustine",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DEN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "D.J. Augustine",
+        "from_team_id": "OKC",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Steve Novak",
+        "from_team_id": "OKC",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Petr Cornelie",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Daniel Hamilton",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Randy Foye",
+        "from_team_id": "DEN",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "8fc0f500-b2a0-4f45-8e65-5987f4678b49",
+    "date": "2016-02-18",
+    "season": "2015-16",
+    "title": "Jeff Green Trade",
+    "description": "On 2016-02-18:  Grizzlies acquire Lance Stephenson  Clippers acquire Jeff Green",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MEM",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jeff Green",
+        "from_team_id": "MEM",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Lance Stephenson",
+        "from_team_id": "LAC",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "55cd7b2b-316b-4543-ac3b-0ec647071125",
+    "date": "2016-06-17",
+    "season": "2015-16",
+    "title": "Spencer Dinwiddie Trade",
+    "description": "On 2016-06-17:  Pistons acquire Cameron Bairstow  Bulls acquire Spencer Dinwiddie",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Spencer Dinwiddie",
+        "from_team_id": "DET",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cameron Bairstow",
+        "from_team_id": "CHI",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "52231808-d470-4d5a-9825-c69bf1c2a96e",
+    "date": "2016-06-22",
+    "season": "2015-16",
+    "title": "Robin Lopez, Jerian Grant Trade",
+    "description": "On 2016-06-22:  Knicks acquire Derrick Rose  Bulls acquire Robin Lopez",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "NYK",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Robin Lopez",
+        "from_team_id": "NYK",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jerian Grant",
+        "from_team_id": "NYK",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jose Calderon",
+        "from_team_id": "NYK",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Derrick Rose",
+        "from_team_id": "CHI",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Justin Holiday",
+        "from_team_id": "CHI",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Damyean Dotson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "396f6023-c3b3-4b4a-b5ba-e556aac2f169",
+    "date": "2016-06-23",
+    "season": "2015-16",
+    "title": "Clippers / Pelicans Trade",
+    "description": "On 2016-06-23:  Pelicans acquire rights to Cheick Diallo  Clippers acquire rights to David Michineau",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "NOP",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "David Michineau",
+        "from_team_id": "NOP",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Diamond Stone",
+        "from_team_id": "NOP",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cheick Diallo",
+        "from_team_id": "LAC",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "c8da11bd-2f37-448e-b67c-cadfc367e254",
+    "date": "2016-06-23",
+    "season": "2015-16",
+    "title": "Jazz / Nets Trade",
+    "description": "On 2016-06-23:  Nets acquire rights to Isaiah Whitehead  Jazz acquire rights to Marcus Paige",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Marcus Paige",
+        "from_team_id": "BKN",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Isaiah Whitehead",
+        "from_team_id": "UTA",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "987e8556-0ce8-41d9-9ba5-114984635489",
+    "date": "2016-06-23",
+    "season": "2015-16",
+    "title": "Kings / Suns Trade",
+    "description": "On 2016-06-23:  Suns acquire rights to Marquese Chriss  Kings acquire rights to Bogdan Bogdanovic",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Bogdan Bogdanovic",
+        "from_team_id": "PHX",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Georgios Papagiannis / Giorgios Papagiannis / George Papagiannis",
+        "from_team_id": "PHX",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Skal Labissiere",
+        "from_team_id": "PHX",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Marquese Chriss",
+        "from_team_id": "SAC",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "aa77859e-bba7-486f-9062-aee0fc760d69",
+    "date": "2016-06-23",
+    "season": "2015-16",
+    "title": "Serge Ibaka Trade",
+    "description": "On 2016-06-23:  Thunder acquire Victor Oladipo  Magic acquire Serge Ibaka",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ORL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Serge Ibaka",
+        "from_team_id": "OKC",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Victor Oladipo",
+        "from_team_id": "ORL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ersan Ilyasova",
+        "from_team_id": "ORL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Domantas Sabonis / Domas Sabonis",
+        "from_team_id": "ORL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

@@ -1,0 +1,1868 @@
+[
+  {
+    "id": "056936fa-7c9d-42a6-972c-92378ea47ef6",
+    "date": "1980-08-15",
+    "season": "1980-81",
+    "title": "Blazers / Nuggets Trade",
+    "description": "On 1980-08-15:  Nuggets acquire T.R. Dunn  Blazers acquire Nuggets option to swap 1983 first round picks (#14-Clyde Drexler)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Clyde Drexler",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Steve Colter",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "T.R. Dunn",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Howard Carter",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "122bbd48-37ee-4968-9bb1-3b34e4de0444",
+    "date": "1980-08-28",
+    "season": "1980-81",
+    "title": "Phil Smith Trade",
+    "description": "On 1980-08-28:  Warriors acquire Lloyd Free / World B. Free  Clippers acquire Phil Smith",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Phil Smith",
+        "from_team_id": "GSW",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Lancaster Gordon",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Lloyd Free / World B. Free",
+        "from_team_id": "LAC",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "48ed3f37-be97-44d2-8c9e-20f144f6ea19",
+    "date": "1980-09-10",
+    "season": "1980-81",
+    "title": "Kings / Warriors Trade",
+    "description": "On 1980-09-10:  Warriors acquire cash  Kings acquire Jo Jo White",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jo Jo White",
+        "from_team_id": "GSW",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "26908207-8159-42a4-a9fa-1693bfb5caa5",
+    "date": "1980-09-11",
+    "season": "1980-81",
+    "title": "Wallace Johnson / Mickey Johnson Trade",
+    "description": "On 1980-09-11:  Pacers acquire George Johnson (Lee)  Bucks acquire Wallace Johnson / Mickey Johnson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Wallace Johnson / Mickey Johnson",
+        "from_team_id": "IND",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "George Johnson (Lee)",
+        "from_team_id": "MIL",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jose Slaughter",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e459699e-9698-4e20-b98e-08d4fc3b025e",
+    "date": "1980-09-11",
+    "season": "1980-81",
+    "title": "Jazz / Mavericks Trade",
+    "description": "On 1980-09-11:  Mavericks acquire 1983 second round pick (#30-Mark West (a))  Jazz acquire Billy McKinney",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Billy McKinney",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mark West (a)",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "70dd31a8-94c6-4f6e-8609-19a9ade3d8e2",
+    "date": "1980-09-11",
+    "season": "1980-81",
+    "title": "Wayne Cooper Trade",
+    "description": "On 1980-09-11:  Warriors acquire Bernard King  Jazz acquire Wayne Cooper",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Wayne Cooper",
+        "from_team_id": "GSW",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kenneth Green",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bernard King",
+        "from_team_id": "UTA",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "0d71ec0c-0fd1-40e0-8e77-c8c86ace2663",
+    "date": "1980-09-16",
+    "season": "1980-81",
+    "title": "Cavaliers / Mavericks Trade",
+    "description": "On 1980-09-16:  Mavericks acquire 1984 first round pick (#4-Sam Perkins)  Cavaliers acquire Mike Bratz",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mike Bratz",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sam Perkins",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "9b3edd6d-2ac4-41cb-b7e0-577be865d51f",
+    "date": "1980-09-24",
+    "season": "1980-81",
+    "title": "Roger Phegley Trade",
+    "description": "On 1980-09-24:  Nets acquire Clarence Walker / Foots Walker  Cavaliers acquire Roger Phegley",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Roger Phegley",
+        "from_team_id": "BKN",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Clarence Walker / Foots Walker",
+        "from_team_id": "CLE",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "a4842e02-8614-4f70-88c3-cdbf755254ec",
+    "date": "1980-09-25",
+    "season": "1980-81",
+    "title": "Bill Robinzine, Joe Meriweather / Joe C. Meriweather, Michael Russell / Campy Russell Trade",
+    "description": "On 1980-09-25:  Kings acquire Joe Meriweather / Joe C. Meriweather  Knicks acquire Michael Russell / Campy Russell Other Team(s) Involved in Trade: Cavaliers",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "participant"
+      },
+      {
+        "team_id": "SAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "NYK",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Bill Robinzine",
+        "from_team_id": "NYK",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Michael Russell / Campy Russell",
+        "from_team_id": "CLE",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "120f1266-4e88-46d4-a6ee-85f9f894781b",
+    "date": "1980-09-26",
+    "season": "1980-81",
+    "title": "Bullets / Spurs Trade",
+    "description": "On 1980-09-26:  Spurs acquire Dave Corzine  Bullets acquire 1981 second round pick (#41-Claude Gregory)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Claude Gregory",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Dwight Anderson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Dave Corzine",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "0593707e-cfcc-4aa2-9eaa-79b1289f14fc",
+    "date": "1980-10-02",
+    "season": "1980-81",
+    "title": "Lakers / Pistons Trade",
+    "description": "On 1980-10-02:  Pistons acquire Wayne Robinson  Lakers acquire 1981 second round pick (#39-Harvey Knuckles)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Harvey Knuckles",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Wayne Robinson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "93177776-b85d-4c06-83ae-fbfb1e4c47f0",
+    "date": "1980-10-06",
+    "season": "1980-81",
+    "title": "Bucks / Spurs Trade",
+    "description": "On 1980-10-06:  Spurs acquire cash  Bucks acquire Mike Evans",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mike Evans",
+        "from_team_id": "SAS",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "793bf203-57f1-44f3-a0b9-f386c6e171d9",
+    "date": "1980-10-07",
+    "season": "1980-81",
+    "title": "Pistons / Rockets Trade",
+    "description": "On 1980-10-07:  Rockets acquire 1982 second round pick (#32-Richard Anderson)  Pistons acquire Paul Mokeski",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DET",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Paul Mokeski",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Richard Anderson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "9e6a92af-5177-4bc8-94f5-739713c475d6",
+    "date": "1980-10-08",
+    "season": "1980-81",
+    "title": "Blazers / Lakers Trade",
+    "description": "On 1980-10-08:  Lakers acquire Jim Brewer  Blazers acquire 1984 second round pick (#46-Jerome Kersey)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "LAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jerome Kersey",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jim Brewer",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "aa2e39d9-4624-4e09-a18d-4985b4c91b6f",
+    "date": "1980-10-08",
+    "season": "1980-81",
+    "title": "Bulls / Nuggets Trade",
+    "description": "On 1980-10-08:  Nuggets acquire cash  Bulls acquire Bob Wilkerson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Bob Wilkerson",
+        "from_team_id": "DEN",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "aad13f85-d264-44a1-8d19-ec2dc2b715b8",
+    "date": "1980-10-30",
+    "season": "1980-81",
+    "title": "Kim Hughes Trade",
+    "description": "On 1980-10-30:  Nuggets acquire Dave Robisch  Cavaliers acquire Kim Hughes",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kim Hughes",
+        "from_team_id": "DEN",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mickey Dillard",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Guy Morgan",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dave Robisch",
+        "from_team_id": "CLE",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "a9d2b341-73cc-4526-a117-685210274fb0",
+    "date": "1980-10-30",
+    "season": "1980-81",
+    "title": "Richard Washington, Jerome Whitehead Trade",
+    "description": "On 1980-10-30:  Mavericks acquire Bill Robinzine  Cavaliers acquire Richard Washington",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Richard Washington",
+        "from_team_id": "DAL",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jerome Whitehead",
+        "from_team_id": "DAL",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bill Robinzine",
+        "from_team_id": "CLE",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Derek Harper",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Roy Tarpley",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "507e0cd2-c782-4376-81d8-22f1883a8aed",
+    "date": "1980-11-03",
+    "season": "1980-81",
+    "title": "Sonics / Warriors Trade",
+    "description": "On 1980-11-03:  Warriors acquire 1981 fourth round pick (#76-Lewis Lloyd)  Sonics acquire Rudy White",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "OKC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rudy White",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Lewis Lloyd",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "7e2ac1fb-2576-4f53-8467-e93c2243b1e5",
+    "date": "1980-11-19",
+    "season": "1980-81",
+    "title": "Lakers / Nets Trade",
+    "description": "On 1980-11-19:  Nets acquire 1982 first round pick (#21-Eddie Phillips)  Lakers acquire Ed Jordan / Eddie Jordan",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ed Jordan / Eddie Jordan",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Eddie Phillips",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e85783a3-254b-4cd4-b15d-f2f1695b5c2b",
+    "date": "1980-11-25",
+    "season": "1980-81",
+    "title": "Pacers / Suns Trade",
+    "description": "On 1980-11-25:  Suns acquire 1981 second round pick (#37-Al Leslie)  Pacers acquire Don Buse",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "IND",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Don Buse",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Al Leslie",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jose Slaughter",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ccecdc73-4424-44b9-bba1-09d23d279a0c",
+    "date": "1980-12-02",
+    "season": "1980-81",
+    "title": "Hawks / Sonics Trade",
+    "description": "On 1980-12-02:  Sonics acquire Armond Hill  Hawks acquire 1983 second round pick (#40-Jim Thomas)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jim Thomas",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ben Coleman",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Armond Hill",
+        "from_team_id": "ATL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ad2e292d-4dad-49ed-b222-a77ea472e958",
+    "date": "1980-12-10",
+    "season": "1980-81",
+    "title": "Mavericks / Nuggets Trade",
+    "description": "On 1980-12-10:  Nuggets acquire rights to Kiki Vandeweghe  Mavericks acquire 1981 first round pick (#9-Rolando Blackman)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rolando Blackman",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sam Vincent",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kiki Vandeweghe",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Maurice Martin",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "cc1fac8c-ef9a-4a63-a3f8-474796b256dc",
+    "date": "1980-12-19",
+    "season": "1980-81",
+    "title": "Mike Gale Trade",
+    "description": "On 1980-12-19:  Spurs acquire Ron Brewer  Blazers acquire Mike Gale",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mike Gale",
+        "from_team_id": "SAS",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ricky Pierce",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ron Brewer",
+        "from_team_id": "POR",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "da009436-b86d-4e24-bcc2-8a5729fac3cb",
+    "date": "1980-12-22",
+    "season": "1980-81",
+    "title": "Carl Nicks Trade",
+    "description": "On 1980-12-22:  Nuggets acquire Billy McKinney  Jazz acquire Carl Nicks",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Carl Nicks",
+        "from_team_id": "DEN",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Billy McKinney",
+        "from_team_id": "UTA",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e8357021-4890-4816-8da8-ca1187e2ccf0",
+    "date": "1981-01-17",
+    "season": "1980-81",
+    "title": "Don Collins Trade",
+    "description": "On 1981-01-17:  Hawks acquire Wes Matthews Sr.  Bullets acquire Don Collins",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ATL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Don Collins",
+        "from_team_id": "ATL",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Wes Matthews Sr.",
+        "from_team_id": "WAS",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "4ffe4be0-1fd2-47fc-95a4-3461331bc2c4",
+    "date": "1981-02-07",
+    "season": "1980-81",
+    "title": "Geoff Huston Trade",
+    "description": "On 1981-02-07:  Mavericks acquire Chad Kinch  Cavaliers acquire Geoff Huston",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Geoff Huston",
+        "from_team_id": "DAL",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Larry Anderson",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chad Kinch",
+        "from_team_id": "CLE",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Detlef Schrempf",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "64a164d2-9bdd-4ce6-b6c3-96bb0c5f4648",
+    "date": "1981-05-20",
+    "season": "1980-81",
+    "title": "Cavaliers / Knicks Trade",
+    "description": "On 1981-05-20:  Knicks acquire Randy Smith  Cavaliers acquire 1981 first round pick (#17-Kevin Loder)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "NYK",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kevin Loder",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Randy Smith",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "6fbad2b8-b390-4674-a763-810dabea204e",
+    "date": "1981-06-05",
+    "season": "1980-81",
+    "title": "Blazers / Pacers Trade",
+    "description": "On 1981-06-05:  Pacers acquire Tom Owens  Blazers acquire 1984 first round pick (#2-Sam Bowie)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sam Bowie",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Tom Owens",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ba13ef36-5701-4737-81cb-0205df3e5b51",
+    "date": "1981-06-08",
+    "season": "1980-81",
+    "title": "Blazers / Warriors Trade",
+    "description": "On 1981-06-08:  Warriors acquire Mike Gale  Blazers acquire 1982 second round pick (#37-Audie Norris)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Audie Norris",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mike Smrek",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mike Gale",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "c76afcc1-e6db-4fd3-a2e6-37c87c532941",
+    "date": "1981-06-08",
+    "season": "1980-81",
+    "title": "Bullets / Rockets Trade",
+    "description": "On 1981-06-08:  Rockets acquire Elvin Hayes  Bullets acquire 1981 second round pick (#35-Charles Davis / Charlie Davis) (E.))",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Charles Davis / Charlie Davis) (E.)",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sidney Lowe",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Elvin Hayes",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "8ad6db9b-7733-4160-8e24-3d8e5235161f",
+    "date": "1981-06-08",
+    "season": "1980-81",
+    "title": "Bulls / Hawks Trade",
+    "description": "On 1981-06-08:  Hawks acquire 1981 first round pick (#4-Al Wood)  Bulls acquire 1981 first round pick (#6-Orlando Woolridge)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ATL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Orlando Woolridge",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ricky Frazier",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Al Wood",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Clyde Bradshaw",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "f41caeea-7847-4216-b8e3-c2bddafc5071",
+    "date": "1981-06-08",
+    "season": "1980-81",
+    "title": "Pacers / Suns Trade",
+    "description": "On 1981-06-08:  Suns acquire Dudley Bradley  Pacers acquire 1981 second round pick (#37-Al Leslie)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "IND",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Al Leslie",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jose Slaughter",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Dudley Bradley",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "7306a11c-c3ba-468c-87b4-de8559238545",
+    "date": "1981-06-08",
+    "season": "1980-81",
+    "title": "Cavaliers / Kings Trade",
+    "description": "On 1981-06-08:  Kings acquire 1981 first round pick (#17-Kevin Loder)  Cavaliers acquire 1981 second round pick (#36-Ray Blume)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ray Blume",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kevin Loder",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "a94c7c9c-76a3-4a4b-9f41-7068270d1192",
+    "date": "1981-06-08",
+    "season": "1980-81",
+    "title": "Cliff Robinson Trade",
+    "description": "On 1981-06-08:  Nets acquire Otis Birdsong  Kings acquire Cliff Robinson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Cliff Robinson",
+        "from_team_id": "BKN",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Otis Birdsong",
+        "from_team_id": "SAC",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Steve Lingenfelter",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "3c5dde09-af45-4dfa-9307-2c8c22cdd55b",
+    "date": "1981-06-10",
+    "season": "1980-81",
+    "title": "Bulls / Pacers Trade",
+    "description": "On 1981-06-10:  Pacers acquire rights to Mike Olliver  Bulls acquire rights to Ray Blume",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ray Blume",
+        "from_team_id": "IND",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rod Higgins",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mike Olliver",
+        "from_team_id": "CHI",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "9630010f-5e98-495c-88b1-5fee790b217a",
+    "date": "1981-06-10",
+    "season": "1980-81",
+    "title": "Mike Newlin Trade",
+    "description": "On 1981-06-10:  Nets acquire Mike Woodson  Knicks acquire Mike Newlin",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mike Newlin",
+        "from_team_id": "BKN",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mike Woodson",
+        "from_team_id": "NYK",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "8c15e5f3-5e62-4a71-89ca-89434a2c683d",
+    "date": "1981-06-16",
+    "season": "1980-81",
+    "title": "Cavaliers / Spurs Trade",
+    "description": "On 1981-06-16:  Spurs acquire 1982 second round pick (#24-Oliver Robinson)  Cavaliers acquire James Silas",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "James Silas",
+        "from_team_id": "SAS",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rich Yonakor",
+        "from_team_id": "SAS",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Oliver Robinson",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  }
+]

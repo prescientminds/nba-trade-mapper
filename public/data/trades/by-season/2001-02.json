@@ -1,0 +1,2269 @@
+[
+  {
+    "id": "5b0e3d33-3e43-422b-9325-ac685a12d4a7",
+    "date": "2001-07-13",
+    "season": "2001-02",
+    "title": "Charles Oakley Trade",
+    "description": "On 2001-07-13:  Raptors (effective 07-18) acquire Brian Skinner  Bulls acquire Charles Oakley",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "TOR",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Charles Oakley",
+        "from_team_id": "TOR",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jason Jennings",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brian Skinner",
+        "from_team_id": "CHI",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "1c8c9516-f1ba-4a52-92b3-83a3bf0ebd3a",
+    "date": "2001-07-13",
+    "season": "2001-02",
+    "title": "Pistons / Raptors (trade made official on 07-18) Trade",
+    "description": "On 2001-07-13:  Raptors (trade made official on 07-18) acquire 2002 second round pick (#52-Rasual Butler)  Pistons acquire rights to Zeljko Rebraca",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DET",
+        "role": "receiver"
+      },
+      {
+        "team_id": "TOR",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Zeljko Rebraca",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rasual Butler",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "9dc42314-eb49-462e-b19a-5f237f6cc43d",
+    "date": "2001-07-18",
+    "season": "2001-02",
+    "title": "Jason Kidd Trade",
+    "description": "On 2001-07-18:  Suns acquire Stephon Marbury  Nets acquire Jason Kidd",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BKN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jason Kidd",
+        "from_team_id": "PHX",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chris Dudley",
+        "from_team_id": "PHX",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Stephon Marbury",
+        "from_team_id": "BKN",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Johnny Newman",
+        "from_team_id": "BKN",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Soumaila Samake",
+        "from_team_id": "BKN",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "0547d6c3-f429-4c7a-a44a-e45025834d3d",
+    "date": "2001-07-18",
+    "season": "2001-02",
+    "title": "Clifford Robinson (R.) Trade",
+    "description": "On 2001-07-18:  Suns acquire $1.6M traded player exception  Pistons acquire Clifford Robinson (R.)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DET",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Clifford Robinson (R.)",
+        "from_team_id": "PHX",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "trade exception",
+        "from_team_id": "DET",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "779dbaa1-0fae-4f04-88a0-1c16d862f9e9",
+    "date": "2001-07-19",
+    "season": "2001-02",
+    "title": "Blazers / Bulls Trade",
+    "description": "On 2001-07-19:  Bulls acquire Greg Anthony  Blazers acquire second round pick (protected #51-57 in 2002, unprotected in 2003) (2002 #42-Jason Jennings)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CHI",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jason Jennings",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Greg Anthony",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "638c53f8-32a7-44bd-aff3-8eaaa345b863",
+    "date": "2001-07-19",
+    "season": "2001-02",
+    "title": "Lorenzen Wright, Brevin Knight Trade",
+    "description": "On 2001-07-19:  Hawks acquire Shareef Abdur-Rahim  Grizzlies acquire Lorenzen Wright",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ATL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Lorenzen Wright",
+        "from_team_id": "ATL",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brevin Knight",
+        "from_team_id": "ATL",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Pau Gasol",
+        "from_team_id": "ATL",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shareef Abdur-Rahim",
+        "from_team_id": "MEM",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jamaal Tinsley",
+        "from_team_id": "MEM",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e78fdaa3-302d-41ae-806d-842e6dc65b5a",
+    "date": "2001-07-24",
+    "season": "2001-02",
+    "title": "Derek Anderson, Steve Kerr Trade",
+    "description": "On 2001-07-24:  Spurs acquire Steve Smith (Delano)  Blazers acquire Derek Anderson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Derek Anderson",
+        "from_team_id": "SAS",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Steve Kerr",
+        "from_team_id": "SAS",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Andreas Glyniadakis",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Steve Smith (Delano)",
+        "from_team_id": "POR",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "59eb4b19-210e-4712-95a2-343723484bae",
+    "date": "2001-08-01",
+    "season": "2001-02",
+    "title": "Magic / Wizards Trade",
+    "description": "On 2001-08-01:  Wizards acquire rights to Brendan Haywood  Magic acquire Laron Profit",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ORL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "WAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Laron Profit",
+        "from_team_id": "WAS",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brendan Haywood",
+        "from_team_id": "ORL",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e15bb0e2-c779-48eb-89b2-c75ebd420bbd",
+    "date": "2001-08-02",
+    "season": "2001-02",
+    "title": "Raptors / Rockets Trade",
+    "description": "On 2001-08-02:  Rockets acquire first round pick (lottery protected 2000-08) (2002 #15-Bostjan Nachbar)  Raptors acquire Hakeem Olajuwon",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "TOR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Hakeem Olajuwon",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Bostjan Nachbar",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rasual Butler",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "9be7a8bd-a12e-4da1-bb63-fcc21fbc3d3c",
+    "date": "2001-08-03",
+    "season": "2001-02",
+    "title": "Jerome Moiso Trade",
+    "description": "On 2001-08-03:  Celtics acquire Roshown McLeod  76ers acquire Jerome Moiso",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BOS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jerome Moiso",
+        "from_team_id": "BOS",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Roshown McLeod",
+        "from_team_id": "PHI",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Dahntay Jones",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e3d49cba-ef1c-4fa9-8c60-bb4eb093811d",
+    "date": "2001-08-03",
+    "season": "2001-02",
+    "title": "Matt Harpring, Robert Traylor / Tractor Traylor Trade",
+    "description": "On 2001-08-03:  Cavaliers acquire Tyrone Hill  76ers acquire Matt Harpring",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CLE",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Matt Harpring",
+        "from_team_id": "CLE",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Robert Traylor / Tractor Traylor",
+        "from_team_id": "CLE",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cedric Henderson (E.)",
+        "from_team_id": "CLE",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tyrone Hill",
+        "from_team_id": "PHI",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jumaine Jones",
+        "from_team_id": "PHI",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bed0d647-b179-46bc-92b7-45bc350c93b9",
+    "date": "2001-08-10",
+    "season": "2001-02",
+    "title": "Shandon Anderson, Howard Eisley Trade",
+    "description": "On 2001-08-10:  Rockets acquire rights to Kyle Hill  Mavericks acquire Tyrone Bogues / Muggsy Bogues Other Team(s) Involved in Trade: Knicks",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "participant"
+      },
+      {
+        "team_id": "DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Shandon Anderson",
+        "from_team_id": "HOU",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Howard Eisley",
+        "from_team_id": "HOU",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Glen Rice Sr.",
+        "from_team_id": "NYK",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tyrone Bogues / Muggsy Bogues",
+        "from_team_id": "NYK",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "6f8b725f-8562-4151-ad7c-ce0d16f3bf26",
+    "date": "2001-08-22",
+    "season": "2001-02",
+    "title": "trade exception Trade",
+    "description": "On 2001-08-22:  Mavericks acquire Tim Hardaway Sr.  Heat acquire 2003 or 2004 second round pick (Mavericks option) (2004 #53-Matt Freije)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Matt Freije",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "trade exception",
+        "from_team_id": "DAL",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tim Hardaway Sr.",
+        "from_team_id": "MIA",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "b38cab8b-7e98-4ca2-a2c2-ec52bd9ab6fc",
+    "date": "2001-09-07",
+    "season": "2001-02",
+    "title": "Mateen Cleaves Trade",
+    "description": "On 2001-09-07:  Pistons acquire Jon Barry  Kings acquire Mateen Cleaves",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mateen Cleaves",
+        "from_team_id": "DET",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jon Barry",
+        "from_team_id": "SAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Carlos Delfino",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "75393be7-af28-4ec4-92cb-af19b6ba3073",
+    "date": "2001-10-01",
+    "season": "2001-02",
+    "title": "Bulls / Heat Trade",
+    "description": "On 2001-10-01:  Heat acquire rights to Sean Lampley  Bulls acquire 2003 conditional second round pick (#53-Tommy Smith)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Tommy Smith",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sean Lampley",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "f63b800d-97ad-4545-8e38-d97f7012440d",
+    "date": "2001-10-22",
+    "season": "2001-02",
+    "title": "Aleksandar Radojevic, Scott Williams Trade",
+    "description": "On 2001-10-22:  Bucks acquire 2002 second round pick (#33-Dan Gadzuric)  Rockets acquire Kevin Willis Other Team(s) Involved in Trade:Nuggets",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "participant"
+      },
+      {
+        "team_id": "DEN",
+        "role": "participant"
+      },
+      {
+        "team_id": "HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Aleksandar Radojevic",
+        "from_team_id": "DEN",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Dan Gadzuric",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Scott Williams",
+        "from_team_id": "MIL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Josh Smith",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "0b8bf3f1-f483-4d33-8714-aac49c04d170",
+    "date": "2001-10-25",
+    "season": "2001-02",
+    "title": "Derrick Coleman Trade",
+    "description": "On 2001-10-25:  Hornets acquire Chris Porter  Warriors acquire Cedric Henderson (E.) Other Team(s) Involved in Trade: 76ers",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "CHA",
+        "role": "participant"
+      },
+      {
+        "team_id": "GSW",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Derrick Coleman",
+        "from_team_id": "GSW",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Corie Blount",
+        "from_team_id": "GSW",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Vonteego Cummings",
+        "from_team_id": "GSW",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "George Lynch",
+        "from_team_id": "PHI",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jerome Moiso",
+        "from_team_id": "PHI",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Robert Traylor / Tractor Traylor",
+        "from_team_id": "PHI",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cedric Henderson (E.)",
+        "from_team_id": "PHI",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Joey Graham",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "2db7670b-0ad5-4322-8718-9816721a22a0",
+    "date": "2001-10-26",
+    "season": "2001-02",
+    "title": "Ricky Davis, Brian Skinner, Chris Gatling Trade",
+    "description": "On 2001-10-26:  Raptors acquire Don MacLean  Heat acquire Chris Gatling Other Team(s) Involved in Trade: Cavaliers",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIA",
+        "role": "participant"
+      },
+      {
+        "team_id": "TOR",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ricky Davis",
+        "from_team_id": "MIA",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brian Skinner",
+        "from_team_id": "MIA",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chris Gatling",
+        "from_team_id": "CLE",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "27d0d261-946d-4818-8961-661324803d99",
+    "date": "2001-10-29",
+    "season": "2001-02",
+    "title": "Blazers / Clippers Trade",
+    "description": "On 2001-10-29:  Clippers acquire Will Perdue  Blazers acquire rights to Doron Sheffer",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "LAC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Doron Sheffer",
+        "from_team_id": "LAC",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Will Perdue",
+        "from_team_id": "POR",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "f6751c39-109d-4f27-9362-0f99057ddd51",
+    "date": "2001-10-29",
+    "season": "2001-02",
+    "title": "Soumalia Samake Trade",
+    "description": "On 2001-10-29:  Suns acquire Jake Voskuhl  Bulls acquire Soumalia Samake",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Soumalia Samake",
+        "from_team_id": "PHX",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Matt Bonner",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jake Voskuhl",
+        "from_team_id": "CHI",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "28952181-9a67-401a-a4a8-4dec7ea541b1",
+    "date": "2001-11-15",
+    "season": "2001-02",
+    "title": "Jud Buechler, Charles Outlaw / Bo Outlaw Trade",
+    "description": "On 2001-11-15:  Unknown Team acquire Vinny Del Negro  Suns acquire Charles Outlaw / Bo Outlaw Other Team(s) Involved in Trade: Clippers, Magic",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "ORL",
+        "role": "participant"
+      },
+      {
+        "team_id": "LAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "PHX",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jud Buechler",
+        "from_team_id": "LAC",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Charles Outlaw / Bo Outlaw",
+        "from_team_id": "ORL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Amare Stoudemire / Amar'e Stoudemire",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "8bed2cb2-5910-4a01-8591-efadc6e032bb",
+    "date": "2002-02-19",
+    "season": "2001-02",
+    "title": "Jalen Rose Trade",
+    "description": "On 2002-02-19:  Pacers acquire Ron Artest / Metta World Peace  Bulls acquire Jalen Rose",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jalen Rose",
+        "from_team_id": "IND",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Travis Best",
+        "from_team_id": "IND",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Norm Richardson",
+        "from_team_id": "IND",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Lonny Baxter",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ron Artest / Metta World Peace",
+        "from_team_id": "CHI",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brad Miller",
+        "from_team_id": "CHI",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ron Mercer",
+        "from_team_id": "CHI",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kevin Ollie",
+        "from_team_id": "CHI",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "8305826e-993f-46af-9be6-f27b7e30a68d",
+    "date": "2002-02-20",
+    "season": "2001-02",
+    "title": "Tony Delk Trade",
+    "description": "On 2002-02-20:  Suns acquire Joe Johnson  Celtics acquire Tony Delk",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tony Delk",
+        "from_team_id": "PHX",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rodney Rogers",
+        "from_team_id": "PHX",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Joe Johnson",
+        "from_team_id": "BOS",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Randy Brown",
+        "from_team_id": "BOS",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Milt Palacio",
+        "from_team_id": "BOS",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Casey Jacobsen",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "c408cb22-3012-42f8-bc17-ecc424e31068",
+    "date": "2002-02-21",
+    "season": "2001-02",
+    "title": "Nick Van Exel Trade",
+    "description": "On 2002-02-21:  Nuggets acquire Juwan Howard  Mavericks acquire Nick Van Exel",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nick Van Exel",
+        "from_team_id": "DEN",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Raef LaFrentz",
+        "from_team_id": "DEN",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Avery Johnson",
+        "from_team_id": "DEN",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tariq Abdul-Wahad / Olivier Saint-Jean",
+        "from_team_id": "DEN",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Juwan Howard",
+        "from_team_id": "DAL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Donnell Harvey",
+        "from_team_id": "DAL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tim Hardaway Sr.",
+        "from_team_id": "DAL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Frank Williams",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "3dba5634-8c11-4779-a0b0-4b15b42c5cb6",
+    "date": "2002-02-21",
+    "season": "2001-02",
+    "title": "Marc Jackson Trade",
+    "description": "On 2002-02-21:  Warriors acquire Dean Garrett  Timberwolves acquire Marc Jackson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Marc Jackson",
+        "from_team_id": "GSW",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dean Garrett",
+        "from_team_id": "MIN",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jermareo Davidson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "eff90902-b065-4cbd-acc8-92887f077436",
+    "date": "2002-06-25",
+    "season": "2001-02",
+    "title": "Hornets / Wizards Trade",
+    "description": "On 2002-06-25:  Wizards acquire 2002 first round pick (#17-Juan Dixon)  Hornets acquire Courtney Alexander",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "WAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Courtney Alexander",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Juan Dixon",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "180fdcd5-01e9-4b5f-9fc8-32dd6ff35dee",
+    "date": "2002-06-26",
+    "season": "2001-02",
+    "title": "76ers / Warriors Trade",
+    "description": "On 2002-06-26:  Warriors acquire rights to Jiri Welsch  76ers acquire 2004 draft pick (first round if Warriors have one of top 3 records in league next season, else second round pick) (#42-Viktor Sanikidze)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Viktor Sanikidze",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Joey Graham",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jiri Welsch",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "c49e4512-b834-4008-8c12-c7325fb4e01a",
+    "date": "2002-06-26",
+    "season": "2001-02",
+    "title": "Mark Bryant Trade",
+    "description": "On 2002-06-26:  Spurs acquire Craig Claxton / Speedy Claxton  76ers acquire Mark Bryant",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mark Bryant",
+        "from_team_id": "SAS",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Randy Holcomb",
+        "from_team_id": "SAS",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "John Salmons",
+        "from_team_id": "SAS",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Craig Claxton / Speedy Claxton",
+        "from_team_id": "PHI",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bfb92be1-f219-44eb-9598-64eb8b6db7fc",
+    "date": "2002-06-26",
+    "season": "2001-02",
+    "title": "76ers / Hawks Trade",
+    "description": "On 2002-06-26:  Hawks acquire 2004 second round pick (#37-Royal Ivey)  76ers acquire rights to Efthimios Rentzias",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ATL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Efthimios Rentzias",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Royal Ivey",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Daniel Gibson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "92faa797-a639-43d8-99a8-a95bac68931a",
+    "date": "2002-06-26",
+    "season": "2001-02",
+    "title": "Bucks / Magic Trade",
+    "description": "On 2002-06-26:  Magic acquire rights to Rashard Griffith  Bucks acquire rights to Jamal Sampson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ORL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jamal Sampson",
+        "from_team_id": "ORL",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rashard Griffith",
+        "from_team_id": "MIL",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ba087f7f-a91f-4671-acfb-55e9740f3450",
+    "date": "2002-06-26",
+    "season": "2001-02",
+    "title": "Jazz / Magic Trade",
+    "description": "On 2002-06-26:  Magic acquire rights to Ryan Humphrey  Jazz acquire rights to Curtis Borchardt",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ORL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Curtis Borchardt",
+        "from_team_id": "ORL",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ryan Humphrey",
+        "from_team_id": "UTA",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jamal Sampson",
+        "from_team_id": "UTA",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "6bad3cf4-fb1d-41df-a1b4-e871d5f426b7",
+    "date": "2002-06-26",
+    "season": "2001-02",
+    "title": "Nick Anderson Trade",
+    "description": "On 2002-06-26:  Grizzlies acquire Wesley Person  Cavaliers acquire Nick Anderson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MEM",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nick Anderson",
+        "from_team_id": "MEM",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Matt Barnes",
+        "from_team_id": "MEM",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Wesley Person",
+        "from_team_id": "CLE",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "afca51c7-c7bc-453f-9937-fb567c55be0b",
+    "date": "2002-06-26",
+    "season": "2001-02",
+    "title": "Tracy Murray, Kareem Rush Trade",
+    "description": "On 2002-06-26:  Raptors acquire Lindsey Hunter  Lakers acquire Tracy Murray",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "TOR",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tracy Murray",
+        "from_team_id": "TOR",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kareem Rush",
+        "from_team_id": "TOR",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Luke Walton",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Lindsey Hunter",
+        "from_team_id": "LAL",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chris Jefferies",
+        "from_team_id": "LAL",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Remon Van de Hare",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "0d24ed3d-f91b-41ae-bcae-e85596b36363",
+    "date": "2002-06-26",
+    "season": "2001-02",
+    "title": "Bucks / Grizzlies Trade",
+    "description": "On 2002-06-26:  Grizzlies acquire rights to Chris Owens  Bucks acquire 2003 second round pick (#35-Szymon Szewczyk)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MEM",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Szymon Szewczyk",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Chris Owens",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "3c608964-dd7e-422b-87b5-9e3bbf4d8e0c",
+    "date": "2002-06-26",
+    "season": "2001-02",
+    "title": "Hawks / Kings Trade",
+    "description": "On 2002-06-26:  Kings acquire first round pick (2003 #25-Carlos Delfino)  Hawks acquire rights to Dan Dickau",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Dan Dickau",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Carlos Delfino",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "3b678ac7-5e9f-4c51-aaf8-d1a2df5aee99",
+    "date": "2002-06-26",
+    "season": "2001-02",
+    "title": "Antonio McDyess Trade",
+    "description": "On 2002-06-26:  Nuggets acquire Marcus Camby  Knicks acquire Antonio McDyess",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Antonio McDyess",
+        "from_team_id": "DEN",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Frank Williams",
+        "from_team_id": "DEN",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Maciej Lampe",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Marcus Camby",
+        "from_team_id": "NYK",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mark Jackson",
+        "from_team_id": "NYK",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nene / Nene Hilario / Maybyner Hilario",
+        "from_team_id": "NYK",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "59791e20-6f51-49a8-836c-b07fefe9e5d6",
+    "date": "2002-06-28",
+    "season": "2001-02",
+    "title": "Grizzlies / Spurs Trade",
+    "description": "On 2002-06-28:  Spurs acquire 2004 second round pick (#52-Romain Sato)  Grizzlies acquire rights to Gordan Giricek",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Gordan Giricek",
+        "from_team_id": "SAS",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Romain Sato",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  }
+]

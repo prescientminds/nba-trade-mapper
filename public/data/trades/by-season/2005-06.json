@@ -1,0 +1,2455 @@
+[
+  {
+    "id": "41d81f77-1c1b-4e66-b4b2-15c072f7afe4",
+    "date": "2005-08-02",
+    "season": "2005-06",
+    "title": "Bobcats / Kings Trade",
+    "description": "On 2005-08-02:  Kings acquire Jason Hart  Bobcats acquire 2006 second round pick (#50-Ryan Hollins)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ryan Hollins",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jason Hart",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "6fde20e4-62bb-4320-a00f-3bbe4a554750",
+    "date": "2005-08-02",
+    "season": "2005-06",
+    "title": "Kwame Brown, Laron Profit Trade",
+    "description": "On 2005-08-02:  Wizards acquire Caron Butler  Lakers acquire Kwame Brown",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "WAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kwame Brown",
+        "from_team_id": "WAS",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Laron Profit",
+        "from_team_id": "WAS",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Caron Butler",
+        "from_team_id": "LAL",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chucky Atkins",
+        "from_team_id": "LAL",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "3d17e157-d492-4390-81c3-98747aaa90a6",
+    "date": "2005-08-02",
+    "season": "2005-06",
+    "title": "Bobby Jackson, Greg Ostertag Trade",
+    "description": "On 2005-08-02:  Kings acquire Bonzi Wells  Grizzlies acquire Bobby Jackson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Bobby Jackson",
+        "from_team_id": "SAC",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Greg Ostertag",
+        "from_team_id": "SAC",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bonzi Wells",
+        "from_team_id": "MEM",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "475c349e-6974-440d-935e-97bbff42aba0",
+    "date": "2005-08-02",
+    "season": "2005-06",
+    "title": "Qyntel Woods, Curtis Borchardt, Eddie Jones Trade",
+    "description": "On 2005-08-02:  Heat acquire Antoine Walker  Celtics acquire Qyntel Woods Other Team(s) Involved in Trade: Grizzlies,Hornets, Jazz",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "participant"
+      },
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIA",
+        "role": "participant"
+      },
+      {
+        "team_id": "CHA",
+        "role": "participant"
+      },
+      {
+        "team_id": "UTA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Qyntel Woods",
+        "from_team_id": "UTA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Curtis Borchardt",
+        "from_team_id": "UTA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Albert Miralles",
+        "from_team_id": "UTA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Edin Bavcic",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Nikola Pekovic",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Antoine Walker",
+        "from_team_id": "BOS",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e49657b1-21e6-447a-9fb8-c78e98354dfd",
+    "date": "2005-08-12",
+    "season": "2005-06",
+    "title": "Sam Cassell Trade",
+    "description": "On 2005-08-12:  Timberwolves acquire Marko Jaric  Clippers acquire Sam Cassell",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sam Cassell",
+        "from_team_id": "MIN",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Austin Rivers",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Marko Jaric",
+        "from_team_id": "LAC",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Lionel Chalmers",
+        "from_team_id": "LAC",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "2cbe39c8-574f-4ece-b552-b4eb09a7c228",
+    "date": "2005-08-19",
+    "season": "2005-06",
+    "title": "Joe Johnson Trade",
+    "description": "On 2005-08-19:  Suns acquire Boris Diaw  Hawks acquire Joe Johnson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Joe Johnson",
+        "from_team_id": "PHX",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Boris Diaw",
+        "from_team_id": "ATL",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rajon Rondo",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Robin Lopez",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "88456a56-c1af-40df-8462-b8821d3dd538",
+    "date": "2005-08-25",
+    "season": "2005-06",
+    "title": "Pacers / Suns Trade",
+    "description": "On 2005-08-25:  Suns acquire James Jones (b)  Pacers acquire 2008 second round pick (#55-Mike Taylor)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "IND",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mike Taylor",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "James Jones (b)",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "73e1284b-6061-43cd-acfe-2db1d081dcca",
+    "date": "2005-09-30",
+    "season": "2005-06",
+    "title": "Celtics / Hornets Trade",
+    "description": "On 2005-09-30:  Hornets acquire 2006 second round pick (#56-Edin Bavcic)  Celtics acquire Dan Dickau",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CHA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Dan Dickau",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Edin Bavcic",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "c86fa4c1-d8da-4078-bdea-0b97197206d4",
+    "date": "2005-10-04",
+    "season": "2005-06",
+    "title": "Tim Thomas, Michael Sweetney / Mike Sweetney Trade",
+    "description": "On 2005-10-04:  Knicks acquire Eddy Curry  Bulls acquire Tim Thomas",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "NYK",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tim Thomas",
+        "from_team_id": "NYK",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Michael Sweetney / Mike Sweetney",
+        "from_team_id": "NYK",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jermaine Jackson",
+        "from_team_id": "NYK",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "LaMarcus Aldridge",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Joakim Noah",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kyrylo Fesenko",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jon Brockman",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Eddy Curry",
+        "from_team_id": "CHI",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Antonio Davis",
+        "from_team_id": "CHI",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e18146c5-3b54-4c7d-95ee-6dc86802c134",
+    "date": "2005-10-04",
+    "season": "2005-06",
+    "title": "Mike James (Lamont) Trade",
+    "description": "On 2005-10-04:  Rockets acquire Rafer Alston  Raptors acquire Mike James (Lamont)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "TOR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mike James (Lamont)",
+        "from_team_id": "HOU",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rafer Alston",
+        "from_team_id": "TOR",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "7a390f1e-70c2-48b5-a852-c802ee293fe2",
+    "date": "2005-10-26",
+    "season": "2005-06",
+    "title": "Bobcats / Lakers Trade",
+    "description": "On 2005-10-26:  Lakers acquire second round pick (protected top 55 in 2007, unprotected in 2008) (2007 #40-Sun Yue)  Bobcats acquire Jumaine Jones",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "LAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jumaine Jones",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sun Yue",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "2eeadaff-6f55-40cd-951d-08294ab0394d",
+    "date": "2005-10-26",
+    "season": "2005-06",
+    "title": "Jamaal Magloire Trade",
+    "description": "On 2005-10-26:  Hornets acquire Desmond Mason  Bucks acquire Jamaal Magloire",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CHA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jamaal Magloire",
+        "from_team_id": "CHA",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Desmond Mason",
+        "from_team_id": "MIL",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Cedric Simmons",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "75847482-6c2f-483b-8054-ef0a7fb398a4",
+    "date": "2005-10-31",
+    "season": "2005-06",
+    "title": "Pistons / Timberwolves Trade",
+    "description": "On 2005-10-31:  Timberwolves acquire Ronald Dupree  Pistons acquire 2006-09 (Timberwolves choice) second round pick (2009 #35-DaJuan Summers)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DET",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "DaJuan Summers",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ronald Dupree",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "c6e1be2e-e7ed-4c9c-ad0f-2c419c1559d8",
+    "date": "2006-01-25",
+    "season": "2005-06",
+    "title": "Ron Artest / Metta World Peace Trade",
+    "description": "On 2006-01-25:  Pacers acquire Predrag Stojakovic / Peja Stojakovic  Kings acquire Ron Artest / Metta World Peace",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ron Artest / Metta World Peace",
+        "from_team_id": "IND",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Predrag Stojakovic / Peja Stojakovic",
+        "from_team_id": "SAC",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ebab9e33-795a-488e-976c-3f2473aca12e",
+    "date": "2006-01-26",
+    "season": "2005-06",
+    "title": "Wally Szczerbiak Trade",
+    "description": "On 2006-01-26:  Timberwolves acquire Ricky Davis  Celtics acquire Wally Szczerbiak",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Wally Szczerbiak",
+        "from_team_id": "MIN",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Michael Olowokandi",
+        "from_team_id": "MIN",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dwayne Jones",
+        "from_team_id": "MIN",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jonny Flynn",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ricky Davis",
+        "from_team_id": "BOS",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Marcus Banks",
+        "from_team_id": "BOS",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mark Blount",
+        "from_team_id": "BOS",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Justin Reed",
+        "from_team_id": "BOS",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Craig Smith",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Nikola Pekovic",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ab4bfebc-0da4-4c7d-adbb-7ef1fb447f89",
+    "date": "2006-01-26",
+    "season": "2005-06",
+    "title": "Suns / Timberwolves Trade",
+    "description": "On 2006-01-26:  Timberwolves acquire 2006 second round pick (#57-Loukas Mavrokefalidis)  Suns acquire Nikoloz Tskitishvili",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHX",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Nikoloz Tskitishvili",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Loukas Mavrokefalidis",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "63e73a20-a4ca-4476-a734-ba68d539cbee",
+    "date": "2006-01-31",
+    "season": "2005-06",
+    "title": "Hornets / Raptors Trade",
+    "description": "On 2006-01-31:  Raptors acquire 2006 second round pick (#56-Edin Bavcic)  Hornets acquire Aaron Williams",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "TOR",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Aaron Williams",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Edin Bavcic",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jack McClinton",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e1030077-62d9-4118-bfff-75506ac80470",
+    "date": "2006-02-03",
+    "season": "2005-06",
+    "title": "Knicks / Raptors Trade",
+    "description": "On 2006-02-03:  Raptors acquire Antonio Davis  Knicks acquire 2006 first round pick (#20-Renaldo Balkman)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "receiver"
+      },
+      {
+        "team_id": "TOR",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Renaldo Balkman",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Antonio Davis",
+        "from_team_id": "NYK",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "4f604b7d-bca3-400e-ae8a-3b1f0fec4756",
+    "date": "2006-02-09",
+    "season": "2005-06",
+    "title": "Lonny Baxter Trade",
+    "description": "On 2006-02-09:  Rockets acquire Keith Bogans  Bobcats acquire Lonny Baxter",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Lonny Baxter",
+        "from_team_id": "HOU",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Keith Bogans",
+        "from_team_id": "CHA",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e66a56dd-68dd-4c5e-8809-312c197ba580",
+    "date": "2006-02-13",
+    "season": "2005-06",
+    "title": "Martyn Norris / Moochie Norris Trade",
+    "description": "On 2006-02-13:  Rockets acquire Maciej Lampe  Hornets acquire Martyn Norris / Moochie Norris",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Martyn Norris / Moochie Norris",
+        "from_team_id": "HOU",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Maciej Lampe",
+        "from_team_id": "CHA",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "67b7a666-a768-4d88-a069-6f6207d02a72",
+    "date": "2006-02-14",
+    "season": "2005-06",
+    "title": "Vladimir Radmanovic Trade",
+    "description": "On 2006-02-14:  Sonics acquire Chris Wilcox  Clippers acquire Vladimir Radmanovic",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Vladimir Radmanovic",
+        "from_team_id": "OKC",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chris Wilcox",
+        "from_team_id": "LAC",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "cdc418ef-0dbc-45d6-b5ff-36428f5680db",
+    "date": "2006-02-15",
+    "season": "2005-06",
+    "title": "Darko Milicic, Carlos Arroyo Trade",
+    "description": "On 2006-02-15:  Pistons acquire Kelvin Cato  Magic acquire Darko Milicic",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ORL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Darko Milicic",
+        "from_team_id": "DET",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Carlos Arroyo",
+        "from_team_id": "DET",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kelvin Cato",
+        "from_team_id": "ORL",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rodney Stuckey",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "9d4dedd5-ac54-42a6-a558-b1ae560100d8",
+    "date": "2006-02-22",
+    "season": "2005-06",
+    "title": "Steve Francis Trade",
+    "description": "On 2006-02-22:  Magic acquire Trevor Ariza  Knicks acquire Steve Francis",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ORL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Steve Francis",
+        "from_team_id": "ORL",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Trevor Ariza",
+        "from_team_id": "NYK",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Anfernee Hardaway / Penny Hardaway",
+        "from_team_id": "NYK",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "db019f74-c276-40f2-b38f-d55f3c9658a7",
+    "date": "2006-02-23",
+    "season": "2005-06",
+    "title": "Voshon Lenard Trade",
+    "description": "On 2006-02-23:  Blazers acquire Brian Skinner  Kings acquire Vitaly Potapenko Other Team(s) Involved in Trade:Nuggets, Sonics",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "participant"
+      },
+      {
+        "team_id": "SAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "DEN",
+        "role": "participant"
+      },
+      {
+        "team_id": "OKC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Voshon Lenard",
+        "from_team_id": "OKC",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brian Skinner",
+        "from_team_id": "OKC",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ruben Patterson",
+        "from_team_id": "POR",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sergei Monia",
+        "from_team_id": "POR",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Charles Smith (Cornelius)",
+        "from_team_id": "POR",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e2274386-6275-47e5-977a-00be37165dd9",
+    "date": "2006-02-23",
+    "season": "2005-06",
+    "title": "Ronald Murray / Flip Murray Trade",
+    "description": "On 2006-02-23:  Sonics acquire Mike Wilks  Cavaliers acquire Ronald Murray / Flip Murray",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ronald Murray / Flip Murray",
+        "from_team_id": "OKC",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mike Wilks",
+        "from_team_id": "CLE",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "47826619-29ad-4a9b-9fa1-9a13483293f9",
+    "date": "2006-02-23",
+    "season": "2005-06",
+    "title": "Derek Anderson Trade",
+    "description": "On 2006-02-23:  Rockets acquire Gerald Fitch  Heat acquire Derek Anderson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Derek Anderson",
+        "from_team_id": "HOU",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gerald Fitch",
+        "from_team_id": "MIA",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "trade exception",
+        "from_team_id": "MIA",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "0df31ac2-cf53-4653-a49f-e1537ce60b9c",
+    "date": "2006-02-23",
+    "season": "2005-06",
+    "title": "Marc Jackson, Linton Johnson III Trade",
+    "description": "On 2006-02-23:  Nets acquire Bostjan Nachbar  Hornets acquire Marc Jackson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Marc Jackson",
+        "from_team_id": "BKN",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Linton Johnson III",
+        "from_team_id": "BKN",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Bostjan Nachbar",
+        "from_team_id": "CHA",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "90a03825-feb4-4752-888e-656a50e57f47",
+    "date": "2006-06-08",
+    "season": "2005-06",
+    "title": "Rafael Araujo Trade",
+    "description": "On 2006-06-08:  Raptors acquire Kris Humphries  Jazz acquire Rafael Araujo",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "TOR",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Rafael Araujo",
+        "from_team_id": "TOR",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kris Humphries",
+        "from_team_id": "UTA",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Robert Whaley",
+        "from_team_id": "UTA",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "9e691551-eae5-40b5-89c6-706d2c493e6b",
+    "date": "2006-06-21",
+    "season": "2005-06",
+    "title": "Radoslav Nesterovic / Rasho Nesterovic Trade",
+    "description": "On 2006-06-21:  Spurs acquire Matt Bonner  Raptors acquire Radoslav Nesterovic / Rasho Nesterovic",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "TOR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Radoslav Nesterovic / Rasho Nesterovic",
+        "from_team_id": "SAS",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Matt Bonner",
+        "from_team_id": "TOR",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Eric Williams",
+        "from_team_id": "TOR",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jack McClinton",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "023093d3-d288-45a4-8ddf-725c8817d4f8",
+    "date": "2006-06-28",
+    "season": "2005-06",
+    "title": "76ers / Timberwolves Trade",
+    "description": "On 2006-06-28:  Timberwolves acquire 2007 second round pick (#41-Chris Richard)  76ers acquire rights to Bobby Jones (R.)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Bobby Jones (R.)",
+        "from_team_id": "MIN",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Chris Richard",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "43e04283-c060-4460-9cbc-b4bc2a9d53d9",
+    "date": "2006-06-28",
+    "season": "2005-06",
+    "title": "76ers / Bulls Trade",
+    "description": "On 2006-06-28:  Bulls acquire rights to Thabo Sefolosha  76ers acquire rights to Rodney Carney",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CHI",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Rodney Carney",
+        "from_team_id": "CHI",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kyrylo Fesenko",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Thabo Sefolosha",
+        "from_team_id": "PHI",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "2ee1888f-4a4f-4472-a944-7c3e8e69c315",
+    "date": "2006-06-28",
+    "season": "2005-06",
+    "title": "Blazers / Grizzlies Trade",
+    "description": "On 2006-06-28:  Grizzlies acquire rights to Alexander Johnson  Blazers acquire 2008 second round pick (#33-Joey Dorsey)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MEM",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Joey Dorsey",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Alexander Johnson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "cb525ca4-c6a4-412f-a214-ea6e5ecc28ed",
+    "date": "2006-06-28",
+    "season": "2005-06",
+    "title": "Blazers / Pacers Trade",
+    "description": "On 2006-06-28:  Pacers acquire rights to James White  Blazers acquire rights to Alexander Johnson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Alexander Johnson",
+        "from_team_id": "IND",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Derrick Byars",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mike Taylor",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "James White",
+        "from_team_id": "POR",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "d223dbfb-1b58-4ab3-8c11-6e4cd97786fb",
+    "date": "2006-06-28",
+    "season": "2005-06",
+    "title": "Blazers / Suns Trade",
+    "description": "On 2006-06-28:  Suns acquire $3M cash  Blazers acquire rights to Sergio Rodriguez",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sergio Rodriguez",
+        "from_team_id": "PHX",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "93a81ff5-027a-45c0-bb53-5adaf3a43add",
+    "date": "2006-06-28",
+    "season": "2005-06",
+    "title": "Celtics / Suns Trade",
+    "description": "On 2006-06-28:  Suns acquire first round pick (protected top 10 in 2007-10) (2007 #24-Rudy Fernandez)  Celtics acquire Brian Grant",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Brian Grant",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rajon Rondo",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rudy Fernandez",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "84ed5726-7296-47b3-bb7c-841afd61cb8f",
+    "date": "2006-06-28",
+    "season": "2005-06",
+    "title": "Lakers / Pistons Trade",
+    "description": "On 2006-06-28:  Pistons acquire rights to Cheikh Samb  Lakers acquire Maurice Evans",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Maurice Evans",
+        "from_team_id": "DET",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cheikh Samb",
+        "from_team_id": "LAL",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "31fd0eb5-7145-4868-ae89-8d33799c0eed",
+    "date": "2006-06-28",
+    "season": "2005-06",
+    "title": "Lakers / Mavericks Trade",
+    "description": "On 2006-06-28:  Mavericks acquire 2007 second round pick (#50-Renaldas Seibutis)  Lakers acquire rights to Danilo Pinnock / J.R. Pinnock",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Danilo Pinnock / J.R. Pinnock",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Renaldas Seibutis",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "583c748d-6def-4484-9add-dedb40bdd44b",
+    "date": "2006-06-28",
+    "season": "2005-06",
+    "title": "Bucks / Spurs Trade",
+    "description": "On 2006-06-28:  Spurs acquire 2007 second round pick (more favorable of Bucks, Rockets) (#33-Marcus Williams)  Bucks acquire rights to Damir Markota",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Damir Markota",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Marcus Williams",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "38b18a52-3446-46a2-a8c3-1eb8809bc891",
+    "date": "2006-06-28",
+    "season": "2005-06",
+    "title": "Celtics / Nuggets Trade",
+    "description": "On 2006-06-28:  Nuggets acquire 2007 second round pick (#49-Aaron Gray)  Celtics acquire rights to Leon Powe",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Leon Powe",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Aaron Gray",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "d2a0095f-0bd4-406c-9248-31ddb29b171b",
+    "date": "2006-06-28",
+    "season": "2005-06",
+    "title": "Dan Dickau, Raef LaFrentz Trade",
+    "description": "On 2006-06-28:  Celtics acquire Sebastian Telfair  Blazers acquire Dan Dickau",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BOS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dan Dickau",
+        "from_team_id": "BOS",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Raef LaFrentz",
+        "from_team_id": "BOS",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Randy Foye",
+        "from_team_id": "BOS",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sebastian Telfair",
+        "from_team_id": "POR",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Theo Ratliff",
+        "from_team_id": "POR",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Trent Plaisted",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "52104d11-d6a3-43cc-80d0-f2888e6b965f",
+    "date": "2006-06-28",
+    "season": "2005-06",
+    "title": "Blazers / Timberwolves Trade",
+    "description": "On 2006-06-28:  Timberwolves acquire rights to Randy Foye  Blazers acquire rights to Brandon Roy",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Brandon Roy",
+        "from_team_id": "MIN",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Randy Foye",
+        "from_team_id": "POR",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "83bdc81e-de5b-4293-ae80-f9b055c7d868",
+    "date": "2006-06-28",
+    "season": "2005-06",
+    "title": "Blazers / Bulls Trade",
+    "description": "On 2006-06-28:  Bulls acquire Viktor Khryapa  Blazers acquire rights to LaMarcus Aldridge",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CHI",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "LaMarcus Aldridge",
+        "from_team_id": "CHI",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Demetris Nichols",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Viktor Khryapa",
+        "from_team_id": "POR",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tyrus Thomas",
+        "from_team_id": "POR",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "10e6f03b-7845-485e-812e-996a9d4d228e",
+    "date": "2006-06-30",
+    "season": "2005-06",
+    "title": "Charlie Villanueva Trade",
+    "description": "On 2006-06-30:  Raptors acquire T.J. Ford  Bucks acquire Charlie Villanueva",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "TOR",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Charlie Villanueva",
+        "from_team_id": "TOR",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "T.J. Ford",
+        "from_team_id": "MIL",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  }
+]

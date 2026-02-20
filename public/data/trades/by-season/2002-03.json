@@ -1,0 +1,1518 @@
+[
+  {
+    "id": "e6248cad-1e87-45eb-b613-5d4100f82177",
+    "date": "2002-07-22",
+    "season": "2002-03",
+    "title": "Vin Baker Trade",
+    "description": "On 2002-07-22:  Sonics acquire Kenny Anderson  Celtics acquire Vin Baker",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Vin Baker",
+        "from_team_id": "OKC",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shammond Williams",
+        "from_team_id": "OKC",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kenny Anderson",
+        "from_team_id": "BOS",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Joseph Forte",
+        "from_team_id": "BOS",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Vitaly Potapenko",
+        "from_team_id": "BOS",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "23ba55fb-1422-4374-b2e9-17b4d6ce906c",
+    "date": "2002-07-29",
+    "season": "2002-03",
+    "title": "Darius Miles, Harold Jamison Trade",
+    "description": "On 2002-07-29:  Clippers acquire Andre Miller  Cavaliers acquire Darius Miles",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "LAC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Darius Miles",
+        "from_team_id": "LAC",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Harold Jamison",
+        "from_team_id": "LAC",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Andre Miller",
+        "from_team_id": "CLE",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bryant Stith",
+        "from_team_id": "CLE",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "5e6ce8ae-ff82-4962-89b4-406a19801e90",
+    "date": "2002-08-01",
+    "season": "2002-03",
+    "title": "Magic / Nuggets Trade",
+    "description": "On 2002-08-01:  Nuggets acquire Don Reid  Magic acquire 2004 second round pick (#49-Sergei Lishouk / Sergei Lishchuk)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ORL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sergei Lishouk / Sergei Lishchuk",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Don Reid",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Marcus Williams",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "03070179-abb3-4992-a0bd-e4ecaca062f6",
+    "date": "2002-08-02",
+    "season": "2002-03",
+    "title": "Antonio Daniels, Charles Smith (Cornelius) Trade",
+    "description": "On 2002-08-02:  Spurs acquire Steve Kerr  Blazers acquire Antonio Daniels",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Antonio Daniels",
+        "from_team_id": "SAS",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Charles Smith (Cornelius)",
+        "from_team_id": "SAS",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Amal McCaskill",
+        "from_team_id": "SAS",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Steve Kerr",
+        "from_team_id": "POR",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Erick Barkley",
+        "from_team_id": "POR",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Andreas Glyniadakis",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "dd25d545-05e9-4df2-b290-ecb8158e52eb",
+    "date": "2002-08-02",
+    "season": "2002-03",
+    "title": "Toni Kukoc, Leon Smith Trade",
+    "description": "On 2002-08-02:  Hawks acquire Glenn Robinson  Bucks acquire Toni Kukoc",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ATL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Toni Kukoc",
+        "from_team_id": "ATL",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Leon Smith",
+        "from_team_id": "ATL",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "T.J.Ford",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Glenn Robinson",
+        "from_team_id": "MIL",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "9f3bdbb1-6308-4937-a10e-6cca619b6891",
+    "date": "2002-08-06",
+    "season": "2002-03",
+    "title": "Keith Van Horn, Todd MacCulloch Trade",
+    "description": "On 2002-08-06:  Nets acquire Dikembe Mutombo  76ers acquire Keith Van Horn",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Keith Van Horn",
+        "from_team_id": "BKN",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Todd MacCulloch",
+        "from_team_id": "BKN",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dikembe Mutombo",
+        "from_team_id": "PHI",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "9db7c066-58ea-4ade-9aec-91ac9428bfd5",
+    "date": "2002-09-11",
+    "season": "2002-03",
+    "title": "Richard Hamilton Trade",
+    "description": "On 2002-09-11:  Wizards acquire Jerry Stackhouse  Pistons acquire Richard Hamilton",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DET",
+        "role": "receiver"
+      },
+      {
+        "team_id": "WAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Richard Hamilton",
+        "from_team_id": "WAS",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Hubert Davis",
+        "from_team_id": "WAS",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bobby Simmons",
+        "from_team_id": "WAS",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jerry Stackhouse",
+        "from_team_id": "DET",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brian Cardinal",
+        "from_team_id": "DET",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ratko Varda",
+        "from_team_id": "DET",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "50bfa0bb-e5b0-4a36-81df-1c421f129bd4",
+    "date": "2002-09-17",
+    "season": "2002-03",
+    "title": "Cavaliers / Suns Trade",
+    "description": "On 2002-09-17:  Suns acquire 2008 second round pick (#48-Malik Hairston)  Cavaliers acquire Milt Palacio",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Milt Palacio",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Malik Hairston",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "3fd5ad2a-5345-4e3f-bd94-daad66ed6370",
+    "date": "2002-09-25",
+    "season": "2002-03",
+    "title": "Michael Stewart Trade",
+    "description": "On 2002-09-25:  Raptors acquire Lamond Murray  Cavaliers acquire Michael Stewart",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "TOR",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Michael Stewart",
+        "from_team_id": "TOR",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jared Dudley",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Lamond Murray",
+        "from_team_id": "CLE",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Albert Miralles",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "3e6105bd-b0d5-415c-bb1a-39b7ebc45831",
+    "date": "2002-10-01",
+    "season": "2002-03",
+    "title": "Rodney White Trade",
+    "description": "On 2002-10-01:  Pistons acquire Don Reid  Nuggets acquire Rodney White",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DEN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Rodney White",
+        "from_team_id": "DET",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Don Reid",
+        "from_team_id": "DEN",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mengke Bateer",
+        "from_team_id": "DEN",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Josh Smith",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "28f169a2-5050-45b5-aaed-7cfb0cf3fba1",
+    "date": "2002-10-03",
+    "season": "2002-03",
+    "title": "Pistons / Spurs Trade",
+    "description": "On 2002-10-03:  Spurs acquire Mengke Bateer  Pistons acquire 2003 second round pick (#58-Andreas Gliniadakis)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DET",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Andreas Gliniadakis",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mengke Bateer",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ecb2e985-575b-432e-b245-f829faed1756",
+    "date": "2002-10-24",
+    "season": "2002-03",
+    "title": "Chris Whitney Trade",
+    "description": "On 2002-10-24:  Wizards acquire George McCloud  Nuggets acquire Chris Whitney",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DEN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "WAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Chris Whitney",
+        "from_team_id": "WAS",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "George McCloud",
+        "from_team_id": "DEN",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "2ce76491-4ced-44e8-be67-9430601a5d1f",
+    "date": "2002-12-18",
+    "season": "2002-03",
+    "title": "Kenny Thomas, Art Long Trade",
+    "description": "On 2002-12-18:  76ers acquire Kenny Thomas  Rockets acquire James Posey Other Team(s) Involved in Trade:Nuggets",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "DEN",
+        "role": "participant"
+      },
+      {
+        "team_id": "HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kenny Thomas",
+        "from_team_id": "DEN",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Art Long",
+        "from_team_id": "PHI",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mark Bryant",
+        "from_team_id": "PHI",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Joey Graham",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "653a1afe-f254-48bb-918b-8c291713daef",
+    "date": "2003-02-19",
+    "season": "2002-03",
+    "title": "Mike Miller, Ryan Humphrey Trade",
+    "description": "On 2003-02-19:  Magic acquire Drew Gooden  Grizzlies acquire Mike Miller",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ORL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mike Miller",
+        "from_team_id": "ORL",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ryan Humphrey",
+        "from_team_id": "ORL",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kendrick Perkins",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sergei Lishouk / Sergei Lishchuk",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Drew Gooden",
+        "from_team_id": "MEM",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gordan Giricek",
+        "from_team_id": "MEM",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "a573a607-5968-4595-a832-0afc6df5035f",
+    "date": "2003-02-20",
+    "season": "2002-03",
+    "title": "Mark Blount, Mark Bryant Trade",
+    "description": "On 2003-02-20:  Nuggets acquire Shammond Williams  Celtics acquire Mark Blount",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mark Blount",
+        "from_team_id": "DEN",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mark Bryant",
+        "from_team_id": "DEN",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shammond Williams",
+        "from_team_id": "BOS",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sani Becirovic",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "87b489d6-1199-47df-b914-9bd18449038f",
+    "date": "2003-02-20",
+    "season": "2002-03",
+    "title": "Kenny Anderson Trade",
+    "description": "On 2003-02-20:  Sonics acquire Elden Campbell  Hornets acquire Kenny Anderson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kenny Anderson",
+        "from_team_id": "OKC",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Elden Campbell",
+        "from_team_id": "CHA",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "306cd392-fee9-49ef-9acf-9b1c2bca5ccc",
+    "date": "2003-02-20",
+    "season": "2002-03",
+    "title": "Gary Payton Trade",
+    "description": "On 2003-02-20:  Sonics acquire Ray Allen  Bucks acquire Gary Payton",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Gary Payton",
+        "from_team_id": "OKC",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Desmond Mason",
+        "from_team_id": "OKC",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ray Allen",
+        "from_team_id": "MIL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kevin Ollie",
+        "from_team_id": "MIL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ronald Murray / Flip Murray",
+        "from_team_id": "MIL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Luke Ridnour",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "7151385e-9ea1-4634-83f7-28aa586cd2aa",
+    "date": "2003-06-23",
+    "season": "2002-03",
+    "title": "Celtics / Kings Trade",
+    "description": "On 2003-06-23:  Kings acquire rights to Darius Songaila  Celtics acquire 2003 second round pick (#56-Brandon Hunter)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Brandon Hunter",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Orien Greene",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Darius Songaila",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "2ddb4980-b32c-4269-8b6b-de6d7e44b145",
+    "date": "2003-06-26",
+    "season": "2002-03",
+    "title": "76ers / Sonics Trade",
+    "description": "On 2003-06-26:  Sonics acquire rights to Paccelis Morlende  76ers acquire rights to Willie Green",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Willie Green",
+        "from_team_id": "OKC",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Paccelis Morlende",
+        "from_team_id": "PHI",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "a96548ca-1013-4140-8d6c-ef7a3741e771",
+    "date": "2003-06-26",
+    "season": "2002-03",
+    "title": "Bulls / Raptors Trade",
+    "description": "On 2003-06-26:  Raptors acquire rights to Matt Bonner  Bulls acquire second round pick (2004 #38-Chris Duhon)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "TOR",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Chris Duhon",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Matt Bonner",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bd8cab16-9ee9-4212-afc9-f975491c8514",
+    "date": "2003-06-26",
+    "season": "2002-03",
+    "title": "Celtics / Grizzlies Trade",
+    "description": "On 2003-06-26:  Grizzlies acquire rights to Troy Bell  Celtics acquire rights to Marcus Banks",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MEM",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Marcus Banks",
+        "from_team_id": "MEM",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kendrick Perkins",
+        "from_team_id": "MEM",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Troy Bell",
+        "from_team_id": "BOS",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dahntay Jones",
+        "from_team_id": "BOS",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "b7b89ace-28b7-4807-834b-c29e12714297",
+    "date": "2003-06-26",
+    "season": "2002-03",
+    "title": "Mavericks / Nuggets Trade",
+    "description": "On 2003-06-26:  Nuggets acquire rights to Yuyang Xue  Mavericks acquire 2004 second round pick (#50-Vassilis Spanoulis)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Vassilis Spanoulis",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Yuyang Xue",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "1e34162b-c538-4366-95cf-618211a40789",
+    "date": "2003-06-26",
+    "season": "2002-03",
+    "title": "Nets / 76ers Trade",
+    "description": "On 2003-06-26:  76ers acquire rights to Kyle Korver  Nets acquire cash",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BKN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHI",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Kyle Korver",
+        "from_team_id": "BKN",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ee4f2c3a-9a69-4efd-8bfe-0118957aaac2",
+    "date": "2003-06-26",
+    "season": "2002-03",
+    "title": "Spurs / Suns Trade",
+    "description": "On 2003-06-26:  Suns acquire rights to Leandro Barbosa  Spurs acquire 2004 first round pick (top 25 protected in 2004, top 21 protected in 2005-2009) (2005 #30-David Lee)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "David Lee",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Leandro Barbosa",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "6657a30e-e084-4ee1-b891-cccfbd44c92b",
+    "date": "2003-06-27",
+    "season": "2002-03",
+    "title": "Joe Smith, Anthony Peeler Trade",
+    "description": "On 2003-06-27:  Timberwolves acquire Sam Cassell  Bucks acquire Joe Smith",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Joe Smith",
+        "from_team_id": "MIN",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Anthony Peeler",
+        "from_team_id": "MIN",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sam Cassell",
+        "from_team_id": "MIL",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ervin Johnson",
+        "from_team_id": "MIL",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

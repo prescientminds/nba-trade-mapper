@@ -1,0 +1,1084 @@
+[
+  {
+    "id": "4c1904a9-a899-4b5f-a377-da7e1faea4b9",
+    "date": "1991-07-03",
+    "season": "1991-92",
+    "title": "Clippers / Knicks Trade",
+    "description": "On 1991-07-03:  Knicks acquire rights to Joe Wylie  Clippers acquire 1993 second round pick (#53-Leonard White)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "NYK",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Leonard White",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Joe Wylie",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "0747d7fa-3747-451b-b4f9-6d3ac163f448",
+    "date": "1991-08-13",
+    "season": "1991-92",
+    "title": "James Edwards Trade",
+    "description": "On 1991-08-13:  Pistons acquire Jeff Martin  Clippers acquire James Edwards",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "James Edwards",
+        "from_team_id": "DET",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jeff Martin",
+        "from_team_id": "LAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Lou Roe",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "7fa864d4-d81e-4b0c-9a4c-f9b1de3fe396",
+    "date": "1991-08-13",
+    "season": "1991-92",
+    "title": "Scott Hastings Trade",
+    "description": "On 1991-08-13:  Pistons acquire Orlando Woolridge  Nuggets acquire Scott Hastings",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DEN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Scott Hastings",
+        "from_team_id": "DET",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Robert Werdann / Rob Werdann",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Orlando Woolridge",
+        "from_team_id": "DEN",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "0ce3ffb8-90c8-4638-a174-a576d4f8f4bb",
+    "date": "1991-09-06",
+    "season": "1991-92",
+    "title": "Bullets / Pistons Trade",
+    "description": "On 1991-09-06:  Pistons acquire Darrell Walker  Bullets acquire 1993 second round pick (#38-Conrad McRae)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Conrad McRae",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Frankie King",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Darrell Walker",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "45df7451-faa5-452c-a69a-6e1e98c97617",
+    "date": "1991-09-23",
+    "season": "1991-92",
+    "title": "Dwayne Schintzius Trade",
+    "description": "On 1991-09-23:  Spurs acquire Antoine Carr  Kings acquire Dwayne Schintzius",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dwayne Schintzius",
+        "from_team_id": "SAS",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jevon Crudup",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Antoine Carr",
+        "from_team_id": "SAC",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "53d59787-88db-49c3-bed8-fceb30e2dffe",
+    "date": "1991-10-01",
+    "season": "1991-92",
+    "title": "Xavier McDaniel Trade",
+    "description": "On 1991-10-01:  Suns acquire Jerrod Mustaf  Knicks acquire Xavier McDaniel",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Xavier McDaniel",
+        "from_team_id": "PHX",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jerrod Mustaf",
+        "from_team_id": "NYK",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Trent Tucker",
+        "from_team_id": "NYK",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Brian Davis",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Anthony Goldwire",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "5ae300a6-3a48-49f1-83fb-bf7c2f01ec6f",
+    "date": "1991-10-02",
+    "season": "1991-92",
+    "title": "Maurice Cheeks Trade",
+    "description": "On 1991-10-02:  Knicks acquire Tim McCormick  Hawks acquire Maurice Cheeks",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "NYK",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Maurice Cheeks",
+        "from_team_id": "NYK",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tim McCormick",
+        "from_team_id": "ATL",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Charlie Ward",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "24590e1b-6a62-448f-a24e-c24df676debf",
+    "date": "1991-10-02",
+    "season": "1991-92",
+    "title": "Lakers / Sonics Trade",
+    "description": "On 1991-10-02:  Sonics acquire 1994 second round pick (#37-Dontonio Wingfield)  Lakers acquire Sedale Threatt",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sedale Threatt",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Dontonio Wingfield",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Martin Lewis",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jeff Nordgaard",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "dc2a0645-be00-495c-8a0b-fdbc0f52c184",
+    "date": "1991-11-01",
+    "season": "1991-92",
+    "title": "Kings / Warriors Trade",
+    "description": "On 1991-11-01:  Warriors acquire rights to Billy Owens  Kings acquire Mitch Richmond",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mitch Richmond",
+        "from_team_id": "GSW",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Les Jepsen",
+        "from_team_id": "GSW",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Tyus Edny",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Billy Owens",
+        "from_team_id": "SAC",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "301c1207-15b8-4ed5-8672-5eabfd62276d",
+    "date": "1991-11-04",
+    "season": "1991-92",
+    "title": "Bobby Hansen Trade",
+    "description": "On 1991-11-04:  Kings acquire Dennis Hopson  Bulls acquire Bobby Hansen",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Bobby Hansen",
+        "from_team_id": "SAC",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Corey Williams",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dennis Hopson",
+        "from_team_id": "CHI",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "c8801450-b3f3-427a-9050-b2a4b3712ebc",
+    "date": "1991-11-25",
+    "season": "1991-92",
+    "title": "Tyrone Corbin Trade",
+    "description": "On 1991-11-25:  Timberwolves acquire Thurl Bailey  Jazz acquire Tyrone Corbin",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tyrone Corbin",
+        "from_team_id": "MIN",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Thurl Bailey",
+        "from_team_id": "UTA",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Tim Burroughs",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e1261740-a853-4bb8-ac8d-b761c18c5343",
+    "date": "1992-01-10",
+    "season": "1991-92",
+    "title": "Sherman Douglas Trade",
+    "description": "On 1992-01-10:  Heat acquire Brian Shaw  Celtics acquire Sherman Douglas",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sherman Douglas",
+        "from_team_id": "MIA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brian Shaw",
+        "from_team_id": "BOS",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "4c8d56b4-51a5-4666-9569-fda205dbac45",
+    "date": "1992-02-19",
+    "season": "1991-92",
+    "title": "Rex Chapman Trade",
+    "description": "On 1992-02-19:  Hornets acquire Tom Hammonds  Bullets acquire Rex Chapman",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CHA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Rex Chapman",
+        "from_team_id": "CHA",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tom Hammonds",
+        "from_team_id": "WAS",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "5d8ac6d2-8512-4e6b-bf9b-2e197258cb3d",
+    "date": "1992-02-20",
+    "season": "1991-92",
+    "title": "James Donaldson Trade",
+    "description": "On 1992-02-20:  Mavericks acquire Brian Quinnett  Knicks acquire James Donaldson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "James Donaldson",
+        "from_team_id": "DAL",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brian Quinnett",
+        "from_team_id": "NYK",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "b3020727-7107-4214-9298-a1cb576020e0",
+    "date": "1992-06-17",
+    "season": "1991-92",
+    "title": "Jeff Hornacek, Andrew Lang, Tim Perry Trade",
+    "description": "On 1992-06-17:  Suns acquire Charles Barkley  76ers acquire Jeff Hornacek",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jeff Hornacek",
+        "from_team_id": "PHX",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Andrew Lang",
+        "from_team_id": "PHX",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tim Perry",
+        "from_team_id": "PHX",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Charles Barkley",
+        "from_team_id": "PHI",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "0ce2fe56-39fb-402e-99fb-b0150e1dee3d",
+    "date": "1992-06-24",
+    "season": "1991-92",
+    "title": "Knicks / Mavericks Trade",
+    "description": "On 1992-06-24:  Mavericks acquire 1995 first round pick (#24-Loren Meyer)  Knicks acquire Rolando Blackman",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rolando Blackman",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Loren Meyer",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e300ac2c-d074-4986-b337-37a16e5a955d",
+    "date": "1992-06-24",
+    "season": "1991-92",
+    "title": "Theodore Edwards / Blue Edwards, Eric Murdock Trade",
+    "description": "On 1992-06-24:  Jazz acquire Jay Humphries  Bucks acquire Theodore Edwards / Blue Edwards",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "UTA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Theodore Edwards / Blue Edwards",
+        "from_team_id": "UTA",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Eric Murdock",
+        "from_team_id": "UTA",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Lee Mayberry",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jay Humphries",
+        "from_team_id": "MIL",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Larry Krystkowiak",
+        "from_team_id": "MIL",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "eccbc618-9c03-4b14-ac30-1e6b83c7f66b",
+    "date": "1992-06-24",
+    "season": "1991-92",
+    "title": "Bucks / Spurs (date 07-01 per NBA Register) Trade",
+    "description": "On 1992-06-24:  Spurs (date 07-01 per NBA Register) acquire Dale Ellis  Bucks acquire rights to Tracy Murray",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tracy Murray",
+        "from_team_id": "SAS",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dale Ellis",
+        "from_team_id": "MIL",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ce011c09-4af1-4c2b-a6e8-72fcd3e130f5",
+    "date": "1992-06-24",
+    "season": "1991-92",
+    "title": "William Bedford Trade",
+    "description": "On 1992-06-24:  Pistons acquire Olden Polynice  Clippers acquire William Bedford",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "William Bedford",
+        "from_team_id": "DET",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Don MacLean",
+        "from_team_id": "DET",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Olden Polynice",
+        "from_team_id": "LAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Russ Millard",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Eddie Elisma",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "257d21fa-9d95-4385-905c-e1402a768c67",
+    "date": "1992-06-24",
+    "season": "1991-92",
+    "title": "Blazers / Bucks Trade",
+    "description": "On 1992-06-24:  Bucks acquire Alaa Abdelnaby  Blazers acquire rights to Tracy Murray",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tracy Murray",
+        "from_team_id": "MIL",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Alaa Abdelnaby",
+        "from_team_id": "POR",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

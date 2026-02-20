@@ -1,0 +1,1305 @@
+[
+  {
+    "id": "d3e33eb1-af4b-4b93-9f44-e64b59099a8c",
+    "date": "1984-08-08",
+    "season": "1984-85",
+    "title": "Johnny Davis Trade",
+    "description": "On 1984-08-08:  Hawks acquire Stewart Granger  Cavaliers acquire Johnny Davis",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ATL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Johnny Davis",
+        "from_team_id": "ATL",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Stewart Granger",
+        "from_team_id": "CLE",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "John Garris",
+        "from_team_id": "CLE",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "aeee0fac-61d4-47b3-8b8a-f6e5b8f9e291",
+    "date": "1984-08-10",
+    "season": "1984-85",
+    "title": "Caldwell Jones Trade",
+    "description": "On 1984-08-10:  Rockets acquire Mitchell Wiggins  Bulls acquire Caldwell Jones",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Caldwell Jones",
+        "from_team_id": "HOU",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mitchell Wiggins",
+        "from_team_id": "CHI",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Tyrone Corbin",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Michael Payne",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "5a899095-af2f-4d83-8448-4544b91b9676",
+    "date": "1984-08-29",
+    "season": "1984-85",
+    "title": "Clippers / Rockets Trade",
+    "description": "On 1984-08-29:  Rockets acquire Hank McDowell  Clippers acquire 1985 third round pick (#65-Ken Perry / Kenny Perry)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ken Perry / Kenny Perry",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Hank McDowell",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "47010f2b-cc47-4562-b2bd-0f417a58346e",
+    "date": "1984-09-14",
+    "season": "1984-85",
+    "title": "76ers / Pacers Trade",
+    "description": "On 1984-09-14:  Pacers acquire Leo Rautins  76ers acquire 1987 third round pick (#57-Hansi Gnad)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Hansi Gnad",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Leo Rautins",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "b3c233ef-b045-4f0e-b57b-64b482923e90",
+    "date": "1984-09-14",
+    "season": "1984-85",
+    "title": "Bulls / Mavericks Trade",
+    "description": "On 1984-09-14:  Mavericks acquire Wallace Bryant  Bulls acquire 1986 conditional second round pick (#39-Rafael Addison)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rafael Addison",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Wallace Bryant",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "1d5427a6-ac5b-480f-abd4-05d10484e387",
+    "date": "1984-09-17",
+    "season": "1984-85",
+    "title": "Pacers / Rockets Trade",
+    "description": "On 1984-09-17:  Rockets acquire Kevin McKenna  Pacers acquire 1985 fifth round pick (#111-Ivan Daniels)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "IND",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ivan Daniels",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kevin McKenna",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "43f83d29-e41e-4b41-a0fe-97f906295eb4",
+    "date": "1984-09-25",
+    "season": "1984-85",
+    "title": "Bullets / Clippers Trade",
+    "description": "On 1984-09-25:  Clippers acquire Bryan Warrick  Bullets acquire 1985 third round pick (#65-Ken Perry / Kenny Perry)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "LAC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ken Perry / Kenny Perry",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Bryan Warrick",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "460d0846-1de3-4506-9bce-32d7d980b270",
+    "date": "1984-09-29",
+    "season": "1984-85",
+    "title": "Terry Cummings Trade",
+    "description": "On 1984-09-29:  Clippers acquire Junior Bridgeman  Bucks acquire Terry Cummings",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "LAC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Terry Cummings",
+        "from_team_id": "LAC",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Craig Hodges",
+        "from_team_id": "LAC",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ricky Pierce",
+        "from_team_id": "LAC",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Junior Bridgeman",
+        "from_team_id": "MIL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Harvey Catchings",
+        "from_team_id": "MIL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Marques Johnson",
+        "from_team_id": "MIL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "60e1b75a-4dcb-42b1-80e5-872161b67edd",
+    "date": "1984-10-04",
+    "season": "1984-85",
+    "title": "John Lucas Sr. Trade",
+    "description": "On 1984-10-04:  Spurs acquire James Bailey  Rockets acquire John Lucas Sr.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "HOU",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "John Lucas Sr.",
+        "from_team_id": "SAS",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sam Mitchell",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "James Bailey",
+        "from_team_id": "HOU",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Tyrone Corbin",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "30e48ba3-7f9e-40b8-a9d1-18ca7808dc59",
+    "date": "1984-10-16",
+    "season": "1984-85",
+    "title": "Celtics / Sonics Trade",
+    "description": "On 1984-10-16:  Sonics acquire Gerald Henderson (a)  Celtics acquire 1986 first round pick (#2-Len Bias)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Len Bias",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Gerald Henderson (a)",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "0beeb1a4-328a-4b69-9c6e-630f81f7a212",
+    "date": "1984-10-19",
+    "season": "1984-85",
+    "title": "Knicks / Pacers Trade",
+    "description": "On 1984-10-19:  Pacers acquire 1985 second round pick (#27-Dwayne McClain)  Knicks acquire Clarence Carter / Butch Carter",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Clarence Carter / Butch Carter",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Dwayne McClain",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "cb0ee250-d950-4932-8f23-0afd7dfde5b7",
+    "date": "1984-10-22",
+    "season": "1984-85",
+    "title": "Mavericks / Pacers Trade",
+    "description": "On 1984-10-22:  Pacers acquire Bill Garnett  Mavericks acquire first round pick (protected top 7 in 1990, unprotected in 1991) (1990-#14-Travis Mays)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Travis Mays",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Bill Garnett",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Terence Stansbury",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e8ba5947-9281-492d-8c87-812d04408d0e",
+    "date": "1984-10-24",
+    "season": "1984-85",
+    "title": "Knicks / Spurs Trade",
+    "description": "On 1984-10-24:  Spurs acquire 1986 third round pick (#48-Forrest McKenzie)  Knicks acquire James Bailey",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "James Bailey",
+        "from_team_id": "SAS",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Forrest McKenzie",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "a57137b8-48fc-45fb-a4c0-1a3957ef977c",
+    "date": "1984-12-11",
+    "season": "1984-85",
+    "title": "Mark McNamara Trade",
+    "description": "On 1984-12-11:  Spurs acquire Billy Knight  Kings acquire Mark McNamara",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mark McNamara",
+        "from_team_id": "SAS",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Billy Knight",
+        "from_team_id": "SAC",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "179c3517-ddd4-45e9-8b05-3890e09e8a6f",
+    "date": "1984-12-14",
+    "season": "1984-85",
+    "title": "Edgar Jones Trade",
+    "description": "On 1984-12-14:  Spurs acquire Jeff Cook  Cavaliers acquire Edgar Jones",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Edgar Jones",
+        "from_team_id": "SAS",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Jeff Cook",
+        "from_team_id": "CLE",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "0f337fbc-71e8-482e-8d80-6b18845e2bb7",
+    "date": "1984-12-15",
+    "season": "1984-85",
+    "title": "76ers / Spurs Trade",
+    "description": "On 1984-12-15:  Spurs acquire Marc Iavaroni  76ers acquire 1986 third round pick (#56-Keith Colbert)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Keith Colbert",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Marc Iavaroni",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "2f0a9582-1989-4c31-9a9c-fea33e3625f0",
+    "date": "1984-12-18",
+    "season": "1984-85",
+    "title": "Jazz / Spurs Trade",
+    "description": "On 1984-12-18:  Spurs acquire 1986 second round pick (#38-Lemone Lampley)  Jazz acquire Fred Roberts",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Fred Roberts",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Lemone Lampley",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jeff Moe",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "85e3f2ba-3f3c-4a6d-9ef4-cb14f37fbf08",
+    "date": "1985-02-12",
+    "season": "1984-85",
+    "title": "Bucks / Cavaliers Trade",
+    "description": "On 1985-02-12:  Cavaliers acquire 1985 second round pick (#45-John Williams / Hot Rod Williams)  Bucks acquire Paul Thompson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CLE",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Paul Thompson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "John Williams / Hot Rod Williams",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kannard Johnson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "eb32f999-ed6b-422a-99e4-8570616502e8",
+    "date": "1985-05-01",
+    "season": "1984-85",
+    "title": "Celtics / Mavericks Trade",
+    "description": "On 1985-05-01:  Mavericks acquire 1985 first round pick (#24-Terry Porter (b))  Celtics acquire 1985 first round pick (#20-Sam Vincent)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sam Vincent",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Terry Porter (b)",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jose Vargas",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "2f2d5f14-0884-4e6b-aa7f-960a04952f8b",
+    "date": "1985-06-14",
+    "season": "1984-85",
+    "title": "Blazers / Suns Trade",
+    "description": "On 1985-06-14:  Suns acquire Bernard Thompson  Blazers acquire 1987 second round pick (#30-Nikita Wilson)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Nikita Wilson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Bernard Thompson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bb16fefc-9933-40a0-9c16-e7fa7de9e430",
+    "date": "1985-06-17",
+    "season": "1984-85",
+    "title": "Bullets / Warriors Trade",
+    "description": "On 1985-06-17:  Warriors acquire Greg Ballard  Bullets acquire 1985 second round pick (#31-Manute Bol)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Manute Bol",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Duane Washington",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Greg Ballard",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "98bc978a-1c37-41e9-bf29-c11c54a69709",
+    "date": "1985-06-17",
+    "season": "1984-85",
+    "title": "Dan Roundfield Trade",
+    "description": "On 1985-06-17:  Pistons acquire Rick Mahorn  Bullets acquire Dan Roundfield",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dan Roundfield",
+        "from_team_id": "DET",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rick Mahorn",
+        "from_team_id": "WAS",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mike Gibson",
+        "from_team_id": "WAS",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "09fe6d9e-adb2-41c0-aa88-b68b256cad8a",
+    "date": "1985-06-17",
+    "season": "1984-85",
+    "title": "Gene Banks Trade",
+    "description": "On 1985-06-17:  Spurs acquire Steve Johnson  Bulls acquire Gene Banks",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Gene Banks",
+        "from_team_id": "SAS",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Steve Johnson",
+        "from_team_id": "CHI",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mike Brittain",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "7a55bc76-46dd-4d25-95e3-d8e2635684e8",
+    "date": "1985-06-18",
+    "season": "1984-85",
+    "title": "Blazers / Bulls Trade",
+    "description": "On 1985-06-18:  Bulls acquire rights to Mike Smrek  Blazers acquire rights to Ben Coleman",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CHI",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ben Coleman",
+        "from_team_id": "CHI",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ken Johnson",
+        "from_team_id": "CHI",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mike Smrek",
+        "from_team_id": "POR",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e563e270-c74f-4e67-b891-54d0d16a7471",
+    "date": "1985-06-18",
+    "season": "1984-85",
+    "title": "Bulls / Cavaliers Trade",
+    "description": "On 1985-06-18:  Cavaliers acquire Ennis Whatley  Bulls acquire rights to Charles Oakley",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CLE",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Charles Oakley",
+        "from_team_id": "CLE",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Calvin Duncan",
+        "from_team_id": "CLE",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ennis Whatley",
+        "from_team_id": "CHI",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Keith Lee",
+        "from_team_id": "CHI",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

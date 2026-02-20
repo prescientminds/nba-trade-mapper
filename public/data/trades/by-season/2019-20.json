@@ -1,0 +1,3358 @@
+[
+  {
+    "id": "bbref-2019-07-06-78918439",
+    "date": "2019-07-06",
+    "season": "2019-20",
+    "title": "T.J. Warren Trade",
+    "description": "In a 3-team trade, the Indiana Pacers traded cash to the Phoenix Suns; the Miami Heat traded a 2022 2nd round draft pick (Luke Travers was later selected), a 2025 2nd round draft pick (Koby Brea was later selected) and a 2026 2nd round draft pick to the Indiana Pacers; the Phoenix Suns traded T.J. Warren to the Indiana Pacers; and the Phoenix Suns traded KZ Okpala to the Miami Heat. 2025 2nd-rd pick is MIA own $1.1MM",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "PHX",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "IND",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Luke Travers",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "IND",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Koby Brea",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "IND",
+        "pick_year": 2026,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "T.J. Warren",
+        "from_team_id": "PHX",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-06-fadf12b0",
+    "date": "2019-07-06",
+    "season": "2019-20",
+    "title": "Nickeil Alexander-Walker, Allen Crabbe, Taurean Prince Trade",
+    "description": "The Brooklyn Nets traded Nickeil Alexander-Walker, Allen Crabbe and a 2020 1st round draft pick (Aleksej Pokusevski was later selected) to the Atlanta Hawks for Taurean Prince and a 2021 2nd round draft pick (Marcus Zegarowski was later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BKN",
+        "role": "participant"
+      },
+      {
+        "team_id": "ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nickeil Alexander-Walker",
+        "from_team_id": "BKN",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Allen Crabbe",
+        "from_team_id": "BKN",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "ATL",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Aleksej Pokusevski",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Taurean Prince",
+        "from_team_id": "ATL",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "BKN",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Marcus Zegarowski",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-06-f05568cb",
+    "date": "2019-07-06",
+    "season": "2019-20",
+    "title": "Mike Conley, Grayson Allen, Darius Bazley Trade",
+    "description": "The Memphis Grizzlies traded Mike Conley to the Utah Jazz for Grayson Allen, Darius Bazley, Jae Crowder, Kyle Korver and a 2022 1st round draft pick (Walker Kessler was later selected). conditional pick protected in 2020 and 2021, conveyed 2022",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      },
+      {
+        "team_id": "UTA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mike Conley",
+        "from_team_id": "MEM",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Grayson Allen",
+        "from_team_id": "UTA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Darius Bazley",
+        "from_team_id": "UTA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jae Crowder",
+        "from_team_id": "UTA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kyle Korver",
+        "from_team_id": "UTA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "MEM",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Walker Kessler",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "2021",
+        "from_team_id": "UTA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "conveyed 2022",
+        "from_team_id": "UTA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-06-515ce660",
+    "date": "2019-07-06",
+    "season": "2019-20",
+    "title": "Jarrett Culver, Cameron Johnson, Dario Šarić Trade",
+    "description": "The Phoenix Suns traded Jarrett Culver to the Minnesota Timberwolves for Cameron Johnson and Dario Šarić.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHX",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jarrett Culver",
+        "from_team_id": "PHX",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cameron Johnson",
+        "from_team_id": "MIN",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dario Šarić",
+        "from_team_id": "MIN",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-06-841470a5",
+    "date": "2019-07-06",
+    "season": "2019-20",
+    "title": "Aron Baynes, Ty Jerome Trade",
+    "description": "The Boston Celtics traded Aron Baynes and Ty Jerome to the Phoenix Suns for a 2020 1st round draft pick (Desmond Bane was later selected). (top-7 protected)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "participant"
+      },
+      {
+        "team_id": "PHX",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Aron Baynes",
+        "from_team_id": "BOS",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ty Jerome",
+        "from_team_id": "BOS",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "BOS",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Desmond Bane",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-06-12a6b5a4",
+    "date": "2019-07-06",
+    "season": "2019-20",
+    "title": "Josh Richardson, Hassan Whiteside, Mathias Lessort Trade",
+    "description": "In a 4-team trade, the Los Angeles Clippers traded cash to the Miami Heat; the Miami Heat traded a 2023 1st round draft pick (Jaime Jaquez Jr. was later selected) to the Los Angeles Clippers; the Miami Heat traded Josh Richardson to the Philadelphia 76ers; the Miami Heat traded Hassan Whiteside to the Portland Trail Blazers; the Philadelphia 76ers traded Mathias Lessort to the Los Angeles Clippers; the Philadelphia 76ers traded Jimmy Butler to the Miami Heat; the Portland Trail Blazers traded Maurice Harkless to the Los Angeles Clippers; and the Portland Trail Blazers traded Meyers Leonard to the Miami Heat. $110K 2023 1st-rd pick was top-14 protected but eventually returned unprotected to MIA via trade",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIA",
+        "role": "participant"
+      },
+      {
+        "team_id": "PHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "POR",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "LAC",
+        "pick_year": 2023,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jaime Jaquez Jr.",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Josh Richardson",
+        "from_team_id": "MIA",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Hassan Whiteside",
+        "from_team_id": "MIA",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mathias Lessort",
+        "from_team_id": "PHI",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jimmy Butler",
+        "from_team_id": "PHI",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Maurice Harkless",
+        "from_team_id": "POR",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-06-17302f96",
+    "date": "2019-07-06",
+    "season": "2019-20",
+    "title": "Dwight Howard, C.J. Miles Trade",
+    "description": "The Washington Wizards traded Dwight Howard to the Memphis Grizzlies for C.J. Miles.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dwight Howard",
+        "from_team_id": "WAS",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "C.J. Miles",
+        "from_team_id": "MEM",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-06-222a1eb0",
+    "date": "2019-07-06",
+    "season": "2019-20",
+    "title": "DeMarre Carroll, Nemanja Dangubic, Davis Bertans Trade",
+    "description": "In a 3-team trade, the Brooklyn Nets traded DeMarre Carroll to the San Antonio Spurs; the San Antonio Spurs traded Nemanja Dangubic to the Brooklyn Nets; the San Antonio Spurs traded Davis Bertans to the Washington Wizards; and the Washington Wizards traded Aaron White to the Brooklyn Nets.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "BKN",
+        "role": "participant"
+      },
+      {
+        "team_id": "SAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "DeMarre Carroll",
+        "from_team_id": "BKN",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nemanja Dangubic",
+        "from_team_id": "SAS",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Davis Bertans",
+        "from_team_id": "SAS",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-06-2bfbee51",
+    "date": "2019-07-06",
+    "season": "2019-20",
+    "title": "Malcolm Brogdon, conveyed in 2022 2025 2nd-rd pick is IND own Trade",
+    "description": "The Milwaukee Bucks traded Malcolm Brogdon to the Indiana Pacers for a 2020 1st round draft pick (R.J. Hampton was later selected), a 2022 2nd round draft pick (Max Christie was later selected) and a 2025 2nd round draft pick (Taelon Peter was later selected). Conditional 2021 2nd-rd pick is IND own, conveyed in 2022 2025 2nd-rd pick is IND own",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "participant"
+      },
+      {
+        "team_id": "IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Malcolm Brogdon",
+        "from_team_id": "MIL",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "MIL",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "R.J. Hampton",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "MIL",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Max Christie",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "MIL",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Taelon Peter",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "conveyed in 2022 2025 2nd-rd pick is IND own",
+        "from_team_id": "IND",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-06-482f6ace",
+    "date": "2019-07-06",
+    "season": "2019-20",
+    "title": "Lonzo Ball, Josh Hart, De'Andre Hunter Trade",
+    "description": "In a 3-team trade, the Los Angeles Lakers traded Lonzo Ball, Josh Hart, De'Andre Hunter, Brandon Ingram, cash, a 2022 1st round draft pick (Dyson Daniels was later selected), a 2023 1st round draft pick and a 2025 1st round draft pick (Drake Powell was later selected) to the New Orleans Pelicans; the Los Angeles Lakers traded Isaac Bonga, Jemerrio Jones, Moritz Wagner and a 2022 2nd round draft pick (Kennedy Chandler was later selected) to the Washington Wizards; the New Orleans Pelicans traded Anthony Davis to the Los Angeles Lakers; and the Washington Wizards traded cash to the New Orleans Pelicans. (9-30 protected, unprotected in 2022) 2023 first-round pick was right to swap with LAL NOP exercised option to defer 2024 first-round pick to 2025. $1MM $1.1MM 2022 2nd-rd pick is LAL own",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "LAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "NOP",
+        "role": "participant"
+      },
+      {
+        "team_id": "WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Lonzo Ball",
+        "from_team_id": "LAL",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Josh Hart",
+        "from_team_id": "LAL",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "De'Andre Hunter",
+        "from_team_id": "LAL",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brandon Ingram",
+        "from_team_id": "LAL",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "NOP",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Dyson Daniels",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "NOP",
+        "pick_year": 2023,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jordan Hawkins",
+        "notes": "swap right"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "NOP",
+        "pick_year": 2025,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Drake Powell",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Isaac Bonga",
+        "from_team_id": "LAL",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jemerrio Jones",
+        "from_team_id": "LAL",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Moritz Wagner",
+        "from_team_id": "LAL",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "WAS",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Kennedy Chandler",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Anthony Davis",
+        "from_team_id": "NOP",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-06-a871ae81",
+    "date": "2019-07-06",
+    "season": "2019-20",
+    "title": "Brandon Clarke, Darius Bazley Trade",
+    "description": "The Oklahoma City Thunder traded Brandon Clarke to the Memphis Grizzlies for Darius Bazley and a 2024 2nd round draft pick (Bobi Klintman was later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "OKC",
+        "role": "participant"
+      },
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Brandon Clarke",
+        "from_team_id": "OKC",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Darius Bazley",
+        "from_team_id": "MEM",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "OKC",
+        "pick_year": 2024,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Bobi Klintman",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-06-3696590f",
+    "date": "2019-07-06",
+    "season": "2019-20",
+    "title": "Kemba Walker, Terry Rozier, whichever is least favorable.) (top-53 protected) Trade",
+    "description": "The Charlotte Hornets traded Kemba Walker and a 2020 2nd round draft pick (Yam Madar was later selected) to the Boston Celtics for Terry Rozier and a 2020 2nd round draft pick (Grant Riller was later selected). (2020 second-round pick is BRK's or NYK's, whichever is least favorable.) (top-53 protected)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "participant"
+      },
+      {
+        "team_id": "BOS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kemba Walker",
+        "from_team_id": "CHA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "BOS",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Yam Madar",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Terry Rozier",
+        "from_team_id": "BOS",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "CHA",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Grant Riller",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "whichever is least favorable.) (top-53 protected)",
+        "from_team_id": "BOS",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-07-f797b182",
+    "date": "2019-07-07",
+    "season": "2019-20",
+    "title": "Jordan Bone, Solomon Hill, De'Andre Hunter Trade",
+    "description": "The New Orleans Pelicans traded Jordan Bone, Solomon Hill, De'Andre Hunter and a 2023 2nd round draft pick (Seth Lundy was later selected) to the Atlanta Hawks for Nickeil Alexander-Walker, Jaxson Hayes, Marcos Louzada Silva, a 2021 2nd round draft pick (Herbert Jones was later selected) and a 2022 2nd round draft pick (Vince Williams Jr. was later selected). 2023 2nd-rd pick was 31-45 protected 2020 1st-rd pick did not convey, becomes two 2nd-rd picks in 2021 and 2022 2022 2nd-rd pick is CLE own",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NOP",
+        "role": "participant"
+      },
+      {
+        "team_id": "ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jordan Bone",
+        "from_team_id": "NOP",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Solomon Hill",
+        "from_team_id": "NOP",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "De'Andre Hunter",
+        "from_team_id": "NOP",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NOP",
+        "to_team_id": "ATL",
+        "pick_year": 2023,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Seth Lundy",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nickeil Alexander-Walker",
+        "from_team_id": "ATL",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jaxson Hayes",
+        "from_team_id": "ATL",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Marcos Louzada Silva",
+        "from_team_id": "ATL",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "NOP",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Herbert Jones",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "NOP",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Vince Williams Jr.",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "becomes two 2nd-rd picks in 2021",
+        "from_team_id": "ATL",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "2022 2022 2nd-rd pick is CLE own",
+        "from_team_id": "ATL",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-07-1a4e2e05",
+    "date": "2019-07-07",
+    "season": "2019-20",
+    "title": "Bruno Fernando, Jordan Bone Trade",
+    "description": "The Philadelphia 76ers traded Bruno Fernando to the Atlanta Hawks for Jordan Bone, a 2020 2nd round draft pick (Théo Maledon was later selected) and a 2023 2nd round draft pick (Colby Jones was later selected). 2020 2nd-rd pick was 56-60 protected most favorable 2023 2nd-rd pick ended up as CHO own",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Bruno Fernando",
+        "from_team_id": "PHI",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jordan Bone",
+        "from_team_id": "ATL",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "PHI",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Théo Maledon",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "PHI",
+        "pick_year": 2023,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Colby Jones",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-07-1b0d0239",
+    "date": "2019-07-07",
+    "season": "2019-20",
+    "title": "Jordan Bone Trade",
+    "description": "The Philadelphia 76ers traded Jordan Bone to the Detroit Pistons for cash and a 2024 2nd round draft pick. (2024 second-round pick was MIA pick. Did not convey.) $2MM",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "DET",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jordan Bone",
+        "from_team_id": "PHI",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "PHI",
+        "pick_year": 2024,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Adem Bona",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-07-f5d99d0d",
+    "date": "2019-07-07",
+    "season": "2019-20",
+    "title": "Andre Iguodala, Julian Washburn Trade",
+    "description": "The Golden State Warriors traded Andre Iguodala, cash and a 2024 1st round draft pick (Bub Carrington was later selected) to the Memphis Grizzlies for Julian Washburn. (top-4 protected) $2MM",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "GSW",
+        "role": "participant"
+      },
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Andre Iguodala",
+        "from_team_id": "GSW",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "MEM",
+        "pick_year": 2024,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Bub Carrington",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Julian Washburn",
+        "from_team_id": "MEM",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-07-49aca095",
+    "date": "2019-07-07",
+    "season": "2019-20",
+    "title": "Jevon Carter, Kyle Korver, Josh Jackson Trade",
+    "description": "The Memphis Grizzlies traded Jevon Carter and Kyle Korver to the Phoenix Suns for Josh Jackson, De'Anthony Melton, a 2020 2nd round draft pick (Robert Woodard was later selected) and a 2021 2nd round draft pick. Conditional 2021 2nd-rd pick did not convey",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      },
+      {
+        "team_id": "PHX",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jevon Carter",
+        "from_team_id": "MEM",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kyle Korver",
+        "from_team_id": "MEM",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Josh Jackson",
+        "from_team_id": "PHX",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "De'Anthony Melton",
+        "from_team_id": "PHX",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "MEM",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Robert Woodard",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "MEM",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Brandon Boston Jr.",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-07-4ad09f03",
+    "date": "2019-07-07",
+    "season": "2019-20",
+    "title": "Chandler Parsons, Solomon Hill, Miles Plumlee Trade",
+    "description": "The Memphis Grizzlies traded Chandler Parsons to the Atlanta Hawks for Solomon Hill and Miles Plumlee.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      },
+      {
+        "team_id": "ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Chandler Parsons",
+        "from_team_id": "MEM",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Solomon Hill",
+        "from_team_id": "ATL",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Miles Plumlee",
+        "from_team_id": "ATL",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-07-a9541ca1",
+    "date": "2019-07-07",
+    "season": "2019-20",
+    "title": "Tomáš Satoranský Trade",
+    "description": "The Washington Wizards traded Tomáš Satoranský and a 2022 2nd round draft pick (Kennedy Chandler was later selected) to the Chicago Bulls for a 2020 2nd round draft pick (Vit Krejci was later selected) and a 2022 2nd round draft pick (Christian Koloko was later selected). 2020 2nd-rd pick is more favorable of CHI and MEM 2022 2nd-rd pick is right to swap LAL pick for more favorable of CHI and DET 2022 2nd-rd pick is duty to swap",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "CHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tomáš Satoranský",
+        "from_team_id": "WAS",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "CHI",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Kennedy Chandler",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "WAS",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Vit Krejci",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "WAS",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Christian Koloko",
+        "notes": null
+      },
+      {
+        "type": "swap",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "WAS",
+        "pick_year": 2022,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "MEM 2022 2nd-rd pick is right to swap LAL pick for more favorable of  CHI"
+      },
+      {
+        "type": "swap",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "WAS",
+        "pick_year": 2022,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "DET 2022 2nd-rd pick is duty to swap"
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-07-3833e508",
+    "date": "2019-07-07",
+    "season": "2019-20",
+    "title": "Derrick Favors Trade",
+    "description": "The Utah Jazz traded Derrick Favors to the New Orleans Pelicans for a 2021 2nd round draft pick (David Johnson was later selected) and a 2023 2nd round draft pick (Emoni Bates was later selected). 2021 2nd-rd pick was GSW own 2023 2nd-rd pick was GSW own",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "participant"
+      },
+      {
+        "team_id": "NOP",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Derrick Favors",
+        "from_team_id": "UTA",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NOP",
+        "to_team_id": "UTA",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "David Johnson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NOP",
+        "to_team_id": "UTA",
+        "pick_year": 2023,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Emoni Bates",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-07-1d50a15f",
+    "date": "2019-07-07",
+    "season": "2019-20",
+    "title": "Kevin Durant, Treveon Graham, Shabazz Napier Trade",
+    "description": "The Golden State Warriors traded Kevin Durant and a 2025 2nd round draft pick (Javon Small was later selected) to the Brooklyn Nets for Treveon Graham, Shabazz Napier and D'Angelo Russell. Conditional 2020 1st-rd pick did not convey; else 2025 2nd-rd pick",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "GSW",
+        "role": "participant"
+      },
+      {
+        "team_id": "BKN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kevin Durant",
+        "from_team_id": "GSW",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "BKN",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Javon Small",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Treveon Graham",
+        "from_team_id": "BKN",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shabazz Napier",
+        "from_team_id": "BKN",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "D'Angelo Russell",
+        "from_team_id": "BKN",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-08-70acf37c",
+    "date": "2019-07-08",
+    "season": "2019-20",
+    "title": "Damian Jones, Omari Spellman Trade",
+    "description": "The Golden State Warriors traded Damian Jones and a 2026 2nd round draft pick to the Atlanta Hawks for Omari Spellman.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "GSW",
+        "role": "participant"
+      },
+      {
+        "team_id": "ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Damian Jones",
+        "from_team_id": "GSW",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "ATL",
+        "pick_year": 2026,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Omari Spellman",
+        "from_team_id": "ATL",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-08-030ea3a1",
+    "date": "2019-07-08",
+    "season": "2019-20",
+    "title": "Jake Layman, Bojan Dubljevic Trade",
+    "description": "The Portland Trail Blazers traded Jake Layman to the Minnesota Timberwolves for Bojan Dubljevic.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jake Layman",
+        "from_team_id": "POR",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bojan Dubljevic",
+        "from_team_id": "MIN",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-08-9e5f8efd",
+    "date": "2019-07-08",
+    "season": "2019-20",
+    "title": "Jerami Grant Trade",
+    "description": "The Oklahoma City Thunder traded Jerami Grant to the Denver Nuggets for a 2020 1st round draft pick (Immanuel Quickley was later selected). (top-10 protected)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "OKC",
+        "role": "participant"
+      },
+      {
+        "team_id": "DEN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jerami Grant",
+        "from_team_id": "OKC",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "OKC",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Immanuel Quickley",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-08-add1b226",
+    "date": "2019-07-08",
+    "season": "2019-20",
+    "title": "Delon Wright, Satnam Singh Trade",
+    "description": "The Memphis Grizzlies traded Delon Wright to the Dallas Mavericks for Satnam Singh, a 2021 2nd round draft pick (Brandon Boston Jr. was later selected) and a 2023 2nd round draft pick (Keyonte Johnson was later selected). 2021 2nd-rd pick was POR own least favorable 2023 2nd-rd pick ended up as MIA own",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      },
+      {
+        "team_id": "DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Delon Wright",
+        "from_team_id": "MEM",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Satnam Singh",
+        "from_team_id": "DAL",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "MEM",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Brandon Boston Jr.",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "MEM",
+        "pick_year": 2023,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Keyonte Johnson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-08-6f18472d",
+    "date": "2019-07-08",
+    "season": "2019-20",
+    "title": "Treveon Graham, Shabazz Napier, Lior Eliyahu Trade",
+    "description": "The Golden State Warriors traded Treveon Graham, Shabazz Napier and cash to the Minnesota Timberwolves for Lior Eliyahu. $3.6MM",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "GSW",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Treveon Graham",
+        "from_team_id": "GSW",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shabazz Napier",
+        "from_team_id": "GSW",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Lior Eliyahu",
+        "from_team_id": "MIN",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "date": "2019-07-10",
+    "season": "2019-20",
+    "title": "Paul George Trade",
+    "description": "Clippers acquire Paul George from Thunder in blockbuster deal. OKC receives SGA plus historic haul of 5 first-round picks and 2 pick swaps that launched their championship rebuild.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Paul George",
+        "from_team_id": "OKC",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shai Gilgeous-Alexander",
+        "from_team_id": "LAC",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Danilo Gallinari",
+        "from_team_id": "LAC",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "OKC",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": "MIA",
+        "became_player_name": "Tre Mann",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "OKC",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": "LAC",
+        "became_player_name": "Jalen Williams",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "OKC",
+        "pick_year": 2024,
+        "pick_round": 1,
+        "original_team_id": "LAC",
+        "became_player_name": "Dillon Jones",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "OKC",
+        "pick_year": 2026,
+        "pick_round": 1,
+        "original_team_id": "LAC",
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "swap",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-07-16-abf34ed1",
+    "date": "2019-07-16",
+    "season": "2019-20",
+    "title": "Russell Westbrook, Chris Paul, becomes $1MM Trade",
+    "description": "The Oklahoma City Thunder traded Russell Westbrook to the Houston Rockets for Chris Paul, a 2021 1st round draft pick, a 2024 1st round draft pick (Nikola Topić was later selected), a 2025 1st round draft pick and a 2026 1st round draft pick. 2024 pick is top-4 protected 2026 pick is top-4 protected, becomes $1MM and 2026 second-round pick 2021 1st-rd pick is right to swap, top-4 protected, did not convey 2025 1st-rd pick is right to swap with HOU, top-20 protected; became PHO pick, did not convey and OKC got nothing",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "OKC",
+        "role": "participant"
+      },
+      {
+        "team_id": "HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Russell Westbrook",
+        "from_team_id": "OKC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chris Paul",
+        "from_team_id": "HOU",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "OKC",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Josh Giddey",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "OKC",
+        "pick_year": 2024,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Nikola Topić",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "OKC",
+        "pick_year": 2025,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Thomas Sorber",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "OKC",
+        "pick_year": 2026,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "becomes $1MM",
+        "from_team_id": "HOU",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "swap",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "OKC",
+        "pick_year": 2026,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "2026 second-round pick 2021 1st-rd pick is right to swap"
+      },
+      {
+        "type": "player",
+        "player_name": "top-4 protected",
+        "from_team_id": "HOU",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "swap",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "OKC",
+        "pick_year": 2025,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "did not convey 2025 1st-rd pick is right to swap with HOU"
+      },
+      {
+        "type": "player",
+        "player_name": "top-20 protected",
+        "from_team_id": "HOU",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2019-12-23-f790668c",
+    "date": "2019-12-23",
+    "season": "2019-20",
+    "title": "Jordan Clarkson, Dante Exum Trade",
+    "description": "The Cleveland Cavaliers traded Jordan Clarkson to the Utah Jazz for Dante Exum, a 2022 2nd round draft pick (Khalifa Diop was later selected) and a 2023 2nd round draft pick (Emoni Bates was later selected). 2022 2nd-rd pick was SAS own 2023 2nd-rd pick was GSW own",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "participant"
+      },
+      {
+        "team_id": "UTA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jordan Clarkson",
+        "from_team_id": "CLE",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dante Exum",
+        "from_team_id": "UTA",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "CLE",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Khalifa Diop",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "CLE",
+        "pick_year": 2023,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Emoni Bates",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2020-01-16-fcf7df8c",
+    "date": "2020-01-16",
+    "season": "2019-20",
+    "title": "Treveon Graham, Jeff Teague, Allen Crabbe Trade",
+    "description": "The Minnesota Timberwolves traded Treveon Graham and Jeff Teague to the Atlanta Hawks for Allen Crabbe.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Treveon Graham",
+        "from_team_id": "MIN",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jeff Teague",
+        "from_team_id": "MIN",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Allen Crabbe",
+        "from_team_id": "ATL",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2020-01-21-c1d3888a",
+    "date": "2020-01-21",
+    "season": "2019-20",
+    "title": "Kent Bazemore, Anthony Tolliver, Trevor Ariza Trade",
+    "description": "The Portland Trail Blazers traded Kent Bazemore, Anthony Tolliver, a 2024 2nd round draft pick (Tyler Smith was later selected) and a 2025 2nd round draft pick (Alijah Martin was later selected) to the Sacramento Kings for Trevor Ariza, Wenyen Gabriel and Caleb Swanigan. 2025 2nd-rd pick is POR own",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "participant"
+      },
+      {
+        "team_id": "SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kent Bazemore",
+        "from_team_id": "POR",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Anthony Tolliver",
+        "from_team_id": "POR",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "SAC",
+        "pick_year": 2024,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Tyler Smith",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "SAC",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Alijah Martin",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Trevor Ariza",
+        "from_team_id": "SAC",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Wenyen Gabriel",
+        "from_team_id": "SAC",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Caleb Swanigan",
+        "from_team_id": "SAC",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2020-01-24-8cd764d8",
+    "date": "2020-01-24",
+    "season": "2019-20",
+    "title": "Isaiah Roby, Justin Patton Trade",
+    "description": "The Dallas Mavericks traded Isaiah Roby to the Oklahoma City Thunder for Justin Patton and cash.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "OKC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Isaiah Roby",
+        "from_team_id": "DAL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Justin Patton",
+        "from_team_id": "OKC",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "bbref-2020-01-25-49230061",
+    "date": "2020-01-25",
+    "season": "2019-20",
+    "title": "Willie Cauley-Stein Trade",
+    "description": "The Golden State Warriors traded Willie Cauley-Stein to the Dallas Mavericks for a 2020 2nd round draft pick (Justinian Jessup was later selected). (2020 second-round pick is owned by UTA)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "GSW",
+        "role": "participant"
+      },
+      {
+        "team_id": "DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Willie Cauley-Stein",
+        "from_team_id": "GSW",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "GSW",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Justinian Jessup",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2020-02-05-d94c934e",
+    "date": "2020-02-05",
+    "season": "2019-20",
+    "title": "Evan Turner, Malik Beasley, Juan Hernangomez Trade",
+    "description": "In a 4-team trade, the Atlanta Hawks traded a 2024 2nd round draft pick (Pelle Larsson was later selected) to the Houston Rockets; the Atlanta Hawks traded Evan Turner and a 2020 1st round draft pick (Aleksej Pokusevski was later selected) to the Minnesota Timberwolves; the Denver Nuggets traded Malik Beasley, Juan Hernangomez and Jarred Vanderbilt to the Minnesota Timberwolves; the Houston Rockets traded Clint Capela and Nene to the Atlanta Hawks; the Houston Rockets traded Gerald Green and a 2020 1st round draft pick (Zeke Nnaji was later selected) to the Denver Nuggets; the Minnesota Timberwolves traded Keita Bates-Diop, Shabazz Napier and Noah Vonleh to the Denver Nuggets; and the Minnesota Timberwolves traded Jordan Bell and Robert Covington to the Houston Rockets. (Pick is GSW's 2024 second-round pick)",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "HOU",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "DEN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "HOU",
+        "pick_year": 2024,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Pelle Larsson",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Evan Turner",
+        "from_team_id": "ATL",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "MIN",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Aleksej Pokusevski",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Malik Beasley",
+        "from_team_id": "DEN",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Juan Hernangomez",
+        "from_team_id": "DEN",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jarred Vanderbilt",
+        "from_team_id": "DEN",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Clint Capela",
+        "from_team_id": "HOU",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nene",
+        "from_team_id": "HOU",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gerald Green",
+        "from_team_id": "HOU",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "DEN",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Zeke Nnaji",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Keita Bates-Diop",
+        "from_team_id": "MIN",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shabazz Napier",
+        "from_team_id": "MIN",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Noah Vonleh",
+        "from_team_id": "MIN",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2020-02-06-de83e7df",
+    "date": "2020-02-06",
+    "season": "2019-20",
+    "title": "Derrick Walton Trade",
+    "description": "The Los Angeles Clippers traded Derrick Walton and cash to the Atlanta Hawks for a 2022 2nd round draft pick. $1.3MM Conditional 2022 2nd-rd pick did not convey",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Derrick Walton",
+        "from_team_id": "LAC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "LAC",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Moussa Diabaté",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2020-02-06-fde559d6",
+    "date": "2020-02-06",
+    "season": "2019-20",
+    "title": "James Ennis Trade",
+    "description": "The Philadelphia 76ers traded James Ennis to the Orlando Magic for a 2020 2nd round draft pick (Paul Reed was later selected). (2020 second-round pick is LAL's pick)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "ORL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "James Ennis",
+        "from_team_id": "PHI",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "PHI",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Paul Reed",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2020-02-06-b03753e9",
+    "date": "2020-02-06",
+    "season": "2019-20",
+    "title": "Jacob Evans, D'Angelo Russell, Omari Spellman Trade",
+    "description": "The Golden State Warriors traded Jacob Evans, D'Angelo Russell and Omari Spellman to the Minnesota Timberwolves for Andrew Wiggins, a 2021 1st round draft pick (Jonathan Kuminga was later selected) and a 2021 2nd round draft pick (Miles McBride was later selected). 2021 1st-rd pick is top-3 protected",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "GSW",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jacob Evans",
+        "from_team_id": "GSW",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "D'Angelo Russell",
+        "from_team_id": "GSW",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Omari Spellman",
+        "from_team_id": "GSW",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Andrew Wiggins",
+        "from_team_id": "MIN",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "GSW",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jonathan Kuminga",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "GSW",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Miles McBride",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2020-02-06-17f5c373",
+    "date": "2020-02-06",
+    "season": "2019-20",
+    "title": "Skal Labissiere Trade",
+    "description": "The Portland Trail Blazers traded Skal Labissiere and cash to the Atlanta Hawks for a 2024 2nd round draft pick. $1.7MM (top-55 protected. Did not convey.)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "participant"
+      },
+      {
+        "team_id": "ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Skal Labissiere",
+        "from_team_id": "POR",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "POR",
+        "pick_year": 2024,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Tyler Kolek",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2020-02-06-f94d1f07",
+    "date": "2020-02-06",
+    "season": "2019-20",
+    "title": "Alec Burks, Glenn Robinson Trade",
+    "description": "The Golden State Warriors traded Alec Burks and Glenn Robinson to the Philadelphia 76ers for a 2020 2nd round draft pick (Nico Mannion was later selected), a 2021 2nd round draft pick (Aaron Wiggins was later selected) and a 2022 2nd round draft pick (Tyrese Martin was later selected). 2020 2nd-rd pick is DAL own 2021 2nd-rd pick is DEN own 2022 2nd-rd pick is TOR own",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "GSW",
+        "role": "participant"
+      },
+      {
+        "team_id": "PHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Alec Burks",
+        "from_team_id": "GSW",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Glenn Robinson",
+        "from_team_id": "GSW",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "GSW",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Nico Mannion",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "GSW",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Aaron Wiggins",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "GSW",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Tyrese Martin",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2020-02-06-c8a02843",
+    "date": "2020-02-06",
+    "season": "2019-20",
+    "title": "Shabazz Napier, Jordan McRae Trade",
+    "description": "The Denver Nuggets traded Shabazz Napier to the Washington Wizards for Jordan McRae.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DEN",
+        "role": "participant"
+      },
+      {
+        "team_id": "WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Shabazz Napier",
+        "from_team_id": "DEN",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jordan McRae",
+        "from_team_id": "WAS",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2020-02-06-7f514562",
+    "date": "2020-02-06",
+    "season": "2019-20",
+    "title": "Jae Crowder, Solomon Hill, Andre Iguodala Trade",
+    "description": "In a 3-team trade, the Memphis Grizzlies traded Jae Crowder, Solomon Hill and Andre Iguodala to the Miami Heat; the Miami Heat traded Dion Waiters and Justise Winslow to the Memphis Grizzlies; the Miami Heat traded James Johnson to the Minnesota Timberwolves; and the Minnesota Timberwolves traded Gorgui Dieng to the Memphis Grizzlies.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIA",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jae Crowder",
+        "from_team_id": "MEM",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Solomon Hill",
+        "from_team_id": "MEM",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Andre Iguodala",
+        "from_team_id": "MEM",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dion Waiters",
+        "from_team_id": "MIA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Justise Winslow",
+        "from_team_id": "MIA",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "James Johnson",
+        "from_team_id": "MIA",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2020-02-06-e85f36a9",
+    "date": "2020-02-06",
+    "season": "2019-20",
+    "title": "Bruno Caboclo, Jordan Bell, did not convey Trade",
+    "description": "The Memphis Grizzlies traded Bruno Caboclo to the Houston Rockets for Jordan Bell and a 2023 2nd round draft pick. 2023 2nd-rd pick was a protected right to swap, did not convey",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      },
+      {
+        "team_id": "HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Bruno Caboclo",
+        "from_team_id": "MEM",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jordan Bell",
+        "from_team_id": "HOU",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "MEM",
+        "pick_year": 2023,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "GG Jackson II",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "did not convey",
+        "from_team_id": "HOU",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2020-02-06-2fea29aa",
+    "date": "2020-02-06",
+    "season": "2019-20",
+    "title": "Maurice Harkless, Jerome Robinson, Marcus Morris Trade",
+    "description": "In a 3-team trade, the Los Angeles Clippers traded Maurice Harkless, a 2020 1st round draft pick (Udoka Azubuike was later selected), a 2021 1st round draft pick and a 2021 2nd round draft pick (Jeremiah Robinson-Earl was later selected) to the New York Knicks; the Los Angeles Clippers traded Jerome Robinson to the Washington Wizards; the New York Knicks traded Marcus Morris to the Los Angeles Clippers; the Washington Wizards traded Isaiah Thomas to the Los Angeles Clippers; and the Washington Wizards traded Issuf Sanon to the New York Knicks. 2021 2nd-rd pick is DET own 2021 1st-rd pick is right to swap with LAC's first-round pick, top-4 protected, did not convey",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "NYK",
+        "role": "participant"
+      },
+      {
+        "team_id": "WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Maurice Harkless",
+        "from_team_id": "LAC",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "NYK",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Udoka Azubuike",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "NYK",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jeremiah Robinson-Earl",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "NYK",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jerome Robinson",
+        "from_team_id": "LAC",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Marcus Morris",
+        "from_team_id": "NYK",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Isaiah Thomas",
+        "from_team_id": "WAS",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2020-02-06-d6507e31",
+    "date": "2020-02-06",
+    "season": "2019-20",
+    "title": "Dewayne Dedmon, Alex Len, Jabari Parker Trade",
+    "description": "The Sacramento Kings traded Dewayne Dedmon, a 2020 2nd round draft pick (Skylar Mays was later selected) and a 2021 2nd round draft pick (Sharife Cooper was later selected) to the Atlanta Hawks for Alex Len and Jabari Parker. 2021 2nd-rd pick is MIA own",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dewayne Dedmon",
+        "from_team_id": "SAC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "ATL",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Skylar Mays",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "ATL",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Sharife Cooper",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Alex Len",
+        "from_team_id": "ATL",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jabari Parker",
+        "from_team_id": "ATL",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2020-02-06-0af8f8c9",
+    "date": "2020-02-06",
+    "season": "2019-20",
+    "title": "Andre Drummond, John Henson, Brandon Knight Trade",
+    "description": "The Detroit Pistons traded Andre Drummond to the Cleveland Cavaliers for John Henson, Brandon Knight and a 2023 2nd round draft pick (Isaiah Wong was later selected). least favorable 2023 2nd-rd pick ended up as CLE own",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DET",
+        "role": "participant"
+      },
+      {
+        "team_id": "CLE",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Andre Drummond",
+        "from_team_id": "DET",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "John Henson",
+        "from_team_id": "CLE",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brandon Knight",
+        "from_team_id": "CLE",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "DET",
+        "pick_year": 2023,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Isaiah Wong",
+        "notes": null
+      }
+    ]
+  }
+]

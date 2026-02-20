@@ -1,0 +1,1623 @@
+[
+  {
+    "id": "5def6e36-90ea-4508-a0d2-c56d132ea417",
+    "date": "1986-07-23",
+    "season": "1986-87",
+    "title": "Al Wood Trade",
+    "description": "On 1986-07-23:  Sonics acquire Dale Ellis  Mavericks acquire Al Wood",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Al Wood",
+        "from_team_id": "OKC",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dale Ellis",
+        "from_team_id": "DAL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "a64651ce-ced5-4752-97c4-05a1f1938714",
+    "date": "1986-08-08",
+    "season": "1986-87",
+    "title": "Bullets / Nets Trade",
+    "description": "On 1986-08-08:  Nets acquire cash  Bullets acquire Darwin Cook",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Darwin Cook",
+        "from_team_id": "BKN",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "f561ba03-25cb-4abd-a892-36dc919001c6",
+    "date": "1986-08-19",
+    "season": "1986-87",
+    "title": "Larry Drew I Trade",
+    "description": "On 1986-08-19:  Kings acquire Junior Bridgeman  Clippers acquire Larry Drew I",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Larry Drew I",
+        "from_team_id": "SAC",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mike Woodson",
+        "from_team_id": "SAC",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Hersey Hawkins",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jay Edwards",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Junior Bridgeman",
+        "from_team_id": "LAC",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Franklin Edwards",
+        "from_team_id": "LAC",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Derek Smith",
+        "from_team_id": "LAC",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "f3280d76-99ee-4e6f-8873-05b3c3d47df7",
+    "date": "1986-08-21",
+    "season": "1986-87",
+    "title": "Earl Cureton Trade",
+    "description": "On 1986-08-21:  Pistons acquire Sidney Green  Bulls acquire Earl Cureton",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Earl Cureton",
+        "from_team_id": "DET",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rickie Winslow",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sidney Green",
+        "from_team_id": "CHI",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "b1b52def-d527-418c-8f48-cd3986b5e750",
+    "date": "1986-08-21",
+    "season": "1986-87",
+    "title": "Kent Benson, Kelly Tripucka Trade",
+    "description": "On 1986-08-21:  Pistons acquire Adrian Dantley  Jazz acquire Kent Benson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kent Benson",
+        "from_team_id": "DET",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kelly Tripucka",
+        "from_team_id": "DET",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Adrian Dantley",
+        "from_team_id": "UTA",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Norris Coleman",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Phil Henderson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "8d786ce7-01e5-4fb8-8d1a-40d2b04181a0",
+    "date": "1986-09-03",
+    "season": "1986-87",
+    "title": "Bullets / Mavericks Trade",
+    "description": "On 1986-09-03:  Mavericks acquire 1990 first round pick (#9-Willie Burton)  Bullets acquire Jay Vincent",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jay Vincent",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Willie Burton",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "90859546-618e-460b-a06f-3efdf03997ad",
+    "date": "1986-09-18",
+    "season": "1986-87",
+    "title": "Bulls / Pacers Trade",
+    "description": "On 1986-09-18:  Pacers acquire Kyle Macy  Bulls acquire 1988 second round pick (#37-Greg Butler)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Greg Butler",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Litterial Green",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kyle Macy",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "f84adca5-2152-4d7e-94e5-e492d8795397",
+    "date": "1986-09-25",
+    "season": "1986-87",
+    "title": "Celtics / Jazz Trade",
+    "description": "On 1986-09-25:  Jazz acquire 1987 third round pick (#68-Billy Donovan)  Celtics acquire Fred Roberts",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "UTA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Fred Roberts",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Billy Donovan",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "333b650d-cf08-4cf6-87e4-a6d3b78b17af",
+    "date": "1986-09-29",
+    "season": "1986-87",
+    "title": "Tim McCormick, Danny Vranes Trade",
+    "description": "On 1986-09-29:  Sonics acquire Clemon Johnson  76ers acquire Tim McCormick",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tim McCormick",
+        "from_team_id": "OKC",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Danny Vranes",
+        "from_team_id": "OKC",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Clemon Johnson",
+        "from_team_id": "PHI",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Shawn Kemp",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "67bee242-2463-4316-8279-c73d03639818",
+    "date": "1986-09-30",
+    "season": "1986-87",
+    "title": "Pistons / Sonics Trade",
+    "description": "On 1986-09-30:  Sonics acquire John Long  Pistons acquire 1987 second round pick (#24-Fred Banks)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DET",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Fred Banks",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Doug Overton",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "John Long",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "cf5a27de-76a0-4099-a5cd-09ddbb7229d7",
+    "date": "1986-10-02",
+    "season": "1986-87",
+    "title": "Knicks / Nuggets Trade",
+    "description": "On 1986-10-02:  Nuggets acquire Darrell Walker  Knicks acquire 1987 first round pick (#8-Olden Polynice)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Olden Polynice",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Darrell Walker",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "2b230fd4-cfc2-4b04-8cb1-a8adee4581a0",
+    "date": "1986-10-02",
+    "season": "1986-87",
+    "title": "John Long Trade",
+    "description": "On 1986-10-02:  Sonics acquire Russ Schoene  Pacers acquire John Long",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "IND",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "John Long",
+        "from_team_id": "OKC",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Spencer Dunkley",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Russ Schoene",
+        "from_team_id": "IND",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Terence Stansbury",
+        "from_team_id": "IND",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "30c2cd07-883c-44ee-befa-5601efbf16b6",
+    "date": "1986-10-23",
+    "season": "1986-87",
+    "title": "Bulls / Rockets (per Rockets MG) Trade",
+    "description": "On 1986-10-23:  Rockets (per Rockets MG) acquire 1989 second round pick (possibly #43-Chucky Brown)  Bulls acquire Granville Waiters",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Granville Waiters",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Chucky Brown",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "9e810ca3-0faf-46ea-8455-f979e7ccc0f8",
+    "date": "1986-10-24",
+    "season": "1986-87",
+    "title": "Bucks / Nuggets Trade",
+    "description": "On 1986-10-24:  Nuggets acquire 1987 seventh round pick (#156-Curtis Hunter)  Bucks acquire Pete Williams",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Pete Williams",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Curtis Hunter",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "a72fdd48-ad17-44b9-b6b5-39dc361dbba0",
+    "date": "1986-10-30",
+    "season": "1986-87",
+    "title": "Mike O'Koren Trade",
+    "description": "On 1986-10-30:  Nets acquire Leon Wood  Bullets acquire Mike O'Koren",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mike O'Koren",
+        "from_team_id": "BKN",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Leon Wood",
+        "from_team_id": "WAS",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "734eb419-56c1-404d-ab33-40fb044a167e",
+    "date": "1986-10-30",
+    "season": "1986-87",
+    "title": "Bulls / Knicks Trade",
+    "description": "On 1986-10-30:  Knicks acquire Jawann Oldham  Bulls acquire 1987 first round pick (#8-Olden Polynice)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "NYK",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Olden Polynice",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jawann Oldham",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "f51ae68f-91bd-47d4-a451-2b9f397fb6c5",
+    "date": "1986-11-11",
+    "season": "1986-87",
+    "title": "Blazers / Bucks Trade",
+    "description": "On 1986-11-11:  Bucks acquire 1987 second round pick (#40-Winston Garland)  Blazers acquire Chris Engler",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Chris Engler",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Winston Garland",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "18ea5898-8d1e-4cf4-87ac-baf1ad113362",
+    "date": "1986-11-11",
+    "season": "1986-87",
+    "title": "Knicks / Sonics Trade",
+    "description": "On 1986-11-11:  Sonics acquire Sonics option to swap 1987 or 1989 first round picks (1987 #5-Scottie Pippen)  Knicks acquire Gerald Henderson (a)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Gerald Henderson (a)",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mark Jackson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Scottie Pippen",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Steve Henson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "94a99426-bd9a-4690-abbd-2fc7b7cd218f",
+    "date": "1986-12-08",
+    "season": "1986-87",
+    "title": "Cavaliers / Rockets Trade",
+    "description": "On 1986-12-08:  Rockets acquire Dirk Minniefield  Cavaliers acquire 1989 second or third round pick (#43-Chucky Brown)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Chucky Brown",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Dirk Minniefield",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "69689e45-a62b-4a8b-800a-760c8e7d7bf0",
+    "date": "1986-12-18",
+    "season": "1986-87",
+    "title": "Kevin Duckworth Trade",
+    "description": "On 1986-12-18:  Spurs acquire Walter Berry  Blazers acquire Kevin Duckworth",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kevin Duckworth",
+        "from_team_id": "SAS",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Walter Berry",
+        "from_team_id": "POR",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "8b6d8533-01b0-4a78-8b58-01d02c790614",
+    "date": "1986-12-31",
+    "season": "1986-87",
+    "title": "Steve Colter Trade",
+    "description": "On 1986-12-31:  Bulls acquire Sedale Threatt  76ers acquire Steve Colter",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CHI",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Steve Colter",
+        "from_team_id": "CHI",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Stanley Brundy",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sedale Threatt",
+        "from_team_id": "PHI",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ed6ce2dd-a209-43fb-8cf7-43d5d0618691",
+    "date": "1987-01-16",
+    "season": "1986-87",
+    "title": "Clippers / Rockets Trade",
+    "description": "On 1987-01-16:  Rockets acquire Cedric Maxwell  Clippers acquire 1987 first round pick (#13-Joe Wolf)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Joe Wolf",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Cedric Maxwell",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "26b2b54c-1b30-4247-af07-0942baf23e69",
+    "date": "1987-01-29",
+    "season": "1986-87",
+    "title": "Clippers / Pistons Trade",
+    "description": "On 1987-01-29:  Pistons acquire Kurt Nimphius  Clippers acquire 1987 first round pick (#19-Ken Norman)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ken Norman",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Norris Coleman",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kurt Nimphius",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "a7278fcd-7b1e-4ecb-9ed7-3096a1a7720c",
+    "date": "1987-02-13",
+    "season": "1986-87",
+    "title": "Mychal Thompson Trade",
+    "description": "On 1987-02-13:  Spurs acquire Frank Brickowski  Lakers acquire Mychal Thompson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mychal Thompson",
+        "from_team_id": "SAS",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Frank Brickowski",
+        "from_team_id": "LAL",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Petur Gudmundsson",
+        "from_team_id": "LAL",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Greg Anderson / Cadillac Anderson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sean Higgins",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "b91485e8-4355-4302-b6e4-d5f762addd2d",
+    "date": "1987-02-15",
+    "season": "1986-87",
+    "title": "Bulls / Cavaliers Trade",
+    "description": "On 1987-02-15:  Cavaliers acquire 1989 second round pick (possibly #43-Chucky Brown)  Bulls acquire Ben Poquette",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CLE",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ben Poquette",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Chucky Brown",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "186faadb-8978-4cef-a457-002135901e59",
+    "date": "1987-06-19",
+    "season": "1986-87",
+    "title": "Ed Pinkney Trade",
+    "description": "On 1987-06-19:  Suns acquire Eddie Johnson (Arnet)  Kings acquire Ed Pinkney",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ed Pinkney",
+        "from_team_id": "PHX",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Fennis Dembo",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Eddie Johnson (Arnet)",
+        "from_team_id": "SAC",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "a7ef0c0c-55c0-4634-8bdf-8a8d9d631acc",
+    "date": "1987-06-19",
+    "season": "1986-87",
+    "title": "Pistons / Suns Trade",
+    "description": "On 1987-06-19:  Suns acquire 1988 first round pick (#22-Randolph Keys)  Pistons acquire William Bedford",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DET",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "William Bedford",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Randolph Keys",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "810cd9e0-1ffa-4e29-9b90-a11fc3d07b2f",
+    "date": "1987-06-21",
+    "season": "1986-87",
+    "title": "Bucks / Pacers Trade",
+    "description": "On 1987-06-21:  Pacers acquire Scott Skiles  Bucks acquire second round pick (1989 #34-Gary Leonard)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Gary Leonard",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Scott Skiles",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "1394b60d-c4a6-49d5-85c2-c49fdfb22d94",
+    "date": "1987-06-21",
+    "season": "1986-87",
+    "title": "Ed Pinckney Trade",
+    "description": "On 1987-06-21:  Suns acquire Eddie Johnson (a)  Kings acquire Ed Pinckney",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ed Pinckney",
+        "from_team_id": "PHX",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Fennis Dembo",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Eddie Johnson (a)",
+        "from_team_id": "SAC",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "fdb3c506-1f42-412a-b1a9-8b7a7d349ab4",
+    "date": "1987-06-22",
+    "season": "1986-87",
+    "title": "Bulls / Spurs Trade",
+    "description": "On 1987-06-22:  Spurs acquire 1988 second round pick (#27-Shelton Jones)  Bulls acquire Artis Gilmore",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Artis Gilmore",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Shelton Jones",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "fec16875-dbef-42bf-886c-d3bc1edf37cb",
+    "date": "1987-06-22",
+    "season": "1986-87",
+    "title": "Bulls / Sonics Trade",
+    "description": "On 1987-06-22:  Sonics acquire rights to Olden Polynice  Bulls acquire rights to Scottie Pippen",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Scottie Pippen",
+        "from_team_id": "OKC",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jeff Sanders",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Olden Polynice",
+        "from_team_id": "CHI",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "B.J. Armstrong",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sylvester Gray",
+        "notes": null
+      }
+    ]
+  }
+]

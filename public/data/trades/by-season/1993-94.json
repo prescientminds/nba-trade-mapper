@@ -1,0 +1,1362 @@
+[
+  {
+    "id": "44635e7e-0be1-402d-a778-736541bbafe8",
+    "date": "1993-07-13",
+    "season": "1993-94",
+    "title": "Cavaliers / Warriors Trade",
+    "description": "On 1993-07-13:  Warriors acquire 1994 first round pick (top 7 protected) (#16-Clifford Rozier)  Cavaliers acquire Tyrone Hill",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Tyrone Hill",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Clifford Rozier",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "4b78bc17-8c2b-4b00-addc-a6cd9152257c",
+    "date": "1993-08-02",
+    "season": "1993-94",
+    "title": "Blazers / Rockets Trade",
+    "description": "On 1993-08-02:  Rockets acquire Mario Elie  Blazers acquire 1995 second round pick (#58-Don Reid)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Don Reid",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mario Elie",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "a1a02a54-46cd-46a5-ab7e-1201c0a83dfb",
+    "date": "1993-08-19",
+    "season": "1993-94",
+    "title": "Todd Lichti, Anthony Cook Trade",
+    "description": "On 1993-08-19:  Nuggets acquire Brian Williams / Bison Dele  Magic acquire Todd Lichti",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ORL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Todd Lichti",
+        "from_team_id": "DEN",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Anthony Cook",
+        "from_team_id": "DEN",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rodney Dent",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brian Williams / Bison Dele",
+        "from_team_id": "ORL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e20883a3-c4fa-4834-89cc-d878ebdd7674",
+    "date": "1993-08-20",
+    "season": "1993-94",
+    "title": "Bullets / Timberwolves Trade",
+    "description": "On 1993-08-20:  Timberwolves acquire rights to Conrad McRae  Bullets acquire Tim Burroughs",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tim Burroughs",
+        "from_team_id": "MIN",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Conrad McRae",
+        "from_team_id": "WAS",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "488530fd-effa-472d-9c39-8a126bd1dde4",
+    "date": "1993-09-01",
+    "season": "1993-94",
+    "title": "Dana Barros, Eddie Johnson (a) Trade",
+    "description": "On 1993-09-01:  Sonics acquire Kendall Gill  Hornets acquire Dana Barros",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dana Barros",
+        "from_team_id": "OKC",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Eddie Johnson (a)",
+        "from_team_id": "OKC",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sharone Wright",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kendall Gill",
+        "from_team_id": "CHA",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Carlos Rogers",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "068cf323-9369-4f71-94e2-78caafd4ca4a",
+    "date": "1993-09-03",
+    "season": "1993-94",
+    "title": "Dana Barros, Sidney Green Trade",
+    "description": "On 1993-09-03:  Hornets acquire Hersey Hawkins  76ers acquire Dana Barros",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CHA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dana Barros",
+        "from_team_id": "CHA",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sidney Green",
+        "from_team_id": "CHA",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Greg Graham",
+        "from_team_id": "CHA",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sharone Wright",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Hersey Hawkins",
+        "from_team_id": "PHI",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Carlos Rogers",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "a712e42f-4570-4795-bb82-58a70c497b6b",
+    "date": "1993-10-01",
+    "season": "1993-94",
+    "title": "Sean Elliott, David Wood Trade",
+    "description": "On 1993-10-01:  Spurs acquire Dennis Rodman  Pistons acquire Sean Elliott",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DET",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sean Elliott",
+        "from_team_id": "SAS",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "David Wood",
+        "from_team_id": "SAS",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jerome Williams",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dennis Rodman",
+        "from_team_id": "DET",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Isaiah Morris",
+        "from_team_id": "DET",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "John Wallace",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Antonio Lang",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "e2d77809-df73-4269-9cfe-9b34ced260fe",
+    "date": "1993-10-11",
+    "season": "1993-94",
+    "title": "76ers / Pacers Trade",
+    "description": "On 1993-10-11:  Pacers acquire 1994 second round pick (#41-William Njoku)  76ers acquire Sean Green",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Sean Green",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "William Njoku",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "ebb90f1a-1090-4ed6-a5a7-05398995091b",
+    "date": "1993-11-01",
+    "season": "1993-94",
+    "title": "Derrick McKey, Gerald Paddio Trade",
+    "description": "On 1993-11-01:  Sonics acquire Detlef Schrempf  Pacers acquire Derrick McKey",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "IND",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Derrick McKey",
+        "from_team_id": "OKC",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gerald Paddio",
+        "from_team_id": "OKC",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Detlef Schrempf",
+        "from_team_id": "IND",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "4e917678-57ba-4296-9229-202f2b8d3e61",
+    "date": "1993-11-08",
+    "season": "1993-94",
+    "title": "Spurs / Suns Trade",
+    "description": "On 1993-11-08:  Suns acquire second round pick (1994 #29-Antonio Lang)  Spurs acquire Negele Knight",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Negele Knight",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Antonio Lang",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "96f4f80d-3c07-46cf-b666-ec7032af1da6",
+    "date": "1993-11-19",
+    "season": "1993-94",
+    "title": "Alvin Robertson Trade",
+    "description": "On 1993-11-19:  Pistons acquire Marcus Liberty  Nuggets acquire Alvin Robertson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DEN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Alvin Robertson",
+        "from_team_id": "DET",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Anthony Pelle",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Marcus Liberty",
+        "from_team_id": "DEN",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mark Macon",
+        "from_team_id": "DEN",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "10c8f35f-1e97-4525-9a07-aed7cb848350",
+    "date": "1993-12-10",
+    "season": "1993-94",
+    "title": "Rumeal Robinson Trade",
+    "description": "On 1993-12-10:  Nets acquire Johnny Newman  Hornets acquire Rumeal Robinson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Rumeal Robinson",
+        "from_team_id": "BKN",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Johnny Newman",
+        "from_team_id": "CHA",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "963e7d64-7126-48e2-9193-d0ba2ccf3d3a",
+    "date": "1994-01-06",
+    "season": "1993-94",
+    "title": "Derek Harper Trade",
+    "description": "On 1994-01-06:  Mavericks acquire Tony Campbell  Knicks acquire Derek Harper",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Derek Harper",
+        "from_team_id": "DAL",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tony Campbell",
+        "from_team_id": "NYK",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "John Thomas",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "6f529aca-4e22-44ee-92ea-69596e51e211",
+    "date": "1994-01-15",
+    "season": "1993-94",
+    "title": "Anthony Cook Trade",
+    "description": "On 1994-01-15:  Magic acquire Anthony Avent  Bucks acquire Anthony Cook",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ORL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Anthony Cook",
+        "from_team_id": "ORL",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Eric Mobley",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rashard Griffith",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Anthony Avent",
+        "from_team_id": "MIL",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bec44f2b-80a2-4fc4-b74a-64db7e7376df",
+    "date": "1994-02-20",
+    "season": "1993-94",
+    "title": "Olden Polynice Trade",
+    "description": "On 1994-02-20:  Pistons acquire Pete Chilcutt  Kings acquire Olden Polynice",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Olden Polynice",
+        "from_team_id": "DET",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Pete Chilcutt",
+        "from_team_id": "SAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jevon Crudup",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Cal Bowdler",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "039b17bd-42a2-486b-a141-38ef852f79d7",
+    "date": "1994-02-23",
+    "season": "1993-94",
+    "title": "Luc Longley Trade",
+    "description": "On 1994-02-23:  Timberwolves acquire Stacey King  Bulls acquire Luc Longley",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Luc Longley",
+        "from_team_id": "MIN",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Stacey King",
+        "from_team_id": "CHI",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "fe020cff-d497-404d-8ef1-d472cf12df84",
+    "date": "1994-02-24",
+    "season": "1993-94",
+    "title": "Jeff Malone Trade",
+    "description": "On 1994-02-24:  Jazz acquire Jeff Hornacek  76ers acquire Jeff Malone",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "UTA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jeff Malone",
+        "from_team_id": "UTA",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "B.J. Tyler",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jeff Hornacek",
+        "from_team_id": "PHI",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sean Green",
+        "from_team_id": "PHI",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Junior Burrough",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "c729e8d8-cd4b-40c3-9bc4-433d9a79e7c1",
+    "date": "1994-02-24",
+    "season": "1993-94",
+    "title": "Mike Gminski Trade",
+    "description": "On 1994-02-24:  Hornets acquire Frank Brickowski  Bucks acquire Mike Gminski",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CHA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mike Gminski",
+        "from_team_id": "CHA",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Frank Brickowski",
+        "from_team_id": "MIL",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Paul Grant",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "b939bae3-7e8a-4628-b6b6-4b244faad8e5",
+    "date": "1994-02-24",
+    "season": "1993-94",
+    "title": "Dominique Wilkins Trade",
+    "description": "On 1994-02-24:  Hawks acquire Danny Manning  Clippers acquire Dominique Wilkins",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ATL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dominique Wilkins",
+        "from_team_id": "ATL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Greg Minor",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Danny Manning",
+        "from_team_id": "LAC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "2df8a2ff-40c7-40f2-8ceb-777aa49be517",
+    "date": "1994-06-22",
+    "season": "1993-94",
+    "title": "Bucks / Hawks Trade",
+    "description": "On 1994-06-22:  Hawks acquire Ken Norman  Bucks acquire rights to Roy Hinson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ATL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Roy Hinson",
+        "from_team_id": "ATL",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ken Norman",
+        "from_team_id": "MIL",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "950d1f41-bc13-4793-b655-93da2183f492",
+    "date": "1994-06-29",
+    "season": "1993-94",
+    "title": "Ed Pinckney Trade",
+    "description": "On 1994-06-29:  Celtics acquire Derek Strong  Bucks acquire Ed Pinckney",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BOS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ed Pinckney",
+        "from_team_id": "BOS",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Andrei Fetisov",
+        "from_team_id": "BOS",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Derek Strong",
+        "from_team_id": "MIL",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Theodore Edwards / Blue Edwards",
+        "from_team_id": "MIL",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "777dd838-97b3-40ce-99e9-ee9f40ec7b91",
+    "date": "1994-06-29",
+    "season": "1993-94",
+    "title": "Lakers / Warriors Trade",
+    "description": "On 1994-06-29:  Warriors acquire 1995 conditional second round pick (better of two picks Lakers own from 76ers and Bucks) (#40-Dwayne Whitfield)  Lakers acquire rights to Anthony Miller / Pig Miller",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Anthony Miller / Pig Miller",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Dwayne Whitfield",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "d84e3376-b98d-4744-a8e8-20c175db3b20",
+    "date": "1994-06-29",
+    "season": "1993-94",
+    "title": "Sonics / Timberwolves Trade",
+    "description": "On 1994-06-29:  Timberwolves acquire rights to Zeljko Rebraca  Sonics acquire 1996 second round pick (#35-Joseph Blair / Joe Blair)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "OKC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Joseph Blair / Joe Blair",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Zeljko Rebraca",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "2f6b6562-620d-47ce-be78-f091bb340f14",
+    "date": "1994-06-30",
+    "season": "1993-94",
+    "title": "Jerome Richardson / Pooh Richardson, Malik Sealy Trade",
+    "description": "On 1994-06-30:  Pacers acquire Mark Jackson  Clippers acquire Jerome Richardson / Pooh Richardson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jerome Richardson / Pooh Richardson",
+        "from_team_id": "IND",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Malik Sealy",
+        "from_team_id": "IND",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Eric Piatkowski",
+        "from_team_id": "IND",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mark Jackson",
+        "from_team_id": "LAC",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Greg Minor",
+        "from_team_id": "LAC",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

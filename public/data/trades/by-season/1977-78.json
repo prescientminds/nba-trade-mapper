@@ -1,0 +1,2066 @@
+[
+  {
+    "id": "18fba6f7-4dfb-46be-b33f-1a6a57810605",
+    "date": "1977-07-15",
+    "season": "1977-78",
+    "title": "Blazers / Suns Trade",
+    "description": "On 1977-07-15:  Suns acquire 1978 fourth round pick (#88-Wayne Smith)  Blazers acquire Dale Schlueter",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Dale Schlueter",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Wayne Smith",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "3bb51f5d-afb4-403b-acf6-f6c8dd98d58f",
+    "date": "1977-08-10",
+    "season": "1977-78",
+    "title": "Tom Owens Trade",
+    "description": "On 1977-08-10:  Rockets acquire Robin Jones  Blazers acquire Tom Owens",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tom Owens",
+        "from_team_id": "HOU",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Robin Jones",
+        "from_team_id": "POR",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "230cc377-18e6-4125-866d-0a429a6fe5c9",
+    "date": "1977-09-01",
+    "season": "1977-78",
+    "title": "Billy Knight Trade",
+    "description": "On 1977-09-01:  Pacers acquire Adrian Dantley  Braves acquire Billy Knight",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Billy Knight",
+        "from_team_id": "IND",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Adrian Dantley",
+        "from_team_id": "LAC",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mike Bantom",
+        "from_team_id": "LAC",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "badd6c8b-3bf4-4112-8ae5-0ec95d0595c5",
+    "date": "1977-09-01",
+    "season": "1977-78",
+    "title": "Nate Archibald Trade",
+    "description": "On 1977-09-01:  Nets acquire George Johnson (Thomas)  Braves acquire Nate Archibald",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nate Archibald",
+        "from_team_id": "BKN",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "George Johnson (Thomas)",
+        "from_team_id": "LAC",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Micheal Ray Richardson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Cliff Robinson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "be269990-99ac-4db3-a5be-c8b0b7c32d80",
+    "date": "1977-09-02",
+    "season": "1977-78",
+    "title": "Braves / Bucks Trade",
+    "description": "On 1977-09-02:  Bucks acquire John Gianelli  Braves acquire 1979 or 1980 first round pick (1979 #10-Roy Hamilton)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "MIL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Roy Hamilton",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "John Gianelli",
+        "from_team_id": "LAC",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "73ef5fb0-c2a3-4a24-ba26-2017cf947d7e",
+    "date": "1977-09-06",
+    "season": "1977-78",
+    "title": "Ricky Sobers Trade",
+    "description": "On 1977-09-06:  Suns acquire Don Buse  Pacers acquire Ricky Sobers",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "IND",
+        "role": "receiver"
+      },
+      {
+        "team_id": "PHX",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ricky Sobers",
+        "from_team_id": "PHX",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Don Buse",
+        "from_team_id": "IND",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "c57cc3a8-3dfd-4e35-b763-ff2bb08fcd67",
+    "date": "1977-09-13",
+    "season": "1977-78",
+    "title": "Braves / Hawks Trade",
+    "description": "On 1977-09-13:  Hawks acquire 1978 second round pick (#24-Keith Herron)  Braves acquire Bill Willoughby",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ATL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Bill Willoughby",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Keith Herron",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "fb88567c-4509-4f2e-9a55-1c76fe126194",
+    "date": "1977-09-16",
+    "season": "1977-78",
+    "title": "Braves / Nets Trade",
+    "description": "On 1977-09-16:  Nets acquire William Averitt / Bird Averitt  Braves acquire cash",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "William Averitt / Bird Averitt",
+        "from_team_id": "LAC",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "6b22b211-c4b9-40a3-9cca-6edb8592c740",
+    "date": "1977-09-30",
+    "season": "1977-78",
+    "title": "Ollie Johnson Trade",
+    "description": "On 1977-09-30:  Lakers acquire Lou Hudson  Hawks acquire Ollie Johnson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "LAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ollie Johnson",
+        "from_team_id": "LAL",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Lou Hudson",
+        "from_team_id": "ATL",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "0f092887-0c20-4cb8-af25-30b028a071e1",
+    "date": "1977-10-03",
+    "season": "1977-78",
+    "title": "76ers / Cavaliers Trade",
+    "description": "On 1977-10-03:  Cavaliers acquire Terry Furlow  76ers acquire 1981 first round pick (#4-Al Wood)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CLE",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Al Wood",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rodney McCray",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Terry Furlow",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "18eb1b4d-4fa8-464b-8564-be58cdb4237a",
+    "date": "1977-10-05",
+    "season": "1977-78",
+    "title": "Blazers / Hawks Trade",
+    "description": "On 1977-10-05:  Hawks acquire rights to Rich Laurel  Blazers acquire 1978 second round pick (#24-Keith Herron)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ATL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Keith Herron",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rich Laurel",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "b0dec6be-aee3-4ddb-b9d1-7dd0a6691266",
+    "date": "1977-10-11",
+    "season": "1977-78",
+    "title": "Bullets / Nuggets Trade",
+    "description": "On 1977-10-11:  Nuggets acquire Bo Ellis  Bullets acquire 1978 first round pick (#18-Dave Corzine)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Dave Corzine",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Bo Ellis",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "09fe30ee-b308-4ea7-92fc-100f8c2fae00",
+    "date": "1977-10-13",
+    "season": "1977-78",
+    "title": "Hawks / Jazz Trade",
+    "description": "On 1977-10-13:  Jazz acquire Joe Meriweather / Joe C. Meriweather  Hawks acquire 1978 first round pick (#16-Jack Givens)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "UTA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jack Givens",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Joe Meriweather / Joe C. Meriweather",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "352bf6c5-29b9-4833-8ac4-35e219f45a89",
+    "date": "1977-10-18",
+    "season": "1977-78",
+    "title": "Braves / Pacers Trade",
+    "description": "On 1977-10-18:  Pacers acquire Johnny Neumann  Braves acquire 1978 third round pick (#48-Mike Santos)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mike Santos",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Johnny Neumann",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "1bc00ae6-40f6-462e-99a4-cce187bb49bf",
+    "date": "1977-10-18",
+    "season": "1977-78",
+    "title": "Bulls / Jazz Trade",
+    "description": "On 1977-10-18:  Jazz acquire 1978 fourth round pick (#75-Jeff Covington)  Bulls acquire Glenn Hansen",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "UTA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Glenn Hansen",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jeff Covington",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "6662ed6a-c63e-4abe-9d30-32eee81d8063",
+    "date": "1977-10-22",
+    "season": "1977-78",
+    "title": "Rockets / Sonics Trade",
+    "description": "On 1977-10-22:  Sonics acquire John Johnson (a)  Rockets acquire 1979 second round pick (#42-Paul Mokeski)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "HOU",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Paul Mokeski",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Billy Williams",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "John Johnson (a)",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "fe7554e8-8f71-4d79-863c-9cdcb6e93ef6",
+    "date": "1977-11-07",
+    "season": "1977-78",
+    "title": "Howard Porter, Kevin Porter Trade",
+    "description": "On 1977-11-07:  Pistons (Pistons and Nets media guides both mention the 1979 pick; NBA Register has conflicting information as to whether or not it was included) acquire Al Skinner  Nets acquire Howard Porter",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DET",
+        "role": "sender"
+      },
+      {
+        "team_id": "BKN",
+        "role": "receiver"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Howard Porter",
+        "from_team_id": "DET",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kevin Porter",
+        "from_team_id": "DET",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Al Skinner",
+        "from_team_id": "BKN",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "DET",
+        "pick_year": 1978,
+        "pick_round": 2,
+        "original_team_id": "BKN",
+        "became_player_name": "Terry Tyler",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "DET",
+        "pick_year": 1979,
+        "pick_round": 2,
+        "original_team_id": "BKN",
+        "became_player_name": "Tony Price",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "db11de2c-c634-4e8c-b48f-b769e4a4d80a",
+    "date": "1977-11-11",
+    "season": "1977-78",
+    "title": "Blazers / Sonics Trade",
+    "description": "On 1977-11-11:  Sonics acquire Wally Walker  Blazers acquire 1978 first round pick (#7-Ron Brewer)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ron Brewer",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Andrew Fields",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Wally Walker",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "2d220e6e-f339-4587-80ba-a6f7b2f7cc41",
+    "date": "1977-11-12",
+    "season": "1977-78",
+    "title": "Sonics / Spurs Trade",
+    "description": "On 1977-11-12:  Spurs acquire Mike Green  Sonics acquire 1978 second round pick (#42-Kevin McDonald)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "OKC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kevin McDonald",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Andrew Fields",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mike Green",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "96616f0e-4c62-410b-88ef-f7f9f224c760",
+    "date": "1977-11-14",
+    "season": "1977-78",
+    "title": "Hawks / Knicks Trade",
+    "description": "On 1977-11-14:  Knicks acquire 1978 second round pick (#32-John Rudd)  Hawks acquire Tom McMillen",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "NYK",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Tom McMillen",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "John Rudd",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "922668a7-bfc1-42d8-b283-5ad6bc515771",
+    "date": "1977-11-23",
+    "season": "1977-78",
+    "title": "Marvin Barnes Trade",
+    "description": "On 1977-11-23:  Pistons acquire John Shumate  Braves acquire Marvin Barnes",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Marvin Barnes",
+        "from_team_id": "DET",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Lew Massey",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Larry Harris",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "John Shumate",
+        "from_team_id": "LAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gus Gerard",
+        "from_team_id": "LAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Roy Hamilton",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "36928032-98d5-493e-9575-77bce0ebcac0",
+    "date": "1977-12-13",
+    "season": "1977-78",
+    "title": "Adrian Dantley, Dave Robisch Trade",
+    "description": "On 1977-12-13:  Pacers acquire James Edwards  Lakers acquire Adrian Dantley",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Adrian Dantley",
+        "from_team_id": "IND",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dave Robisch",
+        "from_team_id": "IND",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "James Edwards",
+        "from_team_id": "LAL",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Earl Tatum",
+        "from_team_id": "LAL",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "0911b376-2e9e-4ff7-b483-c1eb94f718cc",
+    "date": "1977-12-16",
+    "season": "1977-78",
+    "title": "Hawks / Rockets Trade",
+    "description": "On 1977-12-16:  Rockets acquire Ron Behagen  Hawks acquire 1978 second round pick (#25-Rick Wilson)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rick Wilson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Larry Wilson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Ron Behagen",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "9bf3ecbc-116f-4a60-b2cf-eed8bd03fd2b",
+    "date": "1977-12-21",
+    "season": "1977-78",
+    "title": "Pacers / Rockets Trade",
+    "description": "On 1977-12-21:  Rockets acquire rights to Alonzo Bradley  Pacers acquire Ron Behagen",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "IND",
+        "role": "receiver"
+      },
+      {
+        "team_id": "HOU",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ron Behagen",
+        "from_team_id": "HOU",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Alonzo Bradley",
+        "from_team_id": "IND",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "80c314c7-c0d9-47d8-ac6b-fb03eb989707",
+    "date": "1977-12-27",
+    "season": "1977-78",
+    "title": "Don Chaney, Kermit Washington Trade",
+    "description": "On 1977-12-27:  Lakers acquire Charlie Scott  Celtics acquire Don Chaney",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "LAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Don Chaney",
+        "from_team_id": "LAL",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kermit Washington",
+        "from_team_id": "LAL",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Freeman Williams",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Charlie Scott",
+        "from_team_id": "BOS",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "5f5a951e-0e6b-4195-81e0-40f5e23de79e",
+    "date": "1978-01-04",
+    "season": "1977-78",
+    "title": "Don Watts / Slick Watts Trade",
+    "description": "On 1978-01-04:  Warriors acquire Nate Williams  Jazz acquire Don Watts / Slick Watts Other Team(s) Involved in Trade: Sonics",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "participant"
+      },
+      {
+        "team_id": "OKC",
+        "role": "participant"
+      },
+      {
+        "team_id": "GSW",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Don Watts / Slick Watts",
+        "from_team_id": "OKC",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Tom Green / Tommy Green",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Nate Williams",
+        "from_team_id": "UTA",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Danny Vranes",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "1706027d-60e4-4ac7-ae77-91b791c4500d",
+    "date": "1978-01-27",
+    "season": "1977-78",
+    "title": "John Williamson Trade",
+    "description": "On 1978-01-27:  Pacers acquire Bob Carrington  Nets acquire John Williamson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BKN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "John Williamson",
+        "from_team_id": "IND",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bob Carrington",
+        "from_team_id": "BKN",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Louis Orr",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Brian Jackson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "76a77ce5-a20f-42e8-bc46-7aa1fa24156e",
+    "date": "1978-01-30",
+    "season": "1977-78",
+    "title": "Nets / Nuggets Trade",
+    "description": "On 1978-01-30:  Nuggets acquire Darnell Hillman  Nets acquire 1979 second round pick (#36-Clint Richardson)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BKN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DEN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Clint Richardson",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Darnell Hillman",
+        "from_team_id": "BKN",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "40c5d0dd-44a8-4a04-9dc6-67fd089b6e6e",
+    "date": "1978-01-31",
+    "season": "1977-78",
+    "title": "76ers / Nets Trade",
+    "description": "On 1978-01-31:  Nets acquire Wilson Washington  76ers acquire 1979 second round pick (#36-Clint Richardson)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "BKN",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Clint Richardson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mitchell Anderson / J.J. Anderson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Claude Riley",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Wilson Washington",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "a31d6775-e00d-40fa-8366-c86cf922a6ac",
+    "date": "1978-01-31",
+    "season": "1977-78",
+    "title": "76ers / Braves Trade",
+    "description": "On 1978-01-31:  Braves acquire 1978 third round pick (#65-Marvin Dalph)  76ers acquire Ted McClain",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "receiver"
+      },
+      {
+        "team_id": "LAC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ted McClain",
+        "from_team_id": "LAC",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Marvin Dalph",
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "59e2a754-921a-499a-b39d-9931312d1f19",
+    "date": "1978-02-01",
+    "season": "1977-78",
+    "title": "Celtics / Jazz Trade",
+    "description": "On 1978-02-01:  Jazz acquire Fred Saunders  Celtics acquire 1978 second round pick (#30-Jeff Judkins)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "UTA",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Jeff Judkins",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Fred Saunders",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "686ec894-d4f1-40b2-8bd6-0c7c77ec550c",
+    "date": "1978-02-01",
+    "season": "1977-78",
+    "title": "Ralph Simpson Trade",
+    "description": "On 1978-02-01:  Pistons acquire Jim Price  Nuggets acquire Ralph Simpson",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DEN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DET",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ralph Simpson",
+        "from_team_id": "DET",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Oliver Mack",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Kurt Nimphius",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jim Price",
+        "from_team_id": "DEN",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Phil Hubbard",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "b644c301-1674-4ccd-b81f-dcf3ed0c125a",
+    "date": "1978-06-01",
+    "season": "1977-78",
+    "title": "Bucks / Cavaliers Trade",
+    "description": "On 1978-06-01:  Cavaliers acquire 1978 first round pick (#15-Mike Mitchell)  Bucks acquire 1979 first round pick (#4-Greg Kelser)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "CLE",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Greg Kelser",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mike Mitchell",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "37bbc69e-9b3b-4042-bdfc-f223d7e8ca1c",
+    "date": "1978-06-07",
+    "season": "1977-78",
+    "title": "Blazers / Pacers Trade",
+    "description": "On 1978-06-07:  Pacers acquire Johnny Davis  Blazers acquire 1978 first round pick (#1-Mychal Thompson)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mychal Thompson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Johnny Davis",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rick Robey",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "7a337a09-d8c4-481d-ae79-d6db026eda7c",
+    "date": "1978-06-07",
+    "season": "1977-78",
+    "title": "Blazers / Warriors Trade",
+    "description": "On 1978-06-07:  Warriors acquire 1978 first round pick (#22-Raymond Townsend)  Blazers acquire 1979 or 1981 first round pick (1981 #10-Albert King)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "GSW",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Albert King",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Raymond Townsend",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "4e0955a9-d262-4e28-8199-0e56702f9c3f",
+    "date": "1978-06-07",
+    "season": "1977-78",
+    "title": "Braves / Lakers Trade",
+    "description": "On 1978-06-07:  Lakers acquire 1978 second round pick (#38-Lew Massey)  Braves acquire Tom Abernethy",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "receiver"
+      },
+      {
+        "team_id": "LAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Tom Abernethy",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Lew Massey",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "7e349e8b-ca13-4b41-9e18-fa5c3616c804",
+    "date": "1978-06-09",
+    "season": "1977-78",
+    "title": "Nuggets / Sonics Trade",
+    "description": "On 1978-06-09:  Sonics acquire Tom LaGarde  Nuggets acquire 1978 first round pick (#17-Rod Griffin)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DEN",
+        "role": "receiver"
+      },
+      {
+        "team_id": "OKC",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Rod Griffin",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Tom LaGarde",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "aba55c48-ddbe-4c7d-ab1d-7dc9ff6f4c68",
+    "date": "1978-06-26",
+    "season": "1977-78",
+    "title": "Darnell Hillman, Ron Boone Trade",
+    "description": "On 1978-06-26:  Nuggets acquire Charlie Scott  Lakers acquire Ron Boone Other Team(s) Involved in Trade: Kings,  (UPI)",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "LAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "DEN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Darnell Hillman",
+        "from_team_id": "DEN",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mike Evans",
+        "from_team_id": "DEN",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ron Boone",
+        "from_team_id": "SAC",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mark Young",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "055a696c-0bac-4c48-b4ec-74bf78db4b40",
+    "date": "1978-06-30",
+    "season": "1977-78",
+    "title": "Blazers / Pacers Trade",
+    "description": "On 1978-06-30:  Pacers acquire David Calhoun / Corky Calhoun  Blazers acquire 1980 second round pick (#32-David Lawrence)",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "IND",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "IND",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "David Lawrence",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "David Calhoun / Corky Calhoun",
+        "notes": null
+      }
+    ]
+  }
+]

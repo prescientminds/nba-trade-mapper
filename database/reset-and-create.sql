@@ -1,0 +1,10 @@
+-- Drop everything and start fresh
+DROP VIEW IF EXISTS trade_lineage CASCADE;
+DROP VIEW IF EXISTS trade_details CASCADE;
+DROP TABLE IF EXISTS player_accolades CASCADE;
+DROP TABLE IF EXISTS team_seasons CASCADE;
+DROP TABLE IF EXISTS transaction_assets CASCADE;
+DROP TABLE IF EXISTS transaction_teams CASCADE;
+DROP TABLE IF EXISTS transactions CASCADE;
+DROP TABLE IF EXISTS players CASCADE;
+DROP TABLE IF EXISTS teams CASCADE;
