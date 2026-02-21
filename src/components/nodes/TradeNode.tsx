@@ -2,7 +2,7 @@
 
 import { memo, useMemo, useState, useEffect } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
-import { TEAMS } from '@/lib/teams';
+import { TEAMS, getTeamDisplayInfo } from '@/lib/teams';
 import { useGraphStore, TradeNodeData } from '@/lib/graph-store';
 import { SeasonTable } from '@/components/SeasonTable';
 import type { TransactionAsset } from '@/lib/supabase';
@@ -60,13 +60,13 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   // Heading: "Lakers & Celtics" or "3-Team Trade"
   const tradeHeading = useMemo(() => {
     if (teamIds.length === 2) {
-      const n1 = TEAMS[teamIds[0]]?.name.split(' ').pop() || teamIds[0];
-      const n2 = TEAMS[teamIds[1]]?.name.split(' ').pop() || teamIds[1];
+      const n1 = getTeamDisplayInfo(teamIds[0], trade.date)?.name.split(' ').pop() || teamIds[0];
+      const n2 = getTeamDisplayInfo(teamIds[1], trade.date)?.name.split(' ').pop() || teamIds[1];
       return `${n1} & ${n2}`;
     }
     if (teamIds.length >= 3) return `${teamIds.length}-Team Trade`;
     return trade.title;
-  }, [teamIds, trade.title]);
+  }, [teamIds, trade.title, trade.date]);
 
   // Subtitle: unique player names involved, max 3 + overflow count
   const playerSubtitle = useMemo(() => {
@@ -289,9 +289,8 @@ function TradeNodeComponent({ id, data }: NodeProps) {
       {/* Team badges — solid filled pills */}
       <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', alignItems: 'center' }}>
         {teamIds.map((tid) => {
-          const team = TEAMS[tid];
-          if (!team) return null;
-          const bg = team.color;
+          const displayInfo = getTeamDisplayInfo(tid, trade.date);
+          const bg = displayInfo.color;
           const textColor = contrastText(bg);
           // Very dark colors (e.g. BKN black) get a subtle white outline so they're
           // visible against the card's dark background
@@ -310,7 +309,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                 border: needsOutline ? '1px solid rgba(255,255,255,0.25)' : 'none',
               }}
             >
-              {tid}
+              {displayInfo.abbreviation}
             </span>
           );
         })}
@@ -410,8 +409,8 @@ function TradeNodeComponent({ id, data }: NodeProps) {
               {/* Bars */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                 {scoreEntries.map(([teamId, ts]) => {
-                  const team = TEAMS[teamId];
-                  const color = ensureReadable(team?.color || '#888888');
+                  const scoreDisplayInfo = getTeamDisplayInfo(teamId, trade.date);
+                  const color = ensureReadable(scoreDisplayInfo.color);
                   const pct = (ts.score / maxScore) * 100;
                   const isWinner = teamId === tradeScore!.winner;
                   return (
@@ -421,7 +420,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                         color: isWinner ? color : 'var(--text-muted)',
                         width: 22, flexShrink: 0,
                       }}>
-                        {teamId}
+                        {scoreDisplayInfo.abbreviation}
                       </span>
                       <div style={{
                         flex: 1, height: 2,
@@ -464,9 +463,9 @@ function TradeNodeComponent({ id, data }: NodeProps) {
           />
 
           {Object.entries(assetsByTeam).map(([teamId, assets]) => {
-            const team = TEAMS[teamId];
-            const teamColor = ensureReadable(team?.color || '#666');
-            const teamName = team?.name || teamId;
+            const teamDisplayInfo = getTeamDisplayInfo(teamId, trade.date);
+            const teamColor = ensureReadable(teamDisplayInfo.color);
+            const teamName = teamDisplayInfo.name;
 
             const hasRenderableAssets = assets.some((a) => {
               if (a.asset_type === 'cash' || a.asset_type === 'exception') return true;

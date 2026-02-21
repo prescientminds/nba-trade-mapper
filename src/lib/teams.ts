@@ -44,3 +44,85 @@ export const TEAMS: Record<string, TeamInfo> = {
 export const TEAM_LIST = Object.values(TEAMS).sort((a, b) => a.name.localeCompare(b.name));
 export const EAST_TEAMS = TEAM_LIST.filter(t => t.conference === 'East');
 export const WEST_TEAMS = TEAM_LIST.filter(t => t.conference === 'West');
+
+// ---------------------------------------------------------------------------
+// Historical display layer — teams stored under their current ID but displayed
+// with their historical name/abbreviation for trades before relocation.
+// ---------------------------------------------------------------------------
+
+export interface TeamDisplayInfo {
+  name: string;
+  abbreviation: string;
+  color: string;
+  secondaryColor: string;
+}
+
+interface TeamRelocation {
+  teamId: string;      // ID used in our data (current franchise ID)
+  cutoffDate: string;  // ISO date string — trades BEFORE this use historical info
+  historicalName: string;
+  historicalAbbreviation: string;
+  historicalColor: string;
+  historicalSecondaryColor: string;
+}
+
+const TEAM_RELOCATIONS: TeamRelocation[] = [
+  // Seattle SuperSonics → Oklahoma City Thunder (2008-09 season)
+  {
+    teamId: 'OKC',
+    cutoffDate: '2008-07-01',
+    historicalName: 'Seattle SuperSonics',
+    historicalAbbreviation: 'SEA',
+    historicalColor: '#00653A',
+    historicalSecondaryColor: '#FFC200',
+  },
+  // Vancouver Grizzlies → Memphis Grizzlies (2001-02 season)
+  {
+    teamId: 'MEM',
+    cutoffDate: '2001-07-01',
+    historicalName: 'Vancouver Grizzlies',
+    historicalAbbreviation: 'VAN',
+    historicalColor: '#00B2A9',
+    historicalSecondaryColor: '#1D1160',
+  },
+  // New Jersey Nets → Brooklyn Nets (2012-13 season)
+  {
+    teamId: 'BKN',
+    cutoffDate: '2012-07-01',
+    historicalName: 'New Jersey Nets',
+    historicalAbbreviation: 'NJN',
+    historicalColor: '#002A60',
+    historicalSecondaryColor: '#FFFFFF',
+  },
+];
+
+/**
+ * Returns the display name, abbreviation, and colors for a team on a given
+ * trade date. For relocated franchises, returns the historical identity for
+ * trades that predate the move.
+ */
+export function getTeamDisplayInfo(teamId: string, tradeDate?: string | null): TeamDisplayInfo {
+  const base = TEAMS[teamId];
+  const fallback: TeamDisplayInfo = {
+    name: base?.name || teamId,
+    abbreviation: teamId,
+    color: base?.color || '#666666',
+    secondaryColor: base?.secondaryColor || '#888888',
+  };
+
+  if (!tradeDate) return fallback;
+
+  const relocation = TEAM_RELOCATIONS.find((r) => r.teamId === teamId);
+  if (!relocation) return fallback;
+
+  if (tradeDate < relocation.cutoffDate) {
+    return {
+      name: relocation.historicalName,
+      abbreviation: relocation.historicalAbbreviation,
+      color: relocation.historicalColor,
+      secondaryColor: relocation.historicalSecondaryColor,
+    };
+  }
+
+  return fallback;
+}
