@@ -55,7 +55,7 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
   return (
     <div
       style={{
-        width: isExpanded ? 280 : 240,
+        width: isExpanded ? 300 : 240,
         overflow: 'hidden',
         background: 'var(--bg-card)',
         borderRadius: 'var(--radius-md)',

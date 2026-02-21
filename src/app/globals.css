@@ -83,6 +83,11 @@ body {
   to { transform: rotate(360deg); }
 }
 
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
 /* Line clamp utility */
 .line-clamp-2 {
   display: -webkit-box;
@@ -143,6 +148,39 @@ body {
 .react-flow__edge-textbg {
   fill: var(--bg-primary) !important;
 }
+
+/* ── Mobile / Touch ──────────────────────────────────────────────── */
+
+/* React Flow must own all pointer events — prevents browser from
+   stealing scroll or pinch gestures on the canvas */
+.react-flow__renderer,
+.react-flow__pane {
+  touch-action: none !important;
+}
+
+/* Minimum 44px touch targets on coarse-pointer devices (phones/tablets) */
+@media (pointer: coarse) {
+  .react-flow__controls-button {
+    width: 44px !important;
+    height: 44px !important;
+    margin-bottom: 8px !important;
+  }
+}
+
+/* Suppress the blue flash on tap for interactive elements */
+button, a, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Reduce or skip transitions on devices requesting reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── End Mobile ──────────────────────────────────────────────────── */
 
 /* Hide default node styling */
 .react-flow__node {

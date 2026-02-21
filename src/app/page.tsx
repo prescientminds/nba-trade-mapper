@@ -1,6 +1,19 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+/** True on narrow/touch screens. Re-checks on resize. */
+function useMobile(): boolean {
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const check = () =>
+      setMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+  return mobile;
+}
 import {
   ReactFlow,
   Background,
@@ -34,12 +47,14 @@ function CanvasControls() {
   const nodes = useGraphStore((s) => s.nodes);
   const clearGraph = useGraphStore((s) => s.clearGraph);
   const collapseAll = useGraphStore((s) => s.collapseAll);
+  const isMobile = useMobile();
 
   if (nodes.length === 0) return null;
 
   const btnStyle: React.CSSProperties = {
-    padding: '5px 10px',
-    fontSize: 11,
+    padding: isMobile ? '10px 16px' : '5px 10px',
+    minHeight: isMobile ? 44 : 'auto',
+    fontSize: isMobile ? 13 : 11,
     fontWeight: 600,
     fontFamily: 'var(--font-body)',
     color: 'var(--text-secondary)',
@@ -48,16 +63,19 @@ function CanvasControls() {
     borderRadius: 'var(--radius-sm)',
     cursor: 'pointer',
     transition: 'var(--transition-fast)',
+    WebkitTapHighlightColor: 'transparent',
   };
 
   return (
     <div
       style={{
         position: 'absolute',
-        top: 12,
-        right: 12,
+        top: isMobile ? 'auto' : 12,
+        bottom: isMobile ? 80 : 'auto',
+        right: isMobile ? 12 : 12,
         zIndex: 8,
         display: 'flex',
+        flexDirection: isMobile ? 'column' : 'row',
         gap: 6,
       }}
     >
@@ -103,6 +121,7 @@ function GraphCanvas() {
   const pendingFitTarget = useGraphStore((s) => s.pendingFitTarget);
   const clearPendingFitTarget = useGraphStore((s) => s.clearPendingFitTarget);
   const { fitView } = useReactFlow();
+  const isMobile = useMobile();
 
   // Center viewport on the target node after journey/trade loads
   useEffect(() => {
@@ -140,6 +159,13 @@ function GraphCanvas() {
           nodeTypes={nodeTypes}
           minZoom={0.1}
           maxZoom={2}
+          // Touch: 1-finger pan, 2-finger pinch zoom
+          panOnDrag={true}
+          zoomOnPinch={true}
+          zoomOnScroll={!isMobile}
+          // Require 8px of movement before a node drag starts — distinguishes taps from drags
+          nodeDragThreshold={isMobile ? 8 : 4}
+          selectionOnDrag={false}
           defaultEdgeOptions={{
             type: 'straight',
             style: { stroke: '#555', strokeWidth: 1.5 },
@@ -152,29 +178,35 @@ function GraphCanvas() {
             size={1}
             color="#1a1a2e"
           />
-          <Controls
-            showInteractive={false}
-            style={{ bottom: 16, left: 16 }}
-          />
-          <MiniMap
-            nodeColor={(node) => {
-              if (node.type === 'trade') return '#ff6b35';
-              if (node.type === 'player') return '#4ecdc4';
-              if (node.type === 'pick') return '#f9c74f';
-              if (node.type === 'playerStint') return '#9b5de5';
-              if (node.type === 'transition') return '#888';
-              if (node.type === 'gap') return '#444';
-              return '#666';
-            }}
-            maskColor="rgba(10, 10, 15, 0.8)"
-            style={{
-              bottom: 16,
-              right: 16,
-              background: '#12121a',
-              border: '1px solid rgba(255,255,255,0.06)',
-              borderRadius: 8,
-            }}
-          />
+          {/* Controls: hide on mobile (pinch to zoom is sufficient) */}
+          {!isMobile && (
+            <Controls
+              showInteractive={false}
+              style={{ bottom: 16, left: 16 }}
+            />
+          )}
+          {/* MiniMap: hide on mobile (too small to tap usefully) */}
+          {!isMobile && (
+            <MiniMap
+              nodeColor={(node) => {
+                if (node.type === 'trade') return '#ff6b35';
+                if (node.type === 'player') return '#4ecdc4';
+                if (node.type === 'pick') return '#f9c74f';
+                if (node.type === 'playerStint') return '#9b5de5';
+                if (node.type === 'transition') return '#888';
+                if (node.type === 'gap') return '#444';
+                return '#666';
+              }}
+              maskColor="rgba(10, 10, 15, 0.8)"
+              style={{
+                bottom: 16,
+                right: 16,
+                background: '#12121a',
+                border: '1px solid rgba(255,255,255,0.06)',
+                borderRadius: 8,
+              }}
+            />
+          )}
         </ReactFlow>
       </div>
     </div>

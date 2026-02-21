@@ -45,7 +45,7 @@ function expandedTradeDimensions(node: Node): { width: number; height: number } 
   }
 
   const hasInlinePlayers = data.inlinePlayers && Object.keys(data.inlinePlayers).length > 0;
-  const width = hasInlinePlayers ? 280 : 240;
+  const width = hasInlinePlayers ? 300 : 240;
   return { width, height: Math.max(height, 80) };
 }
 
@@ -62,7 +62,7 @@ function expandedStintDimensions(node: Node): { width: number; height: number } 
   const seasonCount = data.seasonDetails?.length ?? data.seasons?.length ?? 3;
   // Header (~36) + stats line (~16) + table header (~18) + rows + footer (~24)
   const height = 36 + 16 + 18 + seasonCount * 18 + 24;
-  return { width: 280, height: Math.max(height, 100) };
+  return { width: 300, height: Math.max(height, 100) };
 }
 
 export function layoutPlayerTimeline(

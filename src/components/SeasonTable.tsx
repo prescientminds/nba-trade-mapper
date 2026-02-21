@@ -37,7 +37,17 @@ export function SeasonTable({ rows }: { rows: SeasonDetailRow[] }) {
   };
 
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: 4 }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: 4, tableLayout: 'fixed' }}>
+      {/* Fixed widths for stat columns; last column gets remainder for accolades */}
+      <colgroup>
+        <col style={{ width: 30 }} />{/* Yr  */}
+        <col style={{ width: 21 }} />{/* GP  */}
+        <col style={{ width: 27 }} />{/* PPG */}
+        <col style={{ width: 27 }} />{/* RPG */}
+        <col style={{ width: 22 }} />{/* APG */}
+        <col style={{ width: 25 }} />{/* WS  */}
+        <col />                       {/* Accolades — all remaining width */}
+      </colgroup>
       <thead>
         <tr>
           <th style={{ ...thStyle, textAlign: 'left' }}>Yr</th>
@@ -46,25 +56,26 @@ export function SeasonTable({ rows }: { rows: SeasonDetailRow[] }) {
           <th style={thStyle}>RPG</th>
           <th style={thStyle}>APG</th>
           <th style={thStyle}>WS</th>
-          <th style={{ ...thStyle, textAlign: 'left', paddingLeft: 6 }}></th>
+          <th style={{ ...thStyle, textAlign: 'left', paddingLeft: 5 }}></th>
         </tr>
       </thead>
       <tbody>
         {rows.map((r) => {
           const shortSeason = r.season.length > 5 ? r.season.slice(2) : r.season;
+          const compactTd: React.CSSProperties = { ...tdStyle, padding: '2px 2px' };
           return (
             <tr key={r.season}>
-              <td style={{ ...tdStyle, textAlign: 'left', fontSize: 10, color: 'var(--text-tertiary)' }}>
+              <td style={{ ...compactTd, textAlign: 'left', fontSize: 10, color: 'var(--text-tertiary)', padding: '2px 2px 2px 0' }}>
                 {shortSeason}
               </td>
-              <td style={tdStyle}>{r.gp ?? '--'}</td>
-              <td style={tdStyle}>{r.ppg !== null ? r.ppg.toFixed(1) : '--'}</td>
-              <td style={tdStyle}>{r.rpg !== null ? r.rpg.toFixed(1) : '--'}</td>
-              <td style={tdStyle}>{r.apg !== null ? r.apg.toFixed(1) : '--'}</td>
-              <td style={tdStyle}>{r.winShares !== null ? r.winShares.toFixed(1) : '--'}</td>
-              <td style={{ ...tdStyle, textAlign: 'left', paddingLeft: 6 }}>
+              <td style={compactTd}>{r.gp ?? '--'}</td>
+              <td style={compactTd}>{r.ppg !== null ? r.ppg.toFixed(1) : '--'}</td>
+              <td style={compactTd}>{r.rpg !== null ? r.rpg.toFixed(1) : '--'}</td>
+              <td style={compactTd}>{r.apg !== null ? r.apg.toFixed(1) : '--'}</td>
+              <td style={compactTd}>{r.winShares !== null ? r.winShares.toFixed(1) : '--'}</td>
+              <td style={{ ...compactTd, textAlign: 'left', paddingLeft: 5, overflow: 'hidden' }}>
                 {r.accolades.length > 0 && (
-                  <span style={{ display: 'inline-flex', gap: 3, flexWrap: 'nowrap' }}>
+                  <span style={{ display: 'inline-flex', gap: 3, flexWrap: 'wrap' }}>
                     {r.accolades.map((a, i) => (
                       <span
                         key={i}

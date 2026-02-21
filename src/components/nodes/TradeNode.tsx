@@ -6,7 +6,7 @@ import { TEAMS } from '@/lib/teams';
 import { useGraphStore, TradeNodeData } from '@/lib/graph-store';
 import { SeasonTable } from '@/components/SeasonTable';
 import type { TransactionAsset } from '@/lib/supabase';
-import { ensureReadable } from '@/lib/colors';
+import { ensureReadable, contrastText } from '@/lib/colors';
 import { getSupabase } from '@/lib/supabase';
 
 interface TradeScoreRow {
@@ -35,6 +35,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   // Trade score — fetched lazily when card first expands
   const [tradeScore, setTradeScore] = useState<TradeScoreRow | null>(null);
   const [scoreFetched, setScoreFetched] = useState(false);
+  const [scoreTooltipOpen, setScoreTooltipOpen] = useState(false);
   useEffect(() => {
     if (!isExpanded || scoreFetched) return;
     setScoreFetched(true);
@@ -46,7 +47,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
       .then(({ data }) => { if (data) setTradeScore(data as TradeScoreRow); });
   }, [isExpanded, scoreFetched, trade.id]);
   const hasInlineData = inlinePlayers && Object.keys(inlinePlayers).length > 0;
-  const cardWidth = hasInlineData ? 280 : 240;
+  const cardWidth = hasInlineData ? 300 : 240;
 
   const dateStr = trade.date
     ? new Date(trade.date).toLocaleDateString('en-US', {
@@ -56,12 +57,33 @@ function TradeNodeComponent({ id, data }: NodeProps) {
       })
     : '';
 
-  // Contextual trade title
-  const contextualTitle = useMemo(() => {
-    if (teamIds.length === 2) return `Trade between ${teamIds[0]} and ${teamIds[1]}`;
-    if (teamIds.length >= 3) return `${teamIds.length}-team trade: ${teamIds.join(', ')}`;
+  // Heading: "Lakers & Celtics" or "3-Team Trade"
+  const tradeHeading = useMemo(() => {
+    if (teamIds.length === 2) {
+      const n1 = TEAMS[teamIds[0]]?.name.split(' ').pop() || teamIds[0];
+      const n2 = TEAMS[teamIds[1]]?.name.split(' ').pop() || teamIds[1];
+      return `${n1} & ${n2}`;
+    }
+    if (teamIds.length >= 3) return `${teamIds.length}-Team Trade`;
     return trade.title;
   }, [teamIds, trade.title]);
+
+  // Subtitle: unique player names involved, max 3 + overflow count
+  const playerSubtitle = useMemo(() => {
+    if (!trade.transaction_assets) return '';
+    const seen = new Set<string>();
+    const names: string[] = [];
+    for (const a of trade.transaction_assets) {
+      if (a.asset_type === 'player' && a.player_name && !seen.has(a.player_name)) {
+        seen.add(a.player_name);
+        names.push(a.player_name);
+      }
+    }
+    if (names.length === 0) return '';
+    return names.length <= 3
+      ? names.join(', ')
+      : `${names.slice(0, 3).join(', ')} +${names.length - 3}`;
+  }, [trade.transaction_assets]);
 
   // Collapsed summary: "3P 2Pk" instead of "X assets"
   const collapsedSummary = useMemo(() => {
@@ -232,38 +254,60 @@ function TradeNodeComponent({ id, data }: NodeProps) {
         {dateStr}
       </div>
 
-      {/* Title */}
+      {/* Heading: Nickname A & Nickname B */}
       <div
         style={{
           fontFamily: 'var(--font-display)',
-          fontSize: 12,
-          lineHeight: 1.2,
+          fontSize: 13,
+          lineHeight: 1.15,
           color: 'var(--text-primary)',
           letterSpacing: '0.5px',
-          marginBottom: 4,
+          marginBottom: playerSubtitle ? 2 : 4,
         }}
-        className="line-clamp-2"
       >
-        {contextualTitle}
+        {tradeHeading}
       </div>
 
-      {/* Team badges */}
+      {/* Subtitle: player names */}
+      {playerSubtitle && (
+        <div
+          style={{
+            fontSize: 9,
+            color: 'var(--text-tertiary)',
+            fontFamily: 'var(--font-body)',
+            lineHeight: 1.3,
+            marginBottom: 4,
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {playerSubtitle}
+        </div>
+      )}
+
+      {/* Team badges — solid filled pills */}
       <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', alignItems: 'center' }}>
         {teamIds.map((tid) => {
           const team = TEAMS[tid];
           if (!team) return null;
-          const readableColor = ensureReadable(team.color);
+          const bg = team.color;
+          const textColor = contrastText(bg);
+          // Very dark colors (e.g. BKN black) get a subtle white outline so they're
+          // visible against the card's dark background
+          const needsOutline = 0.299 * parseInt(bg.slice(1,3),16) + 0.587 * parseInt(bg.slice(3,5),16) + 0.114 * parseInt(bg.slice(5,7),16) < 30;
           return (
             <span
               key={tid}
               style={{
                 fontSize: 9,
-                fontWeight: 600,
-                padding: '1px 5px',
+                fontWeight: 700,
+                padding: '2px 7px',
                 borderRadius: 999,
-                background: readableColor + '22',
-                color: readableColor,
-                border: `1px solid ${readableColor}44`,
+                background: bg,
+                color: textColor,
+                letterSpacing: 0.4,
+                border: needsOutline ? '1px solid rgba(255,255,255,0.25)' : 'none',
               }}
             >
               {tid}
@@ -292,48 +336,121 @@ function TradeNodeComponent({ id, data }: NodeProps) {
         <div style={{ marginTop: 6 }}>
           {/* Trade value — compact key at top */}
           {scoreEntries && (
-            <div style={{ marginBottom: 5, display: 'flex', flexDirection: 'column', gap: 2 }}>
-              {scoreEntries.map(([teamId, ts]) => {
-                const team = TEAMS[teamId];
-                const color = ensureReadable(team?.color || '#888888');
-                const pct = (ts.score / maxScore) * 100;
-                const isWinner = teamId === tradeScore!.winner;
-                return (
-                  <div key={teamId} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                    <span style={{
-                      fontSize: 8, fontWeight: 700,
-                      color: isWinner ? color : 'var(--text-muted)',
-                      width: 22, flexShrink: 0,
-                    }}>
-                      {teamId}
-                    </span>
-                    <div style={{
-                      flex: 1, height: 2,
-                      background: 'rgba(255,255,255,0.06)',
-                      borderRadius: 1, overflow: 'hidden',
-                    }}>
-                      <div style={{
-                        width: `${pct}%`, height: '100%',
-                        background: isWinner ? color : 'rgba(255,255,255,0.15)',
-                        borderRadius: 1,
-                        transition: 'width 0.5s ease-out',
-                      }} />
-                    </div>
-                    <span style={{
-                      fontSize: 8, fontFamily: 'var(--font-mono)',
-                      color: isWinner ? color : 'var(--text-muted)',
-                      width: 24, textAlign: 'right', flexShrink: 0,
-                    }}>
-                      {ts.score.toFixed(1)}
-                    </span>
-                    <span style={{ width: 8, flexShrink: 0 }}>
-                      {isWinner && tradeScore!.lopsidedness >= 1.5 && (
-                        <span style={{ fontSize: 8, color }}>↑</span>
-                      )}
-                    </span>
+            <div style={{ marginBottom: 5 }}>
+              {/* Section label + info icon */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginBottom: 4 }}>
+                <span style={{
+                  fontSize: 8, fontWeight: 600, letterSpacing: 0.8,
+                  textTransform: 'uppercase', color: 'var(--text-muted)',
+                  fontFamily: 'var(--font-body)',
+                }}>
+                  Trade Score
+                </span>
+                <span
+                  className="nopan nodrag"
+                  onClick={(e) => { e.stopPropagation(); setScoreTooltipOpen((v) => !v); }}
+                  onMouseEnter={() => setScoreTooltipOpen(true)}
+                  onMouseLeave={() => setScoreTooltipOpen(false)}
+                  style={{
+                    width: 12, height: 12,
+                    borderRadius: '50%',
+                    border: '1px solid var(--border-medium)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: 8, fontStyle: 'italic',
+                    fontFamily: 'Georgia, serif',
+                    color: 'var(--text-muted)',
+                    cursor: 'pointer',
+                    userSelect: 'none',
+                    flexShrink: 0,
+                  }}
+                >
+                  i
+                </span>
+              </div>
+
+              {/* Inline formula explanation */}
+              {scoreTooltipOpen && (
+                <div
+                  className="nopan nodrag"
+                  style={{
+                    background: 'var(--bg-tertiary)',
+                    borderRadius: 4,
+                    padding: '6px 8px',
+                    marginBottom: 6,
+                    borderLeft: '2px solid var(--border-medium)',
+                  }}
+                >
+                  <div style={{
+                    fontSize: 9, fontWeight: 700,
+                    color: 'var(--text-primary)',
+                    fontFamily: 'var(--font-body)',
+                    marginBottom: 3,
+                  }}>
+                    How is Trade Score calculated?
                   </div>
-                );
-              })}
+                  <div style={{
+                    fontSize: 9, color: 'var(--text-secondary)',
+                    fontFamily: 'var(--font-body)', lineHeight: 1.55,
+                  }}>
+                    Each player: Win Shares + (VORP × 0.5) + (Playoff WS × 1.5) + (Championships × 5) + accolade bonus.
+                  </div>
+                  <div style={{
+                    fontSize: 8, color: 'var(--text-muted)',
+                    fontFamily: 'var(--font-mono)', marginTop: 4, lineHeight: 1.5,
+                  }}>
+                    MVP +5 · DPOY +2.5 · ROY +1.5{'\n'}
+                    All-NBA 1st +2 · 2nd +1.2 · 3rd +0.7{'\n'}
+                    All-Defensive +0.5 · All-Star +0.3
+                  </div>
+                </div>
+              )}
+
+              {/* Bars */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                {scoreEntries.map(([teamId, ts]) => {
+                  const team = TEAMS[teamId];
+                  const color = ensureReadable(team?.color || '#888888');
+                  const pct = (ts.score / maxScore) * 100;
+                  const isWinner = teamId === tradeScore!.winner;
+                  return (
+                    <div key={teamId} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                      <span style={{
+                        fontSize: 8, fontWeight: 700,
+                        color: isWinner ? color : 'var(--text-muted)',
+                        width: 22, flexShrink: 0,
+                      }}>
+                        {teamId}
+                      </span>
+                      <div style={{
+                        flex: 1, height: 2,
+                        background: 'rgba(255,255,255,0.06)',
+                        borderRadius: 1, overflow: 'hidden',
+                      }}>
+                        <div style={{
+                          width: `${pct}%`, height: '100%',
+                          background: isWinner ? color : 'rgba(255,255,255,0.15)',
+                          borderRadius: 1,
+                          transition: 'width 0.5s ease-out',
+                        }} />
+                      </div>
+                      <span style={{
+                        fontSize: 8, fontFamily: 'var(--font-mono)',
+                        color: isWinner ? color : 'var(--text-muted)',
+                        width: 24, textAlign: 'right', flexShrink: 0,
+                      }}>
+                        {ts.score.toFixed(1)}
+                      </span>
+                      <span style={{ width: 8, flexShrink: 0 }}>
+                        {isWinner && tradeScore!.lopsidedness >= 1.5 && (
+                          <span style={{ fontSize: 8, color }}>↑</span>
+                        )}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           )}
 
@@ -351,6 +468,13 @@ function TradeNodeComponent({ id, data }: NodeProps) {
             const teamColor = ensureReadable(team?.color || '#666');
             const teamName = team?.name || teamId;
 
+            const hasRenderableAssets = assets.some((a) => {
+              if (a.asset_type === 'cash' || a.asset_type === 'exception') return true;
+              if (a.asset_type === 'player' && a.player_name) return true;
+              if ((a.asset_type === 'pick' || a.asset_type === 'swap') && a.pick_year) return true;
+              return false;
+            });
+
             return (
               <div key={teamId} style={{ marginBottom: 6 }}>
                 {/* Team header */}
@@ -367,8 +491,23 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   {teamName} receives
                 </div>
 
+                {/* No data fallback for old trades with incomplete records */}
+                {!hasRenderableAssets && (
+                  <div
+                    style={{
+                      fontSize: 9,
+                      color: 'var(--text-muted)',
+                      fontStyle: 'italic',
+                      padding: '2px 4px',
+                      opacity: 0.7,
+                    }}
+                  >
+                    No player data for this era
+                  </div>
+                )}
+
                 {/* Assets */}
-                {assets.map((asset) => {
+                {hasRenderableAssets && assets.map((asset) => {
                   const inGraph = isInGraph(asset);
                   const isCash = asset.asset_type === 'cash' || asset.asset_type === 'exception';
                   const isPlayer = asset.asset_type === 'player' && asset.player_name;
@@ -569,6 +708,9 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                     }
                   }
 
+                  // No usable data — skip rather than render an empty row
+                  if (!label) return null;
+
                   return (
                     <div
                       key={asset.id}
@@ -613,6 +755,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
               </div>
             );
           })}
+
 
         </div>
       )}

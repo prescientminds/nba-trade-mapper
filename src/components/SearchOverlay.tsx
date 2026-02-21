@@ -3,7 +3,9 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { TradeWithDetails } from '@/lib/supabase';
 import { TEAMS } from '@/lib/teams';
+import { contrastText } from '@/lib/colors';
 import { useGraphStore } from '@/lib/graph-store';
+import DiscoverySection from '@/components/DiscoverySection';
 
 export default function SearchOverlay() {
   const [query, setQuery] = useState('');
@@ -76,26 +78,320 @@ export default function SearchOverlay() {
 
   const showDropdown = open && (results.trades.length > 0 || results.players.length > 0);
 
+  // ── Search input + dropdown (shared between both layouts) ─────────────────
+
+  const searchInput = (
+    <div
+      style={{
+        position: 'relative',
+        background: 'var(--bg-elevated)',
+        borderRadius: hasGraph ? 'var(--radius-sm)' : 'var(--radius-lg)',
+        border: '1px solid var(--border-medium)',
+        backdropFilter: 'blur(20px)',
+        overflow: 'visible',
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', padding: '0 16px' }}>
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="var(--text-muted)"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input
+          ref={inputRef}
+          value={query}
+          onChange={(e) => handleChange(e.target.value)}
+          placeholder="Search players or trades..."
+          inputMode="search"
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck={false}
+          style={{
+            flex: 1,
+            background: 'transparent',
+            border: 'none',
+            outline: 'none',
+            padding: hasGraph ? '10px 12px' : '14px 12px',
+            fontSize: hasGraph ? 14 : 16,
+            color: 'var(--text-primary)',
+            fontFamily: 'var(--font-body)',
+          }}
+        />
+        {searching && (
+          <div
+            style={{
+              width: 16,
+              height: 16,
+              border: '2px solid var(--text-muted)',
+              borderTopColor: 'var(--accent-orange)',
+              borderRadius: '50%',
+              animation: 'spin 0.8s linear infinite',
+            }}
+          />
+        )}
+        {hasGraph && (
+          <button
+            onClick={() => {
+              clearGraph();
+              setQuery('');
+              setResults({ trades: [], players: [] });
+              setTimeout(() => inputRef.current?.focus(), 100);
+            }}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'var(--text-muted)',
+              cursor: 'pointer',
+              fontSize: 12,
+              padding: '4px 8px',
+              marginLeft: 4,
+            }}
+          >
+            Clear
+          </button>
+        )}
+      </div>
+    </div>
+  );
+
+  const resultsDropdown = showDropdown && (
+    <div
+      style={{
+        position: 'absolute',
+        top: '100%',
+        left: 0,
+        right: 0,
+        marginTop: 8,
+        background: 'var(--bg-elevated)',
+        border: '1px solid var(--border-medium)',
+        borderRadius: 'var(--radius-md)',
+        maxHeight: 400,
+        overflowY: 'auto',
+        backdropFilter: 'blur(20px)',
+        boxShadow: 'var(--shadow-lg)',
+        animation: 'slideDown 0.2s ease-out',
+        zIndex: 20,
+      }}
+    >
+      {/* Player results */}
+      {results.players.length > 0 && (
+        <div style={{ padding: '8px 0' }}>
+          <div
+            style={{
+              fontSize: 10,
+              fontWeight: 600,
+              textTransform: 'uppercase',
+              letterSpacing: 1,
+              color: 'var(--text-muted)',
+              padding: '4px 16px 8px',
+            }}
+          >
+            Players
+          </div>
+          {results.players.map((name) => (
+            <button
+              key={name}
+              onClick={() => selectPlayer(name)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 10,
+                width: '100%',
+                padding: '8px 16px',
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                textAlign: 'left',
+                color: 'var(--text-primary)',
+                fontSize: 14,
+                fontFamily: 'var(--font-body)',
+                transition: 'var(--transition-fast)',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--bg-tertiary)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+            >
+              <span
+                style={{
+                  width: 28,
+                  height: 28,
+                  borderRadius: '50%',
+                  background: 'var(--accent-blue)22',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: 11,
+                  fontWeight: 700,
+                  color: 'var(--accent-blue)',
+                }}
+              >
+                {name.split(' ').map((w) => w[0]).join('').slice(0, 2)}
+              </span>
+              {name}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Divider */}
+      {results.players.length > 0 && results.trades.length > 0 && (
+        <div style={{ height: 1, background: 'var(--border-subtle)', margin: '0 16px' }} />
+      )}
+
+      {/* Trade results */}
+      {results.trades.length > 0 && (
+        <div style={{ padding: '8px 0' }}>
+          <div
+            style={{
+              fontSize: 10,
+              fontWeight: 600,
+              textTransform: 'uppercase',
+              letterSpacing: 1,
+              color: 'var(--text-muted)',
+              padding: '4px 16px 8px',
+            }}
+          >
+            Trades
+          </div>
+          {results.trades.map((trade) => {
+            const teamIds = trade.transaction_teams.map((tt) => tt.team_id);
+            return (
+              <button
+                key={trade.id}
+                onClick={() => selectTrade(trade)}
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  padding: '8px 16px',
+                  background: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                  fontFamily: 'var(--font-body)',
+                  transition: 'var(--transition-fast)',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--bg-tertiary)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+              >
+                <div
+                  style={{
+                    fontSize: 13,
+                    color: 'var(--text-primary)',
+                    fontWeight: 500,
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {trade.title}
+                </div>
+                <div style={{ display: 'flex', gap: 4, marginTop: 4 }}>
+                  <span
+                    style={{
+                      fontSize: 11,
+                      color: 'var(--accent-orange)',
+                      fontFamily: 'var(--font-mono)',
+                    }}
+                  >
+                    {trade.date
+                      ? new Date(trade.date).toLocaleDateString('en-US', {
+                          month: 'short',
+                          year: 'numeric',
+                        })
+                      : ''}
+                  </span>
+                  {teamIds.slice(0, 4).map((tid) => {
+                    const bg = TEAMS[tid]?.color || '#555555';
+                    return (
+                      <span
+                        key={tid}
+                        style={{
+                          fontSize: 10,
+                          padding: '1px 6px',
+                          borderRadius: 999,
+                          background: bg,
+                          color: contrastText(bg),
+                        }}
+                      >
+                        {tid}
+                      </span>
+                    );
+                  })}
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+
+  // ── Compact overlay for when a graph is active ────────────────────────────
+
+  if (hasGraph) {
+    return (
+      <div
+        ref={containerRef}
+        style={{
+          position: 'absolute',
+          top: 16,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 10,
+          width: 360,
+        }}
+      >
+        <div style={{ position: 'relative' }}>
+          {searchInput}
+          {resultsDropdown}
+        </div>
+      </div>
+    );
+  }
+
+  // ── Welcome screen — full-height scrollable overlay ───────────────────────
+  // Body stays overflow:hidden (for the canvas), but this overlay is its own
+  // scroll container, so vertical scroll works naturally.
+
   return (
     <div
       ref={containerRef}
       style={{
         position: 'absolute',
-        top: hasGraph ? 16 : '50%',
-        left: '50%',
-        transform: hasGraph ? 'translateX(-50%)' : 'translate(-50%, -50%)',
+        inset: 0,
+        overflowY: 'auto',
+        overflowX: 'hidden',
         zIndex: 10,
-        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-        width: hasGraph ? 360 : 480,
+        background: 'var(--bg-primary)',
+        scrollbarWidth: 'thin',
+        scrollbarColor: 'var(--bg-tertiary) transparent',
       }}
     >
-      {/* Welcome text when no graph */}
-      {!hasGraph && (
-        <div style={{ textAlign: 'center', marginBottom: 24 }}>
+      {/* ── Hero section: search bar centered in first viewport ── */}
+      <div
+        style={{
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '0 24px',
+          position: 'relative',
+        }}
+      >
+        <div style={{ textAlign: 'center', marginBottom: 28 }}>
           <h1
             style={{
               fontFamily: 'var(--font-display)',
-              fontSize: 48,
+              fontSize: 52,
               letterSpacing: 2,
               color: 'var(--text-primary)',
               lineHeight: 1.1,
@@ -114,270 +410,68 @@ export default function SearchOverlay() {
             Search for any player or trade to begin
           </p>
         </div>
-      )}
 
-      {/* Search input */}
-      <div
-        style={{
-          position: 'relative',
-          background: 'var(--bg-elevated)',
-          borderRadius: hasGraph ? 'var(--radius-sm)' : 'var(--radius-lg)',
-          border: '1px solid var(--border-medium)',
-          backdropFilter: 'blur(20px)',
-          overflow: 'visible',
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', padding: '0 16px' }}>
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="var(--text-muted)"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
-          <input
-            ref={inputRef}
-            value={query}
-            onChange={(e) => handleChange(e.target.value)}
-            placeholder="Search players or trades..."
-            style={{
-              flex: 1,
-              background: 'transparent',
-              border: 'none',
-              outline: 'none',
-              padding: hasGraph ? '10px 12px' : '14px 12px',
-              fontSize: hasGraph ? 14 : 16,
-              color: 'var(--text-primary)',
-              fontFamily: 'var(--font-body)',
-            }}
-          />
-          {searching && (
-            <div
-              style={{
-                width: 16,
-                height: 16,
-                border: '2px solid var(--text-muted)',
-                borderTopColor: 'var(--accent-orange)',
-                borderRadius: '50%',
-                animation: 'spin 0.8s linear infinite',
-              }}
-            />
-          )}
-          {hasGraph && (
-            <button
-              onClick={() => {
-                clearGraph();
-                setQuery('');
-                setResults({ trades: [], players: [] });
-                setTimeout(() => inputRef.current?.focus(), 100);
-              }}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: 'var(--text-muted)',
-                cursor: 'pointer',
-                fontSize: 12,
-                padding: '4px 8px',
-                marginLeft: 4,
-              }}
-            >
-              Clear
-            </button>
-          )}
+        {/* Search bar + dropdown */}
+        <div
+          style={{
+            width: 'min(88vw, 680px)',
+            position: 'relative',
+          }}
+        >
+          {searchInput}
+          {resultsDropdown}
         </div>
-      </div>
 
-      {/* Results dropdown */}
-      {showDropdown && (
+        {/* Scroll hint — fades in after a moment */}
         <div
           style={{
             position: 'absolute',
-            top: '100%',
-            left: 0,
-            right: 0,
-            marginTop: 8,
-            background: 'var(--bg-elevated)',
-            border: '1px solid var(--border-medium)',
-            borderRadius: 'var(--radius-md)',
-            maxHeight: 400,
-            overflowY: 'auto',
-            backdropFilter: 'blur(20px)',
-            boxShadow: 'var(--shadow-lg)',
-            animation: 'slideDown 0.2s ease-out',
+            bottom: 32,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 4,
+            opacity: 0.45,
+            animation: 'fadeIn 1.2s ease-out 0.8s both',
+            pointerEvents: 'none',
           }}
         >
-          {/* Player results */}
-          {results.players.length > 0 && (
-            <div style={{ padding: '8px 0' }}>
-              <div
-                style={{
-                  fontSize: 10,
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: 1,
-                  color: 'var(--text-muted)',
-                  padding: '4px 16px 8px',
-                }}
-              >
-                Players
-              </div>
-              {results.players.map((name) => (
-                <button
-                  key={name}
-                  onClick={() => selectPlayer(name)}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 10,
-                    width: '100%',
-                    padding: '8px 16px',
-                    background: 'transparent',
-                    border: 'none',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    color: 'var(--text-primary)',
-                    fontSize: 14,
-                    fontFamily: 'var(--font-body)',
-                    transition: 'var(--transition-fast)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'var(--bg-tertiary)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'transparent';
-                  }}
-                >
-                  <span
-                    style={{
-                      width: 28,
-                      height: 28,
-                      borderRadius: '50%',
-                      background: 'var(--accent-blue)22',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: 11,
-                      fontWeight: 700,
-                      color: 'var(--accent-blue)',
-                    }}
-                  >
-                    {name
-                      .split(' ')
-                      .map((w) => w[0])
-                      .join('')
-                      .slice(0, 2)}
-                  </span>
-                  {name}
-                </button>
-              ))}
-            </div>
-          )}
-
-          {/* Divider */}
-          {results.players.length > 0 && results.trades.length > 0 && (
-            <div
-              style={{
-                height: 1,
-                background: 'var(--border-subtle)',
-                margin: '0 16px',
-              }}
-            />
-          )}
-
-          {/* Trade results */}
-          {results.trades.length > 0 && (
-            <div style={{ padding: '8px 0' }}>
-              <div
-                style={{
-                  fontSize: 10,
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: 1,
-                  color: 'var(--text-muted)',
-                  padding: '4px 16px 8px',
-                }}
-              >
-                Trades
-              </div>
-              {results.trades.map((trade) => {
-                const teamIds = trade.transaction_teams.map((tt) => tt.team_id);
-                return (
-                  <button
-                    key={trade.id}
-                    onClick={() => selectTrade(trade)}
-                    style={{
-                      display: 'block',
-                      width: '100%',
-                      padding: '8px 16px',
-                      background: 'transparent',
-                      border: 'none',
-                      cursor: 'pointer',
-                      textAlign: 'left',
-                      fontFamily: 'var(--font-body)',
-                      transition: 'var(--transition-fast)',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = 'var(--bg-tertiary)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = 'transparent';
-                    }}
-                  >
-                    <div
-                      style={{
-                        fontSize: 13,
-                        color: 'var(--text-primary)',
-                        fontWeight: 500,
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        whiteSpace: 'nowrap',
-                      }}
-                    >
-                      {trade.title}
-                    </div>
-                    <div style={{ display: 'flex', gap: 4, marginTop: 4 }}>
-                      <span
-                        style={{
-                          fontSize: 11,
-                          color: 'var(--accent-orange)',
-                          fontFamily: 'var(--font-mono)',
-                        }}
-                      >
-                        {trade.date
-                          ? new Date(trade.date).toLocaleDateString('en-US', {
-                              month: 'short',
-                              year: 'numeric',
-                            })
-                          : ''}
-                      </span>
-                      {teamIds.slice(0, 4).map((tid) => (
-                        <span
-                          key={tid}
-                          style={{
-                            fontSize: 10,
-                            padding: '1px 6px',
-                            borderRadius: 999,
-                            background: (TEAMS[tid]?.color || '#666') + '22',
-                            color: TEAMS[tid]?.color || '#666',
-                          }}
-                        >
-                          {tid}
-                        </span>
-                      ))}
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          )}
+          <span
+            style={{
+              fontSize: 10,
+              fontWeight: 500,
+              letterSpacing: 1.5,
+              textTransform: 'uppercase',
+              color: 'var(--text-muted)',
+              fontFamily: 'var(--font-body)',
+            }}
+          >
+            Explore
+          </span>
+          <span
+            style={{
+              fontSize: 14,
+              color: 'var(--text-muted)',
+              animation: 'scrollBounce 1.6s ease-in-out infinite',
+            }}
+          >
+            ↓
+          </span>
         </div>
-      )}
+      </div>
+
+      {/* ── Discovery section: scrolls in below the fold ── */}
+      <div
+        style={{
+          maxWidth: 800,
+          margin: '0 auto',
+          padding: '0 24px 120px',
+        }}
+      >
+        <DiscoverySection onSelectTrade={selectTrade} onSelectPlayer={selectPlayer} />
+      </div>
     </div>
   );
 }
