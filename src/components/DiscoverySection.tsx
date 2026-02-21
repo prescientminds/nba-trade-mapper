@@ -595,22 +595,30 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer }: Prop
   useEffect(() => {
     async function load() {
       try {
-        const [scoresRes, champsRes, index] = await Promise.all([
-          getSupabase()
-            .from('trade_scores')
-            .select('trade_id, lopsidedness, winner, team_scores')
-            .not('winner', 'is', null)
-            .order('lopsidedness', { ascending: false })
-            .limit(100) as unknown as Promise<{ data: ScoreRow[] | null }>,
-          getSupabase()
-            .from('team_seasons')
-            .select('team_id, season')
-            .eq('championship', true) as unknown as Promise<{ data: ChampRow[] | null }>,
-          loadSearchIndex(),
-        ]);
+        // Load static index first — always works regardless of Supabase config
+        const index = await loadSearchIndex();
 
-        const scores = scoresRes.data ?? [];
-        const champs = champsRes.data ?? [];
+        // Try Supabase — may fail if env vars aren't configured in production
+        let scores: ScoreRow[] = [];
+        let champs: ChampRow[] = [];
+        try {
+          const [scoresRes, champsRes] = await Promise.all([
+            getSupabase()
+              .from('trade_scores')
+              .select('trade_id, lopsidedness, winner, team_scores')
+              .not('winner', 'is', null)
+              .order('lopsidedness', { ascending: false })
+              .limit(100) as unknown as Promise<{ data: ScoreRow[] | null }>,
+            getSupabase()
+              .from('team_seasons')
+              .select('team_id, season')
+              .eq('championship', true) as unknown as Promise<{ data: ChampRow[] | null }>,
+          ]);
+          scores = scoresRes.data ?? [];
+          champs = champsRes.data ?? [];
+        } catch (supabaseErr) {
+          console.warn('[DiscoverySection] Supabase unavailable, showing static data only:', supabaseErr);
+        }
         const indexMap = new Map<string, TradeSearchIndexEntry>(index.map((e) => [e.id, e]));
         const seasonYear = (s: string) => parseInt(s.split('-')[0], 10);
 
@@ -740,7 +748,7 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer }: Prop
               .toUpperCase(),
           }));
 
-        setCategories([
+        const allCategories: Category[] = [
           {
             id: 'heist',
             label: 'Heist Index',
@@ -770,10 +778,12 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer }: Prop
             metricExplanation: JOURNEY_EXPLANATION,
             cards: journeyCards,
           },
-        ]);
+        ];
+        // Only show categories that have cards
+        setCategories(allCategories.filter((c) => c.cards.length > 0));
       } catch (err) {
         console.error('[DiscoverySection] Failed to load:', err);
-        setError(err instanceof Error ? err.message : 'Failed to load discovery data');
+        setError(err instanceof Error ? err.message : String(err));
       } finally {
         setLoading(false);
       }
@@ -790,7 +800,7 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer }: Prop
 
   if (error) return (
     <div style={{ textAlign: 'center', padding: '40px 0', color: 'var(--text-muted)', fontSize: 12, fontFamily: 'var(--font-body)' }}>
-      Could not load discovery data.
+      Could not load discovery data: {error}
     </div>
   );
 
