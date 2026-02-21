@@ -679,7 +679,7 @@ const METRIC_DEFS: Record<string, { metricLabel: string; metricExplanation: stri
   alchemists: {
     metricLabel: 'Assets Generated',
     metricExplanation:
-      `The number of distinct downstream assets a team accumulated through multiple rounds of trading — excluding trades where one star dominates more than half the chain value. High breadth with no single outlier signals organizational skill, not a lucky pick.`,
+      `The number of distinct downstream assets a team accumulated through multiple rounds of trading — excluding trades where one star drives more than 30% of the chain value. High breadth with no single outlier signals organizational skill, not a lucky pick.`,
   },
   chains: {
     metricLabel: 'Chain Score',
@@ -825,8 +825,8 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer }: Prop
             if (winnerData.depth < 2) return null;
             // Require breadth — at least 4 distinct downstream assets
             if (winnerData.asset_count < 4) return null;
-            // Exclude outlier-dominated chains — no single asset > 50% of chain
-            if (winnerData.max_single_asset > winnerData.chain * 0.5) return null;
+            // Exclude outlier-dominated chains — no single asset > 30% of chain
+            if (winnerData.max_single_asset > winnerData.chain * 0.3) return null;
             return {
               type: 'trade',
               tradeId: row.trade_id,
