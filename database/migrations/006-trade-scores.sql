@@ -34,3 +34,7 @@ CREATE TABLE IF NOT EXISTS trade_scores (
 
 CREATE INDEX IF NOT EXISTS trade_scores_season_idx ON trade_scores (season);
 CREATE INDEX IF NOT EXISTS trade_scores_winner_idx  ON trade_scores (winner);
+
+ALTER TABLE trade_scores ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Allow public read access" ON trade_scores FOR SELECT USING (true);
+CREATE POLICY "Service role full access" ON trade_scores FOR ALL USING (auth.role() = 'service_role');

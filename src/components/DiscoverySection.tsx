@@ -590,6 +590,7 @@ const METRIC_DEFS: Record<string, { metricLabel: string; metricExplanation: stri
 export default function DiscoverySection({ onSelectTrade, onSelectPlayer }: Props) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function load() {
@@ -770,6 +771,9 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer }: Prop
             cards: journeyCards,
           },
         ]);
+      } catch (err) {
+        console.error('[DiscoverySection] Failed to load:', err);
+        setError(err instanceof Error ? err.message : 'Failed to load discovery data');
       } finally {
         setLoading(false);
       }
@@ -778,7 +782,19 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer }: Prop
     load();
   }, []);
 
-  if (loading || categories.length === 0) return null;
+  if (loading) return (
+    <div style={{ textAlign: 'center', padding: '40px 0', color: 'var(--text-muted)', fontSize: 12, fontFamily: 'var(--font-body)' }}>
+      Loading…
+    </div>
+  );
+
+  if (error) return (
+    <div style={{ textAlign: 'center', padding: '40px 0', color: 'var(--text-muted)', fontSize: 12, fontFamily: 'var(--font-body)' }}>
+      Could not load discovery data.
+    </div>
+  );
+
+  if (categories.length === 0) return null;
 
   return (
     <div style={{ marginTop: 20 }}>
