@@ -994,7 +994,7 @@
     "is_multi_team": false,
     "teams": [
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "receiver"
       },
       {
@@ -1007,7 +1007,7 @@
         "type": "player",
         "player_name": "Kenny Anderson",
         "from_team_id": "OKC",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1017,7 +1017,7 @@
       {
         "type": "player",
         "player_name": "Elden Campbell",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "OKC",
         "pick_year": null,
         "pick_round": null,

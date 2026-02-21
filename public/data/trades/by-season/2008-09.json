@@ -1018,7 +1018,7 @@
         "role": "participant"
       },
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "participant"
       },
       {
@@ -2668,7 +2668,7 @@
         "role": "receiver"
       },
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "sender"
       }
     ],
@@ -2676,7 +2676,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "MIA",
         "pick_year": null,
         "pick_round": null,
@@ -2687,7 +2687,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "MIA",
         "pick_year": null,
         "pick_round": null,
@@ -2699,7 +2699,7 @@
         "type": "pick",
         "player_name": null,
         "from_team_id": "MIA",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -2903,7 +2903,7 @@
     "date": "2009-06-26",
     "season": "2008-09",
     "title": "Cavaliers / Suns Trade",
-    "description": "On 2009-06-26:  Suns acquire cash  Cavaliers acquire rights to Emir Preldžic",
+    "description": "On 2009-06-26:  Suns acquire cash  Cavaliers acquire rights to Emir Preld\u017eic",
     "is_multi_team": false,
     "teams": [
       {
@@ -2918,7 +2918,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Emir Preldžic",
+        "player_name": "Emir Preld\u017eic",
         "from_team_id": "PHX",
         "to_team_id": "CLE",
         "pick_year": null,

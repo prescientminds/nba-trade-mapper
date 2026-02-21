@@ -1193,7 +1193,7 @@
     "is_multi_team": false,
     "teams": [
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "receiver"
       },
       {
@@ -1206,7 +1206,7 @@
         "type": "player",
         "player_name": "Dan Dickau",
         "from_team_id": "DAL",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1217,7 +1217,7 @@
         "type": "pick",
         "player_name": null,
         "from_team_id": "DAL",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1227,7 +1227,7 @@
       {
         "type": "player",
         "player_name": "Darrell Armstrong",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "DAL",
         "pick_year": null,
         "pick_round": null,
@@ -1427,7 +1427,7 @@
     "is_multi_team": false,
     "teams": [
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "receiver"
       },
       {
@@ -1440,7 +1440,7 @@
         "type": "player",
         "player_name": "Jim Jackson",
         "from_team_id": "HOU",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1451,7 +1451,7 @@
         "type": "player",
         "player_name": "Bostjan Nachbar",
         "from_team_id": "HOU",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1461,7 +1461,7 @@
       {
         "type": "player",
         "player_name": "David Wesley",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "HOU",
         "pick_year": null,
         "pick_round": null,
@@ -1586,7 +1586,7 @@
     "is_multi_team": false,
     "teams": [
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "receiver"
       },
       {
@@ -1599,7 +1599,7 @@
         "type": "player",
         "player_name": "Casey Jacobsen",
         "from_team_id": "PHX",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1610,7 +1610,7 @@
         "type": "player",
         "player_name": "Maciej Lampe",
         "from_team_id": "PHX",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1621,7 +1621,7 @@
         "type": "player",
         "player_name": "Jackson Vroman",
         "from_team_id": "PHX",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1631,7 +1631,7 @@
       {
         "type": "player",
         "player_name": "Jim Jackson",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "PHX",
         "pick_year": null,
         "pick_round": null,
@@ -1642,7 +1642,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "PHX",
         "pick_year": null,
         "pick_round": null,
@@ -1910,7 +1910,7 @@
         "role": "receiver"
       },
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "sender"
       }
     ],
@@ -1918,7 +1918,7 @@
       {
         "type": "player",
         "player_name": "Rodney Rogers",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "PHI",
         "pick_year": null,
         "pick_round": null,
@@ -1929,7 +1929,7 @@
       {
         "type": "player",
         "player_name": "Jamal Mashburn",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "PHI",
         "pick_year": null,
         "pick_round": null,
@@ -1941,7 +1941,7 @@
         "type": "player",
         "player_name": "Glenn Robinson",
         "from_team_id": "PHI",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -2268,7 +2268,7 @@
     "is_multi_team": false,
     "teams": [
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "receiver"
       },
       {
@@ -2281,7 +2281,7 @@
         "type": "player",
         "player_name": "Craig Claxton / Speedy Claxton",
         "from_team_id": "GSW",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -2292,7 +2292,7 @@
         "type": "player",
         "player_name": "Dale Davis",
         "from_team_id": "GSW",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -2303,7 +2303,7 @@
         "type": "cash",
         "player_name": null,
         "from_team_id": "GSW",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -2313,7 +2313,7 @@
       {
         "type": "player",
         "player_name": "Baron Davis",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "GSW",
         "pick_year": null,
         "pick_round": null,

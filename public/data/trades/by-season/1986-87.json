@@ -1604,8 +1604,8 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "B.J. Armstrong",
-        "notes": null
+        "became_player_name": null,
+        "notes": "1989 pick swap right — SEA exercised swap (#20→#18) then traded #18 back to CHI for Brad Sellers; CHI used #18 to draft B.J. Armstrong"
       },
       {
         "type": "pick",
@@ -1615,8 +1615,8 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Sylvester Gray",
-        "notes": null
+        "became_player_name": null,
+        "notes": "1988 2nd-round pick — traveled CHI→SEA→BOS→MIA; Miami drafted Sylvester Gray at #35"
       }
     ]
   }

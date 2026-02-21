@@ -347,7 +347,7 @@
         "role": "receiver"
       },
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "sender"
       }
     ],
@@ -355,7 +355,7 @@
       {
         "type": "player",
         "player_name": "Chris Paul",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "LAC",
         "pick_year": null,
         "pick_round": null,
@@ -366,7 +366,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "LAC",
         "pick_year": null,
         "pick_round": null,
@@ -377,7 +377,7 @@
       {
         "type": "cash",
         "player_name": null,
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "LAC",
         "pick_year": null,
         "pick_round": null,
@@ -389,7 +389,7 @@
         "type": "player",
         "player_name": "Eric Gordon",
         "from_team_id": "LAC",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -400,7 +400,7 @@
         "type": "player",
         "player_name": "Chris Kaman",
         "from_team_id": "LAC",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -411,7 +411,7 @@
         "type": "player",
         "player_name": "Al-Farouq Aminu",
         "from_team_id": "LAC",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -422,7 +422,7 @@
         "type": "pick",
         "player_name": null,
         "from_team_id": "LAC",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -592,7 +592,7 @@
         "role": "receiver"
       },
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "sender"
       }
     ],
@@ -600,7 +600,7 @@
       {
         "type": "player",
         "player_name": "Quincy Pondexter",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "MEM",
         "pick_year": null,
         "pick_round": null,
@@ -612,7 +612,7 @@
         "type": "player",
         "player_name": "Greivis Vasquez",
         "from_team_id": "MEM",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -634,7 +634,7 @@
         "role": "receiver"
       },
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "sender"
       }
     ],
@@ -642,7 +642,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "PHI",
         "pick_year": null,
         "pick_round": null,
@@ -653,7 +653,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "PHI",
         "pick_year": null,
         "pick_round": null,
@@ -665,7 +665,7 @@
         "type": "pick",
         "player_name": null,
         "from_team_id": "PHI",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -691,7 +691,7 @@
         "role": "participant"
       },
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "participant"
       }
     ],
@@ -699,7 +699,7 @@
       {
         "type": "player",
         "player_name": "Marreese Speights",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "MEM",
         "pick_year": null,
         "pick_round": null,
@@ -711,7 +711,7 @@
         "type": "player",
         "player_name": "Xavier Henry",
         "from_team_id": "MEM",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1309,7 +1309,7 @@
     "is_multi_team": false,
     "teams": [
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "receiver"
       },
       {
@@ -1322,7 +1322,7 @@
         "type": "player",
         "player_name": "Rashard Lewis",
         "from_team_id": "WAS",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1333,7 +1333,7 @@
         "type": "pick",
         "player_name": null,
         "from_team_id": "WAS",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1343,7 +1343,7 @@
       {
         "type": "player",
         "player_name": "Emeka Okafor",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "WAS",
         "pick_year": null,
         "pick_round": null,
@@ -1354,7 +1354,7 @@
       {
         "type": "player",
         "player_name": "Trevor Ariza",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "WAS",
         "pick_year": null,
         "pick_round": null,

@@ -2,6 +2,13 @@
 
 import type { SeasonDetailRow } from '@/lib/graph-store';
 
+function playoffBadge(result: string | null): { label: string; color: string; bg: string } | null {
+  if (result === 'CHAMP')  return { label: '🏆 Champ',  color: '#f9c74f', bg: 'rgba(249,199,79,0.18)' };
+  if (result === 'FINALS') return { label: 'Finals',    color: '#9b5de5', bg: 'rgba(155,93,229,0.18)' };
+  if (result === 'CONF')   return { label: 'Conf Finals', color: '#4ecdc4', bg: 'rgba(78,205,196,0.15)' };
+  return null;
+}
+
 function abbreviateAccolade(a: string): string {
   if (a === 'MVP') return 'MVP';
   if (a === 'All-Star') return 'AS';
@@ -74,28 +81,47 @@ export function SeasonTable({ rows }: { rows: SeasonDetailRow[] }) {
               <td style={compactTd}>{r.apg !== null ? r.apg.toFixed(1) : '--'}</td>
               <td style={compactTd}>{r.winShares !== null ? r.winShares.toFixed(1) : '--'}</td>
               <td style={{ ...compactTd, textAlign: 'left', paddingLeft: 5, overflow: 'hidden' }}>
-                {r.accolades.length > 0 && (
-                  <span style={{ display: 'inline-flex', gap: 3, flexWrap: 'wrap' }}>
-                    {r.accolades.map((a, i) => (
+                <span style={{ display: 'inline-flex', gap: 3, flexWrap: 'wrap', alignItems: 'center' }}>
+                  {r.accolades.map((a, i) => (
+                    <span
+                      key={i}
+                      title={a}
+                      style={{
+                        fontSize: 8,
+                        fontFamily: 'var(--font-body)',
+                        fontWeight: 600,
+                        padding: '1px 4px',
+                        borderRadius: 3,
+                        background: 'rgba(249,199,79,0.15)',
+                        color: '#f9c74f',
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      {abbreviateAccolade(a)}
+                    </span>
+                  ))}
+                  {(() => {
+                    const pb = playoffBadge(r.playoffResult);
+                    if (!pb) return null;
+                    return (
                       <span
-                        key={i}
-                        title={a}
+                        title={`Playoff result: ${r.playoffResult}`}
                         style={{
                           fontSize: 8,
                           fontFamily: 'var(--font-body)',
                           fontWeight: 600,
                           padding: '1px 4px',
                           borderRadius: 3,
-                          background: 'rgba(249,199,79,0.15)',
-                          color: '#f9c74f',
+                          background: pb.bg,
+                          color: pb.color,
                           whiteSpace: 'nowrap',
                         }}
                       >
-                        {abbreviateAccolade(a)}
+                        {pb.label}
                       </span>
-                    ))}
-                  </span>
-                )}
+                    );
+                  })()}
+                </span>
               </td>
             </tr>
           );
@@ -117,9 +143,7 @@ export function SeasonTable({ rows }: { rows: SeasonDetailRow[] }) {
                 .filter(r => r.teamWins !== null)
                 .map(r => {
                   const short = r.season.length > 5 ? r.season.slice(2) : r.season;
-                  const record = `${short}: ${r.teamWins}-${r.teamLosses}`;
-                  const playoff = r.playoffResult ? ` (${r.playoffResult})` : '';
-                  return record + playoff;
+                  return `${short}: ${r.teamWins}-${r.teamLosses}`;
                 })
                 .join(' | ')}
             </td>

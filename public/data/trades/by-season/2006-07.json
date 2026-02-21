@@ -167,7 +167,7 @@
     "is_multi_team": false,
     "teams": [
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "receiver"
       },
       {
@@ -180,7 +180,7 @@
         "type": "player",
         "player_name": "Predrag Stojakovic / Peja Stojakovic",
         "from_team_id": "IND",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -191,7 +191,7 @@
         "type": "cash",
         "player_name": null,
         "from_team_id": "IND",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -201,7 +201,7 @@
       {
         "type": "player",
         "player_name": "Andrew Betts",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "IND",
         "pick_year": null,
         "pick_round": null,
@@ -224,7 +224,7 @@
         "role": "receiver"
       },
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "sender"
       }
     ],
@@ -232,7 +232,7 @@
       {
         "type": "player",
         "player_name": "P.J. Brown",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "CHI",
         "pick_year": null,
         "pick_round": null,
@@ -243,7 +243,7 @@
       {
         "type": "player",
         "player_name": "J.R. Smith",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "CHI",
         "pick_year": null,
         "pick_round": null,
@@ -255,7 +255,7 @@
         "type": "player",
         "player_name": "Tyson Chandler",
         "from_team_id": "CHI",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -273,7 +273,7 @@
     "is_multi_team": false,
     "teams": [
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "receiver"
       },
       {
@@ -286,7 +286,7 @@
         "type": "pick",
         "player_name": null,
         "from_team_id": "HOU",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -297,7 +297,7 @@
         "type": "cash",
         "player_name": null,
         "from_team_id": "HOU",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -307,7 +307,7 @@
       {
         "type": "player",
         "player_name": "Kirk Snyder",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "HOU",
         "pick_year": null,
         "pick_round": null,
@@ -318,7 +318,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "HOU",
         "pick_year": null,
         "pick_round": null,
@@ -329,7 +329,7 @@
       {
         "type": "cash",
         "player_name": null,
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "HOU",
         "pick_year": null,
         "pick_round": null,
@@ -2013,7 +2013,7 @@
     "date": "2007-06-28",
     "season": "2006-07",
     "title": "Heat / Pacers Trade",
-    "description": "On 2007-06-28:  Pacers acquire rights to Stanko Barac  Heat acquire 2009 second round pick (#43-Marcus Thornton)",
+    "description": "On 2007-06-28:  Pacers acquire rights to Stanko Barac  Heat acquire 2009 second round pick (#43-Marcus\u00a0Thornton)",
     "is_multi_team": false,
     "teams": [
       {
@@ -2034,7 +2034,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Marcus Thornton",
+        "became_player_name": "Marcus\u00a0Thornton",
         "notes": null
       },
       {

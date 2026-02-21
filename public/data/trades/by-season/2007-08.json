@@ -46,7 +46,7 @@
     "date": "2007-07-11",
     "season": "2007-08",
     "title": "Rashard Lewis Trade",
-    "description": "On 2007-07-11:  Sonics acquire 2009 protected second round pick (top 55 in 2009, extinguished thereafter) (#57-Emir Preldžic)  Magic acquire Rashard Lewis",
+    "description": "On 2007-07-11:  Sonics acquire 2009 protected second round pick (top 55 in 2009, extinguished thereafter) (#57-Emir Preld\u017eic)  Magic acquire Rashard Lewis",
     "is_multi_team": false,
     "teams": [
       {
@@ -78,7 +78,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Emir Preldžic",
+        "became_player_name": "Emir Preld\u017eic",
         "notes": null
       },
       {
@@ -174,7 +174,7 @@
     "date": "2007-07-20",
     "season": "2007-08",
     "title": "Kurt Thomas Trade",
-    "description": "On 2007-07-20:  Suns acquire 2009 second round pick (protected top 55 in 2009, extinguished thereafter) (#57-Emir Preldžic)  Sonics acquire Kurt Thomas",
+    "description": "On 2007-07-20:  Suns acquire 2009 second round pick (protected top 55 in 2009, extinguished thereafter) (#57-Emir Preld\u017eic)  Sonics acquire Kurt Thomas",
     "is_multi_team": false,
     "teams": [
       {
@@ -228,7 +228,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Emir Preldžic",
+        "became_player_name": "Emir Preld\u017eic",
         "notes": null
       },
       {
@@ -524,7 +524,7 @@
         "role": "receiver"
       },
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "sender"
       }
     ],
@@ -532,7 +532,7 @@
       {
         "type": "player",
         "player_name": "Cedric Simmons",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "CLE",
         "pick_year": null,
         "pick_round": null,
@@ -544,7 +544,7 @@
         "type": "player",
         "player_name": "David Wesley",
         "from_team_id": "CLE",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -555,7 +555,7 @@
         "type": "cash",
         "player_name": null,
         "from_team_id": "CLE",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -712,7 +712,7 @@
     "is_multi_team": false,
     "teams": [
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "receiver"
       },
       {
@@ -725,7 +725,7 @@
         "type": "player",
         "player_name": "Bernard Robinson",
         "from_team_id": "BKN",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -736,7 +736,7 @@
         "type": "player",
         "player_name": "Mile Ilic",
         "from_team_id": "BKN",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -747,7 +747,7 @@
         "type": "cash",
         "player_name": null,
         "from_team_id": "BKN",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -757,7 +757,7 @@
       {
         "type": "player",
         "player_name": "David Wesley",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "BKN",
         "pick_year": null,
         "pick_round": null,
@@ -1580,7 +1580,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Danny Green",
+        "became_player_name": "Danny\u00a0Green",
         "notes": null
       }
     ]
@@ -1598,7 +1598,7 @@
         "role": "participant"
       },
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "participant"
       },
       {
@@ -1610,7 +1610,7 @@
       {
         "type": "player",
         "player_name": "Marcus Vinicius Viera de Souza",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "MEM",
         "pick_year": null,
         "pick_round": null,
@@ -1621,7 +1621,7 @@
       {
         "type": "player",
         "player_name": "Malick Badiane",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "MEM",
         "pick_year": null,
         "pick_round": null,
@@ -1633,7 +1633,7 @@
         "type": "player",
         "player_name": "Sergei Lishouk / Sergei Lishchuk",
         "from_team_id": "MEM",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -2096,7 +2096,7 @@
         "role": "receiver"
       },
       {
-        "team_id": "CHA",
+        "team_id": "NOP",
         "role": "sender"
       }
     ],
@@ -2104,7 +2104,7 @@
       {
         "type": "player",
         "player_name": "Darrell Arthur",
-        "from_team_id": "CHA",
+        "from_team_id": "NOP",
         "to_team_id": "POR",
         "pick_year": null,
         "pick_round": null,
@@ -2116,7 +2116,7 @@
         "type": "cash",
         "player_name": null,
         "from_team_id": "POR",
-        "to_team_id": "CHA",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
