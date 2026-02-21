@@ -471,7 +471,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
             const hasRenderableAssets = assets.some((a) => {
               if (a.asset_type === 'cash' || a.asset_type === 'exception') return true;
               if (a.asset_type === 'player' && a.player_name) return true;
-              if ((a.asset_type === 'pick' || a.asset_type === 'swap') && a.pick_year) return true;
+              if ((a.asset_type === 'pick' || a.asset_type === 'swap') && (a.pick_year || a.became_player_name)) return true;
               return false;
             });
 
@@ -513,7 +513,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   const isPlayer = asset.asset_type === 'player' && asset.player_name;
                   const isPick =
                     (asset.asset_type === 'pick' || asset.asset_type === 'swap') &&
-                    asset.pick_year;
+                    (asset.pick_year || asset.became_player_name);
 
                   if (isCash) {
                     return (
@@ -699,12 +699,18 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   let label = '';
                   let sublabel = '';
                   if (isPick) {
-                    const year = asset.pick_year ?? '??';
-                    const round = asset.pick_round ?? '?';
-                    const orig = asset.original_team_id ?? asset.from_team_id ?? '??';
-                    label = `${year} R${round} (${orig})`;
-                    if (asset.became_player_name) {
-                      sublabel = `Became: ${asset.became_player_name}`;
+                    if (asset.pick_year) {
+                      const year = asset.pick_year;
+                      const round = asset.pick_round ?? '?';
+                      const orig = asset.original_team_id ?? asset.from_team_id ?? '??';
+                      label = `${year} R${round} (${orig})`;
+                      if (asset.became_player_name) {
+                        sublabel = `→ ${asset.became_player_name}`;
+                      }
+                    } else if (asset.became_player_name) {
+                      // Historical pick with no year data — show only who it became
+                      label = asset.became_player_name;
+                      sublabel = 'Draft pick';
                     }
                   }
 

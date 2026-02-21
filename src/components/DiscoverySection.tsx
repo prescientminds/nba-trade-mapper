@@ -713,10 +713,14 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer }: Prop
           }));
 
         // 4. The Journeymen (TPE trades excluded from count)
+        const NON_PLAYER_NAMES = new Set([
+          'trade exception', 'cash', 'cash considerations', 'future considerations',
+        ]);
         const playerCount = new Map<string, number>();
         for (const entry of index) {
           if (tpeTradeIds.has(entry.id)) continue;
           for (const p of entry.players) {
+            if (NON_PLAYER_NAMES.has(p.toLowerCase())) continue;
             playerCount.set(p, (playerCount.get(p) ?? 0) + 1);
           }
         }

@@ -375,15 +375,16 @@ export default function SearchOverlay() {
         scrollbarColor: 'var(--bg-tertiary) transparent',
       }}
     >
-      {/* ── Hero section: search bar centered in first viewport ── */}
+      {/* ── Hero section: search bar in upper portion, discovery visible below ── */}
       <div
         style={{
-          minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'center',
-          padding: '0 24px',
+          paddingTop: '14vh',
+          paddingBottom: 56,
+          paddingLeft: 24,
+          paddingRight: 24,
           position: 'relative',
         }}
       >
@@ -422,44 +423,6 @@ export default function SearchOverlay() {
           {resultsDropdown}
         </div>
 
-        {/* Scroll hint — fades in after a moment */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 32,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 4,
-            opacity: 0.45,
-            animation: 'fadeIn 1.2s ease-out 0.8s both',
-            pointerEvents: 'none',
-          }}
-        >
-          <span
-            style={{
-              fontSize: 10,
-              fontWeight: 500,
-              letterSpacing: 1.5,
-              textTransform: 'uppercase',
-              color: 'var(--text-muted)',
-              fontFamily: 'var(--font-body)',
-            }}
-          >
-            Explore
-          </span>
-          <span
-            style={{
-              fontSize: 14,
-              color: 'var(--text-muted)',
-              animation: 'scrollBounce 1.6s ease-in-out infinite',
-            }}
-          >
-            ↓
-          </span>
-        </div>
       </div>
 
       {/* ── Discovery section: scrolls in below the fold ── */}

@@ -90,7 +90,8 @@ async function main() {
       const teamNum = row.number_tm;
 
       if (type.includes('all-nba')) {
-        const ordinal = teamNum === '1' ? '1st' : teamNum === '2' ? '2nd' : '3rd';
+        // CSV stores ordinal strings: '1st', '2nd', '3rd' — use directly
+        const ordinal = teamNum === '1st' ? '1st' : teamNum === '2nd' ? '2nd' : '3rd';
         addAccolade(player, `All-NBA ${ordinal} Team`, season);
       } else if (type.includes('all-defensive')) {
         addAccolade(player, 'All-Defensive Team', season);
