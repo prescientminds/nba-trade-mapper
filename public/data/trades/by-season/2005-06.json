@@ -45,7 +45,7 @@
     "id": "6fde20e4-62bb-4320-a00f-3bbe4a554750",
     "date": "2005-08-02",
     "season": "2005-06",
-    "title": "Kwame Brown, Laron Profit Trade",
+    "title": "Kwame Brown, Kwame Brown, Laron Profit Trade",
     "description": "On 2005-08-02:  Wizards acquire Caron Butler  Lakers acquire Kwame Brown",
     "is_multi_team": false,
     "teams": [
@@ -191,7 +191,7 @@
       {
         "type": "player",
         "player_name": "Qyntel Woods",
-        "from_team_id": "UTA",
+        "from_team_id": "CHA",
         "to_team_id": "BOS",
         "pick_year": null,
         "pick_round": null,
@@ -202,7 +202,7 @@
       {
         "type": "player",
         "player_name": "Curtis Borchardt",
-        "from_team_id": "UTA",
+        "from_team_id": "CHA",
         "to_team_id": "BOS",
         "pick_year": null,
         "pick_round": null,
@@ -213,7 +213,7 @@
       {
         "type": "player",
         "player_name": "Albert Miralles",
-        "from_team_id": "UTA",
+        "from_team_id": "CHA",
         "to_team_id": "BOS",
         "pick_year": null,
         "pick_round": null,
@@ -224,7 +224,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "UTA",
+        "from_team_id": "CHA",
         "to_team_id": "BOS",
         "pick_year": null,
         "pick_round": null,
@@ -235,7 +235,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "UTA",
+        "from_team_id": "CHA",
         "to_team_id": "BOS",
         "pick_year": null,
         "pick_round": null,
@@ -247,7 +247,203 @@
         "type": "player",
         "player_name": "Antoine Walker",
         "from_team_id": "BOS",
-        "to_team_id": "UTA",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bafce2ee-ce1c-4e5b-a526-baa245c39660",
+    "date": "2005-08-02",
+    "season": "2005-06",
+    "title": "Hornets / Celtics / Grizzlies / Heat / & Jazz Trade",
+    "description": "On 2005-08-02:  Heat acquire rights to Roberto Duenas  Hornets acquire Rasual Butler Other Team(s) Involved in Trade: Celtics, Grizzlies,& Jazz",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "participant"
+      },
+      {
+        "team_id": "BOS",
+        "role": "participant"
+      },
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIA",
+        "role": "participant"
+      },
+      {
+        "team_id": "UTA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Qyntel Woods",
+        "from_team_id": "CHA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Curtis Borchardt",
+        "from_team_id": "CHA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Albert Miralles",
+        "from_team_id": "CHA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Edin Bavcic",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Nikola Pekovic",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Antoine Walker",
+        "from_team_id": "BOS",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "3c2fb12e-785d-4157-99fb-cc315e0e2f28",
+    "date": "2005-08-02",
+    "season": "2005-06",
+    "title": "Greg Ostertag, Greg Ostertag Trade",
+    "description": "On 2005-08-02:  Celtics acquire Curtis Borchardt  Jazz acquire Greg Ostertag Other Team(s) Involved in Trade:Grizzlies, Heat, & Hornets",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "participant"
+      },
+      {
+        "team_id": "BOS",
+        "role": "participant"
+      },
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIA",
+        "role": "participant"
+      },
+      {
+        "team_id": "CHA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Qyntel Woods",
+        "from_team_id": "CHA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Curtis Borchardt",
+        "from_team_id": "CHA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Albert Miralles",
+        "from_team_id": "CHA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Edin Bavcic",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Nikola Pekovic",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Antoine Walker",
+        "from_team_id": "BOS",
+        "to_team_id": "CHA",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -260,7 +456,7 @@
     "id": "e49657b1-21e6-447a-9fb8-c78e98354dfd",
     "date": "2005-08-12",
     "season": "2005-06",
-    "title": "Sam Cassell Trade",
+    "title": "Sam Cassell, Sam Cassell Trade",
     "description": "On 2005-08-12:  Timberwolves acquire Marko Jaric  Clippers acquire Sam Cassell",
     "is_multi_team": false,
     "teams": [
@@ -472,7 +668,7 @@
     "id": "c86fa4c1-d8da-4078-bdea-0b97197206d4",
     "date": "2005-10-04",
     "season": "2005-06",
-    "title": "Tim Thomas, Michael Sweetney / Mike Sweetney Trade",
+    "title": "Tim Thomas, Tim Thomas, Michael Sweetney / Mike Sweetney Trade",
     "description": "On 2005-10-04:  Knicks acquire Eddy Curry  Bulls acquire Tim Thomas",
     "is_multi_team": false,
     "teams": [
@@ -823,7 +1019,7 @@
     "id": "ebab9e33-795a-488e-976c-3f2473aca12e",
     "date": "2006-01-26",
     "season": "2005-06",
-    "title": "Wally Szczerbiak Trade",
+    "title": "Wally Szczerbiak, Wally Szczerbiak, Wally Szczerbiak Trade",
     "description": "On 2006-01-26:  Timberwolves acquire Ricky Davis  Celtics acquire Wally Szczerbiak",
     "is_multi_team": false,
     "teams": [
@@ -1291,7 +1487,7 @@
     "id": "9d4dedd5-ac54-42a6-a558-b1ae560100d8",
     "date": "2006-02-22",
     "season": "2005-06",
-    "title": "Steve Francis Trade",
+    "title": "Steve Francis, Steve Francis Trade",
     "description": "On 2006-02-22:  Magic acquire Trevor Ariza  Knicks acquire Steve Francis",
     "is_multi_team": false,
     "teams": [
@@ -1344,7 +1540,7 @@
     "id": "db019f74-c276-40f2-b38f-d55f3c9658a7",
     "date": "2006-02-23",
     "season": "2005-06",
-    "title": "Voshon Lenard Trade",
+    "title": "Voshon Lenard, Voshon Lenard, Voshon Lenard Trade",
     "description": "On 2006-02-23:  Blazers acquire Brian Skinner  Kings acquire Vitaly Potapenko Other Team(s) Involved in Trade:Nuggets, Sonics",
     "is_multi_team": true,
     "teams": [
@@ -1369,7 +1565,7 @@
       {
         "type": "player",
         "player_name": "Voshon Lenard",
-        "from_team_id": "OKC",
+        "from_team_id": "SAC",
         "to_team_id": "POR",
         "pick_year": null,
         "pick_round": null,
@@ -1380,7 +1576,7 @@
       {
         "type": "player",
         "player_name": "Brian Skinner",
-        "from_team_id": "OKC",
+        "from_team_id": "SAC",
         "to_team_id": "POR",
         "pick_year": null,
         "pick_round": null,
@@ -1392,7 +1588,7 @@
         "type": "player",
         "player_name": "Ruben Patterson",
         "from_team_id": "POR",
-        "to_team_id": "OKC",
+        "to_team_id": "SAC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1403,7 +1599,7 @@
         "type": "player",
         "player_name": "Sergei Monia",
         "from_team_id": "POR",
-        "to_team_id": "OKC",
+        "to_team_id": "SAC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1414,7 +1610,7 @@
         "type": "player",
         "player_name": "Charles Smith (Cornelius)",
         "from_team_id": "POR",
-        "to_team_id": "OKC",
+        "to_team_id": "SAC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1480,7 +1676,7 @@
     "id": "47826619-29ad-4a9b-9fa1-9a13483293f9",
     "date": "2006-02-23",
     "season": "2005-06",
-    "title": "Derek Anderson Trade",
+    "title": "Derek Anderson, Derek Anderson Trade",
     "description": "On 2006-02-23:  Rockets acquire Gerald Fitch  Heat acquire Derek Anderson",
     "is_multi_team": false,
     "teams": [
@@ -1597,7 +1793,7 @@
     "id": "90a03825-feb4-4752-888e-656a50e57f47",
     "date": "2006-06-08",
     "season": "2005-06",
-    "title": "Rafael Araujo Trade",
+    "title": "Rafael Araujo, Rafael Araujo Trade",
     "description": "On 2006-06-08:  Raptors acquire Kris Humphries  Jazz acquire Rafael Araujo",
     "is_multi_team": false,
     "teams": [
@@ -1650,7 +1846,7 @@
     "id": "9e691551-eae5-40b5-89c6-706d2c493e6b",
     "date": "2006-06-21",
     "season": "2005-06",
-    "title": "Radoslav Nesterovic / Rasho Nesterovic Trade",
+    "title": "Radoslav Nesterovic / Rasho Nesterovic, Radoslav Nesterovic / Rasho Nesterovic Trade",
     "description": "On 2006-06-21:  Spurs acquire Matt Bonner  Raptors acquire Radoslav Nesterovic / Rasho Nesterovic",
     "is_multi_team": false,
     "teams": [
@@ -2200,7 +2396,7 @@
     "id": "d2a0095f-0bd4-406c-9248-31ddb29b171b",
     "date": "2006-06-28",
     "season": "2005-06",
-    "title": "Dan Dickau, Raef LaFrentz Trade",
+    "title": "Dan Dickau, Dan Dickau, Raef LaFrentz Trade",
     "description": "On 2006-06-28:  Celtics acquire Sebastian Telfair  Blazers acquire Dan Dickau",
     "is_multi_team": false,
     "teams": [

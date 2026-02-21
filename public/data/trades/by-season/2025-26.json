@@ -1369,6 +1369,59 @@
     ]
   },
   {
+    "id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb2",
+    "date": "2026-01-08",
+    "season": "2025-26",
+    "title": "Trae Young to Wizards",
+    "description": "Hawks trade Trae Young to Washington for Bilal Coulibaly and draft picks. Both 2018 swap players now on their second teams.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "WAS",
+        "role": "receiver"
+      },
+      {
+        "team_id": "ATL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Trae Young",
+        "from_team_id": "ATL",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "ATL",
+        "pick_year": 2026,
+        "pick_round": 1,
+        "original_team_id": "WAS",
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "ATL",
+        "pick_year": 2028,
+        "pick_round": 1,
+        "original_team_id": "WAS",
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "bbref-2026-01-09-9fc200d1",
     "date": "2026-01-09",
     "season": "2025-26",

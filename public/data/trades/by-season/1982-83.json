@@ -1134,7 +1134,7 @@
     "id": "2e736277-ddce-48e1-91ed-afa0d4b06e41",
     "date": "1983-02-06",
     "season": "1982-83",
-    "title": "Micheal Ray Richardson Trade",
+    "title": "Micheal Ray Richardson, Micheal Ray Richardson Trade",
     "description": "On 1983-02-06:  Warriors acquire Eric Floyd / Sleepy Floyd  Nets acquire Micheal Ray Richardson",
     "is_multi_team": false,
     "teams": [
@@ -1400,7 +1400,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "OKC",
+        "from_team_id": "DET",
         "to_team_id": "ATL",
         "pick_year": null,
         "pick_round": null,
@@ -1411,7 +1411,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "OKC",
+        "from_team_id": "DET",
         "to_team_id": "ATL",
         "pick_year": null,
         "pick_round": null,
@@ -1423,7 +1423,7 @@
         "type": "pick",
         "player_name": null,
         "from_team_id": "ATL",
-        "to_team_id": "OKC",
+        "to_team_id": "DET",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -2171,6 +2171,48 @@
     "season": "1982-83",
     "title": "Hawks / Knicks Trade",
     "description": "On 1983-06-29:  Knicks acquire cash  Hawks acquire Sylvester Williams / Sly Williams",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "NYK",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sylvester Williams / Sly Williams",
+        "from_team_id": "NYK",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "ae502823-efd5-4c79-9bd2-27c950c56c49",
+    "date": "1983-06-29",
+    "season": "1982-83",
+    "title": "Sylvester Williams / Sly Williams Trade",
+    "description": "On 1983-06-29:  Knicks (per NBA Register & Knicks media guide) acquire Durand Macklin / Rudy Macklin  Hawks acquire Sylvester Williams / Sly Williams",
     "is_multi_team": false,
     "teams": [
       {

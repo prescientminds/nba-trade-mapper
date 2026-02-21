@@ -3,7 +3,7 @@
     "id": "519d4f8b-0e5f-4708-bd75-65db3708fc63",
     "date": "2008-07-09",
     "season": "2008-09",
-    "title": "Ike Diogu Trade",
+    "title": "Ike Diogu, Ike Diogu Trade",
     "description": "On 2008-07-09:  Pacers acquire Jarrett Jack  Blazers acquire Ike Diogu",
     "is_multi_team": false,
     "teams": [
@@ -418,7 +418,7 @@
     "id": "c325b699-9834-4623-821c-8f18110c1f82",
     "date": "2008-08-13",
     "season": "2008-09",
-    "title": "Luke Ridnour, Adrian Griffin Trade",
+    "title": "Luke Ridnour, Adrian Griffin, Adrian Griffin Trade",
     "description": "On 2008-08-13:  Cavaliers acquire Maurice Williams / Mo Williams  Bucks acquire Luke Ridnour Other Team(s) Involved in Trade:Sonics",
     "is_multi_team": true,
     "teams": [
@@ -439,7 +439,7 @@
       {
         "type": "player",
         "player_name": "Luke Ridnour",
-        "from_team_id": "CLE",
+        "from_team_id": "OKC",
         "to_team_id": "MIL",
         "pick_year": null,
         "pick_round": null,
@@ -450,7 +450,7 @@
       {
         "type": "player",
         "player_name": "Adrian Griffin",
-        "from_team_id": "CLE",
+        "from_team_id": "OKC",
         "to_team_id": "MIL",
         "pick_year": null,
         "pick_round": null,
@@ -461,7 +461,7 @@
       {
         "type": "player",
         "player_name": "Damon Jones",
-        "from_team_id": "CLE",
+        "from_team_id": "OKC",
         "to_team_id": "MIL",
         "pick_year": null,
         "pick_round": null,
@@ -473,7 +473,7 @@
         "type": "player",
         "player_name": "Maurice Williams / Mo Williams",
         "from_team_id": "MIL",
-        "to_team_id": "CLE",
+        "to_team_id": "OKC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -484,7 +484,7 @@
         "type": "player",
         "player_name": "Desmond Mason",
         "from_team_id": "MIL",
-        "to_team_id": "CLE",
+        "to_team_id": "OKC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -497,7 +497,7 @@
     "id": "7334430e-beb3-4217-b358-b21590c85965",
     "date": "2008-08-14",
     "season": "2008-09",
-    "title": "Bobby Jackson Trade",
+    "title": "Bobby Jackson, Bobby Jackson, Bobby Jackson Trade",
     "description": "On 2008-08-14:  Rockets acquire Ron Artest / Metta World Peace  Kings acquire Bobby Jackson",
     "is_multi_team": false,
     "teams": [
@@ -817,7 +817,7 @@
     "id": "a839a7ae-0cc8-4d78-99c2-55114ad2c033",
     "date": "2008-11-21",
     "season": "2008-09",
-    "title": "Zach Randolph, Mardy Collins Trade",
+    "title": "Zach Randolph, Zach Randolph, Mardy Collins Trade",
     "description": "On 2008-11-21:  Knicks acquire Tim Thomas  Clippers acquire Zach Randolph",
     "is_multi_team": false,
     "teams": [
@@ -923,7 +923,7 @@
     "id": "d226023c-fb12-4879-91ed-ba5be5f5a3d3",
     "date": "2008-12-10",
     "season": "2008-09",
-    "title": "Boris Diaw, Raja Bell Trade",
+    "title": "Boris Diaw, Boris Diaw, Raja Bell Trade",
     "description": "On 2008-12-10:  Suns acquire Jason Richardson  Bobcats acquire Boris Diaw",
     "is_multi_team": false,
     "teams": [
@@ -1030,7 +1030,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "CHA",
+        "from_team_id": "WAS",
         "to_team_id": "MEM",
         "pick_year": null,
         "pick_round": null,
@@ -1042,7 +1042,7 @@
         "type": "pick",
         "player_name": null,
         "from_team_id": "MEM",
-        "to_team_id": "CHA",
+        "to_team_id": "WAS",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1053,7 +1053,7 @@
         "type": "cash",
         "player_name": null,
         "from_team_id": "MEM",
-        "to_team_id": "CHA",
+        "to_team_id": "WAS",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1194,7 +1194,7 @@
     "id": "e26abf6e-6374-4835-9bd4-30e6af82e4c4",
     "date": "2009-01-16",
     "season": "2008-09",
-    "title": "DeSagana Diop Trade",
+    "title": "DeSagana Diop, DeSagana Diop Trade",
     "description": "On 2009-01-16:  Mavericks acquire Matt Carroll  Bobcats acquire DeSagana Diop",
     "is_multi_team": false,
     "teams": [
@@ -1300,7 +1300,7 @@
     "id": "aab26293-7626-406f-9157-3b7d8ff40f76",
     "date": "2009-02-07",
     "season": "2008-09",
-    "title": "Vladimir Radmanovic Trade",
+    "title": "Vladimir Radmanovic, Vladimir Radmanovic Trade",
     "description": "On 2009-02-07:  Lakers acquire Adam Morrison  Bobcats acquire Vladimir Radmanovic",
     "is_multi_team": false,
     "teams": [
@@ -1353,7 +1353,7 @@
     "id": "0841f09c-ee7a-478a-9a70-cb7392f7055d",
     "date": "2009-02-13",
     "season": "2008-09",
-    "title": "Jermaine O'Neal, Jamario Moon Trade",
+    "title": "Jermaine O'Neal, Jermaine O'Neal, Jamario Moon Trade",
     "description": "On 2009-02-13:  Raptors acquire Shawn Marion  Heat acquire Jermaine O'Neal",
     "is_multi_team": false,
     "teams": [
@@ -1492,7 +1492,7 @@
     "id": "2c46e0bb-9d59-4efd-a5e6-15af3d99ed33",
     "date": "2009-02-18",
     "season": "2008-09",
-    "title": "Brad Miller Trade",
+    "title": "Brad Miller, Brad Miller, Brad Miller Trade",
     "description": "On 2009-02-18:  Kings acquire Andres Nocioni  Bulls acquire Brad Miller",
     "is_multi_team": false,
     "teams": [
@@ -1657,14 +1657,14 @@
         "notes": null
       },
       {
-        "type": "player",
-        "player_name": "Thabo Sefolosha",
+        "type": "pick",
+        "player_name": null,
         "from_team_id": "CHI",
         "to_team_id": "OKC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Thabo Sefolosha",
         "notes": null
       }
     ]
@@ -1758,7 +1758,7 @@
       {
         "type": "player",
         "player_name": "Adonal Foyle",
-        "from_team_id": "HOU",
+        "from_team_id": "ORL",
         "to_team_id": "MEM",
         "pick_year": null,
         "pick_round": null,
@@ -1769,7 +1769,7 @@
       {
         "type": "player",
         "player_name": "Mike Wilks",
-        "from_team_id": "HOU",
+        "from_team_id": "ORL",
         "to_team_id": "MEM",
         "pick_year": null,
         "pick_round": null,
@@ -1780,7 +1780,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "HOU",
+        "from_team_id": "ORL",
         "to_team_id": "MEM",
         "pick_year": null,
         "pick_round": null,
@@ -1791,7 +1791,7 @@
       {
         "type": "cash",
         "player_name": null,
-        "from_team_id": "HOU",
+        "from_team_id": "ORL",
         "to_team_id": "MEM",
         "pick_year": null,
         "pick_round": null,
@@ -1803,7 +1803,7 @@
         "type": "player",
         "player_name": "Kyle Lowry",
         "from_team_id": "MEM",
-        "to_team_id": "HOU",
+        "to_team_id": "ORL",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1816,7 +1816,7 @@
     "id": "f38d7de4-200c-4c1a-8787-5f513b225de1",
     "date": "2009-02-19",
     "season": "2008-09",
-    "title": "Rashad McCants, Calvin Booth Trade",
+    "title": "Rashad McCants, Rashad McCants, Calvin Booth Trade",
     "description": "On 2009-02-19:  Timberwolves acquire Shelden Williams  Kings acquire Rashad McCants",
     "is_multi_team": false,
     "teams": [
@@ -1901,7 +1901,7 @@
       {
         "type": "player",
         "player_name": "Patrick O'Bryant",
-        "from_team_id": "BOS",
+        "from_team_id": "SAC",
         "to_team_id": "TOR",
         "pick_year": null,
         "pick_round": null,
@@ -1913,7 +1913,7 @@
         "type": "player",
         "player_name": "Will Solomon",
         "from_team_id": "TOR",
-        "to_team_id": "BOS",
+        "to_team_id": "SAC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -2180,7 +2180,7 @@
     "id": "e6ddbbd3-2de3-48cb-a584-3a06242495ff",
     "date": "2009-06-24",
     "season": "2008-09",
-    "title": "Etan Thomas, Darius Songaila Trade",
+    "title": "Etan Thomas, Etan Thomas, Darius Songaila Trade",
     "description": "On 2009-06-24:  Wizards acquire Randy Foye  Timberwolves acquire Etan Thomas",
     "is_multi_team": false,
     "teams": [
@@ -2266,7 +2266,7 @@
     "id": "1a9c065a-a4de-4e2e-9db3-4281ca92c823",
     "date": "2009-06-25",
     "season": "2008-09",
-    "title": "Shaquille O'Neal Trade",
+    "title": "Shaquille O'Neal, Shaquille O'Neal Trade",
     "description": "On 2009-06-25:  Suns acquire Ben Wallace  Cavaliers acquire Shaquille O'Neal",
     "is_multi_team": false,
     "teams": [
@@ -2394,7 +2394,7 @@
     "id": "3df37dbb-3f62-4386-90f0-0698b23efd2f",
     "date": "2009-06-25",
     "season": "2008-09",
-    "title": "Jamal Crawford Trade",
+    "title": "Jamal Crawford, Jamal Crawford Trade",
     "description": "On 2009-06-25:  Warriors acquire Acie Law  Hawks acquire Jamal Crawford",
     "is_multi_team": false,
     "teams": [
@@ -2447,7 +2447,7 @@
     "id": "fd6ba017-78ba-4fac-836b-0c9bb4b07353",
     "date": "2009-06-25",
     "season": "2008-09",
-    "title": "Vince Carter Trade",
+    "title": "Vince Carter, Vince Carter, Vince Carter Trade",
     "description": "On 2009-06-25:  Nets acquire Rafer Alston  Magic acquire Vince Carter",
     "is_multi_team": false,
     "teams": [

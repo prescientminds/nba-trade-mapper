@@ -28,7 +28,7 @@
       {
         "type": "player",
         "player_name": "Jerry Stackhouse",
-        "from_team_id": "DAL",
+        "from_team_id": "ORL",
         "to_team_id": "MEM",
         "pick_year": null,
         "pick_round": null,
@@ -39,7 +39,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "DAL",
+        "from_team_id": "ORL",
         "to_team_id": "MEM",
         "pick_year": null,
         "pick_round": null,
@@ -51,7 +51,7 @@
         "type": "player",
         "player_name": "Greg Buckner",
         "from_team_id": "MEM",
-        "to_team_id": "DAL",
+        "to_team_id": "ORL",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -287,7 +287,7 @@
     "id": "0a7917c9-feb9-442b-9712-e42a67e60b0c",
     "date": "2009-07-27",
     "season": "2009-10",
-    "title": "Etan Thomas Trade",
+    "title": "Etan Thomas, Etan Thomas Trade",
     "description": "On 2009-07-27:  Timberwolves acquire Chucky Atkins  Thunder acquire Etan Thomas",
     "is_multi_team": false,
     "teams": [
@@ -367,31 +367,16 @@
     "is_multi_team": false,
     "teams": [
       {
-        "team_id": "NOP",
-        "role": "sender"
-      },
-      {
         "team_id": "CHA",
-        "role": "receiver"
+        "role": "sender"
       }
     ],
     "assets": [
       {
         "type": "player",
         "player_name": "Tyson Chandler",
-        "from_team_id": "NOP",
-        "to_team_id": "CHA",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Emeka Okafor",
         "from_team_id": "CHA",
-        "to_team_id": "NOP",
+        "to_team_id": null,
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -605,7 +590,7 @@
     "id": "0f1cb800-bc53-4712-92b0-f0f843ff3b57",
     "date": "2009-08-17",
     "season": "2009-10",
-    "title": "Carlos Delfino, Roko-Leni Ukic / Roko Ukic Trade",
+    "title": "Carlos Delfino, Carlos Delfino, Roko-Leni Ukic / Roko Ukic Trade",
     "description": "On 2009-08-17:  Raptors acquire Amir Johnson  Bucks acquire Carlos Delfino",
     "is_multi_team": false,
     "teams": [
@@ -828,7 +813,7 @@
     "id": "0dc5b55f-c541-4c18-b918-746dadaa7372",
     "date": "2009-11-16",
     "season": "2009-10",
-    "title": "Stephen Jackson, Acie Law Trade",
+    "title": "Stephen Jackson, Stephen Jackson, Acie Law Trade",
     "description": "On 2009-11-16:  Warriors acquire Raja Bell  Bobcats acquire Stephen Jackson",
     "is_multi_team": false,
     "teams": [
@@ -1009,7 +994,7 @@
     "id": "f4b9a4b8-f6bc-4ac8-b49e-cddddacbe00e",
     "date": "2010-01-11",
     "season": "2009-10",
-    "title": "Eduardo Najera Trade",
+    "title": "Eduardo Najera, Eduardo Najera Trade",
     "description": "On 2010-01-11:  Nets acquire Kris Humphries  Mavericks acquire Eduardo Najera",
     "is_multi_team": false,
     "teams": [
@@ -1146,7 +1131,7 @@
     "id": "62b584c7-898f-4b5c-a341-34e7fbf2aa4b",
     "date": "2010-02-13",
     "season": "2009-10",
-    "title": "Caron Butler Trade",
+    "title": "Caron Butler, Caron Butler, Caron Butler Trade",
     "description": "On 2010-02-13:  Wizards acquire Josh Howard  Mavericks acquire Caron Butler",
     "is_multi_team": false,
     "teams": [
@@ -1254,7 +1239,7 @@
     "id": "47a0bad6-a68b-4074-9c14-933029d94238",
     "date": "2010-02-16",
     "season": "2009-10",
-    "title": "Marcus Camby Trade",
+    "title": "Marcus Camby, Marcus Camby Trade",
     "description": "On 2010-02-16:  Clippers acquire Travis Outlaw  Blazers acquire Marcus Camby",
     "is_multi_team": false,
     "teams": [
@@ -1328,7 +1313,7 @@
       {
         "type": "player",
         "player_name": "Antawn Jamison",
-        "from_team_id": "LAC",
+        "from_team_id": "WAS",
         "to_team_id": "CLE",
         "pick_year": null,
         "pick_round": null,
@@ -1339,7 +1324,7 @@
       {
         "type": "player",
         "player_name": "Sebastian Telfair",
-        "from_team_id": "LAC",
+        "from_team_id": "WAS",
         "to_team_id": "CLE",
         "pick_year": null,
         "pick_round": null,
@@ -1351,7 +1336,7 @@
         "type": "player",
         "player_name": "Zydrunas Ilgauskas",
         "from_team_id": "CLE",
-        "to_team_id": "LAC",
+        "to_team_id": "WAS",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1362,7 +1347,7 @@
         "type": "player",
         "player_name": "Emir Preldžic",
         "from_team_id": "CLE",
-        "to_team_id": "LAC",
+        "to_team_id": "WAS",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1373,7 +1358,7 @@
         "type": "pick",
         "player_name": null,
         "from_team_id": "CLE",
-        "to_team_id": "LAC",
+        "to_team_id": "WAS",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1439,7 +1424,7 @@
     "id": "5aad1f4c-961c-4594-b561-58fd582947a2",
     "date": "2010-02-18",
     "season": "2009-10",
-    "title": "Francisco Elson, Jodie Meeks Trade",
+    "title": "Francisco Elson, Francisco Elson, Jodie Meeks Trade",
     "description": "On 2010-02-18:  Bucks acquire Primoz Brezec  76ers acquire Francisco Elson",
     "is_multi_team": false,
     "teams": [
@@ -1514,7 +1499,7 @@
     "id": "90233f6b-5f1c-4790-97a2-d757fb291572",
     "date": "2010-02-18",
     "season": "2009-10",
-    "title": "Tyrus Thomas Trade",
+    "title": "Tyrus Thomas, Tyrus Thomas Trade",
     "description": "On 2010-02-18:  Bulls acquire Ronald Murray / Flip Murray  Bobcats acquire Tyrus Thomas",
     "is_multi_team": false,
     "teams": [
@@ -1578,7 +1563,7 @@
     "id": "f86d1329-e698-41aa-9efb-1bf4732173cf",
     "date": "2010-02-18",
     "season": "2009-10",
-    "title": "John Salmons Trade",
+    "title": "John Salmons, John Salmons Trade",
     "description": "On 2010-02-18:  Bulls acquire Hakim Warrick  Bucks acquire John Salmons",
     "is_multi_team": false,
     "teams": [
@@ -1675,7 +1660,7 @@
     "id": "f5d86743-2fc3-4569-b4ef-980123ac2e6c",
     "date": "2010-02-18",
     "season": "2009-10",
-    "title": "Nate Robinson Trade",
+    "title": "Nate Robinson, Nate Robinson, Nate Robinson Trade",
     "description": "On 2010-02-18:  Knicks acquire Eddie House  Celtics acquire Nate Robinson",
     "is_multi_team": false,
     "teams": [
@@ -1792,7 +1777,7 @@
     "id": "c71a9975-db83-4927-81ae-61eb5ec184a0",
     "date": "2010-02-18",
     "season": "2009-10",
-    "title": "Carl Landry Trade",
+    "title": "Carl Landry, Carl Landry, Carl Landry Trade",
     "description": "On 2010-02-18:  Rockets acquire Kevin Martin  Knicks acquire Tracy McGrady Other Team(s) Involved in Trade: Kings",
     "is_multi_team": true,
     "teams": [
@@ -1988,7 +1973,7 @@
     "id": "f73580dd-4e0f-4e38-85d3-7f2af7389de9",
     "date": "2010-06-22",
     "season": "2009-10",
-    "title": "Corey Maggette Trade",
+    "title": "Corey Maggette, Corey Maggette Trade",
     "description": "On 2010-06-22:  Warriors acquire Charlie Bell  Bucks acquire Corey Maggette",
     "is_multi_team": false,
     "teams": [
@@ -2347,7 +2332,7 @@
       {
         "type": "player",
         "player_name": "Jordan Crawford",
-        "from_team_id": "OKC",
+        "from_team_id": "BKN",
         "to_team_id": "ATL",
         "pick_year": null,
         "pick_round": null,
@@ -2359,7 +2344,7 @@
         "type": "player",
         "player_name": "Damion James",
         "from_team_id": "ATL",
-        "to_team_id": "OKC",
+        "to_team_id": "BKN",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,

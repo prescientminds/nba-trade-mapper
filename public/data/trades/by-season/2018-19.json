@@ -246,7 +246,7 @@
     "id": "467bb412-ae8d-479f-8c13-a68e06b1188e",
     "date": "2018-07-07",
     "season": "2018-19",
-    "title": "Julyan Stone, Bismack Biyombo Trade",
+    "title": "Julyan Stone, Bismack Biyombo, Bismack Biyombo Trade",
     "description": "On 2018-07-07:  Magic acquire Timofey Mozgov  Hornets acquire Bismack Biyombo Other Team(s) Involved in Trade: Bulls",
     "is_multi_team": true,
     "teams": [
@@ -387,7 +387,7 @@
     "id": "440c586a-e0fb-4966-8397-8e44f8c4253c",
     "date": "2018-07-17",
     "season": "2018-19",
-    "title": "Garrett Temple Trade",
+    "title": "Garrett Temple, Garrett Temple Trade",
     "description": "On 2018-07-17:  Kings acquire Ben McLemore  Grizzlies acquire Garrett Temple",
     "is_multi_team": false,
     "teams": [
@@ -448,10 +448,52 @@
     ]
   },
   {
+    "id": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+    "date": "2018-07-18",
+    "season": "2018-19",
+    "title": "Kawhi Leonard to Raptors",
+    "description": "Spurs trade disgruntled Kawhi to Toronto. The gamble pays off with 2019 championship, then Kawhi leaves in free agency.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "TOR",
+        "role": "receiver"
+      },
+      {
+        "team_id": "SAS",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kawhi Leonard",
+        "from_team_id": "SAS",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "DeMar DeRozan",
+        "from_team_id": "TOR",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "acc913b3-7113-44bb-9045-0dbc98a07972",
     "date": "2018-07-18",
     "season": "2018-19",
-    "title": "Kawhi Leonard, Danny Green Trade",
+    "title": "Kawhi Leonard, Kawhi Leonard, Danny Green Trade",
     "description": "On 2018-07-18:  Spurs acquire DeMar DeRozan  Raptors acquire Kawhi Leonard",
     "is_multi_team": false,
     "teams": [
@@ -791,7 +833,7 @@
     "id": "71e24ca8-d935-462f-bcc9-ad119e37475c",
     "date": "2018-07-25",
     "season": "2018-19",
-    "title": "Mike Muscala, Carmelo Anthony Trade",
+    "title": "Mike Muscala, Mike Muscala, Carmelo Anthony Trade",
     "description": "On 2018-07-25:  Hawks acquire Carmelo Anthony  Thunder acquire Timothe Luwawu-Cabarrot Other Team(s) Involved in Trade: 76ers",
     "is_multi_team": true,
     "teams": [
@@ -1060,7 +1102,7 @@
     "id": "ab35d092-4019-4f60-8e96-3afeb849f36d",
     "date": "2018-11-12",
     "season": "2018-19",
-    "title": "Jimmy Butler Trade",
+    "title": "Jimmy Butler, Jimmy Butler, Jimmy Butler Trade",
     "description": "On 2018-11-12:  Timberwolves acquire Robert Covington  76ers acquire Jimmy Butler",
     "is_multi_team": false,
     "teams": [
@@ -1177,7 +1219,7 @@
     "id": "0635191f-07ff-4e48-9a29-985514178a42",
     "date": "2018-12-07",
     "season": "2018-19",
-    "title": "George Hill, Jason Smith Trade",
+    "title": "George Hill, George Hill, Jason Smith Trade",
     "description": "On 2018-12-07:  Cavaliers acquire Matthew Dellavedova / Matt Dellavedova  Bucks acquire George Hill Other Team(s) Involved in Trade:Wizards",
     "is_multi_team": true,
     "teams": [
@@ -1198,7 +1240,7 @@
       {
         "type": "player",
         "player_name": "George Hill",
-        "from_team_id": "CLE",
+        "from_team_id": "WAS",
         "to_team_id": "MIL",
         "pick_year": null,
         "pick_round": null,
@@ -1209,7 +1251,7 @@
       {
         "type": "player",
         "player_name": "Jason Smith",
-        "from_team_id": "CLE",
+        "from_team_id": "WAS",
         "to_team_id": "MIL",
         "pick_year": null,
         "pick_round": null,
@@ -1220,7 +1262,7 @@
       {
         "type": "cash",
         "player_name": null,
-        "from_team_id": "CLE",
+        "from_team_id": "WAS",
         "to_team_id": "MIL",
         "pick_year": null,
         "pick_round": null,
@@ -1232,7 +1274,7 @@
         "type": "player",
         "player_name": "Matthew Dellavedova / Matt Dellavedova",
         "from_team_id": "MIL",
-        "to_team_id": "CLE",
+        "to_team_id": "WAS",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1243,7 +1285,7 @@
         "type": "player",
         "player_name": "John Henson",
         "from_team_id": "MIL",
-        "to_team_id": "CLE",
+        "to_team_id": "WAS",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1426,7 +1468,7 @@
     "id": "eac532b3-71dd-49ed-b3d1-4baff67308ff",
     "date": "2019-01-31",
     "season": "2018-19",
-    "title": "Dennis Smith Jr. Trade",
+    "title": "Dennis Smith Jr., Dennis Smith Jr., Dennis Smith Jr. Trade",
     "description": "On 2019-01-31:  Mavericks acquire Kristaps Porzingis  Knicks acquire Dennis Smith Jr.",
     "is_multi_team": false,
     "teams": [
@@ -1523,7 +1565,7 @@
     "id": "c364819d-d69c-442e-8d5a-7a1cbfc421c4",
     "date": "2019-02-04",
     "season": "2018-19",
-    "title": "Rodney Hood Trade",
+    "title": "Rodney Hood, Rodney Hood Trade",
     "description": "On 2019-02-04:  Cavaliers acquire Nik Stauskas  Blazers acquire Rodney Hood",
     "is_multi_team": false,
     "teams": [
@@ -1660,7 +1702,7 @@
     "id": "723ca9b1-4e8c-4133-b4e4-5471c3057e69",
     "date": "2019-02-06",
     "season": "2018-19",
-    "title": "Harrison Barnes Trade",
+    "title": "Harrison Barnes, Harrison Barnes Trade",
     "description": "On 2019-02-06:  Mavericks acquire Justin Jackson  Kings acquire Harrison Barnes",
     "is_multi_team": false,
     "teams": [
@@ -1713,7 +1755,7 @@
     "id": "5a84935e-9363-4ff0-81e0-14e3f4c41e88",
     "date": "2019-02-06",
     "season": "2018-19",
-    "title": "Ryan Anderson Trade",
+    "title": "Ryan Anderson, Ryan Anderson Trade",
     "description": "On 2019-02-06:  Suns acquire Tyler Johnson  Heat acquire Ryan Anderson",
     "is_multi_team": false,
     "teams": [
@@ -1766,7 +1808,7 @@
     "id": "944485e9-8727-4f64-b068-e437f49a7ee4",
     "date": "2019-02-06",
     "season": "2018-19",
-    "title": "Brandon Knight Trade",
+    "title": "Brandon Knight, Brandon Knight, Brandon Knight Trade",
     "description": "On 2019-02-06:  Cavaliers acquire Brandon Knight  Rockets acquire Iman Shumpert Other Team(s) Involved in Trade:Kings",
     "is_multi_team": true,
     "teams": [
@@ -1787,7 +1829,7 @@
       {
         "type": "player",
         "player_name": "Brandon Knight",
-        "from_team_id": "HOU",
+        "from_team_id": "SAC",
         "to_team_id": "CLE",
         "pick_year": null,
         "pick_round": null,
@@ -1798,7 +1840,7 @@
       {
         "type": "player",
         "player_name": "Marquese Chriss",
-        "from_team_id": "HOU",
+        "from_team_id": "SAC",
         "to_team_id": "CLE",
         "pick_year": null,
         "pick_round": null,
@@ -1810,7 +1852,7 @@
         "type": "player",
         "player_name": "Alec Burks",
         "from_team_id": "CLE",
-        "to_team_id": "HOU",
+        "to_team_id": "SAC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1821,7 +1863,7 @@
         "type": "player",
         "player_name": "Nik Stauskas",
         "from_team_id": "CLE",
-        "to_team_id": "HOU",
+        "to_team_id": "SAC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1832,7 +1874,7 @@
         "type": "player",
         "player_name": "Wade Baldwin IV",
         "from_team_id": "CLE",
-        "to_team_id": "HOU",
+        "to_team_id": "SAC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1845,7 +1887,7 @@
     "id": "776db6a4-7563-482c-aa7b-0c9f04a33630",
     "date": "2019-02-06",
     "season": "2018-19",
-    "title": "Otto Porter Jr. Trade",
+    "title": "Otto Porter Jr., Otto Porter Jr. Trade",
     "description": "On 2019-02-06:  Wizards acquire Jabari Parker  Bulls acquire Otto Porter Jr.",
     "is_multi_team": false,
     "teams": [
@@ -1898,7 +1940,7 @@
     "id": "3741cd97-5dd5-4b5d-8e78-3cd2b9c64eba",
     "date": "2019-02-06",
     "season": "2018-19",
-    "title": "Tobias Harris Trade",
+    "title": "Tobias Harris, Tobias Harris, Tobias Harris Trade",
     "description": "On 2019-02-06:  Clippers acquire Landry Shamet  76ers acquire Tobias Harris",
     "is_multi_team": false,
     "teams": [
@@ -2196,7 +2238,7 @@
     "id": "e821e272-a930-4034-8aa9-5d14fefed91b",
     "date": "2019-02-07",
     "season": "2018-19",
-    "title": "Nikola Mirotic, Stanley Johnson Trade",
+    "title": "Nikola Mirotic, Nikola Mirotic, Stanley Johnson Trade",
     "description": "On 2019-02-07:  Bucks acquire Nikola Mirotic  Pelicans acquire Stanley Johnson Other Team(s) Involved in Trade:Pistons",
     "is_multi_team": true,
     "teams": [
@@ -2217,7 +2259,7 @@
       {
         "type": "player",
         "player_name": "Nikola Mirotic",
-        "from_team_id": "DET",
+        "from_team_id": "NOP",
         "to_team_id": "MIL",
         "pick_year": null,
         "pick_round": null,
@@ -2229,7 +2271,7 @@
         "type": "player",
         "player_name": "Jason Smith",
         "from_team_id": "MIL",
-        "to_team_id": "DET",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -2240,7 +2282,7 @@
         "type": "player",
         "player_name": "Thon Maker",
         "from_team_id": "MIL",
-        "to_team_id": "DET",
+        "to_team_id": "NOP",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -2258,31 +2300,16 @@
     "is_multi_team": false,
     "teams": [
       {
-        "team_id": "SAC",
-        "role": "sender"
-      },
-      {
         "team_id": "POR",
-        "role": "receiver"
+        "role": "sender"
       }
     ],
     "assets": [
       {
         "type": "player",
         "player_name": "Skal Labissiere",
-        "from_team_id": "SAC",
-        "to_team_id": "POR",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Caleb Swanigan",
         "from_team_id": "POR",
-        "to_team_id": "SAC",
+        "to_team_id": null,
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -3125,7 +3152,7 @@
         "pick_year": 2024,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Cam Spencer",
+        "became_player_name": null,
         "notes": null
       },
       {

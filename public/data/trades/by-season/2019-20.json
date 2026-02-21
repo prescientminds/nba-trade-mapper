@@ -1,5 +1,69 @@
 [
   {
+    "id": "dddddddd-dddd-dddd-dddd-dddddddddddd",
+    "date": "2019-06-15",
+    "season": "2019-20",
+    "title": "Anthony Davis to Lakers",
+    "description": "Pelicans trade AD to Los Angeles for young core plus picks. Lakers win 2020 championship, then trade AD to Dallas in 2025.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "NOP",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Anthony Davis",
+        "from_team_id": "NOP",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brandon Ingram",
+        "from_team_id": "LAL",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "NOP",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": "LAL",
+        "became_player_name": "Ziaire Williams",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "NOP",
+        "pick_year": 2024,
+        "pick_round": 1,
+        "original_team_id": "LAL",
+        "became_player_name": "Yves Missi",
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "bbref-2019-07-06-78918439",
     "date": "2019-07-06",
     "season": "2019-20",
@@ -742,8 +806,8 @@
         "pick_year": 2023,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jordan Hawkins",
-        "notes": "swap right"
+        "became_player_name": "Drake Powell",
+        "notes": null
       },
       {
         "type": "pick",
@@ -1194,7 +1258,7 @@
         "pick_year": 2024,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Adem Bona",
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1344,7 +1408,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Brandon Boston Jr.",
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1986,6 +2050,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "swap",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -2037,7 +2112,7 @@
         "pick_year": 2021,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Josh Giddey",
+        "became_player_name": "Nikola Topić",
         "notes": null
       },
       {
@@ -2059,7 +2134,7 @@
         "pick_year": 2025,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Thomas Sorber",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -2658,7 +2733,7 @@
         "pick_year": 2022,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Moussa Diabaté",
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -2839,7 +2914,7 @@
         "pick_year": 2024,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Tyler Kolek",
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -3099,7 +3174,7 @@
         "pick_year": 2023,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "GG Jackson II",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -3178,7 +3253,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jeremiah Robinson-Earl",
         "notes": null
       },
       {

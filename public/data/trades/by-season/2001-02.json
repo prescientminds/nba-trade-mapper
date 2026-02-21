@@ -98,7 +98,7 @@
     "id": "9dc42314-eb49-462e-b19a-5f237f6cc43d",
     "date": "2001-07-18",
     "season": "2001-02",
-    "title": "Jason Kidd Trade",
+    "title": "Jason Kidd, Jason Kidd, Jason Kidd Trade",
     "description": "On 2001-07-18:  Suns acquire Stephon Marbury  Nets acquire Jason Kidd",
     "is_multi_team": false,
     "teams": [
@@ -544,7 +544,7 @@
     "id": "e3d49cba-ef1c-4fa9-8c60-bb4eb093811d",
     "date": "2001-08-03",
     "season": "2001-02",
-    "title": "Matt Harpring, Robert Traylor / Tractor Traylor Trade",
+    "title": "Matt Harpring, Matt Harpring, Robert Traylor / Tractor Traylor Trade",
     "description": "On 2001-08-03:  Cavaliers acquire Tyrone Hill  76ers acquire Matt Harpring",
     "is_multi_team": false,
     "teams": [
@@ -619,7 +619,7 @@
     "id": "bed0d647-b179-46bc-92b7-45bc350c93b9",
     "date": "2001-08-10",
     "season": "2001-02",
-    "title": "Shandon Anderson, Howard Eisley Trade",
+    "title": "Shandon Anderson, Shandon Anderson, Howard Eisley Trade",
     "description": "On 2001-08-10:  Rockets acquire rights to Kyle Hill  Mavericks acquire Tyrone Bogues / Muggsy Bogues Other Team(s) Involved in Trade: Knicks",
     "is_multi_team": true,
     "teams": [
@@ -640,7 +640,7 @@
       {
         "type": "player",
         "player_name": "Shandon Anderson",
-        "from_team_id": "HOU",
+        "from_team_id": "DAL",
         "to_team_id": "NYK",
         "pick_year": null,
         "pick_round": null,
@@ -651,7 +651,7 @@
       {
         "type": "player",
         "player_name": "Howard Eisley",
-        "from_team_id": "HOU",
+        "from_team_id": "DAL",
         "to_team_id": "NYK",
         "pick_year": null,
         "pick_round": null,
@@ -663,7 +663,7 @@
         "type": "player",
         "player_name": "Glen Rice Sr.",
         "from_team_id": "NYK",
-        "to_team_id": "HOU",
+        "to_team_id": "DAL",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -674,7 +674,7 @@
         "type": "player",
         "player_name": "Tyrone Bogues / Muggsy Bogues",
         "from_team_id": "NYK",
-        "to_team_id": "HOU",
+        "to_team_id": "DAL",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -903,7 +903,7 @@
     "id": "0b8bf3f1-f483-4d33-8714-aac49c04d170",
     "date": "2001-10-25",
     "season": "2001-02",
-    "title": "Derrick Coleman Trade",
+    "title": "Derrick Coleman, Derrick Coleman, Derrick Coleman Trade",
     "description": "On 2001-10-25:  Hornets acquire Chris Porter  Warriors acquire Cedric Henderson (E.) Other Team(s) Involved in Trade: 76ers",
     "is_multi_team": true,
     "teams": [
@@ -1235,7 +1235,7 @@
     "id": "8bed2cb2-5910-4a01-8591-efadc6e032bb",
     "date": "2002-02-19",
     "season": "2001-02",
-    "title": "Jalen Rose Trade",
+    "title": "Jalen Rose, Jalen Rose, Jalen Rose Trade",
     "description": "On 2002-02-19:  Pacers acquire Ron Artest / Metta World Peace  Bulls acquire Jalen Rose",
     "is_multi_team": false,
     "teams": [
@@ -1343,7 +1343,7 @@
     "id": "8305826e-993f-46af-9be6-f27b7e30a68d",
     "date": "2002-02-20",
     "season": "2001-02",
-    "title": "Tony Delk Trade",
+    "title": "Tony Delk, Tony Delk, Tony Delk Trade",
     "description": "On 2002-02-20:  Suns acquire Joe Johnson  Celtics acquire Tony Delk",
     "is_multi_team": false,
     "teams": [
@@ -1429,7 +1429,7 @@
     "id": "c408cb22-3012-42f8-bc17-ecc424e31068",
     "date": "2002-02-21",
     "season": "2001-02",
-    "title": "Nick Van Exel Trade",
+    "title": "Nick Van Exel, Nick Van Exel, Nick Van Exel Trade",
     "description": "On 2002-02-21:  Nuggets acquire Juwan Howard  Mavericks acquire Nick Van Exel",
     "is_multi_team": false,
     "teams": [
@@ -2131,7 +2131,7 @@
     "id": "3b678ac7-5e9f-4c51-aaf8-d1a2df5aee99",
     "date": "2002-06-26",
     "season": "2001-02",
-    "title": "Antonio McDyess Trade",
+    "title": "Antonio McDyess, Antonio McDyess Trade",
     "description": "On 2002-06-26:  Nuggets acquire Marcus Camby  Knicks acquire Antonio McDyess",
     "is_multi_team": false,
     "teams": [

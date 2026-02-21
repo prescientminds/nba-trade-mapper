@@ -253,10 +253,6 @@
       {
         "team_id": "BOS",
         "role": "sender"
-      },
-      {
-        "team_id": "IND",
-        "role": "sender"
       }
     ],
     "assets": [
@@ -264,7 +260,7 @@
         "type": "pick",
         "player_name": null,
         "from_team_id": "BOS",
-        "to_team_id": "IND",
+        "to_team_id": null,
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -272,15 +268,15 @@
         "notes": "Jerry Sichting / Reggie Cross"
       },
       {
-        "type": "player",
-        "player_name": "Jerry Sichting",
-        "from_team_id": "IND",
-        "to_team_id": "BOS",
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": null,
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "Jerry Sichting / Kenny Williams"
       }
     ]
   },
@@ -699,7 +695,7 @@
     "id": "eb6e74e2-b27d-4775-86bd-a33a170172aa",
     "date": "1986-06-16",
     "season": "1985-86",
-    "title": "Jeff Ruland, Cliff Robinson Trade",
+    "title": "Jeff Ruland, Jeff Ruland, Cliff Robinson Trade",
     "description": "On 1986-06-16:  Bullets acquire Moses Malone  76ers acquire Jeff Ruland",
     "is_multi_team": false,
     "teams": [

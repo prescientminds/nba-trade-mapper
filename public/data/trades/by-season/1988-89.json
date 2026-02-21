@@ -140,26 +140,26 @@
     "id": "4ba13a16-7a94-4d7f-8554-3e803d65bba8",
     "date": "1988-09-09",
     "season": "1988-89",
-    "title": "Jose Ortiz Acquisition",
-    "description": "Utah Jazz acquire Jose Ortiz from CAI Zaragoza (Spain). Ortiz had played in Spain after being drafted 15th overall in 1987.",
+    "title": "Jose Ortiz Trade",
+    "description": "On 1988-09-09:  Spanish team acquire Mel Turpin  Jazz acquire Jose Ortiz",
     "is_multi_team": false,
     "teams": [
       {
         "team_id": "UTA",
-        "role": "receiver"
+        "role": "sender"
       }
     ],
     "assets": [
       {
         "type": "player",
         "player_name": "Jose Ortiz",
-        "from_team_id": null,
-        "to_team_id": "UTA",
+        "from_team_id": "UTA",
+        "to_team_id": null,
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": "Acquired from CAI Zaragoza (Spain)"
+        "notes": null
       }
     ]
   },
@@ -441,7 +441,7 @@
     "id": "6f40114e-0917-4525-bcba-0865a9bed026",
     "date": "1988-11-02",
     "season": "1988-89",
-    "title": "Joe Barry Carroll Trade",
+    "title": "Joe Barry Carroll, Joe Barry Carroll, Joe Barry Carroll Trade",
     "description": "On 1988-11-02:  Rockets acquire Tony Brown  Nets acquire Joe Barry Carroll",
     "is_multi_team": false,
     "teams": [
@@ -622,7 +622,7 @@
     "id": "c558dff5-a278-4edf-909c-6a21501f9144",
     "date": "1989-01-26",
     "season": "1988-89",
-    "title": "David Greenwood, Darwin Cook Trade",
+    "title": "David Greenwood, David Greenwood, Darwin Cook Trade",
     "description": "On 1989-01-26:  Spurs acquire Calvin Natt  Nuggets acquire David Greenwood",
     "is_multi_team": false,
     "teams": [
@@ -739,7 +739,7 @@
     "id": "2a1a7d54-f89f-4555-a616-77596321587a",
     "date": "1989-02-20",
     "season": "1988-89",
-    "title": "Wayman Tisdale Trade",
+    "title": "Wayman Tisdale, Wayman Tisdale Trade",
     "description": "On 1989-02-20:  Pacers acquire LaSalle Thompson  Kings acquire Wayman Tisdale",
     "is_multi_team": false,
     "teams": [
@@ -898,7 +898,7 @@
     "id": "aa0306bc-1724-4ffd-a689-10d48b82369c",
     "date": "1989-02-23",
     "season": "1988-89",
-    "title": "Joe Kleine, Ed Pinckney Trade",
+    "title": "Joe Kleine, Joe Kleine, Ed Pinckney Trade",
     "description": "On 1989-02-23:  Kings acquire Danny Ainge  Celtics acquire Joe Kleine",
     "is_multi_team": false,
     "teams": [

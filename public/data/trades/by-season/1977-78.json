@@ -98,7 +98,7 @@
     "id": "230cc377-18e6-4125-866d-0a429a6fe5c9",
     "date": "1977-09-01",
     "season": "1977-78",
-    "title": "Billy Knight Trade",
+    "title": "Billy Knight, Billy Knight Trade",
     "description": "On 1977-09-01:  Pacers acquire Adrian Dantley  Braves acquire Billy Knight",
     "is_multi_team": false,
     "teams": [
@@ -757,31 +757,49 @@
     "is_multi_team": false,
     "teams": [
       {
-        "team_id": "DET",
-        "role": "sender"
-      },
-      {
         "team_id": "BKN",
-        "role": "receiver"
+        "role": "sender"
       }
     ],
     "assets": [
       {
         "type": "player",
         "player_name": "Howard Porter",
-        "from_team_id": "DET",
-        "to_team_id": "BKN",
+        "from_team_id": "BKN",
+        "to_team_id": null,
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": null,
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Howard Porter / Terry Tyler"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": null,
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Howard Porter / Tony Price"
       },
       {
         "type": "player",
         "player_name": "Kevin Porter",
-        "from_team_id": "DET",
-        "to_team_id": "BKN",
+        "from_team_id": "BKN",
+        "to_team_id": null,
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -789,10 +807,32 @@
         "notes": null
       },
       {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": null,
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Kevin Porter / Terry Tyler"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": null,
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Kevin Porter / Tony Price"
+      },
+      {
         "type": "cash",
         "player_name": null,
-        "from_team_id": "DET",
-        "to_team_id": "BKN",
+        "from_team_id": "BKN",
+        "to_team_id": null,
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -800,37 +840,26 @@
         "notes": "Cash considerations"
       },
       {
-        "type": "player",
-        "player_name": "Al Skinner",
+        "type": "pick",
+        "player_name": null,
         "from_team_id": "BKN",
-        "to_team_id": "DET",
+        "to_team_id": null,
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "cash / Terry Tyler"
       },
       {
         "type": "pick",
         "player_name": null,
         "from_team_id": "BKN",
-        "to_team_id": "DET",
-        "pick_year": 1978,
-        "pick_round": 2,
-        "original_team_id": "BKN",
-        "became_player_name": "Terry Tyler",
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "BKN",
-        "to_team_id": "DET",
-        "pick_year": 1979,
-        "pick_round": 2,
-        "original_team_id": "BKN",
-        "became_player_name": "Tony Price",
-        "notes": null
+        "to_team_id": null,
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "cash / Tony Price"
       }
     ]
   },
@@ -986,7 +1015,7 @@
     "id": "922668a7-bfc1-42d8-b283-5ad6bc515771",
     "date": "1977-11-23",
     "season": "1977-78",
-    "title": "Marvin Barnes Trade",
+    "title": "Marvin Barnes, Marvin Barnes Trade",
     "description": "On 1977-11-23:  Pistons acquire John Shumate  Braves acquire Marvin Barnes",
     "is_multi_team": false,
     "teams": [
@@ -1072,7 +1101,7 @@
     "id": "36928032-98d5-493e-9575-77bce0ebcac0",
     "date": "1977-12-13",
     "season": "1977-78",
-    "title": "Adrian Dantley, Dave Robisch Trade",
+    "title": "Adrian Dantley, Adrian Dantley, Dave Robisch Trade",
     "description": "On 1977-12-13:  Pacers acquire James Edwards  Lakers acquire Adrian Dantley",
     "is_multi_team": false,
     "teams": [
@@ -1327,7 +1356,7 @@
       {
         "type": "player",
         "player_name": "Don Watts / Slick Watts",
-        "from_team_id": "OKC",
+        "from_team_id": "GSW",
         "to_team_id": "UTA",
         "pick_year": null,
         "pick_round": null,
@@ -1338,7 +1367,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "OKC",
+        "from_team_id": "GSW",
         "to_team_id": "UTA",
         "pick_year": null,
         "pick_round": null,
@@ -1349,7 +1378,7 @@
       {
         "type": "cash",
         "player_name": null,
-        "from_team_id": "OKC",
+        "from_team_id": "GSW",
         "to_team_id": "UTA",
         "pick_year": null,
         "pick_round": null,
@@ -1361,7 +1390,7 @@
         "type": "player",
         "player_name": "Nate Williams",
         "from_team_id": "UTA",
-        "to_team_id": "OKC",
+        "to_team_id": "GSW",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1372,7 +1401,7 @@
         "type": "pick",
         "player_name": null,
         "from_team_id": "UTA",
-        "to_team_id": "OKC",
+        "to_team_id": "GSW",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1971,6 +2000,74 @@
       },
       {
         "team_id": "DEN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Darnell Hillman",
+        "from_team_id": "DEN",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mike Evans",
+        "from_team_id": "DEN",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ron Boone",
+        "from_team_id": "SAC",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": "Mark Young",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "1af3e2bc-bd31-453c-9e76-9b7f1b6201d2",
+    "date": "1978-06-26",
+    "season": "1977-78",
+    "title": "Charlie Scott Trade",
+    "description": "On 1978-06-26:  Kings acquire Darnell Hillman  Nuggets acquire Charlie Scott Other Team(s) Involved in Trade:Lakers (UPI)",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "DEN",
+        "role": "participant"
+      },
+      {
+        "team_id": "SAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "LAL",
         "role": "participant"
       }
     ],

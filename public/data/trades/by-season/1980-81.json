@@ -415,7 +415,7 @@
       {
         "type": "player",
         "player_name": "Bill Robinzine",
-        "from_team_id": "NYK",
+        "from_team_id": "SAC",
         "to_team_id": "CLE",
         "pick_year": null,
         "pick_round": null,
@@ -427,7 +427,7 @@
         "type": "player",
         "player_name": "Michael Russell / Campy Russell",
         "from_team_id": "CLE",
-        "to_team_id": "NYK",
+        "to_team_id": "SAC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,

@@ -129,7 +129,7 @@
     "id": "1db6e474-6a1b-459e-b083-50b062f26e07",
     "date": "1981-08-20",
     "season": "1981-82",
-    "title": "Bill Robinzine Trade",
+    "title": "Bill Robinzine, Bill Robinzine Trade",
     "description": "On 1981-08-20:  Mavericks acquire Allan Bristow  Jazz acquire Bill Robinzine",
     "is_multi_team": false,
     "teams": [
@@ -688,7 +688,7 @@
     "id": "80e51b10-8e4c-47c0-9ae0-a7b8099aaf9a",
     "date": "1981-12-23",
     "season": "1981-82",
-    "title": "Ron Brewer, Reggie Johnson Trade",
+    "title": "Ron Brewer, Ron Brewer, Reggie Johnson Trade",
     "description": "On 1981-12-23:  Spurs acquire Mike Mitchell  Cavaliers acquire Ron Brewer",
     "is_multi_team": false,
     "teams": [
@@ -964,7 +964,7 @@
     "id": "8b60fabf-bdbc-4afa-9666-723f9f8c53bf",
     "date": "1982-02-16",
     "season": "1981-82",
-    "title": "Phil Hubbard, Paul Mokeski Trade",
+    "title": "Phil Hubbard, Phil Hubbard, Paul Mokeski Trade",
     "description": "On 1982-02-16:  Pistons acquire Bill Laimbeer  Cavaliers acquire Phil Hubbard",
     "is_multi_team": false,
     "teams": [
@@ -1110,45 +1110,30 @@
       {
         "team_id": "DEN",
         "role": "sender"
-      },
-      {
-        "team_id": "SEA",
-        "role": "receiver"
       }
     ],
     "assets": [
       {
         "type": "player",
-        "player_name": "David Thompson",
+        "player_name": "Wally Walker",
         "from_team_id": "DEN",
-        "to_team_id": "SEA",
+        "to_team_id": null,
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "Rights"
       },
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "SEA",
-        "to_team_id": "DEN",
-        "pick_year": 1982,
-        "pick_round": 1,
-        "original_team_id": "SEA",
-        "became_player_name": "Rob Williams",
-        "notes": "Rob Williams / David Thompson (a)"
-      },
-      {
-        "type": "player",
-        "player_name": "Wally Walker",
-        "from_team_id": "OKC",
-        "to_team_id": "DEN",
+        "from_team_id": "DEN",
+        "to_team_id": null,
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": "Rights ruled non-transferrable by NBA arbitrator; substituted by Hanzlik in separate July 20 transaction"
+        "notes": "Rob Williams / David Thompson (a)"
       }
     ]
   },

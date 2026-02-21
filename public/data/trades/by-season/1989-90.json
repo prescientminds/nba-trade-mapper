@@ -29,14 +29,14 @@
         "notes": null
       },
       {
-        "type": "player",
-        "player_name": "Alton Lister",
+        "type": "pick",
+        "player_name": null,
         "from_team_id": "OKC",
         "to_team_id": "GSW",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Alton Lister",
         "notes": null
       }
     ]
@@ -87,7 +87,7 @@
     "id": "96240042-dc2b-4ce3-b88d-05f47551ebf6",
     "date": "1989-08-28",
     "season": "1989-90",
-    "title": "Johnny Dawkins Trade",
+    "title": "Johnny Dawkins, Johnny Dawkins, Johnny Dawkins Trade",
     "description": "On 1989-08-28:  Spurs acquire Maurice Cheeks  76ers acquire Johnny Dawkins",
     "is_multi_team": false,
     "teams": [
@@ -745,7 +745,7 @@
     "id": "e82e9612-7afa-4d17-99da-28a2a1897ae3",
     "date": "1990-02-13",
     "season": "1989-90",
-    "title": "Kenny Smith, Mike Williams Trade",
+    "title": "Kenny Smith, Kenny Smith, Mike Williams Trade",
     "description": "On 1990-02-13:  Kings acquire Antoine Carr  Hawks acquire Kenny Smith",
     "is_multi_team": false,
     "teams": [
@@ -1454,7 +1454,7 @@
     "id": "7c404eae-cf07-4d9f-ba82-8af54a361ec7",
     "date": "1990-06-25",
     "season": "1989-90",
-    "title": "Pervis Ellison, Jeff Malone Trade",
+    "title": "Pervis Ellison, Jeff Malone, Jeff Malone Trade",
     "description": "On 1990-06-25:  Bullets acquire Pervis Ellison  Kings acquire Bobby Hansen Other Team(s) Involved in Trade:Jazz",
     "is_multi_team": true,
     "teams": [
@@ -1475,7 +1475,7 @@
       {
         "type": "player",
         "player_name": "Pervis Ellison",
-        "from_team_id": "UTA",
+        "from_team_id": "SAC",
         "to_team_id": "WAS",
         "pick_year": null,
         "pick_round": null,
@@ -1487,7 +1487,7 @@
         "type": "player",
         "player_name": "Jeff Malone",
         "from_team_id": "WAS",
-        "to_team_id": "UTA",
+        "to_team_id": "SAC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1498,7 +1498,7 @@
         "type": "pick",
         "player_name": null,
         "from_team_id": "WAS",
-        "to_team_id": "UTA",
+        "to_team_id": "SAC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1714,7 +1714,7 @@
     "id": "d0a65c49-4ae5-490b-ab10-1881bd363dee",
     "date": "1990-06-27",
     "season": "1989-90",
-    "title": "John Lucas Sr., Tim McCormick Trade",
+    "title": "John Lucas Sr., John Lucas Sr., Tim McCormick Trade",
     "description": "On 1990-06-27:  Rockets acquire Kenny Smith  Hawks acquire John Lucas Sr.",
     "is_multi_team": false,
     "teams": [

@@ -193,7 +193,7 @@
     "id": "954532d9-53de-411f-b208-167412e46ac3",
     "date": "1983-08-18",
     "season": "1983-84",
-    "title": "James Donaldson, Greg Kelser Trade",
+    "title": "James Donaldson, James Donaldson, Greg Kelser Trade",
     "description": "On 1983-08-18:  Sonics acquire Tom Chambers  Clippers acquire James Donaldson",
     "is_multi_team": false,
     "teams": [
@@ -354,7 +354,7 @@
     "id": "c6008ee1-71b4-446f-81d6-ac758111728c",
     "date": "1983-09-17",
     "season": "1983-84",
-    "title": "Billy Knight, Ray Williams Trade",
+    "title": "Billy Knight, Billy Knight, Ray Williams Trade",
     "description": "On 1983-09-17:  Kings acquire 1984 second round pick (#43-Greg Wiltjer)  Pacers acquire Vince Taylor Other Team(s) Involved in Trade:Knicks",
     "is_multi_team": true,
     "teams": [
@@ -1396,7 +1396,7 @@
     "id": "02c9d56c-fa0f-4c39-bbb1-21e73daec8c0",
     "date": "1984-06-07",
     "season": "1983-84",
-    "title": "Kiki Vandeweghe Trade",
+    "title": "Kiki Vandeweghe, Kiki Vandeweghe, Kiki Vandeweghe Trade",
     "description": "On 1984-06-07:  Nuggets acquire Lafayette Lever / Fat Lever  Blazers acquire Kiki Vandeweghe",
     "is_multi_team": false,
     "teams": [
@@ -1578,7 +1578,7 @@
       {
         "type": "player",
         "player_name": "Gus Williams",
-        "from_team_id": "CLE",
+        "from_team_id": "OKC",
         "to_team_id": "WAS",
         "pick_year": null,
         "pick_round": null,
@@ -1589,7 +1589,7 @@
       {
         "type": "player",
         "player_name": "Cliff Robinson",
-        "from_team_id": "CLE",
+        "from_team_id": "OKC",
         "to_team_id": "WAS",
         "pick_year": null,
         "pick_round": null,
@@ -1601,7 +1601,7 @@
         "type": "player",
         "player_name": "Ricky Sobers",
         "from_team_id": "WAS",
-        "to_team_id": "CLE",
+        "to_team_id": "OKC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1612,7 +1612,7 @@
         "type": "player",
         "player_name": "Mel Turpin",
         "from_team_id": "WAS",
-        "to_team_id": "CLE",
+        "to_team_id": "OKC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,

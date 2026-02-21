@@ -171,7 +171,7 @@
         "pick_year": 2031,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Alex Toohey",
         "notes": null
       },
       {
@@ -193,7 +193,7 @@
         "pick_year": 2029,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Alex Toohey",
         "notes": null
       },
       {
@@ -204,7 +204,7 @@
         "pick_year": 2030,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Alex Toohey",
         "notes": null
       },
       {
@@ -248,7 +248,7 @@
         "pick_year": 2031,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Alex Toohey",
         "notes": null
       },
       {
@@ -376,7 +376,7 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Ben Saraf",
         "notes": null
       },
       {
@@ -1250,7 +1250,7 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Joan Beringer",
         "notes": null
       },
       {
@@ -1261,7 +1261,7 @@
         "pick_year": 2031,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Joan Beringer",
         "notes": null
       },
       {
@@ -1369,7 +1369,7 @@
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Maxime Raynaud",
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1931,7 +1931,7 @@
         "pick_year": 2029,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "John Tonje",
         "notes": null
       },
       {
@@ -1975,7 +1975,7 @@
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "John Tonje",
         "notes": null
       },
       {
@@ -2032,7 +2032,7 @@
         "pick_year": 2028,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Noa Essengue",
         "notes": null
       },
       {
@@ -2164,7 +2164,7 @@
         "pick_year": 2028,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Noa Essengue",
         "notes": null
       },
       {
@@ -2345,6 +2345,70 @@
         "pick_year": 2031,
         "pick_round": 2,
         "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb1",
+    "date": "2025-02-06",
+    "season": "2024-25",
+    "title": "Luka Dončić to Lakers",
+    "description": "Mavericks trade Luka Dončić to Lakers for Anthony Davis and future picks. The 2018 draft swap saga continues.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAL",
+        "role": "receiver"
+      },
+      {
+        "team_id": "DAL",
+        "role": "sender"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Luka Dončić",
+        "from_team_id": "DAL",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Anthony Davis",
+        "from_team_id": "LAL",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "DAL",
+        "pick_year": 2029,
+        "pick_round": 1,
+        "original_team_id": "LAL",
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "DAL",
+        "pick_year": 2031,
+        "pick_round": 1,
+        "original_team_id": "LAL",
         "became_player_name": null,
         "notes": null
       }
@@ -2768,7 +2832,7 @@
         "pick_year": 2028,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Bogoljub Markovic",
         "notes": null
       },
       {
@@ -3311,7 +3375,7 @@
         "pick_year": 2031,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Kasparas Jakucionis",
         "notes": null
       },
       {
@@ -3474,7 +3538,7 @@
         "pick_year": 2026,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Yang Hansen",
         "notes": null
       },
       {

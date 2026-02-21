@@ -140,7 +140,7 @@
     "id": "a8514b6b-55ce-44b1-99fc-0406f6958bb1",
     "date": "1996-07-15",
     "season": "1996-97",
-    "title": "Rasheed Wallace, Mitchell Butler Trade",
+    "title": "Rasheed Wallace, Rasheed Wallace, Mitchell Butler Trade",
     "description": "On 1996-07-15:  Bullets acquire Rod Strickland  Blazers acquire Rasheed Wallace",
     "is_multi_team": false,
     "teams": [
@@ -418,7 +418,7 @@
     "id": "23e9f1d5-79ad-4037-b13e-90fd3a785651",
     "date": "1996-07-23",
     "season": "1996-97",
-    "title": "Isaiah Rider / J.R. Rider Trade",
+    "title": "Isaiah Rider / J.R. Rider, Isaiah Rider / J.R. Rider Trade",
     "description": "On 1996-07-23:  Timberwolves acquire James Robinson  Blazers acquire Isaiah Rider / J.R. Rider",
     "is_multi_team": false,
     "teams": [
@@ -652,7 +652,7 @@
     "id": "1752fd9e-dd42-4f71-a23f-371d6ea55b18",
     "date": "1996-08-19",
     "season": "1996-97",
-    "title": "Charles Barkley Trade",
+    "title": "Charles Barkley, Charles Barkley, Charles Barkley Trade",
     "description": "On 1996-08-19:  Suns acquire Robert Horry  Rockets acquire Charles Barkley",
     "is_multi_team": false,
     "teams": [
@@ -791,7 +791,7 @@
     "id": "4e511792-35e0-4230-bfc3-509be840e01e",
     "date": "1996-11-02",
     "season": "1996-97",
-    "title": "Rony Seikaly Trade",
+    "title": "Rony Seikaly, Rony Seikaly, Rony Seikaly Trade",
     "description": "On 1996-11-02:  Warriors acquire Felton Spencer  Magic acquire Rony Seikaly",
     "is_multi_team": false,
     "teams": [
@@ -972,7 +972,7 @@
     "id": "7c555d69-8476-4bc1-9ee5-f64378dc1e84",
     "date": "1996-12-26",
     "season": "1996-97",
-    "title": "Michael Finley Trade",
+    "title": "Michael Finley, Michael Finley, Michael Finley Trade",
     "description": "On 1996-12-26:  Suns acquire Jason Kidd  Mavericks acquire Michael Finley",
     "is_multi_team": false,
     "teams": [
@@ -1069,7 +1069,7 @@
     "id": "c661c6fd-cccd-44c6-bb16-c3eb1055b981",
     "date": "1997-01-10",
     "season": "1996-97",
-    "title": "Robert Horry, Joe Kleine Trade",
+    "title": "Robert Horry, Robert Horry, Joe Kleine Trade",
     "description": "On 1997-01-10:  Suns acquire Cedric Ceballos  Lakers acquire Robert Horry",
     "is_multi_team": false,
     "teams": [
@@ -1133,7 +1133,7 @@
     "id": "82b4ab47-69ab-4c4a-932f-f6b9ae699f5f",
     "date": "1997-01-24",
     "season": "1996-97",
-    "title": "Stacey Augmon Trade",
+    "title": "Stacey Augmon, Stacey Augmon, Stacey Augmon Trade",
     "description": "On 1997-01-24:  Pistons acquire Aaron McKie  Blazers acquire Stacey Augmon",
     "is_multi_team": false,
     "teams": [
@@ -1197,7 +1197,7 @@
     "id": "d3a90468-9a26-4876-b4e7-480807ab77df",
     "date": "1997-02-14",
     "season": "1996-97",
-    "title": "Jamal Mashburn Trade",
+    "title": "Jamal Mashburn, Jamal Mashburn, Jamal Mashburn Trade",
     "description": "On 1997-02-14:  Mavericks acquire Kurt Thomas  Heat acquire Jamal Mashburn",
     "is_multi_team": false,
     "teams": [
@@ -1261,7 +1261,7 @@
     "id": "31801680-1784-44e5-9904-a365d569193c",
     "date": "1997-02-17",
     "season": "1996-97",
-    "title": "Shawn Bradley Trade",
+    "title": "Shawn Bradley, Shawn Bradley, Shawn Bradley Trade",
     "description": "On 1997-02-17:  Nets acquire Sam Cassell  Mavericks acquire Shawn Bradley",
     "is_multi_team": false,
     "teams": [
@@ -1464,7 +1464,7 @@
     "id": "28c2b703-a3c7-42eb-873b-130b2371b559",
     "date": "1997-02-20",
     "season": "1996-97",
-    "title": "Ricky Pierce Trade",
+    "title": "Ricky Pierce, Ricky Pierce Trade",
     "description": "On 1997-02-20:  Nuggets acquire Anthony Goldwire  Hornets acquire Ricky Pierce",
     "is_multi_team": false,
     "teams": [
@@ -1570,7 +1570,7 @@
     "id": "98dac28b-11ff-4e25-a9be-04946cb92add",
     "date": "1997-02-20",
     "season": "1996-97",
-    "title": "Vincent Askew, Eddie Johnson (Arnet) Trade",
+    "title": "Vincent Askew, Vincent Askew, Eddie Johnson (Arnet) Trade",
     "description": "On 1997-02-20:  Pacers acquire Mark Jackson  Nuggets acquire Vincent Askew",
     "is_multi_team": false,
     "teams": [
@@ -1720,7 +1720,7 @@
     "id": "39adf059-6237-4dc6-96dd-310215bb7193",
     "date": "1997-06-20",
     "season": "1996-97",
-    "title": "Dino Radja Trade",
+    "title": "Dino Radja, Dino Radja Trade",
     "description": "On 1997-06-20:  Celtics (later nullified when Radja failed physical) acquire Clarence Weatherspoon  76ers acquire Dino Radja",
     "is_multi_team": false,
     "teams": [
@@ -1815,7 +1815,7 @@
     "id": "fca09b92-827b-434f-b408-4dc4b47db82b",
     "date": "1997-06-25",
     "season": "1996-97",
-    "title": "Jim Jackson Trade",
+    "title": "Jim Jackson, Jim Jackson, Jim Jackson Trade",
     "description": "On 1997-06-25:  Nets acquire Michael Cage  76ers acquire Jim Jackson",
     "is_multi_team": false,
     "teams": [
@@ -2113,7 +2113,7 @@
     "id": "e45199d6-3459-42f7-923d-c133003134af",
     "date": "1997-06-25",
     "season": "1996-97",
-    "title": "Ervin Johnson Trade",
+    "title": "Ervin Johnson, Ervin Johnson Trade",
     "description": "On 1997-06-25:  Nuggets acquire Johnny Newman  Bucks acquire Ervin Johnson",
     "is_multi_team": false,
     "teams": [

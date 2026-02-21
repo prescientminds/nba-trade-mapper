@@ -45,7 +45,7 @@
     "id": "1636dae7-74fe-45ba-ab1e-904806d7dc79",
     "date": "1997-08-12",
     "season": "1997-98",
-    "title": "Duane Causwell Trade",
+    "title": "Duane Causwell, Duane Causwell Trade",
     "description": "On 1997-08-12:  Kings acquire Gary Grant  Heat acquire Duane Causwell",
     "is_multi_team": false,
     "teams": [
@@ -98,7 +98,7 @@
     "id": "74e178a1-db7c-4033-928a-c55643b28f05",
     "date": "1997-08-12",
     "season": "1997-98",
-    "title": "Chris Mullin Trade",
+    "title": "Chris Mullin, Chris Mullin Trade",
     "description": "On 1997-08-12:  Warriors acquire Erick Dampier  Pacers acquire Chris Mullin",
     "is_multi_team": false,
     "teams": [
@@ -321,7 +321,7 @@
     "id": "f06e8660-ae37-45fa-abca-d165ec3f2354",
     "date": "1997-09-25",
     "season": "1997-98",
-    "title": "Tyrone Hill, Terrell Brandon Trade",
+    "title": "Tyrone Hill, Tyrone Hill, Terrell Brandon Trade",
     "description": "On 1997-09-25:  Sonics acquire Vin Baker  Bucks acquire Tyrone Hill Other Team(s) Involved in Trade: Cavaliers",
     "is_multi_team": true,
     "teams": [
@@ -342,7 +342,7 @@
       {
         "type": "player",
         "player_name": "Tyrone Hill",
-        "from_team_id": "CLE",
+        "from_team_id": "OKC",
         "to_team_id": "MIL",
         "pick_year": null,
         "pick_round": null,
@@ -353,7 +353,7 @@
       {
         "type": "player",
         "player_name": "Terrell Brandon",
-        "from_team_id": "CLE",
+        "from_team_id": "OKC",
         "to_team_id": "MIL",
         "pick_year": null,
         "pick_round": null,
@@ -364,7 +364,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "CLE",
+        "from_team_id": "OKC",
         "to_team_id": "MIL",
         "pick_year": null,
         "pick_round": null,
@@ -376,7 +376,7 @@
         "type": "player",
         "player_name": "Vin Baker",
         "from_team_id": "MIL",
-        "to_team_id": "CLE",
+        "to_team_id": "OKC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -387,7 +387,7 @@
         "type": "player",
         "player_name": "Sherman Douglas",
         "from_team_id": "MIL",
-        "to_team_id": "CLE",
+        "to_team_id": "OKC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -792,7 +792,7 @@
     "id": "302959e6-d026-4cf5-83aa-f5a97c2908ed",
     "date": "1997-10-27",
     "season": "1997-98",
-    "title": "Mark Price Trade",
+    "title": "Mark Price, Mark Price Trade",
     "description": "On 1997-10-27:  Warriors (date 10-12 per Stats) acquire Brian Shaw  Magic acquire Mark Price",
     "is_multi_team": false,
     "teams": [
@@ -940,7 +940,7 @@
     "id": "8708eef8-d484-4fe8-8a41-54852c5cdea8",
     "date": "1997-11-07",
     "season": "1997-98",
-    "title": "B.J. Armstrong Trade",
+    "title": "B.J. Armstrong, B.J. Armstrong Trade",
     "description": "On 1997-11-07:  Warriors acquire Tyrone Bogues / Muggsy Bogues  Hornets acquire B.J. Armstrong",
     "is_multi_team": false,
     "teams": [
@@ -1035,7 +1035,7 @@
     "id": "fd60a53c-e887-4c08-95f2-39d9797b7a7c",
     "date": "1997-12-18",
     "season": "1997-98",
-    "title": "Theo Ratliff, Aaron McKie Trade",
+    "title": "Theo Ratliff, Theo Ratliff, Aaron McKie Trade",
     "description": "On 1997-12-18:  Pistons acquire Jerry Stackhouse  76ers acquire Theo Ratliff",
     "is_multi_team": false,
     "teams": [
@@ -1163,7 +1163,7 @@
     "id": "39327c30-a396-464a-9ba5-2142465a8813",
     "date": "1998-02-13",
     "season": "1997-98",
-    "title": "Damon Stoudamire Trade",
+    "title": "Damon Stoudamire, Damon Stoudamire, Damon Stoudamire Trade",
     "description": "On 1998-02-13:  Raptors acquire Kenny Anderson  Blazers acquire Damon Stoudamire",
     "is_multi_team": false,
     "teams": [
@@ -1293,7 +1293,7 @@
     "id": "057c0629-4b33-4fe6-9930-6cd5e6819496",
     "date": "1998-02-16",
     "season": "1997-98",
-    "title": "Rony Seikaly Trade",
+    "title": "Rony Seikaly, Rony Seikaly Trade",
     "description": "On 1998-02-16:  Magic (trade nullified on 1998-02-18 when Seikaly failed to report) acquire Greg Foster  Jazz acquire Rony Seikaly",
     "is_multi_team": false,
     "teams": [
@@ -1346,7 +1346,7 @@
     "id": "a31557ec-5e88-4580-96dd-bdcf921de0c7",
     "date": "1998-02-17",
     "season": "1997-98",
-    "title": "Joe Smith, Brian Shaw Trade",
+    "title": "Joe Smith, Joe Smith, Brian Shaw Trade",
     "description": "On 1998-02-17:  Warriors acquire Clarence Weatherspoon  76ers acquire Joe Smith",
     "is_multi_team": false,
     "teams": [
@@ -1410,7 +1410,7 @@
     "id": "844f53fd-ac08-4c09-b31b-cae691d8bf7e",
     "date": "1998-02-18",
     "season": "1997-98",
-    "title": "Kenny Anderson Trade",
+    "title": "Kenny Anderson, Kenny Anderson, Kenny Anderson Trade",
     "description": "On 1998-02-18:  Raptors acquire Chauncey Billups  Celtics acquire Kenny Anderson",
     "is_multi_team": false,
     "teams": [
@@ -1507,7 +1507,7 @@
     "id": "29a71183-2182-4ce8-a2ba-bcda4ff0e6b0",
     "date": "1998-02-18",
     "season": "1997-98",
-    "title": "Bobby Hurley, Michael Smith (John) (Providence) Trade",
+    "title": "Bobby Hurley, Bobby Hurley, Michael Smith (John) (Providence) Trade",
     "description": "On 1998-02-18:  Kings acquire Otis Thorpe  Grizzlies acquire Bobby Hurley",
     "is_multi_team": false,
     "teams": [
@@ -1836,7 +1836,7 @@
     "id": "d3824efd-35e7-4665-9e13-6cb359e32851",
     "date": "1998-02-19",
     "season": "1997-98",
-    "title": "Kevin Edwards, Yinka Dare Trade",
+    "title": "Kevin Edwards, Kevin Edwards, Yinka Dare Trade",
     "description": "On 1998-02-19:  Nets acquire Rony Seikaly  Magic acquire Kevin Edwards",
     "is_multi_team": false,
     "teams": [
@@ -1922,7 +1922,7 @@
     "id": "41119b15-d391-4fe5-990e-aa2ab5c401c5",
     "date": "1998-05-14",
     "season": "1997-98",
-    "title": "Chris Webber Trade",
+    "title": "Chris Webber, Chris Webber Trade",
     "description": "On 1998-05-14:  Wizards acquire Mitch Richmond  Kings acquire Chris Webber",
     "is_multi_team": false,
     "teams": [
@@ -2198,7 +2198,7 @@
     "id": "a58d3c9c-3101-4ea2-8d07-3de31cbf9d3c",
     "date": "1998-06-24",
     "season": "1997-98",
-    "title": "Steve Nash Trade",
+    "title": "Steve Nash, Steve Nash Trade",
     "description": "On 1998-06-24:  Suns acquire Bubba Wells  Mavericks acquire Steve Nash",
     "is_multi_team": false,
     "teams": [

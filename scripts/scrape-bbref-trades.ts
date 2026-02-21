@@ -616,8 +616,8 @@ async function main() {
 
     for (const t of trades) {
       const players = t.assets
-        .filter((a) => a.player_name)
-        .map((a) => a.player_name!)
+        .flatMap((a) => [a.player_name, a.became_player_name])
+        .filter((n): n is string => !!n)
         .filter((v, i, arr) => arr.indexOf(v) === i);
 
       newIndex.push({

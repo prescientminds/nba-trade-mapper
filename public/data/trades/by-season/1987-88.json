@@ -3,7 +3,7 @@
     "id": "a94c86da-8ee5-4c81-afed-71b1fbca8ed4",
     "date": "1987-10-08",
     "season": "1987-88",
-    "title": "Kent Benson Trade",
+    "title": "Kent Benson, Kent Benson, Kent Benson Trade",
     "description": "On 1987-10-08:  Jazz acquire Darryl Dawkins  Nets acquire John Bagley Other Team(s) Involved in Trade: Cavaliers",
     "is_multi_team": true,
     "teams": [
@@ -24,7 +24,7 @@
       {
         "type": "player",
         "player_name": "Kent Benson",
-        "from_team_id": "UTA",
+        "from_team_id": "BKN",
         "to_team_id": "CLE",
         "pick_year": null,
         "pick_round": null,
@@ -35,7 +35,7 @@
       {
         "type": "player",
         "player_name": "Dell Curry",
-        "from_team_id": "UTA",
+        "from_team_id": "BKN",
         "to_team_id": "CLE",
         "pick_year": null,
         "pick_round": null,
@@ -46,7 +46,7 @@
       {
         "type": "player",
         "player_name": "James Bailey",
-        "from_team_id": "UTA",
+        "from_team_id": "BKN",
         "to_team_id": "CLE",
         "pick_year": null,
         "pick_round": null,
@@ -58,7 +58,7 @@
         "type": "player",
         "player_name": "Mel Turpin",
         "from_team_id": "CLE",
-        "to_team_id": "UTA",
+        "to_team_id": "BKN",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -69,7 +69,7 @@
         "type": "player",
         "player_name": "John Bagley",
         "from_team_id": "CLE",
-        "to_team_id": "UTA",
+        "to_team_id": "BKN",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -80,7 +80,7 @@
         "type": "player",
         "player_name": "Keith Lee",
         "from_team_id": "CLE",
-        "to_team_id": "UTA",
+        "to_team_id": "BKN",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -294,7 +294,7 @@
     "id": "9580bd2b-1d0f-4ec8-bb04-5e76265a995c",
     "date": "1987-11-02",
     "season": "1987-88",
-    "title": "Mark Alarie, Darrell Walker Trade",
+    "title": "Mark Alarie, Mark Alarie, Darrell Walker Trade",
     "description": "On 1987-11-02:  Nuggets acquire Michael Adams  Bullets acquire Mark Alarie",
     "is_multi_team": false,
     "teams": [
@@ -718,7 +718,7 @@
     "id": "4497360b-c76b-41c6-9f78-83a5aa0b03ec",
     "date": "1987-12-12",
     "season": "1987-88",
-    "title": "Joe Barry Carroll, Eric Floyd / Sleepy Floyd Trade",
+    "title": "Joe Barry Carroll, Joe Barry Carroll, Eric Floyd / Sleepy Floyd Trade",
     "description": "On 1987-12-12:  Warriors acquire Ralph Sampson  Rockets acquire Joe Barry Carroll",
     "is_multi_team": false,
     "teams": [
@@ -895,29 +895,14 @@
       {
         "team_id": "DEN",
         "role": "sender"
-      },
-      {
-        "team_id": "GSW",
-        "role": "receiver"
       }
     ],
     "assets": [
       {
-        "type": "player",
-        "player_name": "Otis Smith",
-        "from_team_id": "DEN",
-        "to_team_id": "GSW",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
         "type": "cash",
         "player_name": null,
-        "from_team_id": "GSW",
-        "to_team_id": "DEN",
+        "from_team_id": "DEN",
+        "to_team_id": null,
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -930,7 +915,7 @@
     "id": "bd608b1a-c185-455b-9c8c-a3c219937106",
     "date": "1988-01-16",
     "season": "1987-88",
-    "title": "Ben Coleman, Mike Gminski Trade",
+    "title": "Ben Coleman, Ben Coleman, Mike Gminski Trade",
     "description": "On 1988-01-16:  Nets acquire Roy Hinson  76ers acquire Ben Coleman",
     "is_multi_team": false,
     "teams": [
@@ -1195,7 +1180,7 @@
     "id": "6704ba59-a51e-42e3-8a4a-8e7a016a3d08",
     "date": "1988-02-25",
     "season": "1987-88",
-    "title": "Larry Nance Sr. Trade",
+    "title": "Larry Nance Sr., Larry Nance Sr., Larry Nance Sr. Trade",
     "description": "On 1988-02-25:  Suns acquire Kevin Johnson  Cavaliers acquire Larry Nance Sr.",
     "is_multi_team": false,
     "teams": [
@@ -1745,29 +1730,14 @@
       {
         "team_id": "DEN",
         "role": "sender"
-      },
-      {
-        "team_id": "SAS",
-        "role": "receiver"
       }
     ],
     "assets": [
       {
-        "type": "player",
-        "player_name": "Vernon Maxwell",
-        "from_team_id": "DEN",
-        "to_team_id": "SAS",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "SAS",
-        "to_team_id": "DEN",
+        "from_team_id": "DEN",
+        "to_team_id": null,
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,

@@ -418,7 +418,7 @@
     "id": "a198864a-40ae-4ccf-a831-fe2372ab9d11",
     "date": "2015-07-27",
     "season": "2015-16",
-    "title": "David Lee Trade",
+    "title": "David Lee, David Lee Trade",
     "description": "On 2015-07-27:  Warriors acquire Gerald Wallace  Celtics acquire David Lee",
     "is_multi_team": false,
     "teams": [
@@ -513,7 +513,7 @@
     "id": "b4ea1f93-019b-4bc3-be71-8150a4fb6c9f",
     "date": "2015-11-10",
     "season": "2015-16",
-    "title": "Mario Chalmers, James Ennis Trade",
+    "title": "Mario Chalmers, Mario Chalmers, James Ennis Trade",
     "description": "On 2015-11-10:  Heat acquire Beno Udrih  Grizzlies acquire Mario Chalmers",
     "is_multi_team": false,
     "teams": [
@@ -953,7 +953,7 @@
       {
         "type": "player",
         "player_name": "Justin Holiday",
-        "from_team_id": "ATL",
+        "from_team_id": "UTA",
         "to_team_id": "CHI",
         "pick_year": null,
         "pick_round": null,
@@ -964,7 +964,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "ATL",
+        "from_team_id": "UTA",
         "to_team_id": "CHI",
         "pick_year": null,
         "pick_round": null,
@@ -976,7 +976,7 @@
         "type": "player",
         "player_name": "Kirk Hinrich",
         "from_team_id": "CHI",
-        "to_team_id": "ATL",
+        "to_team_id": "UTA",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1159,7 +1159,7 @@
     "id": "52231808-d470-4d5a-9825-c69bf1c2a96e",
     "date": "2016-06-22",
     "season": "2015-16",
-    "title": "Robin Lopez, Jerian Grant Trade",
+    "title": "Robin Lopez, Robin Lopez, Jerian Grant Trade",
     "description": "On 2016-06-22:  Knicks acquire Derrick Rose  Bulls acquire Robin Lopez",
     "is_multi_team": false,
     "teams": [
@@ -1404,7 +1404,7 @@
     "id": "aa77859e-bba7-486f-9062-aee0fc760d69",
     "date": "2016-06-23",
     "season": "2015-16",
-    "title": "Serge Ibaka Trade",
+    "title": "Serge Ibaka, Serge Ibaka Trade",
     "description": "On 2016-06-23:  Thunder acquire Victor Oladipo  Magic acquire Serge Ibaka",
     "is_multi_team": false,
     "teams": [

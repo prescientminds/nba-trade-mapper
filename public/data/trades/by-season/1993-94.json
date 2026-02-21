@@ -354,7 +354,7 @@
     "id": "a712e42f-4570-4795-bb82-58a70c497b6b",
     "date": "1993-10-01",
     "season": "1993-94",
-    "title": "Sean Elliott, David Wood Trade",
+    "title": "Sean Elliott, Sean Elliott, David Wood Trade",
     "description": "On 1993-10-01:  Spurs acquire Dennis Rodman  Pistons acquire Sean Elliott",
     "is_multi_team": false,
     "teams": [
@@ -588,7 +588,7 @@
     "id": "96f4f80d-3c07-46cf-b666-ec7032af1da6",
     "date": "1993-11-19",
     "season": "1993-94",
-    "title": "Alvin Robertson Trade",
+    "title": "Alvin Robertson, Alvin Robertson Trade",
     "description": "On 1993-11-19:  Pistons acquire Marcus Liberty  Nuggets acquire Alvin Robertson",
     "is_multi_team": false,
     "teams": [
@@ -917,7 +917,7 @@
     "id": "fe020cff-d497-404d-8ef1-d472cf12df84",
     "date": "1994-02-24",
     "season": "1993-94",
-    "title": "Jeff Malone Trade",
+    "title": "Jeff Malone, Jeff Malone Trade",
     "description": "On 1994-02-24:  Jazz acquire Jeff Hornacek  76ers acquire Jeff Malone",
     "is_multi_team": false,
     "teams": [
@@ -1140,7 +1140,7 @@
     "id": "950d1f41-bc13-4793-b655-93da2183f492",
     "date": "1994-06-29",
     "season": "1993-94",
-    "title": "Ed Pinckney Trade",
+    "title": "Ed Pinckney, Ed Pinckney Trade",
     "description": "On 1994-06-29:  Celtics acquire Derek Strong  Bucks acquire Ed Pinckney",
     "is_multi_team": false,
     "teams": [

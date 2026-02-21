@@ -248,7 +248,7 @@
     "id": "0dc1038b-87d5-48da-8c30-380692c5d335",
     "date": "2007-07-31",
     "season": "2007-08",
-    "title": "Kevin Garnett Trade",
+    "title": "Kevin Garnett, Kevin Garnett, Kevin Garnett Trade",
     "description": "On 2007-07-31:  Timberwolves acquire Al Jefferson  Celtics acquire Kevin Garnett",
     "is_multi_team": false,
     "teams": [
@@ -409,7 +409,7 @@
     "id": "5ff7c70e-f715-42d6-9582-b29976103b9f",
     "date": "2007-09-10",
     "season": "2007-08",
-    "title": "Reggie Evans Trade",
+    "title": "Reggie Evans, Reggie Evans Trade",
     "description": "On 2007-09-10:  Nuggets acquire Steven Hunter  76ers acquire Reggie Evans",
     "is_multi_team": false,
     "teams": [
@@ -610,7 +610,7 @@
     "id": "2ccd98e8-3635-4e20-b010-7bb571d4e5e2",
     "date": "2007-10-24",
     "season": "2007-08",
-    "title": "Ricky Davis Trade",
+    "title": "Ricky Davis, Ricky Davis, Ricky Davis Trade",
     "description": "On 2007-10-24:  Timberwolves acquire Antoine Walker  Heat acquire Ricky Davis",
     "is_multi_team": false,
     "teams": [
@@ -771,7 +771,7 @@
     "id": "3f8f974d-a21d-4a44-8246-c0ab20923dbb",
     "date": "2007-11-20",
     "season": "2007-08",
-    "title": "Trevor Ariza Trade",
+    "title": "Trevor Ariza, Trevor Ariza Trade",
     "description": "On 2007-11-20:  Magic acquire Brian Cook  Lakers acquire Trevor Ariza",
     "is_multi_team": false,
     "teams": [
@@ -824,7 +824,7 @@
     "id": "00d8d8ab-6266-4a7e-b499-7833fa4d9b1a",
     "date": "2007-12-14",
     "season": "2007-08",
-    "title": "Nazr Mohammed Trade",
+    "title": "Nazr Mohammed, Nazr Mohammed Trade",
     "description": "On 2007-12-14:  Pistons acquire Primoz Brezec  Bobcats acquire Nazr Mohammed",
     "is_multi_team": false,
     "teams": [
@@ -1155,7 +1155,7 @@
     "id": "72cf3b65-6d58-4135-96af-b28377daaa3b",
     "date": "2008-02-16",
     "season": "2007-08",
-    "title": "Mike Bibby Trade",
+    "title": "Mike Bibby, Mike Bibby, Mike Bibby Trade",
     "description": "On 2008-02-16:  Kings acquire Anthony Johnson  Hawks acquire Mike Bibby",
     "is_multi_team": false,
     "teams": [
@@ -1241,7 +1241,7 @@
     "id": "ce35e333-39f4-4c09-aaba-f8ebebe0bc19",
     "date": "2008-02-19",
     "season": "2007-08",
-    "title": "Jason Kidd Trade",
+    "title": "Jason Kidd, Jason Kidd, Jason Kidd Trade",
     "description": "On 2008-02-19:  Nets acquire Devin Harris  Mavericks acquire Jason Kidd",
     "is_multi_team": false,
     "teams": [
@@ -1477,7 +1477,7 @@
     "id": "a8490bb0-154a-44e6-8837-3758423caad4",
     "date": "2008-02-21",
     "season": "2007-08",
-    "title": "Larry Hughes Trade",
+    "title": "Larry Hughes, Larry Hughes, Larry Hughes Trade",
     "description": "On 2008-02-21:  Cavaliers acquire Wally Szczerbiak  Sonics acquire Adrian Griffin Other Team(s) Involved in Trade: Bulls",
     "is_multi_team": true,
     "teams": [
@@ -1498,7 +1498,7 @@
       {
         "type": "player",
         "player_name": "Larry Hughes",
-        "from_team_id": "CLE",
+        "from_team_id": "OKC",
         "to_team_id": "CHI",
         "pick_year": null,
         "pick_round": null,
@@ -1509,7 +1509,7 @@
       {
         "type": "player",
         "player_name": "Drew Gooden",
-        "from_team_id": "CLE",
+        "from_team_id": "OKC",
         "to_team_id": "CHI",
         "pick_year": null,
         "pick_round": null,
@@ -1520,7 +1520,7 @@
       {
         "type": "player",
         "player_name": "Shannon Brown",
-        "from_team_id": "CLE",
+        "from_team_id": "OKC",
         "to_team_id": "CHI",
         "pick_year": null,
         "pick_round": null,
@@ -1531,7 +1531,7 @@
       {
         "type": "player",
         "player_name": "Cedric Simmons",
-        "from_team_id": "CLE",
+        "from_team_id": "OKC",
         "to_team_id": "CHI",
         "pick_year": null,
         "pick_round": null,
@@ -1543,7 +1543,7 @@
         "type": "player",
         "player_name": "Ben Wallace",
         "from_team_id": "CHI",
-        "to_team_id": "CLE",
+        "to_team_id": "OKC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1554,7 +1554,7 @@
         "type": "player",
         "player_name": "Joe Smith",
         "from_team_id": "CHI",
-        "to_team_id": "CLE",
+        "to_team_id": "OKC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1565,7 +1565,7 @@
         "type": "player",
         "player_name": "Delonte West",
         "from_team_id": "CHI",
-        "to_team_id": "CLE",
+        "to_team_id": "OKC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1576,7 +1576,7 @@
         "type": "pick",
         "player_name": null,
         "from_team_id": "CHI",
-        "to_team_id": "CLE",
+        "to_team_id": "OKC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1589,7 +1589,7 @@
     "id": "68b5957c-09b8-43bc-843f-6951a46c79a3",
     "date": "2008-02-21",
     "season": "2007-08",
-    "title": "Bonzi Wells, Mike James (Lamont) Trade",
+    "title": "Bonzi Wells, Bonzi Wells, Mike James (Lamont) Trade",
     "description": "On 2008-02-21:  Rockets acquire rights to Sergei Lishouk / Sergei Lishchuk  Grizzlies acquire Marcus Vinicius Viera de Souza Other Team(s) Involved in Trade: Hornets",
     "is_multi_team": true,
     "teams": [
@@ -1610,7 +1610,7 @@
       {
         "type": "player",
         "player_name": "Marcus Vinicius Viera de Souza",
-        "from_team_id": "HOU",
+        "from_team_id": "CHA",
         "to_team_id": "MEM",
         "pick_year": null,
         "pick_round": null,
@@ -1621,7 +1621,7 @@
       {
         "type": "player",
         "player_name": "Malick Badiane",
-        "from_team_id": "HOU",
+        "from_team_id": "CHA",
         "to_team_id": "MEM",
         "pick_year": null,
         "pick_round": null,
@@ -1633,7 +1633,7 @@
         "type": "player",
         "player_name": "Sergei Lishouk / Sergei Lishchuk",
         "from_team_id": "MEM",
-        "to_team_id": "HOU",
+        "to_team_id": "CHA",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1805,7 +1805,7 @@
     "id": "60b0f58c-a51a-416a-a16b-f8974b29ac8f",
     "date": "2008-06-26",
     "season": "2007-08",
-    "title": "Richard Jefferson Trade",
+    "title": "Richard Jefferson, Richard Jefferson Trade",
     "description": "On 2008-06-26:  Nets acquire Yi Jianlian / Jianlian Yi  Bucks acquire Richard Jefferson",
     "is_multi_team": false,
     "teams": [
@@ -1858,7 +1858,7 @@
     "id": "3626dddd-9c75-4d02-bd71-c0ba1e881db3",
     "date": "2008-06-26",
     "season": "2007-08",
-    "title": "Marko Jaric Trade",
+    "title": "Marko Jaric, Marko Jaric, Marko Jaric Trade",
     "description": "On 2008-06-26:  Timberwolves acquire Mike Miller  Grizzlies acquire Marko Jaric",
     "is_multi_team": false,
     "teams": [
@@ -2340,7 +2340,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "DEN",
+        "from_team_id": "CHI",
         "to_team_id": "POR",
         "pick_year": null,
         "pick_round": null,
@@ -2351,7 +2351,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "DEN",
+        "from_team_id": "CHI",
         "to_team_id": "POR",
         "pick_year": null,
         "pick_round": null,
@@ -2362,7 +2362,7 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "DEN",
+        "from_team_id": "CHI",
         "to_team_id": "POR",
         "pick_year": null,
         "pick_round": null,
@@ -2374,7 +2374,7 @@
         "type": "pick",
         "player_name": null,
         "from_team_id": "POR",
-        "to_team_id": "DEN",
+        "to_team_id": "CHI",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,

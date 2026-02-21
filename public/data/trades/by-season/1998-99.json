@@ -140,7 +140,7 @@
     "id": "21ef0500-44ed-47ed-8ee7-b3c4bfe66f95",
     "date": "1999-01-21",
     "season": "1998-99",
-    "title": "Latrell Sprewell Trade",
+    "title": "Latrell Sprewell, Latrell Sprewell, Latrell Sprewell Trade",
     "description": "On 1999-01-21:  Warriors acquire Chris Mills  Knicks acquire Latrell Sprewell",
     "is_multi_team": false,
     "teams": [
@@ -257,7 +257,7 @@
     "id": "f5935794-e6e0-47bb-9b6a-a2bcbc000720",
     "date": "1999-01-21",
     "season": "1998-99",
-    "title": "Jim McIlvaine Trade",
+    "title": "Jim McIlvaine, Jim McIlvaine Trade",
     "description": "On 1999-01-21:  Sonics acquire Michael Cage  Nets acquire Jim McIlvaine",
     "is_multi_team": false,
     "teams": [
@@ -310,7 +310,7 @@
     "id": "40a26777-3a07-4301-9fb0-c0ba934291a1",
     "date": "1999-01-21",
     "season": "1998-99",
-    "title": "Chauncey Billups, Micheal Williams Trade",
+    "title": "Chauncey Billups, Chauncey Billups, Micheal Williams Trade",
     "description": "On 1999-01-21:  Nuggets acquire Chauncey Billups  Raptors acquire Micheal Williams Other Team(s) Involved in Trade:Timberwolves",
     "is_multi_team": true,
     "teams": [
@@ -707,7 +707,7 @@
     "id": "aca457e1-3a5c-4ebc-a372-77d947c0c0aa",
     "date": "1999-03-10",
     "season": "1998-99",
-    "title": "Eddie Jones Trade",
+    "title": "Eddie Jones, Eddie Jones, Eddie Jones Trade",
     "description": "On 1999-03-10:  Lakers acquire Glen Rice Sr.  Hornets acquire Eddie Jones",
     "is_multi_team": false,
     "teams": [
@@ -782,7 +782,7 @@
     "id": "a60503ef-9561-4b9e-ad9a-ad9b84d80e21",
     "date": "1999-03-11",
     "season": "1998-99",
-    "title": "Tyrone Hill, Jerald Honeycutt Trade",
+    "title": "Tyrone Hill, Tyrone Hill, Jerald Honeycutt Trade",
     "description": "On 1999-03-11:  Bucks acquire Tim Thomas  76ers acquire Tyrone Hill",
     "is_multi_team": false,
     "teams": [
@@ -846,7 +846,7 @@
     "id": "977d47a2-d61d-4419-8a5a-07236a82b0a9",
     "date": "1999-03-11",
     "season": "1998-99",
-    "title": "Sam Cassell, Chris Gatling Trade",
+    "title": "Sam Cassell, Sam Cassell, Chris Gatling Trade",
     "description": "On 1999-03-11:  Nets acquire Stephon Marbury  Timberwolves acquire Terrell Brandon Other Team(s) Involved in Trade: Bucks",
     "is_multi_team": true,
     "teams": [
@@ -867,7 +867,7 @@
       {
         "type": "player",
         "player_name": "Sam Cassell",
-        "from_team_id": "MIN",
+        "from_team_id": "BKN",
         "to_team_id": "MIL",
         "pick_year": null,
         "pick_round": null,
@@ -878,7 +878,7 @@
       {
         "type": "player",
         "player_name": "Chris Gatling",
-        "from_team_id": "MIN",
+        "from_team_id": "BKN",
         "to_team_id": "MIL",
         "pick_year": null,
         "pick_round": null,
@@ -889,7 +889,7 @@
       {
         "type": "player",
         "player_name": "Paul Grant",
-        "from_team_id": "MIN",
+        "from_team_id": "BKN",
         "to_team_id": "MIL",
         "pick_year": null,
         "pick_round": null,
@@ -901,7 +901,7 @@
         "type": "player",
         "player_name": "Terrell Brandon",
         "from_team_id": "MIL",
-        "to_team_id": "MIN",
+        "to_team_id": "BKN",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -912,7 +912,7 @@
         "type": "player",
         "player_name": "Elliot Perry",
         "from_team_id": "MIL",
-        "to_team_id": "MIN",
+        "to_team_id": "BKN",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
