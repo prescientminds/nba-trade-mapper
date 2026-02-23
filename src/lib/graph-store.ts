@@ -767,7 +767,10 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         function collectValuablePlayers(assets: ChainAsset[], parentEntryTradeId: string): ValuablePlayer[] {
           const results: ValuablePlayer[] = [];
           for (const asset of assets) {
-            if (asset.type === 'player' && asset.chain >= 5) {
+            // Include both traded players AND drafted players (picks that resolved to NBA players)
+            const isSignificant = (asset.type === 'player' || asset.type === 'pick') && asset.chain >= 5;
+
+            if (isSignificant) {
               results.push({
                 name: asset.name,
                 chainScore: asset.chain,
@@ -775,9 +778,23 @@ export const useGraphStore = create<GraphState>((set, get) => ({
                 exitTradeId: asset.exit_trade_id ?? null,
               });
             }
-            // Children's entryTradeId = parent's exitTradeId (they were received in the exit trade)
+
+            // Recurse into children (assets received when this player/pick was traded away)
             if (asset.children && asset.children.length > 0 && asset.exit_trade_id) {
-              results.push(...collectValuablePlayers(asset.children, asset.exit_trade_id));
+              const childResults = collectValuablePlayers(asset.children, asset.exit_trade_id);
+
+              // Bridge player: if children qualify but this asset doesn't on its own,
+              // include it to maintain edge connectivity from root → deep players
+              if (childResults.length > 0 && !isSignificant) {
+                results.push({
+                  name: asset.name,
+                  chainScore: asset.chain,
+                  entryTradeId: parentEntryTradeId,
+                  exitTradeId: asset.exit_trade_id,
+                });
+              }
+
+              results.push(...childResults);
             }
           }
           return results;
@@ -785,17 +802,34 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
         const allValuable = collectValuablePlayers(winnerData.assets, tradeId);
 
-        // Deduplicate by player name (keep highest chain score entry)
-        const bestByName = new Map<string, ValuablePlayer>();
+        // Separate bridges (chain < 5) from primary players (chain >= 5)
+        const primaryCandidates: ValuablePlayer[] = [];
+        const bridgeCandidates: ValuablePlayer[] = [];
         for (const vp of allValuable) {
+          if (vp.chainScore >= 5) {
+            primaryCandidates.push(vp);
+          } else {
+            bridgeCandidates.push(vp);
+          }
+        }
+
+        // Deduplicate primary by player name (keep highest chain score entry)
+        const bestByName = new Map<string, ValuablePlayer>();
+        for (const vp of primaryCandidates) {
           const existing = bestByName.get(vp.name);
           if (!existing || vp.chainScore > existing.chainScore) {
             bestByName.set(vp.name, vp);
           }
         }
-        valuablePlayers = [...bestByName.values()]
+        const topPlayers = [...bestByName.values()]
           .sort((a, b) => b.chainScore - a.chainScore)
-          .slice(0, 5);
+          .slice(0, 8);
+
+        // Keep bridges whose names aren't already in top players (avoid duplicates)
+        const topNames = new Set(topPlayers.map(p => p.name));
+        const neededBridges = bridgeCandidates.filter(b => !topNames.has(b.name));
+
+        valuablePlayers = [...topPlayers, ...neededBridges];
       }
     }
 
@@ -944,8 +978,10 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       let entryTeamId: string | null = null;
       if (entryStaticTrade) {
         // Find the asset for this player in the entry trade to determine which team received them
+        // Check both player assets (directly traded) and pick assets (drafted via became_player_name)
         const playerAsset = entryStaticTrade.assets.find(
-          a => a.type === 'player' && a.player_name?.toLowerCase() === vp.name.toLowerCase()
+          a => (a.type === 'player' && a.player_name?.toLowerCase() === vp.name.toLowerCase()) ||
+               (a.type === 'pick' && a.became_player_name?.toLowerCase() === vp.name.toLowerCase())
         );
         entryTeamId = playerAsset?.to_team_id ?? null;
       }

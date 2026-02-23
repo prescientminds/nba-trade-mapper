@@ -432,7 +432,81 @@ export function layoutPlayerTimeline(
     }
   }
 
-  // ── Pass 5: position gap nodes between their compressed neighbors ──
+  // ── Pass 5.5: enforce chronological Y order per column ──
+  // After anchor alignment (Pass 4), some nodes may violate chronological order
+  // across columns (e.g., a 2010 node above a 2005 node). Fix per-column.
+  for (const [, items] of byIntCol.entries()) {
+    // Re-collect with final Y positions
+    const colNodes = items.map(item => ({
+      id: item.id,
+      year: getNodeYear(nodeMap.get(item.id)!),
+      y: compressedY.get(item.id) ?? 0,
+      height: item.height,
+    }));
+    colNodes.sort((a, b) => a.year - b.year || a.y - b.y);
+    let cursor = -Infinity;
+    for (const cn of colNodes) {
+      if (cn.y < cursor) {
+        compressedY.set(cn.id, cursor);
+        cn.y = cursor;
+      }
+      cursor = cn.y + cn.height + MIN_GAP;
+    }
+  }
+
+  // ── Pass 6: global chronological enforcement across ALL columns ──
+  // Group regular nodes by year, process in ascending order, and push any node
+  // from year Y down if it sits above the global max bottom from years < Y.
+  {
+    const nodesByYear = new Map<number, Array<{ id: string; height: number }>>();
+    for (const node of regularNodes) {
+      const year = getNodeYear(node);
+      if (!nodesByYear.has(year)) nodesByYear.set(year, []);
+      nodesByYear.get(year)!.push({ id: node.id, height: getNodeHeight(node) });
+    }
+    const sortedYears = [...nodesByYear.keys()].sort((a, b) => a - b);
+    let globalMaxBottom = -Infinity;
+    for (const year of sortedYears) {
+      const nodesForYear = nodesByYear.get(year)!;
+      // Push any node in this year below the global max bottom from earlier years
+      for (const entry of nodesForYear) {
+        const curY = compressedY.get(entry.id) ?? 0;
+        if (curY < globalMaxBottom) {
+          compressedY.set(entry.id, globalMaxBottom);
+        }
+      }
+      // Update global max bottom from all nodes in this year
+      for (const entry of nodesForYear) {
+        const y = compressedY.get(entry.id) ?? 0;
+        const bottom = y + entry.height + MIN_GAP;
+        if (bottom > globalMaxBottom) globalMaxBottom = bottom;
+      }
+    }
+  }
+
+  // ── Pass 6.5: per-column overlap re-sweep ──
+  // Pass 6 may have pushed same-year nodes to the same Y within a column.
+  // Re-sweep each column to fix any new overlaps.
+  for (const [, items] of byIntCol.entries()) {
+    const colNodes = items.map(item => ({
+      id: item.id,
+      y: compressedY.get(item.id) ?? 0,
+      height: item.height,
+    }));
+    colNodes.sort((a, b) => a.y - b.y);
+    let cursor = -Infinity;
+    for (const cn of colNodes) {
+      if (cn.y < cursor) {
+        compressedY.set(cn.id, cursor);
+        cn.y = cursor;
+      }
+      cursor = cn.y + cn.height + MIN_GAP;
+    }
+  }
+
+  // ── Pass 5 (moved to end): position gap nodes between their compressed neighbors ──
+  // Gap nodes are centered between their neighbors — must run after all Y positions
+  // are finalized so gap nodes use correct values.
   const gapPositions = new Map<string, { x: number; y: number }>();
   for (const gn of gapNodes) {
     const data = gn.data as GapNodeData;
@@ -456,28 +530,6 @@ export function layoutPlayerTimeline(
     const y = (spaceTop + spaceBottom) / 2 - 12; // 12 = half of gap node height
 
     gapPositions.set(gn.id, { x, y });
-  }
-
-  // ── Pass 5.5: enforce chronological Y order per column ──
-  // After anchor alignment (Pass 4), some nodes may violate chronological order
-  // across columns (e.g., a 2010 node above a 2005 node). Fix per-column.
-  for (const [, items] of byIntCol.entries()) {
-    // Re-collect with final Y positions
-    const colNodes = items.map(item => ({
-      id: item.id,
-      year: getNodeYear(nodeMap.get(item.id)!),
-      y: compressedY.get(item.id) ?? 0,
-      height: item.height,
-    }));
-    colNodes.sort((a, b) => a.year - b.year || a.y - b.y);
-    let cursor = -Infinity;
-    for (const cn of colNodes) {
-      if (cn.y < cursor) {
-        compressedY.set(cn.id, cursor);
-        cn.y = cursor;
-      }
-      cursor = cn.y + cn.height + MIN_GAP;
-    }
   }
 
   // ── Return all nodes with final positions ──
