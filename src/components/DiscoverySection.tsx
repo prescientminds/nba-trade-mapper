@@ -2,10 +2,11 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { getSupabase } from '@/lib/supabase';
-import { TEAMS } from '@/lib/teams';
+import { TEAMS, getTeamDisplayInfo } from '@/lib/teams';
 import { contrastText } from '@/lib/colors';
 import { loadTrade, loadSearchIndex, staticTradeToTradeWithDetails } from '@/lib/trade-data';
 import type { TradeWithDetails, TradeSearchIndexEntry } from '@/lib/supabase';
+import type { ChainAsset, ChainTeamData } from '@/lib/graph-store';
 
 // ── Types ─────────────────────────────────────────────────────────────
 
@@ -19,18 +20,20 @@ interface TradeCard {
   winner: string | null;
   metric: number;
   badge?: string;
+  chainScores?: Record<string, ChainTeamData>;
+  date?: string;      // ISO date for historical team name lookup
 }
 
 /** "Warriors & Rockets" from team IDs, or "3-Team Trade" */
-function teamHeading(teams: string[]): string {
+function teamHeading(teams: string[], tradeDate?: string): string {
   if (teams.length === 0) return 'Trade';
   if (teams.length === 2) {
-    const n1 = TEAMS[teams[0]]?.name.split(' ').pop() || teams[0];
-    const n2 = TEAMS[teams[1]]?.name.split(' ').pop() || teams[1];
+    const n1 = getTeamDisplayInfo(teams[0], tradeDate).name.split(' ').pop() || teams[0];
+    const n2 = getTeamDisplayInfo(teams[1], tradeDate).name.split(' ').pop() || teams[1];
     return `${n1} & ${n2}`;
   }
   if (teams.length >= 3) return `${teams.length}-Team Trade`;
-  return (TEAMS[teams[0]]?.name.split(' ').pop() || teams[0]) + ' Trade';
+  return (getTeamDisplayInfo(teams[0], tradeDate).name.split(' ').pop() || teams[0]) + ' Trade';
 }
 
 interface PlayerCard {
@@ -55,6 +58,7 @@ interface Category {
 interface Props {
   onSelectTrade: (trade: TradeWithDetails) => void;
   onSelectPlayer: (name: string) => void;
+  onSelectChain?: (tradeId: string, chainScores: Record<string, ChainTeamData>) => void;
 }
 
 type ScoreRow = {
@@ -66,21 +70,30 @@ type ScoreRow = {
 
 type ChampRow = { team_id: string; season: string };
 
-type ChainTeamData = {
-  direct: number;
-  chain: number;
-  depth: number;
-  asset_count: number;
-  max_single_asset: number;
-  assets: { name: string; type: string; direct: number; chain: number }[];
-};
-
 type ChainScoreRow = {
   trade_id: string;
   season: string;
   max_chain_score: number;
   chain_scores: Record<string, ChainTeamData>;
 };
+
+/** Recursively walk the chain asset tree and collect all players with their chain score. */
+function flattenChainPlayers(assets: ChainAsset[]): { name: string; score: number }[] {
+  const best = new Map<string, number>();
+  function walk(list: ChainAsset[]) {
+    for (const a of list) {
+      if (a.type === 'player') {
+        const prev = best.get(a.name) ?? -Infinity;
+        if (a.chain > prev) best.set(a.name, a.chain);
+      }
+      if (a.children) walk(a.children);
+    }
+  }
+  walk(assets);
+  return [...best.entries()]
+    .map(([name, score]) => ({ name, score }))
+    .sort((a, b) => b.score - a.score);
+}
 
 // ── Metric Tooltip ────────────────────────────────────────────────────
 // Uses position: fixed + getBoundingClientRect to escape scroll containers
@@ -296,7 +309,8 @@ function TradeCardItem({
   onClick: () => void;
 }) {
   const [hovered, setHovered] = useState(false);
-  const winnerColor = card.winner ? TEAMS[card.winner]?.color || accentColor : accentColor;
+  const winnerInfo = card.winner ? getTeamDisplayInfo(card.winner, card.date) : null;
+  const winnerColor = winnerInfo?.color || accentColor;
 
   return (
     <button
@@ -359,7 +373,7 @@ function TradeCardItem({
 
         {/* Badges */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 3 }}>
-          {card.winner && (
+          {card.winner && winnerInfo && (
             <span
               style={{
                 fontSize: 9,
@@ -374,7 +388,7 @@ function TradeCardItem({
                 whiteSpace: 'nowrap',
               }}
             >
-              {card.winner} ↑
+              {winnerInfo.abbreviation} ↑
             </span>
           )}
           {card.badge && (() => {
@@ -452,7 +466,8 @@ function TradeCardItem({
           {card.season}
         </span>
         {card.teams.slice(0, 3).map((tid) => {
-          const bg = TEAMS[tid]?.color || '#555555';
+          const info = getTeamDisplayInfo(tid, card.date);
+          const bg = info.color || '#555555';
           return (
             <span
               key={tid}
@@ -465,7 +480,7 @@ function TradeCardItem({
                 fontFamily: 'var(--font-body)',
               }}
             >
-              {tid}
+              {info.abbreviation}
             </span>
           );
         })}
@@ -573,26 +588,371 @@ function PlayerCardItem({ card, onClick }: { card: PlayerCard; onClick: () => vo
   );
 }
 
+// ── View Toggle Button ───────────────────────────────────────────────
+
+function ViewToggle({
+  mode,
+  onToggle,
+}: {
+  mode: 'cards' | 'list';
+  onToggle: () => void;
+}) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <button
+      onClick={onToggle}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      aria-label={mode === 'cards' ? 'Switch to list view' : 'Switch to card view'}
+      title={mode === 'cards' ? 'List view' : 'Card view'}
+      style={{
+        background: hovered ? 'var(--bg-tertiary)' : 'var(--bg-elevated)',
+        border: `1px solid ${hovered ? 'var(--border-medium)' : 'var(--border-subtle)'}`,
+        borderRadius: 'var(--radius-sm)',
+        color: hovered ? 'var(--text-primary)' : 'var(--text-secondary)',
+        cursor: 'pointer',
+        width: 22,
+        height: 22,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 11,
+        padding: 0,
+        transition: 'var(--transition-fast)',
+        flexShrink: 0,
+      }}
+    >
+      {mode === 'cards' ? '☰' : '▦'}
+    </button>
+  );
+}
+
+// ── Trade List Row ───────────────────────────────────────────────────
+
+function TradeListRow({
+  card,
+  rank,
+  accentColor,
+  metricLabel,
+  onClick,
+}: {
+  card: TradeCard;
+  rank: number;
+  accentColor: string;
+  metricLabel: string;
+  onClick: () => void;
+}) {
+  const [hovered, setHovered] = useState(false);
+  const winnerInfo = card.winner ? getTeamDisplayInfo(card.winner, card.date) : null;
+  const winnerColor = winnerInfo?.color || accentColor;
+
+  return (
+    <button
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        gap: 12,
+        padding: '8px 12px',
+        background: hovered ? 'var(--bg-tertiary)' : 'transparent',
+        border: 'none',
+        borderBottom: '1px solid var(--border-subtle)',
+        cursor: 'pointer',
+        textAlign: 'left',
+        transition: 'background var(--transition-fast)',
+      }}
+    >
+      {/* Rank */}
+      <span
+        style={{
+          fontSize: 11,
+          fontWeight: 600,
+          color: 'var(--text-muted)',
+          fontFamily: 'var(--font-mono)',
+          width: 20,
+          textAlign: 'right',
+          flexShrink: 0,
+        }}
+      >
+        {rank}
+      </span>
+
+      {/* Metric score */}
+      <span
+        style={{
+          fontSize: 16,
+          fontWeight: 700,
+          fontFamily: 'var(--font-display)',
+          color: winnerColor,
+          width: 52,
+          textAlign: 'right',
+          flexShrink: 0,
+          letterSpacing: 0.3,
+        }}
+      >
+        {card.metric.toFixed(1)}
+      </span>
+
+      {/* Metric label (compact) */}
+      <span
+        style={{
+          fontSize: 7,
+          fontWeight: 600,
+          letterSpacing: 0.8,
+          textTransform: 'uppercase',
+          color: 'var(--text-muted)',
+          fontFamily: 'var(--font-body)',
+          width: 36,
+          flexShrink: 0,
+        }}
+      >
+        {metricLabel.split(' ')[0]}
+      </span>
+
+      {/* Trade heading + players */}
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div
+          style={{
+            fontSize: 12,
+            fontWeight: 700,
+            color: 'var(--text-primary)',
+            fontFamily: 'var(--font-display)',
+            letterSpacing: 0.3,
+            lineHeight: 1.2,
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {card.heading}
+        </div>
+        {card.players.length > 0 && (
+          <div
+            style={{
+              fontSize: 10,
+              color: 'var(--text-tertiary)',
+              fontFamily: 'var(--font-body)',
+              lineHeight: 1.3,
+              marginTop: 1,
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {card.players.length <= 3
+              ? card.players.join(', ')
+              : `${card.players.slice(0, 3).join(', ')} +${card.players.length - 3}`}
+          </div>
+        )}
+      </div>
+
+      {/* Season */}
+      <span
+        style={{
+          fontSize: 10,
+          color: 'var(--text-muted)',
+          fontFamily: 'var(--font-mono)',
+          flexShrink: 0,
+        }}
+      >
+        {card.season}
+      </span>
+
+      {/* Winner badge */}
+      {card.winner && winnerInfo && (
+        <span
+          style={{
+            fontSize: 8,
+            fontWeight: 700,
+            padding: '2px 6px',
+            borderRadius: 999,
+            background: winnerColor,
+            color: contrastText(winnerColor),
+            fontFamily: 'var(--font-body)',
+            letterSpacing: 0.4,
+            textTransform: 'uppercase',
+            whiteSpace: 'nowrap',
+            flexShrink: 0,
+          }}
+        >
+          {winnerInfo.abbreviation} ↑
+        </span>
+      )}
+
+      {/* Team pills */}
+      <div style={{ display: 'flex', gap: 3, flexShrink: 0 }}>
+        {card.teams.slice(0, 3).map((tid) => {
+          const info = getTeamDisplayInfo(tid, card.date);
+          const bg = info.color || '#555555';
+          return (
+            <span
+              key={tid}
+              style={{
+                fontSize: 8,
+                padding: '1px 4px',
+                borderRadius: 999,
+                background: bg,
+                color: contrastText(bg),
+                fontFamily: 'var(--font-body)',
+              }}
+            >
+              {info.abbreviation}
+            </span>
+          );
+        })}
+      </div>
+    </button>
+  );
+}
+
+// ── Player List Row ──────────────────────────────────────────────────
+
+function PlayerListRow({
+  card,
+  rank,
+  onClick,
+}: {
+  card: PlayerCard;
+  rank: number;
+  onClick: () => void;
+}) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <button
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        gap: 12,
+        padding: '8px 12px',
+        background: hovered ? 'var(--bg-tertiary)' : 'transparent',
+        border: 'none',
+        borderBottom: '1px solid var(--border-subtle)',
+        cursor: 'pointer',
+        textAlign: 'left',
+        transition: 'background var(--transition-fast)',
+      }}
+    >
+      {/* Rank */}
+      <span
+        style={{
+          fontSize: 11,
+          fontWeight: 600,
+          color: 'var(--text-muted)',
+          fontFamily: 'var(--font-mono)',
+          width: 20,
+          textAlign: 'right',
+          flexShrink: 0,
+        }}
+      >
+        {rank}
+      </span>
+
+      {/* Trade count as metric */}
+      <span
+        style={{
+          fontSize: 16,
+          fontWeight: 700,
+          fontFamily: 'var(--font-display)',
+          color: 'var(--accent-purple)',
+          width: 52,
+          textAlign: 'right',
+          flexShrink: 0,
+          letterSpacing: 0.3,
+        }}
+      >
+        {card.tradeCount}
+      </span>
+
+      {/* Label */}
+      <span
+        style={{
+          fontSize: 7,
+          fontWeight: 600,
+          letterSpacing: 0.8,
+          textTransform: 'uppercase',
+          color: 'var(--text-muted)',
+          fontFamily: 'var(--font-body)',
+          width: 36,
+          flexShrink: 0,
+        }}
+      >
+        Trades
+      </span>
+
+      {/* Player name */}
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div
+          style={{
+            fontSize: 12,
+            fontWeight: 700,
+            color: 'var(--text-primary)',
+            fontFamily: 'var(--font-display)',
+            letterSpacing: 0.3,
+            lineHeight: 1.2,
+          }}
+        >
+          {card.name}
+        </div>
+      </div>
+
+      {/* CTA */}
+      <span
+        style={{
+          fontSize: 9,
+          fontWeight: 600,
+          color: 'var(--accent-purple)',
+          fontFamily: 'var(--font-body)',
+          letterSpacing: 0.5,
+          textTransform: 'uppercase',
+          flexShrink: 0,
+        }}
+      >
+        View journey →
+      </span>
+    </button>
+  );
+}
+
 // ── Category Row ──────────────────────────────────────────────────────
 
 function CategoryRow({
   category,
   onSelectTrade,
   onSelectPlayer,
+  onSelectChain,
 }: {
   category: Category;
   onSelectTrade: (trade: TradeWithDetails) => void;
   onSelectPlayer: (name: string) => void;
+  onSelectChain?: (tradeId: string, chainScores: Record<string, ChainTeamData>) => void;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [viewMode, setViewMode] = useState<'cards' | 'list'>('cards');
+  const [expanded, setExpanded] = useState(false);
+
   const scroll = (dir: 'left' | 'right') => {
     scrollRef.current?.scrollBy({ left: dir === 'right' ? 210 : -210, behavior: 'smooth' });
   };
 
-  const handleTradeClick = async (tradeId: string) => {
-    const trade = await loadTrade(tradeId);
+  const handleTradeClick = async (card: TradeCard) => {
+    if (card.chainScores && onSelectChain) {
+      onSelectChain(card.tradeId, card.chainScores);
+      return;
+    }
+    const trade = await loadTrade(card.tradeId);
     if (trade) onSelectTrade(staticTradeToTradeWithDetails(trade));
   };
+
+  const listCards = expanded ? category.cards : category.cards.slice(0, 5);
+  const canExpand = category.cards.length > 5;
 
   return (
     <div style={{ marginTop: 20 }}>
@@ -615,42 +975,107 @@ function CategoryRow({
           </span>
           <CategoryInfoTooltip description={category.description} />
         </div>
-        <ArrowBtn dir="left" onClick={() => scroll('left')} />
-        <ArrowBtn dir="right" onClick={() => scroll('right')} />
+        <ViewToggle
+          mode={viewMode}
+          onToggle={() => { setViewMode(viewMode === 'cards' ? 'list' : 'cards'); setExpanded(false); }}
+        />
+        {viewMode === 'cards' && (
+          <>
+            <ArrowBtn dir="left" onClick={() => scroll('left')} />
+            <ArrowBtn dir="right" onClick={() => scroll('right')} />
+          </>
+        )}
         <div style={{ flex: 1, height: 1, background: 'var(--border-subtle)' }} />
       </div>
 
-      {/* Scrollable card row */}
-      <div
-        ref={scrollRef}
-        style={{
-          display: 'flex',
-          gap: 10,
-          overflowX: 'auto',
-          paddingBottom: 4,
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
-        }}
-      >
-        {category.cards.map((card) =>
-          card.type === 'trade' ? (
-            <TradeCardItem
-              key={card.tradeId}
-              card={card}
-              accentColor={category.accentColor}
-              metricLabel={category.metricLabel}
-              metricExplanation={category.metricExplanation}
-              onClick={() => handleTradeClick(card.tradeId)}
-            />
-          ) : (
-            <PlayerCardItem
-              key={card.name}
-              card={card}
-              onClick={() => onSelectPlayer(card.name)}
-            />
-          )
-        )}
-      </div>
+      {viewMode === 'cards' ? (
+        /* Scrollable card row */
+        <div
+          ref={scrollRef}
+          style={{
+            display: 'flex',
+            gap: 10,
+            overflowX: 'auto',
+            paddingBottom: 4,
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+          }}
+        >
+          {category.cards.map((card) =>
+            card.type === 'trade' ? (
+              <TradeCardItem
+                key={card.tradeId}
+                card={card}
+                accentColor={category.accentColor}
+                metricLabel={category.metricLabel}
+                metricExplanation={category.metricExplanation}
+                onClick={() => handleTradeClick(card)}
+              />
+            ) : (
+              <PlayerCardItem
+                key={card.name}
+                card={card}
+                onClick={() => onSelectPlayer(card.name)}
+              />
+            )
+          )}
+        </div>
+      ) : (
+        /* List view */
+        <div
+          style={{
+            background: 'var(--bg-card)',
+            border: '1px solid var(--border-subtle)',
+            borderRadius: 'var(--radius-md)',
+            overflow: 'hidden',
+          }}
+        >
+          {listCards.map((card, i) =>
+            card.type === 'trade' ? (
+              <TradeListRow
+                key={card.tradeId}
+                card={card}
+                rank={i + 1}
+                accentColor={category.accentColor}
+                metricLabel={category.metricLabel}
+                onClick={() => handleTradeClick(card)}
+              />
+            ) : (
+              <PlayerListRow
+                key={card.name}
+                card={card}
+                rank={i + 1}
+                onClick={() => onSelectPlayer(card.name)}
+              />
+            )
+          )}
+
+          {/* See more / See less */}
+          {canExpand && (
+            <button
+              onClick={() => setExpanded(!expanded)}
+              style={{
+                width: '100%',
+                padding: '8px 12px',
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                fontSize: 10,
+                fontWeight: 600,
+                color: 'var(--text-secondary)',
+                fontFamily: 'var(--font-body)',
+                letterSpacing: 0.5,
+                textTransform: 'uppercase',
+                transition: 'color var(--transition-fast)',
+              }}
+              onMouseEnter={(e) => { (e.target as HTMLButtonElement).style.color = 'var(--text-primary)'; }}
+              onMouseLeave={(e) => { (e.target as HTMLButtonElement).style.color = 'var(--text-secondary)'; }}
+            >
+              {expanded ? 'See less ↑' : `See more (${category.cards.length}) ↓`}
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 }
@@ -690,7 +1115,7 @@ const METRIC_DEFS: Record<string, { metricLabel: string; metricExplanation: stri
 
 // ── Main Component ────────────────────────────────────────────────────
 
-export default function DiscoverySection({ onSelectTrade, onSelectPlayer }: Props) {
+export default function DiscoverySection({ onSelectTrade, onSelectPlayer, onSelectChain }: Props) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -793,23 +1218,26 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer }: Prop
             // Excludes heists like Kobe/Parish where the team just held the asset forever.
             if (winnerData.depth < 2) return null;
             if (winnerData.chain <= winnerData.direct * 1.2) return null;
-            const topAssetName = winnerData.assets[0]?.name ?? null;
+            const chainPlayers = flattenChainPlayers(winnerData.assets);
+            const playerLabels = chainPlayers.length > 0
+              ? chainPlayers.slice(0, 3).map((p) => `${p.name} (${p.score.toFixed(1)})`)
+              : entry.players;
             return {
               type: 'trade',
               tradeId: row.trade_id,
-              heading: teamHeading(entry.teams),
-              players: topAssetName
-                ? [topAssetName, ...entry.players.filter((p) => p !== topAssetName).slice(0, 2)]
-                : entry.players,
+              heading: teamHeading(entry.teams, entry.date),
+              players: playerLabels,
               season: entry.season,
               teams: entry.teams,
               winner: winnerTeam,
               metric: winnerData.chain,
               badge: winnerData.depth >= 3 ? `${winnerData.asset_count} assets` : undefined,
+              chainScores: row.chain_scores,
+              date: entry.date,
             };
           })
           .filter((c): c is TradeCard => c !== null)
-          .slice(0, 10);
+          .slice(0, 20);
 
         // 0b. Alchemists — breadth over magnitude, no single asset dominating
         const alchemistCards: TradeCard[] = [...chainRows]
@@ -827,44 +1255,51 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer }: Prop
             if (winnerData.asset_count < 4) return null;
             // Exclude outlier-dominated chains — no single asset > 30% of chain
             if (winnerData.max_single_asset > winnerData.chain * 0.3) return null;
+            const chainPlayers = flattenChainPlayers(winnerData.assets);
+            const playerNames = chainPlayers.length > 0
+              ? chainPlayers.slice(0, 4).map((p) => p.name)
+              : entry.players;
             return {
               type: 'trade',
               tradeId: row.trade_id,
-              heading: teamHeading(entry.teams),
-              players: entry.players,
+              heading: teamHeading(entry.teams, entry.date),
+              players: playerNames,
               season: entry.season,
               teams: entry.teams,
               winner: winnerTeam,
               metric: winnerData.asset_count,
               badge: `${winnerData.depth} hops`,
+              chainScores: row.chain_scores,
+              date: entry.date,
               _breadth: winnerData.asset_count,
             };
           })
           .filter((c): c is (TradeCard & { _breadth: number }) => c !== null)
           .sort((a, b) => b._breadth - a._breadth)
-          .slice(0, 10)
+          .slice(0, 20)
           .map(({ _breadth: _, ...card }) => card);
 
         // 1. Heist Index
         const heistCards: TradeCard[] = enriched
           .filter(({ s }) => !tpeTradeIds.has(s.trade_id))
-          .slice(0, 10)
+          .slice(0, 20)
           .map(({ s, entry }) => ({
-            type: 'trade',
+            type: 'trade' as const,
             tradeId: s.trade_id,
-            heading: teamHeading(entry.teams),
+            heading: teamHeading(entry.teams, entry.date),
             players: entry.players,
             season: entry.season,
             teams: entry.teams,
             winner: s.winner,
             metric: s.lopsidedness,
+            date: entry.date,
           }));
 
         // 2. Championship DNA
         const champCards: TradeCard[] = enriched
           .filter((e) => e.champWithin4 && !tpeTradeIds.has(e.s.trade_id))
           .sort((a, b) => b.s.lopsidedness - a.s.lopsidedness)
-          .slice(0, 10)
+          .slice(0, 20)
           .map(({ s, entry }) => {
             const tradeYear = seasonYear(entry.season);
             const winnerChamps = champYears.get(s.winner) ?? new Set<number>();
@@ -874,13 +1309,14 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer }: Prop
             return {
               type: 'trade' as const,
               tradeId: s.trade_id,
-              heading: teamHeading(entry.teams),
+              heading: teamHeading(entry.teams, entry.date),
               players: entry.players,
               season: entry.season,
               teams: entry.teams,
               winner: s.winner,
               metric: s.lopsidedness,
               badge: nextChamp ? `${nextChamp} Champs` : undefined,
+              date: entry.date,
             };
           });
 
@@ -898,17 +1334,18 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer }: Prop
             return { s, entry, floorScore };
           })
           .sort((a, b) => b.floorScore - a.floorScore)
-          .slice(0, 10)
+          .slice(0, 20)
           .map(({ s, entry, floorScore }) => ({
             type: 'trade' as const,
             tradeId: s.trade_id,
-            heading: teamHeading(entry.teams),
+            heading: teamHeading(entry.teams, entry.date),
             players: entry.players,
             season: entry.season,
             teams: entry.teams,
             winner: s.winner,
             metric: Math.round(floorScore * 10) / 10,
             badge: entry.teams.length >= 3 ? `${entry.teams.length}-Team` : undefined,
+            date: entry.date,
           }));
 
         // 4. The Journeymen (TPE trades excluded from count)
@@ -925,7 +1362,7 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer }: Prop
         }
         const journeyCards: PlayerCard[] = [...playerCount.entries()]
           .sort((a, b) => b[1] - a[1])
-          .slice(0, 10)
+          .slice(0, 20)
           .map(([name, count]) => ({
             type: 'player' as const,
             name,
@@ -1024,6 +1461,7 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer }: Prop
           category={cat}
           onSelectTrade={onSelectTrade}
           onSelectPlayer={onSelectPlayer}
+          onSelectChain={onSelectChain}
         />
       ))}
     </div>

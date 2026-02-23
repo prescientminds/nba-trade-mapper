@@ -23,6 +23,7 @@ export default function SearchOverlay() {
 
   const search = useGraphStore((s) => s.search);
   const seedFromTrade = useGraphStore((s) => s.seedFromTrade);
+  const seedFromChain = useGraphStore((s) => s.seedFromChain);
   const seedFromPlayer = useGraphStore((s) => s.seedFromPlayer);
   const clearGraph = useGraphStore((s) => s.clearGraph);
   const nodes = useGraphStore((s) => s.nodes);
@@ -63,6 +64,12 @@ export default function SearchOverlay() {
     setOpen(false);
     setQuery('');
     seedFromPlayer(name);
+  };
+
+  const selectChain = (tradeId: string, chainScores: Record<string, unknown>) => {
+    setOpen(false);
+    setQuery('');
+    seedFromChain(tradeId, chainScores as Parameters<typeof seedFromChain>[1]);
   };
 
   // Close dropdown on outside click
@@ -433,7 +440,7 @@ export default function SearchOverlay() {
           padding: '0 24px 120px',
         }}
       >
-        <DiscoverySection onSelectTrade={selectTrade} onSelectPlayer={selectPlayer} />
+        <DiscoverySection onSelectTrade={selectTrade} onSelectPlayer={selectPlayer} onSelectChain={selectChain} />
       </div>
     </div>
   );
