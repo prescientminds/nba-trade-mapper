@@ -454,6 +454,69 @@ export function layoutPlayerTimeline(
     }
   }
 
+  // ── Pass 6: cross-column chronological enforcement ──
+  // For each node at year Y in column C, push it below the max bottom of nodes
+  // in OTHER columns at years < Y. Tracks max bottom per-column so a tall column
+  // doesn't inflate its own nodes (only other columns push it down).
+  {
+    const nodesByYear = new Map<number, Array<{ id: string; height: number; col: number }>>();
+    for (const node of regularNodes) {
+      const year = getNodeYear(node);
+      const col = Math.round(initPos.get(node.id)!.col);
+      if (!nodesByYear.has(year)) nodesByYear.set(year, []);
+      nodesByYear.get(year)!.push({ id: node.id, height: getNodeHeight(node), col });
+    }
+    const sortedYears = [...nodesByYear.keys()].sort((a, b) => a - b);
+
+    // Running max bottom per column, updated as we advance through years
+    const colMaxBottom = new Map<number, number>();
+
+    for (const year of sortedYears) {
+      const nodesForYear = nodesByYear.get(year)!;
+
+      // Push each node below the max bottom of OTHER columns at prior years
+      for (const entry of nodesForYear) {
+        let crossColMax = -Infinity;
+        for (const [col, bot] of colMaxBottom) {
+          if (col !== entry.col && bot > crossColMax) {
+            crossColMax = bot;
+          }
+        }
+        const curY = compressedY.get(entry.id) ?? 0;
+        if (curY < crossColMax) {
+          compressedY.set(entry.id, crossColMax);
+        }
+      }
+
+      // Update per-column max bottoms from this year's final positions
+      for (const entry of nodesForYear) {
+        const y = compressedY.get(entry.id) ?? 0;
+        const bottom = y + entry.height + MIN_GAP;
+        const prev = colMaxBottom.get(entry.col) ?? -Infinity;
+        if (bottom > prev) colMaxBottom.set(entry.col, bottom);
+      }
+    }
+  }
+
+  // ── Pass 6.5: per-column overlap re-sweep ──
+  // Pass 6 may have pushed same-column nodes to the same Y. Re-sweep to fix.
+  for (const [, items] of byIntCol.entries()) {
+    const colNodes = items.map(item => ({
+      id: item.id,
+      y: compressedY.get(item.id) ?? 0,
+      height: item.height,
+    }));
+    colNodes.sort((a, b) => a.y - b.y);
+    let cursor = -Infinity;
+    for (const cn of colNodes) {
+      if (cn.y < cursor) {
+        compressedY.set(cn.id, cursor);
+        cn.y = cursor;
+      }
+      cursor = cn.y + cn.height + MIN_GAP;
+    }
+  }
+
   // ── Pass 5 (moved to end): position gap nodes between their compressed neighbors ──
   // Gap nodes are centered between their neighbors — must run after all Y positions
   // are finalized so gap nodes use correct values.
