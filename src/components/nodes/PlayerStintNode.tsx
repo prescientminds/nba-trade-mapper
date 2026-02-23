@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
-import { TEAMS } from '@/lib/teams';
+import { getTeamDisplayInfo } from '@/lib/teams';
 import { useGraphStore, PlayerStintNodeData } from '@/lib/graph-store';
 import { SeasonTable } from '@/components/SeasonTable';
 import { ensureReadable } from '@/lib/colors';
@@ -32,8 +32,11 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
   const isExpanded = expandedNodes.has(id);
   const isLoading = loadingNodes.has(id);
   const isCore = coreNodes.has(id);
-  const team = TEAMS[teamId];
-  const color = ensureReadable(team?.color || '#9b5de5');
+
+  // Derive approximate date from first season for historical team name lookup
+  const stintDate = seasons.length > 0 ? `${seasons[0].split('-')[0]}-10-01` : undefined;
+  const teamInfo = getTeamDisplayInfo(teamId, stintDate);
+  const color = ensureReadable(teamInfo.color || '#9b5de5');
 
   const yearRange =
     seasons.length === 1
@@ -162,7 +165,7 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
             flexShrink: 0,
           }}
         >
-          {teamId}
+          {teamInfo.abbreviation}
         </span>
         <span
           style={{
