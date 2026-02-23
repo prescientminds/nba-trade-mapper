@@ -18,8 +18,7 @@ interface TradeScoreRow {
 function TradeNodeComponent({ id, data }: NodeProps) {
   const { trade, teamColors, teamIds, inlinePlayers } = data as TradeNodeData;
   const expandTradeNode = useGraphStore((s) => s.expandTradeNode);
-  const expandPlayerFromTrade = useGraphStore((s) => s.expandPlayerFromTrade);
-  const expandPlayerHistoryFromTrade = useGraphStore((s) => s.expandPlayerHistoryFromTrade);
+  const expandPlayerFullPathFromTrade = useGraphStore((s) => s.expandPlayerFullPathFromTrade);
   const expandInlineTradePlayer = useGraphStore((s) => s.expandInlineTradePlayer);
   const removeNode = useGraphStore((s) => s.removeNode);
   const expandedNodes = useGraphStore((s) => s.expandedNodes);
@@ -150,28 +149,10 @@ function TradeNodeComponent({ id, data }: NodeProps) {
     return false;
   };
 
-  // Check if a player's backward (history) stints are already on canvas.
-  // Only checks from_team_id stints — not the PlayerNode — so that forward expansion
-  // being on-graph doesn't incorrectly suppress the history button.
-  const isHistoryInGraph = (asset: TransactionAsset) => {
-    if (asset.asset_type === 'player' && asset.player_name && asset.from_team_id) {
-      const playerSlug = asset.player_name.toLowerCase().replace(/\s+/g, '-');
-      const prefix = `stint-${playerSlug}-${asset.from_team_id}`;
-      return nodes.some((n) => n.id.startsWith(prefix));
-    }
-    return false;
-  };
-
   const handlePathClick = (e: React.MouseEvent, asset: TransactionAsset) => {
     e.stopPropagation();
     if (isInGraph(asset)) return;
-    expandPlayerFromTrade(id, asset);
-  };
-
-  const handleHistoryClick = (e: React.MouseEvent, asset: TransactionAsset) => {
-    e.stopPropagation();
-    if (isHistoryInGraph(asset)) return;
-    expandPlayerHistoryFromTrade(id, asset);
+    expandPlayerFullPathFromTrade(id, asset);
   };
 
   const handleInlineClick = (e: React.MouseEvent, asset: TransactionAsset) => {
@@ -591,42 +572,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             />
                           )}
 
-                          {/* ← History button: show backward trajectory (only for players with a from-team) */}
-                          {asset.asset_type === 'player' && asset.from_team_id && (
-                            !isHistoryInGraph(asset) ? (
-                              <div
-                                className="nopan nodrag"
-                                onClick={(e) => handleHistoryClick(e, asset)}
-                                style={{
-                                  fontSize: 9,
-                                  color: 'var(--text-muted)',
-                                  padding: '1px 5px',
-                                  borderRadius: 3,
-                                  background: 'var(--bg-tertiary)',
-                                  cursor: 'pointer',
-                                  flexShrink: 0,
-                                  whiteSpace: 'nowrap',
-                                  transition: 'background 0.15s, color 0.15s',
-                                }}
-                                onMouseEnter={(e) => {
-                                  e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-                                  e.currentTarget.style.color = 'var(--text-primary)';
-                                }}
-                                onMouseLeave={(e) => {
-                                  e.currentTarget.style.background = 'var(--bg-tertiary)';
-                                  e.currentTarget.style.color = 'var(--text-muted)';
-                                }}
-                              >
-                                &larr; Hist
-                              </div>
-                            ) : (
-                              <span style={{ fontSize: 8, color: 'var(--text-muted)', flexShrink: 0 }}>
-                                hist on
-                              </span>
-                            )
-                          )}
-
-                          {/* Path → button: add to graph */}
+                          {/* Path button: show full career path (both before and after this trade) */}
                           {!inGraph ? (
                             <div
                               className="nopan nodrag"
@@ -651,7 +597,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                                 e.currentTarget.style.color = 'var(--text-muted)';
                               }}
                             >
-                              Path &rarr;
+                              Path
                             </div>
                           ) : (
                             <span style={{ fontSize: 8, color: 'var(--text-muted)', flexShrink: 0 }}>

@@ -20,27 +20,31 @@ A **visual graph explorer** for NBA trades and player journeys. The entire UI is
 
 ## Current Status
 
-### What Works
+### What Works — confirmed Feb 2026
 - **Graph UI built** — React Flow with search bar, click-to-expand, auto-layout (ELK.js)
-- **5 node types**: TradeNode, PlayerNode, PickNode, PlayerStintNode, TransitionNode (SeasonDetailNode was deleted — season details now render inline within PlayerStintNode)
+- **5 active node types**: TradeNode, PlayerNode, PickNode, PlayerStintNode, GapNode
+  - TransitionNode exists in code but `makeTransitionNode()` is never called — dead code
 - **1,935 trades in static JSON** — 1,541 from Supabase (1976–Feb 2019) + 394 scraped from BBRef (Feb 2019–Feb 2026)
 - **50 season files** in `public/data/trades/by-season/` (1976-77 through 2025-26) + search index
-- **23,567 player-season stat rows** in Supabase — regular season WS/PER/VORP/PPG/RPG + 8 playoff columns (`playoff_ws`, `playoff_ppg`, `playoff_rpg`, `playoff_apg`, `playoff_per`, `playoff_bpm`, `playoff_vorp`, `playoff_gp`). 9,187 rows have playoff_ws populated (1977–2025).
-- **2,510 player accolades** in Supabase — MVP, DPOY, ROY, MIP, Sixth Man, All-Star, All-NBA (1st/2nd/3rd), All-Defensive, All-Rookie. Fixed Feb 2026: All-NBA tiers were all showing "3rd" due to CSV column comparison bug.
-- **1,376 team-season records** in Supabase — W/L, full playoff round depth (`playoff_result`: R1/R2/CONF/FINALS/CHAMP), championship boolean. 49 champions verified correct.
-- **1,927 trade score rows** in Supabase `trade_scores` — per-trade value scores by team. `team_scores` JSONB has per-asset breakdown (WS, playoff_ws, championships, accolades, score). `winner` + `lopsidedness` for quick filtering.
-- **Trade verdict UI** — TradeNode expanded card shows compact bar chart of team scores, winner highlighted in team color, lazy-fetched from `trade_scores` on first expand.
-- **Build compiles cleanly** (`npm run build` passes)
-- **Dev server runs** (`npm run dev` on localhost:3000)
-- **Deployed to Vercel** — github.com/wandebao/nba-trade-mapper, auto-deploys on push
+- **23,567 player-season stat rows** in Supabase — regular + 8 playoff columns. 9,187 rows have playoff_ws (1977–2025).
+- **2,510 player accolades** in Supabase — MVP, DPOY, ROY, MIP, Sixth Man, All-Star, All-NBA (1st/2nd/3rd), All-Defensive, All-Rookie.
+- **1,376 team-season records** in Supabase — W/L + `playoff_result` (R1/R2/CONF/FINALS/CHAMP) + championship bool. 49 champions verified.
+- **1,927 trade score rows** in Supabase `trade_scores` — `winner`, `lopsidedness`, `team_scores` JSONB with per-asset breakdown.
+- **Trade verdict UI** — expanded TradeNode shows compact bar chart, winner highlighted, lazy-fetched on first expand.
+- **SeasonTable** — playoff result badges inline per season row (CONF=teal, FINALS=purple, CHAMP=gold); accolade badges; W/L footer.
+- **Player journeys** — stints chained by trade nodes; `← Hist` (backward) and `Path →` (forward) buttons; inline stats panel per player in trade card.
+- **Data quality clean** — all team IDs validated; NOP/CHA era fixed (50 trades); Pippen/Polynice pick names corrected.
+- **Build compiles cleanly** (`npm run build` passes) | **Deployed to Vercel** — auto-deploys on push
 
 ### Static JSON Data Pipeline
 The app reads trade data from static JSON files, NOT directly from Supabase at runtime.
-Run these 3 scripts in order to populate `public/data/trades/by-season/`:
+Run these scripts in order if rebuilding trade data from scratch:
 
 1. `npx tsx scripts/export-existing-trades.ts` — Supabase → static JSON (~30s)
-2. `npx tsx scripts/scrape-bbref-trades.ts` — BBRef scrape Feb 2019–present (~2hrs first run, cached after)
-3. `npx tsx scripts/enrich-picks.ts` — Add drafted player names from Kaggle CSV (~5s)
+2. `python3 scripts/fix-csv-trades.py` — ⚠️ MUST run after step 1 (fixes direction bug in CSV-era trades)
+3. Re-apply NOP/CHA fix — ⚠️ MUST run after step 1 (50 trades had New Orleans Hornets stored as CHA)
+4. `npx tsx scripts/scrape-bbref-trades.ts` — BBRef scrape Feb 2019–present (~2hrs first run, cached after)
+5. `npx tsx scripts/enrich-picks.ts` — Add drafted player names from Kaggle CSV (~5s)
 
 Daily updates: `scripts/scrape-today.ts` (used by `.github/workflows/update-trades.yml`)
 
@@ -353,3 +357,13 @@ npx tsx scripts/score-trades.ts                         # Recompute all trade sc
 3. **Winner badge on collapsed TradeNode** — fetch score in `expandTradeNode` store action, persist in `TradeNodeData`
 4. **"Paved the way" chain** — trace backward from championship roster through founding trades
 5. **Explore by trade score** — ranked list of most lopsided trades, seeding the graph on click
+
+## Data Quality Notes (Feb 2026)
+- ✅ Trade direction fixed (fix-csv-trades.py) — all 1,535 CSV-era trades have correct sides
+- ✅ NOP/CHA fixed — 50 New Orleans Hornets trades (2002-03 through 2012-13) corrected from CHA → NOP
+- ✅ Pippen/Polynice 1987 — B.J. Armstrong / Sylvester Gray removed as pick names (those picks resolved elsewhere)
+- ✅ All-NBA tiers fixed — tiers were all showing "3rd" due to CSV column comparison bug
+- ✅ All team IDs validated — no legacy codes in any static JSON file
+- ⚠️ Supabase `transactions` table still has original CSV direction bug — static JSON is source of truth
+- ⚠️ `import-accolades.ts` uses INSERT — wipe table before re-running
+- ⚠️ `database/sample_data.sql` is legacy dead code

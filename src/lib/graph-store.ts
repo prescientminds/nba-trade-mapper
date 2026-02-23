@@ -133,6 +133,7 @@ interface GraphState {
   expandPickNode: (nodeId: string) => void;
   expandPlayerFromTrade: (tradeNodeId: string, asset: TransactionAsset) => Promise<void>;
   expandPlayerHistoryFromTrade: (tradeNodeId: string, asset: TransactionAsset) => Promise<void>;
+  expandPlayerFullPathFromTrade: (tradeNodeId: string, asset: TransactionAsset) => Promise<void>;
   expandInlineTradePlayer: (tradeNodeId: string, asset: TransactionAsset) => Promise<void>;
   collapseInlineTradePlayer: (tradeNodeId: string, playerName: string) => Promise<void>;
   expandPlayerJourney: (playerName: string, anchorNodeId?: string) => Promise<void>;
@@ -1407,6 +1408,17 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       for (let i = 0; i < stints.length; i++) {
         if (stints[i].teamId === toTeamId) { startIdx = i; break; }
       }
+      // Fallback: player was traded to toTeamId but never played there (immediately re-traded).
+      // Use the first stint after the fromTeamId stint instead.
+      if (startIdx === -1 && asset.from_team_id) {
+        let fromIdx = -1;
+        for (let i = 0; i < stints.length; i++) {
+          if (stints[i].teamId === asset.from_team_id) { fromIdx = i; break; }
+        }
+        if (fromIdx >= 0 && fromIdx + 1 < stints.length) {
+          startIdx = fromIdx + 1;
+        }
+      }
       if (startIdx === -1) return;
 
       const forwardStints = stints.slice(startIdx);
@@ -1593,6 +1605,16 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       for (let i = stints.length - 1; i >= 0; i--) {
         if (stints[i].teamId === fromTeamId) { endIdx = i; break; }
       }
+      // Fallback: player was traded from fromTeamId but never played there (passed through).
+      // Use the last stint before the toTeamId stint instead.
+      if (endIdx === -1 && asset.to_team_id) {
+        for (let i = 0; i < stints.length; i++) {
+          if (stints[i].teamId === asset.to_team_id) {
+            endIdx = i > 0 ? i - 1 : -1;
+            break;
+          }
+        }
+      }
       if (endIdx === -1) return;
 
       const historicalStints = stints.slice(0, endIdx + 1);
@@ -1735,6 +1757,284 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         pendingFitTarget: tradeNodeId_,
       });
     }
+  },
+
+  // ── Expand player full path from trade (combined forward + backward) ──
+  // Single-click "Path" replaces both "← Hist" and "Path →".
+  // Creates backward stints (before the trade) AND forward stints (after the trade)
+  // in one atomic operation, anchored on the trade node as the pivot.
+  expandPlayerFullPathFromTrade: async (tradeNodeId_: string, asset: TransactionAsset) => {
+    const state = get();
+
+    // Picks delegate to existing forward-only logic
+    if (asset.asset_type === 'pick' || asset.asset_type === 'swap') {
+      return get().expandPlayerFromTrade(tradeNodeId_, asset);
+    }
+
+    if (asset.asset_type !== 'player' || !asset.player_name) return;
+
+    const playerName = asset.player_name;
+    const toTeamId = asset.to_team_id;
+    const fromTeamId = asset.from_team_id;
+    if (!toTeamId) return;
+
+    // Guard: if forward stints at receiving team already exist, full path was already expanded
+    const playerSlug = playerName.toLowerCase().replace(/\s+/g, '-');
+    if (state.nodes.some(n => n.id.startsWith(`stint-${playerSlug}-${toTeamId}`))) return;
+
+    const sb = getSupabase();
+
+    // Fetch all seasons ONCE (both old functions fetch independently)
+    const { data: allSeasons } = await sb
+      .from('player_seasons')
+      .select('*')
+      .ilike('player_name', playerName)
+      .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
+
+    if (!allSeasons || allSeasons.length === 0) return;
+
+    const stints = groupIntoStints(allSeasons.filter(s => s.team_id));
+    if (stints.length === 0) return;
+
+    // Find startIdx — first stint at to_team_id (for forward)
+    let startIdx = -1;
+    for (let i = 0; i < stints.length; i++) {
+      if (stints[i].teamId === toTeamId) { startIdx = i; break; }
+    }
+    // Fallback: player was traded to toTeamId but never played there (immediately re-traded).
+    // Use the first stint after the fromTeamId stint instead.
+    if (startIdx === -1 && fromTeamId) {
+      let fromIdx = -1;
+      for (let i = 0; i < stints.length; i++) {
+        if (stints[i].teamId === fromTeamId) { fromIdx = i; break; }
+      }
+      if (fromIdx >= 0 && fromIdx + 1 < stints.length) {
+        startIdx = fromIdx + 1;
+      }
+    }
+    if (startIdx === -1) return;
+
+    // Find endIdx — last stint at from_team_id (for backward, only if from_team_id exists)
+    let endIdx = -1;
+    const hasBackward = !!fromTeamId && fromTeamId !== toTeamId;
+    if (hasBackward) {
+      for (let i = stints.length - 1; i >= 0; i--) {
+        if (stints[i].teamId === fromTeamId) { endIdx = i; break; }
+      }
+    }
+    // If backward stint comes after forward stint, skip backward (data anomaly guard)
+    if (endIdx >= startIdx) endIdx = -1;
+
+    const forwardStints = stints.slice(startIdx);
+    const backwardStints = endIdx >= 0 ? stints.slice(0, endIdx + 1) : [];
+
+    // Collect ALL seasons for a single accolades query
+    const allRelevantSeasons = [
+      ...backwardStints.flatMap(s => s.seasons.map(ss => ss.season)),
+      ...forwardStints.flatMap(s => s.seasons.map(ss => ss.season)),
+    ];
+
+    // Fetch accolades for ALL stint seasons in one query
+    const accoladesPromise = Promise.resolve(
+      sb
+        .from('player_accolades')
+        .select('*')
+        .ilike('player_name', playerName)
+        .in('season', allRelevantSeasons)
+    ).then(r => r.data as PlayerAccolade[] | null).catch(() => null);
+
+    // Fetch inter-stint trades for FORWARD direction
+    const forwardTradePromises: Promise<StaticTrade | null>[] = [];
+    for (let i = 0; i < forwardStints.length - 1; i++) {
+      const from = forwardStints[i];
+      const to = forwardStints[i + 1];
+      forwardTradePromises.push(
+        findTradeBetweenStints(
+          playerName, from.teamId, to.teamId,
+          from.seasons[from.seasons.length - 1].season,
+          to.seasons[0].season
+        ).catch(() => null)
+      );
+    }
+
+    // Fetch inter-stint trades for BACKWARD direction
+    const backwardTradePromises: Promise<StaticTrade | null>[] = [];
+    for (let i = 0; i < backwardStints.length - 1; i++) {
+      const from = backwardStints[i];
+      const to = backwardStints[i + 1];
+      backwardTradePromises.push(
+        findTradeBetweenStints(
+          playerName, from.teamId, to.teamId,
+          from.seasons[from.seasons.length - 1].season,
+          to.seasons[0].season
+        ).catch(() => null)
+      );
+    }
+
+    // Await all fetches in parallel
+    const [accoladesData, forwardTradeResults, backwardTradeResults] = await Promise.all([
+      accoladesPromise,
+      Promise.all(forwardTradePromises),
+      Promise.all(backwardTradePromises),
+    ]);
+
+    const accoladesBySeasonMap = new Map<string, string[]>();
+    if (accoladesData) {
+      for (const a of accoladesData) {
+        if (!a.season) continue;
+        if (!accoladesBySeasonMap.has(a.season)) accoladesBySeasonMap.set(a.season, []);
+        accoladesBySeasonMap.get(a.season)!.push(a.accolade);
+      }
+    }
+
+    const currentState = get();
+    const newNodes: Node[] = [];
+    const newEdges: Edge[] = [];
+
+    // Helper: collect accolades for a stint's seasons
+    const getStintAccolades = (stintSeasons: string[]): string[] => {
+      const acc: string[] = [];
+      for (const s of stintSeasons) {
+        const a = accoladesBySeasonMap.get(s);
+        if (a) acc.push(...a);
+      }
+      return [...new Set(acc)];
+    };
+
+    // === BACKWARD STINTS ===
+    if (backwardStints.length > 0) {
+      // Create stint nodes
+      for (let i = 0; i < backwardStints.length; i++) {
+        const stint = backwardStints[i];
+        const sid = stintNodeId(playerName, stint.teamId, i);
+        if (currentState.nodes.find(n => n.id === sid) || newNodes.find(n => n.id === sid)) continue;
+
+        const stintSeasons = stint.seasons.map(s => s.season);
+        newNodes.push(makeStintNode(
+          playerName, stint.teamId, i, stintSeasons,
+          avg(stint.seasons.map(s => s.ppg)),
+          avg(stint.seasons.map(s => s.rpg)),
+          avg(stint.seasons.map(s => s.apg)),
+          sum(stint.seasons.map(s => s.win_shares)),
+          getStintAccolades(stintSeasons),
+        ));
+      }
+
+      // Inter-stint edges for backward
+      for (let i = 0; i < backwardStints.length - 1; i++) {
+        const trade = backwardTradeResults[i] as StaticTrade | null;
+        const sid = stintNodeId(playerName, backwardStints[i].teamId, i);
+        const sidNext = stintNodeId(playerName, backwardStints[i + 1].teamId, i + 1);
+
+        if (trade) {
+          const tradeNId = tradeNodeId(trade.id);
+          if (!currentState.nodes.find(n => n.id === tradeNId) && !newNodes.find(n => n.id === tradeNId)) {
+            newNodes.push(makeTradeNode(staticTradeToTradeWithDetails(trade)));
+          }
+          if (!edgeExists(newEdges, sid, tradeNId) && !edgeExists(currentState.edges, sid, tradeNId))
+            newEdges.push(makeEdge(sid, tradeNId));
+          if (!edgeExists(newEdges, tradeNId, sidNext) && !edgeExists(currentState.edges, tradeNId, sidNext))
+            newEdges.push(makeEdge(tradeNId, sidNext));
+        } else {
+          if (!edgeExists(newEdges, sid, sidNext) && !edgeExists(currentState.edges, sid, sidNext))
+            newEdges.push(makeEdge(sid, sidNext));
+        }
+      }
+
+      // Backward-anchor edge: last backward stint → anchor trade node
+      // Marked excludeFromTopoSort so BFS doesn't push the anchor trade down
+      const lastBackwardSid = stintNodeId(playerName, backwardStints[backwardStints.length - 1].teamId, endIdx);
+      if (!edgeExists(newEdges, lastBackwardSid, tradeNodeId_) && !edgeExists(currentState.edges, lastBackwardSid, tradeNodeId_)) {
+        newEdges.push({
+          id: `e-${lastBackwardSid}-${tradeNodeId_}`,
+          source: lastBackwardSid,
+          target: tradeNodeId_,
+          type: 'straight',
+          animated: false,
+          style: { stroke: '#555', strokeWidth: 1.5 },
+          data: { excludeFromTopoSort: true },
+        });
+      }
+    }
+
+    // === FORWARD STINTS ===
+    // Create stint nodes
+    for (let i = 0; i < forwardStints.length; i++) {
+      const actualIdx = startIdx + i;
+      const stint = forwardStints[i];
+      const sid = stintNodeId(playerName, stint.teamId, actualIdx);
+      if (currentState.nodes.find(n => n.id === sid) || newNodes.find(n => n.id === sid)) continue;
+
+      const stintSeasons = stint.seasons.map(s => s.season);
+      newNodes.push(makeStintNode(
+        playerName, stint.teamId, actualIdx, stintSeasons,
+        avg(stint.seasons.map(s => s.ppg)),
+        avg(stint.seasons.map(s => s.rpg)),
+        avg(stint.seasons.map(s => s.apg)),
+        sum(stint.seasons.map(s => s.win_shares)),
+        getStintAccolades(stintSeasons),
+      ));
+    }
+
+    // Edge: anchor trade → first forward stint
+    const firstForwardSid = stintNodeId(playerName, forwardStints[0].teamId, startIdx);
+    if (!edgeExists(newEdges, tradeNodeId_, firstForwardSid) && !edgeExists(currentState.edges, tradeNodeId_, firstForwardSid)) {
+      newEdges.push(makeEdge(tradeNodeId_, firstForwardSid));
+    }
+
+    // Inter-stint edges for forward
+    for (let i = 0; i < forwardStints.length - 1; i++) {
+      const trade = forwardTradeResults[i] as StaticTrade | null;
+      const sid = stintNodeId(playerName, forwardStints[i].teamId, startIdx + i);
+      const sidNext = stintNodeId(playerName, forwardStints[i + 1].teamId, startIdx + i + 1);
+
+      if (trade) {
+        const tradeNId = tradeNodeId(trade.id);
+        if (!currentState.nodes.find(n => n.id === tradeNId) && !newNodes.find(n => n.id === tradeNId)) {
+          newNodes.push(makeTradeNode(staticTradeToTradeWithDetails(trade)));
+        }
+        if (!edgeExists(newEdges, sid, tradeNId) && !edgeExists(currentState.edges, sid, tradeNId))
+          newEdges.push(makeEdge(sid, tradeNId));
+        if (!edgeExists(newEdges, tradeNId, sidNext) && !edgeExists(currentState.edges, tradeNId, sidNext))
+          newEdges.push(makeEdge(tradeNId, sidNext));
+      } else {
+        if (!edgeExists(newEdges, sid, sidNext) && !edgeExists(currentState.edges, sid, sidNext))
+          newEdges.push(makeEdge(sid, sidNext));
+      }
+    }
+
+    if (newNodes.length === 0 && newEdges.length === 0) return;
+
+    // Assign player to a POSITIVE column (both directions share one column)
+    let playerCols = currentState.playerColumns;
+    let nextColIdx = currentState.nextColumnIndex;
+    if (!playerCols.has(playerName)) {
+      playerCols = new Map(playerCols);
+      playerCols.set(playerName, nextColIdx);
+      nextColIdx++;
+    }
+
+    // Record anchor trade and direction
+    const newAnchorTrades = new Map(currentState.playerAnchorTrades);
+    newAnchorTrades.set(playerName, tradeNodeId_);
+
+    const newAnchorDirections = new Map(currentState.playerAnchorDirections);
+    newAnchorDirections.set(playerName, backwardStints.length > 0 ? 'both' : 'forward');
+
+    const allNodes = [...currentState.nodes, ...newNodes];
+    const allEdges = [...currentState.edges, ...newEdges];
+    const laid = layoutPlayerTimeline(allNodes, allEdges, playerCols, currentState.expandedNodes, currentState.expandedGapIds, newAnchorTrades, newAnchorDirections);
+
+    set({
+      nodes: laid,
+      edges: allEdges,
+      playerColumns: playerCols,
+      playerAnchorTrades: newAnchorTrades,
+      playerAnchorDirections: newAnchorDirections,
+      nextColumnIndex: nextColIdx,
+      layoutMode: 'timeline',
+      pendingFitTarget: tradeNodeId_,
+    });
   },
 
   // ── Expand player node ───────────────────────────────────────────
