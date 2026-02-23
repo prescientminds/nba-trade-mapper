@@ -66,7 +66,7 @@ export default function SearchOverlay() {
     seedFromPlayer(name);
   };
 
-  const selectChain = (tradeId: string, chainScores: Record<string, unknown>) => {
+  const selectChain = (tradeId: string, chainScores?: Record<string, unknown>) => {
     setOpen(false);
     setQuery('');
     seedFromChain(tradeId, chainScores as Parameters<typeof seedFromChain>[1]);

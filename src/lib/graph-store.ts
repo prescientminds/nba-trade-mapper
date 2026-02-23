@@ -147,7 +147,7 @@ interface GraphState {
   onEdgesChange: OnEdgesChange;
 
   seedFromTrade: (trade: TradeWithDetails) => void;
-  seedFromChain: (tradeId: string, chainScores: Record<string, ChainTeamData>) => Promise<void>;
+  seedFromChain: (tradeId: string, chainScores?: Record<string, ChainTeamData>) => Promise<void>;
   seedFromPlayer: (playerName: string) => Promise<void>;
   expandTradeNode: (nodeId: string) => void;
   expandPlayerNode: (nodeId: string) => Promise<void>;
@@ -553,7 +553,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   playerColumns: new Map(),
   playerAnchorTrades: new Map(),
   playerAnchorDirections: new Map(),
-  nextColumnIndex: 0,
+  nextColumnIndex: 1,
   prevColumnIndex: -1,
   pendingFitTarget: null,
   expandedGapIds: new Set(),
@@ -590,7 +590,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       playerColumns: new Map(),
       playerAnchorTrades: new Map(),
       playerAnchorDirections: new Map(),
-      nextColumnIndex: 0,
+      nextColumnIndex: 1,
       prevColumnIndex: -1,
       pendingFitTarget: null,
       expandedGapIds: new Set(),
@@ -743,14 +743,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   },
 
   // ── Seed from chain ───────────────────────────────────────────────
-  seedFromChain: async (tradeId: string, chainScores: Record<string, ChainTeamData>) => {
-    // 1. Find the winning team (highest chain score)
-    const sorted = Object.entries(chainScores).sort(
-      (a, b) => b[1].chain - a[1].chain
-    );
-    if (sorted.length === 0) return;
-    const [, winnerData] = sorted[0];
-
+  seedFromChain: async (tradeId: string, chainScores?: Record<string, ChainTeamData>) => {
     // 2. Collect valuable players from the FULL recursive asset tree
     interface ValuablePlayer {
       name: string;
@@ -759,41 +752,79 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       exitTradeId: string | null;  // trade where this player was sent away (null = career end)
     }
 
-    function collectValuablePlayers(assets: ChainAsset[], parentEntryTradeId: string): ValuablePlayer[] {
-      const results: ValuablePlayer[] = [];
-      for (const asset of assets) {
-        if (asset.type === 'player' && asset.chain >= 5) {
-          results.push({
-            name: asset.name,
-            chainScore: asset.chain,
-            entryTradeId: parentEntryTradeId,
-            exitTradeId: asset.exit_trade_id ?? null,
-          });
+    let valuablePlayers: ValuablePlayer[] = [];
+    let winnerData: ChainTeamData | null = null;
+
+    // If we have chain scores, use the recursive asset tree
+    if (chainScores && Object.keys(chainScores).length > 0) {
+      // 1. Find the winning team (highest chain score)
+      const sorted = Object.entries(chainScores).sort(
+        (a, b) => b[1].chain - a[1].chain
+      );
+      if (sorted.length > 0) {
+        winnerData = sorted[0][1];
+
+        function collectValuablePlayers(assets: ChainAsset[], parentEntryTradeId: string): ValuablePlayer[] {
+          const results: ValuablePlayer[] = [];
+          for (const asset of assets) {
+            if (asset.type === 'player' && asset.chain >= 5) {
+              results.push({
+                name: asset.name,
+                chainScore: asset.chain,
+                entryTradeId: parentEntryTradeId,
+                exitTradeId: asset.exit_trade_id ?? null,
+              });
+            }
+            // Children's entryTradeId = parent's exitTradeId (they were received in the exit trade)
+            if (asset.children && asset.children.length > 0 && asset.exit_trade_id) {
+              results.push(...collectValuablePlayers(asset.children, asset.exit_trade_id));
+            }
+          }
+          return results;
         }
-        // Children's entryTradeId = parent's exitTradeId (they were received in the exit trade)
-        if (asset.children && asset.children.length > 0 && asset.exit_trade_id) {
-          results.push(...collectValuablePlayers(asset.children, asset.exit_trade_id));
+
+        const allValuable = collectValuablePlayers(winnerData.assets, tradeId);
+
+        // Deduplicate by player name (keep highest chain score entry)
+        const bestByName = new Map<string, ValuablePlayer>();
+        for (const vp of allValuable) {
+          const existing = bestByName.get(vp.name);
+          if (!existing || vp.chainScore > existing.chainScore) {
+            bestByName.set(vp.name, vp);
+          }
         }
+        valuablePlayers = [...bestByName.values()]
+          .sort((a, b) => b.chainScore - a.chainScore)
+          .slice(0, 5);
       }
-      return results;
     }
 
-    const allValuable = collectValuablePlayers(winnerData.assets, tradeId);
-
-    // Deduplicate by player name (keep highest chain score entry)
-    const bestByName = new Map<string, ValuablePlayer>();
-    for (const vp of allValuable) {
-      const existing = bestByName.get(vp.name);
-      if (!existing || vp.chainScore > existing.chainScore) {
-        bestByName.set(vp.name, vp);
-      }
-    }
-    const valuablePlayers = [...bestByName.values()]
-      .sort((a, b) => b.chainScore - a.chainScore)
-      .slice(0, 5);
-
-    // 3. If no qualifying players, fall back to trade-only chain (flat line of trades)
+    // Fallback: no chain data or no qualifying players — extract players from trade assets
     if (valuablePlayers.length === 0) {
+      const rootTrade = await loadTrade(tradeId);
+      if (!rootTrade) return;
+      const playerAssets = rootTrade.assets
+        .filter(a => a.type === 'player' && a.player_name);
+      // Deduplicate by player name (keep first occurrence)
+      const seen = new Set<string>();
+      const uniquePlayers: typeof playerAssets = [];
+      for (const a of playerAssets) {
+        const name = a.player_name!;
+        if (!seen.has(name.toLowerCase())) {
+          seen.add(name.toLowerCase());
+          uniquePlayers.push(a);
+        }
+      }
+      valuablePlayers = uniquePlayers.slice(0, 5).map(a => ({
+        name: a.player_name!,
+        chainScore: 0,
+        entryTradeId: tradeId,
+        exitTradeId: null,
+      }));
+    }
+
+    // 3. If no qualifying players and we have chain data, fall back to trade-only chain (flat line of trades)
+    if (valuablePlayers.length === 0 && winnerData) {
       // Fall back: walk core thread to get trade IDs
       const coreTradeIds: string[] = [tradeId];
       function walkFallback(assets: ChainAsset[]) {
@@ -830,10 +861,19 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         layoutMode: 'elk',
         playerColumns: new Map(), playerAnchorTrades: new Map(),
         playerAnchorDirections: new Map(),
-        nextColumnIndex: 0, prevColumnIndex: -1,
+        nextColumnIndex: 1, prevColumnIndex: -1,
         pendingFitTarget: fallbackNodes[0].id, expandedGapIds: new Set(),
       });
       setTimeout(() => get().expandTradeNode(fallbackNodes[0].id), 50);
+      return;
+    }
+
+    // 3b. If still no players (e.g. picks-only trade with no chain data), show single trade
+    if (valuablePlayers.length === 0) {
+      const st = await loadTrade(tradeId);
+      if (!st) return;
+      const trade = staticTradeToTradeWithDetails(st);
+      get().seedFromTrade(trade);
       return;
     }
 
@@ -1075,8 +1115,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         }
       }
 
-      // Assign column (sorted by chain score → column 0, 1, 2...)
-      playerCols.set(result.playerName, pIdx);
+      // Assign column (sorted by chain score → column 1, 2, 3... leaving 0 for anchor trade)
+      playerCols.set(result.playerName, pIdx + 1);
 
       // Set anchor trade (the entry trade) and direction
       const vp = valuablePlayers.find(v => v.name === result.playerName)!;
@@ -1099,7 +1139,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       playerColumns: playerCols,
       playerAnchorTrades: anchorTrades,
       playerAnchorDirections: anchorDirs,
-      nextColumnIndex: valuablePlayers.length,
+      nextColumnIndex: valuablePlayers.length + 1,
       prevColumnIndex: -1,
       pendingFitTarget: rootNodeId,
       expandedGapIds: new Set(),

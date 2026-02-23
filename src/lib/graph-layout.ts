@@ -87,6 +87,11 @@ export function layoutPlayerTimeline(
 
   const nodeMap = new Map<string, Node>(nodes.map(n => [n.id, n]));
 
+  // Build set of anchor trade node IDs (trades that serve as entry points for player columns)
+  const anchorTradeNodeIds = new Set(
+    playerAnchorTrades ? [...playerAnchorTrades.values()] : []
+  );
+
   // Build adjacency list for trade node centering
   const adjacency = new Map<string, string[]>();
   for (const edge of edges) {
@@ -156,7 +161,12 @@ export function layoutPlayerTimeline(
         // Exclude negative (history) columns so a history player doesn't pull
         // the trade node leftward away from the primary player's column.
         const posCols = cols.filter(c => c >= 0);
-        return posCols.length > 0 ? Math.min(...posCols) : Math.min(...cols);
+        const baseCol = posCols.length > 0 ? Math.min(...posCols) : Math.min(...cols);
+        // Offset anchor trades one column left so players branch to the right
+        if (anchorTradeNodeIds.has(node.id)) {
+          return baseCol - 1;
+        }
+        return baseCol;
       }
     }
     return 0;
@@ -446,6 +456,28 @@ export function layoutPlayerTimeline(
     const y = (spaceTop + spaceBottom) / 2 - 12; // 12 = half of gap node height
 
     gapPositions.set(gn.id, { x, y });
+  }
+
+  // ── Pass 5.5: enforce chronological Y order per column ──
+  // After anchor alignment (Pass 4), some nodes may violate chronological order
+  // across columns (e.g., a 2010 node above a 2005 node). Fix per-column.
+  for (const [, items] of byIntCol.entries()) {
+    // Re-collect with final Y positions
+    const colNodes = items.map(item => ({
+      id: item.id,
+      year: getNodeYear(nodeMap.get(item.id)!),
+      y: compressedY.get(item.id) ?? 0,
+      height: item.height,
+    }));
+    colNodes.sort((a, b) => a.year - b.year || a.y - b.y);
+    let cursor = -Infinity;
+    for (const cn of colNodes) {
+      if (cn.y < cursor) {
+        compressedY.set(cn.id, cursor);
+        cn.y = cursor;
+      }
+      cursor = cn.y + cn.height + MIN_GAP;
+    }
   }
 
   // ── Return all nodes with final positions ──

@@ -58,7 +58,7 @@ interface Category {
 interface Props {
   onSelectTrade: (trade: TradeWithDetails) => void;
   onSelectPlayer: (name: string) => void;
-  onSelectChain?: (tradeId: string, chainScores: Record<string, ChainTeamData>) => void;
+  onSelectChain?: (tradeId: string, chainScores?: Record<string, ChainTeamData>) => void;
 }
 
 type ScoreRow = {
@@ -932,7 +932,7 @@ function CategoryRow({
   category: Category;
   onSelectTrade: (trade: TradeWithDetails) => void;
   onSelectPlayer: (name: string) => void;
-  onSelectChain?: (tradeId: string, chainScores: Record<string, ChainTeamData>) => void;
+  onSelectChain?: (tradeId: string, chainScores?: Record<string, ChainTeamData>) => void;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [viewMode, setViewMode] = useState<'cards' | 'list'>('cards');
@@ -943,10 +943,11 @@ function CategoryRow({
   };
 
   const handleTradeClick = async (card: TradeCard) => {
-    if (card.chainScores && onSelectChain) {
+    if (onSelectChain) {
       onSelectChain(card.tradeId, card.chainScores);
       return;
     }
+    // Fallback if onSelectChain not provided
     const trade = await loadTrade(card.tradeId);
     if (trade) onSelectTrade(staticTradeToTradeWithDetails(trade));
   };
