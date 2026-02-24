@@ -58,17 +58,17 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
   return (
     <div
       style={{
-        width: isExpanded ? 260 : 200,
+        width: isExpanded ? 230 : 180,
         overflow: 'hidden',
         background: 'var(--bg-card)',
         borderRadius: 'var(--radius-md)',
         border: `1px solid ${isExpanded ? color + '66' : 'var(--border-medium)'}`,
-        borderLeft: `3px solid ${color}`,
+        borderLeft: `2px solid ${color}`,
         transition: 'width 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease',
         boxShadow: isExpanded
-          ? `0 0 20px ${color}22`
-          : '0 2px 12px rgba(0,0,0,0.3)',
-        padding: isExpanded ? '6px 10px' : '4px 8px',
+          ? `0 0 16px ${color}22`
+          : '0 2px 8px rgba(0,0,0,0.3)',
+        padding: isExpanded ? '4px 8px' : '3px 6px',
         fontFamily: 'var(--font-body)',
         position: 'relative',
       }}
@@ -120,10 +120,10 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
       {playerName && (
         <div
           style={{
-            fontSize: 11,
+            fontSize: 10,
             fontWeight: 700,
             color: 'var(--text-primary)',
-            marginBottom: 3,
+            marginBottom: 2,
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             whiteSpace: 'nowrap',
@@ -137,11 +137,11 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
       {draftLabel && (
         <div
           style={{
-            fontSize: 9,
+            fontSize: 8,
             fontWeight: 600,
             color: 'var(--text-muted)',
             letterSpacing: '0.03em',
-            marginBottom: 3,
+            marginBottom: 2,
             whiteSpace: 'nowrap',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
@@ -152,12 +152,12 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
       )}
 
       {/* Main line: team badge + year range */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
         <span
           style={{
-            fontSize: 9,
+            fontSize: 8,
             fontWeight: 700,
-            padding: '1px 5px',
+            padding: '1px 4px',
             borderRadius: 999,
             background: color + '22',
             color: color,
@@ -170,7 +170,7 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
         <span
           style={{
             fontFamily: 'var(--font-mono)',
-            fontSize: 10,
+            fontSize: 9,
             color: 'var(--text-secondary)',
             flex: 1,
             overflow: 'hidden',
@@ -183,10 +183,10 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
         {/* Accolade dots (collapsed only) */}
         {!isExpanded && hasAnyAccolade && (
           <span style={{ display: 'inline-flex', gap: 1, flexShrink: 0 }}>
-            {hasMVP && <span title="MVP" style={{ fontSize: 8 }}>{'\uD83D\uDC51'}</span>}
-            {hasChampion && <span title="Champion" style={{ fontSize: 8 }}>{'\uD83C\uDFC6'}</span>}
-            {hasAllStar && <span title="All-Star" style={{ fontSize: 8 }}>{'\u2B50'}</span>}
-            {hasAllNBA && <span title="All-NBA" style={{ fontSize: 8 }}>{'\uD83C\uDFC5'}</span>}
+            {hasMVP && <span title="MVP" style={{ fontSize: 7 }}>{'\uD83D\uDC51'}</span>}
+            {hasChampion && <span title="Champion" style={{ fontSize: 7 }}>{'\uD83C\uDFC6'}</span>}
+            {hasAllStar && <span title="All-Star" style={{ fontSize: 7 }}>{'\u2B50'}</span>}
+            {hasAllNBA && <span title="All-NBA" style={{ fontSize: 7 }}>{'\uD83C\uDFC5'}</span>}
           </span>
         )}
       </div>
@@ -194,15 +194,15 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
       {/* Stats summary — always visible below the heading */}
       {avgPpg !== null && (
         <div style={{
-          fontSize: 10,
+          fontSize: 9,
           fontFamily: 'var(--font-mono)',
           color: 'var(--text-secondary)',
-          marginTop: 2,
+          marginTop: 1,
         }}>
           {avgPpg.toFixed(1)}/{avgRpg?.toFixed(1) ?? '--'}/{avgApg?.toFixed(1) ?? '--'}
-          <span style={{ fontSize: 8, color: 'var(--text-muted)', marginLeft: 4 }}>PPG/RPG/APG</span>
+          <span style={{ fontSize: 7, color: 'var(--text-muted)', marginLeft: 3 }}>PPG/RPG/APG</span>
           {totalWinShares !== null && (
-            <span style={{ fontSize: 9, color: 'var(--text-muted)', marginLeft: 8 }}>
+            <span style={{ fontSize: 8, color: 'var(--text-muted)', marginLeft: 6 }}>
               WS: {totalWinShares.toFixed(1)}
             </span>
           )}
@@ -217,12 +217,12 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
           if (!isLoading) expandStintDetails(id);
         }}
         style={{
-          marginTop: 4,
-          padding: '2px 0',
+          marginTop: 2,
+          padding: '1px 0',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: 4,
+          gap: 3,
           cursor: 'pointer',
           borderTop: '1px solid var(--border-subtle, rgba(255,255,255,0.08))',
           transition: 'background 0.15s',
@@ -236,12 +236,12 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
         }}
         title={isExpanded ? 'Collapse season details' : 'Expand season details'}
       >
-        <span style={{ fontSize: 8, color: 'var(--text-muted)', fontWeight: 500, letterSpacing: '0.05em' }}>
-          {isExpanded ? 'Hide Seasons' : 'Show Seasons'}
+        <span style={{ fontSize: 7, color: 'var(--text-muted)', fontWeight: 500, letterSpacing: '0.05em' }}>
+          {isExpanded ? 'Hide' : 'Seasons'}
         </span>
         <span
           style={{
-            fontSize: 9,
+            fontSize: 8,
             color: 'var(--text-muted)',
             transition: 'transform 0.2s',
             transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',

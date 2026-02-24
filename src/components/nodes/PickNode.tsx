@@ -16,15 +16,15 @@ function PickNodeComponent({ id, data }: NodeProps) {
     <div
       onClick={() => hasAction && expandPickNode(id)}
       style={{
-        width: 120,
-        minHeight: 32,
+        width: 100,
+        minHeight: 26,
         background: 'var(--bg-card)',
         borderRadius: 'var(--radius-sm)',
         border: '1px solid var(--border-medium)',
-        borderLeft: '3px solid var(--accent-gold)',
+        borderLeft: '2px solid var(--accent-gold)',
         cursor: hasAction ? 'pointer' : 'default',
         transition: 'var(--transition-base)',
-        padding: '4px 7px',
+        padding: '3px 5px',
         fontFamily: 'var(--font-body)',
       }}
       onMouseEnter={(e) => {
@@ -44,7 +44,7 @@ function PickNodeComponent({ id, data }: NodeProps) {
 
       <div
         style={{
-          fontSize: 9,
+          fontSize: 8,
           fontWeight: 600,
           color: 'var(--accent-gold)',
           fontFamily: 'var(--font-mono)',
@@ -56,12 +56,12 @@ function PickNodeComponent({ id, data }: NodeProps) {
       {becamePlayer && (
         <div
           style={{
-            fontSize: 9,
+            fontSize: 8,
             color: 'var(--text-secondary)',
-            marginTop: 2,
+            marginTop: 1,
           }}
         >
-          Became: <span style={{ color: 'var(--accent-blue)', fontWeight: 500 }}>{becamePlayer}</span>
+          {'\u2192'} <span style={{ color: 'var(--accent-blue)', fontWeight: 500 }}>{becamePlayer}</span>
         </div>
       )}
 

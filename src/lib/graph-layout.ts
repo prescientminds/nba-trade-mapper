@@ -5,12 +5,12 @@ import type { PlayerStintNodeData, TradeNodeData, PlayerNodeData, GapNodeData } 
 const elk = new ELK();
 
 const NODE_DIMENSIONS: Record<string, { width: number; height: number }> = {
-  trade: { width: 200, height: 56 },
-  player: { width: 130, height: 38 },
-  pick: { width: 200, height: 30 },
-  playerStint: { width: 200, height: 36 },
+  trade: { width: 180, height: 44 },
+  player: { width: 110, height: 30 },
+  pick: { width: 100, height: 26 },
+  playerStint: { width: 180, height: 36 },
   transition: { width: 100, height: 36 },
-  gap: { width: 200, height: 24 },
+  gap: { width: 180, height: 20 },
 };
 
 /** Dynamic expanded trade height based on number of assets, teams, and inline player data */
@@ -28,25 +28,25 @@ function expandedTradeDimensions(node: Node): { width: number; height: number } 
     }
   }
   const teamCount = new Set(assets.map(a => a.to_team_id).filter(Boolean)).size;
-  // Header (~56) + separator (1) + team headers (22 each) + assets (24 each) + padding
-  let height = 56 + 1 + teamCount * 22 + assetCount * 24 + 8;
+  // Header (~44) + separator (1) + team headers (18 each) + assets (20 each) + padding
+  let height = 44 + 1 + teamCount * 18 + assetCount * 20 + 6;
 
   // Add height for each inline player panel
   if (data.inlinePlayers) {
     for (const ip of Object.values(data.inlinePlayers)) {
       if (ip.isLoading) {
-        height += 30;
+        height += 24;
       } else {
         const seasonCount = ip.seasonDetails?.length ?? ip.seasons.length;
-        // summary stats (18) + table header (18) + rows + padding (8)
-        height += 18 + 18 + seasonCount * 18 + 8;
+        // summary stats (16) + table header (16) + rows + padding (6)
+        height += 16 + 16 + seasonCount * 16 + 6;
       }
     }
   }
 
   const hasInlinePlayers = data.inlinePlayers && Object.keys(data.inlinePlayers).length > 0;
-  const width = hasInlinePlayers ? 260 : 200;
-  return { width, height: Math.max(height, 80) };
+  const width = hasInlinePlayers ? 230 : 180;
+  return { width, height: Math.max(height, 60) };
 }
 
 // Transition nodes have type-specific sizes based on their transitionType
@@ -60,9 +60,9 @@ const TRANSITION_DIMENSIONS: Record<string, { width: number; height: number }> =
 function expandedStintDimensions(node: Node): { width: number; height: number } {
   const data = node.data as PlayerStintNodeData;
   const seasonCount = data.seasonDetails?.length ?? data.seasons?.length ?? 3;
-  // Header (~36) + stats line (~16) + table header (~18) + rows + footer (~24)
-  const height = 36 + 16 + 18 + seasonCount * 18 + 24;
-  return { width: 260, height: Math.max(height, 100) };
+  // Header (~30) + stats line (~14) + table header (~16) + rows + footer (~20)
+  const height = 30 + 14 + 16 + seasonCount * 16 + 20;
+  return { width: 230, height: Math.max(height, 80) };
 }
 
 export function layoutPlayerTimeline(
@@ -76,9 +76,9 @@ export function layoutPlayerTimeline(
 ): Node[] {
   const BASE_YEAR = 1976;
   const PIXELS_PER_YEAR = 10; // compact: topo BFS dominates year-based spacing
-  const COLUMN_WIDTH = 240;
+  const COLUMN_WIDTH = 210;
   const LEFT_MARGIN = 40;
-  const MIN_GAP = 32;
+  const MIN_GAP = 24;
   const GAP_THRESHOLD = 100; // effectively disable gap compression (conflicts with compact layout)
 
   // Separate gap nodes from regular nodes
@@ -173,31 +173,31 @@ export function layoutPlayerTimeline(
   }
 
   function getNodeHeight(node: Node): number {
-    if (node.type === 'gap') return 24;
+    if (node.type === 'gap') return 20;
     if (expandedNodeIds?.has(node.id)) {
       if (node.type === 'trade') return expandedTradeDimensions(node).height;
       if (node.type === 'playerStint') return expandedStintDimensions(node).height;
     }
     if (node.type === 'playerStint') {
       const data = node.data as PlayerStintNodeData;
-      let h = 35;
-      if (data.draftYear) h += 14;
-      if (data.avgPpg !== null) h += 16;
-      h += 18; // expand bar
+      let h = 28;
+      if (data.draftYear) h += 12;
+      if (data.avgPpg !== null) h += 14;
+      h += 14; // expand bar
       return h;
     }
-    if (node.type === 'trade') return 56;
+    if (node.type === 'trade') return 44;
     if (node.type === 'player') {
       const data = node.data as PlayerNodeData;
-      return data.draftYear ? 52 : 38;
+      return data.draftYear ? 42 : 30;
     }
-    if (node.type === 'pick') return 30;
+    if (node.type === 'pick') return 26;
     return 36;
   }
 
   // ── Pass 1: compute initial year-based positions for regular nodes ──
-  const COLUMN_NODE_WIDTH = 200; // width of trade/stint nodes
-  const PLAYER_NODE_WIDTH = 130; // width of player pill nodes
+  const COLUMN_NODE_WIDTH = 180; // width of trade/stint nodes
+  const PLAYER_NODE_WIDTH = 110; // width of player pill nodes
   const initPos = new Map<string, { x: number; y: number; col: number }>();
   for (const node of regularNodes) {
     const year = getNodeYear(node);
@@ -628,17 +628,16 @@ export async function layoutGraph(
       const data = node.data as PlayerStintNodeData;
       const hasArrival = data.draftYear;
       const hasStats = data.avgPpg !== null;
-      // name(~13) + base(team+years ~22) + arrival(~14) + stats(~16) + expand bar(~18)
-      let height = 35;
-      if (hasArrival) height += 14;
-      if (hasStats) height += 16;
-      height += 18; // expand bar
-      return { id: node.id, width: 240, height };
+      let height = 28;
+      if (hasArrival) height += 12;
+      if (hasStats) height += 14;
+      height += 14; // expand bar
+      return { id: node.id, width: 210, height };
     }
 
     if (node.type === 'player') {
       const data = node.data as PlayerNodeData;
-      return { id: node.id, width: 140, height: data.draftYear ? 52 : 38 };
+      return { id: node.id, width: 120, height: data.draftYear ? 42 : 30 };
     }
 
     const dims = NODE_DIMENSIONS[node.type || 'trade'] || NODE_DIMENSIONS.trade;

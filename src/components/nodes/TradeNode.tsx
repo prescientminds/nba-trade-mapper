@@ -52,7 +52,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
       .then(({ data }) => { if (data) setTradeScore(data as TradeScoreRow); setScoreLoading(false); });
   }, [isExpanded, scoreFetched, trade.id]);
   const hasInlineData = inlinePlayers && Object.keys(inlinePlayers).length > 0;
-  const cardWidth = hasInlineData ? 260 : 200;
+  const cardWidth = hasInlineData ? 230 : 180;
 
   const dateStr = trade.date
     ? new Date(trade.date).toLocaleDateString('en-US', {
@@ -180,17 +180,17 @@ function TradeNodeComponent({ id, data }: NodeProps) {
       onClick={() => expandTradeNode(id)}
       style={{
         width: cardWidth,
-        minHeight: isExpanded ? 80 : 56,
+        minHeight: isExpanded ? 60 : 44,
         background: 'var(--bg-card)',
         borderRadius: 'var(--radius-md)',
         border: `1px solid ${isExpanded ? primaryColor + '66' : 'var(--border-medium)'}`,
-        borderTop: `3px solid ${primaryColor}`,
+        borderTop: `2px solid ${primaryColor}`,
         cursor: 'pointer',
         transition: 'var(--transition-base)',
         boxShadow: isExpanded
-          ? `0 0 20px ${primaryColor}22`
-          : '0 4px 20px rgba(0,0,0,0.3)',
-        padding: '6px 8px',
+          ? `0 0 16px ${primaryColor}22`
+          : '0 2px 12px rgba(0,0,0,0.3)',
+        padding: '4px 6px',
         fontFamily: 'var(--font-body)',
       }}
       onMouseEnter={(e) => {
@@ -300,10 +300,10 @@ function TradeNodeComponent({ id, data }: NodeProps) {
       <div
         style={{
           fontFamily: 'var(--font-mono)',
-          fontSize: 9,
+          fontSize: 8,
           color: 'var(--accent-orange)',
-          marginBottom: 3,
-          letterSpacing: '0.5px',
+          marginBottom: 2,
+          letterSpacing: '0.4px',
         }}
       >
         {dateStr}
@@ -313,11 +313,11 @@ function TradeNodeComponent({ id, data }: NodeProps) {
       <div
         style={{
           fontFamily: 'var(--font-display)',
-          fontSize: 13,
+          fontSize: 11,
           lineHeight: 1.15,
           color: 'var(--text-primary)',
-          letterSpacing: '0.5px',
-          marginBottom: playerSubtitle ? 2 : 4,
+          letterSpacing: '0.4px',
+          marginBottom: playerSubtitle ? 1 : 2,
         }}
       >
         {tradeHeading}
@@ -327,11 +327,11 @@ function TradeNodeComponent({ id, data }: NodeProps) {
       {playerSubtitle && (
         <div
           style={{
-            fontSize: 9,
+            fontSize: 8,
             color: 'var(--text-tertiary)',
             fontFamily: 'var(--font-body)',
             lineHeight: 1.3,
-            marginBottom: 4,
+            marginBottom: 2,
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             whiteSpace: 'nowrap',
@@ -342,25 +342,23 @@ function TradeNodeComponent({ id, data }: NodeProps) {
       )}
 
       {/* Team badges — solid filled pills */}
-      <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', alignItems: 'center' }}>
+      <div style={{ display: 'flex', gap: 3, flexWrap: 'wrap', alignItems: 'center' }}>
         {teamIds.map((tid) => {
           const displayInfo = getTeamDisplayInfo(tid, trade.date);
           const bg = displayInfo.color;
           const textColor = contrastText(bg);
-          // Very dark colors (e.g. BKN black) get a subtle white outline so they're
-          // visible against the card's dark background
           const needsOutline = 0.299 * parseInt(bg.slice(1,3),16) + 0.587 * parseInt(bg.slice(3,5),16) + 0.114 * parseInt(bg.slice(5,7),16) < 30;
           return (
             <span
               key={tid}
               style={{
-                fontSize: 9,
+                fontSize: 8,
                 fontWeight: 700,
-                padding: '2px 7px',
+                padding: '1px 5px',
                 borderRadius: 999,
                 background: bg,
                 color: textColor,
-                letterSpacing: 0.4,
+                letterSpacing: 0.3,
                 border: needsOutline ? '1px solid rgba(255,255,255,0.25)' : 'none',
               }}
             >
@@ -371,9 +369,9 @@ function TradeNodeComponent({ id, data }: NodeProps) {
         {!isExpanded && collapsedSummary && (
           <span
             style={{
-              fontSize: 9,
+              fontSize: 8,
               fontWeight: 500,
-              padding: '1px 5px',
+              padding: '1px 4px',
               borderRadius: 999,
               background: 'var(--bg-tertiary)',
               color: 'var(--text-muted)',
@@ -387,7 +385,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
 
       {/* Expanded: score key + asset list */}
       {isExpanded && (
-        <div style={{ marginTop: 6 }}>
+        <div style={{ marginTop: 4 }}>
           {/* Score loading */}
           {scoreLoading && (
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 5 }}>
@@ -404,11 +402,11 @@ function TradeNodeComponent({ id, data }: NodeProps) {
 
           {/* Trade value — compact key at top */}
           {scoreEntries && (
-            <div style={{ marginBottom: 5 }}>
+            <div style={{ marginBottom: 4 }}>
               {/* Section label + info icon */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginBottom: 4 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 3, marginBottom: 3 }}>
                 <span style={{
-                  fontSize: 8, fontWeight: 600, letterSpacing: 0.8,
+                  fontSize: 7, fontWeight: 600, letterSpacing: 0.7,
                   textTransform: 'uppercase', color: 'var(--text-muted)',
                   fontFamily: 'var(--font-body)',
                 }}>
@@ -476,18 +474,18 @@ function TradeNodeComponent({ id, data }: NodeProps) {
               )}
 
               {/* Bars */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                 {scoreEntries.map(([teamId, ts]) => {
                   const scoreDisplayInfo = getTeamDisplayInfo(teamId, trade.date);
                   const color = ensureReadable(scoreDisplayInfo.color);
                   const pct = (ts.score / maxScore) * 100;
                   const isWinner = teamId === tradeScore!.winner;
                   return (
-                    <div key={teamId} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                    <div key={teamId} style={{ display: 'flex', alignItems: 'center', gap: 3 }}>
                       <span style={{
-                        fontSize: 8, fontWeight: 700,
+                        fontSize: 7, fontWeight: 700,
                         color: isWinner ? color : 'var(--text-muted)',
-                        width: 22, flexShrink: 0,
+                        width: 20, flexShrink: 0,
                       }}>
                         {scoreDisplayInfo.abbreviation}
                       </span>
@@ -504,15 +502,15 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                         }} />
                       </div>
                       <span style={{
-                        fontSize: 8, fontFamily: 'var(--font-mono)',
+                        fontSize: 7, fontFamily: 'var(--font-mono)',
                         color: isWinner ? color : 'var(--text-muted)',
-                        width: 24, textAlign: 'right', flexShrink: 0,
+                        width: 22, textAlign: 'right', flexShrink: 0,
                       }}>
                         {ts.score.toFixed(1)}
                       </span>
-                      <span style={{ width: 8, flexShrink: 0 }}>
+                      <span style={{ width: 7, flexShrink: 0 }}>
                         {isWinner && tradeScore!.lopsidedness >= 1.5 && (
-                          <span style={{ fontSize: 8, color }}>↑</span>
+                          <span style={{ fontSize: 7, color }}>↑</span>
                         )}
                       </span>
                     </div>
@@ -528,7 +526,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
             style={{
               height: 1,
               background: 'var(--border-subtle)',
-              margin: '0 -4px 6px',
+              margin: '0 -4px 4px',
             }}
           />
 
@@ -545,16 +543,16 @@ function TradeNodeComponent({ id, data }: NodeProps) {
             });
 
             return (
-              <div key={teamId} style={{ marginBottom: 6 }}>
+              <div key={teamId} style={{ marginBottom: 4 }}>
                 {/* Team header */}
                 <div
                   style={{
-                    fontSize: 9,
+                    fontSize: 8,
                     fontWeight: 600,
                     textTransform: 'uppercase',
-                    letterSpacing: 0.8,
+                    letterSpacing: 0.6,
                     color: teamColor,
-                    marginBottom: 3,
+                    marginBottom: 2,
                   }}
                 >
                   {teamName} receives
@@ -564,10 +562,10 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                 {!hasRenderableAssets && (
                   <div
                     style={{
-                      fontSize: 9,
+                      fontSize: 8,
                       color: 'var(--text-muted)',
                       fontStyle: 'italic',
-                      padding: '2px 4px',
+                      padding: '1px 3px',
                       opacity: 0.7,
                     }}
                   >
@@ -589,9 +587,9 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                       <div
                         key={asset.id}
                         style={{
-                          fontSize: 10,
+                          fontSize: 9,
                           color: 'var(--text-muted)',
-                          padding: '2px 4px',
+                          padding: '1px 3px',
                           opacity: 0.6,
                         }}
                       >
@@ -615,8 +613,8 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'space-between',
-                            gap: 4,
-                            padding: '2px 4px',
+                            gap: 3,
+                            padding: '1px 3px',
                             borderRadius: 3,
                           }}
                         >
@@ -625,7 +623,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             className="nopan nodrag"
                             onClick={(e) => handleInlineClick(e, asset)}
                             style={{
-                              fontSize: 11,
+                              fontSize: 10,
                               fontWeight: 500,
                               color: isInlineExpanded ? 'var(--accent-orange)' : 'var(--text-primary)',
                               cursor: 'pointer',
@@ -650,7 +648,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                           {/* Per-asset score */}
                           {playerScore !== null && (
                             <span style={{
-                              fontSize: 8,
+                              fontSize: 7,
                               fontFamily: 'var(--font-mono)',
                               color: 'var(--text-muted)',
                               flexShrink: 0,
@@ -663,8 +661,8 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                           {isInlineLoading && (
                             <div
                               style={{
-                                width: 10,
-                                height: 10,
+                                width: 8,
+                                height: 8,
                                 border: '1.5px solid var(--text-muted)',
                                 borderTopColor: 'var(--accent-orange)',
                                 borderRadius: '50%',
@@ -680,9 +678,9 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                               className="nopan nodrag"
                               onClick={(e) => handlePathClick(e, asset)}
                               style={{
-                                fontSize: 9,
+                                fontSize: 8,
                                 color: 'var(--text-muted)',
-                                padding: '1px 5px',
+                                padding: '1px 4px',
                                 borderRadius: 3,
                                 background: 'var(--bg-tertiary)',
                                 cursor: 'pointer',
@@ -702,7 +700,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                               Path
                             </div>
                           ) : (
-                            <span style={{ fontSize: 8, color: 'var(--text-muted)', flexShrink: 0 }}>
+                            <span style={{ fontSize: 7, color: 'var(--text-muted)', flexShrink: 0 }}>
                               on graph
                             </span>
                           )}
@@ -712,17 +710,17 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                         {isInlineExpanded && inlineData.seasonDetails && (
                           <div
                             style={{
-                              marginTop: 4,
-                              marginBottom: 4,
-                              padding: '4px 6px',
+                              marginTop: 3,
+                              marginBottom: 3,
+                              padding: '3px 5px',
                               background: 'var(--bg-tertiary)',
-                              borderRadius: 4,
+                              borderRadius: 3,
                               borderLeft: '2px solid var(--accent-orange)',
                             }}
                           >
                             {/* Stint summary */}
                             <div style={{
-                              fontSize: 9,
+                              fontSize: 8,
                               color: 'var(--text-muted)',
                               marginBottom: 2,
                               fontFamily: 'var(--font-mono)',
@@ -774,10 +772,10 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        fontSize: 11,
+                        fontSize: 10,
                         fontWeight: 500,
                         color: inGraph ? 'var(--text-muted)' : 'var(--text-primary)',
-                        padding: '2px 4px',
+                        padding: '1px 3px',
                         borderRadius: 3,
                         cursor: inGraph ? 'default' : 'pointer',
                         opacity: inGraph ? 0.5 : 1,
@@ -801,7 +799,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                       {/* Per-asset score for picks */}
                       {pickScore !== null && (
                         <span style={{
-                          fontSize: 8,
+                          fontSize: 7,
                           fontFamily: 'var(--font-mono)',
                           color: 'var(--text-muted)',
                           flexShrink: 0,
@@ -813,9 +811,9 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                         <div
                           className="nopan nodrag"
                           style={{
-                            fontSize: 9,
+                            fontSize: 8,
                             color: 'var(--text-muted)',
-                            padding: '1px 5px',
+                            padding: '1px 4px',
                             borderRadius: 3,
                             background: 'var(--bg-tertiary)',
                             cursor: 'pointer',
@@ -835,7 +833,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                           Path
                         </div>
                       ) : (
-                        <span style={{ fontSize: 8, color: 'var(--text-muted)' }}>on graph</span>
+                        <span style={{ fontSize: 7, color: 'var(--text-muted)' }}>on graph</span>
                       )}
                     </div>
                   );

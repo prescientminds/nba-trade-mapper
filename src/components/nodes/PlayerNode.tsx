@@ -27,7 +27,7 @@ function PlayerNodeComponent({ id, data }: NodeProps) {
     <div
       onClick={() => !isExpanded && !isLoading && expandPlayerNode(id)}
       style={{
-        width: 130,
+        width: 110,
         background: color + '11',
         borderRadius: 999,
         border: `2px solid ${isExpanded ? color : color + '55'}`,
@@ -36,7 +36,7 @@ function PlayerNodeComponent({ id, data }: NodeProps) {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: '6px 12px',
+        padding: '4px 8px',
         fontFamily: 'var(--font-body)',
       }}
       onMouseEnter={(e) => {
@@ -54,18 +54,18 @@ function PlayerNodeComponent({ id, data }: NodeProps) {
     >
       <Handle type="target" position={Position.Top} style={{ opacity: 0 }} />
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
         {/* Avatar circle */}
         <div
           style={{
-            width: 24,
-            height: 24,
+            width: 20,
+            height: 20,
             borderRadius: '50%',
             background: color + '33',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: 10,
+            fontSize: 8,
             fontWeight: 700,
             color: color,
             flexShrink: 0,
@@ -74,8 +74,8 @@ function PlayerNodeComponent({ id, data }: NodeProps) {
           {isLoading ? (
             <div
               style={{
-                width: 16,
-                height: 16,
+                width: 12,
+                height: 12,
                 border: `2px solid ${color}44`,
                 borderTopColor: color,
                 borderRadius: '50%',
@@ -90,7 +90,7 @@ function PlayerNodeComponent({ id, data }: NodeProps) {
         {/* Name */}
         <div
           style={{
-            fontSize: 11,
+            fontSize: 10,
             fontWeight: 600,
             color: 'var(--text-primary)',
             overflow: 'hidden',
@@ -106,9 +106,9 @@ function PlayerNodeComponent({ id, data }: NodeProps) {
       {draftYear && (
         <div
           style={{
-            fontSize: 8,
+            fontSize: 7,
             color: 'var(--text-muted)',
-            marginTop: 2,
+            marginTop: 1,
             letterSpacing: '0.03em',
           }}
         >
