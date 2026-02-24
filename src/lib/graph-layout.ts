@@ -5,12 +5,12 @@ import type { PlayerStintNodeData, TradeNodeData, PlayerNodeData, GapNodeData } 
 const elk = new ELK();
 
 const NODE_DIMENSIONS: Record<string, { width: number; height: number }> = {
-  trade: { width: 240, height: 56 },
-  player: { width: 140, height: 38 },
-  pick: { width: 240, height: 30 },
-  playerStint: { width: 240, height: 36 },
+  trade: { width: 200, height: 56 },
+  player: { width: 130, height: 38 },
+  pick: { width: 200, height: 30 },
+  playerStint: { width: 200, height: 36 },
   transition: { width: 100, height: 36 },
-  gap: { width: 240, height: 24 },
+  gap: { width: 200, height: 24 },
 };
 
 /** Dynamic expanded trade height based on number of assets, teams, and inline player data */
@@ -45,7 +45,7 @@ function expandedTradeDimensions(node: Node): { width: number; height: number } 
   }
 
   const hasInlinePlayers = data.inlinePlayers && Object.keys(data.inlinePlayers).length > 0;
-  const width = hasInlinePlayers ? 300 : 240;
+  const width = hasInlinePlayers ? 260 : 200;
   return { width, height: Math.max(height, 80) };
 }
 
@@ -62,7 +62,7 @@ function expandedStintDimensions(node: Node): { width: number; height: number } 
   const seasonCount = data.seasonDetails?.length ?? data.seasons?.length ?? 3;
   // Header (~36) + stats line (~16) + table header (~18) + rows + footer (~24)
   const height = 36 + 16 + 18 + seasonCount * 18 + 24;
-  return { width: 300, height: Math.max(height, 100) };
+  return { width: 260, height: Math.max(height, 100) };
 }
 
 export function layoutPlayerTimeline(
@@ -76,9 +76,9 @@ export function layoutPlayerTimeline(
 ): Node[] {
   const BASE_YEAR = 1976;
   const PIXELS_PER_YEAR = 10; // compact: topo BFS dominates year-based spacing
-  const COLUMN_WIDTH = 360;
-  const LEFT_MARGIN = 80;
-  const MIN_GAP = 48;
+  const COLUMN_WIDTH = 240;
+  const LEFT_MARGIN = 40;
+  const MIN_GAP = 32;
   const GAP_THRESHOLD = 100; // effectively disable gap compression (conflicts with compact layout)
 
   // Separate gap nodes from regular nodes
@@ -196,8 +196,8 @@ export function layoutPlayerTimeline(
   }
 
   // ── Pass 1: compute initial year-based positions for regular nodes ──
-  const COLUMN_NODE_WIDTH = 240; // width of trade/stint nodes
-  const PLAYER_NODE_WIDTH = 140; // width of player pill nodes
+  const COLUMN_NODE_WIDTH = 200; // width of trade/stint nodes
+  const PLAYER_NODE_WIDTH = 130; // width of player pill nodes
   const initPos = new Map<string, { x: number; y: number; col: number }>();
   for (const node of regularNodes) {
     const year = getNodeYear(node);
@@ -209,6 +209,33 @@ export function layoutPlayerTimeline(
       ? LEFT_MARGIN + col * COLUMN_WIDTH + (COLUMN_NODE_WIDTH - PLAYER_NODE_WIDTH) / 2
       : LEFT_MARGIN + col * COLUMN_WIDTH;
     initPos.set(node.id, { x, y, col });
+  }
+
+  // ── Dense column mapping: collapse empty column gaps ──
+  // Collect all logical columns used by regular nodes and gap nodes
+  const usedCols = new Set<number>();
+  for (const { col } of initPos.values()) {
+    usedCols.add(Math.round(col));
+  }
+  for (const gn of gapNodes) {
+    const data = gn.data as GapNodeData;
+    const col = playerColumns.has(data.playerName) ? playerColumns.get(data.playerName)! : 0;
+    usedCols.add(Math.round(col));
+  }
+  const sortedCols = [...usedCols].sort((a, b) => a - b);
+  const denseColMap = new Map<number, number>();
+  for (let i = 0; i < sortedCols.length; i++) {
+    denseColMap.set(sortedCols[i], i);
+  }
+  // Remap x-positions in initPos to use dense columns
+  for (const [id, pos] of initPos) {
+    const logicalCol = Math.round(pos.col);
+    const denseCol = denseColMap.get(logicalCol) ?? logicalCol;
+    const node = nodeMap.get(id);
+    const x = node?.type === 'player'
+      ? LEFT_MARGIN + denseCol * COLUMN_WIDTH + (COLUMN_NODE_WIDTH - PLAYER_NODE_WIDTH) / 2
+      : LEFT_MARGIN + denseCol * COLUMN_WIDTH;
+    initPos.set(id, { ...pos, x });
   }
 
   // ── Pass 1.5: enforce edge ordering (Trade → Stint, etc.) via topological BFS ──
@@ -524,7 +551,9 @@ export function layoutPlayerTimeline(
   for (const gn of gapNodes) {
     const data = gn.data as GapNodeData;
     const col = playerColumns.has(data.playerName) ? playerColumns.get(data.playerName)! : 0;
-    const x = LEFT_MARGIN + col * COLUMN_WIDTH;
+    const intCol = Math.round(col);
+    const denseCol = denseColMap.get(intCol) ?? intCol;
+    const x = LEFT_MARGIN + denseCol * COLUMN_WIDTH;
 
     // Find neighboring nodes via edges
     const prevEdge = edges.find(e => e.target === gn.id);

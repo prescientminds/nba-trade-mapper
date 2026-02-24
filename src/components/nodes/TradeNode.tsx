@@ -46,7 +46,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
       .then(({ data }) => { if (data) setTradeScore(data as TradeScoreRow); });
   }, [isExpanded, scoreFetched, trade.id]);
   const hasInlineData = inlinePlayers && Object.keys(inlinePlayers).length > 0;
-  const cardWidth = hasInlineData ? 300 : 240;
+  const cardWidth = hasInlineData ? 260 : 200;
 
   const dateStr = trade.date
     ? new Date(trade.date).toLocaleDateString('en-US', {
@@ -694,10 +694,32 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                           </div>
                         )}
                       </div>
-                      {!inGraph && (
-                        <span style={{ fontSize: 10, color: 'var(--text-muted)' }}>&rarr;</span>
-                      )}
-                      {inGraph && (
+                      {!inGraph ? (
+                        <div
+                          className="nopan nodrag"
+                          style={{
+                            fontSize: 9,
+                            color: 'var(--text-muted)',
+                            padding: '1px 5px',
+                            borderRadius: 3,
+                            background: 'var(--bg-tertiary)',
+                            cursor: 'pointer',
+                            flexShrink: 0,
+                            whiteSpace: 'nowrap',
+                            transition: 'background 0.15s, color 0.15s',
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+                            e.currentTarget.style.color = 'var(--text-primary)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = 'var(--bg-tertiary)';
+                            e.currentTarget.style.color = 'var(--text-muted)';
+                          }}
+                        >
+                          Path
+                        </div>
+                      ) : (
                         <span style={{ fontSize: 8, color: 'var(--text-muted)' }}>on graph</span>
                       )}
                     </div>

@@ -27,7 +27,7 @@ function PlayerNodeComponent({ id, data }: NodeProps) {
     <div
       onClick={() => !isExpanded && !isLoading && expandPlayerNode(id)}
       style={{
-        width: 140,
+        width: 130,
         background: color + '11',
         borderRadius: 999,
         border: `2px solid ${isExpanded ? color : color + '55'}`,

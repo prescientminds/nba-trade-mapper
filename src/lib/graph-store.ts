@@ -442,6 +442,45 @@ async function findTradeBetweenStints(
   return matches[matches.length - 1]; // latest matching trade
 }
 
+// ── Find all trades involving a name (as player or pick became_player_name) ──
+async function findAllTradesForName(name: string): Promise<StaticTrade[]> {
+  const index = await loadSearchIndex();
+  const nameLower = name.toLowerCase();
+
+  // Find all index entries where this name appears in the players list
+  // (which includes both player_name and became_player_name)
+  const matchingEntries = index.filter(entry =>
+    entry.players.some(p => p.toLowerCase() === nameLower)
+  );
+
+  // Load full trade data for each match
+  const seasonGroups = new Map<string, string[]>();
+  for (const entry of matchingEntries) {
+    if (!seasonGroups.has(entry.season)) seasonGroups.set(entry.season, []);
+    seasonGroups.get(entry.season)!.push(entry.id);
+  }
+
+  const trades: StaticTrade[] = [];
+  for (const [season, ids] of seasonGroups) {
+    const seasonTrades = await loadSeason(season);
+    for (const id of ids) {
+      const t = seasonTrades.find(st => st.id === id);
+      if (t) {
+        // Verify the name actually appears in this trade's assets
+        const hasName = t.assets.some(a =>
+          (a.player_name?.toLowerCase() === nameLower) ||
+          (a.became_player_name?.toLowerCase() === nameLower)
+        );
+        if (hasName) trades.push(t);
+      }
+    }
+  }
+
+  // Sort by date ascending
+  trades.sort((a, b) => a.date.localeCompare(b.date));
+  return trades;
+}
+
 // ── Find entry trade (how a player arrived at their first team) ──────
 async function findEntryTrade(
   playerName: string,
@@ -540,6 +579,49 @@ async function findTradesAfterLastStint(
   // Sort by date and only return the most recent
   results.sort((a, b) => a.trade.date.localeCompare(b.trade.date));
   return results;
+}
+
+// ── Remove orphaned nodes (no edges connecting them to the graph) ────
+// Called after expansions to prevent disconnected trade/stint nodes
+// from appearing. Core nodes (initial search result) are kept.
+function removeOrphanedNodes(
+  nodes: Node[],
+  edges: Edge[],
+  coreNodes: Set<string>,
+): { nodes: Node[]; edges: Edge[] } {
+  // BFS from core nodes to find everything reachable
+  const adjacency = new Map<string, string[]>();
+  for (const e of edges) {
+    if (!adjacency.has(e.source)) adjacency.set(e.source, []);
+    if (!adjacency.has(e.target)) adjacency.set(e.target, []);
+    adjacency.get(e.source)!.push(e.target);
+    adjacency.get(e.target)!.push(e.source); // undirected reachability
+  }
+
+  const reachable = new Set<string>();
+  const queue: string[] = [];
+  for (const id of coreNodes) {
+    if (!reachable.has(id)) {
+      reachable.add(id);
+      queue.push(id);
+    }
+  }
+  while (queue.length > 0) {
+    const current = queue.shift()!;
+    for (const neighbor of adjacency.get(current) ?? []) {
+      if (!reachable.has(neighbor)) {
+        reachable.add(neighbor);
+        queue.push(neighbor);
+      }
+    }
+  }
+
+  // Keep only nodes reachable from core nodes
+  const reachableSet = reachable;
+  const keptNodes = nodes.filter(n => reachableSet.has(n.id) || coreNodes.has(n.id));
+  const keptNodeIds = new Set(keptNodes.map(n => n.id));
+  const keptEdges = edges.filter(e => keptNodeIds.has(e.source) && keptNodeIds.has(e.target));
+  return { nodes: keptNodes, edges: keptEdges };
 }
 
 // ── Store ────────────────────────────────────────────────────────────
@@ -763,12 +845,13 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       );
       if (sorted.length > 0) {
         winnerData = sorted[0][1];
+        const threshold = Math.max(winnerData.chain * 0.05, 2);
 
         function collectValuablePlayers(assets: ChainAsset[], parentEntryTradeId: string): ValuablePlayer[] {
           const results: ValuablePlayer[] = [];
           for (const asset of assets) {
             // Include both traded players AND drafted players (picks that resolved to NBA players)
-            const isSignificant = (asset.type === 'player' || asset.type === 'pick') && asset.chain >= 5;
+            const isSignificant = (asset.type === 'player' || asset.type === 'pick') && asset.chain >= threshold;
 
             if (isSignificant) {
               results.push({
@@ -802,11 +885,11 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
         const allValuable = collectValuablePlayers(winnerData.assets, tradeId);
 
-        // Separate bridges (chain < 5) from primary players (chain >= 5)
+        // Separate bridges (below threshold) from primary players (at or above threshold)
         const primaryCandidates: ValuablePlayer[] = [];
         const bridgeCandidates: ValuablePlayer[] = [];
         for (const vp of allValuable) {
-          if (vp.chainScore >= 5) {
+          if (vp.chainScore >= threshold) {
             primaryCandidates.push(vp);
           } else {
             bridgeCandidates.push(vp);
@@ -822,8 +905,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
           }
         }
         const topPlayers = [...bestByName.values()]
-          .sort((a, b) => b.chainScore - a.chainScore)
-          .slice(0, 8);
+          .sort((a, b) => b.chainScore - a.chainScore);
 
         // Keep bridges whose names aren't already in top players (avoid duplicates)
         const topNames = new Set(topPlayers.map(p => p.name));
@@ -1162,12 +1244,15 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     if (allNodes.length === 0) return;
 
-    // 7. Layout with timeline
-    const laid = layoutPlayerTimeline(allNodes, allEdges, playerCols, expandedSet, new Set(), anchorTrades, anchorDirs);
+    // 7. Remove orphaned nodes, then layout with timeline
+    const coreSet = new Set([rootNodeId]);
+    const cleaned = removeOrphanedNodes(allNodes, allEdges, coreSet);
+
+    const laid = layoutPlayerTimeline(cleaned.nodes, cleaned.edges, playerCols, expandedSet, new Set(), anchorTrades, anchorDirs);
 
     set({
       nodes: laid,
-      edges: allEdges,
+      edges: cleaned.edges,
       expandedNodes: expandedSet,
       loadingNodes: new Set(),
       coreNodes: new Set(laid.map(n => n.id)),
@@ -1510,7 +1595,10 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       nextColIdx++;
     }
 
-    const laid = layoutPlayerTimeline(allNodes, allEdges, playerCols, newExpanded, currentState.expandedGapIds, currentState.playerAnchorTrades, currentState.playerAnchorDirections);
+    // Remove orphaned nodes before layout
+    const cleaned = removeOrphanedNodes(allNodes, allEdges, newCore);
+
+    const laid = layoutPlayerTimeline(cleaned.nodes, cleaned.edges, playerCols, newExpanded, currentState.expandedGapIds, currentState.playerAnchorTrades, currentState.playerAnchorDirections);
 
     const firstFocusTarget = orderedTrades.length > 0
       ? tradeNodeId(orderedTrades[0].id)
@@ -1518,7 +1606,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     set({
       nodes: laid,
-      edges: allEdges,
+      edges: cleaned.edges,
       expandedNodes: newExpanded,
       loadingNodes: new Set([...currentState.loadingNodes].filter(id => id !== pid)),
       coreNodes: newCore,
@@ -1999,13 +2087,14 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       const existingDir = currentState.playerAnchorDirections.get(playerName);
       newAnchorDirections.set(playerName, existingDir === 'backward' ? 'both' : 'forward');
 
-      const allNodes = [...currentState.nodes, ...newNodes];
-      const allEdges = [...currentState.edges, ...newEdges];
-      const laid = layoutPlayerTimeline(allNodes, allEdges, playerCols, currentState.expandedNodes, currentState.expandedGapIds, newAnchorTrades, newAnchorDirections);
+      const mergedNodes = [...currentState.nodes, ...newNodes];
+      const mergedEdges = [...currentState.edges, ...newEdges];
+      const cleaned = removeOrphanedNodes(mergedNodes, mergedEdges, currentState.coreNodes);
+      const laid = layoutPlayerTimeline(cleaned.nodes, cleaned.edges, playerCols, currentState.expandedNodes, currentState.expandedGapIds, newAnchorTrades, newAnchorDirections);
 
       set({
         nodes: laid,
-        edges: allEdges,
+        edges: cleaned.edges,
         playerColumns: playerCols,
         playerAnchorTrades: newAnchorTrades,
         playerAnchorDirections: newAnchorDirections,
@@ -2206,13 +2295,14 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       const existingDir = currentState.playerAnchorDirections.get(playerName);
       newAnchorDirections.set(playerName, existingDir === 'forward' ? 'both' : 'backward');
 
-      const allNodes = [...currentState.nodes, ...newNodes];
-      const allEdges = [...currentState.edges, ...newEdges];
-      const laid = layoutPlayerTimeline(allNodes, allEdges, playerCols, currentState.expandedNodes, currentState.expandedGapIds, newAnchorTrades, newAnchorDirections);
+      const mergedNodes = [...currentState.nodes, ...newNodes];
+      const mergedEdges = [...currentState.edges, ...newEdges];
+      const cleaned = removeOrphanedNodes(mergedNodes, mergedEdges, currentState.coreNodes);
+      const laid = layoutPlayerTimeline(cleaned.nodes, cleaned.edges, playerCols, currentState.expandedNodes, currentState.expandedGapIds, newAnchorTrades, newAnchorDirections);
 
       set({
         nodes: laid,
-        edges: allEdges,
+        edges: cleaned.edges,
         playerColumns: playerCols,
         playerAnchorTrades: newAnchorTrades,
         playerAnchorDirections: newAnchorDirections,
@@ -2230,9 +2320,63 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   expandPlayerFullPathFromTrade: async (tradeNodeId_: string, asset: TransactionAsset) => {
     const state = get();
 
-    // Picks delegate to existing forward-only logic
+    // Picks with became_player_name: find all trades involving that name and chain them
     if (asset.asset_type === 'pick' || asset.asset_type === 'swap') {
-      return get().expandPlayerFromTrade(tradeNodeId_, asset);
+      if (!asset.became_player_name) {
+        // No resolved player — fall back to simple pick node
+        return get().expandPlayerFromTrade(tradeNodeId_, asset);
+      }
+
+      const pickName = asset.became_player_name;
+      const allTrades = await findAllTradesForName(pickName);
+      if (allTrades.length === 0) return;
+
+      // Find the current trade's position in the chain
+      const currentTradeId = tradeNodeId_.replace('trade-', '');
+      const currentIdx = allTrades.findIndex(t => t.id === currentTradeId);
+
+      // Build new trade nodes and edges for the entire chain
+      let newNodes = [...state.nodes];
+      let newEdges = [...state.edges];
+
+      // Create trade nodes for all trades in the chain (skip ones already on graph)
+      const orderedTradeNodeIds: string[] = [];
+      for (const trade of allTrades) {
+        const tnId = tradeNodeId(trade.id);
+        orderedTradeNodeIds.push(tnId);
+        if (!newNodes.find(n => n.id === tnId)) {
+          const tradeWithDetails = staticTradeToTradeWithDetails(trade);
+          const node = makeTradeNode(tradeWithDetails, { x: 0, y: 0 });
+          newNodes.push(node);
+        }
+      }
+
+      // Connect consecutive trade nodes with edges
+      for (let i = 0; i < orderedTradeNodeIds.length - 1; i++) {
+        const src = orderedTradeNodeIds[i];
+        const tgt = orderedTradeNodeIds[i + 1];
+        if (!edgeExists(newEdges, src, tgt)) {
+          newEdges.push(makeEdge(src, tgt));
+        }
+      }
+
+      // Layout and update
+      const laid = await layoutGraph(newNodes, newEdges, tradeNodeId_, state.expandedNodes);
+      set({
+        nodes: laid,
+        edges: newEdges,
+        pendingFitTarget: tradeNodeId_,
+      });
+
+      // Auto-expand the new trade nodes so their assets are visible
+      for (const trade of allTrades) {
+        const tnId = tradeNodeId(trade.id);
+        if (tnId !== tradeNodeId_ && !state.expandedNodes.has(tnId)) {
+          setTimeout(() => get().expandTradeNode(tnId), 100);
+        }
+      }
+
+      return;
     }
 
     if (asset.asset_type !== 'player' || !asset.player_name) return;
@@ -2485,13 +2629,14 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const newAnchorDirections = new Map(currentState.playerAnchorDirections);
     newAnchorDirections.set(playerName, backwardStints.length > 0 ? 'both' : 'forward');
 
-    const allNodes = [...currentState.nodes, ...newNodes];
-    const allEdges = [...currentState.edges, ...newEdges];
-    const laid = layoutPlayerTimeline(allNodes, allEdges, playerCols, currentState.expandedNodes, currentState.expandedGapIds, newAnchorTrades, newAnchorDirections);
+    const mergedNodes = [...currentState.nodes, ...newNodes];
+    const mergedEdges = [...currentState.edges, ...newEdges];
+    const cleaned = removeOrphanedNodes(mergedNodes, mergedEdges, currentState.coreNodes);
+    const laid = layoutPlayerTimeline(cleaned.nodes, cleaned.edges, playerCols, currentState.expandedNodes, currentState.expandedGapIds, newAnchorTrades, newAnchorDirections);
 
     set({
       nodes: laid,
-      edges: allEdges,
+      edges: cleaned.edges,
       playerColumns: playerCols,
       playerAnchorTrades: newAnchorTrades,
       playerAnchorDirections: newAnchorDirections,

@@ -19,7 +19,7 @@ function GapNodeComponent({ id, data }: NodeProps) {
         toggleGap(id);
       }}
       style={{
-        width: 240,
+        width: 200,
         height: 24,
         display: 'flex',
         alignItems: 'center',
