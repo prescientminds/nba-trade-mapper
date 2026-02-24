@@ -248,11 +248,21 @@ nba-trade-mapper/
 ### Key Actions
 - `search(query)` — searches transactions + player_seasons by name
 - `seedFromTrade(tradeId)` — loads trade + assets into graph
+- `seedFromChain(tradeId, chainScores)` — **Trade Tree view** from Discovery page (see invariants below)
 - `seedFromPlayer(playerName, teamId)` — loads player node, checks for journey data
 - `expandTradeNode(tradeId)` — expands trade into player/pick child nodes
 - `expandPlayerNode(nodeId)` — if player has season data → `expandPlayerJourney`, else → find related trades
 - `expandPlayerJourney(playerName)` — groups seasons into team stints, creates stint chain
 - `expandStintDetails(stintNodeId)` — expands stint into per-season cards with stats/record/awards
+
+### Trade Tree (`seedFromChain`) Invariants — do not break
+**Concept:** Measures one team's asset management. Only win shares on the WINNING TEAM count.
+- Each player shows **only their stint on `winnerTeamId`**, NOT their full multi-team career
+- Bridge players with no stint on winning team: direct edge `entryTrade → exitTrade` (no stint node)
+- Players with no `player_seasons` data: same bridge treatment
+- `compute-chain-scores.ts` → `scorePlayer()` uses `seasonsByPlayerTeam` keyed by `playerName|teamId`
+- Card labels (`flattenChainPlayers` in DiscoverySection) walk the full recursive tree — may show deep players that are many hops from the root
+- **Do NOT show outgoing players' WS** — e.g., Pippen's Chicago WS must not count for Seattle's tree
 
 ### Journey Data Flow (CURRENT — needs rework, see "What's Remaining #1")
 Current: Click player → sprawls all seasons in no clear order.
@@ -350,6 +360,18 @@ npx tsx scripts/score-trades.ts                         # Recompute all trade sc
 8. **`import-accolades.ts` uses INSERT** — will create duplicates if run twice. Always wipe `player_accolades` table first if re-running.
 9. **BBRef BPM sentinel** — value -1000.0 means "negligible minutes"; must be treated as null (clamped in `parseNum(s, -999.99, 999.99)`).
 10. **`database/sample_data.sql`** — legacy dead code. App reads trades from static JSON, not Supabase `transactions`. Safe to delete from repo.
+11. **Robert Parish 1980 trade** (`1979-80.json`): Parish stored as `type: "pick"` but was an established player. Path button non-functional. Needs: change to `type: "player"`, add `pick_year: 1980` to the 3 actual picks.
+
+## Data Quality Notes (Feb 2026)
+- ✅ Trade direction fixed (fix-csv-trades.py) — all 1,535 CSV-era trades have correct sides
+- ✅ NOP/CHA fixed — 50 New Orleans Hornets trades (2002-03 through 2012-13) corrected from CHA → NOP
+- ✅ Pippen/Polynice 1987 — B.J. Armstrong / Sylvester Gray removed as pick names (those picks resolved elsewhere)
+- ✅ All-NBA tiers fixed — tiers were all showing "3rd" due to CSV column comparison bug
+- ✅ All team IDs validated — no legacy codes in any static JSON file
+- ✅ Trade Tree `seedFromChain` fixed — only shows winning team stints, bridge players maintain chain connectivity
+- ⚠️ Supabase `transactions` table still has original CSV direction bug — static JSON is source of truth
+- ⚠️ `import-accolades.ts` uses INSERT — wipe table before re-running
+- ⚠️ `database/sample_data.sql` is legacy dead code
 
 ## Next Session Priority
 1. **Compact node sizing** — all nodes still too large (TradeNode, PlayerStintNode, PlayerNode). Start here.

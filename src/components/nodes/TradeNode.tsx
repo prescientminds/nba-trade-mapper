@@ -10,7 +10,7 @@ import { ensureReadable, contrastText } from '@/lib/colors';
 import { getSupabase } from '@/lib/supabase';
 
 interface TradeScoreRow {
-  team_scores: Record<string, { score: number }>;
+  team_scores: Record<string, { score: number; assets?: { name: string; type?: string; seasons?: number; ws?: number; playoff_ws?: number; championships?: number; accolades?: string[]; score: number }[] }>;
   winner: string | null;
   lopsidedness: number;
 }
@@ -20,11 +20,15 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const expandTradeNode = useGraphStore((s) => s.expandTradeNode);
   const expandPlayerFullPathFromTrade = useGraphStore((s) => s.expandPlayerFullPathFromTrade);
   const expandInlineTradePlayer = useGraphStore((s) => s.expandInlineTradePlayer);
+  const seedWhoWon = useGraphStore((s) => s.seedWhoWon);
+  const seedTradeTree = useGraphStore((s) => s.seedTradeTree);
   const removeNode = useGraphStore((s) => s.removeNode);
   const expandedNodes = useGraphStore((s) => s.expandedNodes);
   const loadingNodes = useGraphStore((s) => s.loadingNodes);
   const coreNodes = useGraphStore((s) => s.coreNodes);
   const nodes = useGraphStore((s) => s.nodes);
+
+  const [actionLoading, setActionLoading] = useState<'whoWon' | 'tradeTree' | null>(null);
 
   const isExpanded = expandedNodes.has(id);
   const isLoading = loadingNodes.has(id);
@@ -430,6 +434,100 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                     </div>
                   );
                 })}
+              </div>
+
+              {/* Who Won? + Trade Tree buttons */}
+              <div style={{ display: 'flex', gap: 4, marginTop: 4 }}>
+                <div
+                  className="nopan nodrag"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (actionLoading) return;
+                    setActionLoading('whoWon');
+                    seedWhoWon(trade.id, tradeScore!).finally(() => setActionLoading(null));
+                  }}
+                  style={{
+                    fontSize: 9,
+                    color: actionLoading === 'whoWon' ? 'var(--accent-orange)' : 'var(--text-muted)',
+                    padding: '1px 6px',
+                    borderRadius: 999,
+                    background: 'var(--bg-tertiary)',
+                    cursor: actionLoading ? 'default' : 'pointer',
+                    whiteSpace: 'nowrap',
+                    transition: 'background 0.15s, color 0.15s',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 4,
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!actionLoading) {
+                      e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+                      e.currentTarget.style.color = 'var(--text-primary)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!actionLoading) {
+                      e.currentTarget.style.background = 'var(--bg-tertiary)';
+                      e.currentTarget.style.color = 'var(--text-muted)';
+                    }
+                  }}
+                >
+                  Who Won?
+                  {actionLoading === 'whoWon' && (
+                    <div style={{
+                      width: 8, height: 8,
+                      border: '1.5px solid var(--text-muted)',
+                      borderTopColor: 'var(--accent-orange)',
+                      borderRadius: '50%',
+                      animation: 'spin 0.8s linear infinite',
+                    }} />
+                  )}
+                </div>
+                <div
+                  className="nopan nodrag"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (actionLoading) return;
+                    setActionLoading('tradeTree');
+                    seedTradeTree(trade.id).finally(() => setActionLoading(null));
+                  }}
+                  style={{
+                    fontSize: 9,
+                    color: actionLoading === 'tradeTree' ? 'var(--accent-orange)' : 'var(--text-muted)',
+                    padding: '1px 6px',
+                    borderRadius: 999,
+                    background: 'var(--bg-tertiary)',
+                    cursor: actionLoading ? 'default' : 'pointer',
+                    whiteSpace: 'nowrap',
+                    transition: 'background 0.15s, color 0.15s',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 4,
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!actionLoading) {
+                      e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+                      e.currentTarget.style.color = 'var(--text-primary)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!actionLoading) {
+                      e.currentTarget.style.background = 'var(--bg-tertiary)';
+                      e.currentTarget.style.color = 'var(--text-muted)';
+                    }
+                  }}
+                >
+                  Trade Tree
+                  {actionLoading === 'tradeTree' && (
+                    <div style={{
+                      width: 8, height: 8,
+                      border: '1.5px solid var(--text-muted)',
+                      borderTopColor: 'var(--accent-orange)',
+                      borderRadius: '50%',
+                      animation: 'spin 0.8s linear infinite',
+                    }} />
+                  )}
+                </div>
               </div>
             </div>
           )}

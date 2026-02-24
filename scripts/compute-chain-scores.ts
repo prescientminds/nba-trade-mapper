@@ -196,6 +196,39 @@ function scorePlayer(
   return r2(ws + vorp * 0.5 + playoffWs * 1.5 + championships * 5.0 + accoladeBonus);
 }
 
+// ── Score a player's FULL career (all teams) after a cutoff season ────────────
+
+function scorePlayerCareer(
+  playerName: string,
+  seasonCutoff: string,
+  seasonsByPlayer: Map<string, PlayerSeason[]>,
+  accoladesByPlayer: Map<string, Accolade[]>,
+  championshipSet: Set<string>,
+): number {
+  const eligible = (seasonsByPlayer.get(playerName) || []).filter(s => s.season >= seasonCutoff);
+  if (eligible.length === 0) return 0;
+
+  let ws = 0, vorp = 0, playoffWs = 0;
+  // Deduplicate championships per season (mid-season trade could double-count)
+  const champSeasons = new Set<string>();
+  for (const s of eligible) {
+    ws        += s.win_shares ?? 0;
+    vorp      += s.vorp       ?? 0;
+    playoffWs += s.playoff_ws ?? 0;
+    if (championshipSet.has(`${s.team_id}|${s.season}`)) champSeasons.add(s.season);
+  }
+
+  const seasonSet = new Set(eligible.map(s => s.season));
+  let accoladeBonus = 0;
+  for (const a of (accoladesByPlayer.get(playerName) || [])) {
+    if (seasonSet.has(a.season)) {
+      accoladeBonus += ACCOLADE_WEIGHTS[a.accolade] ?? 0;
+    }
+  }
+
+  return r2(ws + vorp * 0.5 + playoffWs * 1.5 + champSeasons.size * 5.0 + accoladeBonus);
+}
+
 // ── Index: for each (playerName, fromTeamId), sorted exit trades by date ──────
 //
 // Returns the earliest exit trade AFTER arrivedDate so we follow the correct
@@ -355,6 +388,106 @@ function scoreTradeChain(
   return result;
 }
 
+// ── League impact: total career value across ALL teams from a trade cascade ───
+
+interface LeagueImpactResult {
+  impact: number;
+  playerCount: number;
+  depth: number;
+  topPlayers: { name: string; score: number }[];
+}
+
+function computeLeagueImpact(
+  trade: Trade,
+  exitTradeIndex: Map<string, Trade[]>,
+  seasonsByPlayer: Map<string, PlayerSeason[]>,
+  accoladesByPlayer: Map<string, Accolade[]>,
+  championshipSet: Set<string>,
+): LeagueImpactResult {
+  const visitedPlayers = new Set<string>();
+  const playerScores: { name: string; score: number }[] = [];
+
+  // Walk a player: score their full career, then follow their exit trade
+  // from each team they were traded to. Only follows the directed trade graph
+  // (player arrives at team → gets traded away → new players arrive).
+  function walkAsset(
+    playerName: string,
+    teamId: string,
+    arrivedDate: string,
+    seasonCutoff: string,
+    depth: number,
+  ): number {
+    // Score this player's full career (all teams) if not already counted
+    if (!visitedPlayers.has(playerName)) {
+      visitedPlayers.add(playerName);
+      const score = scorePlayerCareer(
+        playerName, seasonCutoff,
+        seasonsByPlayer, accoladesByPlayer, championshipSet,
+      );
+      if (score > 0) {
+        playerScores.push({ name: playerName, score });
+      }
+    }
+
+    if (depth >= MAX_DEPTH) return depth;
+
+    // Find this player's exit trade from teamId
+    const exitTrade = findExitTrade(playerName, teamId, arrivedDate, exitTradeIndex);
+    if (!exitTrade) return depth;
+
+    // Follow all assets received by teamId in the exit trade (what came back)
+    // AND follow the player to their new team (cross-team tracking)
+    let maxDepth = depth;
+
+    // 1. Assets received by teamId (the return haul)
+    const received = exitTrade.assets.filter(a => a.to_team_id === teamId);
+    for (const asset of received) {
+      if (asset.type === 'cash' || asset.type === 'swap') continue;
+      const name = asset.player_name ?? asset.became_player_name;
+      if (!name) continue;
+      const cutoff = (asset.type === 'pick' && asset.pick_year)
+        ? pickYearToSeason(asset.pick_year)
+        : exitTrade.season;
+      const d = walkAsset(name, teamId, exitTrade.date, cutoff, depth + 1);
+      maxDepth = Math.max(maxDepth, d);
+    }
+
+    // 2. The player themselves on their new team (cross-team: follow where they went)
+    const newTeams = exitTrade.assets
+      .filter(a => (a.player_name === playerName || a.became_player_name === playerName) && a.from_team_id === teamId)
+      .map(a => a.to_team_id);
+    for (const newTeamId of newTeams) {
+      const d = walkAsset(playerName, newTeamId, exitTrade.date, exitTrade.season, depth + 1);
+      maxDepth = Math.max(maxDepth, d);
+    }
+
+    return maxDepth;
+  }
+
+  // Seed with all players/picks in the original trade
+  let maxDepth = 0;
+
+  for (const asset of trade.assets) {
+    if (asset.type === 'cash' || asset.type === 'swap') continue;
+    const name = asset.player_name ?? asset.became_player_name;
+    if (!name) continue;
+    const cutoff = (asset.type === 'pick' && asset.pick_year)
+      ? pickYearToSeason(asset.pick_year)
+      : trade.season;
+    const d = walkAsset(name, asset.to_team_id, trade.date, cutoff, 1);
+    maxDepth = Math.max(maxDepth, d);
+  }
+
+  playerScores.sort((a, b) => b.score - a.score);
+
+  return {
+    impact: r2(playerScores.reduce((s, p) => s + p.score, 0)),
+    playerCount: playerScores.length,
+    depth: maxDepth,
+    topPlayers: playerScores.slice(0, 5).map(p => ({ name: p.name, score: r2(p.score) })),
+  };
+}
+
 // ── Build the exit trade index ─────────────────────────────────────────────────
 //
 // Key: "${playerName}|${fromTeamId}"
@@ -418,6 +551,12 @@ async function main() {
     seasonsByPlayerTeam.get(key)!.push(row);
   }
 
+  const seasonsByPlayer = new Map<string, PlayerSeason[]>();
+  for (const row of playerSeasons) {
+    if (!seasonsByPlayer.has(row.player_name)) seasonsByPlayer.set(row.player_name, []);
+    seasonsByPlayer.get(row.player_name)!.push(row);
+  }
+
   const accoladesByPlayer = new Map<string, Accolade[]>();
   for (const row of accolades) {
     if (!accoladesByPlayer.has(row.player_name)) accoladesByPlayer.set(row.player_name, []);
@@ -457,6 +596,10 @@ async function main() {
     max_chain_score: number;
     max_chain_breadth: number;
     max_chain_depth: number;
+    league_impact: number;
+    league_impact_players: number;
+    league_impact_depth: number;
+    league_impact_top: { name: string; score: number }[];
   }
 
   const results: ChainResult[] = [];
@@ -473,6 +616,11 @@ async function main() {
     const maxChainBreadth = teams.length ? Math.max(...teams.map(t => t.asset_count)) : 0;
     const maxChainDepth   = teams.length ? Math.max(...teams.map(t => t.depth)) : 0;
 
+    const li = computeLeagueImpact(
+      trade, exitTradeIndex,
+      seasonsByPlayer, accoladesByPlayer, championshipSet,
+    );
+
     results.push({
       trade_id: trade.id,
       season: trade.season,
@@ -480,6 +628,10 @@ async function main() {
       max_chain_score: r2(maxChainScore),
       max_chain_breadth: maxChainBreadth,
       max_chain_depth: maxChainDepth,
+      league_impact: li.impact,
+      league_impact_players: li.playerCount,
+      league_impact_depth: li.depth,
+      league_impact_top: li.topPlayers,
     });
 
     processed++;
@@ -493,9 +645,11 @@ async function main() {
   const withChain = results.filter(r => r.max_chain_score > 0).length;
   const deepChains = results.filter(r => r.max_chain_depth >= 3).length;
   const broadChains = results.filter(r => r.max_chain_breadth >= 4).length;
+  const withImpact = results.filter(r => r.league_impact > 50).length;
   console.log(`  Has chain value:  ${withChain} (${Math.round(withChain / results.length * 100)}%)`);
   console.log(`  Chain depth ≥ 3:  ${deepChains}`);
   console.log(`  Breadth ≥ 4:      ${broadChains}`);
+  console.log(`  League impact>50: ${withImpact}`);
 
   // ── --top N or --dry-run print ────────────────────────────────────────────────
 
@@ -515,6 +669,19 @@ async function main() {
         });
       console.log(`  [${r.season}] ${r.trade_id.slice(-8)}`);
       for (const t of teams) console.log(`    ${t}`);
+      if (r.league_impact > 0) {
+        const topNames = r.league_impact_top.map(p => `${p.name} ${p.score.toFixed(1)}`).join(', ');
+        console.log(`    LEAGUE IMPACT: ${r.league_impact.toFixed(1)} (${r.league_impact_players} players, depth ${r.league_impact_depth}) top: ${topNames}`);
+      }
+    }
+
+    // Also show top league impact trades
+    const byImpact = [...results].sort((a, b) => b.league_impact - a.league_impact);
+    console.log(`\nTop ${printCount} by league impact:`);
+    for (const r of byImpact.slice(0, printCount)) {
+      const topNames = r.league_impact_top.map(p => `${p.name} ${p.score.toFixed(1)}`).join(', ');
+      console.log(`  [${r.season}] ${r.trade_id.slice(-8)}  impact=${r.league_impact.toFixed(1)} players=${r.league_impact_players} depth=${r.league_impact_depth}`);
+      console.log(`    top: ${topNames}`);
     }
   }
 
@@ -532,12 +699,16 @@ async function main() {
 
   for (let i = 0; i < results.length; i += BATCH) {
     const batch = results.slice(i, i + BATCH).map(r => ({
-      trade_id:          r.trade_id,
-      season:            r.season,
-      chain_scores:      r.chain_scores,
-      max_chain_score:   r.max_chain_score,
-      max_chain_breadth: r.max_chain_breadth,
-      max_chain_depth:   r.max_chain_depth,
+      trade_id:              r.trade_id,
+      season:                r.season,
+      chain_scores:          r.chain_scores,
+      max_chain_score:       r.max_chain_score,
+      max_chain_breadth:     r.max_chain_breadth,
+      max_chain_depth:       r.max_chain_depth,
+      league_impact:         r.league_impact,
+      league_impact_players: r.league_impact_players,
+      league_impact_depth:   r.league_impact_depth,
+      league_impact_top:     r.league_impact_top,
     }));
 
     const { error } = await supabase

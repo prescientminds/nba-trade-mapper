@@ -75,6 +75,10 @@ type ChainScoreRow = {
   season: string;
   max_chain_score: number;
   chain_scores: Record<string, ChainTeamData>;
+  league_impact: number | null;
+  league_impact_players: number | null;
+  league_impact_depth: number | null;
+  league_impact_top: { name: string; score: number }[] | null;
 };
 
 /** Recursively walk the chain asset tree and collect all players with their chain score. */
@@ -1107,10 +1111,15 @@ const METRIC_DEFS: Record<string, { metricLabel: string; metricExplanation: stri
     metricExplanation:
       `The number of distinct downstream assets a team accumulated through multiple rounds of trading — excluding trades where one star drives more than 30% of the chain value. High breadth with no single outlier signals organizational skill, not a lucky pick.`,
   },
-  chains: {
-    metricLabel: 'Chain Score',
+  'trade-tree': {
+    metricLabel: 'Tree Score',
     metricExplanation:
-      `Value generated through multiple rounds of trading — not just holding a star. Only trades where assets moved at least twice and the chaining added 20%+ beyond direct value qualify. In multi-player trades, fractional attribution prevents double-counting. ${FORMULA_BASE}`,
+      `Team-centric value generated through multiple rounds of trading — what one team accumulated by flipping assets. Only counts production while on that team. Requires depth ≥ 2 and chain adding 20%+ beyond direct value. Fractional attribution prevents double-counting. ${FORMULA_BASE}`,
+  },
+  'league-impact': {
+    metricLabel: 'Impact Score',
+    metricExplanation:
+      `Total career value produced by ALL players set in motion by this trade cascade, regardless of which team they played for. Measures the trade's ripple across the league — not GM skill, but historical significance. ${FORMULA_BASE}`,
   },
 };
 
@@ -1132,7 +1141,7 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer, onSele
         let champs: ChampRow[] = [];
         let chainRows: ChainScoreRow[] = [];
         try {
-          const [scoresRes, champsRes, chainRes] = await Promise.all([
+          const [scoresRes, champsRes, chainRes, impactRes] = await Promise.all([
             getSupabase()
               .from('trade_scores')
               .select('trade_id, lopsidedness, winner, team_scores')
@@ -1145,14 +1154,26 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer, onSele
               .eq('championship', true) as unknown as Promise<{ data: ChampRow[] | null }>,
             getSupabase()
               .from('trade_chain_scores')
-              .select('trade_id, season, max_chain_score, chain_scores')
+              .select('trade_id, season, max_chain_score, chain_scores, league_impact, league_impact_players, league_impact_depth, league_impact_top')
               .gt('max_chain_score', 20)
               .order('max_chain_score', { ascending: false })
               .limit(150) as unknown as Promise<{ data: ChainScoreRow[] | null }>,
+            getSupabase()
+              .from('trade_chain_scores')
+              .select('trade_id, season, max_chain_score, chain_scores, league_impact, league_impact_players, league_impact_depth, league_impact_top')
+              .gt('league_impact', 50)
+              .order('league_impact', { ascending: false })
+              .limit(50) as unknown as Promise<{ data: ChainScoreRow[] | null }>,
           ]);
           scores = scoresRes.data ?? [];
           champs = champsRes.data ?? [];
-          chainRows = chainRes.data ?? [];
+          // Merge chain rows with league impact rows, deduplicate by trade_id
+          const chainMap = new Map<string, ChainScoreRow>();
+          for (const row of (chainRes.data ?? [])) chainMap.set(row.trade_id, row);
+          for (const row of (impactRes.data ?? [])) {
+            if (!chainMap.has(row.trade_id)) chainMap.set(row.trade_id, row);
+          }
+          chainRows = [...chainMap.values()];
         } catch (supabaseErr) {
           console.warn('[DiscoverySection] Supabase unavailable, showing static data only:', supabaseErr);
         }
@@ -1233,6 +1254,34 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer, onSele
               winner: winnerTeam,
               metric: winnerData.chain,
               badge: winnerData.depth >= 3 ? `${winnerData.asset_count} assets` : undefined,
+              chainScores: row.chain_scores,
+              date: entry.date,
+            };
+          })
+          .filter((c): c is TradeCard => c !== null)
+          .slice(0, 20);
+
+        // 0a-b. League Impact — total career value across the league from trade cascades
+        const leagueImpactCards: TradeCard[] = [...chainRows]
+          .filter((row) => (row.league_impact ?? 0) > 50)
+          .sort((a, b) => (b.league_impact ?? 0) - (a.league_impact ?? 0))
+          .map((row): TradeCard | null => {
+            const entry = indexMap.get(row.trade_id);
+            if (!entry) return null;
+            const topPlayers = row.league_impact_top ?? [];
+            const playerLabels = topPlayers.length > 0
+              ? topPlayers.slice(0, 3).map((p) => `${p.name} (${p.score.toFixed(1)})`)
+              : entry.players;
+            return {
+              type: 'trade',
+              tradeId: row.trade_id,
+              heading: teamHeading(entry.teams, entry.date),
+              players: playerLabels,
+              season: entry.season,
+              teams: entry.teams,
+              winner: null,
+              metric: row.league_impact ?? 0,
+              badge: `${row.league_impact_players ?? 0} players`,
               chainScores: row.chain_scores,
               date: entry.date,
             };
@@ -1378,12 +1427,20 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer, onSele
 
         const allCategories: Category[] = [
           {
-            id: 'chains',
-            label: 'Asset Chains',
-            description: 'Trades where received assets were flipped through multiple subsequent deals, compounding value beyond just holding the original player.',
+            id: 'trade-tree',
+            label: 'Trade Tree Value',
+            description: 'Team-centric value from flipping assets through multiple trades — what one GM accumulated through smart asset management.',
             accentColor: 'var(--accent-teal)',
-            ...METRIC_DEFS['chains'],
+            ...METRIC_DEFS['trade-tree'],
             cards: chainCards,
+          },
+          {
+            id: 'league-impact',
+            label: 'League Impact',
+            description: 'Total career value produced by all players set in motion by a trade cascade, regardless of which team they ended up on.',
+            accentColor: 'var(--accent-red)',
+            ...METRIC_DEFS['league-impact'],
+            cards: leagueImpactCards,
           },
           {
             id: 'alchemists',

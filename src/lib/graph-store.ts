@@ -148,6 +148,8 @@ interface GraphState {
 
   seedFromTrade: (trade: TradeWithDetails) => void;
   seedFromChain: (tradeId: string, chainScores?: Record<string, ChainTeamData>) => Promise<void>;
+  seedWhoWon: (tradeId: string, tradeScore: { team_scores: Record<string, { score: number; assets?: { name: string; score: number }[] }>; winner: string | null; lopsidedness: number }) => Promise<void>;
+  seedTradeTree: (tradeId: string) => Promise<void>;
   seedFromPlayer: (playerName: string) => Promise<void>;
   expandTradeNode: (nodeId: string) => void;
   expandPlayerNode: (nodeId: string) => Promise<void>;
@@ -836,6 +838,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     let valuablePlayers: ValuablePlayer[] = [];
     let winnerData: ChainTeamData | null = null;
+    let winnerTeamId: string | null = null;
 
     // If we have chain scores, use the recursive asset tree
     if (chainScores && Object.keys(chainScores).length > 0) {
@@ -844,6 +847,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         (a, b) => b[1].chain - a[1].chain
       );
       if (sorted.length > 0) {
+        winnerTeamId = sorted[0][0];
         winnerData = sorted[0][1];
         const threshold = Math.max(winnerData.chain * 0.05, 2);
 
@@ -1050,132 +1054,77 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
       const allSeasons = seasonsRes.data;
       const allAccolades = accoladesRes.data;
-      if (!allSeasons || allSeasons.length === 0) return { nodes, edges, playerName: vp.name };
-
-      const stints = groupIntoStints(allSeasons.filter(s => s.team_id));
-      if (stints.length === 0) return { nodes, edges, playerName: vp.name };
-
-      // Find entry trade's receiving team to locate the entry stint
-      const entryStaticTrade = staticTradeCache.get(vp.entryTradeId);
-      let entryTeamId: string | null = null;
-      if (entryStaticTrade) {
-        // Find the asset for this player in the entry trade to determine which team received them
-        // Check both player assets (directly traded) and pick assets (drafted via became_player_name)
-        const playerAsset = entryStaticTrade.assets.find(
-          a => (a.type === 'player' && a.player_name?.toLowerCase() === vp.name.toLowerCase()) ||
-               (a.type === 'pick' && a.became_player_name?.toLowerCase() === vp.name.toLowerCase())
-        );
-        entryTeamId = playerAsset?.to_team_id ?? null;
-      }
-
-      // Find start stint (first stint at the receiving team)
-      let startIdx = -1;
-      if (entryTeamId) {
-        for (let i = 0; i < stints.length; i++) {
-          if (stints[i].teamId === entryTeamId) { startIdx = i; break; }
+      if (!allSeasons || allSeasons.length === 0) {
+        // No season data — bridge entry → exit trade directly
+        if (vp.exitTradeId && vp.entryTradeId) {
+          edges.push(makeEdge(tradeNodeId(vp.entryTradeId), tradeNodeId(vp.exitTradeId)));
         }
+        return { nodes, edges, playerName: vp.name };
       }
-      // Fallback: use first stint
-      if (startIdx === -1) startIdx = 0;
 
-      // Find end stint (if there's an exit trade, find the stint they were traded FROM)
-      let endIdx = stints.length - 1;
-      if (vp.exitTradeId) {
-        const exitStaticTrade = staticTradeCache.get(vp.exitTradeId);
-        if (exitStaticTrade) {
-          const exitAsset = exitStaticTrade.assets.find(
-            a => a.type === 'player' && a.player_name?.toLowerCase() === vp.name.toLowerCase()
-          );
-          const fromTeamId = exitAsset?.from_team_id ?? null;
-          if (fromTeamId) {
-            // Find last stint at fromTeam that's >= startIdx
-            for (let i = stints.length - 1; i >= startIdx; i--) {
-              if (stints[i].teamId === fromTeamId) { endIdx = i; break; }
-            }
-          }
+      // Trade Tree: only show this player's stint on the WINNING TEAM.
+      // The chain measures one team's asset management — a player's value on other
+      // teams is irrelevant (that's the Sikma/Pippen fix: Pippen's win shares on
+      // Chicago shouldn't count toward Seattle's trade tree).
+      const chainTeam = winnerTeamId;
+
+      const allStints = groupIntoStints(allSeasons.filter(s => s.team_id));
+
+      // Filter to only stints on the chain team
+      const teamStints: { stint: typeof allStints[0]; originalIdx: number }[] = [];
+      for (let i = 0; i < allStints.length; i++) {
+        if (allStints[i].teamId === chainTeam) {
+          teamStints.push({ stint: allStints[i], originalIdx: i });
         }
       }
 
-      const relevantStints = stints.slice(startIdx, endIdx + 1);
-      const allRelevantSeasons = relevantStints.flatMap(s => s.seasons.map(ss => ss.season));
+      // No stint on the winning team — this player was a bridge (traded through
+      // without playing). Connect entry trade → exit trade directly to keep the
+      // chain connected for downstream players.
+      if (teamStints.length === 0) {
+        if (vp.exitTradeId && vp.entryTradeId) {
+          edges.push(makeEdge(tradeNodeId(vp.entryTradeId), tradeNodeId(vp.exitTradeId)));
+        }
+        return { nodes, edges, playerName: vp.name };
+      }
+
+      const { stint, originalIdx: startIdx } = teamStints[0];
+      const stintSeasons = stint.seasons.map(s => s.season);
 
       // Build accolade map
       const accoladesBySeasonMap = new Map<string, string[]>();
       if (allAccolades) {
         for (const a of allAccolades) {
-          if (!a.season || !allRelevantSeasons.includes(a.season)) continue;
+          if (!a.season || !stintSeasons.includes(a.season)) continue;
           if (!accoladesBySeasonMap.has(a.season)) accoladesBySeasonMap.set(a.season, []);
           accoladesBySeasonMap.get(a.season)!.push(a.accolade);
         }
       }
 
-      // Find inter-stint trades in parallel
-      const interStintPromises: Promise<StaticTrade | null>[] = [];
-      for (let i = 0; i < relevantStints.length - 1; i++) {
-        const from = relevantStints[i];
-        const to = relevantStints[i + 1];
-        interStintPromises.push(
-          findTradeBetweenStints(
-            vp.name, from.teamId, to.teamId,
-            from.seasons[from.seasons.length - 1].season,
-            to.seasons[0].season
-          ).catch(() => null)
-        );
-      }
-      const tradeResults = await Promise.all(interStintPromises);
-
-      // Create stint nodes
-      for (let i = 0; i < relevantStints.length; i++) {
-        const actualIdx = startIdx + i;
-        const stint = relevantStints[i];
-        const sid = stintNodeId(vp.name, stint.teamId, actualIdx);
-
-        const stintSeasons = stint.seasons.map(s => s.season);
-        const stintAcc: string[] = [];
-        for (const s of stintSeasons) {
-          const acc = accoladesBySeasonMap.get(s);
-          if (acc) stintAcc.push(...acc);
-        }
-
-        nodes.push(makeStintNode(
-          vp.name, stint.teamId, actualIdx, stintSeasons,
-          avg(stint.seasons.map(s => s.ppg)),
-          avg(stint.seasons.map(s => s.rpg)),
-          avg(stint.seasons.map(s => s.apg)),
-          sum(stint.seasons.map(s => s.win_shares)),
-          [...new Set(stintAcc)],
-        ));
+      const stintAcc: string[] = [];
+      for (const s of stintSeasons) {
+        const acc = accoladesBySeasonMap.get(s);
+        if (acc) stintAcc.push(...acc);
       }
 
-      // Edge: entry trade → first stint
-      const firstSid = stintNodeId(vp.name, relevantStints[0].teamId, startIdx);
+      const sid = stintNodeId(vp.name, stint.teamId, startIdx);
+      nodes.push(makeStintNode(
+        vp.name, stint.teamId, startIdx, stintSeasons,
+        avg(stint.seasons.map(s => s.ppg)),
+        avg(stint.seasons.map(s => s.rpg)),
+        avg(stint.seasons.map(s => s.apg)),
+        sum(stint.seasons.map(s => s.win_shares)),
+        [...new Set(stintAcc)],
+      ));
+
+      // Edge: entry trade → stint
       const entryTradeNId = tradeNodeId(vp.entryTradeId);
-      edges.push(makeEdge(entryTradeNId, firstSid));
+      edges.push(makeEdge(entryTradeNId, sid));
 
-      // Inter-stint: Stint → Trade → Stint (or direct if no trade found)
-      for (let i = 0; i < relevantStints.length - 1; i++) {
-        const trade = tradeResults[i] as StaticTrade | null;
-        const sid = stintNodeId(vp.name, relevantStints[i].teamId, startIdx + i);
-        const sidNext = stintNodeId(vp.name, relevantStints[i + 1].teamId, startIdx + i + 1);
-
-        if (trade) {
-          const tradeNId = tradeNodeId(trade.id);
-          // Add trade node if not already present (may be shared across players)
-          if (!nodes.find(n => n.id === tradeNId)) {
-            nodes.push(makeTradeNode(staticTradeToTradeWithDetails(trade)));
-          }
-          edges.push(makeEdge(sid, tradeNId));
-          edges.push(makeEdge(tradeNId, sidNext));
-        } else {
-          edges.push(makeEdge(sid, sidNext));
-        }
-      }
-
-      // Edge: last stint → exit trade (if exists)
+      // Edge: stint → exit trade (if exists)
       if (vp.exitTradeId) {
-        const lastSid = stintNodeId(vp.name, relevantStints[relevantStints.length - 1].teamId, startIdx + relevantStints.length - 1);
         const exitTradeNId = tradeNodeId(vp.exitTradeId);
-        edges.push(makeEdge(lastSid, exitTradeNId));
+        edges.push(makeEdge(sid, exitTradeNId));
       }
 
       return { nodes, edges, playerName: vp.name };
@@ -1268,6 +1217,152 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     // Auto-expand root trade after a tick
     setTimeout(() => get().expandTradeNode(rootNodeId), 50);
+  },
+
+  // ── Seed "Who Won?" view ──────────────────────────────────────────
+  seedWhoWon: async (tradeId: string, tradeScore: { team_scores: Record<string, { score: number; assets?: { name: string; score: number }[] }>; winner: string | null; lopsidedness: number }) => {
+    // Load root trade from static JSON
+    const rootStaticTrade = await loadTrade(tradeId);
+    if (!rootStaticTrade) return;
+    const rootTrade = staticTradeToTradeWithDetails(rootStaticTrade);
+    const rootNode = makeTradeNode(rootTrade, { x: 0, y: 0 });
+    const rootNodeId = rootNode.id;
+
+    const allNodes: Node[] = [rootNode];
+    const allEdges: Edge[] = [];
+    const expandedSet = new Set<string>([rootNodeId]);
+    const playerCols = new Map<string, number>();
+    const anchorTrades = new Map<string, string>();
+    const anchorDirs = new Map<string, 'forward' | 'backward' | 'both'>();
+
+    const sb = getSupabase();
+
+    // Sort teams: winner first, then by score descending
+    const teamEntries = Object.entries(tradeScore.team_scores)
+      .sort((a, b) => {
+        if (a[0] === tradeScore.winner) return -1;
+        if (b[0] === tradeScore.winner) return 1;
+        return b[1].score - a[1].score;
+      });
+
+    // For each team, find scored players from the trade assets and build stint nodes
+    let colIdx = 0;
+    for (const [teamId, teamData] of teamEntries) {
+      // Get player names from assets list (if available) or fall back to trade assets
+      const scoredNames: string[] = [];
+      if (teamData.assets && teamData.assets.length > 0) {
+        for (const a of teamData.assets) {
+          if (a.name && a.score > 0) scoredNames.push(a.name);
+        }
+      } else {
+        // Fall back: get players received by this team from the trade
+        for (const a of rootTrade.transaction_assets) {
+          if (a.asset_type === 'player' && a.player_name && a.to_team_id === teamId) {
+            scoredNames.push(a.player_name);
+          }
+        }
+      }
+
+      if (scoredNames.length === 0) {
+        colIdx++; // gap column between teams
+        continue;
+      }
+
+      // Fetch all player seasons + accolades in parallel
+      const playerDataPromises = scoredNames.map(async (name) => {
+        const [seasonsRes, accoladesRes] = await Promise.all([
+          sb.from('player_seasons').select('*')
+            .ilike('player_name', name)
+            .eq('team_id', teamId)
+            .order('season', { ascending: true }) as unknown as Promise<{ data: PlayerSeason[] | null }>,
+          sb.from('player_accolades').select('*')
+            .ilike('player_name', name) as unknown as Promise<{ data: PlayerAccolade[] | null }>,
+        ]);
+        return { name, seasons: seasonsRes.data, accolades: accoladesRes.data };
+      });
+
+      const playerDataResults = await Promise.all(playerDataPromises);
+
+      for (const { name, seasons, accolades } of playerDataResults) {
+        if (!seasons || seasons.length === 0) continue;
+
+        const stintSeasons = seasons.map(s => s.season);
+
+        // Build accolades for this stint
+        const stintAccolades: string[] = [];
+        if (accolades) {
+          for (const a of accolades) {
+            if (a.season && stintSeasons.includes(a.season)) {
+              stintAccolades.push(a.accolade);
+            }
+          }
+        }
+
+        const sid = stintNodeId(name, teamId, 0);
+        allNodes.push(makeStintNode(
+          name, teamId, 0, stintSeasons,
+          avg(seasons.map(s => s.ppg)),
+          avg(seasons.map(s => s.rpg)),
+          avg(seasons.map(s => s.apg)),
+          sum(seasons.map(s => s.win_shares)),
+          [...new Set(stintAccolades)],
+        ));
+
+        // Edge: root trade → stint
+        allEdges.push(makeEdge(rootNodeId, sid));
+
+        // Column assignment
+        playerCols.set(name, colIdx);
+        anchorTrades.set(name, rootNodeId);
+        anchorDirs.set(name, 'forward');
+        colIdx++;
+      }
+
+      colIdx++; // gap column between teams
+    }
+
+    if (allNodes.length <= 1) {
+      // No player data found — just show the trade
+      get().seedFromTrade(rootTrade);
+      return;
+    }
+
+    const laid = layoutPlayerTimeline(allNodes, allEdges, playerCols, expandedSet, new Set(), anchorTrades, anchorDirs);
+
+    set({
+      nodes: laid,
+      edges: allEdges,
+      expandedNodes: expandedSet,
+      loadingNodes: new Set(),
+      coreNodes: new Set(laid.map(n => n.id)),
+      layoutMode: 'timeline',
+      playerColumns: playerCols,
+      playerAnchorTrades: anchorTrades,
+      playerAnchorDirections: anchorDirs,
+      nextColumnIndex: colIdx,
+      prevColumnIndex: -1,
+      pendingFitTarget: rootNodeId,
+      expandedGapIds: new Set(),
+    });
+
+    setTimeout(() => get().expandTradeNode(rootNodeId), 50);
+  },
+
+  // ── Seed "Trade Tree" view ────────────────────────────────────────
+  seedTradeTree: async (tradeId: string) => {
+    const sb = getSupabase();
+
+    // Fetch chain scores for this trade
+    const { data } = await sb
+      .from('trade_chain_scores')
+      .select('chain_scores')
+      .eq('trade_id', tradeId)
+      .single() as unknown as { data: { chain_scores: Record<string, ChainTeamData> } | null };
+
+    const chainScores = data?.chain_scores ?? undefined;
+
+    // Delegate to existing seedFromChain
+    await get().seedFromChain(tradeId, chainScores);
   },
 
   // ── Seed from player ─────────────────────────────────────────────
