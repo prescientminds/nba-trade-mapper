@@ -150,6 +150,7 @@ interface GraphState {
   seedFromChain: (tradeId: string, chainScores?: Record<string, ChainTeamData>) => Promise<void>;
   seedFromPlayer: (playerName: string) => Promise<void>;
   expandWeb: (sourceTradeNodeId: string) => Promise<void>;
+  collapseWeb: (sourceTradeNodeId: string) => void;
   expandTradeNode: (nodeId: string) => void;
   expandPlayerNode: (nodeId: string) => Promise<void>;
   expandPickNode: (nodeId: string) => void;
@@ -1241,9 +1242,10 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const playerNames: string[] = [];
     const seenNames = new Set<string>();
     for (const a of sourceTrade.transaction_assets ?? []) {
-      if (a.asset_type === 'player' && a.player_name && !seenNames.has(a.player_name)) {
-        seenNames.add(a.player_name);
-        playerNames.push(a.player_name);
+      const name = a.asset_type === 'player' ? a.player_name : a.became_player_name;
+      if (name && !seenNames.has(name)) {
+        seenNames.add(name);
+        playerNames.push(name);
       }
     }
     if (playerNames.length === 0) return;
@@ -1298,7 +1300,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         // No stints on graph yet — this is the first expansion
         // Find which stint this trade sends the player to
         const asset = sourceTrade.transaction_assets?.find(
-          a => a.asset_type === 'player' && a.player_name === name
+          a => (a.asset_type === 'player' && a.player_name === name) ||
+               ((a.asset_type === 'pick' || a.asset_type === 'swap') && a.became_player_name === name)
         );
         const toTeamId = asset?.to_team_id;
         if (!toTeamId) continue;
@@ -1480,6 +1483,68 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       layoutMode: 'timeline',
       pendingFitTarget: sourceTradeNodeId,
     });
+  },
+
+  // ── Collapse web — remove outermost layer of nodes from a trade ──
+  collapseWeb: (sourceTradeNodeId: string) => {
+    const state = get();
+
+    // BFS forward from source trade to find all downstream nodes
+    const adjacency = new Map<string, string[]>();
+    for (const e of state.edges) {
+      if (!adjacency.has(e.source)) adjacency.set(e.source, []);
+      adjacency.get(e.source)!.push(e.target);
+    }
+
+    const descendants = new Set<string>();
+    const queue: string[] = [];
+    for (const child of adjacency.get(sourceTradeNodeId) ?? []) {
+      descendants.add(child);
+      queue.push(child);
+    }
+    while (queue.length > 0) {
+      const current = queue.shift()!;
+      for (const child of adjacency.get(current) ?? []) {
+        if (!descendants.has(child)) {
+          descendants.add(child);
+          queue.push(child);
+        }
+      }
+    }
+
+    if (descendants.size === 0) return;
+
+    // Find leaf nodes among descendants — nodes with no outgoing edges to other descendants
+    const leaves = new Set<string>();
+    for (const id of descendants) {
+      const children = adjacency.get(id) ?? [];
+      const hasDescendantChild = children.some(c => descendants.has(c));
+      if (!hasDescendantChild) {
+        leaves.add(id);
+      }
+    }
+
+    if (leaves.size === 0) return;
+
+    // Remove leaf nodes
+    const newNodes = state.nodes.filter(n => !leaves.has(n.id));
+    const newEdges = state.edges.filter(e => !leaves.has(e.source) && !leaves.has(e.target));
+    const newExpanded = new Set(state.expandedNodes);
+    for (const id of leaves) newExpanded.delete(id);
+
+    // Clean up orphans
+    const cleaned = removeOrphanedNodes(newNodes, newEdges, state.coreNodes);
+
+    if (state.layoutMode === 'timeline') {
+      const laid = layoutPlayerTimeline(
+        cleaned.nodes, cleaned.edges, state.playerColumns,
+        newExpanded, state.expandedGapIds,
+        state.playerAnchorTrades, state.playerAnchorDirections,
+      );
+      set({ nodes: laid, edges: cleaned.edges, expandedNodes: newExpanded });
+    } else {
+      set({ nodes: cleaned.nodes, edges: cleaned.edges, expandedNodes: newExpanded });
+    }
   },
 
   // ── Seed from player ─────────────────────────────────────────────

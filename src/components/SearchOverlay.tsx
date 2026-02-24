@@ -83,7 +83,8 @@ export default function SearchOverlay() {
     return () => document.removeEventListener('mousedown', handler);
   }, []);
 
-  const showDropdown = open && (results.trades.length > 0 || results.players.length > 0);
+  const hasResults = results.trades.length > 0 || results.players.length > 0;
+  const showDropdown = open && (hasResults || (!searching && query.length >= 2));
 
   // ── Search input + dropdown (shared between both layouts) ─────────────────
 
@@ -189,6 +190,13 @@ export default function SearchOverlay() {
         zIndex: 20,
       }}
     >
+      {/* No results */}
+      {!hasResults && !searching && query.length >= 2 && (
+        <div style={{ padding: '16px 20px', fontSize: 12, color: 'var(--text-muted)', textAlign: 'center' }}>
+          No results for &ldquo;{query}&rdquo;
+        </div>
+      )}
+
       {/* Player results */}
       {results.players.length > 0 && (
         <div style={{ padding: '8px 0' }}>
@@ -388,7 +396,7 @@ export default function SearchOverlay() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          paddingTop: '14vh',
+          paddingTop: '6vh',
           paddingBottom: 56,
           paddingLeft: 24,
           paddingRight: 24,

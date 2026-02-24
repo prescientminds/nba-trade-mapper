@@ -112,6 +112,39 @@ export async function searchStaticTrades(query: string): Promise<{
   };
 }
 
+// ── Find all trades for a specific player ───────────────────────────
+
+export async function findTradesForPlayer(playerName: string): Promise<StaticTrade[]> {
+  const index = await loadSearchIndex();
+  const lowerName = playerName.toLowerCase();
+
+  // Find all index entries where this player appears (exact match)
+  const matching = index.filter(entry =>
+    entry.players.some(p => p.toLowerCase() === lowerName)
+  );
+
+  // Load full trade objects grouped by season
+  const seasonGroups = new Map<string, string[]>();
+  for (const entry of matching) {
+    if (!seasonGroups.has(entry.season)) seasonGroups.set(entry.season, []);
+    seasonGroups.get(entry.season)!.push(entry.id);
+  }
+
+  const trades: StaticTrade[] = [];
+  for (const [season, ids] of seasonGroups) {
+    const seasonTrades = await loadSeason(season);
+    for (const id of ids) {
+      const t = seasonTrades.find(st => st.id === id);
+      if (t) trades.push(t);
+    }
+  }
+
+  // Sort by date descending (most recent first)
+  trades.sort((a, b) => b.date.localeCompare(a.date));
+
+  return trades;
+}
+
 // ── Conversion: StaticTrade → TradeWithDetails ───────────────────────
 // Allows the existing graph-store to work with static trades seamlessly.
 
