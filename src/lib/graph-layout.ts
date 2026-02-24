@@ -21,7 +21,7 @@ function expandedTradeDimensions(node: Node): { width: number; height: number } 
   const seen = new Set<string>();
   let assetCount = 0;
   for (const a of assets) {
-    const key = `${a.asset_type}|${a.player_name ?? ''}|${a.pick_year ?? ''}|${a.from_team_id ?? ''}|${a.to_team_id ?? ''}`;
+    const key = `${a.asset_type}|${a.player_name ?? ''}|${a.pick_year ?? ''}|${a.from_team_id ?? ''}|${a.to_team_id ?? ''}|${a.became_player_name ?? ''}|${a.notes ?? ''}`;
     if (!seen.has(key)) {
       seen.add(key);
       assetCount++;

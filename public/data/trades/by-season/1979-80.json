@@ -1880,14 +1880,14 @@
     ],
     "assets": [
       {
-        "type": "pick",
-        "player_name": null,
+        "type": "player",
+        "player_name": "Robert Parish",
         "from_team_id": "GSW",
         "to_team_id": "BOS",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Robert Parish",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1895,33 +1895,33 @@
         "player_name": null,
         "from_team_id": "GSW",
         "to_team_id": "BOS",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
+        "pick_year": 1980,
+        "pick_round": 1,
+        "original_team_id": "GSW",
         "became_player_name": "Kevin McHale",
-        "notes": null
+        "notes": "1980 R1 Pick #3"
       },
       {
         "type": "pick",
         "player_name": null,
         "from_team_id": "BOS",
         "to_team_id": "GSW",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
+        "pick_year": 1980,
+        "pick_round": 1,
+        "original_team_id": "BOS",
         "became_player_name": "Joe Barry Carroll",
-        "notes": null
+        "notes": "1980 R1 Pick #1"
       },
       {
         "type": "pick",
         "player_name": null,
         "from_team_id": "BOS",
         "to_team_id": "GSW",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
+        "pick_year": 1980,
+        "pick_round": 1,
+        "original_team_id": "BOS",
         "became_player_name": "Rickey Brown",
-        "notes": null
+        "notes": "1980 R1 Pick #13"
       }
     ]
   },

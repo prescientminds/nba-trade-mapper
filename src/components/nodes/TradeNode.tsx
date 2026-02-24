@@ -95,7 +95,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
     let players = 0;
     let picks = 0;
     for (const a of trade.transaction_assets) {
-      const key = `${a.asset_type}|${a.player_name ?? ''}|${a.pick_year ?? ''}|${a.from_team_id ?? ''}|${a.to_team_id ?? ''}`;
+      const key = `${a.asset_type}|${a.player_name ?? ''}|${a.pick_year ?? ''}|${a.from_team_id ?? ''}|${a.to_team_id ?? ''}|${a.became_player_name ?? ''}|${a.notes ?? ''}`;
       if (seen.has(key)) continue;
       seen.add(key);
       if (a.asset_type === 'player') players++;
@@ -113,7 +113,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
     const groups: Record<string, TransactionAsset[]> = {};
     const seen = new Set<string>();
     for (const asset of trade.transaction_assets) {
-      const key = `${asset.asset_type}|${asset.player_name ?? ''}|${asset.pick_year ?? ''}|${asset.from_team_id ?? ''}|${asset.to_team_id ?? ''}`;
+      const key = `${asset.asset_type}|${asset.player_name ?? ''}|${asset.pick_year ?? ''}|${asset.from_team_id ?? ''}|${asset.to_team_id ?? ''}|${asset.became_player_name ?? ''}|${asset.notes ?? ''}`;
       if (seen.has(key)) continue;
       seen.add(key);
       const team = asset.to_team_id || 'Unknown';
