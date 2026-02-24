@@ -139,6 +139,15 @@ function TradeNodeComponent({ id, data }: NodeProps) {
     return Math.max(...scoreEntries.map(([, ts]) => ts.score), 0.01);
   }, [scoreEntries]);
 
+  // Look up per-asset score from trade_scores data
+  const getAssetScore = (teamId: string, assetName: string | null | undefined): number | null => {
+    if (!tradeScore || !assetName) return null;
+    const teamData = tradeScore.team_scores[teamId];
+    if (!teamData?.assets) return null;
+    const found = teamData.assets.find((a) => a.name === assetName);
+    return found && found.score > 0 ? found.score : null;
+  };
+
   // Check if an asset's forward stint/node is already on canvas
   const isInGraph = (asset: TransactionAsset) => {
     if (asset.asset_type === 'player' && asset.player_name && asset.to_team_id) {
@@ -228,9 +237,9 @@ function TradeNodeComponent({ id, data }: NodeProps) {
         </div>
       )}
 
-      {/* + / − buttons — top-right corner */}
-      {isExpanded && !isLoading && (
-        <div style={{ position: 'absolute', top: 4, right: !isCore ? 24 : 4, display: 'flex', gap: 2, zIndex: 2 }}>
+      {/* + / − buttons — top-right corner, always visible */}
+      {!isLoading && (
+        <div style={{ position: 'absolute', top: 4, right: (isExpanded && !isCore) ? 24 : 4, display: 'flex', gap: 2, zIndex: 2 }}>
           {/* Collapse (−) */}
           <div
             className="nopan nodrag"
@@ -249,14 +258,18 @@ function TradeNodeComponent({ id, data }: NodeProps) {
           >
             −
           </div>
-          {/* Expand (+) */}
+          {/* Expand (+) — first press expands card, subsequent presses expand web */}
           <div
             className="nopan nodrag"
             onClick={(e) => {
               e.stopPropagation();
               if (expandLoading) return;
-              setExpandLoading(true);
-              expandWeb(id).finally(() => setExpandLoading(false));
+              if (!isExpanded) {
+                expandTradeNode(id);
+              } else {
+                setExpandLoading(true);
+                expandWeb(id).finally(() => setExpandLoading(false));
+              }
             }}
             style={{
               width: 16, height: 16,
@@ -589,6 +602,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
 
                   if (isPlayer) {
                     const playerName = asset.player_name!;
+                    const playerScore = getAssetScore(teamId, playerName);
                     const inlineData = inlinePlayers?.[playerName];
                     const isInlineExpanded = !!inlineData && !inlineData.isLoading;
                     const isInlineLoading = inlineData?.isLoading;
@@ -632,6 +646,18 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                           >
                             {playerName}
                           </div>
+
+                          {/* Per-asset score */}
+                          {playerScore !== null && (
+                            <span style={{
+                              fontSize: 8,
+                              fontFamily: 'var(--font-mono)',
+                              color: 'var(--text-muted)',
+                              flexShrink: 0,
+                            }}>
+                              {playerScore.toFixed(1)}
+                            </span>
+                          )}
 
                           {/* Inline loading indicator */}
                           {isInlineLoading && (
@@ -738,6 +764,8 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   // No usable data — skip rather than render an empty row
                   if (!label) return null;
 
+                  const pickScore = getAssetScore(teamId, asset.became_player_name);
+
                   return (
                     <div
                       key={asset.id}
@@ -762,7 +790,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                         e.currentTarget.style.background = 'transparent';
                       }}
                     >
-                      <div>
+                      <div style={{ flex: 1, minWidth: 0 }}>
                         <div>{label}</div>
                         {sublabel && (
                           <div style={{ fontSize: 9, color: 'var(--accent-gold)', fontWeight: 400 }}>
@@ -770,6 +798,17 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                           </div>
                         )}
                       </div>
+                      {/* Per-asset score for picks */}
+                      {pickScore !== null && (
+                        <span style={{
+                          fontSize: 8,
+                          fontFamily: 'var(--font-mono)',
+                          color: 'var(--text-muted)',
+                          flexShrink: 0,
+                        }}>
+                          {pickScore.toFixed(1)}
+                        </span>
+                      )}
                       {!inGraph ? (
                         <div
                           className="nopan nodrag"
@@ -837,7 +876,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
             color: 'var(--text-muted)',
           }}
         >
-          click to expand
+          +
         </div>
       )}
 

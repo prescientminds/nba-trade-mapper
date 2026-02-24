@@ -33,6 +33,7 @@ A **visual graph explorer** for NBA trades and player journeys. The entire UI is
 - **Trade verdict UI** — expanded TradeNode shows compact bar chart, winner highlighted, lazy-fetched on first expand.
 - **SeasonTable** — playoff result badges inline per season row (CONF=teal, FINALS=purple, CHAMP=gold); accolade badges; W/L footer.
 - **Player journeys** — stints chained by trade nodes; `← Hist` (backward) and `Path →` (forward) buttons; inline stats panel per player in trade card.
+- **Expand web (+/−)** — multi-degree expansion via BFS across all reachable trade nodes. Handles free agency (direct stint→stint edges). Collapse peels leaf layer.
 - **Data quality clean** — all team IDs validated; NOP/CHA era fixed (50 trades); Pippen/Polynice pick names corrected.
 - **Build compiles cleanly** (`npm run build` passes) | **Deployed to Vercel** — auto-deploys on push
 
@@ -103,6 +104,15 @@ Using Harden as the reference implementation:
 
 #### 6. (Optional) Salary/contract data
 - `player_contracts` table exists but is empty. Could scrape HoopsHype.
+
+### Recent Changes (Feb 2026)
+
+#### expandWeb multi-degree + free agency — ✅ DONE (Feb 2026)
+- **File:** `graph-store.ts` `expandWeb` function (~lines 1241–1510)
+- **Bug 1 fixed:** Robert Parish (BOS→CHA→CHI via FA) — `findTradeBetweenStints` returns null for FA moves. Now creates direct stint→stint edges instead of silently dropping the player.
+- **Bug 2 fixed:** Only source trade players expanded — BFS now collects players from ALL reachable trade nodes, so downstream trade players expand on subsequent + clicks.
+- **Key additions:** `playerOriginTrade` map, `playerDataMap` for FA fallback, `nextStintIdx` threading, `hasOutgoing` checks both trade and stint edges.
+- **Tested:** Parish FA expansion, Harden normal expansion, collapse all confirmed working.
 
 ### What's Remaining (Next Priorities)
 
@@ -374,11 +384,12 @@ npx tsx scripts/score-trades.ts                         # Recompute all trade sc
 - ⚠️ `database/sample_data.sql` is legacy dead code
 
 ## Next Session Priority
-1. **Compact node sizing** — all nodes still too large (TradeNode, PlayerStintNode, PlayerNode). Start here.
-2. **Per-asset score display** — show `team_scores.assets[].score` next to each player name in expanded TradeNode
-3. **Winner badge on collapsed TradeNode** — fetch score in `expandTradeNode` store action, persist in `TradeNodeData`
-4. **"Paved the way" chain** — trace backward from championship roster through founding trades
-5. **Explore by trade score** — ranked list of most lopsided trades, seeding the graph on click
+1. **Push expandWeb fix** — tested and working, needs `git push` to deploy via Vercel
+2. **Compact node sizing** — all nodes still too large (TradeNode, PlayerStintNode, PlayerNode). Biggest UX win remaining.
+3. **Per-asset score display** — show `team_scores.assets[].score` next to each player name in expanded TradeNode
+4. **Winner badge on collapsed TradeNode** — fetch score in `expandTradeNode` store action, persist in `TradeNodeData`
+5. **"Paved the way" chain** — trace backward from championship roster through founding trades
+6. **Explore by trade score** — ranked list of most lopsided trades, seeding the graph on click
 
 ## Data Quality Notes (Feb 2026)
 - ✅ Trade direction fixed (fix-csv-trades.py) — all 1,535 CSV-era trades have correct sides

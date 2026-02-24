@@ -1238,14 +1238,42 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const sourceData = sourceNode.data as TradeNodeData;
     const sourceTrade = sourceData.trade;
 
-    // Collect unique player names from this trade
+    // BFS forward from source trade to find ALL reachable trade nodes on graph
+    const reachableTradeNodeIds: string[] = [sourceTradeNodeId];
+    const bfsVisited = new Set<string>([sourceTradeNodeId]);
+    const bfsQueue = [sourceTradeNodeId];
+    while (bfsQueue.length > 0) {
+      const nodeId = bfsQueue.shift()!;
+      for (const edge of state.edges) {
+        if (edge.source !== nodeId) continue;
+        if (bfsVisited.has(edge.target)) continue;
+        bfsVisited.add(edge.target);
+        const targetNode = state.nodes.find(n => n.id === edge.target);
+        if (!targetNode) continue;
+        if (targetNode.type === 'trade') reachableTradeNodeIds.push(targetNode.id);
+        bfsQueue.push(targetNode.id);
+      }
+    }
+
+    // Collect unique player names from ALL reachable trade nodes
     const playerNames: string[] = [];
     const seenNames = new Set<string>();
-    for (const a of sourceTrade.transaction_assets ?? []) {
-      const name = a.asset_type === 'player' ? a.player_name : a.became_player_name;
-      if (name && !seenNames.has(name)) {
-        seenNames.add(name);
-        playerNames.push(name);
+    const playerOriginTrade = new Map<string, { tradeNodeId: string; toTeamId: string | null; fromTeamId: string | null }>();
+    for (const tradeNId of reachableTradeNodeIds) {
+      const tradeNode = state.nodes.find(n => n.id === tradeNId);
+      if (!tradeNode) continue;
+      const td = tradeNode.data as TradeNodeData;
+      for (const a of td.trade.transaction_assets ?? []) {
+        const name = a.asset_type === 'player' ? a.player_name : a.became_player_name;
+        if (name && !seenNames.has(name)) {
+          seenNames.add(name);
+          playerNames.push(name);
+          playerOriginTrade.set(name, {
+            tradeNodeId: tradeNId,
+            toTeamId: a.to_team_id,
+            fromTeamId: a.from_team_id,
+          });
+        }
       }
     }
     if (playerNames.length === 0) return;
@@ -1266,19 +1294,24 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       })
     );
 
+    // Build lookup map for reuse in FA fallback
+    const playerDataMap = new Map<string, { seasons: PlayerSeason[]; accolades: PlayerAccolade[] | null; stints: Stint[] }>();
+
     let currentState = get();
     const newNodes: Node[] = [];
     const newEdges: Edge[] = [];
 
     // For each player, figure out where their journey currently ends on
     // the graph and add the next leg
-    const nextTradeSearches: { name: string; stintIdx: number; fromTeamId: string; toTeamId: string | null; lastSeason: string; firstSeason: string | null }[] = [];
+    const nextTradeSearches: { name: string; stintIdx: number; nextStintIdx: number | undefined; fromTeamId: string; toTeamId: string | null; lastSeason: string; firstSeason: string | null }[] = [];
 
     for (const { name, seasons, accolades } of playerDataResults) {
       if (!seasons || seasons.length === 0) continue;
 
       const allStints = groupIntoStints(seasons.filter(s => s.team_id));
       if (allStints.length === 0) continue;
+
+      playerDataMap.set(name, { seasons, accolades: accolades ?? null, stints: allStints });
 
       const playerSlug = name.toLowerCase().replace(/\s+/g, '-');
 
@@ -1297,63 +1330,57 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       let edgeFromId: string; // node ID to draw the edge FROM
 
       if (lastVisibleStintIdx === -1) {
-        // No stints on graph yet — this is the first expansion
-        // Find which stint this trade sends the player to
-        const asset = sourceTrade.transaction_assets?.find(
-          a => (a.asset_type === 'player' && a.player_name === name) ||
-               ((a.asset_type === 'pick' || a.asset_type === 'swap') && a.became_player_name === name)
-        );
-        const toTeamId = asset?.to_team_id;
-        if (!toTeamId) continue;
+        // No stints on graph yet — find which trade introduces this player
+        const origin = playerOriginTrade.get(name);
+        if (!origin || !origin.toTeamId) continue;
 
         let idx = -1;
         for (let i = 0; i < allStints.length; i++) {
-          if (allStints[i].teamId === toTeamId) { idx = i; break; }
+          if (allStints[i].teamId === origin.toTeamId) { idx = i; break; }
         }
         // Fallback: first stint after the from team
-        if (idx === -1 && asset?.from_team_id) {
+        if (idx === -1 && origin.fromTeamId) {
           let fromIdx = -1;
           for (let i = 0; i < allStints.length; i++) {
-            if (allStints[i].teamId === asset.from_team_id) { fromIdx = i; break; }
+            if (allStints[i].teamId === origin.fromTeamId) { fromIdx = i; break; }
           }
           if (fromIdx >= 0 && fromIdx + 1 < allStints.length) idx = fromIdx + 1;
         }
         if (idx === -1) continue;
 
         stintToAdd = idx;
-        edgeFromId = sourceTradeNodeId;
+        edgeFromId = origin.tradeNodeId;
       } else {
         // There's a visible stint — check if the next hop exists
         // We need: last visible stint → trade → next stint
         // Check if there's already a trade edge going out of the last stint
         const lastSid = stintNodeId(name, allStints[lastVisibleStintIdx].teamId, lastVisibleStintIdx);
 
-        // Is there already an outgoing edge from this stint to a trade?
-        const hasOutgoingTrade = currentState.edges.some(e =>
-          e.source === lastSid && e.target.startsWith('trade-')
+        // Is there already an outgoing edge from this stint to a trade or another stint (FA)?
+        const hasOutgoing = currentState.edges.some(e =>
+          e.source === lastSid && (e.target.startsWith('trade-') || e.target.startsWith('stint-'))
         );
 
-        if (hasOutgoingTrade) {
-          // Trade node exists after this stint. Find the next stint after it.
+        if (hasOutgoing) {
+          // Trade or FA edge exists after this stint. Find the next stint after it.
           if (lastVisibleStintIdx + 1 >= allStints.length) continue; // no more stints
 
-          // The trade between lastVisibleStintIdx and the next should already be on graph
-          // We need to add the next stint and the trade after it
           stintToAdd = lastVisibleStintIdx + 1;
 
-          // Find the trade node between these stints (it should already be on graph)
+          // Find the outgoing edge (could be trade or direct stint-to-stint for FA)
           const outEdge = currentState.edges.find(e =>
-            e.source === lastSid && e.target.startsWith('trade-')
+            e.source === lastSid && (e.target.startsWith('trade-') || e.target.startsWith('stint-'))
           );
           edgeFromId = outEdge ? outEdge.target : lastSid;
         } else {
-          // No outgoing trade yet — need to add the trade between this stint and the next
+          // No outgoing edge yet — need to find the trade between this stint and the next
           const fromStint = allStints[lastVisibleStintIdx];
           const toStint = lastVisibleStintIdx + 1 < allStints.length ? allStints[lastVisibleStintIdx + 1] : null;
 
           nextTradeSearches.push({
             name,
             stintIdx: lastVisibleStintIdx,
+            nextStintIdx: toStint ? lastVisibleStintIdx + 1 : undefined,
             fromTeamId: fromStint.teamId,
             toTeamId: toStint?.teamId ?? null,
             lastSeason: fromStint.seasons[fromStint.seasons.length - 1].season,
@@ -1394,6 +1421,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       nextTradeSearches.push({
         name,
         stintIdx: stintToAdd,
+        nextStintIdx: nextStint ? stintToAdd + 1 : undefined,
         fromTeamId: stint.teamId,
         toTeamId: nextStint?.teamId ?? null,
         lastSeason: stint.seasons[stint.seasons.length - 1].season,
@@ -1403,7 +1431,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     // Find inter-stint trades
     const nextTradeResults = await Promise.all(
-      nextTradeSearches.map(async ({ name, stintIdx, fromTeamId, toTeamId, lastSeason, firstSeason }) => {
+      nextTradeSearches.map(async ({ name, stintIdx, nextStintIdx, fromTeamId, toTeamId, lastSeason, firstSeason }) => {
         let trade: StaticTrade | null = null;
         if (toTeamId && firstSeason) {
           // Normal case: we know both teams
@@ -1424,14 +1452,48 @@ export const useGraphStore = create<GraphState>((set, get) => ({
             return playerAsset?.from_team_id === fromTeamId;
           }) ?? null;
         }
-        return { name, stintIdx, fromTeamId, trade };
+        return { name, stintIdx, nextStintIdx, fromTeamId, trade };
       })
     );
 
     currentState = get();
 
-    for (const { name, stintIdx, fromTeamId, trade } of nextTradeResults) {
-      if (!trade) continue;
+    for (const { name, stintIdx, nextStintIdx, fromTeamId, trade } of nextTradeResults) {
+      if (!trade) {
+        // No trade found — free agency: create direct stint → stint edge
+        if (nextStintIdx === undefined) continue;
+        const pData = playerDataMap.get(name);
+        if (!pData) continue;
+        const { stints: faStints, accolades: faAccolades } = pData;
+        if (nextStintIdx >= faStints.length) continue;
+
+        const nextStint = faStints[nextStintIdx];
+        const nextSid = stintNodeId(name, nextStint.teamId, nextStintIdx);
+        if (!currentState.nodes.some(n => n.id === nextSid) && !newNodes.some(n => n.id === nextSid)) {
+          const stintSeasons = nextStint.seasons.map(s => s.season);
+          const stintAccolades: string[] = [];
+          if (faAccolades) {
+            for (const a of faAccolades) {
+              if (a.season && stintSeasons.includes(a.season)) stintAccolades.push(a.accolade);
+            }
+          }
+          newNodes.push(makeStintNode(
+            name, nextStint.teamId, nextStintIdx, stintSeasons,
+            avg(nextStint.seasons.map(s => s.ppg)),
+            avg(nextStint.seasons.map(s => s.rpg)),
+            avg(nextStint.seasons.map(s => s.apg)),
+            sum(nextStint.seasons.map(s => s.win_shares)),
+            [...new Set(stintAccolades)],
+          ));
+        }
+
+        // Direct stint → stint edge (free agency)
+        const fromSid = stintNodeId(name, fromTeamId, stintIdx);
+        if (!edgeExists(currentState.edges, fromSid, nextSid) && !edgeExists(newEdges, fromSid, nextSid)) {
+          newEdges.push(makeEdge(fromSid, nextSid));
+        }
+        continue;
+      }
 
       const tradeNId = tradeNodeId(trade.id);
       if (!currentState.nodes.some(n => n.id === tradeNId) && !newNodes.some(n => n.id === tradeNId)) {
@@ -1459,7 +1521,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         nextColIdx++;
       }
       if (!newAnchorTrades.has(name)) {
-        newAnchorTrades.set(name, sourceTradeNodeId);
+        const origin = playerOriginTrade.get(name);
+        newAnchorTrades.set(name, origin?.tradeNodeId ?? sourceTradeNodeId);
         newAnchorDirections.set(name, 'forward');
       }
     }
