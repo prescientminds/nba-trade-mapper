@@ -1982,8 +1982,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   // ── Expand player stats inline within trade card ───────────────
   // Clicking a player name toggles their season stats inline in the trade card.
   expandInlineTradePlayer: async (tradeNodeId_: string, asset: TransactionAsset) => {
-    if (asset.asset_type !== 'player' || !asset.player_name) return;
-    const playerName = asset.player_name;
+    const playerName = asset.player_name ?? asset.became_player_name;
+    if (!playerName) return;
     const toTeamId = asset.to_team_id;
     if (!toTeamId) return;
 
@@ -2143,8 +2143,13 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   expandPlayerFromTrade: async (tradeNodeId_: string, asset: TransactionAsset) => {
     const state = get();
 
-    if (asset.asset_type === 'player' && asset.player_name) {
-      const playerName = asset.player_name;
+    // Expand as player journey: player assets directly, or picks with a resolved drafted player
+    const expandAsPlayer =
+      (asset.asset_type === 'player' && asset.player_name) ||
+      ((asset.asset_type === 'pick' || asset.asset_type === 'swap') && asset.became_player_name);
+
+    if (expandAsPlayer) {
+      const playerName = (asset.player_name ?? asset.became_player_name)!;
       const toTeamId = asset.to_team_id;
       if (!toTeamId) return;
 
