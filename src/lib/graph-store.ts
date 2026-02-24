@@ -148,9 +148,8 @@ interface GraphState {
 
   seedFromTrade: (trade: TradeWithDetails) => void;
   seedFromChain: (tradeId: string, chainScores?: Record<string, ChainTeamData>) => Promise<void>;
-  seedWhoWon: (tradeId: string, tradeScore: { team_scores: Record<string, { score: number; assets?: { name: string; score: number }[] }>; winner: string | null; lopsidedness: number }) => Promise<void>;
-  seedTradeTree: (tradeId: string) => Promise<void>;
   seedFromPlayer: (playerName: string) => Promise<void>;
+  expandWeb: (sourceTradeNodeId: string) => Promise<void>;
   expandTradeNode: (nodeId: string) => void;
   expandPlayerNode: (nodeId: string) => Promise<void>;
   expandPickNode: (nodeId: string) => void;
@@ -678,7 +677,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       prevColumnIndex: -1,
       pendingFitTarget: null,
       expandedGapIds: new Set(),
-    });
+        });
   },
 
   clearPendingFitTarget: () => set({ pendingFitTarget: null }),
@@ -1219,150 +1218,268 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     setTimeout(() => get().expandTradeNode(rootNodeId), 50);
   },
 
-  // ── Seed "Who Won?" view ──────────────────────────────────────────
-  seedWhoWon: async (tradeId: string, tradeScore: { team_scores: Record<string, { score: number; assets?: { name: string; score: number }[] }>; winner: string | null; lopsidedness: number }) => {
-    // Load root trade from static JSON
-    const rootStaticTrade = await loadTrade(tradeId);
-    if (!rootStaticTrade) return;
-    const rootTrade = staticTradeToTradeWithDetails(rootStaticTrade);
-    const rootNode = makeTradeNode(rootTrade, { x: 0, y: 0 });
-    const rootNodeId = rootNode.id;
+  // ── Expand web: one generation per click ────────────────────────
+  //
+  // Each click extends every player's journey by one leg:
+  //   Click 1: source trade → stint → next trade (for each player)
+  //   Click 2: next trade → stint → trade after that (continues from where each player left off)
+  //   Click N: keeps going until players have no more trades
+  //
+  // Works by finding the frontier: the latest stint node for each player
+  // that has an outgoing trade node but no stint after it yet, OR a stint
+  // that has no outgoing edge at all (end of what's visible).
+  //
+  expandWeb: async (sourceTradeNodeId: string) => {
+    const state = get();
 
-    const allNodes: Node[] = [rootNode];
-    const allEdges: Edge[] = [];
-    const expandedSet = new Set<string>([rootNodeId]);
-    const playerCols = new Map<string, number>();
-    const anchorTrades = new Map<string, string>();
-    const anchorDirs = new Map<string, 'forward' | 'backward' | 'both'>();
+    const sourceNode = state.nodes.find(n => n.id === sourceTradeNodeId);
+    if (!sourceNode || sourceNode.type !== 'trade') return;
+    const sourceData = sourceNode.data as TradeNodeData;
+    const sourceTrade = sourceData.trade;
+
+    // Collect unique player names from this trade
+    const playerNames: string[] = [];
+    const seenNames = new Set<string>();
+    for (const a of sourceTrade.transaction_assets ?? []) {
+      if (a.asset_type === 'player' && a.player_name && !seenNames.has(a.player_name)) {
+        seenNames.add(a.player_name);
+        playerNames.push(a.player_name);
+      }
+    }
+    if (playerNames.length === 0) return;
 
     const sb = getSupabase();
 
-    // Sort teams: winner first, then by score descending
-    const teamEntries = Object.entries(tradeScore.team_scores)
-      .sort((a, b) => {
-        if (a[0] === tradeScore.winner) return -1;
-        if (b[0] === tradeScore.winner) return 1;
-        return b[1].score - a[1].score;
-      });
-
-    // For each team, find scored players from the trade assets and build stint nodes
-    let colIdx = 0;
-    for (const [teamId, teamData] of teamEntries) {
-      // Get player names from assets list (if available) or fall back to trade assets
-      const scoredNames: string[] = [];
-      if (teamData.assets && teamData.assets.length > 0) {
-        for (const a of teamData.assets) {
-          if (a.name && a.score > 0) scoredNames.push(a.name);
-        }
-      } else {
-        // Fall back: get players received by this team from the trade
-        for (const a of rootTrade.transaction_assets) {
-          if (a.asset_type === 'player' && a.player_name && a.to_team_id === teamId) {
-            scoredNames.push(a.player_name);
-          }
-        }
-      }
-
-      if (scoredNames.length === 0) {
-        colIdx++; // gap column between teams
-        continue;
-      }
-
-      // Fetch all player seasons + accolades in parallel
-      const playerDataPromises = scoredNames.map(async (name) => {
+    // Fetch full career data for all players in parallel
+    const playerDataResults = await Promise.all(
+      playerNames.map(async (name) => {
         const [seasonsRes, accoladesRes] = await Promise.all([
           sb.from('player_seasons').select('*')
             .ilike('player_name', name)
-            .eq('team_id', teamId)
             .order('season', { ascending: true }) as unknown as Promise<{ data: PlayerSeason[] | null }>,
           sb.from('player_accolades').select('*')
             .ilike('player_name', name) as unknown as Promise<{ data: PlayerAccolade[] | null }>,
         ]);
         return { name, seasons: seasonsRes.data, accolades: accoladesRes.data };
-      });
+      })
+    );
 
-      const playerDataResults = await Promise.all(playerDataPromises);
+    let currentState = get();
+    const newNodes: Node[] = [];
+    const newEdges: Edge[] = [];
 
-      for (const { name, seasons, accolades } of playerDataResults) {
-        if (!seasons || seasons.length === 0) continue;
+    // For each player, figure out where their journey currently ends on
+    // the graph and add the next leg
+    const nextTradeSearches: { name: string; stintIdx: number; fromTeamId: string; toTeamId: string | null; lastSeason: string; firstSeason: string | null }[] = [];
 
-        const stintSeasons = seasons.map(s => s.season);
+    for (const { name, seasons, accolades } of playerDataResults) {
+      if (!seasons || seasons.length === 0) continue;
 
-        // Build accolades for this stint
+      const allStints = groupIntoStints(seasons.filter(s => s.team_id));
+      if (allStints.length === 0) continue;
+
+      const playerSlug = name.toLowerCase().replace(/\s+/g, '-');
+
+      // Find the furthest stint already on the graph for this player
+      let lastVisibleStintIdx = -1;
+      for (let i = allStints.length - 1; i >= 0; i--) {
+        const sid = stintNodeId(name, allStints[i].teamId, i);
+        if (currentState.nodes.some(n => n.id === sid) || newNodes.some(n => n.id === sid)) {
+          lastVisibleStintIdx = i;
+          break;
+        }
+      }
+
+      // Determine what to add next
+      let stintToAdd: number; // index into allStints of the stint to create
+      let edgeFromId: string; // node ID to draw the edge FROM
+
+      if (lastVisibleStintIdx === -1) {
+        // No stints on graph yet — this is the first expansion
+        // Find which stint this trade sends the player to
+        const asset = sourceTrade.transaction_assets?.find(
+          a => a.asset_type === 'player' && a.player_name === name
+        );
+        const toTeamId = asset?.to_team_id;
+        if (!toTeamId) continue;
+
+        let idx = -1;
+        for (let i = 0; i < allStints.length; i++) {
+          if (allStints[i].teamId === toTeamId) { idx = i; break; }
+        }
+        // Fallback: first stint after the from team
+        if (idx === -1 && asset?.from_team_id) {
+          let fromIdx = -1;
+          for (let i = 0; i < allStints.length; i++) {
+            if (allStints[i].teamId === asset.from_team_id) { fromIdx = i; break; }
+          }
+          if (fromIdx >= 0 && fromIdx + 1 < allStints.length) idx = fromIdx + 1;
+        }
+        if (idx === -1) continue;
+
+        stintToAdd = idx;
+        edgeFromId = sourceTradeNodeId;
+      } else {
+        // There's a visible stint — check if the next hop exists
+        // We need: last visible stint → trade → next stint
+        // Check if there's already a trade edge going out of the last stint
+        const lastSid = stintNodeId(name, allStints[lastVisibleStintIdx].teamId, lastVisibleStintIdx);
+
+        // Is there already an outgoing edge from this stint to a trade?
+        const hasOutgoingTrade = currentState.edges.some(e =>
+          e.source === lastSid && e.target.startsWith('trade-')
+        );
+
+        if (hasOutgoingTrade) {
+          // Trade node exists after this stint. Find the next stint after it.
+          if (lastVisibleStintIdx + 1 >= allStints.length) continue; // no more stints
+
+          // The trade between lastVisibleStintIdx and the next should already be on graph
+          // We need to add the next stint and the trade after it
+          stintToAdd = lastVisibleStintIdx + 1;
+
+          // Find the trade node between these stints (it should already be on graph)
+          const outEdge = currentState.edges.find(e =>
+            e.source === lastSid && e.target.startsWith('trade-')
+          );
+          edgeFromId = outEdge ? outEdge.target : lastSid;
+        } else {
+          // No outgoing trade yet — need to add the trade between this stint and the next
+          const fromStint = allStints[lastVisibleStintIdx];
+          const toStint = lastVisibleStintIdx + 1 < allStints.length ? allStints[lastVisibleStintIdx + 1] : null;
+
+          nextTradeSearches.push({
+            name,
+            stintIdx: lastVisibleStintIdx,
+            fromTeamId: fromStint.teamId,
+            toTeamId: toStint?.teamId ?? null,
+            lastSeason: fromStint.seasons[fromStint.seasons.length - 1].season,
+            firstSeason: toStint?.seasons[0].season ?? null,
+          });
+          continue; // will be handled after trade search
+        }
+      }
+
+      // Add the stint
+      const stint = allStints[stintToAdd];
+      const sid = stintNodeId(name, stint.teamId, stintToAdd);
+      if (!currentState.nodes.some(n => n.id === sid) && !newNodes.some(n => n.id === sid)) {
+        const stintSeasons = stint.seasons.map(s => s.season);
         const stintAccolades: string[] = [];
         if (accolades) {
           for (const a of accolades) {
-            if (a.season && stintSeasons.includes(a.season)) {
-              stintAccolades.push(a.accolade);
-            }
+            if (a.season && stintSeasons.includes(a.season)) stintAccolades.push(a.accolade);
           }
         }
-
-        const sid = stintNodeId(name, teamId, 0);
-        allNodes.push(makeStintNode(
-          name, teamId, 0, stintSeasons,
-          avg(seasons.map(s => s.ppg)),
-          avg(seasons.map(s => s.rpg)),
-          avg(seasons.map(s => s.apg)),
-          sum(seasons.map(s => s.win_shares)),
+        newNodes.push(makeStintNode(
+          name, stint.teamId, stintToAdd, stintSeasons,
+          avg(stint.seasons.map(s => s.ppg)),
+          avg(stint.seasons.map(s => s.rpg)),
+          avg(stint.seasons.map(s => s.apg)),
+          sum(stint.seasons.map(s => s.win_shares)),
           [...new Set(stintAccolades)],
         ));
-
-        // Edge: root trade → stint
-        allEdges.push(makeEdge(rootNodeId, sid));
-
-        // Column assignment
-        playerCols.set(name, colIdx);
-        anchorTrades.set(name, rootNodeId);
-        anchorDirs.set(name, 'forward');
-        colIdx++;
       }
 
-      colIdx++; // gap column between teams
+      // Edge from previous node to this stint
+      if (!edgeExists(currentState.edges, edgeFromId, sid) && !edgeExists(newEdges, edgeFromId, sid)) {
+        newEdges.push(makeEdge(edgeFromId, sid));
+      }
+
+      // Queue search for the trade AFTER this stint
+      const nextStint = stintToAdd + 1 < allStints.length ? allStints[stintToAdd + 1] : null;
+      nextTradeSearches.push({
+        name,
+        stintIdx: stintToAdd,
+        fromTeamId: stint.teamId,
+        toTeamId: nextStint?.teamId ?? null,
+        lastSeason: stint.seasons[stint.seasons.length - 1].season,
+        firstSeason: nextStint?.seasons[0].season ?? null,
+      });
     }
 
-    if (allNodes.length <= 1) {
-      // No player data found — just show the trade
-      get().seedFromTrade(rootTrade);
-      return;
+    // Find inter-stint trades
+    const nextTradeResults = await Promise.all(
+      nextTradeSearches.map(async ({ name, stintIdx, fromTeamId, toTeamId, lastSeason, firstSeason }) => {
+        let trade: StaticTrade | null = null;
+        if (toTeamId && firstSeason) {
+          // Normal case: we know both teams
+          trade = await findTradeBetweenStints(name, fromTeamId, toTeamId, lastSeason, firstSeason).catch(() => null);
+        } else {
+          // Last stint case: search all trades for this player after the last season
+          const allTrades = await findAllTradesForName(name).catch(() => [] as StaticTrade[]);
+          const nameLower = name.toLowerCase();
+          // Find the first trade after the last season where the player leaves fromTeamId
+          trade = allTrades.find(t => {
+            if (t.date < lastSeason) return false; // too early
+            const hasFromTeam = t.teams.some(tm => tm.team_id === fromTeamId);
+            if (!hasFromTeam) return false;
+            // Check the player is being sent FROM this team
+            const playerAsset = t.assets.find(a =>
+              a.type === 'player' && a.player_name?.toLowerCase() === nameLower
+            );
+            return playerAsset?.from_team_id === fromTeamId;
+          }) ?? null;
+        }
+        return { name, stintIdx, fromTeamId, trade };
+      })
+    );
+
+    currentState = get();
+
+    for (const { name, stintIdx, fromTeamId, trade } of nextTradeResults) {
+      if (!trade) continue;
+
+      const tradeNId = tradeNodeId(trade.id);
+      if (!currentState.nodes.some(n => n.id === tradeNId) && !newNodes.some(n => n.id === tradeNId)) {
+        newNodes.push(makeTradeNode(staticTradeToTradeWithDetails(trade)));
+      }
+
+      // Edge: stint → trade
+      const sid = stintNodeId(name, fromTeamId, stintIdx);
+      if (!edgeExists(currentState.edges, sid, tradeNId) && !edgeExists(newEdges, sid, tradeNId)) {
+        newEdges.push(makeEdge(sid, tradeNId));
+      }
     }
 
-    const laid = layoutPlayerTimeline(allNodes, allEdges, playerCols, expandedSet, new Set(), anchorTrades, anchorDirs);
+    if (newNodes.length === 0 && newEdges.length === 0) return;
+
+    // Assign columns for players
+    let playerCols = new Map(currentState.playerColumns);
+    let nextColIdx = currentState.nextColumnIndex;
+    const newAnchorTrades = new Map(currentState.playerAnchorTrades);
+    const newAnchorDirections = new Map(currentState.playerAnchorDirections);
+
+    for (const name of playerNames) {
+      if (!playerCols.has(name)) {
+        playerCols.set(name, nextColIdx);
+        nextColIdx++;
+      }
+      if (!newAnchorTrades.has(name)) {
+        newAnchorTrades.set(name, sourceTradeNodeId);
+        newAnchorDirections.set(name, 'forward');
+      }
+    }
+
+    const mergedNodes = [...currentState.nodes, ...newNodes];
+    const mergedEdges = [...currentState.edges, ...newEdges];
+    const cleaned = removeOrphanedNodes(mergedNodes, mergedEdges, currentState.coreNodes);
+    const laid = layoutPlayerTimeline(
+      cleaned.nodes, cleaned.edges, playerCols,
+      currentState.expandedNodes, currentState.expandedGapIds,
+      newAnchorTrades, newAnchorDirections
+    );
 
     set({
       nodes: laid,
-      edges: allEdges,
-      expandedNodes: expandedSet,
-      loadingNodes: new Set(),
-      coreNodes: new Set(laid.map(n => n.id)),
-      layoutMode: 'timeline',
+      edges: cleaned.edges,
       playerColumns: playerCols,
-      playerAnchorTrades: anchorTrades,
-      playerAnchorDirections: anchorDirs,
-      nextColumnIndex: colIdx,
-      prevColumnIndex: -1,
-      pendingFitTarget: rootNodeId,
-      expandedGapIds: new Set(),
+      playerAnchorTrades: newAnchorTrades,
+      playerAnchorDirections: newAnchorDirections,
+      nextColumnIndex: nextColIdx,
+      layoutMode: 'timeline',
+      pendingFitTarget: sourceTradeNodeId,
     });
-
-    setTimeout(() => get().expandTradeNode(rootNodeId), 50);
-  },
-
-  // ── Seed "Trade Tree" view ────────────────────────────────────────
-  seedTradeTree: async (tradeId: string) => {
-    const sb = getSupabase();
-
-    // Fetch chain scores for this trade
-    const { data } = await sb
-      .from('trade_chain_scores')
-      .select('chain_scores')
-      .eq('trade_id', tradeId)
-      .single() as unknown as { data: { chain_scores: Record<string, ChainTeamData> } | null };
-
-    const chainScores = data?.chain_scores ?? undefined;
-
-    // Delegate to existing seedFromChain
-    await get().seedFromChain(tradeId, chainScores);
   },
 
   // ── Seed from player ─────────────────────────────────────────────
@@ -2424,59 +2541,55 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
       const pickName = asset.became_player_name;
       const allTrades = await findAllTradesForName(pickName);
-      if (allTrades.length === 0) return;
-
-      // Find the current trade's position in the chain
       const currentTradeId = tradeNodeId_.replace('trade-', '');
-      const currentIdx = allTrades.findIndex(t => t.id === currentTradeId);
+      const otherTrades = allTrades.filter(t => t.id !== currentTradeId);
 
-      // Build new trade nodes and edges for the entire chain
-      let newNodes = [...state.nodes];
-      let newEdges = [...state.edges];
+      if (otherTrades.length > 0) {
+        // Player was traded elsewhere — show the trade chain
+        let newNodes = [...state.nodes];
+        let newEdges = [...state.edges];
 
-      // Create trade nodes for all trades in the chain (skip ones already on graph)
-      const orderedTradeNodeIds: string[] = [];
-      for (const trade of allTrades) {
-        const tnId = tradeNodeId(trade.id);
-        orderedTradeNodeIds.push(tnId);
-        if (!newNodes.find(n => n.id === tnId)) {
-          const tradeWithDetails = staticTradeToTradeWithDetails(trade);
-          const node = makeTradeNode(tradeWithDetails, { x: 0, y: 0 });
-          newNodes.push(node);
+        const orderedTradeNodeIds: string[] = [];
+        for (const trade of allTrades) {
+          const tnId = tradeNodeId(trade.id);
+          orderedTradeNodeIds.push(tnId);
+          if (!newNodes.find(n => n.id === tnId)) {
+            const tradeWithDetails = staticTradeToTradeWithDetails(trade);
+            const node = makeTradeNode(tradeWithDetails, { x: 0, y: 0 });
+            newNodes.push(node);
+          }
         }
-      }
 
-      // Connect consecutive trade nodes with edges
-      for (let i = 0; i < orderedTradeNodeIds.length - 1; i++) {
-        const src = orderedTradeNodeIds[i];
-        const tgt = orderedTradeNodeIds[i + 1];
-        if (!edgeExists(newEdges, src, tgt)) {
-          newEdges.push(makeEdge(src, tgt));
+        for (let i = 0; i < orderedTradeNodeIds.length - 1; i++) {
+          const src = orderedTradeNodeIds[i];
+          const tgt = orderedTradeNodeIds[i + 1];
+          if (!edgeExists(newEdges, src, tgt)) {
+            newEdges.push(makeEdge(src, tgt));
+          }
         }
-      }
 
-      // Layout and update
-      const laid = await layoutGraph(newNodes, newEdges, tradeNodeId_, state.expandedNodes);
-      set({
-        nodes: laid,
-        edges: newEdges,
-        pendingFitTarget: tradeNodeId_,
-      });
+        const laid = await layoutGraph(newNodes, newEdges, tradeNodeId_, state.expandedNodes);
+        set({
+          nodes: laid,
+          edges: newEdges,
+          pendingFitTarget: tradeNodeId_,
+        });
 
-      // Auto-expand the new trade nodes so their assets are visible
-      for (const trade of allTrades) {
-        const tnId = tradeNodeId(trade.id);
-        if (tnId !== tradeNodeId_ && !state.expandedNodes.has(tnId)) {
-          setTimeout(() => get().expandTradeNode(tnId), 100);
+        for (const trade of allTrades) {
+          const tnId = tradeNodeId(trade.id);
+          if (tnId !== tradeNodeId_ && !state.expandedNodes.has(tnId)) {
+            setTimeout(() => get().expandTradeNode(tnId), 100);
+          }
         }
-      }
 
-      return;
+        return;
+      }
+      // Player was only drafted (never traded) — fall through to show career journey
     }
 
-    if (asset.asset_type !== 'player' || !asset.player_name) return;
-
-    const playerName = asset.player_name;
+    // Determine player name: from player asset or from pick's became_player_name
+    const playerName = asset.player_name ?? asset.became_player_name;
+    if (!playerName) return;
     const toTeamId = asset.to_team_id;
     const fromTeamId = asset.from_team_id;
     if (!toTeamId) return;
