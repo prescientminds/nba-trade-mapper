@@ -8,7 +8,7 @@ import {
   applyEdgeChanges,
 } from '@xyflow/react';
 import { getSupabase, TradeWithDetails, TransactionAsset, PlayerSeason, PlayerAccolade, TeamSeason, PlayerContract } from './supabase';
-import { TEAMS } from './teams';
+import { TEAMS, getTeamDisplayInfo } from './teams';
 import { layoutGraph, layoutPlayerTimeline } from './graph-layout';
 import { searchStaticTrades, staticTradeToTradeWithDetails, loadSeason, loadTrade, loadSearchIndex } from './trade-data';
 import { getDraftInfo } from './draft-data';
@@ -82,6 +82,8 @@ export interface PlayerStintNodeData {
   draftYear?: number;
   draftRound?: number;
   draftPick?: number;
+  playoffWs?: number | null;
+  canExpandBackward?: boolean;
   [key: string]: unknown;
 }
 
@@ -91,6 +93,24 @@ export interface GapNodeData {
   toYear: number;
   durationYears: number;
   teamId: string;
+  [key: string]: unknown;
+}
+
+// ── Championship node data ───────────────────────────────────────────
+export interface ChampionshipNodeData {
+  teamId: string;
+  season: string;
+  teamName: string;
+  teamColor: string;
+  players: Array<{
+    playerName: string;
+    avgPpg: number | null;
+    avgRpg: number | null;
+    avgApg: number | null;
+    playoffWs: number | null;
+    totalWinShares: number | null;
+  }>;
+  inlinePlayers?: Record<string, InlinePlayerData>;
   [key: string]: unknown;
 }
 
@@ -154,12 +174,19 @@ interface GraphState {
   removeNode: (nodeId: string) => void;
   clearGraph: () => void;
   collapseAll: () => void;
+  expandOneDegree: () => Promise<void>;
+  collapseOneDegree: () => void;
   clearPendingFitTarget: () => void;
   openTradeFromTransition: (tradeId: string, sourceNodeId?: string) => Promise<void>;
   search: (query: string) => Promise<{
     trades: TradeWithDetails[];
     players: string[];
   }>;
+  championshipContext: ChampionshipContext | null;
+  seedChampionshipRoster: (teamId: string, season: string) => Promise<void>;
+  expandChampionshipPlayer: (playerName: string) => Promise<void>;
+  expandAllChampionshipPlayers: () => Promise<void>;
+  expandInlineChampionshipPlayer: (nodeId: string, playerName: string) => Promise<void>;
 }
 
 // ── Helpers ──────────────────────────────────────────────────────────
@@ -181,6 +208,32 @@ function stintNodeId(playerName: string, teamId: string, index: number) {
 
 function gapNodeId(playerName: string, fromYear: number, toYear: number) {
   return `gap-${playerName.toLowerCase().replace(/\s+/g, '-')}-${fromYear}-${toYear}`;
+}
+
+function championshipNodeId(teamId: string, season: string) {
+  return `championship-${teamId}-${season}`;
+}
+
+function makeChampionshipNode(
+  teamId: string,
+  season: string,
+  teamName: string,
+  teamColor: string,
+  players: ChampionshipNodeData['players'],
+  position = { x: 0, y: 0 }
+): Node {
+  return {
+    id: championshipNodeId(teamId, season),
+    type: 'championship',
+    position,
+    data: {
+      teamId,
+      season,
+      teamName,
+      teamColor,
+      players,
+    } satisfies ChampionshipNodeData,
+  };
 }
 
 function makeTradeNode(trade: TradeWithDetails, position = { x: 0, y: 0 }): Node {
@@ -296,7 +349,7 @@ function edgeExists(edges: Edge[], src: string, tgt: string): boolean {
 }
 
 // Helper: group consecutive seasons with same team into stints
-interface Stint {
+export interface Stint {
   teamId: string;
   seasons: PlayerSeason[];
 }
@@ -360,6 +413,23 @@ function sum(nums: (number | null)[]): number | null {
   const valid = nums.filter((n): n is number => n !== null);
   if (valid.length === 0) return null;
   return Math.round(valid.reduce((a, b) => a + b, 0) * 10) / 10;
+}
+
+// ── Championship types ──────────────────────────────────────────────
+export interface ChampionshipPlayerData {
+  playerName: string;
+  playoffWs: number | null;
+  allStints: Stint[];
+  championshipStintIndex: number;
+  draftInfo: { year: number; round: number; pick: number } | null;
+  earliestVisibleStintIndex: number;
+}
+
+export interface ChampionshipContext {
+  teamId: string;
+  season: string;
+  players: ChampionshipPlayerData[];
+  expandedPaths: Set<string>; // player names whose paths have been seeded
 }
 
 // ── Find trade between stints ────────────────────────────────────────
@@ -602,6 +672,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   prevColumnIndex: -1,
   pendingFitTarget: null,
   expandedGapIds: new Set(),
+  championshipContext: null,
 
   onNodesChange: (changes) => {
     set({ nodes: applyNodeChanges(changes, get().nodes) });
@@ -639,7 +710,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       prevColumnIndex: -1,
       pendingFitTarget: null,
       expandedGapIds: new Set(),
-        });
+      championshipContext: null,
+    });
   },
 
   clearPendingFitTarget: () => set({ pendingFitTarget: null }),
@@ -671,33 +743,104 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     } else {
       newExpandedGaps.add(gapNodeId_);
     }
-    const laid = layoutPlayerTimeline(state.nodes, state.edges, state.playerColumns, state.expandedNodes, newExpandedGaps, state.playerAnchorTrades, state.playerAnchorDirections);
+    const laid = layoutPlayerTimeline(state.nodes, state.edges, state.playerColumns, state.expandedNodes, newExpandedGaps, state.playerAnchorTrades, state.playerAnchorDirections, gapNodeId_);
     set({ nodes: laid, expandedGapIds: newExpandedGaps });
   },
 
   collapseAll: () => {
     const state = get();
-    if (state.expandedNodes.size === 0) return;
-    // Strip seasonDetails from stint nodes and inlinePlayers from trade nodes
-    const updatedNodes = state.nodes.map(n => {
-      if (n.type === 'playerStint' && (n.data as PlayerStintNodeData).seasonDetails) {
-        const { seasonDetails: _, ...rest } = n.data as PlayerStintNodeData;
-        return { ...n, data: rest };
-      }
-      if (n.type === 'trade' && (n.data as TradeNodeData).inlinePlayers) {
-        const { inlinePlayers: _, ...rest } = n.data as TradeNodeData;
-        return { ...n, data: rest };
-      }
-      return n;
-    });
+    if (state.nodes.length === 0) return;
+    const coreIds = state.coreNodes;
+    // Keep only core nodes, strip inline details
+    const updatedNodes = state.nodes
+      .filter(n => coreIds.size === 0 || coreIds.has(n.id))
+      .map(n => {
+        if (n.type === 'playerStint' && (n.data as PlayerStintNodeData).seasonDetails) {
+          const { seasonDetails: _, ...rest } = n.data as PlayerStintNodeData;
+          return { ...n, data: rest };
+        }
+        if (n.type === 'trade' && (n.data as TradeNodeData).inlinePlayers) {
+          const { inlinePlayers: _, ...rest } = n.data as TradeNodeData;
+          return { ...n, data: rest };
+        }
+        if (n.type === 'championship' && (n.data as ChampionshipNodeData).inlinePlayers) {
+          const { inlinePlayers: _, ...rest } = n.data as ChampionshipNodeData;
+          return { ...n, data: rest };
+        }
+        return n;
+      });
+    const keptIds = new Set(updatedNodes.map(n => n.id));
+    const updatedEdges = state.edges.filter(e => keptIds.has(e.source) && keptIds.has(e.target));
     const emptyExpanded = new Set<string>();
     if (state.layoutMode === 'timeline') {
-      const laid = layoutPlayerTimeline(updatedNodes, state.edges, state.playerColumns, emptyExpanded, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections);
-      set({ nodes: laid, expandedNodes: emptyExpanded });
+      const laid = layoutPlayerTimeline(updatedNodes, updatedEdges, state.playerColumns, emptyExpanded, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections);
+      set({ nodes: laid, edges: updatedEdges, expandedNodes: emptyExpanded });
     } else {
-      layoutGraph(updatedNodes, state.edges, undefined, emptyExpanded).then((laid) => {
-        set({ nodes: laid, expandedNodes: emptyExpanded });
+      layoutGraph(updatedNodes, updatedEdges, undefined, emptyExpanded).then((laid) => {
+        set({ nodes: laid, edges: updatedEdges, expandedNodes: emptyExpanded });
       });
+    }
+  },
+
+  // ── Expand one degree — expand web outward one layer from all trade nodes ──
+  expandOneDegree: async () => {
+    const state = get();
+    const tradeNodes = state.nodes.filter(n => n.type === 'trade');
+    if (tradeNodes.length === 0) return;
+
+    // Find one trade node per connected component (undirected BFS)
+    const visited = new Set<string>();
+    const componentRoots: string[] = [];
+    for (const tn of tradeNodes) {
+      if (visited.has(tn.id)) continue;
+      componentRoots.push(tn.id);
+      const queue = [tn.id];
+      visited.add(tn.id);
+      while (queue.length > 0) {
+        const current = queue.shift()!;
+        for (const e of state.edges) {
+          const neighbor = e.source === current ? e.target : (e.target === current ? e.source : null);
+          if (neighbor && !visited.has(neighbor)) {
+            visited.add(neighbor);
+            queue.push(neighbor);
+          }
+        }
+      }
+    }
+
+    for (const rootId of componentRoots) {
+      await get().expandWeb(rootId);
+    }
+  },
+
+  // ── Collapse one degree — remove outermost layer from all trade webs ──
+  collapseOneDegree: () => {
+    const state = get();
+    const tradeNodes = state.nodes.filter(n => n.type === 'trade');
+    if (tradeNodes.length === 0) return;
+
+    // Find one trade node per connected component
+    const visited = new Set<string>();
+    const componentRoots: string[] = [];
+    for (const tn of tradeNodes) {
+      if (visited.has(tn.id)) continue;
+      componentRoots.push(tn.id);
+      const queue = [tn.id];
+      visited.add(tn.id);
+      while (queue.length > 0) {
+        const current = queue.shift()!;
+        for (const e of state.edges) {
+          const neighbor = e.source === current ? e.target : (e.target === current ? e.source : null);
+          if (neighbor && !visited.has(neighbor)) {
+            visited.add(neighbor);
+            queue.push(neighbor);
+          }
+        }
+      }
+    }
+
+    for (const rootId of componentRoots) {
+      get().collapseWeb(rootId);
     }
   },
 
@@ -1494,7 +1637,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const laid = layoutPlayerTimeline(
       cleaned.nodes, cleaned.edges, playerCols,
       currentState.expandedNodes, currentState.expandedGapIds,
-      newAnchorTrades, newAnchorDirections
+      newAnchorTrades, newAnchorDirections,
+      sourceTradeNodeId
     );
 
     set({
@@ -1505,7 +1649,6 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       playerAnchorDirections: newAnchorDirections,
       nextColumnIndex: nextColIdx,
       layoutMode: 'timeline',
-      pendingFitTarget: sourceTradeNodeId,
     });
   },
 
@@ -1564,6 +1707,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         cleaned.nodes, cleaned.edges, state.playerColumns,
         newExpanded, state.expandedGapIds,
         state.playerAnchorTrades, state.playerAnchorDirections,
+        sourceTradeNodeId,
       );
       set({ nodes: laid, edges: cleaned.edges, expandedNodes: newExpanded });
     } else {
@@ -1932,7 +2076,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         return { ...n, data: rest };
       });
       if (state.layoutMode === 'timeline') {
-        const laid = layoutPlayerTimeline(updatedNodes, state.edges, state.playerColumns, newExpanded, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections);
+        const laid = layoutPlayerTimeline(updatedNodes, state.edges, state.playerColumns, newExpanded, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections, stintNodeId_);
         set({ nodes: laid, expandedNodes: newExpanded });
       } else {
         const laid = await layoutGraph(updatedNodes, state.edges, stintNodeId_, newExpanded);
@@ -2035,7 +2179,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const newLoading = new Set([...currentState.loadingNodes].filter(id => id !== stintNodeId_));
 
     if (currentState.layoutMode === 'timeline') {
-      const laid = layoutPlayerTimeline(updatedNodes, currentState.edges, currentState.playerColumns, newExpanded, currentState.expandedGapIds, currentState.playerAnchorTrades, currentState.playerAnchorDirections);
+      const laid = layoutPlayerTimeline(updatedNodes, currentState.edges, currentState.playerColumns, newExpanded, currentState.expandedGapIds, currentState.playerAnchorTrades, currentState.playerAnchorDirections, stintNodeId_);
       set({ nodes: laid, expandedNodes: newExpanded, loadingNodes: newLoading });
     } else {
       const laid = await layoutGraph(updatedNodes, currentState.edges, stintNodeId_, newExpanded);
@@ -2047,7 +2191,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   expandTradeNode: (nodeId: string) => {
     const state = get();
     const tradeNode = state.nodes.find((n) => n.id === nodeId);
-    if (!tradeNode || tradeNode.type !== 'trade') return;
+    if (!tradeNode || (tradeNode.type !== 'trade' && tradeNode.type !== 'championship')) return;
 
     const newExpanded = new Set(state.expandedNodes);
     if (newExpanded.has(nodeId)) {
@@ -2059,7 +2203,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     }
 
     if (state.layoutMode === 'timeline') {
-      const laid = layoutPlayerTimeline(state.nodes, state.edges, state.playerColumns, newExpanded, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections);
+      const laid = layoutPlayerTimeline(state.nodes, state.edges, state.playerColumns, newExpanded, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections, nodeId);
       set({ nodes: laid, expandedNodes: newExpanded });
     } else {
       layoutGraph(state.nodes, state.edges, nodeId, newExpanded).then((laid) => {
@@ -2136,7 +2280,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         return { ...n, data: { ...d, inlinePlayers: { ...(d.inlinePlayers ?? {}), [playerName]: neverPlayedEntry } } };
       });
       if (cs.layoutMode === 'timeline') {
-        const laid = layoutPlayerTimeline(npNodes, cs.edges, cs.playerColumns, cs.expandedNodes, cs.expandedGapIds, cs.playerAnchorTrades, cs.playerAnchorDirections);
+        const laid = layoutPlayerTimeline(npNodes, cs.edges, cs.playerColumns, cs.expandedNodes, cs.expandedGapIds, cs.playerAnchorTrades, cs.playerAnchorDirections, tradeNodeId_);
         set({ nodes: laid });
       } else {
         const laid = await layoutGraph(npNodes, cs.edges, tradeNodeId_, cs.expandedNodes);
@@ -2219,7 +2363,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     });
 
     if (currentState.layoutMode === 'timeline') {
-      const laid = layoutPlayerTimeline(finalNodes, currentState.edges, currentState.playerColumns, currentState.expandedNodes, currentState.expandedGapIds, currentState.playerAnchorTrades, currentState.playerAnchorDirections);
+      const laid = layoutPlayerTimeline(finalNodes, currentState.edges, currentState.playerColumns, currentState.expandedNodes, currentState.expandedGapIds, currentState.playerAnchorTrades, currentState.playerAnchorDirections, tradeNodeId_);
       set({ nodes: laid });
     } else {
       const laid = await layoutGraph(finalNodes, currentState.edges, tradeNodeId_, currentState.expandedNodes);
@@ -2238,7 +2382,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       return { ...n, data: { ...d, inlinePlayers: ip } };
     });
     if (state.layoutMode === 'timeline') {
-      const laid = layoutPlayerTimeline(updatedNodes, state.edges, state.playerColumns, state.expandedNodes, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections);
+      const laid = layoutPlayerTimeline(updatedNodes, state.edges, state.playerColumns, state.expandedNodes, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections, tradeNodeId_);
       set({ nodes: laid });
     } else {
       const laid = await layoutGraph(updatedNodes, state.edges, tradeNodeId_, state.expandedNodes);
@@ -2417,7 +2561,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       const mergedNodes = [...currentState.nodes, ...newNodes];
       const mergedEdges = [...currentState.edges, ...newEdges];
       const cleaned = removeOrphanedNodes(mergedNodes, mergedEdges, currentState.coreNodes);
-      const laid = layoutPlayerTimeline(cleaned.nodes, cleaned.edges, playerCols, currentState.expandedNodes, currentState.expandedGapIds, newAnchorTrades, newAnchorDirections);
+      const laid = layoutPlayerTimeline(cleaned.nodes, cleaned.edges, playerCols, currentState.expandedNodes, currentState.expandedGapIds, newAnchorTrades, newAnchorDirections, tradeNodeId_);
 
       set({
         nodes: laid,
@@ -2427,7 +2571,6 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         playerAnchorDirections: newAnchorDirections,
         nextColumnIndex: nextColIdx,
         layoutMode: 'timeline',
-        pendingFitTarget: tradeNodeId_, // Center on the shared trade so both it and the new column are in view
       });
     } else if (
       (asset.asset_type === 'pick' || asset.asset_type === 'swap') &&
@@ -2625,7 +2768,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       const mergedNodes = [...currentState.nodes, ...newNodes];
       const mergedEdges = [...currentState.edges, ...newEdges];
       const cleaned = removeOrphanedNodes(mergedNodes, mergedEdges, currentState.coreNodes);
-      const laid = layoutPlayerTimeline(cleaned.nodes, cleaned.edges, playerCols, currentState.expandedNodes, currentState.expandedGapIds, newAnchorTrades, newAnchorDirections);
+      const laid = layoutPlayerTimeline(cleaned.nodes, cleaned.edges, playerCols, currentState.expandedNodes, currentState.expandedGapIds, newAnchorTrades, newAnchorDirections, tradeNodeId_);
 
       set({
         nodes: laid,
@@ -2635,7 +2778,6 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         playerAnchorDirections: newAnchorDirections,
         prevColumnIndex: prevColIdx,
         layoutMode: 'timeline',
-        pendingFitTarget: tradeNodeId_,
       });
     }
   },
@@ -2687,7 +2829,6 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         set({
           nodes: laid,
           edges: newEdges,
-          pendingFitTarget: tradeNodeId_,
         });
 
         for (const trade of allTrades) {
@@ -2955,7 +3096,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const mergedNodes = [...currentState.nodes, ...newNodes];
     const mergedEdges = [...currentState.edges, ...newEdges];
     const cleaned = removeOrphanedNodes(mergedNodes, mergedEdges, currentState.coreNodes);
-    const laid = layoutPlayerTimeline(cleaned.nodes, cleaned.edges, playerCols, currentState.expandedNodes, currentState.expandedGapIds, newAnchorTrades, newAnchorDirections);
+    const laid = layoutPlayerTimeline(cleaned.nodes, cleaned.edges, playerCols, currentState.expandedNodes, currentState.expandedGapIds, newAnchorTrades, newAnchorDirections, tradeNodeId_);
 
     set({
       nodes: laid,
@@ -2965,7 +3106,6 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       playerAnchorDirections: newAnchorDirections,
       nextColumnIndex: nextColIdx,
       layoutMode: 'timeline',
-      pendingFitTarget: tradeNodeId_,
     });
   },
 
@@ -3037,6 +3177,425 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       loadingNodes: newLoading,
       coreNodes: newCore,
     });
+  },
+
+  // ── Championship Roster: hub card + expand player paths ──────────────
+
+  seedChampionshipRoster: async (teamId: string, season: string) => {
+    const sb = getSupabase();
+
+    // 1. Fetch all players on this team in this season
+    const { data: rosterSeasons } = await sb
+      .from('player_seasons')
+      .select('*')
+      .eq('team_id', teamId)
+      .eq('season', season)
+      .order('playoff_ws', { ascending: false }) as { data: PlayerSeason[] | null };
+
+    if (!rosterSeasons || rosterSeasons.length === 0) return;
+
+    // 2. For each player, fetch full career + draft info in parallel
+    const playerDataPromises = rosterSeasons.map(async (ps) => {
+      const [allSeasonsRes, draftInfo] = await Promise.all([
+        sb.from('player_seasons').select('*')
+          .ilike('player_name', ps.player_name)
+          .order('season', { ascending: true }) as unknown as Promise<{ data: PlayerSeason[] | null }>,
+        getDraftInfo(ps.player_name).catch(() => null),
+      ]);
+
+      const allSeasons = allSeasonsRes.data;
+      if (!allSeasons || allSeasons.length === 0) return null;
+
+      const stints = groupIntoStints(allSeasons.filter(s => s.team_id));
+      const champIdx = stints.findIndex(s =>
+        s.teamId === teamId && s.seasons.some(ss => ss.season === season)
+      );
+      if (champIdx === -1) return null;
+
+      return {
+        playerName: ps.player_name,
+        playoffWs: (ps as PlayerSeason & { playoff_ws?: number | null }).playoff_ws ?? null,
+        allStints: stints,
+        championshipStintIndex: champIdx,
+        draftInfo: draftInfo ? { year: draftInfo.year, round: draftInfo.round, pick: draftInfo.pick } : null,
+        earliestVisibleStintIndex: champIdx,
+      } satisfies ChampionshipPlayerData;
+    });
+
+    const allPlayerData = (await Promise.all(playerDataPromises))
+      .filter((p): p is ChampionshipPlayerData => p !== null);
+
+    allPlayerData.sort((a, b) => (b.playoffWs ?? 0) - (a.playoffWs ?? 0));
+
+    if (allPlayerData.length === 0) return;
+
+    // 3. Create ONE championship hub node
+    const teamInfo = getTeamDisplayInfo(teamId, `${season.split('-')[0]}-06-15`);
+    const champNode = makeChampionshipNode(
+      teamId,
+      season,
+      teamInfo.name,
+      teamInfo.color || '#9b5de5',
+      allPlayerData.map(pd => {
+        const champStint = pd.allStints[pd.championshipStintIndex];
+        return {
+          playerName: pd.playerName,
+          avgPpg: avg(champStint.seasons.map(s => s.ppg)),
+          avgRpg: avg(champStint.seasons.map(s => s.rpg)),
+          avgApg: avg(champStint.seasons.map(s => s.apg)),
+          playoffWs: pd.playoffWs,
+          totalWinShares: sum(champStint.seasons.map(s => s.win_shares)),
+        };
+      }),
+    );
+
+    set({
+      nodes: [champNode],
+      edges: [],
+      expandedNodes: new Set([champNode.id]),
+      loadingNodes: new Set(),
+      coreNodes: new Set([champNode.id]),
+      layoutMode: 'timeline',
+      playerColumns: new Map(),
+      playerAnchorTrades: new Map(),
+      playerAnchorDirections: new Map(),
+      nextColumnIndex: 0,
+      prevColumnIndex: -1,
+      pendingFitTarget: champNode.id,
+      expandedGapIds: new Set(),
+      championshipContext: {
+        teamId,
+        season,
+        players: allPlayerData,
+        expandedPaths: new Set(),
+      },
+    });
+  },
+
+  // Seeds a single player's full career journey from the championship card
+  expandChampionshipPlayer: async (playerName: string) => {
+    const state = get();
+    const ctx = state.championshipContext;
+    if (!ctx) return;
+
+    const playerData = ctx.players.find(p => p.playerName === playerName);
+    if (!playerData) return;
+
+    // Already expanded
+    if (ctx.expandedPaths.has(playerName)) return;
+
+    const champNodeId_ = championshipNodeId(ctx.teamId, ctx.season);
+    const stints = playerData.allStints;
+
+    const newNodes: Node[] = [];
+    const newEdges: Edge[] = [];
+
+    // Create stint nodes for ALL stints in career
+    for (let i = 0; i < stints.length; i++) {
+      const stint = stints[i];
+      const stintSeasons = stint.seasons.map(s => s.season);
+      let node = makeStintNode(
+        playerName, stint.teamId, i, stintSeasons,
+        avg(stint.seasons.map(s => s.ppg)),
+        avg(stint.seasons.map(s => s.rpg)),
+        avg(stint.seasons.map(s => s.apg)),
+        sum(stint.seasons.map(s => s.win_shares)),
+        [],
+      );
+      if (i === 0 && playerData.draftInfo) {
+        node = { ...node, data: { ...node.data,
+          draftYear: playerData.draftInfo.year,
+          draftRound: playerData.draftInfo.round,
+          draftPick: playerData.draftInfo.pick,
+        } };
+      }
+      if (i === playerData.championshipStintIndex) {
+        node = { ...node, data: { ...node.data, playoffWs: playerData.playoffWs } };
+      }
+      newNodes.push(node);
+    }
+
+    // Find trades between consecutive stints in parallel
+    interface TradeLookup {
+      prevSid: string;
+      currSid: string;
+      trade: StaticTrade | null;
+    }
+    const tradePromises: Promise<TradeLookup>[] = [];
+    for (let i = 0; i < stints.length - 1; i++) {
+      const fromStint = stints[i];
+      const toStint = stints[i + 1];
+      const fromLastSeason = fromStint.seasons[fromStint.seasons.length - 1].season;
+      const toFirstSeason = toStint.seasons[0].season;
+      tradePromises.push(
+        findTradeBetweenStints(playerName, fromStint.teamId, toStint.teamId, fromLastSeason, toFirstSeason)
+          .catch(() => null)
+          .then(trade => ({
+            prevSid: stintNodeId(playerName, fromStint.teamId, i),
+            currSid: stintNodeId(playerName, toStint.teamId, i + 1),
+            trade,
+          }))
+      );
+    }
+
+    const tradeResults = await Promise.all(tradePromises);
+    for (const { prevSid, currSid, trade } of tradeResults) {
+      if (trade) {
+        const tId = tradeNodeId(trade.id);
+        if (!state.nodes.find(n => n.id === tId) && !newNodes.find(n => n.id === tId)) {
+          newNodes.push(makeTradeNode(staticTradeToTradeWithDetails(trade)));
+        }
+        if (!edgeExists(newEdges, prevSid, tId) && !edgeExists(state.edges, prevSid, tId))
+          newEdges.push(makeEdge(prevSid, tId));
+        if (!edgeExists(newEdges, tId, currSid) && !edgeExists(state.edges, tId, currSid))
+          newEdges.push(makeEdge(tId, currSid));
+      } else {
+        if (!edgeExists(newEdges, prevSid, currSid) && !edgeExists(state.edges, prevSid, currSid))
+          newEdges.push(makeEdge(prevSid, currSid));
+      }
+    }
+
+    // Edge from championship node to championship stint
+    const champStintId = stintNodeId(playerName, stints[playerData.championshipStintIndex].teamId, playerData.championshipStintIndex);
+    if (!edgeExists(newEdges, champNodeId_, champStintId) && !edgeExists(state.edges, champNodeId_, champStintId))
+      newEdges.push(makeEdge(champNodeId_, champStintId));
+
+    // Assign column for this player
+    const col = state.nextColumnIndex;
+    const newPlayerCols = new Map(state.playerColumns);
+    newPlayerCols.set(playerName, col);
+
+    // Merge
+    const allNodes = [...state.nodes, ...newNodes];
+    const allEdges = [...state.edges, ...newEdges];
+    const newCore = new Set(state.coreNodes);
+    for (const n of newNodes) newCore.add(n.id);
+
+    const newExpandedPaths = new Set(ctx.expandedPaths);
+    newExpandedPaths.add(playerName);
+
+    // Layout
+    const laid = layoutPlayerTimeline(allNodes, allEdges, newPlayerCols, state.expandedNodes, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections, champNodeId_);
+
+    set({
+      nodes: laid,
+      edges: allEdges,
+      coreNodes: newCore,
+      playerColumns: newPlayerCols,
+      nextColumnIndex: col + 1,
+      championshipContext: { ...ctx, expandedPaths: newExpandedPaths },
+    });
+  },
+
+  // Batch-expand paths for all players not yet on graph
+  expandAllChampionshipPlayers: async () => {
+    const state = get();
+    const ctx = state.championshipContext;
+    if (!ctx) return;
+
+    const toExpand = ctx.players.filter(p => !ctx.expandedPaths.has(p.playerName));
+    if (toExpand.length === 0) return;
+
+    const champNodeId_ = championshipNodeId(ctx.teamId, ctx.season);
+    const newNodes: Node[] = [];
+    const newEdges: Edge[] = [];
+    const newPlayerCols = new Map(state.playerColumns);
+    let nextCol = state.nextColumnIndex;
+    const newExpandedPaths = new Set(ctx.expandedPaths);
+
+    interface TradeLookup {
+      prevSid: string;
+      currSid: string;
+      trade: StaticTrade | null;
+    }
+    const tradePromises: Promise<TradeLookup>[] = [];
+
+    for (const pd of toExpand) {
+      const stints = pd.allStints;
+      newPlayerCols.set(pd.playerName, nextCol);
+      nextCol++;
+      newExpandedPaths.add(pd.playerName);
+
+      // Create stint nodes for ALL stints
+      for (let i = 0; i < stints.length; i++) {
+        const stint = stints[i];
+        const stintSeasons = stint.seasons.map(s => s.season);
+        let node = makeStintNode(
+          pd.playerName, stint.teamId, i, stintSeasons,
+          avg(stint.seasons.map(s => s.ppg)),
+          avg(stint.seasons.map(s => s.rpg)),
+          avg(stint.seasons.map(s => s.apg)),
+          sum(stint.seasons.map(s => s.win_shares)),
+          [],
+        );
+        if (i === 0 && pd.draftInfo) {
+          node = { ...node, data: { ...node.data,
+            draftYear: pd.draftInfo.year, draftRound: pd.draftInfo.round, draftPick: pd.draftInfo.pick } };
+        }
+        if (i === pd.championshipStintIndex) {
+          node = { ...node, data: { ...node.data, playoffWs: pd.playoffWs } };
+        }
+        newNodes.push(node);
+      }
+
+      // Find trades between consecutive stints
+      for (let i = 0; i < stints.length - 1; i++) {
+        const fromStint = stints[i];
+        const toStint = stints[i + 1];
+        const fromLastSeason = fromStint.seasons[fromStint.seasons.length - 1].season;
+        const toFirstSeason = toStint.seasons[0].season;
+        tradePromises.push(
+          findTradeBetweenStints(pd.playerName, fromStint.teamId, toStint.teamId, fromLastSeason, toFirstSeason)
+            .catch(() => null)
+            .then(trade => ({
+              prevSid: stintNodeId(pd.playerName, fromStint.teamId, i),
+              currSid: stintNodeId(pd.playerName, toStint.teamId, i + 1),
+              trade,
+            }))
+        );
+      }
+
+      // Edge from championship node to championship stint
+      const champStintId = stintNodeId(pd.playerName, stints[pd.championshipStintIndex].teamId, pd.championshipStintIndex);
+      if (!edgeExists(newEdges, champNodeId_, champStintId))
+        newEdges.push(makeEdge(champNodeId_, champStintId));
+    }
+
+    const tradeResults = await Promise.all(tradePromises);
+    for (const { prevSid, currSid, trade } of tradeResults) {
+      if (trade) {
+        const tId = tradeNodeId(trade.id);
+        if (!state.nodes.find(n => n.id === tId) && !newNodes.find(n => n.id === tId))
+          newNodes.push(makeTradeNode(staticTradeToTradeWithDetails(trade)));
+        if (!edgeExists(newEdges, prevSid, tId) && !edgeExists(state.edges, prevSid, tId))
+          newEdges.push(makeEdge(prevSid, tId));
+        if (!edgeExists(newEdges, tId, currSid) && !edgeExists(state.edges, tId, currSid))
+          newEdges.push(makeEdge(tId, currSid));
+      } else {
+        if (!edgeExists(newEdges, prevSid, currSid) && !edgeExists(state.edges, prevSid, currSid))
+          newEdges.push(makeEdge(prevSid, currSid));
+      }
+    }
+
+    const allNodes = [...state.nodes, ...newNodes];
+    const allEdges = [...state.edges, ...newEdges];
+    const newCore = new Set(state.coreNodes);
+    for (const n of newNodes) newCore.add(n.id);
+
+    const laid = layoutPlayerTimeline(allNodes, allEdges, newPlayerCols, state.expandedNodes, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections, champNodeId_);
+
+    set({
+      nodes: laid,
+      edges: allEdges,
+      coreNodes: newCore,
+      playerColumns: newPlayerCols,
+      nextColumnIndex: nextCol,
+      championshipContext: { ...ctx, expandedPaths: newExpandedPaths },
+    });
+  },
+
+  // Inline stats toggle for players in the championship card
+  expandInlineChampionshipPlayer: async (nodeId: string, playerName: string) => {
+    const state = get();
+    const ctx = state.championshipContext;
+    if (!ctx) return;
+
+    const champNode = state.nodes.find(n => n.id === nodeId);
+    if (!champNode || champNode.type !== 'championship') return;
+
+    const currentData = champNode.data as ChampionshipNodeData;
+    const currentInline = currentData.inlinePlayers ?? {};
+
+    // Toggle off if already expanded
+    if (currentInline[playerName] && !currentInline[playerName].isLoading) {
+      const ip = { ...currentInline };
+      delete ip[playerName];
+      const updatedNodes = state.nodes.map(n =>
+        n.id !== nodeId ? n : { ...n, data: { ...n.data, inlinePlayers: ip } }
+      );
+      const laid = layoutPlayerTimeline(updatedNodes, state.edges, state.playerColumns, state.expandedNodes, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections, nodeId);
+      set({ nodes: laid });
+      return;
+    }
+
+    // Set loading state
+    const loadingEntry: InlinePlayerData = {
+      playerName, teamId: ctx.teamId, stintIndex: 0, seasons: [],
+      avgPpg: null, avgRpg: null, avgApg: null, totalWinShares: null,
+      accolades: [], isLoading: true,
+    };
+    const nodesWithLoading = state.nodes.map(n =>
+      n.id !== nodeId ? n : { ...n, data: { ...n.data, inlinePlayers: { ...currentInline, [playerName]: loadingEntry } } }
+    );
+    set({ nodes: nodesWithLoading });
+
+    const playerData = ctx.players.find(p => p.playerName === playerName);
+    if (!playerData) return;
+
+    const champStint = playerData.allStints[playerData.championshipStintIndex];
+    const stintSeasons = champStint.seasons.map(s => s.season);
+
+    const sb = getSupabase();
+    const [accoladesResult, teamSeasonsResult] = await Promise.all([
+      sb.from('player_accolades').select('*').ilike('player_name', playerName).in('season', stintSeasons),
+      sb.from('team_seasons').select('*').eq('team_id', ctx.teamId).in('season', stintSeasons),
+    ]);
+
+    const accolades = accoladesResult.data as PlayerAccolade[] | null;
+    const teamSeasons = teamSeasonsResult.data as TeamSeason[] | null;
+
+    const accoladesByS = new Map<string, string[]>();
+    if (accolades) {
+      for (const a of accolades) {
+        if (!a.season) continue;
+        if (!accoladesByS.has(a.season)) accoladesByS.set(a.season, []);
+        accoladesByS.get(a.season)!.push(a.accolade);
+      }
+    }
+
+    const teamSeasonMap = new Map<string, TeamSeason>();
+    if (teamSeasons) for (const ts of teamSeasons) teamSeasonMap.set(ts.season, ts);
+
+    const allAccoladesList: string[] = [];
+    for (const accs of accoladesByS.values()) allAccoladesList.push(...accs);
+
+    const seasonDetails: SeasonDetailRow[] = champStint.seasons.map(ss => ({
+      season: ss.season,
+      gp: ss.gp,
+      ppg: ss.ppg,
+      rpg: ss.rpg,
+      apg: ss.apg,
+      winShares: ss.win_shares,
+      teamWins: teamSeasonMap.get(ss.season)?.wins ?? null,
+      teamLosses: teamSeasonMap.get(ss.season)?.losses ?? null,
+      playoffResult: teamSeasonMap.get(ss.season)?.playoff_result ?? null,
+      accolades: accoladesByS.get(ss.season) ?? [],
+      salary: null,
+    }));
+
+    const inlineData: InlinePlayerData = {
+      playerName,
+      teamId: ctx.teamId,
+      stintIndex: playerData.championshipStintIndex,
+      seasons: stintSeasons,
+      avgPpg: avg(champStint.seasons.map(s => s.ppg)),
+      avgRpg: avg(champStint.seasons.map(s => s.rpg)),
+      avgApg: avg(champStint.seasons.map(s => s.apg)),
+      totalWinShares: sum(champStint.seasons.map(s => s.win_shares)),
+      accolades: [...new Set(allAccoladesList)],
+      seasonDetails,
+      isLoading: false,
+    };
+
+    const currentState = get();
+    const finalNodes = currentState.nodes.map(n => {
+      if (n.id !== nodeId) return n;
+      const d = n.data as ChampionshipNodeData;
+      return { ...n, data: { ...d, inlinePlayers: { ...(d.inlinePlayers ?? {}), [playerName]: inlineData } } };
+    });
+
+    const laid = layoutPlayerTimeline(finalNodes, currentState.edges, currentState.playerColumns, currentState.expandedNodes, currentState.expandedGapIds, currentState.playerAnchorTrades, currentState.playerAnchorDirections, nodeId);
+    set({ nodes: laid });
   },
 
   // ── Expand pick node (sync - creates player from became_player_name) ─

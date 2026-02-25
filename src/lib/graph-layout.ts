@@ -1,6 +1,6 @@
 import ELK, { ElkNode, ElkExtendedEdge } from 'elkjs/lib/elk.bundled.js';
 import { Node, Edge } from '@xyflow/react';
-import type { PlayerStintNodeData, TradeNodeData, PlayerNodeData, GapNodeData } from './graph-store';
+import type { PlayerStintNodeData, TradeNodeData, PlayerNodeData, GapNodeData, ChampionshipNodeData } from './graph-store';
 
 const elk = new ELK();
 
@@ -10,6 +10,7 @@ const NODE_DIMENSIONS: Record<string, { width: number; height: number }> = {
   pick: { width: 100, height: 26 },
   playerStint: { width: 180, height: 36 },
   gap: { width: 180, height: 20 },
+  championship: { width: 220, height: 60 },
 };
 
 /** Dynamic expanded trade height based on number of assets, teams, and inline player data */
@@ -48,6 +49,28 @@ function expandedTradeDimensions(node: Node): { width: number; height: number } 
   return { width, height: Math.max(height, 60) };
 }
 
+/** Dynamic expanded championship height based on roster size + inline panels */
+function expandedChampionshipDimensions(node: Node): { width: number; height: number } {
+  const data = node.data as ChampionshipNodeData;
+  const playerCount = data.players?.length ?? 0;
+  // Header (~44) + "ROSTER" label (14) + player rows (22 each) + padding
+  let height = 44 + 14 + playerCount * 22 + 6;
+  // Add height for inline player panels
+  if (data.inlinePlayers) {
+    for (const ip of Object.values(data.inlinePlayers)) {
+      if (ip.isLoading) {
+        height += 24;
+      } else {
+        const seasonCount = ip.seasonDetails?.length ?? ip.seasons.length;
+        height += 16 + 16 + seasonCount * 16 + 6;
+      }
+    }
+  }
+  const hasInlinePlayers = data.inlinePlayers && Object.keys(data.inlinePlayers).length > 0;
+  const width = hasInlinePlayers ? 260 : 220;
+  return { width, height: Math.max(height, 60) };
+}
+
 /** Dynamic expanded stint height based on number of seasons */
 function expandedStintDimensions(node: Node): { width: number; height: number } {
   const data = node.data as PlayerStintNodeData;
@@ -64,8 +87,17 @@ export function layoutPlayerTimeline(
   expandedNodeIds?: Set<string>,
   expandedGapIds?: Set<string>,
   playerAnchorTrades?: Map<string, string>,
-  playerAnchorDirections?: Map<string, 'forward' | 'backward' | 'both'>
+  playerAnchorDirections?: Map<string, 'forward' | 'backward' | 'both'>,
+  anchorNodeId?: string,
 ): Node[] {
+  // Record anchor node's position before layout so we can offset to keep it stable
+  const anchorBefore = anchorNodeId
+    ? nodes.find(n => n.id === anchorNodeId)
+    : undefined;
+  const anchorPosBefore = anchorBefore
+    ? { x: anchorBefore.position.x, y: anchorBefore.position.y }
+    : undefined;
+
   const BASE_YEAR = 1976;
   const PIXELS_PER_YEAR = 10; // compact: topo BFS dominates year-based spacing
   const COLUMN_WIDTH = 210;
@@ -114,6 +146,11 @@ export function layoutPlayerTimeline(
       const data = node.data as PlayerNodeData;
       return data.draftYear ?? BASE_YEAR;
     }
+    if (node.type === 'championship') {
+      const data = node.data as ChampionshipNodeData;
+      const year = parseInt(data.season.split('-')[0]);
+      return isNaN(year) ? BASE_YEAR : year;
+    }
     return BASE_YEAR;
   }
 
@@ -136,6 +173,24 @@ export function layoutPlayerTimeline(
     const playerName = getPlayerName(node);
     if (playerName && playerColumns.has(playerName)) {
       return playerColumns.get(playerName)!;
+    }
+    if (node.type === 'championship') {
+      // Center across all connected player columns, or sit at -1 if none connected yet
+      const connectedIds = adjacency.get(node.id) ?? [];
+      const cols: number[] = [];
+      for (const id of connectedIds) {
+        const neighbor = nodeMap.get(id);
+        if (!neighbor) continue;
+        const name = getPlayerName(neighbor);
+        if (name && playerColumns.has(name)) {
+          cols.push(playerColumns.get(name)!);
+        }
+      }
+      if (cols.length > 0) {
+        const posCols = cols.filter(c => c >= 0);
+        return posCols.length > 0 ? Math.min(...posCols) : Math.min(...cols);
+      }
+      return -1; // Far left when no player paths expanded yet
     }
     if (node.type === 'trade') {
       // Center across all connected player/stint nodes
@@ -169,7 +224,9 @@ export function layoutPlayerTimeline(
     if (expandedNodeIds?.has(node.id)) {
       if (node.type === 'trade') return expandedTradeDimensions(node).height;
       if (node.type === 'playerStint') return expandedStintDimensions(node).height;
+      if (node.type === 'championship') return expandedChampionshipDimensions(node).height;
     }
+    if (node.type === 'championship') return 60;
     if (node.type === 'playerStint') {
       const data = node.data as PlayerStintNodeData;
       let h = 28;
@@ -567,7 +624,7 @@ export function layoutPlayerTimeline(
   }
 
   // ── Return all nodes with final positions ──
-  return nodes.map(node => {
+  const result = nodes.map(node => {
     if (node.type === 'gap') {
       return { ...node, position: gapPositions.get(node.id) ?? node.position };
     }
@@ -576,6 +633,23 @@ export function layoutPlayerTimeline(
     const y = compressedY.get(node.id) ?? (resolvedY.get(node.id) ?? pos.y);
     return { ...node, position: { x: pos.x, y } };
   });
+
+  // Apply anchor offset to keep the anchor node at its original position
+  if (anchorNodeId && anchorPosBefore) {
+    const anchorAfter = result.find(n => n.id === anchorNodeId)?.position;
+    if (anchorAfter) {
+      const dx = anchorPosBefore.x - anchorAfter.x;
+      const dy = anchorPosBefore.y - anchorAfter.y;
+      if (dx !== 0 || dy !== 0) {
+        return result.map(n => ({
+          ...n,
+          position: { x: n.position.x + dx, y: n.position.y + dy },
+        }));
+      }
+    }
+  }
+
+  return result;
 }
 
 export async function layoutGraph(

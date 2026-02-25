@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 /** True on narrow/touch screens. Re-checks on resize. */
 function useMobile(): boolean {
@@ -17,7 +17,6 @@ function useMobile(): boolean {
 import {
   ReactFlow,
   Background,
-  Controls,
   MiniMap,
   ReactFlowProvider,
   BackgroundVariant,
@@ -31,6 +30,7 @@ import PlayerNode from '@/components/nodes/PlayerNode';
 import PickNode from '@/components/nodes/PickNode';
 import PlayerStintNode from '@/components/nodes/PlayerStintNode';
 import GapNode from '@/components/nodes/GapNode';
+import ChampionshipNode from '@/components/nodes/ChampionshipNode';
 import SearchOverlay from '@/components/SearchOverlay';
 
 const nodeTypes = {
@@ -39,74 +39,220 @@ const nodeTypes = {
   pick: PickNode,
   playerStint: PlayerStintNode,
   gap: GapNode,
+  championship: ChampionshipNode,
 };
 
-function CanvasControls() {
+// ── SVG icons for toolbar ──────────────────────────────────────────────
+const IconZoomOut = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="11" cy="11" r="8" />
+    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    <line x1="8" y1="11" x2="14" y2="11" />
+  </svg>
+);
+
+const IconZoomIn = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="11" cy="11" r="8" />
+    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    <line x1="11" y1="8" x2="11" y2="14" />
+    <line x1="8" y1="11" x2="14" y2="11" />
+  </svg>
+);
+
+const IconFitView = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+  </svg>
+);
+
+const IconExpand = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <line x1="12" y1="8" x2="12" y2="16" />
+    <line x1="8" y1="12" x2="16" y2="12" />
+  </svg>
+);
+
+const IconReduce = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <line x1="8" y1="12" x2="16" y2="12" />
+  </svg>
+);
+
+const IconReset = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="1 4 1 10 7 10" />
+    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+  </svg>
+);
+
+const IconHome = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+    <polyline points="9 22 9 12 15 12 15 22" />
+  </svg>
+);
+
+const Separator = () => (
+  <div style={{ width: 1, height: 20, background: 'rgba(255,255,255,0.1)', margin: '0 2px', flexShrink: 0 }} />
+);
+
+// ── Toolbar button ──────────────────────────────────────────────────────
+function ToolbarButton({
+  icon,
+  label,
+  title,
+  onClick,
+  disabled,
+  accent,
+  isMobile,
+}: {
+  icon: React.ReactNode;
+  label?: string;
+  title: string;
+  onClick: () => void;
+  disabled?: boolean;
+  accent?: string;
+  isMobile: boolean;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      title={title}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 4,
+        padding: isMobile ? '8px 10px' : '5px 8px',
+        minHeight: isMobile ? 36 : 'auto',
+        fontSize: 11,
+        fontWeight: 600,
+        fontFamily: 'var(--font-body)',
+        color: disabled ? 'rgba(255,255,255,0.25)' : (accent || 'rgba(255,255,255,0.6)'),
+        background: 'transparent',
+        border: 'none',
+        borderRadius: 4,
+        cursor: disabled ? 'default' : 'pointer',
+        transition: 'background 0.15s, color 0.15s',
+        whiteSpace: 'nowrap',
+        WebkitTapHighlightColor: 'transparent',
+      }}
+      onMouseEnter={(e) => {
+        if (!disabled) {
+          e.currentTarget.style.background = 'rgba(255,255,255,0.08)';
+          e.currentTarget.style.color = accent || 'rgba(255,255,255,0.9)';
+        }
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.background = 'transparent';
+        e.currentTarget.style.color = disabled ? 'rgba(255,255,255,0.25)' : (accent || 'rgba(255,255,255,0.6)');
+      }}
+    >
+      {icon}
+      {label && <span>{label}</span>}
+    </button>
+  );
+}
+
+// ── Floating toolbar ────────────────────────────────────────────────────
+function GraphToolbar() {
   const nodes = useGraphStore((s) => s.nodes);
   const clearGraph = useGraphStore((s) => s.clearGraph);
   const collapseAll = useGraphStore((s) => s.collapseAll);
+  const expandOneDegree = useGraphStore((s) => s.expandOneDegree);
+  const collapseOneDegree = useGraphStore((s) => s.collapseOneDegree);
+  const coreNodes = useGraphStore((s) => s.coreNodes);
+  const championshipContext = useGraphStore((s) => s.championshipContext);
+  const expandAllChampionshipPlayers = useGraphStore((s) => s.expandAllChampionshipPlayers);
+  const { zoomIn, zoomOut, fitView } = useReactFlow();
   const isMobile = useMobile();
+  const [expanding, setExpanding] = useState(false);
 
   if (nodes.length === 0) return null;
 
-  const btnStyle: React.CSSProperties = {
-    padding: isMobile ? '10px 16px' : '5px 10px',
-    minHeight: isMobile ? 44 : 'auto',
-    fontSize: isMobile ? 13 : 11,
-    fontWeight: 600,
-    fontFamily: 'var(--font-body)',
-    color: 'var(--text-secondary)',
-    background: 'var(--bg-elevated)',
-    border: '1px solid var(--border-medium)',
-    borderRadius: 'var(--radius-sm)',
-    cursor: 'pointer',
-    transition: 'var(--transition-fast)',
-    WebkitTapHighlightColor: 'transparent',
+  const hasTradeNodes = nodes.some(n => n.type === 'trade');
+  const hasNonCoreNodes = nodes.some(n => !coreNodes.has(n.id));
+  const hasUnexpandedPlayers = championshipContext
+    ? championshipContext.players.length > (championshipContext.expandedPaths?.size ?? 0)
+    : false;
+
+  const handleExpand = async () => {
+    setExpanding(true);
+    try { await expandOneDegree(); } finally { setExpanding(false); }
   };
+
+  const handleFit = useCallback(() => {
+    fitView({ padding: 0.3, duration: 400 });
+  }, [fitView]);
 
   return (
     <div
       style={{
         position: 'absolute',
-        top: isMobile ? 'auto' : 12,
-        bottom: isMobile ? 80 : 'auto',
-        right: isMobile ? 12 : 12,
+        top: isMobile ? 'auto' : 62,
+        bottom: isMobile ? 16 : 'auto',
+        left: '50%',
+        transform: 'translateX(-50%)',
         zIndex: 8,
         display: 'flex',
-        flexDirection: isMobile ? 'column' : 'row',
-        gap: 6,
+        alignItems: 'center',
+        gap: 2,
+        padding: '3px 4px',
+        background: 'rgba(18, 18, 26, 0.92)',
+        backdropFilter: 'blur(12px)',
+        border: '1px solid rgba(255,255,255,0.08)',
+        borderRadius: 8,
+        boxShadow: '0 4px 16px rgba(0,0,0,0.4)',
       }}
     >
-      <button
-        style={btnStyle}
-        onClick={collapseAll}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.background = 'var(--bg-tertiary)';
-          e.currentTarget.style.color = 'var(--text-primary)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.background = 'var(--bg-elevated)';
-          e.currentTarget.style.color = 'var(--text-secondary)';
-        }}
-        title="Collapse all expanded nodes"
-      >
-        Collapse All
-      </button>
-      <button
-        style={btnStyle}
-        onClick={clearGraph}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.background = 'var(--bg-tertiary)';
-          e.currentTarget.style.color = 'var(--text-primary)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.background = 'var(--bg-elevated)';
-          e.currentTarget.style.color = 'var(--text-secondary)';
-        }}
-        title="Clear graph and return to search"
-      >
-        Home
-      </button>
+      {/* Zoom group */}
+      <ToolbarButton icon={<IconZoomOut />} title="Zoom Out" onClick={() => zoomOut({ duration: 200 })} isMobile={isMobile} />
+      <ToolbarButton icon={<IconZoomIn />} title="Zoom In" onClick={() => zoomIn({ duration: 200 })} isMobile={isMobile} />
+      <ToolbarButton icon={<IconFitView />} label="Fit" title="Fit all nodes in view" onClick={handleFit} isMobile={isMobile} />
+
+      <Separator />
+
+      {/* Expand / Reduce group */}
+      <ToolbarButton
+        icon={<IconExpand />}
+        label="Expand"
+        title="Expand trade web one layer deeper"
+        onClick={handleExpand}
+        disabled={!hasTradeNodes || expanding}
+        isMobile={isMobile}
+      />
+      <ToolbarButton
+        icon={<IconReduce />}
+        label="Reduce"
+        title="Collapse outermost layer of nodes"
+        onClick={collapseOneDegree}
+        disabled={!hasNonCoreNodes}
+        isMobile={isMobile}
+      />
+
+      {/* Championship expand all (conditional) */}
+      {hasUnexpandedPlayers && (
+        <>
+          <Separator />
+          <ToolbarButton
+            icon={<IconExpand />}
+            label="All Paths"
+            title="Expand career paths for all championship players"
+            onClick={expandAllChampionshipPlayers}
+            accent="#f9c74f"
+            isMobile={isMobile}
+          />
+        </>
+      )}
+
+      <Separator />
+
+      {/* Reset / Home group */}
+      <ToolbarButton icon={<IconReset />} label="Reset" title="Collapse all expansions back to initial view" onClick={collapseAll} isMobile={isMobile} />
+      <ToolbarButton icon={<IconHome />} label="Home" title="Clear graph and start a new search" onClick={clearGraph} isMobile={isMobile} />
     </div>
   );
 }
@@ -139,7 +285,7 @@ function GraphCanvas() {
   return (
     <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
       <SearchOverlay />
-      <CanvasControls />
+      <GraphToolbar />
       <div
         style={{
           position: 'absolute',
@@ -157,11 +303,9 @@ function GraphCanvas() {
           nodeTypes={nodeTypes}
           minZoom={0.1}
           maxZoom={2}
-          // Touch: 1-finger pan, 2-finger pinch zoom
           panOnDrag={true}
           zoomOnPinch={true}
           zoomOnScroll={!isMobile}
-          // Require 8px of movement before a node drag starts — distinguishes taps from drags
           nodeDragThreshold={isMobile ? 8 : 4}
           selectionOnDrag={false}
           defaultEdgeOptions={{
@@ -176,13 +320,6 @@ function GraphCanvas() {
             size={1}
             color="#1a1a2e"
           />
-          {/* Controls: hide on mobile (pinch to zoom is sufficient) */}
-          {!isMobile && (
-            <Controls
-              showInteractive={false}
-              style={{ bottom: 16, left: 16 }}
-            />
-          )}
           {/* MiniMap: hide on mobile (too small to tap usefully) */}
           {!isMobile && (
             <MiniMap
@@ -191,6 +328,7 @@ function GraphCanvas() {
                 if (node.type === 'player') return '#4ecdc4';
                 if (node.type === 'pick') return '#f9c74f';
                 if (node.type === 'playerStint') return '#9b5de5';
+                if (node.type === 'championship') return '#f9c74f';
                 if (node.type === 'gap') return '#444';
                 return '#666';
               }}

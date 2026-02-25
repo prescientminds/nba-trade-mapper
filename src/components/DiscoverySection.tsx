@@ -43,7 +43,15 @@ interface PlayerCard {
   initials: string;
 }
 
-type CardData = TradeCard | PlayerCard;
+interface ChampionshipCard {
+  type: 'championship';
+  teamId: string;
+  season: string;
+  teamName: string;
+  teamColor: string;
+}
+
+type CardData = TradeCard | PlayerCard | ChampionshipCard;
 
 interface Category {
   id: string;
@@ -59,6 +67,7 @@ interface Props {
   onSelectTrade: (trade: TradeWithDetails) => void;
   onSelectPlayer: (name: string) => void;
   onSelectChain?: (tradeId: string, chainScores?: Record<string, ChainTeamData>) => void;
+  onSelectChampionship?: (teamId: string, season: string) => void;
 }
 
 type ScoreRow = {
@@ -592,6 +601,150 @@ function PlayerCardItem({ card, onClick }: { card: PlayerCard; onClick: () => vo
   );
 }
 
+// ── Championship Card ────────────────────────────────────────────────
+
+function ChampionshipCardItem({ card, onClick }: { card: ChampionshipCard; onClick: () => void }) {
+  const [hovered, setHovered] = useState(false);
+  const teamColor = card.teamColor || '#9b5de5';
+
+  return (
+    <button
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        flexShrink: 0,
+        width: 188,
+        background: hovered ? 'var(--bg-tertiary)' : 'var(--bg-card)',
+        border: `1px solid ${hovered ? teamColor + '66' : 'var(--border-subtle)'}`,
+        borderLeft: `3px solid ${teamColor}`,
+        borderRadius: 'var(--radius-md)',
+        padding: '14px',
+        cursor: 'pointer',
+        textAlign: 'left',
+        transition: 'all var(--transition-fast)',
+        transform: hovered ? 'translateY(-2px)' : 'translateY(0)',
+        boxShadow: hovered ? `0 4px 16px ${teamColor}22` : 'none',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 6,
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <span style={{ fontSize: 18 }}>{'\uD83C\uDFC6'}</span>
+        <span
+          style={{
+            fontSize: 9,
+            fontWeight: 700,
+            padding: '2px 7px',
+            borderRadius: 999,
+            background: teamColor,
+            color: contrastText(teamColor),
+            fontFamily: 'var(--font-body)',
+            letterSpacing: 0.5,
+            textTransform: 'uppercase',
+          }}
+        >
+          {card.teamId}
+        </span>
+      </div>
+      <div
+        style={{
+          fontSize: 13,
+          fontWeight: 700,
+          color: 'var(--text-primary)',
+          fontFamily: 'var(--font-display)',
+          letterSpacing: 0.3,
+          lineHeight: 1.2,
+        }}
+      >
+        {card.teamName}
+      </div>
+      <div
+        style={{
+          fontSize: 11,
+          fontFamily: 'var(--font-mono)',
+          color: 'var(--text-secondary)',
+        }}
+      >
+        {card.season}
+      </div>
+      <div
+        style={{
+          fontSize: 9,
+          fontWeight: 600,
+          color: '#f9c74f',
+          fontFamily: 'var(--font-body)',
+          letterSpacing: 0.5,
+          textTransform: 'uppercase',
+        }}
+      >
+        View roster →
+      </div>
+    </button>
+  );
+}
+
+// ── Championship List Row ───────────────────────────────────────────
+
+function ChampionshipListRow({ card, rank, onClick }: { card: ChampionshipCard; rank: number; onClick: () => void }) {
+  const [hovered, setHovered] = useState(false);
+  const teamColor = card.teamColor || '#9b5de5';
+
+  return (
+    <button
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        gap: 12,
+        padding: '8px 12px',
+        background: hovered ? 'var(--bg-tertiary)' : 'transparent',
+        border: 'none',
+        borderBottom: '1px solid var(--border-subtle)',
+        cursor: 'pointer',
+        textAlign: 'left',
+        transition: 'background var(--transition-fast)',
+      }}
+    >
+      <span style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', width: 20, textAlign: 'right', flexShrink: 0 }}>
+        {rank}
+      </span>
+      <span style={{ fontSize: 14 }}>{'\uD83C\uDFC6'}</span>
+      <span
+        style={{
+          fontSize: 9,
+          fontWeight: 700,
+          padding: '2px 6px',
+          borderRadius: 999,
+          background: teamColor,
+          color: contrastText(teamColor),
+          fontFamily: 'var(--font-body)',
+          letterSpacing: 0.4,
+          textTransform: 'uppercase',
+          flexShrink: 0,
+        }}
+      >
+        {card.teamId}
+      </span>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'var(--font-display)', letterSpacing: 0.3, lineHeight: 1.2, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          {card.teamName}
+        </div>
+      </div>
+      <span style={{ fontSize: 10, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', flexShrink: 0 }}>
+        {card.season}
+      </span>
+      <span style={{ fontSize: 9, fontWeight: 600, color: '#f9c74f', fontFamily: 'var(--font-body)', letterSpacing: 0.5, textTransform: 'uppercase', flexShrink: 0 }}>
+        View →
+      </span>
+    </button>
+  );
+}
+
 // ── View Toggle Button ───────────────────────────────────────────────
 
 function ViewToggle({
@@ -932,11 +1085,13 @@ function CategoryRow({
   onSelectTrade,
   onSelectPlayer,
   onSelectChain,
+  onSelectChampionship,
 }: {
   category: Category;
   onSelectTrade: (trade: TradeWithDetails) => void;
   onSelectPlayer: (name: string) => void;
   onSelectChain?: (tradeId: string, chainScores?: Record<string, ChainTeamData>) => void;
+  onSelectChampionship?: (teamId: string, season: string) => void;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [viewMode, setViewMode] = useState<'cards' | 'list'>('cards');
@@ -1016,6 +1171,12 @@ function CategoryRow({
                 metricExplanation={category.metricExplanation}
                 onClick={() => handleTradeClick(card)}
               />
+            ) : card.type === 'championship' ? (
+              <ChampionshipCardItem
+                key={`${card.teamId}-${card.season}`}
+                card={card}
+                onClick={() => onSelectChampionship?.(card.teamId, card.season)}
+              />
             ) : (
               <PlayerCardItem
                 key={card.name}
@@ -1044,6 +1205,13 @@ function CategoryRow({
                 accentColor={category.accentColor}
                 metricLabel={category.metricLabel}
                 onClick={() => handleTradeClick(card)}
+              />
+            ) : card.type === 'championship' ? (
+              <ChampionshipListRow
+                key={`${card.teamId}-${card.season}`}
+                card={card}
+                rank={i + 1}
+                onClick={() => onSelectChampionship?.(card.teamId, card.season)}
               />
             ) : (
               <PlayerListRow
@@ -1125,7 +1293,7 @@ const METRIC_DEFS: Record<string, { metricLabel: string; metricExplanation: stri
 
 // ── Main Component ────────────────────────────────────────────────────
 
-export default function DiscoverySection({ onSelectTrade, onSelectPlayer, onSelectChain }: Props) {
+export default function DiscoverySection({ onSelectTrade, onSelectPlayer, onSelectChain, onSelectChampionship }: Props) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -1484,6 +1652,33 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer, onSele
             cards: journeyCards,
           },
         ];
+
+        // Build championship roster cards (most recent first)
+        const rosterCards: ChampionshipCard[] = [...champs]
+          .sort((a, b) => b.season.localeCompare(a.season))
+          .map((c) => {
+            const info = getTeamDisplayInfo(c.team_id, `${c.season.split('-')[0]}-06-15`);
+            return {
+              type: 'championship' as const,
+              teamId: c.team_id,
+              season: c.season,
+              teamName: info.name,
+              teamColor: info.color || '#9b5de5',
+            };
+          });
+
+        if (rosterCards.length > 0) {
+          allCategories.push({
+            id: 'championship-road',
+            label: 'Road to a Championship',
+            description: 'Select a championship team to trace how every player on the roster arrived — from draft to title.',
+            accentColor: '#f9c74f',
+            metricLabel: 'Season',
+            metricExplanation: 'The championship season. Click to see the full roster sorted by playoff impact, then expand each player to trace their path to the title.',
+            cards: rosterCards,
+          });
+        }
+
         // Only show categories that have cards
         setCategories(allCategories.filter((c) => c.cards.length > 0));
       } catch (err) {
@@ -1520,6 +1715,7 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer, onSele
           onSelectTrade={onSelectTrade}
           onSelectPlayer={onSelectPlayer}
           onSelectChain={onSelectChain}
+          onSelectChampionship={onSelectChampionship}
         />
       ))}
     </div>

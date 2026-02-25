@@ -21,6 +21,8 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
     draftYear,
     draftRound,
     draftPick,
+    playoffWs,
+    canExpandBackward,
   } = data as PlayerStintNodeData;
 
   const expandStintDetails = useGraphStore((s) => s.expandStintDetails);
@@ -28,6 +30,7 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
   const expandedNodes = useGraphStore((s) => s.expandedNodes);
   const loadingNodes = useGraphStore((s) => s.loadingNodes);
   const coreNodes = useGraphStore((s) => s.coreNodes);
+  const expandChampionshipPlayer = useGraphStore((s) => s.expandChampionshipPlayer);
 
   const isExpanded = expandedNodes.has(id);
   const isLoading = loadingNodes.has(id);
@@ -59,7 +62,7 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
     <div
       style={{
         width: isExpanded ? 230 : 180,
-        overflow: 'hidden',
+        overflow: canExpandBackward ? 'visible' : 'hidden',
         background: 'var(--bg-card)',
         borderRadius: 'var(--radius-md)',
         border: `1px solid ${isExpanded ? color + '66' : 'var(--border-medium)'}`,
@@ -86,6 +89,39 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
       }}
     >
       <Handle type="target" position={Position.Top} style={{ opacity: 0 }} />
+
+      {/* Backward expand button — championship mode */}
+      {canExpandBackward && (
+        <div
+          className="nopan nodrag"
+          onClick={(e) => { e.stopPropagation(); expandChampionshipPlayer(playerName); }}
+          style={{
+            position: 'absolute',
+            top: -18,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: 20,
+            height: 16,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: '4px 4px 0 0',
+            background: 'var(--bg-elevated)',
+            border: '1px solid var(--border-medium)',
+            borderBottom: 'none',
+            color: 'var(--text-secondary)',
+            fontSize: 11,
+            lineHeight: 1,
+            cursor: 'pointer',
+            zIndex: 2,
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--bg-tertiary)'; e.currentTarget.style.color = 'var(--text-primary)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--bg-elevated)'; e.currentTarget.style.color = 'var(--text-secondary)'; }}
+          title="Expand history"
+        >
+          +
+        </div>
+      )}
 
       {/* X close button — only for non-core nodes */}
       {!isCore && isExpanded && !isLoading && (
@@ -206,6 +242,18 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
               WS: {totalWinShares.toFixed(1)}
             </span>
           )}
+        </div>
+      )}
+
+      {/* Playoff Win Shares — shown in championship mode */}
+      {playoffWs != null && (
+        <div style={{
+          fontSize: 8,
+          fontFamily: 'var(--font-mono)',
+          color: '#f9c74f',
+          marginTop: 1,
+        }}>
+          Playoff WS: {playoffWs.toFixed(1)}
         </div>
       )}
 

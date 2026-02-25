@@ -25,6 +25,7 @@ export default function SearchOverlay() {
   const seedFromTrade = useGraphStore((s) => s.seedFromTrade);
   const seedFromChain = useGraphStore((s) => s.seedFromChain);
   const seedFromPlayer = useGraphStore((s) => s.seedFromPlayer);
+  const seedChampionshipRoster = useGraphStore((s) => s.seedChampionshipRoster);
   const clearGraph = useGraphStore((s) => s.clearGraph);
   const nodes = useGraphStore((s) => s.nodes);
 
@@ -70,6 +71,12 @@ export default function SearchOverlay() {
     setOpen(false);
     setQuery('');
     seedFromChain(tradeId, chainScores as Parameters<typeof seedFromChain>[1]);
+  };
+
+  const selectChampionship = (teamId: string, season: string) => {
+    setOpen(false);
+    setQuery('');
+    seedChampionshipRoster(teamId, season);
   };
 
   // Close dropdown on outside click
@@ -448,7 +455,7 @@ export default function SearchOverlay() {
           padding: '0 24px 120px',
         }}
       >
-        <DiscoverySection onSelectTrade={selectTrade} onSelectPlayer={selectPlayer} onSelectChain={selectChain} />
+        <DiscoverySection onSelectTrade={selectTrade} onSelectPlayer={selectPlayer} onSelectChain={selectChain} onSelectChampionship={selectChampionship} />
       </div>
     </div>
   );
