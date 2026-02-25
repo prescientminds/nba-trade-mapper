@@ -171,6 +171,10 @@ function GraphToolbar() {
   const isMobile = useMobile();
   const [expanding, setExpanding] = useState(false);
 
+  const handleFit = useCallback(() => {
+    fitView({ padding: 0.3, duration: 400 });
+  }, [fitView]);
+
   if (nodes.length === 0) return null;
 
   const hasTradeNodes = nodes.some(n => n.type === 'trade');
@@ -183,10 +187,6 @@ function GraphToolbar() {
     setExpanding(true);
     try { await expandOneDegree(); } finally { setExpanding(false); }
   };
-
-  const handleFit = useCallback(() => {
-    fitView({ padding: 0.3, duration: 400 });
-  }, [fitView]);
 
   return (
     <div
