@@ -127,10 +127,7 @@ body {
   fill: currentColor !important;
 }
 
-.react-flow__edge-path {
-  stroke: #444 !important;
-  stroke-width: 1.5 !important;
-}
+/* Edge styling handled by HighlightableEdge component */
 
 .react-flow__edge-text {
   font-size: 10px !important;

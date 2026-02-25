@@ -31,6 +31,7 @@ import PickNode from '@/components/nodes/PickNode';
 import PlayerStintNode from '@/components/nodes/PlayerStintNode';
 import GapNode from '@/components/nodes/GapNode';
 import ChampionshipNode from '@/components/nodes/ChampionshipNode';
+import HighlightableEdge from '@/components/edges/HighlightableEdge';
 import SearchOverlay from '@/components/SearchOverlay';
 
 const nodeTypes = {
@@ -40,6 +41,10 @@ const nodeTypes = {
   playerStint: PlayerStintNode,
   gap: GapNode,
   championship: ChampionshipNode,
+};
+
+const edgeTypes = {
+  highlightable: HighlightableEdge,
 };
 
 // ── SVG icons for toolbar ──────────────────────────────────────────────
@@ -167,9 +172,11 @@ function GraphToolbar() {
   const coreNodes = useGraphStore((s) => s.coreNodes);
   const championshipContext = useGraphStore((s) => s.championshipContext);
   const expandAllChampionshipPlayers = useGraphStore((s) => s.expandAllChampionshipPlayers);
+  const expandChampionshipWeb = useGraphStore((s) => s.expandChampionshipWeb);
   const { zoomIn, zoomOut, fitView } = useReactFlow();
   const isMobile = useMobile();
   const [expanding, setExpanding] = useState(false);
+  const [champExpanding, setChampExpanding] = useState(false);
 
   const handleFit = useCallback(() => {
     fitView({ padding: 0.3, duration: 400 });
@@ -181,6 +188,14 @@ function GraphToolbar() {
   const hasNonCoreNodes = nodes.some(n => !coreNodes.has(n.id));
   const hasUnexpandedPlayers = championshipContext
     ? championshipContext.players.length > (championshipContext.expandedPaths?.size ?? 0)
+    : false;
+  // Check if any expanded players are in 'road' phase with post-championship stints
+  const hasRoadPhasePlayers = championshipContext
+    ? championshipContext.players.some(p =>
+        championshipContext.expandedPaths.has(p.playerName)
+        && championshipContext.playerPhases.get(p.playerName) === 'road'
+        && p.championshipStintIndex < p.allStints.length - 1
+      )
     : false;
 
   const handleExpand = async () => {
@@ -233,18 +248,38 @@ function GraphToolbar() {
         isMobile={isMobile}
       />
 
-      {/* Championship expand all (conditional) */}
-      {hasUnexpandedPlayers && (
+      {/* Championship buttons (conditional) */}
+      {(hasUnexpandedPlayers || hasRoadPhasePlayers) && (
         <>
           <Separator />
-          <ToolbarButton
-            icon={<IconExpand />}
-            label="All Paths"
-            title="Expand career paths for all championship players"
-            onClick={expandAllChampionshipPlayers}
-            accent="#f9c74f"
-            isMobile={isMobile}
-          />
+          {hasUnexpandedPlayers && (
+            <ToolbarButton
+              icon={<IconExpand />}
+              label="All Paths"
+              title="Expand road-to-championship paths for all players"
+              onClick={async () => {
+                setChampExpanding(true);
+                try { await expandAllChampionshipPlayers(); } finally { setChampExpanding(false); }
+              }}
+              disabled={champExpanding}
+              accent="#f9c74f"
+              isMobile={isMobile}
+            />
+          )}
+          {hasRoadPhasePlayers && (
+            <ToolbarButton
+              icon={<IconExpand />}
+              label="Show After"
+              title="Show where players went after the championship"
+              onClick={async () => {
+                setChampExpanding(true);
+                try { await expandChampionshipWeb(); } finally { setChampExpanding(false); }
+              }}
+              disabled={champExpanding}
+              accent="#f9c74f"
+              isMobile={isMobile}
+            />
+          )}
         </>
       )}
 
@@ -264,6 +299,7 @@ function GraphCanvas() {
   const onEdgesChange = useGraphStore((s) => s.onEdgesChange);
   const pendingFitTarget = useGraphStore((s) => s.pendingFitTarget);
   const clearPendingFitTarget = useGraphStore((s) => s.clearPendingFitTarget);
+  const clearHighlightedEdges = useGraphStore((s) => s.clearHighlightedEdges);
   const { fitView } = useReactFlow();
   const isMobile = useMobile();
 
@@ -301,6 +337,8 @@ function GraphCanvas() {
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
           nodeTypes={nodeTypes}
+          edgeTypes={edgeTypes}
+          onPaneClick={clearHighlightedEdges}
           minZoom={0.1}
           maxZoom={2}
           panOnDrag={true}
@@ -309,7 +347,7 @@ function GraphCanvas() {
           nodeDragThreshold={isMobile ? 8 : 4}
           selectionOnDrag={false}
           defaultEdgeOptions={{
-            type: 'straight',
+            type: 'highlightable',
             style: { stroke: '#555', strokeWidth: 1.5 },
           }}
           proOptions={{ hideAttribution: true }}
@@ -323,6 +361,8 @@ function GraphCanvas() {
           {/* MiniMap: hide on mobile (too small to tap usefully) */}
           {!isMobile && (
             <MiniMap
+              pannable
+              zoomable
               nodeColor={(node) => {
                 if (node.type === 'trade') return '#ff6b35';
                 if (node.type === 'player') return '#4ecdc4';

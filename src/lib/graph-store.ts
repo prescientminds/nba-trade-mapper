@@ -149,6 +149,7 @@ interface GraphState {
   prevColumnIndex: number;
   pendingFitTarget: string | null;
   expandedGapIds: Set<string>;
+  highlightedEdges: Set<string>;
 
   onNodesChange: OnNodesChange;
   onEdgesChange: OnEdgesChange;
@@ -182,10 +183,14 @@ interface GraphState {
     trades: TradeWithDetails[];
     players: string[];
   }>;
+  highlightEdgePath: (edgeId: string) => void;
+  clearHighlightedEdges: () => void;
   championshipContext: ChampionshipContext | null;
   seedChampionshipRoster: (teamId: string, season: string) => Promise<void>;
   expandChampionshipPlayer: (playerName: string) => Promise<void>;
   expandAllChampionshipPlayers: () => Promise<void>;
+  expandChampionshipPlayerAfter: (playerName: string) => Promise<void>;
+  expandChampionshipWeb: () => Promise<void>;
   expandInlineChampionshipPlayer: (nodeId: string, playerName: string) => Promise<void>;
 }
 
@@ -336,7 +341,7 @@ function makeEdge(source: string, target: string, label?: string): Edge {
     id: `e-${source}-${target}`,
     source,
     target,
-    type: 'straight',
+    type: 'highlightable',
     animated: false,
     label,
     style: { stroke: '#555', strokeWidth: 1.5 },
@@ -430,6 +435,7 @@ export interface ChampionshipContext {
   season: string;
   players: ChampionshipPlayerData[];
   expandedPaths: Set<string>; // player names whose paths have been seeded
+  playerPhases: Map<string, 'road' | 'full'>; // tracks expansion phase per player
 }
 
 // ── Find trade between stints ────────────────────────────────────────
@@ -672,6 +678,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   prevColumnIndex: -1,
   pendingFitTarget: null,
   expandedGapIds: new Set(),
+  highlightedEdges: new Set(),
   championshipContext: null,
 
   onNodesChange: (changes) => {
@@ -710,11 +717,61 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       prevColumnIndex: -1,
       pendingFitTarget: null,
       expandedGapIds: new Set(),
+      highlightedEdges: new Set(),
       championshipContext: null,
     });
   },
 
   clearPendingFitTarget: () => set({ pendingFitTarget: null }),
+
+  highlightEdgePath: (edgeId: string) => {
+    const state = get();
+    const clickedEdge = state.edges.find(e => e.id === edgeId);
+    if (!clickedEdge) return;
+
+    // Toggle off if already highlighted
+    if (state.highlightedEdges.has(edgeId)) {
+      set({ highlightedEdges: new Set() });
+      return;
+    }
+
+    // Extract player name from connected nodes
+    const getPlayerFromNode = (nodeId: string): string | null => {
+      const n = state.nodes.find(nn => nn.id === nodeId);
+      if (!n) return null;
+      if (n.type === 'playerStint') return (n.data as PlayerStintNodeData).playerName;
+      if (n.type === 'player') return (n.data as PlayerNodeData).name;
+      if (n.type === 'gap') return (n.data as GapNodeData).playerName;
+      return null;
+    };
+
+    const playerName = getPlayerFromNode(clickedEdge.source) || getPlayerFromNode(clickedEdge.target);
+    if (!playerName) {
+      // No player context — highlight just this edge
+      set({ highlightedEdges: new Set([edgeId]) });
+      return;
+    }
+
+    // Find all edges belonging to this player's journey
+    const isPlayerNode = (nodeId: string): boolean => {
+      return getPlayerFromNode(nodeId) === playerName;
+    };
+
+    const pathEdges = new Set<string>();
+    for (const e of state.edges) {
+      if (isPlayerNode(e.source) || isPlayerNode(e.target)) {
+        pathEdges.add(e.id);
+      }
+    }
+
+    set({ highlightedEdges: pathEdges });
+  },
+
+  clearHighlightedEdges: () => {
+    if (get().highlightedEdges.size > 0) {
+      set({ highlightedEdges: new Set() });
+    }
+  },
 
   assignPlayerColumn: (playerName: string) => {
     const state = get();
@@ -772,12 +829,16 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const keptIds = new Set(updatedNodes.map(n => n.id));
     const updatedEdges = state.edges.filter(e => keptIds.has(e.source) && keptIds.has(e.target));
     const emptyExpanded = new Set<string>();
+    // Reset championship context phases so buttons reappear correctly
+    const resetChampCtx = state.championshipContext
+      ? { ...state.championshipContext, expandedPaths: new Set<string>(), playerPhases: new Map<string, 'road' | 'full'>() }
+      : null;
     if (state.layoutMode === 'timeline') {
       const laid = layoutPlayerTimeline(updatedNodes, updatedEdges, state.playerColumns, emptyExpanded, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections);
-      set({ nodes: laid, edges: updatedEdges, expandedNodes: emptyExpanded });
+      set({ nodes: laid, edges: updatedEdges, expandedNodes: emptyExpanded, championshipContext: resetChampCtx, highlightedEdges: new Set() });
     } else {
       layoutGraph(updatedNodes, updatedEdges, undefined, emptyExpanded).then((laid) => {
-        set({ nodes: laid, edges: updatedEdges, expandedNodes: emptyExpanded });
+        set({ nodes: laid, edges: updatedEdges, expandedNodes: emptyExpanded, championshipContext: resetChampCtx, highlightedEdges: new Set() });
       });
     }
   },
@@ -2747,7 +2808,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
           id: anchorEdgeId,
           source: lastSid,
           target: tradeNodeId_,
-          type: 'straight',
+          type: 'highlightable',
           animated: false,
           style: { stroke: '#555', strokeWidth: 1.5 },
           data: { excludeFromTopoSort: true },
@@ -3032,7 +3093,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
           id: `e-${lastBackwardSid}-${tradeNodeId_}`,
           source: lastBackwardSid,
           target: tradeNodeId_,
-          type: 'straight',
+          type: 'highlightable',
           animated: false,
           style: { stroke: '#555', strokeWidth: 1.5 },
           data: { excludeFromTopoSort: true },
@@ -3279,11 +3340,12 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         season,
         players: allPlayerData,
         expandedPaths: new Set(),
+        playerPhases: new Map(),
       },
     });
   },
 
-  // Seeds a single player's full career journey from the championship card
+  // Seeds a single player's road-to-championship journey (Phase 1: stints 0..champIdx)
   expandChampionshipPlayer: async (playerName: string) => {
     const state = get();
     const ctx = state.championshipContext;
@@ -3297,12 +3359,13 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     const champNodeId_ = championshipNodeId(ctx.teamId, ctx.season);
     const stints = playerData.allStints;
+    const champIdx = playerData.championshipStintIndex;
 
     const newNodes: Node[] = [];
     const newEdges: Edge[] = [];
 
-    // Create stint nodes for ALL stints in career
-    for (let i = 0; i < stints.length; i++) {
+    // Phase 1: Create stint nodes for stints 0 through championshipStintIndex (inclusive)
+    for (let i = 0; i <= champIdx; i++) {
       const stint = stints[i];
       const stintSeasons = stint.seasons.map(s => s.season);
       let node = makeStintNode(
@@ -3320,20 +3383,20 @@ export const useGraphStore = create<GraphState>((set, get) => ({
           draftPick: playerData.draftInfo.pick,
         } };
       }
-      if (i === playerData.championshipStintIndex) {
+      if (i === champIdx) {
         node = { ...node, data: { ...node.data, playoffWs: playerData.playoffWs } };
       }
       newNodes.push(node);
     }
 
-    // Find trades between consecutive stints in parallel
+    // Find trades between consecutive stints in the road-to-championship range
     interface TradeLookup {
       prevSid: string;
       currSid: string;
       trade: StaticTrade | null;
     }
     const tradePromises: Promise<TradeLookup>[] = [];
-    for (let i = 0; i < stints.length - 1; i++) {
+    for (let i = 0; i < champIdx; i++) {
       const fromStint = stints[i];
       const toStint = stints[i + 1];
       const fromLastSeason = fromStint.seasons[fromStint.seasons.length - 1].season;
@@ -3367,7 +3430,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     }
 
     // Edge from championship node to championship stint
-    const champStintId = stintNodeId(playerName, stints[playerData.championshipStintIndex].teamId, playerData.championshipStintIndex);
+    const champStintId = stintNodeId(playerName, stints[champIdx].teamId, champIdx);
     if (!edgeExists(newEdges, champNodeId_, champStintId) && !edgeExists(state.edges, champNodeId_, champStintId))
       newEdges.push(makeEdge(champNodeId_, champStintId));
 
@@ -3385,6 +3448,9 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const newExpandedPaths = new Set(ctx.expandedPaths);
     newExpandedPaths.add(playerName);
 
+    const newPhases = new Map(ctx.playerPhases);
+    newPhases.set(playerName, 'road');
+
     // Layout
     const laid = layoutPlayerTimeline(allNodes, allEdges, newPlayerCols, state.expandedNodes, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections, champNodeId_);
 
@@ -3394,11 +3460,11 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       coreNodes: newCore,
       playerColumns: newPlayerCols,
       nextColumnIndex: col + 1,
-      championshipContext: { ...ctx, expandedPaths: newExpandedPaths },
+      championshipContext: { ...ctx, expandedPaths: newExpandedPaths, playerPhases: newPhases },
     });
   },
 
-  // Batch-expand paths for all players not yet on graph
+  // Batch-expand Phase 1 paths (road to championship) for all players not yet on graph
   expandAllChampionshipPlayers: async () => {
     const state = get();
     const ctx = state.championshipContext;
@@ -3413,6 +3479,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const newPlayerCols = new Map(state.playerColumns);
     let nextCol = state.nextColumnIndex;
     const newExpandedPaths = new Set(ctx.expandedPaths);
+    const newPhases = new Map(ctx.playerPhases);
 
     interface TradeLookup {
       prevSid: string;
@@ -3423,12 +3490,14 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     for (const pd of toExpand) {
       const stints = pd.allStints;
+      const champIdx = pd.championshipStintIndex;
       newPlayerCols.set(pd.playerName, nextCol);
       nextCol++;
       newExpandedPaths.add(pd.playerName);
+      newPhases.set(pd.playerName, 'road');
 
-      // Create stint nodes for ALL stints
-      for (let i = 0; i < stints.length; i++) {
+      // Phase 1: Create stint nodes only for stints 0 through champIdx
+      for (let i = 0; i <= champIdx; i++) {
         const stint = stints[i];
         const stintSeasons = stint.seasons.map(s => s.season);
         let node = makeStintNode(
@@ -3443,14 +3512,14 @@ export const useGraphStore = create<GraphState>((set, get) => ({
           node = { ...node, data: { ...node.data,
             draftYear: pd.draftInfo.year, draftRound: pd.draftInfo.round, draftPick: pd.draftInfo.pick } };
         }
-        if (i === pd.championshipStintIndex) {
+        if (i === champIdx) {
           node = { ...node, data: { ...node.data, playoffWs: pd.playoffWs } };
         }
         newNodes.push(node);
       }
 
-      // Find trades between consecutive stints
-      for (let i = 0; i < stints.length - 1; i++) {
+      // Find trades between consecutive stints (only 0..champIdx range)
+      for (let i = 0; i < champIdx; i++) {
         const fromStint = stints[i];
         const toStint = stints[i + 1];
         const fromLastSeason = fromStint.seasons[fromStint.seasons.length - 1].season;
@@ -3467,7 +3536,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       }
 
       // Edge from championship node to championship stint
-      const champStintId = stintNodeId(pd.playerName, stints[pd.championshipStintIndex].teamId, pd.championshipStintIndex);
+      const champStintId = stintNodeId(pd.playerName, stints[champIdx].teamId, champIdx);
       if (!edgeExists(newEdges, champNodeId_, champStintId))
         newEdges.push(makeEdge(champNodeId_, champStintId));
     }
@@ -3501,8 +3570,135 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       coreNodes: newCore,
       playerColumns: newPlayerCols,
       nextColumnIndex: nextCol,
-      championshipContext: { ...ctx, expandedPaths: newExpandedPaths },
+      championshipContext: { ...ctx, expandedPaths: newExpandedPaths, playerPhases: newPhases },
     });
+  },
+
+  // Phase 2: Expand post-championship stints for a single player
+  expandChampionshipPlayerAfter: async (playerName: string) => {
+    const state = get();
+    const ctx = state.championshipContext;
+    if (!ctx) return;
+
+    const playerData = ctx.players.find(p => p.playerName === playerName);
+    if (!playerData) return;
+
+    // Must already be in 'road' phase
+    if (ctx.playerPhases.get(playerName) !== 'road') return;
+
+    const stints = playerData.allStints;
+    const champIdx = playerData.championshipStintIndex;
+
+    // No post-championship stints to show
+    if (champIdx >= stints.length - 1) return;
+
+    const champNodeId_ = championshipNodeId(ctx.teamId, ctx.season);
+    const newNodes: Node[] = [];
+    const newEdges: Edge[] = [];
+
+    // Create stint nodes for champIdx+1 through end
+    for (let i = champIdx + 1; i < stints.length; i++) {
+      const stint = stints[i];
+      const stintSeasons = stint.seasons.map(s => s.season);
+      const node = makeStintNode(
+        playerName, stint.teamId, i, stintSeasons,
+        avg(stint.seasons.map(s => s.ppg)),
+        avg(stint.seasons.map(s => s.rpg)),
+        avg(stint.seasons.map(s => s.apg)),
+        sum(stint.seasons.map(s => s.win_shares)),
+        [],
+      );
+      newNodes.push(node);
+    }
+
+    // Find trades between consecutive post-championship stints
+    // Start from champIdx to connect the championship stint to the next
+    interface TradeLookup {
+      prevSid: string;
+      currSid: string;
+      trade: StaticTrade | null;
+    }
+    const tradePromises: Promise<TradeLookup>[] = [];
+    for (let i = champIdx; i < stints.length - 1; i++) {
+      const fromStint = stints[i];
+      const toStint = stints[i + 1];
+      const fromLastSeason = fromStint.seasons[fromStint.seasons.length - 1].season;
+      const toFirstSeason = toStint.seasons[0].season;
+      tradePromises.push(
+        findTradeBetweenStints(playerName, fromStint.teamId, toStint.teamId, fromLastSeason, toFirstSeason)
+          .catch(() => null)
+          .then(trade => ({
+            prevSid: stintNodeId(playerName, fromStint.teamId, i),
+            currSid: stintNodeId(playerName, toStint.teamId, i + 1),
+            trade,
+          }))
+      );
+    }
+
+    const tradeResults = await Promise.all(tradePromises);
+    for (const { prevSid, currSid, trade } of tradeResults) {
+      if (trade) {
+        const tId = tradeNodeId(trade.id);
+        if (!state.nodes.find(n => n.id === tId) && !newNodes.find(n => n.id === tId)) {
+          newNodes.push(makeTradeNode(staticTradeToTradeWithDetails(trade)));
+        }
+        if (!edgeExists(newEdges, prevSid, tId) && !edgeExists(state.edges, prevSid, tId))
+          newEdges.push(makeEdge(prevSid, tId));
+        if (!edgeExists(newEdges, tId, currSid) && !edgeExists(state.edges, tId, currSid))
+          newEdges.push(makeEdge(tId, currSid));
+      } else {
+        if (!edgeExists(newEdges, prevSid, currSid) && !edgeExists(state.edges, prevSid, currSid))
+          newEdges.push(makeEdge(prevSid, currSid));
+      }
+    }
+
+    // Merge
+    const allNodes = [...state.nodes, ...newNodes];
+    const allEdges = [...state.edges, ...newEdges];
+    const newCore = new Set(state.coreNodes);
+    for (const n of newNodes) newCore.add(n.id);
+
+    const newPhases = new Map(ctx.playerPhases);
+    newPhases.set(playerName, 'full');
+
+    // Layout
+    const laid = layoutPlayerTimeline(allNodes, allEdges, state.playerColumns, state.expandedNodes, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections, champNodeId_);
+
+    set({
+      nodes: laid,
+      edges: allEdges,
+      coreNodes: newCore,
+      championshipContext: { ...ctx, playerPhases: newPhases },
+    });
+  },
+
+  // Expand championship web: batch-expand next group of un-expanded player paths
+  expandChampionshipWeb: async () => {
+    const state = get();
+    const ctx = state.championshipContext;
+    if (!ctx) return;
+
+    // Check if all expanded players are still in 'road' phase — if so, expand them to 'full' first
+    const roadPlayers = ctx.players.filter(p =>
+      ctx.expandedPaths.has(p.playerName) && ctx.playerPhases.get(p.playerName) === 'road'
+      && p.championshipStintIndex < p.allStints.length - 1
+    );
+
+    const toExpand = ctx.players.filter(p => !ctx.expandedPaths.has(p.playerName));
+
+    if (toExpand.length > 0) {
+      // Expand next batch of 3 un-expanded players (Phase 1)
+      const BATCH_SIZE = 3;
+      const batch = toExpand.slice(0, BATCH_SIZE);
+      for (const player of batch) {
+        await get().expandChampionshipPlayer(player.playerName);
+      }
+    } else if (roadPlayers.length > 0) {
+      // All players expanded in Phase 1 — expand all to Phase 2 (show post-championship)
+      for (const player of roadPlayers) {
+        await get().expandChampionshipPlayerAfter(player.playerName);
+      }
+    }
   },
 
   // Inline stats toggle for players in the championship card

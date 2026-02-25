@@ -18,12 +18,17 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
 
   const expandTradeNode = useGraphStore((s) => s.expandTradeNode);
   const expandChampionshipPlayer = useGraphStore((s) => s.expandChampionshipPlayer);
+  const expandChampionshipPlayerAfter = useGraphStore((s) => s.expandChampionshipPlayerAfter);
+  const expandChampionshipWeb = useGraphStore((s) => s.expandChampionshipWeb);
+  const collapseWeb = useGraphStore((s) => s.collapseWeb);
   const expandInlineChampionshipPlayer = useGraphStore((s) => s.expandInlineChampionshipPlayer);
   const expandedNodes = useGraphStore((s) => s.expandedNodes);
   const nodes = useGraphStore((s) => s.nodes);
   const championshipContext = useGraphStore((s) => s.championshipContext);
 
   const [pathLoading, setPathLoading] = useState<string | null>(null);
+  const [afterLoading, setAfterLoading] = useState<string | null>(null);
+  const [expandLoading, setExpandLoading] = useState(false);
 
   const isExpanded = expandedNodes.has(id);
   const color = ensureReadable(teamColor || '#9b5de5');
@@ -31,12 +36,20 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
   const cardWidth = isExpanded ? (hasInlineData ? 260 : 220) : 220;
 
   const expandedPaths = championshipContext?.expandedPaths ?? new Set<string>();
+  const playerPhases = championshipContext?.playerPhases ?? new Map<string, 'road' | 'full'>();
 
   // Check if a player's journey is on the graph
   const isPlayerOnGraph = (playerName: string): boolean => {
     if (expandedPaths.has(playerName)) return true;
     const slug = playerName.toLowerCase().replace(/\s+/g, '-');
     return nodes.some(n => n.id.startsWith(`stint-${slug}-`));
+  };
+
+  // Check if a player has post-championship stints
+  const hasPostChampStints = (playerName: string): boolean => {
+    const pd = championshipContext?.players.find(p => p.playerName === playerName);
+    if (!pd) return false;
+    return pd.championshipStintIndex < pd.allStints.length - 1;
   };
 
   // Season display
@@ -54,6 +67,13 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
     if (isPlayerOnGraph(playerName) || pathLoading) return;
     setPathLoading(playerName);
     expandChampionshipPlayer(playerName).finally(() => setPathLoading(null));
+  };
+
+  const handleAfterClick = (e: React.MouseEvent, playerName: string) => {
+    e.stopPropagation();
+    if (afterLoading) return;
+    setAfterLoading(playerName);
+    expandChampionshipPlayerAfter(playerName).finally(() => setAfterLoading(null));
   };
 
   const handleInlineClick = (e: React.MouseEvent, playerName: string) => {
@@ -94,8 +114,65 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
     >
       <Handle type="target" position={Position.Top} style={{ opacity: 0 }} />
 
+      {/* + / - buttons — top-right corner */}
+      <div style={{ position: 'absolute', top: 4, right: 4, display: 'flex', gap: 2, zIndex: 2 }}>
+        {/* Collapse (-) */}
+        <div
+          className="nopan nodrag"
+          onClick={(e) => { e.stopPropagation(); collapseWeb(id); }}
+          style={{
+            width: 16, height: 16,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            borderRadius: 3,
+            background: 'rgba(255,255,255,0.08)',
+            color: 'var(--text-secondary)',
+            fontSize: 13, fontWeight: 700, lineHeight: 1,
+            cursor: 'pointer',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.18)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; }}
+        >
+          {'\u2212'}
+        </div>
+        {/* Expand (+) — first press expands card, subsequent presses expand player paths */}
+        <div
+          className="nopan nodrag"
+          onClick={(e) => {
+            e.stopPropagation();
+            if (expandLoading) return;
+            if (!isExpanded) {
+              expandTradeNode(id);
+            } else {
+              setExpandLoading(true);
+              expandChampionshipWeb().finally(() => setExpandLoading(false));
+            }
+          }}
+          style={{
+            width: 16, height: 16,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            borderRadius: 3,
+            background: expandLoading ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.08)',
+            color: expandLoading ? '#f9c74f' : 'var(--text-secondary)',
+            fontSize: 13, fontWeight: 700, lineHeight: 1,
+            cursor: expandLoading ? 'default' : 'pointer',
+          }}
+          onMouseEnter={(e) => { if (!expandLoading) e.currentTarget.style.background = 'rgba(255,255,255,0.18)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = expandLoading ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.08)'; }}
+        >
+          {expandLoading ? (
+            <div style={{
+              width: 8, height: 8,
+              border: '1.5px solid var(--text-muted)',
+              borderTopColor: '#f9c74f',
+              borderRadius: '50%',
+              animation: 'spin 0.8s linear infinite',
+            }} />
+          ) : '+'}
+        </div>
+      </div>
+
       {/* Header: trophy + team badge */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 3 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 3, paddingRight: 36 }}>
         <span style={{ fontSize: 14, lineHeight: 1 }}>{'\uD83C\uDFC6'}</span>
         <span
           style={{
@@ -150,7 +227,6 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
           >
             {players.length} players
           </span>
-          <span style={{ fontSize: 8, color: 'var(--text-muted)' }}>+</span>
         </div>
       )}
 
@@ -179,9 +255,12 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
           {players.map((player) => {
             const onGraph = isPlayerOnGraph(player.playerName);
             const isLoading = pathLoading === player.playerName;
+            const isAfterLoading = afterLoading === player.playerName;
             const inlineData = inlinePlayers?.[player.playerName];
             const isInlineExpanded = !!inlineData && !inlineData.isLoading;
             const isInlineLoading = inlineData?.isLoading;
+            const playerPhase = playerPhases.get(player.playerName);
+            const canShowAfter = onGraph && playerPhase === 'road' && hasPostChampStints(player.playerName);
 
             return (
               <div key={player.playerName}>
@@ -256,7 +335,7 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
                     }} />
                   )}
 
-                  {/* Path button */}
+                  {/* Path / After / on graph buttons */}
                   {!onGraph ? (
                     <div
                       className="nopan nodrag"
@@ -292,6 +371,42 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
                           animation: 'spin 0.8s linear infinite',
                         }} />
                       ) : 'Path'}
+                    </div>
+                  ) : canShowAfter ? (
+                    <div
+                      className="nopan nodrag"
+                      onClick={(e) => handleAfterClick(e, player.playerName)}
+                      style={{
+                        fontSize: 8,
+                        color: isAfterLoading ? '#f9c74f' : 'var(--text-muted)',
+                        padding: '1px 4px',
+                        borderRadius: 3,
+                        background: 'var(--bg-tertiary)',
+                        cursor: isAfterLoading ? 'default' : 'pointer',
+                        flexShrink: 0,
+                        whiteSpace: 'nowrap',
+                        transition: 'background 0.15s, color 0.15s',
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!isAfterLoading) {
+                          e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+                          e.currentTarget.style.color = '#f9c74f';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = 'var(--bg-tertiary)';
+                        e.currentTarget.style.color = isAfterLoading ? '#f9c74f' : 'var(--text-muted)';
+                      }}
+                    >
+                      {isAfterLoading ? (
+                        <div style={{
+                          width: 8, height: 8,
+                          border: '1.5px solid var(--text-muted)',
+                          borderTopColor: '#f9c74f',
+                          borderRadius: '50%',
+                          animation: 'spin 0.8s linear infinite',
+                        }} />
+                      ) : 'After'}
                     </div>
                   ) : (
                     <span style={{ fontSize: 7, color: 'var(--text-muted)', flexShrink: 0 }}>
