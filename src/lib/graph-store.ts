@@ -1362,7 +1362,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     // Collect unique player names from ALL reachable trade nodes
     const playerNames: string[] = [];
     const seenNames = new Set<string>();
-    const playerOriginTrade = new Map<string, { tradeNodeId: string; toTeamId: string | null; fromTeamId: string | null }>();
+    const playerOriginTrade = new Map<string, { tradeNodeId: string; toTeamId: string | null; fromTeamId: string | null; isPick: boolean }>();
     for (const tradeNId of reachableTradeNodeIds) {
       const tradeNode = state.nodes.find(n => n.id === tradeNId);
       if (!tradeNode) continue;
@@ -1376,6 +1376,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
             tradeNodeId: tradeNId,
             toTeamId: a.to_team_id,
             fromTeamId: a.from_team_id,
+            isPick: a.asset_type === 'pick' || a.asset_type === 'swap',
           });
         }
       }
@@ -1450,7 +1451,15 @@ export const useGraphStore = create<GraphState>((set, get) => ({
           }
           if (fromIdx >= 0 && fromIdx + 1 < allStints.length) idx = fromIdx + 1;
         }
-        if (idx === -1) continue;
+        if (idx === -1) {
+          // For drafted players from picks, the pick may have been traded
+          // before being used to draft. Fall back to first career stint.
+          if (origin.isPick) {
+            idx = 0;
+          } else {
+            continue;
+          }
+        }
 
         stintToAdd = idx;
         edgeFromId = origin.tradeNodeId;
@@ -2850,9 +2859,11 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const fromTeamId = asset.from_team_id;
     if (!toTeamId) return;
 
-    // Guard: if forward stints at receiving team already exist, full path was already expanded
+    // Guard: if any stint for this player already exists, their path is on the graph
+    // (covers players traded to a team they never played for, e.g. Beverley MIN→UTA→LAL)
     const playerSlug = playerName.toLowerCase().replace(/\s+/g, '-');
-    if (state.nodes.some(n => n.id.startsWith(`stint-${playerSlug}-${toTeamId}`))) return;
+    const stintPrefix = `stint-${playerSlug}-`;
+    if (state.nodes.some(n => n.id.startsWith(stintPrefix))) return;
 
     const sb = getSupabase();
 

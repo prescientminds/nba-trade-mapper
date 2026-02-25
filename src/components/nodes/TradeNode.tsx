@@ -150,16 +150,24 @@ function TradeNodeComponent({ id, data }: NodeProps) {
 
   // Check if an asset's forward stint/node is already on canvas
   const isInGraph = (asset: TransactionAsset) => {
-    if (asset.asset_type === 'player' && asset.player_name && asset.to_team_id) {
-      // Player journey is on graph if their PlayerNode or any stint at the receiving team exists
+    if (asset.asset_type === 'player' && asset.player_name) {
+      // Player journey is on graph if their PlayerNode or ANY stint exists
+      // (covers players traded to a team they never played for, e.g. Beverley → UTA)
       const playerSlug = asset.player_name.toLowerCase().replace(/\s+/g, '-');
       if (nodes.some((n) => n.id === `player-${playerSlug}`)) return true;
-      const prefix = `stint-${playerSlug}-${asset.to_team_id}`;
-      return nodes.some((n) => n.id.startsWith(prefix));
+      const stintPrefix = `stint-${playerSlug}-`;
+      return nodes.some((n) => n.id.startsWith(stintPrefix));
     }
     if ((asset.asset_type === 'pick' || asset.asset_type === 'swap') && asset.pick_year) {
       const pkid = `pick-${asset.transaction_id}-${asset.id}`;
-      return nodes.some((n) => n.id === pkid);
+      if (nodes.some((n) => n.id === pkid)) return true;
+      // Picks that resolved to a player: check if that player's stints/trades are on graph
+      if (asset.became_player_name) {
+        const pickSlug = asset.became_player_name.toLowerCase().replace(/\s+/g, '-');
+        if (nodes.some((n) => n.id === `player-${pickSlug}`)) return true;
+        if (nodes.some((n) => n.id.startsWith(`stint-${pickSlug}-`))) return true;
+      }
+      return false;
     }
     return false;
   };
