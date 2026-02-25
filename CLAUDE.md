@@ -23,7 +23,6 @@ A **visual graph explorer** for NBA trades and player journeys. The entire UI is
 ### What Works — confirmed Feb 2026
 - **Graph UI built** — React Flow with search bar, click-to-expand, auto-layout (ELK.js)
 - **5 active node types**: TradeNode, PlayerNode, PickNode, PlayerStintNode, GapNode
-  - TransitionNode exists in code but `makeTransitionNode()` is never called — dead code
 - **1,935 trades in static JSON** — 1,541 from Supabase (1976–Feb 2019) + 394 scraped from BBRef (Feb 2019–Feb 2026)
 - **50 season files** in `public/data/trades/by-season/` (1976-77 through 2025-26) + search index
 - **23,567 player-season stat rows** in Supabase — regular + 8 playoff columns. 9,187 rows have playoff_ws (1977–2025).
@@ -159,7 +158,6 @@ Using Harden as the reference implementation:
 nba-trade-mapper/
 ├── database/
 │   ├── schema.sql                    # Full Supabase schema (already run)
-│   ├── sample_data.sql               # 4 curated trade trees (already run)
 │   ├── reset-and-create.sql          # DROP + recreate if needed
 │   └── migrations/
 │       ├── 001-player-seasons.sql    # player_seasons table (APPLIED)
@@ -208,8 +206,7 @@ nba-trade-mapper/
 │   │       ├── TradeNode.tsx         # 240px trade card (date, teams, title)
 │   │       ├── PlayerNode.tsx        # Player pill (click → journey or trades)
 │   │       ├── PickNode.tsx          # Draft pick node
-│   │       ├── PlayerStintNode.tsx   # Career stint at one team (avg stats, accolades)
-│   │       └── TransitionNode.tsx    # Connector between stints (traded/drafted/free-agency/waived)
+│   │       └── PlayerStintNode.tsx   # Career stint at one team (avg stats, accolades)
 │   └── lib/
 │       ├── supabase.ts              # Supabase client + TypeScript types
 │       ├── teams.ts                 # All 30 teams: colors, conferences, divisions
@@ -253,7 +250,6 @@ nba-trade-mapper/
 | `player` | PlayerNodeData | 200x80 | Player pill (clickable) |
 | `pick` | PickNodeData | 200x60 | Draft pick |
 | `playerStint` | PlayerStintNodeData | 240x120 | Career stint at one team |
-| `transition` | TransitionNodeData | 100-130x36-48 | Connector between stints (traded/drafted/FA/waived) |
 
 ### Key Actions
 - `search(query)` — searches transactions + player_seasons by name
@@ -369,8 +365,7 @@ npx tsx scripts/score-trades.ts                         # Recompute all trade sc
 7. **Supabase PostgREST row limit** — default 1000 rows per response. Always paginate with `.range(from, from+999)` and loop; break when `data.length < 1000`.
 8. **`import-accolades.ts` uses INSERT** — will create duplicates if run twice. Always wipe `player_accolades` table first if re-running.
 9. **BBRef BPM sentinel** — value -1000.0 means "negligible minutes"; must be treated as null (clamped in `parseNum(s, -999.99, 999.99)`).
-10. **`database/sample_data.sql`** — legacy dead code. App reads trades from static JSON, not Supabase `transactions`. Safe to delete from repo.
-11. **Robert Parish 1980 trade** (`1979-80.json`): Parish stored as `type: "pick"` but was an established player. Path button non-functional. Needs: change to `type: "player"`, add `pick_year: 1980` to the 3 actual picks.
+10. **Robert Parish 1980 trade** (`1979-80.json`): Parish stored as `type: "pick"` but was an established player. Path button non-functional. Needs: change to `type: "player"`, add `pick_year: 1980` to the 3 actual picks.
 
 ## Data Quality Notes (Feb 2026)
 - ✅ Trade direction fixed (fix-csv-trades.py) — all 1,535 CSV-era trades have correct sides
@@ -381,7 +376,6 @@ npx tsx scripts/score-trades.ts                         # Recompute all trade sc
 - ✅ Trade Tree `seedFromChain` fixed — only shows winning team stints, bridge players maintain chain connectivity
 - ⚠️ Supabase `transactions` table still has original CSV direction bug — static JSON is source of truth
 - ⚠️ `import-accolades.ts` uses INSERT — wipe table before re-running
-- ⚠️ `database/sample_data.sql` is legacy dead code
 
 ## Next Session Priority
 1. **Push expandWeb fix** — tested and working, needs `git push` to deploy via Vercel
@@ -399,4 +393,3 @@ npx tsx scripts/score-trades.ts                         # Recompute all trade sc
 - ✅ All team IDs validated — no legacy codes in any static JSON file
 - ⚠️ Supabase `transactions` table still has original CSV direction bug — static JSON is source of truth
 - ⚠️ `import-accolades.ts` uses INSERT — wipe table before re-running
-- ⚠️ `database/sample_data.sql` is legacy dead code

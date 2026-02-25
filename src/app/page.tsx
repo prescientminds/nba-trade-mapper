@@ -30,7 +30,6 @@ import TradeNode from '@/components/nodes/TradeNode';
 import PlayerNode from '@/components/nodes/PlayerNode';
 import PickNode from '@/components/nodes/PickNode';
 import PlayerStintNode from '@/components/nodes/PlayerStintNode';
-import TransitionNode from '@/components/nodes/TransitionNode';
 import GapNode from '@/components/nodes/GapNode';
 import SearchOverlay from '@/components/SearchOverlay';
 
@@ -39,7 +38,6 @@ const nodeTypes = {
   player: PlayerNode,
   pick: PickNode,
   playerStint: PlayerStintNode,
-  transition: TransitionNode,
   gap: GapNode,
 };
 
@@ -193,7 +191,6 @@ function GraphCanvas() {
                 if (node.type === 'player') return '#4ecdc4';
                 if (node.type === 'pick') return '#f9c74f';
                 if (node.type === 'playerStint') return '#9b5de5';
-                if (node.type === 'transition') return '#888';
                 if (node.type === 'gap') return '#444';
                 return '#666';
               }}

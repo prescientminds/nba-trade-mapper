@@ -763,77 +763,189 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   if (!label) return null;
 
                   const pickScore = getAssetScore(teamId, asset.became_player_name);
+                  const pickPlayerName = asset.became_player_name;
+                  const pickInlineData = pickPlayerName ? inlinePlayers?.[pickPlayerName] : undefined;
+                  const isPickInlineExpanded = !!pickInlineData && !pickInlineData.isLoading;
+                  const isPickInlineLoading = pickInlineData?.isLoading;
+                  const isPickNeverPlayed = pickInlineData?.neverPlayed;
+                  // For historical picks where label IS the player name, make label clickable
+                  const labelIsPlayer = !asset.pick_year && !!asset.became_player_name;
+                  const canInline = !!pickPlayerName && !!asset.to_team_id;
 
                   return (
-                    <div
-                      key={asset.id}
-                      onClick={(e) => handlePathClick(e, asset)}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        fontSize: 10,
-                        fontWeight: 500,
-                        color: inGraph ? 'var(--text-muted)' : 'var(--text-primary)',
-                        padding: '1px 3px',
-                        borderRadius: 3,
-                        cursor: inGraph ? 'default' : 'pointer',
-                        opacity: inGraph ? 0.5 : 1,
-                        transition: 'background 0.15s',
-                      }}
-                      onMouseEnter={(e) => {
-                        if (!inGraph) e.currentTarget.style.background = 'var(--bg-tertiary)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = 'transparent';
-                      }}
-                    >
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <div>{label}</div>
-                        {sublabel && (
-                          <div style={{ fontSize: 9, color: 'var(--accent-gold)', fontWeight: 400 }}>
-                            {sublabel}
+                    <div key={asset.id}>
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          fontSize: 10,
+                          fontWeight: 500,
+                          color: inGraph ? 'var(--text-muted)' : 'var(--text-primary)',
+                          padding: '1px 3px',
+                          borderRadius: 3,
+                          opacity: inGraph ? 0.5 : 1,
+                          gap: 3,
+                        }}
+                      >
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          {/* Pick label — clickable only if it IS the player name (historical) */}
+                          {labelIsPlayer && canInline ? (
+                            <div
+                              className="nopan nodrag"
+                              onClick={(e) => handleInlineClick(e, asset)}
+                              style={{
+                                color: isPickInlineExpanded ? 'var(--accent-orange)' : 'var(--accent-gold)',
+                                cursor: 'pointer',
+                                transition: 'color 0.15s',
+                              }}
+                              onMouseEnter={(e) => { e.currentTarget.style.textDecoration = 'underline'; }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.textDecoration = 'none';
+                                e.currentTarget.style.color = isPickInlineExpanded ? 'var(--accent-orange)' : 'var(--accent-gold)';
+                              }}
+                            >
+                              {label}
+                            </div>
+                          ) : (
+                            <div>{label}</div>
+                          )}
+                          {/* Sublabel — clickable player name for picks with year */}
+                          {sublabel && !labelIsPlayer && canInline ? (
+                            <div
+                              className="nopan nodrag"
+                              onClick={(e) => handleInlineClick(e, asset)}
+                              style={{
+                                fontSize: 9,
+                                fontWeight: 400,
+                                color: isPickInlineExpanded ? 'var(--accent-orange)' : 'var(--accent-gold)',
+                                cursor: 'pointer',
+                                transition: 'color 0.15s',
+                              }}
+                              onMouseEnter={(e) => { e.currentTarget.style.textDecoration = 'underline'; }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.textDecoration = 'none';
+                                e.currentTarget.style.color = isPickInlineExpanded ? 'var(--accent-orange)' : 'var(--accent-gold)';
+                              }}
+                            >
+                              {sublabel}
+                            </div>
+                          ) : sublabel && !labelIsPlayer ? (
+                            <div style={{ fontSize: 9, color: 'var(--accent-gold)', fontWeight: 400 }}>
+                              {sublabel}
+                            </div>
+                          ) : labelIsPlayer && sublabel ? (
+                            <div style={{ fontSize: 9, color: 'var(--text-muted)', fontWeight: 400 }}>
+                              {sublabel}
+                            </div>
+                          ) : null}
+                        </div>
+                        {/* Per-asset score for picks */}
+                        {pickScore !== null && (
+                          <span style={{
+                            fontSize: 7,
+                            fontFamily: 'var(--font-mono)',
+                            color: 'var(--text-muted)',
+                            flexShrink: 0,
+                          }}>
+                            {pickScore.toFixed(1)}
+                          </span>
+                        )}
+                        {/* Inline loading indicator */}
+                        {isPickInlineLoading && (
+                          <div
+                            style={{
+                              width: 8,
+                              height: 8,
+                              border: '1.5px solid var(--text-muted)',
+                              borderTopColor: 'var(--accent-orange)',
+                              borderRadius: '50%',
+                              animation: 'spin 0.8s linear infinite',
+                              flexShrink: 0,
+                            }}
+                          />
+                        )}
+                        {!inGraph ? (
+                          <div
+                            className="nopan nodrag"
+                            onClick={(e) => handlePathClick(e, asset)}
+                            style={{
+                              fontSize: 8,
+                              color: 'var(--text-muted)',
+                              padding: '1px 4px',
+                              borderRadius: 3,
+                              background: 'var(--bg-tertiary)',
+                              cursor: 'pointer',
+                              flexShrink: 0,
+                              whiteSpace: 'nowrap',
+                              transition: 'background 0.15s, color 0.15s',
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+                              e.currentTarget.style.color = 'var(--text-primary)';
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = 'var(--bg-tertiary)';
+                              e.currentTarget.style.color = 'var(--text-muted)';
+                            }}
+                          >
+                            Path
                           </div>
+                        ) : (
+                          <span style={{ fontSize: 7, color: 'var(--text-muted)' }}>on graph</span>
                         )}
                       </div>
-                      {/* Per-asset score for picks */}
-                      {pickScore !== null && (
-                        <span style={{
-                          fontSize: 7,
-                          fontFamily: 'var(--font-mono)',
-                          color: 'var(--text-muted)',
-                          flexShrink: 0,
-                        }}>
-                          {pickScore.toFixed(1)}
-                        </span>
-                      )}
-                      {!inGraph ? (
+
+                      {/* Inline stats panel for drafted player */}
+                      {isPickInlineExpanded && !isPickNeverPlayed && pickInlineData.seasonDetails && (
                         <div
-                          className="nopan nodrag"
                           style={{
-                            fontSize: 8,
-                            color: 'var(--text-muted)',
-                            padding: '1px 4px',
-                            borderRadius: 3,
+                            marginTop: 3,
+                            marginBottom: 3,
+                            padding: '3px 5px',
                             background: 'var(--bg-tertiary)',
-                            cursor: 'pointer',
-                            flexShrink: 0,
-                            whiteSpace: 'nowrap',
-                            transition: 'background 0.15s, color 0.15s',
-                          }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-                            e.currentTarget.style.color = 'var(--text-primary)';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.background = 'var(--bg-tertiary)';
-                            e.currentTarget.style.color = 'var(--text-muted)';
+                            borderRadius: 3,
+                            borderLeft: '2px solid var(--accent-orange)',
                           }}
                         >
-                          Path
+                          <div style={{
+                            fontSize: 8,
+                            color: 'var(--text-muted)',
+                            marginBottom: 2,
+                            fontFamily: 'var(--font-mono)',
+                          }}>
+                            {pickInlineData.teamId} · {pickInlineData.seasons[0]}
+                            {pickInlineData.seasons.length > 1 ? ` – ${pickInlineData.seasons[pickInlineData.seasons.length - 1]}` : ''}
+                            {pickInlineData.avgPpg !== null && (
+                              <span style={{ marginLeft: 6 }}>
+                                {pickInlineData.avgPpg.toFixed(1)}/{pickInlineData.avgRpg?.toFixed(1) ?? '--'}/{pickInlineData.avgApg?.toFixed(1) ?? '--'}
+                              </span>
+                            )}
+                          </div>
+                          <SeasonTable rows={pickInlineData.seasonDetails} />
                         </div>
-                      ) : (
-                        <span style={{ fontSize: 7, color: 'var(--text-muted)' }}>on graph</span>
+                      )}
+
+                      {/* "Never played" empty state */}
+                      {isPickInlineExpanded && isPickNeverPlayed && (
+                        <div
+                          style={{
+                            marginTop: 3,
+                            marginBottom: 3,
+                            padding: '4px 6px',
+                            background: 'var(--bg-tertiary)',
+                            borderRadius: 3,
+                            borderLeft: '2px solid var(--accent-gold)',
+                          }}
+                        >
+                          <div style={{
+                            fontSize: 8,
+                            color: 'var(--text-muted)',
+                            fontStyle: 'italic',
+                          }}>
+                            No Games Played
+                          </div>
+                        </div>
                       )}
                     </div>
                   );

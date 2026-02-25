@@ -9,7 +9,6 @@ const NODE_DIMENSIONS: Record<string, { width: number; height: number }> = {
   player: { width: 110, height: 30 },
   pick: { width: 100, height: 26 },
   playerStint: { width: 180, height: 36 },
-  transition: { width: 100, height: 36 },
   gap: { width: 180, height: 20 },
 };
 
@@ -48,13 +47,6 @@ function expandedTradeDimensions(node: Node): { width: number; height: number } 
   const width = hasInlinePlayers ? 230 : 180;
   return { width, height: Math.max(height, 60) };
 }
-
-// Transition nodes have type-specific sizes based on their transitionType
-const TRANSITION_DIMENSIONS: Record<string, { width: number; height: number }> = {
-  default: { width: 100, height: 36 },
-  traded: { width: 120, height: 44 },
-  drafted: { width: 130, height: 48 },
-};
 
 /** Dynamic expanded stint height based on number of seasons */
 function expandedStintDimensions(node: Node): { width: number; height: number } {
@@ -614,13 +606,6 @@ export async function layoutGraph(
     if (isExpandedTrade) {
       const dims = expandedTradeDimensions(node);
       return { id: node.id, ...dims };
-    }
-
-    // Transition nodes: pick size based on transitionType
-    if (node.type === 'transition') {
-      const transitionType = (node.data as Record<string, unknown>)?.transitionType as string;
-      const dims = TRANSITION_DIMENSIONS[transitionType] || TRANSITION_DIMENSIONS.default;
-      return { id: node.id, width: dims.width, height: dims.height };
     }
 
     // Stint nodes: stats line + expand bar always visible now

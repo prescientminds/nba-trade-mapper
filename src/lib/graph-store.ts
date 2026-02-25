@@ -27,6 +27,7 @@ export interface InlinePlayerData {
   accolades: string[];
   seasonDetails?: SeasonDetailRow[];
   isLoading?: boolean;
+  neverPlayed?: boolean;
 }
 
 export interface TradeNodeData {
@@ -81,20 +82,6 @@ export interface PlayerStintNodeData {
   draftYear?: number;
   draftRound?: number;
   draftPick?: number;
-  [key: string]: unknown;
-}
-
-export interface TransitionNodeData {
-  playerName: string;
-  fromTeamId: string;
-  toTeamId: string;
-  transitionType: 'free-agency' | 'drafted' | 'waived' | 'unknown' | 'traded';
-  season: string;
-  draftRound?: number;
-  draftPick?: number;
-  draftYear?: number;
-  tradeId?: string;
-  tradeDate?: string;
   [key: string]: unknown;
 }
 
@@ -192,10 +179,6 @@ function stintNodeId(playerName: string, teamId: string, index: number) {
   return `stint-${playerName.toLowerCase().replace(/\s+/g, '-')}-${teamId}-${index}`;
 }
 
-function transitionNodeId(playerName: string, fromTeamId: string, toTeamId: string) {
-  return `transition-${playerName.toLowerCase().replace(/\s+/g, '-')}-${fromTeamId}-${toTeamId}`;
-}
-
 function gapNodeId(playerName: string, fromYear: number, toYear: number) {
   return `gap-${playerName.toLowerCase().replace(/\s+/g, '-')}-${fromYear}-${toYear}`;
 }
@@ -271,28 +254,6 @@ function makeStintNode(
       totalWinShares,
       accolades,
     } satisfies PlayerStintNodeData,
-  };
-}
-
-function makeTransitionNode(
-  playerName: string,
-  fromTeamId: string,
-  toTeamId: string,
-  transitionType: TransitionNodeData['transitionType'],
-  season: string,
-  position = { x: 0, y: 0 }
-): Node {
-  return {
-    id: transitionNodeId(playerName, fromTeamId, toTeamId),
-    type: 'transition',
-    position,
-    data: {
-      playerName,
-      fromTeamId,
-      toTeamId,
-      transitionType,
-      season,
-    } satisfies TransitionNodeData,
   };
 }
 
@@ -2162,7 +2123,28 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       set({ nodes: cleared });
     };
 
-    if (!allSeasons || allSeasons.length === 0) { clearLoading(); return; }
+    const storeNeverPlayed = async () => {
+      const neverPlayedEntry: InlinePlayerData = {
+        playerName, teamId: toTeamId, stintIndex: 0, seasons: [],
+        avgPpg: null, avgRpg: null, avgApg: null, totalWinShares: null,
+        accolades: [], isLoading: false, neverPlayed: true,
+      };
+      const cs = get();
+      const npNodes = cs.nodes.map(n => {
+        if (n.id !== tradeNodeId_) return n;
+        const d = n.data as TradeNodeData;
+        return { ...n, data: { ...d, inlinePlayers: { ...(d.inlinePlayers ?? {}), [playerName]: neverPlayedEntry } } };
+      });
+      if (cs.layoutMode === 'timeline') {
+        const laid = layoutPlayerTimeline(npNodes, cs.edges, cs.playerColumns, cs.expandedNodes, cs.expandedGapIds, cs.playerAnchorTrades, cs.playerAnchorDirections);
+        set({ nodes: laid });
+      } else {
+        const laid = await layoutGraph(npNodes, cs.edges, tradeNodeId_, cs.expandedNodes);
+        set({ nodes: laid });
+      }
+    };
+
+    if (!allSeasons || allSeasons.length === 0) { await storeNeverPlayed(); return; }
 
     const stints = groupIntoStints(allSeasons.filter(s => s.team_id));
 
@@ -2172,7 +2154,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       if (stints[i].teamId === toTeamId) { matchedIdx = i; break; }
     }
 
-    if (matchedIdx === -1) { clearLoading(); return; }
+    if (matchedIdx === -1) { await storeNeverPlayed(); return; }
 
     const stint = stints[matchedIdx];
     const stintSeasons = stint.seasons.map(s => s.season);
