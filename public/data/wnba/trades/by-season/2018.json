@@ -1,0 +1,554 @@
+[
+  {
+    "id": "wnba-2018-02-01-cd37ec26",
+    "date": "2018-02-01",
+    "season": "2018",
+    "title": "Kayla Alexander Trade",
+    "description": "The Las Vegas Aces traded Kayla Alexander and a 2019 3rd round pick (Caliya Robinson later selected) to the Indiana Fever for a 2019 2nd round pick (Sophie Cunningham later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kayla Alexander",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-IND",
+        "pick_year": 2019,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-LVA",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2018-02-02-c4db062b",
+    "date": "2018-02-02",
+    "season": "2018",
+    "title": "Kelsey Bone Trade",
+    "description": "The Phoenix Mercury traded Kelsey Bone to the Las Vegas Aces for a 2018 3rd round pick (Imani Wright later selected) and a 2019 2nd round pick (Sophie Cunningham later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kelsey Bone",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-PHO",
+        "pick_year": 2018,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-PHO",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2018-02-02-ee9f8d28",
+    "date": "2018-02-02",
+    "season": "2018",
+    "title": "Cayla George Trade",
+    "description": "The Phoenix Mercury traded Cayla George to the Connecticut Sun for a 2018 2nd round pick (Raisa Musina later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Cayla George",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-PHO",
+        "pick_year": 2018,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2018-02-07-70be5332",
+    "date": "2018-02-07",
+    "season": "2018",
+    "title": "Natasha Howard Trade",
+    "description": "The Minnesota Lynx traded Natasha Howard to the Seattle Storm for a 2018 2nd round pick (JiSu Park later selected) and a 2019 1st round pick (Right to swap 2019 first round picks).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Natasha Howard",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-MIN",
+        "pick_year": 2018,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-MIN",
+        "pick_year": 2019,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Kenisha Bell",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2018-03-06-f34bcbd8",
+    "date": "2018-03-06",
+    "season": "2018",
+    "title": "Briann January Trade",
+    "description": "The Indiana Fever traded Briann January to the Phoenix Mercury for a 2018 1st round pick (Victoria Vivians later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Briann January",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-IND",
+        "pick_year": 2018,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Stephanie Mavunga",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2018-03-06-6bca88fe",
+    "date": "2018-03-06",
+    "season": "2018",
+    "title": "Danielle Robinson Trade",
+    "description": "The Phoenix Mercury traded Danielle Robinson and a 2019 2nd round pick (Cierra Dillard later selected) to the Minnesota Lynx for a 2018 1st round pick (Marie Gulich later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Danielle Robinson",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-MIN",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-PHO",
+        "pick_year": 2018,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Imani Wright",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2018-04-12-5da6fb04",
+    "date": "2018-04-12",
+    "season": "2018",
+    "title": "Bria Holmes Trade",
+    "description": "The Atlanta Dream traded Bria Holmes to the Connecticut Sun for a 2018 2nd round pick (Monique Billings later selected) and a 2019 2nd round pick (Bridget Carleton later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Bria Holmes",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-ATL",
+        "pick_year": 2018,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-ATL",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2018-04-12-dfcb26e2",
+    "date": "2018-04-12",
+    "season": "2018",
+    "title": "JiSu Park, Kahlia Lawrence, Jill Barta Trade",
+    "description": "The Minnesota Lynx traded JiSu Park and Kahlia Lawrence to the Las Vegas Aces for Jill Barta and a 2019 2nd round pick (Jessica Shepard later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "JiSu Park",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kahlia Lawrence",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jill Barta",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-MIN",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2018-07-09-ee960fbf",
+    "date": "2018-07-09",
+    "season": "2018",
+    "title": "Alex Bentley, Layshia Clarendon Trade",
+    "description": "The Connecticut Sun traded Alex Bentley to the Atlanta Dream for Layshia Clarendon and a 2019 2nd round pick (Bridget Carleton later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Alex Bentley",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Layshia Clarendon",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-CON",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2018-07-23-7d985bb3",
+    "date": "2018-07-23",
+    "season": "2018",
+    "title": "Tayler Hill, Kennedy Burke, Aerial Powers Trade",
+    "description": "The Washington Mystics traded Tayler Hill, a 2019 2nd round pick (Kennedy Burke later selected), and a 2019 1st round pick (Right to swap 2019 first round picks) to the Dallas Wings for Aerial Powers.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tayler Hill",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kennedy Burke",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Aerial Powers",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": null,
+        "to_team_id": null,
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": null,
+        "to_team_id": null,
+        "pick_year": 2019,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": null,
+        "to_team_id": null,
+        "pick_year": 2019,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

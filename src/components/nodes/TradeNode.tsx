@@ -2,7 +2,7 @@
 
 import { memo, useMemo, useState, useEffect } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
-import { TEAMS, getTeamDisplayInfo } from '@/lib/teams';
+import { getAnyTeam, getAnyTeamDisplayInfo } from '@/lib/teams';
 import { useGraphStore, TradeNodeData } from '@/lib/graph-store';
 import { SeasonTable } from '@/components/SeasonTable';
 import type { TransactionAsset } from '@/lib/supabase';
@@ -65,8 +65,8 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   // Heading: "Lakers & Celtics" or "3-Team Trade"
   const tradeHeading = useMemo(() => {
     if (teamIds.length === 2) {
-      const n1 = getTeamDisplayInfo(teamIds[0], trade.date)?.name.split(' ').pop() || teamIds[0];
-      const n2 = getTeamDisplayInfo(teamIds[1], trade.date)?.name.split(' ').pop() || teamIds[1];
+      const n1 = getAnyTeamDisplayInfo(teamIds[0], trade.date)?.name.split(' ').pop() || teamIds[0];
+      const n2 = getAnyTeamDisplayInfo(teamIds[1], trade.date)?.name.split(' ').pop() || teamIds[1];
       return `${n1} & ${n2}`;
     }
     if (teamIds.length >= 3) return `${teamIds.length}-Team Trade`;
@@ -352,7 +352,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
       {/* Team badges — solid filled pills */}
       <div style={{ display: 'flex', gap: 3, flexWrap: 'wrap', alignItems: 'center' }}>
         {teamIds.map((tid) => {
-          const displayInfo = getTeamDisplayInfo(tid, trade.date);
+          const displayInfo = getAnyTeamDisplayInfo(tid, trade.date);
           const bg = displayInfo.color;
           const textColor = contrastText(bg);
           const needsOutline = 0.299 * parseInt(bg.slice(1,3),16) + 0.587 * parseInt(bg.slice(3,5),16) + 0.114 * parseInt(bg.slice(5,7),16) < 30;
@@ -484,7 +484,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
               {/* Bars */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                 {scoreEntries.map(([teamId, ts]) => {
-                  const scoreDisplayInfo = getTeamDisplayInfo(teamId, trade.date);
+                  const scoreDisplayInfo = getAnyTeamDisplayInfo(teamId, trade.date);
                   const color = ensureReadable(scoreDisplayInfo.color);
                   const pct = (ts.score / maxScore) * 100;
                   const isWinner = teamId === tradeScore!.winner;
@@ -539,7 +539,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
           />
 
           {Object.entries(assetsByTeam).map(([teamId, assets]) => {
-            const teamDisplayInfo = getTeamDisplayInfo(teamId, trade.date);
+            const teamDisplayInfo = getAnyTeamDisplayInfo(teamId, trade.date);
             const teamColor = ensureReadable(teamDisplayInfo.color);
             const teamName = teamDisplayInfo.name;
 

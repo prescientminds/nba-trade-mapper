@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
-import { TEAMS } from '@/lib/teams';
+import { getAnyTeam } from '@/lib/teams';
 import { useGraphStore, PlayerNodeData } from '@/lib/graph-store';
 
 function PlayerNodeComponent({ id, data }: NodeProps) {
@@ -13,7 +13,7 @@ function PlayerNodeComponent({ id, data }: NodeProps) {
 
   const isExpanded = expandedNodes.has(id);
   const isLoading = loadingNodes.has(id);
-  const team = teamId ? TEAMS[teamId] : null;
+  const team = teamId ? getAnyTeam(teamId) : null;
   const color = team?.color || '#4ecdc4';
 
   const initials = name

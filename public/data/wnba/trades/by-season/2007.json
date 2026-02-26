@@ -1,0 +1,614 @@
+[
+  {
+    "id": "wnba-2007-02-14-c7c9e53e",
+    "date": "2007-02-14",
+    "season": "2007",
+    "title": "Adrian Williams-Strong Trade",
+    "description": "The Minnesota Lynx traded Adrian Williams-Strong to the Sacramento Monarchs for a 2007 2nd round pick (Brooke Smith later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Adrian Williams-Strong",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-MIN",
+        "pick_year": 2007,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2007-02-21-5887df07",
+    "date": "2007-02-21",
+    "season": "2007",
+    "title": "Sandora Irvin Trade",
+    "description": "The Phoenix Mercury traded Sandora Irvin to the San Antonio Silver Stars for a 2008 2nd round pick (Leilani Mitchell later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sandora Irvin",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-PHO",
+        "pick_year": 2008,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2007-02-21-4495c25f",
+    "date": "2007-02-21",
+    "season": "2007",
+    "title": "Taj McWilliams-Franklin, Erika de Souza Trade",
+    "description": "The Connecticut Sun traded Taj McWilliams-Franklin to the Los Angeles Sparks for Erika de Souza and a 2007 1st round pick (Kamesha Hairston later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Taj McWilliams-Franklin",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Erika de Souza",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CON",
+        "pick_year": 2007,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Kiera Hardy",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2007-02-22-1cb05c7b",
+    "date": "2007-02-22",
+    "season": "2007",
+    "title": "Ruth Riley, Katie Mattera Trade",
+    "description": "The Detroit Shock traded Ruth Riley and a 2008 1st round pick (Erlana Larkins later selected) to the San Antonio Silver Stars for Katie Mattera and a 2008 1st round pick (Tasha Humphrey later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ruth Riley",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LVA",
+        "pick_year": 2008,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Alex Anderson",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Katie Mattera",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-DAL",
+        "pick_year": 2008,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Val Berezhynska",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2007-03-07-ba8bd98a",
+    "date": "2007-03-07",
+    "season": "2007",
+    "title": "Olympia Scott, Ann Strother Trade",
+    "description": "The Indiana Fever traded Olympia Scott to the Phoenix Mercury for Ann Strother.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Olympia Scott",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ann Strother",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2007-03-23-2caacf40",
+    "date": "2007-03-23",
+    "season": "2007",
+    "title": "Chelsea Newton Trade",
+    "description": "The Chicago Sky traded Chelsea Newton and a 2007 2nd round pick (Jessica Dickson later selected) to the Sacramento Monarchs for a 2007 1st round pick (Carla Thomas later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Chelsea Newton",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-SAC",
+        "pick_year": 2007,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-CHI",
+        "pick_year": 2007,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jenna Rubino",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2007-03-23-b98ced41",
+    "date": "2007-03-23",
+    "season": "2007",
+    "title": "La'Tangela Atkinson Trade",
+    "description": "The Indiana Fever traded La'Tangela Atkinson to the Sacramento Monarchs for a 2008 2nd round pick (Morenike Atunrase later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "La'Tangela Atkinson",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-IND",
+        "pick_year": 2008,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2007-04-02-933befd8",
+    "date": "2007-04-02",
+    "season": "2007",
+    "title": "Kelly Schumacher Trade",
+    "description": "The New York Liberty traded Kelly Schumacher to the Phoenix Mercury for a 2008 2nd round pick (Wanisha Smith later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kelly Schumacher",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-NYL",
+        "pick_year": 2008,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2007-04-04-ea192463",
+    "date": "2007-04-04",
+    "season": "2007",
+    "title": "Tangela Smith, Lindsey Harding Trade",
+    "description": "The Minnesota Lynx traded Tangela Smith to the Phoenix Mercury for Lindsey Harding.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tangela Smith",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Lindsey Harding",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2007-04-04-3ac0306a",
+    "date": "2007-04-04",
+    "season": "2007",
+    "title": "Becky Hammon, Jessica Davenport Trade",
+    "description": "The New York Liberty traded Becky Hammon and a 2008 2nd round pick (Chioma Nnamaka later selected) to the San Antonio Silver Stars for Jessica Davenport and a 2008 1st round pick (Erlana Larkins later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Becky Hammon",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-LVA",
+        "pick_year": 2008,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jessica Davenport",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-NYL",
+        "pick_year": 2008,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Alberta Auguste",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2007-04-13-67c80dff",
+    "date": "2007-04-13",
+    "season": "2007",
+    "title": "Jessica Dickson Trade",
+    "description": "The Sacramento Monarchs traded Jessica Dickson to the Indiana Fever for a 2008 3rd round pick (Izabela Piekarska later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jessica Dickson",
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-SAC",
+        "pick_year": 2008,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2007-05-24-0867c8d0",
+    "date": "2007-05-24",
+    "season": "2007",
+    "title": "Monique Currie, Chasity Melvin Trade",
+    "description": "The Chicago Sky traded Monique Currie to the Washington Mystics for Chasity Melvin.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Monique Currie",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chasity Melvin",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2007-06-20-5bdb8eaa",
+    "date": "2007-06-20",
+    "season": "2007",
+    "title": "Lisa Willis, Sherill Baker Trade",
+    "description": "The Los Angeles Sparks traded Lisa Willis to the New York Liberty for Sherill Baker.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Lisa Willis",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sherill Baker",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

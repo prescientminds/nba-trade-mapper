@@ -1,0 +1,530 @@
+[
+  {
+    "id": "wnba-2009-01-21-26d7c742",
+    "date": "2009-01-21",
+    "season": "2009",
+    "title": "Alison Bales Trade",
+    "description": "The Atlanta Dream traded Alison Bales to the Phoenix Mercury for a 2009 2nd round pick (Britany Miller later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Alison Bales",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-ATL",
+        "pick_year": 2009,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2009-01-30-8a59c608",
+    "date": "2009-01-30",
+    "season": "2009",
+    "title": "Lindsey Harding Trade",
+    "description": "The Minnesota Lynx traded Lindsey Harding, a 2009 2nd round pick (Camille LeNoir later selected), and a 2010 2nd round pick (Jenna Smith later selected) to the Washington Mystics for a 2009 1st round pick (Quanitra Hollingsworth later selected) and a 2009 2nd round pick (Rashanda McCants later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Lindsey Harding",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-WAS",
+        "pick_year": 2009,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-WAS",
+        "pick_year": 2010,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-MIN",
+        "pick_year": 2009,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Emily Fox",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-MIN",
+        "pick_year": 2009,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2009-01-30-7a39f9dc",
+    "date": "2009-01-30",
+    "season": "2009",
+    "title": "Vanessa Hayden, Christi Thomas Trade",
+    "description": "The Minnesota Lynx traded Vanessa Hayden to the Los Angeles Sparks for Christi Thomas.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Vanessa Hayden",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Christi Thomas",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2009-01-30-9a17a677",
+    "date": "2009-01-30",
+    "season": "2009",
+    "title": "Kelly Miller, LaToya Sanders, Nicole Ohlde Trade",
+    "description": "The Phoenix Mercury traded Kelly Miller and LaToya Sanders to the Minnesota Lynx for Nicole Ohlde.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kelly Miller",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "LaToya Sanders",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nicole Ohlde",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2009-03-20-e0a597fe",
+    "date": "2009-03-20",
+    "season": "2009",
+    "title": "Kim Smith, A'Quonesia Franklin, Barbara Farris Trade",
+    "description": "The Sacramento Monarchs traded Kim Smith and A'Quonesia Franklin to the Phoenix Mercury for Barbara Farris.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kim Smith",
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "A'Quonesia Franklin",
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Barbara Farris",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2009-03-26-8f9098bd",
+    "date": "2009-03-26",
+    "season": "2009",
+    "title": "Temeka Johnson Trade",
+    "description": "The Los Angeles Sparks traded Temeka Johnson to the Phoenix Mercury for a 2010 1st round pick (Bianca Thomas later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Temeka Johnson",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-LAS",
+        "pick_year": 2010,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Rashidat Junaid",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2009-04-09-ae45ac30",
+    "date": "2009-04-09",
+    "season": "2009",
+    "title": "Ashley Shields Trade",
+    "description": "The Detroit Shock traded Ashley Shields to the Atlanta Dream for a 2009 2nd round pick (Britany Miller later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ashley Shields",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-DAL",
+        "pick_year": 2009,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2009-05-05-3ea3a334",
+    "date": "2009-05-05",
+    "season": "2009",
+    "title": "Raffaella Masciadri, Noelle Quinn Trade",
+    "description": "The Los Angeles Sparks traded Raffaella Masciadri and a 2010 1st round pick (Tina Charles later selected) to the Minnesota Lynx for Noelle Quinn.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Raffaella Masciadri",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-MIN",
+        "pick_year": 2010,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Gabriela Marginean",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Noelle Quinn",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2009-05-05-a200fb9a",
+    "date": "2009-05-05",
+    "season": "2009",
+    "title": "Sidney Spencer Trade",
+    "description": "The Los Angeles Sparks traded Sidney Spencer to the New York Liberty for a 2010 1st round pick (Tina Charles later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sidney Spencer",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-LAS",
+        "pick_year": 2010,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Rashidat Junaid",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2009-08-12-1460e07b",
+    "date": "2009-08-12",
+    "season": "2009",
+    "title": "Tamera Young, Armintie Herrington Trade",
+    "description": "The Atlanta Dream traded Tamera Young to the Chicago Sky for Armintie Herrington.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tamera Young",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Armintie Herrington",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2009-08-17-26dd33e4",
+    "date": "2009-08-17",
+    "season": "2009",
+    "title": "Kristin Haynie, Crystal Kelly Trade",
+    "description": "The Detroit Shock traded Kristin Haynie to the Sacramento Monarchs for Crystal Kelly.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kristin Haynie",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Crystal Kelly",
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

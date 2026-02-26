@@ -1,0 +1,490 @@
+[
+  {
+    "id": "wnba-2006-02-03-d0ab0920",
+    "date": "2006-02-03",
+    "season": "2006",
+    "title": "Anna DeForge, Kelly Miller Trade",
+    "description": "The Phoenix Mercury traded Anna DeForge to the Indiana Fever for Kelly Miller.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Anna DeForge",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kelly Miller",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2006-02-24-7c6d91ea",
+    "date": "2006-02-24",
+    "season": "2006",
+    "title": "Kelly Schumacher Trade",
+    "description": "The Indiana Fever traded Kelly Schumacher and a 2006 1st round pick (Sherill Baker later selected) to the New York Liberty for a 2006 1st round pick (La'Tangela Atkinson later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kelly Schumacher",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-NYL",
+        "pick_year": 2006,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Christelle N'Garsanet",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-IND",
+        "pick_year": 2006,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Marina Kuzina",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2006-03-01-bbbc7bbf",
+    "date": "2006-03-01",
+    "season": "2006",
+    "title": "Temeka Johnson, Murriel Page, Nikki Teasley Trade",
+    "description": "The Washington Mystics traded Temeka Johnson, Murriel Page, and a 2006 1st round pick (Lisa Willis later selected) to the Los Angeles Sparks for Nikki Teasley and a 2006 1st round pick (Tamara James later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Temeka Johnson",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Murriel Page",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-LAS",
+        "pick_year": 2006,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Tiffany Porter-Talbert",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nikki Teasley",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-WAS",
+        "pick_year": 2006,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Mariam Sy",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2006-03-31-07ff1250",
+    "date": "2006-03-31",
+    "season": "2006",
+    "title": "Edwige Lawson-Wade Trade",
+    "description": "The Houston Comets traded Edwige Lawson-Wade to the Charlotte Sting for a 2006 3rd round pick (Tiffany Stansbury later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Edwige Lawson-Wade",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-HOU",
+        "pick_year": 2006,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2006-04-05-18d48e01",
+    "date": "2006-04-05",
+    "season": "2006",
+    "title": "Liz Moeggenberg, Mistie Bass, Ann Strother Trade",
+    "description": "The Phoenix Mercury traded Liz Moeggenberg and Mistie Bass to the Houston Comets for Ann Strother.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Liz Moeggenberg",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mistie Bass",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ann Strother",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2006-04-05-63801886",
+    "date": "2006-04-05",
+    "season": "2006",
+    "title": "Ambrosia Anderson, Jacqueline Batteast Trade",
+    "description": "The Detroit Shock traded Ambrosia Anderson and a 2007 2nd round pick (Kathrin Ress later selected) to the Minnesota Lynx for Jacqueline Batteast and a 2007 3rd round pick (Leah Rush later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ambrosia Anderson",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-MIN",
+        "pick_year": 2007,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jacqueline Batteast",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-DAL",
+        "pick_year": 2007,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2006-05-12-6d02419d",
+    "date": "2006-05-12",
+    "season": "2006",
+    "title": "Liz Moeggenberg Trade",
+    "description": "The Houston Comets traded Liz Moeggenberg and a 2007 2nd round pick (Jessica Dickson later selected) to the Chicago Sky for a 2007 2nd round pick (Dee Davis later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Liz Moeggenberg",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-CHI",
+        "pick_year": 2007,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-HOU",
+        "pick_year": 2007,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2006-05-18-30bd8632",
+    "date": "2006-05-18",
+    "season": "2006",
+    "title": "Angelina Williams Trade",
+    "description": "The Phoenix Mercury traded Angelina Williams to the Detroit Shock for a 2007 3rd round pick (Leah Rush later selected) and a 2007 3rd round pick (Emily Westerberg later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Angelina Williams",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": 2007,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": 2007,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2006-06-29-423ce558",
+    "date": "2006-06-29",
+    "season": "2006",
+    "title": "Ashley Robinson, Cisti Greenwalt Trade",
+    "description": "The Chicago Sky traded Ashley Robinson to the Seattle Storm for Cisti Greenwalt and a 2007 2nd round pick (Stephanie Raymond later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ashley Robinson",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cisti Greenwalt",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-CHI",
+        "pick_year": 2007,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

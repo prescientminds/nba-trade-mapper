@@ -1,0 +1,558 @@
+[
+  {
+    "id": "wnba-2004-01-05-52341049",
+    "date": "2004-01-05",
+    "season": "2004",
+    "title": "8th pick in CLE dispersal draft. Trade",
+    "description": "The Houston Comets traded a 2004 2nd round pick (Ugo Oha later selected) to the Connecticut Sun for 8th pick in CLE dispersal draft.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-CON",
+        "pick_year": 2004,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "8th pick in CLE dispersal draft.",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2004-01-28-c44ba8aa",
+    "date": "2004-01-28",
+    "season": "2004",
+    "title": "Shannon Johnson Trade",
+    "description": "The Connecticut Sun traded Shannon Johnson, a 2004 2nd round pick (Cindy Dallas later selected), and a 2004 3rd round pick (Toccara Williams later selected) to the San Antonio Silver Stars for a 2004 1st round pick (Lindsay Whalen later selected), a 2004 2nd round pick (Jessica Brungo later selected), and a 2004 3rd round pick (Candace Futrell later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Shannon Johnson",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-LVA",
+        "pick_year": 2004,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-LVA",
+        "pick_year": 2004,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-CON",
+        "pick_year": 2004,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Candace Futrell",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-CON",
+        "pick_year": 2004,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-CON",
+        "pick_year": 2004,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2004-02-05-59bb027c",
+    "date": "2004-02-05",
+    "season": "2004",
+    "title": "Kelly Miller Trade",
+    "description": "The Charlotte Sting traded Kelly Miller and a 2004 1st round pick (Ebony Hoffman later selected) to the Indiana Fever for a 2004 1st round pick (Nicole Powell later selected) and a 2004 2nd round pick (Kelly Mazzante later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kelly Miller",
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-IND",
+        "pick_year": 2004,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Ieva Kublina",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-CHA",
+        "pick_year": 2004,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jia Perkins",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-CHA",
+        "pick_year": 2004,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2004-02-17-586a0834",
+    "date": "2004-02-17",
+    "season": "2004",
+    "title": "Kedra Holland-Corn Trade",
+    "description": "The Detroit Shock traded Kedra Holland-Corn and a 2004 2nd round pick (Lindsay Taylor later selected) to the Houston Comets for a 2004 1st round pick (Iciss Tillis later selected) and a 2004 3rd round pick (Jennifer Smith later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kedra Holland-Corn",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-HOU",
+        "pick_year": 2004,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-DAL",
+        "pick_year": 2004,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jennifer Smith",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-DAL",
+        "pick_year": 2004,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2004-03-25-15905da1",
+    "date": "2004-03-25",
+    "season": "2004",
+    "title": "Tamicha Jackson, Asjha Jones Trade",
+    "description": "In a 3-team trade, the Phoenix Mercury traded Tamicha Jackson to the Washington Mystics; the Washington Mystics traded Asjha Jones to the Connecticut Sun; the Connecticut Sun traded a 2004 1st round pick (Chandi Jones later selected) to the Phoenix Mercury.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tamicha Jackson",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Asjha Jones",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2004-04-15-88cffe5e",
+    "date": "2004-04-15",
+    "season": "2004",
+    "title": "Sheri Sam, Janell Burse, Amanda Lassiter Trade",
+    "description": "The Minnesota Lynx traded Sheri Sam and Janell Burse to the Seattle Storm for Amanda Lassiter and a 2004 1st round pick (Nicole Ohlde later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sheri Sam",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Janell Burse",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Amanda Lassiter",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-MIN",
+        "pick_year": 2004,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Kate Bulger",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2004-04-17-adcc8da6",
+    "date": "2004-04-17",
+    "season": "2004",
+    "title": "Lindsay Taylor, Maria Villarroel. Trade",
+    "description": "The Houston Comets traded Lindsay Taylor to the Phoenix Mercury for Maria Villarroel.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Lindsay Taylor",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Maria Villarroel.",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2004-04-18-df900f5f",
+    "date": "2004-04-18",
+    "season": "2004",
+    "title": "Chandi Jones, Sheila Lambert, Shereka Wright Trade",
+    "description": "The Phoenix Mercury traded Chandi Jones to the Detroit Shock for Sheila Lambert, Shereka Wright, and Erika Valek.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Chandi Jones",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sheila Lambert",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shereka Wright",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Erika Valek.",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2004-04-24-fa2a7b96",
+    "date": "2004-04-24",
+    "season": "2004",
+    "title": "La'Keshia Frett Trade",
+    "description": "The San Antonio Silver Stars traded La'Keshia Frett to the Charlotte Sting for a 2005 3rd round pick (Anne O'Neil later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "La'Keshia Frett",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-LVA",
+        "pick_year": 2005,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2004-07-19-d3faa769",
+    "date": "2004-07-19",
+    "season": "2004",
+    "title": "Adrian Williams-Strong, Gwen Jackson Trade",
+    "description": "The Phoenix Mercury traded Adrian Williams-Strong to the San Antonio Silver Stars for Gwen Jackson.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Adrian Williams-Strong",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gwen Jackson",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

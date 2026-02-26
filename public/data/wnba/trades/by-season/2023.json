@@ -1,0 +1,674 @@
+[
+  {
+    "id": "wnba-2023-01-13-aa5e3e75",
+    "date": "2023-01-13",
+    "season": "2023",
+    "title": "Kristy Wallace, Danielle Robinson Trade",
+    "description": "The Atlanta Dream traded Kristy Wallace to the Indiana Fever for Danielle Robinson.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kristy Wallace",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Danielle Robinson",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2023-01-15-58c6845f",
+    "date": "2023-01-15",
+    "season": "2023",
+    "title": "Jonquel Jones, Rebecca Allen, Natasha Howard Trade",
+    "description": "In a 5-team trade, the Connecticut Sun traded Jonquel Jones to the New York Liberty; the New York Liberty traded Rebecca Allen and a 2023 1st round pick (Haley Jones later selected) to the Connecticut Sun; the New York Liberty traded Natasha Howard and Crystal Dangerfield to the Dallas Wings; the Dallas Wings traded Tyasha Harris to the Connecticut Sun; the Dallas Wings traded Kayla Thornton to the New York Liberty.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jonquel Jones",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rebecca Allen",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-CON",
+        "pick_year": 2023,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Ashten Prechtel",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Natasha Howard",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Crystal Dangerfield",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tyasha Harris",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2023-01-16-7abe2284",
+    "date": "2023-01-16",
+    "season": "2023",
+    "title": "Jasmine Thomas, Olivia Nelson-Ododa, Jasmine Walker Trade",
+    "description": "The Connecticut Sun traded Jasmine Thomas and a 2023 1st round pick (Zia Cooke later selected) to the Los Angeles Sparks for Olivia Nelson-Ododa, Jasmine Walker, and Kianna Smith.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jasmine Thomas",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-LAS",
+        "pick_year": 2023,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Monika Czinano",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Olivia Nelson-Ododa",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jasmine Walker",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kianna Smith",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2023-01-21-01162262",
+    "date": "2023-01-21",
+    "season": "2023",
+    "title": "Dearica Hamby, Amanda Zahui B. Trade",
+    "description": "The Las Vegas Aces traded Dearica Hamby and a 2024 1st round pick (Nyadiew Puoch later selected) to the Los Angeles Sparks for Amanda Zahui B. and a 2024 2nd round pick (Dyaisha Fair later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dearica Hamby",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-LAS",
+        "pick_year": 2024,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "McKenzie Forbes",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Amanda Zahui B.",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-LVA",
+        "pick_year": 2024,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2023-01-21-47edd00b",
+    "date": "2023-01-21",
+    "season": "2023",
+    "title": "Allisha Gray Trade",
+    "description": "The Dallas Wings traded Allisha Gray to the Atlanta Dream for a 2023 1st round pick (Maddy Siegrist later selected) and a 2025 1st round pick (Georgia Amoore later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Allisha Gray",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-DAL",
+        "pick_year": 2023,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Paige Robinson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-DAL",
+        "pick_year": 2025,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Aaronette Vonleh",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2023-02-05-2de67dd5",
+    "date": "2023-02-05",
+    "season": "2023",
+    "title": "Amanda Zahui B. Trade",
+    "description": "The Las Vegas Aces traded Amanda Zahui B. to the Washington Mystics for a 2024 2nd round pick (Kate Martin later selected) and a 2025 2nd round pick (Maddy Westbeld later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Amanda Zahui B.",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-LVA",
+        "pick_year": 2024,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-LVA",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2023-02-09-caad4163",
+    "date": "2023-02-09",
+    "season": "2023",
+    "title": "Tiffany Hayes Trade",
+    "description": "The Atlanta Dream traded Tiffany Hayes to the Connecticut Sun for a 2023 1st round pick (Haley Jones later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tiffany Hayes",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-ATL",
+        "pick_year": 2023,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Leigha Brown",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2023-02-11-eed56bc5",
+    "date": "2023-02-11",
+    "season": "2023",
+    "title": "Marina Mabrey, Diamond DeShields Trade",
+    "description": "In a 8-team trade, the Dallas Wings traded Marina Mabrey to the Chicago Sky; the Phoenix Mercury traded Diamond DeShields to the Dallas Wings; the Chicago Sky traded a 2023 1st round pick (Lou Lopez Sénéchal later selected), a 2024 1st round pick (Jacy Sheldon later selected) (2024 1st-rd pick is CHI own), and a 2025 1st round pick ( later selected) (2025 1st-rd pick was a right to swap with CHI) to the Dallas Wings; the New York Liberty traded Michaela Onyenwere to the Phoenix Mercury; the Chicago Sky traded a 2024 3rd round pick (Jaz Shelley later selected) (2024 3rd-rd pick is CHI own) and a 2025 2nd round pick (Anastasiia Kosu later selected) (2025 2nd-rd pick is CHI own) to the Phoenix Mercury; the Phoenix Mercury traded a 2024 2nd round pick (Brynna Maxwell later selected) (2024 2nd-rd pick is PHO own) to the Chicago Sky; the Chicago Sky traded Leonie Fiebich and a 2024 2nd round pick (Esmery Martinez later selected) (2024 2nd-rd pick is CHI own) to the New York Liberty; the Phoenix Mercury traded a 2025 1st round pick (Aneesah Morrow later selected) (2025 1st-rd pick is a right to swap with PHO) to the New York Liberty.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Marina Mabrey",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Diamond DeShields",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-PHO",
+        "pick_year": 2024,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-PHO",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CHI",
+        "pick_year": 2024,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-NYL",
+        "pick_year": 2024,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2023-04-10-f8f16ca8",
+    "date": "2023-04-10",
+    "season": "2023",
+    "title": "Stephanie Soares Trade",
+    "description": "The Washington Mystics traded Stephanie Soares to the Dallas Wings for a 2024 2nd round pick (Kaylynne Truong later selected) and a 2025 1st round pick (Georgia Amoore later selected) (2025 1st-rd pick is ATL own).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Stephanie Soares",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-WAS",
+        "pick_year": 2024,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-WAS",
+        "pick_year": 2025,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Zaay Green",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2023-05-16-a61ccd7a",
+    "date": "2023-05-16",
+    "season": "2023",
+    "title": "Leigha Brown Trade",
+    "description": "The Atlanta Dream traded Leigha Brown to the Connecticut Sun for a 2025 3rd round pick (Taylor Thierry later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Leigha Brown",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-ATL",
+        "pick_year": 2025,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2023-07-04-5088d0e8",
+    "date": "2023-07-04",
+    "season": "2023",
+    "title": "Queen Egbo, Amanda Zahui B. Trade",
+    "description": "The Indiana Fever traded Queen Egbo to the Washington Mystics for Amanda Zahui B..",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Queen Egbo",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Amanda Zahui B.",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

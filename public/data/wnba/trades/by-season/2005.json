@@ -1,0 +1,565 @@
+[
+  {
+    "id": "wnba-2005-02-11-43ddbfc8",
+    "date": "2005-02-11",
+    "season": "2005",
+    "title": "Helen Darling Trade",
+    "description": "The Minnesota Lynx traded Helen Darling and a 2005 2nd round pick (Jessica Moore later selected) to the Charlotte Sting for a 2005 2nd round pick (Jacqueline Batteast later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Helen Darling",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CHA",
+        "pick_year": 2005,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-MIN",
+        "pick_year": 2005,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2005-03-03-9f871261",
+    "date": "2005-03-03",
+    "season": "2005",
+    "title": "Nicole Powell, Olympia Scott, Erin Perperoglou Trade",
+    "description": "The Charlotte Sting traded Nicole Powell, Olympia Scott, and Erin Perperoglou to the Sacramento Monarchs for Tangela Smith and a 2006 2nd round pick (LaToya Bond later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nicole Powell",
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Olympia Scott",
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Erin Perperoglou",
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tangela Smith",
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-CHA",
+        "pick_year": 2006,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2005-03-21-bdd80c32",
+    "date": "2005-03-21",
+    "season": "2005",
+    "title": "DeLisha Milton-Jones, Chamique Holdsclaw Trade",
+    "description": "The Los Angeles Sparks traded DeLisha Milton-Jones and a 2005 1st round pick (Dionnah Jackson later selected) to the Washington Mystics for Chamique Holdsclaw.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "DeLisha Milton-Jones",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-WAS",
+        "pick_year": 2005,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Tashia Morehead",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chamique Holdsclaw",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2005-04-15-cdf0571a",
+    "date": "2005-04-15",
+    "season": "2005",
+    "title": "Iciss Tillis Trade",
+    "description": "The Detroit Shock traded Iciss Tillis to the Washington Mystics for a 2005 1st round pick (Dionnah Jackson later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Iciss Tillis",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-DAL",
+        "pick_year": 2005,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jenni Lingor",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2005-04-16-e9f5adc6",
+    "date": "2005-04-16",
+    "season": "2005",
+    "title": "Margo Dydek, Katie Mattera Trade",
+    "description": "The San Antonio Silver Stars traded Margo Dydek to the Connecticut Sun for Katie Mattera and a 2006 1st round pick (Scholanda Dorrell later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Margo Dydek",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Katie Mattera",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-LVA",
+        "pick_year": 2006,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Khara Smith",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2005-04-26-11ab50b2",
+    "date": "2005-04-26",
+    "season": "2005",
+    "title": "Kristen Rasmussen Trade",
+    "description": "The Indiana Fever traded Kristen Rasmussen to the Houston Comets for a 2006 3rd round pick (Jessica Foley later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kristen Rasmussen",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-IND",
+        "pick_year": 2006,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2005-05-18-bc1b4494",
+    "date": "2005-05-18",
+    "season": "2005",
+    "title": "Chantelle Anderson Trade",
+    "description": "The Sacramento Monarchs traded Chantelle Anderson to the San Antonio Silver Stars for a 2006 1st round pick (Scholanda Dorrell later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Chantelle Anderson",
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-SAC",
+        "pick_year": 2006,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Lamisha Augustine",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2005-06-29-ce3807bb",
+    "date": "2005-06-29",
+    "season": "2005",
+    "title": "Plenette Pierson, Andrea Stinson Trade",
+    "description": "The Phoenix Mercury traded Plenette Pierson to the Detroit Shock for Andrea Stinson and a 2006 2nd round pick (Mistie Bass later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Plenette Pierson",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Andrea Stinson",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": 2006,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2005-07-30-add666aa",
+    "date": "2005-07-30",
+    "season": "2005",
+    "title": "Chandi Jones, Stacey Thomas, Katie Smith Trade",
+    "description": "The Detroit Shock traded Chandi Jones, Stacey Thomas, and a 2006 1st round pick (Shona Thorburn later selected) to the Minnesota Lynx for Katie Smith and a 2006 2nd round pick (Ambrosia Anderson later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Chandi Jones",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Stacey Thomas",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-MIN",
+        "pick_year": 2006,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Megan Duffy",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Katie Smith",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-DAL",
+        "pick_year": 2006,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2005-08-01-2a03bd7b",
+    "date": "2005-08-01",
+    "season": "2005",
+    "title": "Adrienne Goodson, Kristen Rasmussen, Dawn Staley Trade",
+    "description": "The Houston Comets traded Adrienne Goodson, Kristen Rasmussen, and a 2006 1st round pick (Tye'sha Fluker later selected) to the Charlotte Sting for Dawn Staley and a 2006 2nd round pick (Ann Strother later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Adrienne Goodson",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kristen Rasmussen",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-CHA",
+        "pick_year": 2006,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "LaToya Bond",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dawn Staley",
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-HOU",
+        "pick_year": 2006,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

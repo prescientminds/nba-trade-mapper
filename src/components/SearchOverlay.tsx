@@ -2,10 +2,11 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { TradeWithDetails } from '@/lib/supabase';
-import { TEAMS } from '@/lib/teams';
+import { getAnyTeam } from '@/lib/teams';
 import { contrastText } from '@/lib/colors';
 import { useGraphStore } from '@/lib/graph-store';
 import DiscoverySection from '@/components/DiscoverySection';
+import type { League } from '@/lib/league';
 
 export default function SearchOverlay() {
   const [query, setQuery] = useState('');
@@ -28,6 +29,8 @@ export default function SearchOverlay() {
   const seedChampionshipRoster = useGraphStore((s) => s.seedChampionshipRoster);
   const clearGraph = useGraphStore((s) => s.clearGraph);
   const nodes = useGraphStore((s) => s.nodes);
+  const selectedLeague = useGraphStore((s) => s.selectedLeague);
+  const setSelectedLeague = useGraphStore((s) => s.setSelectedLeague);
 
   useEffect(() => {
     setHasGraph(nodes.length > 0);
@@ -41,12 +44,12 @@ export default function SearchOverlay() {
         return;
       }
       setSearching(true);
-      const res = await search(q);
+      const res = await search(q, selectedLeague);
       setResults(res);
       setOpen(true);
       setSearching(false);
     },
-    [search]
+    [search, selectedLeague]
   );
 
   const handleChange = (value: string) => {
@@ -89,6 +92,21 @@ export default function SearchOverlay() {
     document.addEventListener('mousedown', handler);
     return () => document.removeEventListener('mousedown', handler);
   }, []);
+
+  const handleLeagueSwitch = (league: League) => {
+    setSelectedLeague(league);
+    setQuery('');
+    setResults({ trades: [], players: [] });
+    setOpen(false);
+  };
+
+  // Re-search when league changes (if query active)
+  useEffect(() => {
+    if (query.length >= 2) {
+      doSearch(query);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedLeague]);
 
   const hasResults = results.trades.length > 0 || results.players.length > 0;
   const showDropdown = open && (hasResults || (!searching && query.length >= 2));
@@ -331,7 +349,7 @@ export default function SearchOverlay() {
                       : ''}
                   </span>
                   {teamIds.slice(0, 4).map((tid) => {
-                    const bg = TEAMS[tid]?.color || '#555555';
+                    const bg = getAnyTeam(tid)?.color || '#555555';
                     return (
                       <span
                         key={tid}
@@ -368,10 +386,36 @@ export default function SearchOverlay() {
           left: '50%',
           transform: 'translateX(-50%)',
           zIndex: 10,
-          width: 360,
+          width: 400,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 6,
         }}
       >
-        <div style={{ position: 'relative' }}>
+        <div style={{ display: 'flex', gap: 2 }}>
+          {(['NBA', 'WNBA'] as const).map((league) => (
+            <button
+              key={league}
+              onClick={() => handleLeagueSwitch(league)}
+              style={{
+                padding: '6px 8px',
+                borderRadius: 6,
+                border: 'none',
+                background: selectedLeague === league ? 'var(--accent-orange)' : 'var(--bg-elevated)',
+                color: selectedLeague === league ? '#fff' : 'var(--text-muted)',
+                cursor: 'pointer',
+                fontSize: 10,
+                fontWeight: 700,
+                fontFamily: 'var(--font-display)',
+                letterSpacing: 0.5,
+                transition: 'var(--transition-fast)',
+              }}
+            >
+              {league}
+            </button>
+          ))}
+        </div>
+        <div style={{ position: 'relative', flex: 1 }}>
           {searchInput}
           {resultsDropdown}
         </div>
@@ -420,8 +464,40 @@ export default function SearchOverlay() {
               lineHeight: 1.1,
             }}
           >
-            NBA TRADE MAPPER
+            {selectedLeague} TRADE MAPPER
           </h1>
+          <div
+            style={{
+              display: 'flex',
+              gap: 6,
+              justifyContent: 'center',
+              marginTop: 16,
+            }}
+          >
+            {(['NBA', 'WNBA'] as const).map((league) => (
+              <button
+                key={league}
+                onClick={() => handleLeagueSwitch(league)}
+                style={{
+                  padding: '6px 18px',
+                  borderRadius: 999,
+                  border: selectedLeague === league
+                    ? '2px solid var(--accent-orange)'
+                    : '1px solid var(--border-medium)',
+                  background: selectedLeague === league ? 'var(--accent-orange)11' : 'transparent',
+                  color: selectedLeague === league ? 'var(--accent-orange)' : 'var(--text-muted)',
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 14,
+                  fontWeight: selectedLeague === league ? 700 : 400,
+                  letterSpacing: 1,
+                  transition: 'var(--transition-fast)',
+                }}
+              >
+                {league}
+              </button>
+            ))}
+          </div>
           <p
             style={{
               fontFamily: 'var(--font-body)',
@@ -455,7 +531,7 @@ export default function SearchOverlay() {
           padding: '0 24px 120px',
         }}
       >
-        <DiscoverySection onSelectTrade={selectTrade} onSelectPlayer={selectPlayer} onSelectChain={selectChain} onSelectChampionship={selectChampionship} />
+        <DiscoverySection league={selectedLeague} onSelectTrade={selectTrade} onSelectPlayer={selectPlayer} onSelectChain={selectChain} onSelectChampionship={selectChampionship} />
       </div>
     </div>
   );

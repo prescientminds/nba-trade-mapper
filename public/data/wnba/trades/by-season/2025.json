@@ -1,0 +1,910 @@
+[
+  {
+    "id": "wnba-2025-02-01-a9c4376f",
+    "date": "2025-02-01",
+    "season": "2025",
+    "title": "Jewell Loyd Trade",
+    "description": "In a 6-team trade, the Seattle Storm traded Jewell Loyd to the Las Vegas Aces; the Seattle Storm traded a 2025 1st round pick (Sarah Ashlee Barker later selected) and a 2026 2nd round pick ( later selected) to the Los Angeles Sparks; the Las Vegas Aces traded Kelsey Plum to the Los Angeles Sparks; the Las Vegas Aces traded a 2026 1st round pick ( later selected) to the Seattle Storm; the Los Angeles Sparks traded Li Yueru and a 2025 1st round pick (Dominique Malonga later selected) to the Seattle Storm; the Los Angeles Sparks traded a 2025 2nd round pick (Aaliyah Nye later selected) to the Las Vegas Aces.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jewell Loyd",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-LAS",
+        "pick_year": 2025,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Liatu King",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-LAS",
+        "pick_year": 2026,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-SEA",
+        "pick_year": 2026,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-SEA",
+        "pick_year": 2025,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jordan Hobbs",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2025-02-02-284bf62d",
+    "date": "2025-02-02",
+    "season": "2025",
+    "title": "CON / DAL / IND / PHO Trade",
+    "description": "In a 10-team trade, the Connecticut Sun traded DiJonai Carrington, Tyasha Harris, and a 2026 2nd round pick ( later selected) (2026 2nd-rd pick is a right to swap) to the Dallas Wings; the Indiana Fever traded NaLyssa Smith and a 2027 3rd round pick ( later selected) (2027 3rd-rd pick is a right to swap) to the Dallas Wings; the Phoenix Mercury traded Mikiah Herbert Harrigan and a 2025 1st round pick (Aziaha James later selected) to the Dallas Wings; the Dallas Wings traded Jaelyn Brown to the Indiana Fever; the Phoenix Mercury traded Sophie Cunningham and a 2025 2nd round pick (Makayla Timpson later selected) to the Indiana Fever; the Dallas Wings traded Kalani Brown, Satou Sabally, and Sevgi Uzun to the Phoenix Mercury; the Connecticut Sun traded Alyssa Thomas to the Phoenix Mercury; the Phoenix Mercury traded Rebecca Allen and Natasha Cloud to the Connecticut Sun; the Dallas Wings traded Jacy Sheldon to the Connecticut Sun; the Indiana Fever traded a 2025 1st round pick (Saniya Rivers later selected) to the Connecticut Sun.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-DAL",
+        "pick_year": 2025,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Aaronette Vonleh",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-IND",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2025-02-04-fc0aa96c",
+    "date": "2025-02-04",
+    "season": "2025",
+    "title": "Rebecca Allen, Lindsay Allen, Nikolina Milic Trade",
+    "description": "The Connecticut Sun traded Rebecca Allen to the Chicago Sky for Lindsay Allen and Nikolina Milic.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Rebecca Allen",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Lindsay Allen",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nikolina Milic",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2025-02-07-fca4e46f",
+    "date": "2025-02-07",
+    "season": "2025",
+    "title": "Dana Evans Trade",
+    "description": "The Chicago Sky traded Dana Evans to the Las Vegas Aces for a 2025 2nd round pick (Maddy Westbeld later selected) and a 2025 2nd round pick (Aicha Coulibaly later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dana Evans",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-CHI",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-CHI",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2025-02-14-82a655cc",
+    "date": "2025-02-14",
+    "season": "2025",
+    "title": "Lexie Brown Trade",
+    "description": "The Los Angeles Sparks traded Lexie Brown and a 2025 3rd round pick (Serena Sundell later selected) to the Seattle Storm for a 2025 2nd round pick (Sania Feagin later selected) and a 2027 2nd round pick ( later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Lexie Brown",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-SEA",
+        "pick_year": 2025,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-LAS",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-LAS",
+        "pick_year": 2027,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2025-02-23-2078b413",
+    "date": "2025-02-23",
+    "season": "2025",
+    "title": "Ariel Atkins Trade",
+    "description": "The Washington Mystics traded Ariel Atkins to the Chicago Sky for a 2025 1st round pick (Sonia Citron later selected), a 2027 2nd round pick ( later selected), and a 2027 1st round pick ( later selected) (2027 1st-rd pick is a right to swap).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ariel Atkins",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-WAS",
+        "pick_year": 2025,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Zaay Green",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-WAS",
+        "pick_year": 2027,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-WAS",
+        "pick_year": 2027,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2025-03-16-39ca21cd",
+    "date": "2025-03-16",
+    "season": "2025",
+    "title": "Natasha Cloud Trade",
+    "description": "The Connecticut Sun traded Natasha Cloud to the New York Liberty for a 2025 1st round pick (Aneesah Morrow later selected) and a 2026 1st round pick ( later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Natasha Cloud",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-CON",
+        "pick_year": 2025,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Rayah Marshall",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-CON",
+        "pick_year": 2026,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2025-04-13-6a4cf1c6",
+    "date": "2025-04-13",
+    "season": "2025",
+    "title": "MIN / CHI Trade",
+    "description": "The Minnesota Lynx traded a 2025 1st round pick (Hailey Van Lith later selected) to the Chicago Sky for a 2026 1st round pick.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CHI",
+        "pick_year": 2025,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Aicha Coulibaly",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-MIN",
+        "pick_year": 2026,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2025-04-14-2c8d4b4b",
+    "date": "2025-04-14",
+    "season": "2025",
+    "title": "Karlie Samuelson Trade",
+    "description": "The Washington Mystics traded Karlie Samuelson to the Minnesota Lynx for a 2026 1st round pick ( later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Karlie Samuelson",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-WAS",
+        "pick_year": 2026,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2025-06-14-ea45a2d6",
+    "date": "2025-06-14",
+    "season": "2025",
+    "title": "Li Yueru Trade",
+    "description": "The Seattle Storm traded Li Yueru to the Dallas Wings for a 2026 2nd round pick ( later selected) and a 2027 3rd round pick ( later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Li Yueru",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-SEA",
+        "pick_year": 2026,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-SEA",
+        "pick_year": 2027,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2025-06-30-f2741be0",
+    "date": "2025-06-30",
+    "season": "2025",
+    "title": "NaLyssa Smith Trade",
+    "description": "The Dallas Wings traded NaLyssa Smith to the Las Vegas Aces for a 2027 1st round pick ( later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "NaLyssa Smith",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-DAL",
+        "pick_year": 2027,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2025-08-03-4becb24d",
+    "date": "2025-08-03",
+    "season": "2025",
+    "title": "DiJonai Carrington, Diamond Miller, Karlie Samuelson Trade",
+    "description": "The Dallas Wings traded DiJonai Carrington to the Minnesota Lynx for Diamond Miller, Karlie Samuelson, and a 2027 2nd round pick ( later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "DiJonai Carrington",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Diamond Miller",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Karlie Samuelson",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-DAL",
+        "pick_year": 2027,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2025-08-05-00e111d1",
+    "date": "2025-08-05",
+    "season": "2025",
+    "title": "Brittney Sykes, Alysha Clark, Zia Cooke Trade",
+    "description": "The Washington Mystics traded Brittney Sykes to the Seattle Storm for Alysha Clark, Zia Cooke, and a 2026 1st round pick ( later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Brittney Sykes",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Alysha Clark",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Zia Cooke",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-WAS",
+        "pick_year": 2026,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2025-08-07-5d3c5cf2",
+    "date": "2025-08-07",
+    "season": "2025",
+    "title": "Aaliyah Edwards, Jacy Sheldon Trade",
+    "description": "The Washington Mystics traded Aaliyah Edwards to the Connecticut Sun for Jacy Sheldon and a 2026 1st round pick ( later selected) (2026 1st-rd pick is a right to swap (NYL pick)).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Aaliyah Edwards",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jacy Sheldon",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-WAS",
+        "pick_year": 2026,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

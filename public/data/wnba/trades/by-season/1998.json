@@ -1,0 +1,170 @@
+[
+  {
+    "id": "wnba-1998-04-09-bdbf23c5",
+    "date": "1998-04-09",
+    "season": "1998",
+    "title": "Linda Burgess, Pamela McGee Trade",
+    "description": "The Los Angeles Sparks traded Linda Burgess to the Sacramento Monarchs for Pamela McGee.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Linda Burgess",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Pamela McGee",
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-1998-05-05-20d47f12",
+    "date": "1998-05-05",
+    "season": "1998",
+    "title": "Lady Grooms, Chantel Tremitiere Trade",
+    "description": "The Utah Starzz traded Lady Grooms to the Sacramento Monarchs for Chantel Tremitiere.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Lady Grooms",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chantel Tremitiere",
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-1998-05-08-17324830",
+    "date": "1998-05-08",
+    "season": "1998",
+    "title": "Karen Booker, Fran Harris Trade",
+    "description": "The Utah Starzz traded Karen Booker to the Houston Comets for Fran Harris.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Karen Booker",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Fran Harris",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-1998-07-06-25ea1e33",
+    "date": "1998-07-06",
+    "season": "1998",
+    "title": "Pauline Jordan, Tiffani Johnson Trade",
+    "description": "The Phoenix Mercury traded Pauline Jordan to the Sacramento Monarchs for Tiffani Johnson.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Pauline Jordan",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tiffani Johnson",
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

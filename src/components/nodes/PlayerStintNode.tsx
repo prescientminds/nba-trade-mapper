@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
-import { getTeamDisplayInfo } from '@/lib/teams';
+import { getAnyTeamDisplayInfo } from '@/lib/teams';
 import { useGraphStore, PlayerStintNodeData } from '@/lib/graph-store';
 import { SeasonTable } from '@/components/SeasonTable';
 import { ensureReadable } from '@/lib/colors';
@@ -38,7 +38,7 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
 
   // Derive approximate date from first season for historical team name lookup
   const stintDate = seasons.length > 0 ? `${seasons[0].split('-')[0]}-10-01` : undefined;
-  const teamInfo = getTeamDisplayInfo(teamId, stintDate);
+  const teamInfo = getAnyTeamDisplayInfo(teamId, stintDate);
   const color = ensureReadable(teamInfo.color || '#9b5de5');
 
   const yearRange =

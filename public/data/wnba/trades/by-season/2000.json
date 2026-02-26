@@ -1,0 +1,678 @@
+[
+  {
+    "id": "wnba-2000-01-19-547576b3",
+    "date": "2000-01-19",
+    "season": "2000",
+    "title": "Shalonda Enis, Vicky Bullett Trade",
+    "description": "The Washington Mystics traded Shalonda Enis and a 2000 3rd round pick (Jill Morton later selected) to the Charlotte Sting for Vicky Bullett.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Shalonda Enis",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-CHA",
+        "pick_year": 2000,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Vicky Bullett",
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2000-01-28-1a25f0bf",
+    "date": "2000-01-28",
+    "season": "2000",
+    "title": "Coquese Washington, Mila Nikolich Trade",
+    "description": "The Portland Fire traded Coquese Washington to the Houston Comets for Mila Nikolich.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-POR",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Coquese Washington",
+        "from_team_id": "W-POR",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mila Nikolich",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2000-02-21-acff47a1",
+    "date": "2000-02-21",
+    "season": "2000",
+    "title": "Brandy Reed Trade",
+    "description": "The Minnesota Lynx traded Brandy Reed to the Phoenix Mercury for a 2000 1st round pick (Grace Daley later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Brandy Reed",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-MIN",
+        "pick_year": 2000,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Shanele Stires",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2000-04-14-cdc0d177",
+    "date": "2000-04-14",
+    "season": "2000",
+    "title": "Marlies Askamp, Shanele Stires Trade",
+    "description": "The Minnesota Lynx traded Marlies Askamp to the Miami Sol for a 2000 1st round pick (Maylana Martin later selected), a 2000 2nd round pick (Keitha Dickerson later selected), and a 2000 4th round pick (Shanele Stires later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Marlies Askamp",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-MIN",
+        "pick_year": 2000,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Shanele Stires",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-MIN",
+        "pick_year": 2000,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shanele Stires",
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2000-04-24-0087707a",
+    "date": "2000-04-24",
+    "season": "2000",
+    "title": "Jennifer Azzi Trade",
+    "description": "The Detroit Shock traded Jennifer Azzi and a 2000 1st round pick (Naomi Mulitauaopele later selected) to the Utah Starzz for a 2000 1st round pick (Edwina Brown later selected) and a 2000 1st round pick (Tamicha Jackson later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jennifer Azzi",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LVA",
+        "pick_year": 2000,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Kristen Rasmussen",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-DAL",
+        "pick_year": 2000,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Cal Bouchard",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-DAL",
+        "pick_year": 2000,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Cal Bouchard",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2000-04-25-f4d87f8e",
+    "date": "2000-04-25",
+    "season": "2000",
+    "title": "Shantia Owens, Carolyn Moos Trade",
+    "description": "The Phoenix Mercury traded Shantia Owens to the Miami Sol for a 2001 4th round pick (Carolyn Moos later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Shantia Owens",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Carolyn Moos",
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2000-04-25-df794969",
+    "date": "2000-04-25",
+    "season": "2000",
+    "title": "Latina Davis, Renee Robinson, Latavia Coleman. Trade",
+    "description": "The Indiana Fever traded Latina Davis and Renee Robinson to the Houston Comets for Latavia Coleman.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Latina Davis",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Renee Robinson",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Latavia Coleman.",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2000-05-27-ff9b1f3d",
+    "date": "2000-05-27",
+    "season": "2000",
+    "title": "Andrea Garner, Carolyn Moos Trade",
+    "description": "The Houston Comets traded Andrea Garner to the Seattle Storm for a 2001 4th round pick (Carolyn Moos later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Andrea Garner",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Carolyn Moos",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2000-05-28-b14fcc97",
+    "date": "2000-05-28",
+    "season": "2000",
+    "title": "Tari Phillips, Carolyn Jones-Young Trade",
+    "description": "The Portland Fire traded Tari Phillips to the New York Liberty for Carolyn Jones-Young.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-POR",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tari Phillips",
+        "from_team_id": "W-POR",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Carolyn Jones-Young",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2000-06-11-a6c24d8e",
+    "date": "2000-06-11",
+    "season": "2000",
+    "title": "Michelle Edwards, Nina Bjedov Trade",
+    "description": "The Cleveland Rockers traded Michelle Edwards to the Seattle Storm for Nina Bjedov.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CLE",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Michelle Edwards",
+        "from_team_id": "W-CLE",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nina Bjedov",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2000-09-18-a7d1d5c3",
+    "date": "2000-09-18",
+    "season": "2000",
+    "title": "Grace Daley Trade",
+    "description": "The Minnesota Lynx traded Grace Daley to the New York Liberty for a 2001 1st round pick (LaQuanda Barksdale later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Grace Daley",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-MIN",
+        "pick_year": 2001,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Megan Taylor",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2000-10-11-5741736f",
+    "date": "2000-10-11",
+    "season": "2000",
+    "title": "La'Keshia Frett, Latasha Byears Trade",
+    "description": "The Los Angeles Sparks traded La'Keshia Frett to the Sacramento Monarchs for Latasha Byears.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "La'Keshia Frett",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Latasha Byears",
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2000-10-11-be78fb0b",
+    "date": "2000-10-11",
+    "season": "2000",
+    "title": "Rhonda Mapp, E.C. Hill, Allison Feaster Trade",
+    "description": "The Charlotte Sting traded Rhonda Mapp and E.C. Hill to the Los Angeles Sparks for Allison Feaster and Clarisse Machanguana.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Rhonda Mapp",
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "E.C. Hill",
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Allison Feaster",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Clarisse Machanguana",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2000-11-07-ae1ea558",
+    "date": "2000-11-07",
+    "season": "2000",
+    "title": "Shantia Owens, Tracy Reid Trade",
+    "description": "The Miami Sol traded Shantia Owens to the Charlotte Sting for Tracy Reid.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Shantia Owens",
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tracy Reid",
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

@@ -1,0 +1,466 @@
+[
+  {
+    "id": "wnba-2012-01-02-292b51ea",
+    "date": "2012-01-02",
+    "season": "2012",
+    "title": "Le'coe Willingham Trade",
+    "description": "The Seattle Storm traded Swin Cash, Le'coe Willingham, and a 2012 2nd round pick (Shey Peddy later selected) to the Chicago Sky for a 2012 1st round pick (Shekinna Stricklen later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Le'coe Willingham",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-CHI",
+        "pick_year": 2012,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-SEA",
+        "pick_year": 2012,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Keisha Hampton",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2012-01-12-97d3b392",
+    "date": "2012-01-12",
+    "season": "2012",
+    "title": "Temeka Johnson, Andrea Riley Trade",
+    "description": "The Phoenix Mercury traded Temeka Johnson to the Tulsa Shock for Andrea Riley.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Temeka Johnson",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Andrea Riley",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2012-02-01-5f44068a",
+    "date": "2012-02-01",
+    "season": "2012",
+    "title": "Marissa Coleman, Noelle Quinn Trade",
+    "description": "The Washington Mystics traded Marissa Coleman to the Los Angeles Sparks for Noelle Quinn.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Marissa Coleman",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Noelle Quinn",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2012-02-02-219e8e1b",
+    "date": "2012-02-02",
+    "season": "2012",
+    "title": "Alexis Hornbuckle Trade",
+    "description": "The Minnesota Lynx traded Alexis Hornbuckle (Sign-and-trade) to the Phoenix Mercury for a 2013 2nd round pick (Sugar Rodgers later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Alexis Hornbuckle",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-MIN",
+        "pick_year": 2013,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2012-02-14-e7643f2a",
+    "date": "2012-02-14",
+    "season": "2012",
+    "title": "Ashley Robinson, Victoria Dunlap Trade",
+    "description": "The Seattle Storm traded Ashley Robinson to the Washington Mystics for Victoria Dunlap.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ashley Robinson",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Victoria Dunlap",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2012-02-23-f4312752",
+    "date": "2012-02-23",
+    "season": "2012",
+    "title": "LaToya Sanders, Natasha Lacy, Nicky Anosike Trade",
+    "description": "The Los Angeles Sparks traded LaToya Sanders and Natasha Lacy to the Washington Mystics for Nicky Anosike.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "LaToya Sanders",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Natasha Lacy",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nicky Anosike",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2012-02-28-49d8153b",
+    "date": "2012-02-28",
+    "season": "2012",
+    "title": "Charde Houston Trade",
+    "description": "The Minnesota Lynx traded Charde Houston (Sign-and-trade) and a 2012 2nd round pick (C'eria Ricketts later selected) to the Phoenix Mercury for a 2012 2nd round pick (Julie Wojta later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Charde Houston",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-PHO",
+        "pick_year": 2012,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-MIN",
+        "pick_year": 2012,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2012-03-01-94a49803",
+    "date": "2012-03-01",
+    "season": "2012",
+    "title": "Roneeka Hodges, Tangela Smith Trade",
+    "description": "The San Antonio Silver Stars traded Roneeka Hodges to the Indiana Fever for Tangela Smith.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Roneeka Hodges",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tangela Smith",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2012-03-14-9da7a2d9",
+    "date": "2012-03-14",
+    "season": "2012",
+    "title": "Sonja Petrovic Trade",
+    "description": "The San Antonio Silver Stars traded Sonja Petrovic to the Chicago Sky for a 2013 2nd round pick (Davellyn Whyte later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sonja Petrovic",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-LVA",
+        "pick_year": 2013,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2012-07-02-4364c34e",
+    "date": "2012-07-02",
+    "season": "2012",
+    "title": "Karima Christmas-Kelly, Roneeka Hodges Trade",
+    "description": "The Tulsa Shock traded Karima Christmas-Kelly to the Indiana Fever for Roneeka Hodges.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Karima Christmas-Kelly",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Roneeka Hodges",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

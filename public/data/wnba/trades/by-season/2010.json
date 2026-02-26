@@ -1,0 +1,673 @@
+[
+  {
+    "id": "wnba-2010-01-12-147f668f",
+    "date": "2010-01-12",
+    "season": "2010",
+    "title": "Renee Montgomery, Lindsay Whalen Trade",
+    "description": "The Minnesota Lynx traded Renee Montgomery and a 2010 1st round pick (Tina Charles later selected) to the Connecticut Sun for Lindsay Whalen and a 2010 1st round pick (Monica Wright later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Renee Montgomery",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CON",
+        "pick_year": 2010,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Johannah Leedham",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Lindsay Whalen",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-MIN",
+        "pick_year": 2010,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Gabriela Marginean",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2010-02-19-4e8e34f0",
+    "date": "2010-02-19",
+    "season": "2010",
+    "title": "Roneeka Hodges Trade",
+    "description": "The Minnesota Lynx traded Roneeka Hodges to the San Antonio Silver Stars for a 2011 2nd round pick (Right to swap picks).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Roneeka Hodges",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-MIN",
+        "pick_year": 2011,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2010-03-11-d944e7ae",
+    "date": "2010-03-11",
+    "season": "2010",
+    "title": "Michelle Snow, Dalma Ivanyi Trade",
+    "description": "The Atlanta Dream traded Michelle Snow and Dalma Ivanyi to the San Antonio Silver Stars for a 2011 2nd round pick (Danielle Adams later selected) and a 2011 2nd round pick (Rachel Jarry later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Michelle Snow",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dalma Ivanyi",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-ATL",
+        "pick_year": 2011,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-ATL",
+        "pick_year": 2011,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2010-03-30-fd93f61f",
+    "date": "2010-03-30",
+    "season": "2010",
+    "title": "Candice Dupree, Cappie Pondexter, Kelly Mazzante Trade",
+    "description": "In a 4-team trade, the Chicago Sky traded Candice Dupree to the Phoenix Mercury; the Phoenix Mercury traded Cappie Pondexter and Kelly Mazzante to the New York Liberty; the New York Liberty traded Shameka Christon and Cathrine Kraayeveld to the Chicago Sky; the Chicago Sky traded a 2010 2nd round pick (Ashley Houts later selected) to the New York Liberty.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Candice Dupree",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cappie Pondexter",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kelly Mazzante",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shameka Christon",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cathrine Kraayeveld",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2010-04-07-ea2363c4",
+    "date": "2010-04-07",
+    "season": "2010",
+    "title": "Amber Holt, Chante Black Trade",
+    "description": "The Connecticut Sun traded Amber Holt and Chante Black to the Tulsa Shock for a 2010 1st round pick (Danielle McCray later selected) and a 2011 2nd round pick (Jessica Breland later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Amber Holt",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chante Black",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-CON",
+        "pick_year": 2010,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Johannah Leedham",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-CON",
+        "pick_year": 2011,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2010-04-08-450f796e",
+    "date": "2010-04-08",
+    "season": "2010",
+    "title": "Kelsey Griffin Trade",
+    "description": "The Minnesota Lynx traded Kelsey Griffin to the Connecticut Sun for a 2011 1st round pick (Amber Harris later selected) and a 2011 2nd round pick (Jessica Breland later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kelsey Griffin",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-MIN",
+        "pick_year": 2011,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Kachine Alexander",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-MIN",
+        "pick_year": 2011,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2010-04-14-66d8baa2",
+    "date": "2010-04-14",
+    "season": "2010",
+    "title": "Shanna Zolman, Crystal Kelly Trade",
+    "description": "The San Antonio Silver Stars traded Shanna Zolman to the Tulsa Shock for Crystal Kelly.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Shanna Zolman",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Crystal Kelly",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2010-05-12-37379d7c",
+    "date": "2010-05-12",
+    "season": "2010",
+    "title": "Ashley Houts, Nikki Blue Trade",
+    "description": "The New York Liberty traded Ashley Houts to the Washington Mystics for Nikki Blue.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ashley Houts",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nikki Blue",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2010-05-13-8378bd78",
+    "date": "2010-05-13",
+    "season": "2010",
+    "title": "Kristi Toliver Trade",
+    "description": "The Chicago Sky traded Kristi Toliver to the Los Angeles Sparks for a 2011 2nd round pick (Angie Bjorklund later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kristi Toliver",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CHI",
+        "pick_year": 2011,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2010-05-27-6da59ec1",
+    "date": "2010-05-27",
+    "season": "2010",
+    "title": "Shavonte Zellous Trade",
+    "description": "The Tulsa Shock traded Shavonte Zellous to the Indiana Fever for a 2011 2nd round pick (Italee Lucas later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Shavonte Zellous",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-DAL",
+        "pick_year": 2011,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2010-06-13-8abe3e44",
+    "date": "2010-06-13",
+    "season": "2010",
+    "title": "Tiffany Jackson-Jones, Plenette Pierson Trade",
+    "description": "The New York Liberty traded Tiffany Jackson-Jones to the Tulsa Shock for Plenette Pierson.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tiffany Jackson-Jones",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Plenette Pierson",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2010-07-23-5a6d0efc",
+    "date": "2010-07-23",
+    "season": "2010",
+    "title": "Nicole Ohlde, Kara Braxton Trade",
+    "description": "The Phoenix Mercury traded Nicole Ohlde and a 2011 1st round pick (Kayla Pedersen later selected) to the Tulsa Shock for Kara Braxton.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nicole Ohlde",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-DAL",
+        "pick_year": 2011,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Chastity Reed",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kara Braxton",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2010-07-26-3e9d8943",
+    "date": "2010-07-26",
+    "season": "2010",
+    "title": "Alexis Hornbuckle, Rashanda McCants Trade",
+    "description": "The Tulsa Shock traded Alexis Hornbuckle to the Minnesota Lynx for Rashanda McCants.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Alexis Hornbuckle",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rashanda McCants",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

@@ -1,0 +1,865 @@
+[
+  {
+    "id": "wnba-2024-01-31-c49e742b",
+    "date": "2024-01-31",
+    "season": "2024",
+    "title": "Tiffany Mitchell, Natisha Hiedeman Trade",
+    "description": "The Minnesota Lynx traded Tiffany Mitchell and a 2024 2nd round pick (Taiyanna Jackson later selected) to the Connecticut Sun for Natisha Hiedeman.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tiffany Mitchell",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CON",
+        "pick_year": 2024,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Natisha Hiedeman",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2024-01-31-f31a1b87",
+    "date": "2024-01-31",
+    "season": "2024",
+    "title": "LAS / SEA Trade",
+    "description": "The Los Angeles Sparks traded a 2026 1st round pick ( later selected) to the Seattle Storm for a 2024 1st round pick (Rickea Jackson later selected) and Kia Nurse.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-SEA",
+        "pick_year": 2026,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-LAS",
+        "pick_year": 2024,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "McKenzie Forbes",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2024-02-01-f52b2e83",
+    "date": "2024-02-01",
+    "season": "2024",
+    "title": "Jordin Canada, Aari McDonald Trade",
+    "description": "The Los Angeles Sparks traded Jordin Canada and a 2024 1st round pick (Nyadiew Puoch later selected) to the Atlanta Dream for Aari McDonald and a 2024 1st round pick (Alissa Pili later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jordin Canada",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-ATL",
+        "pick_year": 2024,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Matilde Villa",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Aari McDonald",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-LAS",
+        "pick_year": 2024,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "McKenzie Forbes",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2024-02-03-da95f832",
+    "date": "2024-02-03",
+    "season": "2024",
+    "title": "Rebecca Allen, Moriah Jefferson Trade",
+    "description": "The Connecticut Sun traded Rebecca Allen to the Phoenix Mercury for Moriah Jefferson.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Rebecca Allen",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Moriah Jefferson",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2024-02-06-cd2bad27",
+    "date": "2024-02-06",
+    "season": "2024",
+    "title": "Kahleah Copper, Morgan Bertsch, Michaela Onyenwere Trade",
+    "description": "The Chicago Sky traded Kahleah Copper and Morgan Bertsch to the Phoenix Mercury for Michaela Onyenwere, Brianna Turner, a 2024 1st round pick (Kamilla Cardoso later selected), a 2025 2nd round pick (Anastasiia Kosu later selected) ((from Chicago)), a 2026 1st round pick ( later selected), and a 2026 2nd round pick ( later selected) (2026 2nd-rd pick is a right to swap).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kahleah Copper",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Morgan Bertsch",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Michaela Onyenwere",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brianna Turner",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CHI",
+        "pick_year": 2024,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Brynna Maxwell",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CHI",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CHI",
+        "pick_year": 2026,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CHI",
+        "pick_year": 2026,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2024-02-19-2adc8c80",
+    "date": "2024-02-19",
+    "season": "2024",
+    "title": "Julie Allemand, Li Yueru Trade",
+    "description": "The Chicago Sky traded Julie Allemand, Li Yueru, and a 2025 3rd round pick (Liatu King later selected) to the Los Angeles Sparks for a 2024 1st round pick (Alissa Pili later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Julie Allemand",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Li Yueru",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-LAS",
+        "pick_year": 2025,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CHI",
+        "pick_year": 2024,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Brynna Maxwell",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2024-03-14-4a0e0e10",
+    "date": "2024-03-14",
+    "season": "2024",
+    "title": "Rebekah Gardner Trade",
+    "description": "The Chicago Sky traded Rebekah Gardner to the New York Liberty for a 2025 2nd round pick (Rayah Marshall later selected) and a 2026 2nd round pick ( later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Rebekah Gardner",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-CHI",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-CHI",
+        "pick_year": 2026,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2024-04-14-761efdeb",
+    "date": "2024-04-14",
+    "season": "2024",
+    "title": "Nikolina Milic, Sika Koné Trade",
+    "description": "The Minnesota Lynx traded Nikolina Milic and a 2024 1st round pick (Angel Reese later selected) to the Chicago Sky for Sika Koné, a 2024 1st round pick (Alissa Pili later selected), a 2025 2nd round pick (Anastasiia Kosu later selected), and a 2026 1st round pick ( later selected) (2026 1st-rd pick is a right to swap).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nikolina Milic",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CHI",
+        "pick_year": 2024,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Brynna Maxwell",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sika Koné",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-MIN",
+        "pick_year": 2024,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Kiki Jefferson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-MIN",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-MIN",
+        "pick_year": 2026,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2024-05-04-ae2a6fd1",
+    "date": "2024-05-04",
+    "season": "2024",
+    "title": "Crystal Dangerfield Trade",
+    "description": "The Dallas Wings traded Crystal Dangerfield to the Atlanta Dream for a 2025 3rd round pick (Aaronette Vonleh later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Crystal Dangerfield",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-DAL",
+        "pick_year": 2025,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2024-05-07-2cceb75d",
+    "date": "2024-05-07",
+    "season": "2024",
+    "title": "Queen Egbo, Bernadett Hatar Trade",
+    "description": "The Washington Mystics traded Queen Egbo to the Connecticut Sun for Bernadett Hatar and a 2025 2nd round pick (Lucy Olsen later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Queen Egbo",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bernadett Hatar",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-WAS",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2024-05-11-d7c3ec43",
+    "date": "2024-05-11",
+    "season": "2024",
+    "title": "Jade Melbourne Trade",
+    "description": "The Seattle Storm traded Jade Melbourne to the Washington Mystics for a 2025 3rd round pick (Madison Conner later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jade Melbourne",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-SEA",
+        "pick_year": 2025,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2024-07-17-a01652fd",
+    "date": "2024-07-17",
+    "season": "2024",
+    "title": "Marina Mabrey, Rachel Banham, Moriah Jefferson Trade",
+    "description": "The Chicago Sky traded Marina Mabrey and a 2025 2nd round pick (Rayah Marshall later selected) (2025 2nd-rd pick is NYL own) to the Connecticut Sun for Rachel Banham, Moriah Jefferson, a 2025 1st round pick (Ajša Sivka later selected), and a 2026 1st round pick ( later selected) (2026 1st-rd pick is a right to swap).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Marina Mabrey",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-CON",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rachel Banham",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Moriah Jefferson",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-CHI",
+        "pick_year": 2025,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Aicha Coulibaly",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-CHI",
+        "pick_year": 2026,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2024-08-20-89312a2e",
+    "date": "2024-08-20",
+    "season": "2024",
+    "title": "Myisha Hines-Allen, Olivia Époupa, Sika Koné Trade",
+    "description": "The Washington Mystics traded Myisha Hines-Allen to the Minnesota Lynx for Olivia Époupa, Sika Koné, and a 2026 2nd round pick ( later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Myisha Hines-Allen",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Olivia Époupa",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sika Koné",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-WAS",
+        "pick_year": 2026,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2024-08-20-570a7eaa",
+    "date": "2024-08-20",
+    "season": "2024",
+    "title": "Sug Sutton, Klara Lundquist Trade",
+    "description": "The Phoenix Mercury traded Sug Sutton and a 2025 3rd round pick (Zaay Green later selected) to the Washington Mystics for Klara Lundquist.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sug Sutton",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-WAS",
+        "pick_year": 2025,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Klara Lundquist",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

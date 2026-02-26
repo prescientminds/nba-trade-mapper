@@ -1,0 +1,679 @@
+[
+  {
+    "id": "wnba-2017-01-26-3f636b3c",
+    "date": "2017-01-26",
+    "season": "2017",
+    "title": "Aneika Henry-Morello, Reshanda Gray Trade",
+    "description": "The Connecticut Sun traded Aneika Henry-Morello to the Atlanta Dream for Reshanda Gray.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Aneika Henry-Morello",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Reshanda Gray",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2017-01-30-4f7b212e",
+    "date": "2017-01-30",
+    "season": "2017",
+    "title": "Carolyn Swords, Bria Hartley, Kia Vaughn Trade",
+    "description": "In a 4-team trade, the New York Liberty traded Carolyn Swords to the Seattle Storm; the Washington Mystics traded Bria Hartley and Kia Vaughn to the New York Liberty; the Seattle Storm traded a 2017 1st round pick (Shatori Walker-Kimbrough later selected) and a 2017 2nd round pick (Jennie Simms later selected) to the Washington Mystics; the Washington Mystics traded a 2017 2nd round pick (Alexis Peterson later selected) to the Seattle Storm.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Carolyn Swords",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bria Hartley",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kia Vaughn",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-WAS",
+        "pick_year": 2017,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Mehryn Kraker",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-WAS",
+        "pick_year": 2017,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2017-01-31-c967e1b0",
+    "date": "2017-01-31",
+    "season": "2017",
+    "title": "Danielle Robinson, Isabelle Harrison Trade",
+    "description": "The San Antonio Stars traded Danielle Robinson to the Phoenix Mercury for Isabelle Harrison and a 2017 1st round pick (Nia Coffey later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Danielle Robinson",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Isabelle Harrison",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-LVA",
+        "pick_year": 2017,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Schaquilla Nunn",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2017-02-02-23be47cc",
+    "date": "2017-02-02",
+    "season": "2017",
+    "title": "Elena Delle Donne, Stefanie Dolson, Kahleah Copper Trade",
+    "description": "The Chicago Sky traded Elena Delle Donne to the Washington Mystics for Stefanie Dolson, Kahleah Copper, and a 2017 1st round pick (Alaina Coates later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Elena Delle Donne",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Stefanie Dolson",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kahleah Copper",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-CHI",
+        "pick_year": 2017,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Makayla Epps",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2017-02-17-da84e92e",
+    "date": "2017-02-17",
+    "season": "2017",
+    "title": "Odyssey Sims Trade",
+    "description": "The Dallas Wings traded Odyssey Sims and a 2017 1st round pick (Sydney Wiese later selected) to the Los Angeles Sparks for a 2017 1st round pick (Allisha Gray later selected) and a 2017 2nd round pick (Breanna Lewis later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Odyssey Sims",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LAS",
+        "pick_year": 2017,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Saicha Grant-Allen",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-DAL",
+        "pick_year": 2017,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Saniya Chong",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-DAL",
+        "pick_year": 2017,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2017-02-21-45c3d372",
+    "date": "2017-02-21",
+    "season": "2017",
+    "title": "Candice Dupree, Camille Little, Jillian Alleyne Trade",
+    "description": "In a 3-team trade, the Phoenix Mercury traded Candice Dupree and a 2017 2nd round pick (Erica McCall later selected) to the Indiana Fever; the Connecticut Sun traded Camille Little and Jillian Alleyne to the Phoenix Mercury; the Indiana Fever traded Lynetta Kizer and a 2017 1st round pick (Brionna Jones later selected) to the Connecticut Sun.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Candice Dupree",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-IND",
+        "pick_year": 2017,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Camille Little",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jillian Alleyne",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2017-02-27-1c4917b7",
+    "date": "2017-02-27",
+    "season": "2017",
+    "title": "Astou Ndour, Clarissa Dos Santos Trade",
+    "description": "The San Antonio Stars traded Astou Ndour to the Chicago Sky for Clarissa Dos Santos.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Astou Ndour",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Clarissa Dos Santos",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2017-04-14-35f722c2",
+    "date": "2017-04-14",
+    "season": "2017",
+    "title": "Keisha Hampton, Chantel Osahor. Trade",
+    "description": "The Minnesota Lynx traded Keisha Hampton to the Chicago Sky for Chantel Osahor.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Keisha Hampton",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chantel Osahor.",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2017-05-09-57ae4387",
+    "date": "2017-05-09",
+    "season": "2017",
+    "title": "Jazmon Gwathmey Trade",
+    "description": "The San Antonio Stars traded Jazmon Gwathmey to the Indiana Fever for a 2018 3rd round pick (Imani Wright later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jazmon Gwathmey",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-LVA",
+        "pick_year": 2018,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2017-06-08-ef9a6f86",
+    "date": "2017-06-08",
+    "season": "2017",
+    "title": "Jordan Hooper Trade",
+    "description": "The Connecticut Sun traded Jordan Hooper to the Atlanta Dream for a 2018 2nd round pick (Monique Billings later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jordan Hooper",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-CON",
+        "pick_year": 2018,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2017-06-28-c932747b",
+    "date": "2017-06-28",
+    "season": "2017",
+    "title": "Monique Currie, Sophie Brunner, Shay Murphy Trade",
+    "description": "The San Antonio Stars traded Monique Currie to the Phoenix Mercury for Sophie Brunner, Shay Murphy, and a 2018 3rd round pick (Jill Barta later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Monique Currie",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sophie Brunner",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shay Murphy",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-LVA",
+        "pick_year": 2018,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2017-07-31-334b18e8",
+    "date": "2017-07-31",
+    "season": "2017",
+    "title": "Tamera Young, Imani McGee-Stafford, Jordan Hooper Trade",
+    "description": "The Chicago Sky traded Tamera Young, Imani McGee-Stafford, and a 2018 2nd round pick (Kristy Wallace later selected) to the Atlanta Dream for Jordan Hooper and a 2018 1st round pick (Diamond DeShields later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tamera Young",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Imani McGee-Stafford",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-ATL",
+        "pick_year": 2018,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jordan Hooper",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-CHI",
+        "pick_year": 2018,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Amarah Coleman",
+        "notes": null
+      }
+    ]
+  }
+]

@@ -1,0 +1,477 @@
+[
+  {
+    "id": "wnba-2003-02-14-68396c2c",
+    "date": "2003-02-14",
+    "season": "2003",
+    "title": "Rebecca Lobo Trade",
+    "description": "The Houston Comets traded Rebecca Lobo to the Connecticut Sun for a 2003 2nd round pick (Lori Nero later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Rebecca Lobo",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-HOU",
+        "pick_year": 2003,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2003-04-28-50c5f828",
+    "date": "2003-04-28",
+    "season": "2003",
+    "title": "Dominique Canty, Allison Curtin. Trade",
+    "description": "The Detroit Shock traded Dominique Canty to the Houston Comets for Allison Curtin.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dominique Canty",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Allison Curtin.",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2003-04-28-ee326952",
+    "date": "2003-04-28",
+    "season": "2003",
+    "title": "Edwina Brown, Lenae Williams, Petra Ujhelyi Trade",
+    "description": "The Detroit Shock traded Edwina Brown and Lenae Williams to the Phoenix Mercury for Petra Ujhelyi and Telisha Quarles.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Edwina Brown",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Lenae Williams",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Petra Ujhelyi",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Telisha Quarles.",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2003-04-29-2fa30a9f",
+    "date": "2003-04-29",
+    "season": "2003",
+    "title": "Kara Lawson, Kedra Holland-Corn Trade",
+    "description": "The Detroit Shock traded Kara Lawson to the Sacramento Monarchs for Kedra Holland-Corn and a 2004 2nd round pick (Erika Valek later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kara Lawson",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kedra Holland-Corn",
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-DAL",
+        "pick_year": 2004,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2003-05-01-29159a42",
+    "date": "2003-05-01",
+    "season": "2003",
+    "title": "Sylvia Crawley, Gwen Jackson, Coretta Brown Trade",
+    "description": "The Indiana Fever traded Sylvia Crawley and Gwen Jackson to the San Antonio Silver Stars for Coretta Brown and Natalie Williams.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sylvia Crawley",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gwen Jackson",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Coretta Brown",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Natalie Williams",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2003-05-19-96b7bd0d",
+    "date": "2003-05-19",
+    "season": "2003",
+    "title": "Tamara Moore Trade",
+    "description": "The Minnesota Lynx traded Tamara Moore to the Detroit Shock for a 2004 3rd round pick (Kate Bulger later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tamara Moore",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-MIN",
+        "pick_year": 2004,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2003-05-19-24a1299e",
+    "date": "2003-05-19",
+    "season": "2003",
+    "title": "Pollyanna Johns Kimbrough, Rushia Brown Trade",
+    "description": "The Charlotte Sting traded Pollyanna Johns Kimbrough to the Cleveland Rockers for Rushia Brown.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CLE",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Pollyanna Johns Kimbrough",
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rushia Brown",
+        "from_team_id": "W-CLE",
+        "to_team_id": "W-CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2003-05-21-e7e9f576",
+    "date": "2003-05-21",
+    "season": "2003",
+    "title": "Rita Williams Trade",
+    "description": "The Houston Comets traded Rita Williams to the Seattle Storm for a 2004 3rd round pick (Jennifer Smith later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Rita Williams",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-HOU",
+        "pick_year": 2004,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2003-05-21-62f2aaff",
+    "date": "2003-05-21",
+    "season": "2003",
+    "title": "Shaquala Williams Trade",
+    "description": "The Cleveland Rockers traded Shaquala Williams to the Los Angeles Sparks for a 2004 3rd round pick.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CLE",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Shaquala Williams",
+        "from_team_id": "W-CLE",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CLE",
+        "pick_year": 2004,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2003-07-31-7d0e5b64",
+    "date": "2003-07-31",
+    "season": "2003",
+    "title": "Tamara Moore, Stacey Thomas Trade",
+    "description": "The Detroit Shock traded Tamara Moore to the Phoenix Mercury for Stacey Thomas.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tamara Moore",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Stacey Thomas",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

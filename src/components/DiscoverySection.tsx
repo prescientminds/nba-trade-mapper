@@ -2,11 +2,12 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { getSupabase } from '@/lib/supabase';
-import { TEAMS, getTeamDisplayInfo } from '@/lib/teams';
+import { getAnyTeam, getAnyTeamDisplayInfo } from '@/lib/teams';
 import { contrastText } from '@/lib/colors';
 import { loadTrade, loadSearchIndex, staticTradeToTradeWithDetails } from '@/lib/trade-data';
 import type { TradeWithDetails, TradeSearchIndexEntry } from '@/lib/supabase';
 import type { ChainAsset, ChainTeamData } from '@/lib/graph-store';
+import type { League } from '@/lib/league';
 
 // ── Types ─────────────────────────────────────────────────────────────
 
@@ -28,12 +29,12 @@ interface TradeCard {
 function teamHeading(teams: string[], tradeDate?: string): string {
   if (teams.length === 0) return 'Trade';
   if (teams.length === 2) {
-    const n1 = getTeamDisplayInfo(teams[0], tradeDate).name.split(' ').pop() || teams[0];
-    const n2 = getTeamDisplayInfo(teams[1], tradeDate).name.split(' ').pop() || teams[1];
+    const n1 = getAnyTeamDisplayInfo(teams[0], tradeDate).name.split(' ').pop() || teams[0];
+    const n2 = getAnyTeamDisplayInfo(teams[1], tradeDate).name.split(' ').pop() || teams[1];
     return `${n1} & ${n2}`;
   }
   if (teams.length >= 3) return `${teams.length}-Team Trade`;
-  return (getTeamDisplayInfo(teams[0], tradeDate).name.split(' ').pop() || teams[0]) + ' Trade';
+  return (getAnyTeamDisplayInfo(teams[0], tradeDate).name.split(' ').pop() || teams[0]) + ' Trade';
 }
 
 interface PlayerCard {
@@ -64,6 +65,7 @@ interface Category {
 }
 
 interface Props {
+  league: League;
   onSelectTrade: (trade: TradeWithDetails) => void;
   onSelectPlayer: (name: string) => void;
   onSelectChain?: (tradeId: string, chainScores?: Record<string, ChainTeamData>) => void;
@@ -322,7 +324,7 @@ function TradeCardItem({
   onClick: () => void;
 }) {
   const [hovered, setHovered] = useState(false);
-  const winnerInfo = card.winner ? getTeamDisplayInfo(card.winner, card.date) : null;
+  const winnerInfo = card.winner ? getAnyTeamDisplayInfo(card.winner, card.date) : null;
   const winnerColor = winnerInfo?.color || accentColor;
 
   return (
@@ -479,7 +481,7 @@ function TradeCardItem({
           {card.season}
         </span>
         {card.teams.slice(0, 3).map((tid) => {
-          const info = getTeamDisplayInfo(tid, card.date);
+          const info = getAnyTeamDisplayInfo(tid, card.date);
           const bg = info.color || '#555555';
           return (
             <span
@@ -800,7 +802,7 @@ function TradeListRow({
   onClick: () => void;
 }) {
   const [hovered, setHovered] = useState(false);
-  const winnerInfo = card.winner ? getTeamDisplayInfo(card.winner, card.date) : null;
+  const winnerInfo = card.winner ? getAnyTeamDisplayInfo(card.winner, card.date) : null;
   const winnerColor = winnerInfo?.color || accentColor;
 
   return (
@@ -942,7 +944,7 @@ function TradeListRow({
       {/* Team pills */}
       <div style={{ display: 'flex', gap: 3, flexShrink: 0 }}>
         {card.teams.slice(0, 3).map((tid) => {
-          const info = getTeamDisplayInfo(tid, card.date);
+          const info = getAnyTeamDisplayInfo(tid, card.date);
           const bg = info.color || '#555555';
           return (
             <span
@@ -1082,12 +1084,14 @@ function PlayerListRow({
 
 function CategoryRow({
   category,
+  league,
   onSelectTrade,
   onSelectPlayer,
   onSelectChain,
   onSelectChampionship,
 }: {
   category: Category;
+  league: League;
   onSelectTrade: (trade: TradeWithDetails) => void;
   onSelectPlayer: (name: string) => void;
   onSelectChain?: (tradeId: string, chainScores?: Record<string, ChainTeamData>) => void;
@@ -1107,7 +1111,7 @@ function CategoryRow({
       return;
     }
     // Fallback if onSelectChain not provided
-    const trade = await loadTrade(card.tradeId);
+    const trade = await loadTrade(card.tradeId, league);
     if (trade) onSelectTrade(staticTradeToTradeWithDetails(trade));
   };
 
@@ -1293,7 +1297,7 @@ const METRIC_DEFS: Record<string, { metricLabel: string; metricExplanation: stri
 
 // ── Main Component ────────────────────────────────────────────────────
 
-export default function DiscoverySection({ onSelectTrade, onSelectPlayer, onSelectChain, onSelectChampionship }: Props) {
+export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer, onSelectChain, onSelectChampionship }: Props) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -1302,7 +1306,7 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer, onSele
     async function load() {
       try {
         // Load static index first — always works regardless of Supabase config
-        const index = await loadSearchIndex();
+        const index = await loadSearchIndex(league);
 
         // Try Supabase — may fail if env vars aren't configured in production
         let scores: ScoreRow[] = [];
@@ -1313,22 +1317,26 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer, onSele
             getSupabase()
               .from('trade_scores')
               .select('trade_id, lopsidedness, winner, team_scores')
+              .eq('league', league)
               .not('winner', 'is', null)
               .order('lopsidedness', { ascending: false })
               .limit(150) as unknown as Promise<{ data: ScoreRow[] | null }>,
             getSupabase()
               .from('team_seasons')
               .select('team_id, season')
+              .eq('league', league)
               .eq('championship', true) as unknown as Promise<{ data: ChampRow[] | null }>,
             getSupabase()
               .from('trade_chain_scores')
               .select('trade_id, season, max_chain_score, chain_scores, league_impact, league_impact_players, league_impact_depth, league_impact_top')
+              .eq('league', league)
               .gt('max_chain_score', 20)
               .order('max_chain_score', { ascending: false })
               .limit(150) as unknown as Promise<{ data: ChainScoreRow[] | null }>,
             getSupabase()
               .from('trade_chain_scores')
               .select('trade_id, season, max_chain_score, chain_scores, league_impact, league_impact_players, league_impact_depth, league_impact_top')
+              .eq('league', league)
               .gt('league_impact', 50)
               .order('league_impact', { ascending: false })
               .limit(50) as unknown as Promise<{ data: ChainScoreRow[] | null }>,
@@ -1644,8 +1652,8 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer, onSele
           },
           {
             id: 'journeymen',
-            label: 'The Journeymen',
-            description: 'Players who appeared in the most trades throughout their NBA careers.',
+            label: league === 'WNBA' ? 'The Journeywomen' : 'The Journeymen',
+            description: `Players who appeared in the most trades throughout their ${league} careers.`,
             accentColor: 'var(--accent-purple)',
             metricLabel: 'Trade Count',
             metricExplanation: JOURNEY_EXPLANATION,
@@ -1657,7 +1665,7 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer, onSele
         const rosterCards: ChampionshipCard[] = [...champs]
           .sort((a, b) => b.season.localeCompare(a.season))
           .map((c) => {
-            const info = getTeamDisplayInfo(c.team_id, `${c.season.split('-')[0]}-06-15`);
+            const info = getAnyTeamDisplayInfo(c.team_id, `${c.season.split('-')[0]}-06-15`);
             return {
               type: 'championship' as const,
               teamId: c.team_id,
@@ -1690,7 +1698,7 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer, onSele
     }
 
     load();
-  }, []);
+  }, [league]);
 
   if (loading) return (
     <div style={{ textAlign: 'center', padding: '40px 0', color: 'var(--text-muted)', fontSize: 12, fontFamily: 'var(--font-body)' }}>
@@ -1712,6 +1720,7 @@ export default function DiscoverySection({ onSelectTrade, onSelectPlayer, onSele
         <CategoryRow
           key={cat.id}
           category={cat}
+          league={league}
           onSelectTrade={onSelectTrade}
           onSelectPlayer={onSelectPlayer}
           onSelectChain={onSelectChain}

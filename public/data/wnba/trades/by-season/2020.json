@@ -1,0 +1,951 @@
+[
+  {
+    "id": "wnba-2020-02-10-ebac72d3",
+    "date": "2020-02-10",
+    "season": "2020",
+    "title": "Brittney Sykes, Marie Gulich, Kalani Brown Trade",
+    "description": "The Atlanta Dream traded Brittney Sykes and Marie Gulich to the Los Angeles Sparks for Kalani Brown.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Brittney Sykes",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Marie Gulich",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kalani Brown",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2020-02-10-5edd6498",
+    "date": "2020-02-10",
+    "season": "2020",
+    "title": "Morgan Tuck Trade",
+    "description": "The Connecticut Sun traded Morgan Tuck and a 2020 1st round pick (Kitija Laksa later selected) to the Seattle Storm for a 2020 1st round pick (Tyasha Harris later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Morgan Tuck",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-SEA",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Haley Gorecki",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-CON",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Juicy Landrum",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2020-02-11-a4e7442d",
+    "date": "2020-02-11",
+    "season": "2020",
+    "title": "DeWanna Bonner Trade",
+    "description": "The Phoenix Mercury traded DeWanna Bonner to the Connecticut Sun for a 2020 1st round pick (Tyasha Harris later selected), a 2020 1st round pick (Jocelyn Willoughby later selected), and a 2021 1st round pick (Michaela Onyenwere later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "DeWanna Bonner",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-PHO",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Stella Johnson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-PHO",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Stella Johnson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-PHO",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Ciera Johnson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2020-02-12-1f7836d7",
+    "date": "2020-02-12",
+    "season": "2020",
+    "title": "Skylar Diggins-Smith Trade",
+    "description": "The Dallas Wings traded Skylar Diggins-Smith to the Phoenix Mercury for a 2020 1st round pick (Bella Alarie later selected), a 2020 1st round pick (Tyasha Harris later selected), and a 2021 1st round pick (Shyla Heal later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Skylar Diggins-Smith",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-DAL",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Luisa Geiselsoder",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-DAL",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Luisa Geiselsoder",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-DAL",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Dana Evans",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2020-02-12-f78ecd41",
+    "date": "2020-02-12",
+    "season": "2020",
+    "title": "Astou Ndour Trade",
+    "description": "The Chicago Sky traded Astou Ndour to the Dallas Wings for a 2021 1st round pick (Shyla Heal later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Astou Ndour",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-CHI",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Natasha Mack",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2020-02-14-f4b850a9",
+    "date": "2020-02-14",
+    "season": "2020",
+    "title": "Katie Lou Samuelson, Azurá Stevens Trade",
+    "description": "The Chicago Sky traded Katie Lou Samuelson and a 2021 1st round pick (Jasmine Walker later selected) to the Dallas Wings for Azurá Stevens.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Katie Lou Samuelson",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-DAL",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Dana Evans",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Azurá Stevens",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2020-02-19-781d4ea5",
+    "date": "2020-02-19",
+    "season": "2020",
+    "title": "Courtney Williams, Jessica Breland, Nia Coffey Trade",
+    "description": "In a 4-team trade, the Connecticut Sun traded Courtney Williams to the Atlanta Dream; the Atlanta Dream traded Jessica Breland and Nia Coffey to the Phoenix Mercury; the Phoenix Mercury traded a 2020 2nd round pick (Brittany Brewer later selected) to the Atlanta Dream; the Phoenix Mercury traded a 2021 2nd round pick (DiJonai Carrington later selected) and Briann January to the Connecticut Sun.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Courtney Williams",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jessica Breland",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nia Coffey",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-ATL",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2020-02-21-0b93b348",
+    "date": "2020-02-21",
+    "season": "2020",
+    "title": "Marina Mabrey Trade",
+    "description": "The Los Angeles Sparks traded Marina Mabrey to the Dallas Wings for a 2021 2nd round pick (Natasha Mack later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Marina Mabrey",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LAS",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2020-02-24-55036395",
+    "date": "2020-02-24",
+    "season": "2020",
+    "title": "Kaleena Mosqueda-Lewis Trade",
+    "description": "The Seattle Storm traded Kaleena Mosqueda-Lewis to the Connecticut Sun for a 2021 2nd round pick (Kiana Williams later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kaleena Mosqueda-Lewis",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-SEA",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2020-02-25-1284f4b7",
+    "date": "2020-02-25",
+    "season": "2020",
+    "title": "Rachel Banham Trade",
+    "description": "The Connecticut Sun traded Rachel Banham to the Minnesota Lynx for a 2021 2nd round pick (Micaela Kelly later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Rachel Banham",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CON",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2020-03-06-b5c93924",
+    "date": "2020-03-06",
+    "season": "2020",
+    "title": "Shenise Johnson Trade",
+    "description": "The Indiana Fever traded Shenise Johnson and a 2020 2nd round pick (Crystal Dangerfield later selected) to the Minnesota Lynx for a 2020 2nd round pick (Kathleen Doyle later selected) and a 2021 3rd round pick (Maya Caldwell later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Shenise Johnson",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-MIN",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-IND",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-IND",
+        "pick_year": 2021,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2020-04-15-333941eb",
+    "date": "2020-04-15",
+    "season": "2020",
+    "title": "Tina Charles, Shatori Walker-Kimbrough Trade",
+    "description": "The New York Liberty traded Tina Charles to the Washington Mystics for Shatori Walker-Kimbrough, a 2020 1st round pick (Jazmine Jones later selected), a 2021 1st round pick (Chelsea Dungee later selected), a 2021 2nd round pick (DiDi Richards later selected), and a 2021 3rd round pick (Marine Fauthoux later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tina Charles",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shatori Walker-Kimbrough",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-NYL",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Erica Ogwumike",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-NYL",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Marine Fauthoux",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-NYL",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-NYL",
+        "pick_year": 2021,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2020-04-15-ab3eb1e4",
+    "date": "2020-04-15",
+    "season": "2020",
+    "title": "Tayler Hill Trade",
+    "description": "The Dallas Wings traded Tayler Hill, a 2020 1st round pick (Megan Walker later selected), and a 2020 2nd round pick (Leaonna Odom later selected) to the New York Liberty for a 2021 1st round pick (Chelsea Dungee later selected) and a 2021 2nd round pick (Dana Evans later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tayler Hill",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-NYL",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Erica Ogwumike",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-NYL",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-DAL",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Dana Evans",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-DAL",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2020-04-17-d19216a3",
+    "date": "2020-04-17",
+    "season": "2020",
+    "title": "Stephanie Talbot, Erica Ogwumike. Trade",
+    "description": "The Minnesota Lynx traded Stephanie Talbot to the New York Liberty for Erica Ogwumike.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Stephanie Talbot",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Erica Ogwumike.",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2020-04-17-42cdefcc",
+    "date": "2020-04-17",
+    "season": "2020",
+    "title": "Jocelyn Willoughby, Shatori Walker-Kimbrough Trade",
+    "description": "The Phoenix Mercury traded Jocelyn Willoughby to the New York Liberty for Shatori Walker-Kimbrough.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jocelyn Willoughby",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shatori Walker-Kimbrough",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2020-05-26-60dbf571",
+    "date": "2020-05-26",
+    "season": "2020",
+    "title": "Kristine Anigwe Trade",
+    "description": "The Dallas Wings traded Kristine Anigwe and a 2021 3rd round pick (Ivana Raca later selected) to the Los Angeles Sparks for a 2021 2nd round pick (Natasha Mack later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kristine Anigwe",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LAS",
+        "pick_year": 2021,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-DAL",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2020-08-28-5d65bcdc",
+    "date": "2020-08-28",
+    "season": "2020",
+    "title": "Stephanie Mavunga, Jantel Lavender Trade",
+    "description": "The Indiana Fever traded Stephanie Mavunga to the Chicago Sky for Jantel Lavender, a 2021 2nd round pick (Unique Thompson later selected), and a 2021 3rd round pick (Florencia Chagas later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Stephanie Mavunga",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jantel Lavender",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-IND",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-IND",
+        "pick_year": 2021,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

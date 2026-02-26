@@ -1,0 +1,1047 @@
+[
+  {
+    "id": "wnba-2002-03-04-c29b78b4",
+    "date": "2002-03-04",
+    "season": "2002",
+    "title": "Bridget Pettis, Gordana Grubin Trade",
+    "description": "The Phoenix Mercury traded Bridget Pettis and a 2002 1st round pick (Tawana McDonald later selected) to the Indiana Fever for Gordana Grubin.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Bridget Pettis",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-IND",
+        "pick_year": 2002,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jillian Danker",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gordana Grubin",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-03-04-cb48e174",
+    "date": "2002-03-04",
+    "season": "2002",
+    "title": "Pollyanna Johns Kimbrough, Tracy Reid Trade",
+    "description": "The Phoenix Mercury traded Pollyanna Johns Kimbrough and a 2002 1st round pick (Tamara Moore later selected) to the Miami Sol for Tracy Reid and a 2002 1st round pick (Tawana McDonald later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Pollyanna Johns Kimbrough",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-MIA",
+        "pick_year": 2002,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jerkisha Dosty",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tracy Reid",
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-PHO",
+        "pick_year": 2002,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Amba Kongolo",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-03-04-665264ac",
+    "date": "2002-03-04",
+    "season": "2002",
+    "title": "Pollyanna Johns Kimbrough Trade",
+    "description": "The Cleveland Rockers traded Pollyanna Johns Kimbrough and a 2002 1st round pick (Tamara Moore later selected) to the Phoenix Mercury for a 2002 1st round pick (Deanna Jackson later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CLE",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Pollyanna Johns Kimbrough",
+        "from_team_id": "W-CLE",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CLE",
+        "to_team_id": "W-PHO",
+        "pick_year": 2002,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Amba Kongolo",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CLE",
+        "pick_year": 2002,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Marche Strickland",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-04-03-162d827c",
+    "date": "2002-04-03",
+    "season": "2002",
+    "title": "Rebecca Lobo Trade",
+    "description": "The New York Liberty traded Rebecca Lobo to the Houston Comets for a 2002 2nd round pick (Linda Frohlich later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Rebecca Lobo",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-NYL",
+        "pick_year": 2002,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-04-18-096bfb2e",
+    "date": "2002-04-18",
+    "season": "2002",
+    "title": "Clarisse Machanguana Trade",
+    "description": "The Charlotte Sting traded Clarisse Machanguana to the Orlando Miracle for a 2002 1st round pick (Sheila Lambert later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Clarisse Machanguana",
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-CHA",
+        "pick_year": 2002,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jessie Stomski",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-04-18-2d0e73e8",
+    "date": "2002-04-18",
+    "season": "2002",
+    "title": "Korie Hlede Trade",
+    "description": "The Utah Starzz traded Korie Hlede to the New York Liberty for a 2002 1st round pick (LaNeishea Caufield later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Korie Hlede",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-LVA",
+        "pick_year": 2002,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jacklyn Winfield",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-04-19-80fd78b2",
+    "date": "2002-04-19",
+    "season": "2002",
+    "title": "Erin Perperoglou, Maylana Martin, Shaunzinski Gortman Trade",
+    "description": "The Minnesota Lynx traded Erin Perperoglou and Maylana Martin to the Charlotte Sting for Shaunzinski Gortman.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Erin Perperoglou",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Maylana Martin",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shaunzinski Gortman",
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-04-19-f31af85a",
+    "date": "2002-04-19",
+    "season": "2002",
+    "title": "Nikki Teasley, Sophia Witherspoon, Ukari Figgs Trade",
+    "description": "The Portland Fire traded Nikki Teasley and Sophia Witherspoon to the Los Angeles Sparks for Ukari Figgs and Gergana Slavcheva.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-POR",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nikki Teasley",
+        "from_team_id": "W-POR",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sophia Witherspoon",
+        "from_team_id": "W-POR",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ukari Figgs",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gergana Slavcheva.",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-04-22-71bd97ee",
+    "date": "2002-04-22",
+    "season": "2002",
+    "title": "Andrea Nagy Trade",
+    "description": "The New York Liberty traded Andrea Nagy to the Sacramento Monarchs for a 2003 2nd round pick (Erin Thorn later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Andrea Nagy",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-NYL",
+        "pick_year": 2003,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-04-23-bf6ffbc9",
+    "date": "2002-04-23",
+    "season": "2002",
+    "title": "Grace Daley, Shondra Johnson Trade",
+    "description": "The New York Liberty traded Grace Daley to the Houston Comets for Shondra Johnson and a 2003 2nd round pick (K.B. Sharp later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Grace Daley",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shondra Johnson",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-NYL",
+        "pick_year": 2003,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-05-03-56bcadf4",
+    "date": "2002-05-03",
+    "season": "2002",
+    "title": "Claudia Neves Trade",
+    "description": "The Detroit Shock traded Claudia Neves to the Phoenix Mercury for a 2003 4th round pick.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Claudia Neves",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-05-05-be4cd50e",
+    "date": "2002-05-05",
+    "season": "2002",
+    "title": "Claudia Neves Trade",
+    "description": "The Phoenix Mercury traded Claudia Neves to the Miami Sol for a 2003 3rd round pick (Marion Jones later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Claudia Neves",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-PHO",
+        "pick_year": 2003,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-05-07-fcc95719",
+    "date": "2002-05-07",
+    "season": "2002",
+    "title": "Cass Bauer-Bilodeau Trade",
+    "description": "The Washington Mystics traded Cass Bauer-Bilodeau to the Sacramento Monarchs for a 2003 3rd round pick (Trish Juhline later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Cass Bauer-Bilodeau",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-WAS",
+        "pick_year": 2003,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-05-10-bc1d8080",
+    "date": "2002-05-10",
+    "season": "2002",
+    "title": "Stacy Clinesmith Trade",
+    "description": "The Sacramento Monarchs traded Stacy Clinesmith to the Detroit Shock for a 2003 4th round pick.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Stacy Clinesmith",
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-05-22-9c0f90a1",
+    "date": "2002-05-22",
+    "season": "2002",
+    "title": "Marla Brumfield, Katrina Colleton, Vanessa Nygaard Trade",
+    "description": "The Miami Sol traded Marla Brumfield and Katrina Colleton to the Portland Fire for Vanessa Nygaard.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-POR",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Marla Brumfield",
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Katrina Colleton",
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Vanessa Nygaard",
+        "from_team_id": "W-POR",
+        "to_team_id": "W-MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-06-11-16a1120a",
+    "date": "2002-06-11",
+    "season": "2002",
+    "title": "Tamara Moore, Betty Lennox Trade",
+    "description": "The Miami Sol traded Tamara Moore and a 2003 2nd round pick (Jordan Adams later selected) to the Minnesota Lynx for Betty Lennox and a 2003 1st round pick.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tamara Moore",
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-MIN",
+        "pick_year": 2003,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Betty Lennox",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-MIA",
+        "pick_year": 2003,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-06-17-1e529159",
+    "date": "2002-06-17",
+    "season": "2002",
+    "title": "Amanda Lassiter, Sonja Henning Trade",
+    "description": "The Houston Comets traded Amanda Lassiter to the Seattle Storm for Sonja Henning.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Amanda Lassiter",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sonja Henning",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-06-17-83ad5bba",
+    "date": "2002-06-17",
+    "season": "2002",
+    "title": "Elena Shakirova Trade",
+    "description": "The Houston Comets traded Elena Shakirova to the Charlotte Sting for a 2003 3rd round pick (Constance Jinks later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Elena Shakirova",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-HOU",
+        "pick_year": 2003,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-06-18-e7d3d55a",
+    "date": "2002-06-18",
+    "season": "2002",
+    "title": "Marlies Askamp Trade",
+    "description": "The Miami Sol traded Marlies Askamp to the Los Angeles Sparks for a 2003 1st round pick.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Marlies Askamp",
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-MIA",
+        "pick_year": 2003,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-07-07-84c85338",
+    "date": "2002-07-07",
+    "season": "2002",
+    "title": "Wendy Palmer, Elaine Powell Trade",
+    "description": "The Detroit Shock traded Wendy Palmer and a 2003 2nd round pick (Courtney Coleman later selected) to the Orlando Miracle for Elaine Powell and a 2003 1st round pick (Kara Lawson later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Wendy Palmer",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-CON",
+        "pick_year": 2003,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Elaine Powell",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-DAL",
+        "pick_year": 2003,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Syreeta Bromfield",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-07-22-04eb149c",
+    "date": "2002-07-22",
+    "season": "2002",
+    "title": "Coquese Washington, Rita Williams Trade",
+    "description": "The Houston Comets traded Coquese Washington to the Indiana Fever for Rita Williams.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Coquese Washington",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rita Williams",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2002-07-23-1583cb26",
+    "date": "2002-07-23",
+    "season": "2002",
+    "title": "Kate Starbird, Semeka Randall Trade",
+    "description": "The Utah Starzz traded Kate Starbird to the Seattle Storm for Semeka Randall.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kate Starbird",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Semeka Randall",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

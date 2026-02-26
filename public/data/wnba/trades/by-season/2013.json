@@ -1,0 +1,304 @@
+[
+  {
+    "id": "wnba-2013-02-19-fd79c63c",
+    "date": "2013-02-19",
+    "season": "2013",
+    "title": "Jasmine Thomas Trade",
+    "description": "The Washington Mystics traded Jasmine Thomas and a 2013 2nd round pick (Alex Bentley later selected) to the Atlanta Dream for a 2013 1st round pick (Toni Young later selected) and a 2013 2nd round pick (Emma Meesseman later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jasmine Thomas",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-ATL",
+        "pick_year": 2013,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-WAS",
+        "pick_year": 2013,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Emma Meesseman",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-WAS",
+        "pick_year": 2013,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2013-02-27-95a14818",
+    "date": "2013-02-27",
+    "season": "2013",
+    "title": "Kia Vaughn Trade",
+    "description": "The New York Liberty traded Kia Vaughn and a 2013 2nd round pick (Nadirah McKenith later selected) to the Washington Mystics for a 2013 1st round pick (Toni Young later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kia Vaughn",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-WAS",
+        "pick_year": 2013,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-NYL",
+        "pick_year": 2013,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Olcay Cakir",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2013-03-01-94109cc6",
+    "date": "2013-03-01",
+    "season": "2013",
+    "title": "Janel McCarville, Nicole Powell, Candice Wiggins Trade",
+    "description": "In a 5-team trade, the New York Liberty traded Janel McCarville to the Minnesota Lynx; the New York Liberty traded Nicole Powell and a 2013 3rd round pick (Angel Goodrich later selected) to the Tulsa Shock; the Minnesota Lynx traded Candice Wiggins to the Tulsa Shock; the Tulsa Shock traded Deanna Nolan, a 2013 2nd round pick (Kamiko Williams later selected), and a 2013 3rd round pick (Olcay Cakir later selected) to the New York Liberty; the Tulsa Shock traded a 2014 2nd round pick (Asya Bussie later selected) to the Minnesota Lynx.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Janel McCarville",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nicole Powell",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-DAL",
+        "pick_year": 2013,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Candice Wiggins",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Deanna Nolan",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-NYL",
+        "pick_year": 2013,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-NYL",
+        "pick_year": 2013,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2013-04-14-407e0d0c",
+    "date": "2013-04-14",
+    "season": "2013",
+    "title": "Quanitra Hollingsworth Trade",
+    "description": "The New York Liberty traded Quanitra Hollingsworth to the Washington Mystics for a 2013 3rd round pick (Shenneika Smith later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Quanitra Hollingsworth",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-NYL",
+        "pick_year": 2013,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2013-06-20-76a6c747",
+    "date": "2013-06-20",
+    "season": "2013",
+    "title": "Kayla Pedersen Trade",
+    "description": "The Tulsa Shock traded Kayla Pedersen to the Connecticut Sun for a 2014 2nd round pick (Jordan Hooper later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kayla Pedersen",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-DAL",
+        "pick_year": 2014,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

@@ -1,0 +1,684 @@
+[
+  {
+    "id": "wnba-2011-02-01-589166e6",
+    "date": "2011-02-01",
+    "season": "2011",
+    "title": "Andrea Riley Trade",
+    "description": "The Los Angeles Sparks traded Andrea Riley to the Tulsa Shock for a 2012 2nd round pick (Farhiya Abdi later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Andrea Riley",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LAS",
+        "pick_year": 2012,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2011-04-09-fccd8689",
+    "date": "2011-04-09",
+    "season": "2011",
+    "title": "Nicky Anosike Trade",
+    "description": "The Minnesota Lynx traded Nicky Anosike to the Washington Mystics for a 2012 1st round pick (Devereaux Peters later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nicky Anosike",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-MIN",
+        "pick_year": 2012,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jacki Gemelos",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2011-04-11-8c080a97",
+    "date": "2011-04-11",
+    "season": "2011",
+    "title": "Tahnee Robinson Trade",
+    "description": "The Phoenix Mercury traded Tahnee Robinson to the Connecticut Sun for a 2012 3rd round pick (Amanda Johnson later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tahnee Robinson",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-PHO",
+        "pick_year": 2012,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2011-04-11-ed29ec4b",
+    "date": "2011-04-11",
+    "season": "2011",
+    "title": "Ta'Shia Phillips, Kelly Miller, Lindsey Harding Trade",
+    "description": "The Atlanta Dream traded Ta'Shia Phillips, Kelly Miller, and a 2012 1st round pick (Natalie Novosel later selected) to the Washington Mystics for Lindsey Harding and a 2012 2nd round pick (Tiffany Hayes later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ta'Shia Phillips",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kelly Miller",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-WAS",
+        "pick_year": 2012,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Briana Gilbreath-Butler",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Lindsey Harding",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-ATL",
+        "pick_year": 2012,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2011-04-11-c0c345f5",
+    "date": "2011-04-11",
+    "season": "2011",
+    "title": "Felicia Chester, Rachel Jarry Trade",
+    "description": "The Minnesota Lynx traded Felicia Chester to the Atlanta Dream for Rachel Jarry and a 2012 2nd round pick (Nika Baric later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Felicia Chester",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rachel Jarry",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-MIN",
+        "pick_year": 2012,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2011-04-11-da65aa5c",
+    "date": "2011-04-11",
+    "season": "2011",
+    "title": "Sydney Colson, Kalana Greene Trade",
+    "description": "The Connecticut Sun traded Sydney Colson to the New York Liberty for Kalana Greene.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sydney Colson",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kalana Greene",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2011-04-11-7d642152",
+    "date": "2011-04-11",
+    "season": "2011",
+    "title": "Jessica Breland, Angel Robinson Trade",
+    "description": "The Minnesota Lynx traded Jessica Breland to the New York Liberty for Angel Robinson and a 2012 2nd round pick (Kayla Standish later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jessica Breland",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Angel Robinson",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-MIN",
+        "pick_year": 2012,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2011-04-20-859ce1c3",
+    "date": "2011-04-20",
+    "season": "2011",
+    "title": "Jia Perkins, Michelle Snow Trade",
+    "description": "The Chicago Sky traded Jia Perkins to the San Antonio Silver Stars for Michelle Snow.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jia Perkins",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Michelle Snow",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2011-04-29-894aaf1b",
+    "date": "2011-04-29",
+    "season": "2011",
+    "title": "Jasmine Thomas, Erin Phillips, Katie Smith Trade",
+    "description": "In a 5-team trade, the Seattle Storm traded Jasmine Thomas and a 2012 1st round pick (LaSondra Barrett later selected) to the Washington Mystics; the Seattle Storm traded Erin Phillips and a 2012 3rd round pick (Courtney Hurt later selected) to the Indiana Fever; the Washington Mystics traded Katie Smith and Jacinta Monroe to the Seattle Storm; the Indiana Fever traded a 2012 2nd round pick (Shey Peddy later selected) to the Seattle Storm; the Indiana Fever traded a 2012 3rd round pick (Briana Gilbreath-Butler later selected) to the Washington Mystics.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jasmine Thomas",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-WAS",
+        "pick_year": 2012,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Briana Gilbreath-Butler",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Erin Phillips",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-IND",
+        "pick_year": 2012,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Katie Smith",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jacinta Monroe",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-SEA",
+        "pick_year": 2012,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2011-05-02-74c76c8e",
+    "date": "2011-05-02",
+    "season": "2011",
+    "title": "Scholanda Dorrell Trade",
+    "description": "The Tulsa Shock traded Scholanda Dorrell to the San Antonio Silver Stars for a 2012 2nd round pick (Riquna Williams later selected) and a 2012 3rd round pick (Lynetta Kizer later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Scholanda Dorrell",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-DAL",
+        "pick_year": 2012,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-DAL",
+        "pick_year": 2012,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2011-05-27-18323592",
+    "date": "2011-05-27",
+    "season": "2011",
+    "title": "Quanitra Hollingsworth Trade",
+    "description": "The Minnesota Lynx traded Quanitra Hollingsworth and a 2012 3rd round pick (Katelan Redmon later selected) to the New York Liberty for a 2012 3rd round pick (Jacki Gemelos later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Quanitra Hollingsworth",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-NYL",
+        "pick_year": 2012,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-MIN",
+        "pick_year": 2012,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2011-06-01-f1cb3677",
+    "date": "2011-06-01",
+    "season": "2011",
+    "title": "Lindsay Wisdom-Hylton Trade",
+    "description": "The Los Angeles Sparks traded Lindsay Wisdom-Hylton to the Chicago Sky for a 2012 2nd round pick (Khadijah Rushdan later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Lindsay Wisdom-Hylton",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-LAS",
+        "pick_year": 2012,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2011-08-04-72bf85fc",
+    "date": "2011-08-04",
+    "season": "2011",
+    "title": "Kara Braxton, Sidney Spencer Trade",
+    "description": "The Phoenix Mercury traded Kara Braxton to the New York Liberty for Sidney Spencer.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kara Braxton",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sidney Spencer",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

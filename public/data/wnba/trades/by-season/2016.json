@@ -1,0 +1,574 @@
+[
+  {
+    "id": "wnba-2016-02-02-6ce3d905",
+    "date": "2016-02-02",
+    "season": "2016",
+    "title": "Devereaux Peters, Natasha Howard Trade",
+    "description": "The Minnesota Lynx traded Devereaux Peters to the Indiana Fever for Natasha Howard.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Devereaux Peters",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Natasha Howard",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2016-02-03-3ad8b8ae",
+    "date": "2016-02-03",
+    "season": "2016",
+    "title": "Elizabeth Williams Trade",
+    "description": "The Connecticut Sun traded Elizabeth Williams to the Atlanta Dream for a 2016 1st round pick (Rachel Banham later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Elizabeth Williams",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-CON",
+        "pick_year": 2016,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Aliyyah Handford",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2016-03-01-95aac10b",
+    "date": "2016-03-01",
+    "season": "2016",
+    "title": "Riquna Williams, Erin Phillips Trade",
+    "description": "The Dallas Wings traded Riquna Williams and a 2016 1st round pick (Jonquel Jones later selected) to the Los Angeles Sparks for Erin Phillips, a 2016 1st round pick (Aerial Powers later selected), and a 2017 1st round pick (Sydney Wiese later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Riquna Williams",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LAS",
+        "pick_year": 2016,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Talia Walton",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Erin Phillips",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-DAL",
+        "pick_year": 2016,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Shakena Richardson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-DAL",
+        "pick_year": 2017,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Saniya Chong",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2016-04-14-c6e63451",
+    "date": "2016-04-14",
+    "season": "2016",
+    "title": "Jonquel Jones, Chelsea Gray Trade",
+    "description": "The Los Angeles Sparks traded Jonquel Jones and a 2016 2nd round pick (Jamie Weisner later selected) to the Connecticut Sun for Chelsea Gray, a 2016 2nd round pick (Whitney Knight later selected), a 2016 2nd round pick (Brianna Butler later selected), and a 2017 1st round pick (Allisha Gray later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jonquel Jones",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CON",
+        "pick_year": 2016,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chelsea Gray",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-LAS",
+        "pick_year": 2016,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-LAS",
+        "pick_year": 2016,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-LAS",
+        "pick_year": 2017,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Saicha Grant-Allen",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2016-04-14-dd3a441a",
+    "date": "2016-04-14",
+    "season": "2016",
+    "title": "Jazmon Gwathmey, Jia Perkins Trade",
+    "description": "The Minnesota Lynx traded Jazmon Gwathmey to the San Antonio Stars for Jia Perkins.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jazmon Gwathmey",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jia Perkins",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2016-05-02-7746258a",
+    "date": "2016-05-02",
+    "season": "2016",
+    "title": "Shoni Schimmel Trade",
+    "description": "The Atlanta Dream traded Shoni Schimmel to the New York Liberty for a 2017 2nd round pick (Ronni Williams later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Shoni Schimmel",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-ATL",
+        "pick_year": 2017,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2016-05-06-ef10fed5",
+    "date": "2016-05-06",
+    "season": "2016",
+    "title": "Monique Currie Trade",
+    "description": "The Phoenix Mercury traded Monique Currie to the San Antonio Stars for a 2017 2nd round pick (Shayla Cooper later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Monique Currie",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-PHO",
+        "pick_year": 2017,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2016-05-10-b3c5a566",
+    "date": "2016-05-10",
+    "season": "2016",
+    "title": "Layshia Clarendon Trade",
+    "description": "The Indiana Fever traded Layshia Clarendon to the Atlanta Dream for a 2017 2nd round pick (Ronni Williams later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Layshia Clarendon",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-IND",
+        "pick_year": 2017,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2016-05-11-0bd1083f",
+    "date": "2016-05-11",
+    "season": "2016",
+    "title": "Amanda Zahui B. Trade",
+    "description": "The Dallas Wings traded Amanda Zahui B. and a 2017 2nd round pick (Lindsay Allen later selected) to the New York Liberty for a 2017 1st round pick (Kaela Davis later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Amanda Zahui B.",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-NYL",
+        "pick_year": 2017,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-DAL",
+        "pick_year": 2017,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Saniya Chong",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2016-05-25-e7471750",
+    "date": "2016-05-25",
+    "season": "2016",
+    "title": "Courtney Williams, Jillian Alleyne, Kelsey Bone Trade",
+    "description": "The Phoenix Mercury traded Courtney Williams, Jillian Alleyne, and a 2017 2nd round pick (Shayla Cooper later selected) to the Connecticut Sun for Kelsey Bone.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Courtney Williams",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jillian Alleyne",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CON",
+        "pick_year": 2017,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kelsey Bone",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2016-05-25-61a703fb",
+    "date": "2016-05-25",
+    "season": "2016",
+    "title": "Noelle Quinn, Angel Robinson Trade",
+    "description": "The Phoenix Mercury traded Noelle Quinn to the Seattle Storm for Angel Robinson.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Noelle Quinn",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Angel Robinson",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

@@ -1,0 +1,624 @@
+[
+  {
+    "id": "wnba-2022-01-31-50aac4fc",
+    "date": "2022-01-31",
+    "season": "2022",
+    "title": "Kia Vaughn Trade",
+    "description": "The Phoenix Mercury traded Kia Vaughn to the Atlanta Dream for a 2023 3rd round pick (Destiny Harden later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kia Vaughn",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-PHO",
+        "pick_year": 2023,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2022-02-03-e631d649",
+    "date": "2022-02-03",
+    "season": "2022",
+    "title": "Diamond DeShields, Julie Allemand, Bria Hartley Trade",
+    "description": "In a 5-team trade, the Chicago Sky traded Diamond DeShields to the Phoenix Mercury; the Indiana Fever traded Julie Allemand to the Chicago Sky; the Phoenix Mercury traded Bria Hartley, a 2022 2nd round pick (Destanni Henderson later selected), and a 2023 2nd round pick (LaDazhia Williams later selected) (2023 2nd-rd pick is PHO own) to the Indiana Fever; the Chicago Sky traded a 2022 1st round pick (Veronica Burton later selected) and a 2023 1st round pick (Abby Meyers later selected) (2023 1st-rd pick is CHI own) to the Indiana Fever; the Phoenix Mercury traded a 2023 1st round pick (Lou Lopez Sénéchal later selected) (2023 1st-rd pick is PHO own) to the Chicago Sky.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Diamond DeShields",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Julie Allemand",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bria Hartley",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-IND",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-IND",
+        "pick_year": 2023,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-IND",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Ali Patberg",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-IND",
+        "pick_year": 2023,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Victaria Saxton",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2022-02-03-c45fa96f",
+    "date": "2022-02-03",
+    "season": "2022",
+    "title": "Katie Lou Samuelson, Gabby Williams Trade",
+    "description": "The Seattle Storm traded Katie Lou Samuelson and a 2022 1st round pick (Rae Burrell later selected) to the Los Angeles Sparks for Gabby Williams.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Katie Lou Samuelson",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-LAS",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Amy Atwell",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gabby Williams",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2022-02-05-51b0beab",
+    "date": "2022-02-05",
+    "season": "2022",
+    "title": "Chennedy Carter, Li Yueru, Erica Wheeler Trade",
+    "description": "The Atlanta Dream traded Chennedy Carter and Li Yueru to the Los Angeles Sparks for Erica Wheeler, a 2022 2nd round pick (Naz Hillmon later selected), and a 2023 1st round pick (Stephanie Soares later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Chennedy Carter",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Li Yueru",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Erica Wheeler",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-ATL",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-ATL",
+        "pick_year": 2023,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Leigha Brown",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2022-03-08-8dbc3f05",
+    "date": "2022-03-08",
+    "season": "2022",
+    "title": "Teaira McCowan Trade",
+    "description": "The Indiana Fever traded Teaira McCowan, a 2022 1st round pick (Veronica Burton later selected), and a 2023 1st round pick (Abby Meyers later selected) (2023 1st-rd pick is CHI own) to the Dallas Wings for a 2022 1st round pick (Emily Engstler later selected), a 2022 1st round pick (Lexie Hull later selected), and a 2023 1st round pick (Grace Berger later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Teaira McCowan",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-DAL",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jazz Bond",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-DAL",
+        "pick_year": 2023,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Paige Robinson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-IND",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Ali Patberg",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-IND",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Ali Patberg",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-IND",
+        "pick_year": 2023,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Victaria Saxton",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2022-03-30-b5ea1be6",
+    "date": "2022-03-30",
+    "season": "2022",
+    "title": "Lexie Brown, Li Yueru Trade",
+    "description": "The Chicago Sky traded Lexie Brown to the Los Angeles Sparks for Li Yueru.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Lexie Brown",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Li Yueru",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2022-04-06-14436a65",
+    "date": "2022-04-06",
+    "season": "2022",
+    "title": "WAS / ATL Trade",
+    "description": "The Washington Mystics traded a 2022 1st round pick (Rhyne Howard later selected) to the Atlanta Dream for a 2022 1st round pick (Shakira Austin later selected), a 2022 2nd round pick (Christyn Williams later selected), and a 2023 1st round pick (Stephanie Soares later selected) (2023 1st-rd pick is a right to swap for the pick Atlanta acquired from Los Angeles).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-ATL",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Naz Hillmon",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-WAS",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Christyn Williams",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-WAS",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-WAS",
+        "pick_year": 2023,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Txell Alarcón",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2022-04-10-adea3b3e",
+    "date": "2022-04-10",
+    "season": "2022",
+    "title": "MIN / LVA Trade",
+    "description": "The Minnesota Lynx traded a 2022 1st round pick (Mya Hollingshed later selected) and a 2022 2nd round pick (Khayla Pointer later selected) to the Las Vegas Aces for a 2023 1st round pick (Maia Hirsch later selected) and a 2023 2nd round pick (Brea Beal later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-LVA",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Faustine Aifuwa",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-LVA",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-MIN",
+        "pick_year": 2023,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Taylor Soule",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-MIN",
+        "pick_year": 2023,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2022-04-11-f685da0a",
+    "date": "2022-04-11",
+    "season": "2022",
+    "title": "Lorela Cubaj Trade",
+    "description": "The Seattle Storm traded Lorela Cubaj to the New York Liberty for a 2023 2nd round pick (Madi Williams later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Lorela Cubaj",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-SEA",
+        "pick_year": 2023,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2022-06-08-67cd0f89",
+    "date": "2022-06-08",
+    "season": "2022",
+    "title": "AD Durr, Megan Walker, Raquel Carrera Quintana Trade",
+    "description": "The New York Liberty traded AD Durr to the Atlanta Dream for Megan Walker and Raquel Carrera Quintana.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "AD Durr",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Megan Walker",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Raquel Carrera Quintana",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

@@ -1,0 +1,600 @@
+[
+  {
+    "id": "wnba-2014-03-11-3b7d141a",
+    "date": "2014-03-11",
+    "season": "2014",
+    "title": "Lynetta Kizer, Erin Phillips Trade",
+    "description": "The Phoenix Mercury traded Lynetta Kizer and a 2014 1st round pick (Natalie Achonwa later selected) to the Indiana Fever for Erin Phillips and a 2014 2nd round pick (Tiffany Bias later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Lynetta Kizer",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-IND",
+        "pick_year": 2014,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Haiden Palmer",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Erin Phillips",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-PHO",
+        "pick_year": 2014,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2014-03-12-cb1fa5a5",
+    "date": "2014-03-12",
+    "season": "2014",
+    "title": "Alex Bentley, Kara Lawson, Matee Ajavon Trade",
+    "description": "In a 4-team trade, the Atlanta Dream traded Alex Bentley to the Connecticut Sun; the Connecticut Sun traded Kara Lawson to the Washington Mystics; the Washington Mystics traded Matee Ajavon and a 2014 2nd round pick (Inga Orekhova later selected) to the Atlanta Dream; the Atlanta Dream traded a 2014 3rd round pick (Kody Burke later selected) to the Washington Mystics.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Alex Bentley",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kara Lawson",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Matee Ajavon",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-ATL",
+        "pick_year": 2014,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2014-03-27-2a3ca27c",
+    "date": "2014-03-27",
+    "season": "2014",
+    "title": "Ewelina Kobryn, Charde Houston Trade",
+    "description": "The Seattle Storm traded Ewelina Kobryn to the Phoenix Mercury for Charde Houston.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ewelina Kobryn",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Charde Houston",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2014-03-31-2cece629",
+    "date": "2014-03-31",
+    "season": "2014",
+    "title": "Sandrine Gruda Trade",
+    "description": "The Connecticut Sun traded Sandrine Gruda to the Los Angeles Sparks for a 2014 1st round pick (Chelsea Gray later selected) and a 2015 2nd round pick (Brittany Hrynko later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sandrine Gruda",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CON",
+        "pick_year": 2014,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "DeNesha Stallworth",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CON",
+        "pick_year": 2015,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2014-04-01-4590ccc1",
+    "date": "2014-04-01",
+    "season": "2014",
+    "title": "Jenna O'Hea Trade",
+    "description": "The Los Angeles Sparks traded Jenna O'Hea to the Seattle Storm for a 2015 2nd round pick (Cierra Burdick later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jenna O'Hea",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-LAS",
+        "pick_year": 2015,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2014-04-14-99c54b39",
+    "date": "2014-04-14",
+    "season": "2014",
+    "title": "Tina Charles, Kelsey Bone, Alyssa Thomas Trade",
+    "description": "The Connecticut Sun traded Tina Charles and a 2015 3rd round pick (Laurin Mincy later selected) to the New York Liberty for Kelsey Bone, Alyssa Thomas, and a 2015 1st round pick (Elizabeth Williams later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tina Charles",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-NYL",
+        "pick_year": 2015,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kelsey Bone",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Alyssa Thomas",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-CON",
+        "pick_year": 2015,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Brittany Hrynko",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2014-04-14-5941cd30",
+    "date": "2014-04-14",
+    "season": "2014",
+    "title": "Bria Hartley, Tianna Hawkins, Crystal Langhorne Trade",
+    "description": "The Seattle Storm traded Bria Hartley and Tianna Hawkins to the Washington Mystics for Crystal Langhorne.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Bria Hartley",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tianna Hawkins",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Crystal Langhorne",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2014-04-16-3fedb596",
+    "date": "2014-04-16",
+    "season": "2014",
+    "title": "Sugar Rodgers Trade",
+    "description": "The Minnesota Lynx traded Sugar Rodgers and a 2015 3rd round pick (Shae Kelley later selected) to the New York Liberty for a 2015 3rd round pick (Michala Johnson later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sugar Rodgers",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-NYL",
+        "pick_year": 2015,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-MIN",
+        "pick_year": 2015,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2014-05-07-dcefc00a",
+    "date": "2014-05-07",
+    "season": "2014",
+    "title": "Courtney Clements Trade",
+    "description": "The Chicago Sky traded Swin Cash and a 2015 3rd round pick (Ariel Massengale later selected) to the Atlanta Dream for Courtney Clements and a 2015 2nd round pick (Aleighsa Welch later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-ATL",
+        "pick_year": 2015,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Courtney Clements",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-CHI",
+        "pick_year": 2015,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2014-05-12-e37a1e82",
+    "date": "2014-05-12",
+    "season": "2014",
+    "title": "Maggie Lucas Trade",
+    "description": "The Phoenix Mercury traded Maggie Lucas to the Indiana Fever for a 2015 2nd round pick (Alex Harden later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Maggie Lucas",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-PHO",
+        "pick_year": 2015,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2014-07-09-e13abcfd",
+    "date": "2014-07-09",
+    "season": "2014",
+    "title": "DeLisha Milton-Jones Trade",
+    "description": "The New York Liberty traded DeLisha Milton-Jones to the Atlanta Dream for Swin Cash.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "DeLisha Milton-Jones",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  }
+]

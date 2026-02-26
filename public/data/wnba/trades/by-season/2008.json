@@ -1,0 +1,828 @@
+[
+  {
+    "id": "wnba-2008-02-06-e25a430f",
+    "date": "2008-02-06",
+    "season": "2008",
+    "title": "LaToya Thomas, Ivory Latta Trade",
+    "description": "The Atlanta Dream traded LaToya Thomas and a 2008 2nd round pick (Olayinka Sanni later selected) to the Detroit Shock for Ivory Latta.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "LaToya Thomas",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-DAL",
+        "pick_year": 2008,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ivory Latta",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2008-02-06-60ba43f2",
+    "date": "2008-02-06",
+    "season": "2008",
+    "title": "Roneeka Hodges, Iziane Castro Marques Trade",
+    "description": "The Atlanta Dream traded Roneeka Hodges and a 2008 1st round pick (Alexis Hornbuckle later selected) to the Seattle Storm for Iziane Castro Marques and a 2008 1st round pick (Tamera Young later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Roneeka Hodges",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-SEA",
+        "pick_year": 2008,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Kimberly Beck",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Iziane Castro Marques",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-ATL",
+        "pick_year": 2008,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Danielle Hood",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2008-02-06-901b4ac2",
+    "date": "2008-02-06",
+    "season": "2008",
+    "title": "expansion draft considerations (ATL agreed not to select unprotected IND players in exp draft). Trade",
+    "description": "The Indiana Fever traded a 2008 2nd round pick (Morenike Atunrase later selected) to the Atlanta Dream for expansion draft considerations (ATL agreed not to select unprotected IND players in exp draft).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-ATL",
+        "pick_year": 2008,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "expansion draft considerations (ATL agreed not to select unprotected IND players in exp draft).",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2008-02-19-18b50ade",
+    "date": "2008-02-19",
+    "season": "2008",
+    "title": "Tamika Whitmore, Jessica Foley, Katie Douglas Trade",
+    "description": "The Indiana Fever traded Tamika Whitmore, Jessica Foley, and a 2008 1st round pick (Ketia Swanier later selected) to the Connecticut Sun for Katie Douglas.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tamika Whitmore",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jessica Foley",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-CON",
+        "pick_year": 2008,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Lauren Ervin",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Katie Douglas",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2008-02-19-9c7f247b",
+    "date": "2008-02-19",
+    "season": "2008",
+    "title": "DAL / SEA Trade",
+    "description": "The Detroit Shock traded Swin Cash to the Seattle Storm for a 2008 1st round pick (Alexis Hornbuckle later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-DAL",
+        "pick_year": 2008,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Val Berezhynska",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2008-03-06-d5303853",
+    "date": "2008-03-06",
+    "season": "2008",
+    "title": "Barbara Turner, Megan Mahoney Trade",
+    "description": "The Houston Comets traded Barbara Turner to the Connecticut Sun for Megan Mahoney.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Barbara Turner",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Megan Mahoney",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2008-03-14-547c93a1",
+    "date": "2008-03-14",
+    "season": "2008",
+    "title": "Kristen Rasmussen, Tamika Williams Trade",
+    "description": "The Connecticut Sun traded Kristen Rasmussen, Tamika Williams, and a 2009 2nd round pick (Camille LeNoir later selected) to the Minnesota Lynx for a 2009 2nd round pick (Lyndra Littles later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kristen Rasmussen",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tamika Williams",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-MIN",
+        "pick_year": 2009,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CON",
+        "pick_year": 2009,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2008-04-09-af9b62a0",
+    "date": "2008-04-09",
+    "season": "2008",
+    "title": "Camille Little, Chioma Nnamaka, Ann Wauters Trade",
+    "description": "The San Antonio Silver Stars traded Camille Little, Chioma Nnamaka, and a 2009 1st round pick (Lindsay Wisdom-Hylton later selected) to the Atlanta Dream for Ann Wauters, Morenike Atunrase, and a 2009 2nd round pick (Megan Frazee later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Camille Little",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chioma Nnamaka",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-ATL",
+        "pick_year": 2009,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jessica Morrow",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ann Wauters",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Morenike Atunrase",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-LVA",
+        "pick_year": 2009,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2008-04-22-f2b59701",
+    "date": "2008-04-22",
+    "season": "2008",
+    "title": "Taj McWilliams-Franklin, DeLisha Milton-Jones Trade",
+    "description": "The Los Angeles Sparks traded Taj McWilliams-Franklin and a 2009 1st round pick (Quanitra Hollingsworth later selected) to the Washington Mystics for DeLisha Milton-Jones.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Taj McWilliams-Franklin",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-WAS",
+        "pick_year": 2009,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Josephine Owino",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "DeLisha Milton-Jones",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2008-05-07-f6e25da0",
+    "date": "2008-05-07",
+    "season": "2008",
+    "title": "Leilani Mitchell Trade",
+    "description": "The Phoenix Mercury traded Leilani Mitchell to the New York Liberty for a 2009 3rd round pick (Jessica Adair later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Leilani Mitchell",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-PHO",
+        "pick_year": 2009,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2008-05-14-fe5e1730",
+    "date": "2008-05-14",
+    "season": "2008",
+    "title": "Bernadette Ngoyisa, K.B. Sharp Trade",
+    "description": "The Chicago Sky traded Bernadette Ngoyisa to the Indiana Fever for K.B. Sharp.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Bernadette Ngoyisa",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "K.B. Sharp",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2008-06-22-c6583c61",
+    "date": "2008-06-22",
+    "season": "2008",
+    "title": "LaToya Thomas, Shay Murphy Trade",
+    "description": "The Detroit Shock traded LaToya Thomas to the Minnesota Lynx for Shay Murphy.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "LaToya Thomas",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shay Murphy",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2008-06-22-04a32101",
+    "date": "2008-06-22",
+    "season": "2008",
+    "title": "Camille Little Trade",
+    "description": "The Atlanta Dream traded Camille Little to the Seattle Storm for a 2009 2nd round pick (Shalee Lehning later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Camille Little",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-ATL",
+        "pick_year": 2009,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2008-07-04-4a5cf946",
+    "date": "2008-07-04",
+    "season": "2008",
+    "title": "Alison Bales, Kristen Mann Trade",
+    "description": "The Indiana Fever traded Alison Bales to the Atlanta Dream for Kristen Mann.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Alison Bales",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kristen Mann",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2008-08-12-4afaf80f",
+    "date": "2008-08-12",
+    "season": "2008",
+    "title": "Tasha Humphrey, Shay Murphy, Taj McWilliams-Franklin Trade",
+    "description": "The Detroit Shock traded Tasha Humphrey, Shay Murphy, and a 2009 2nd round pick (Jelena Milovanovic later selected) to the Washington Mystics for Taj McWilliams-Franklin.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tasha Humphrey",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shay Murphy",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-WAS",
+        "pick_year": 2009,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Taj McWilliams-Franklin",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2008-12-17-da365023",
+    "date": "2008-12-17",
+    "season": "2008",
+    "title": "Chamique Holdsclaw Trade",
+    "description": "The Los Angeles Sparks traded Chamique Holdsclaw to the Atlanta Dream for a 2009 1st round pick (Lindsay Wisdom-Hylton later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Chamique Holdsclaw",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-LAS",
+        "pick_year": 2009,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Britney Jordan",
+        "notes": null
+      }
+    ]
+  }
+]

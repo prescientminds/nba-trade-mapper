@@ -1,7 +1,10 @@
 /**
  * Static JSON trade data loader.
  *
- * Historical trades are stored as static JSON files in public/data/trades/.
+ * Historical trades are stored as static JSON files:
+ *   NBA:  public/data/trades/
+ *   WNBA: public/data/wnba/trades/
+ *
  * This module loads, caches, and searches them — no Supabase needed for trade lookups.
  */
 
@@ -12,10 +15,16 @@ import type {
   TransactionAsset,
   TransactionTeam,
 } from './supabase';
+import type { League } from './league';
+import { tradeDataBasePath } from './league';
 
-// ── Cache ────────────────────────────────────────────────────────────
+// ── Cache (keyed by league) ──────────────────────────────────────────
 const seasonCache = new Map<string, StaticTrade[]>();
-let searchIndex: TradeSearchIndexEntry[] | null = null;
+const searchIndexCache = new Map<League, TradeSearchIndexEntry[]>();
+
+function seasonCacheKey(league: League, season: string): string {
+  return `${league}:${season}`;
+}
 
 // ── Loaders ──────────────────────────────────────────────────────────
 
@@ -25,42 +34,46 @@ async function fetchJson<T>(url: string): Promise<T> {
   return resp.json();
 }
 
-export async function loadSearchIndex(): Promise<TradeSearchIndexEntry[]> {
-  if (searchIndex) return searchIndex;
-  searchIndex = await fetchJson<TradeSearchIndexEntry[]>('/data/trades/index.json');
-  return searchIndex;
+export async function loadSearchIndex(league: League = 'NBA'): Promise<TradeSearchIndexEntry[]> {
+  if (searchIndexCache.has(league)) return searchIndexCache.get(league)!;
+  const base = tradeDataBasePath(league);
+  const index = await fetchJson<TradeSearchIndexEntry[]>(`${base}/index.json`);
+  searchIndexCache.set(league, index);
+  return index;
 }
 
-export async function loadSeason(season: string): Promise<StaticTrade[]> {
-  if (seasonCache.has(season)) return seasonCache.get(season)!;
+export async function loadSeason(season: string, league: League = 'NBA'): Promise<StaticTrade[]> {
+  const key = seasonCacheKey(league, season);
+  if (seasonCache.has(key)) return seasonCache.get(key)!;
   try {
-    const trades = await fetchJson<StaticTrade[]>(`/data/trades/by-season/${season}.json`);
-    seasonCache.set(season, trades);
+    const base = tradeDataBasePath(league);
+    const trades = await fetchJson<StaticTrade[]>(`${base}/by-season/${season}.json`);
+    seasonCache.set(key, trades);
     return trades;
   } catch {
-    seasonCache.set(season, []);
+    seasonCache.set(key, []);
     return [];
   }
 }
 
-export async function loadTrade(tradeId: string): Promise<StaticTrade | null> {
-  const index = await loadSearchIndex();
+export async function loadTrade(tradeId: string, league: League = 'NBA'): Promise<StaticTrade | null> {
+  const index = await loadSearchIndex(league);
   const entry = index.find((e) => e.id === tradeId);
   if (!entry) return null;
 
-  const trades = await loadSeason(entry.season);
+  const trades = await loadSeason(entry.season, league);
   return trades.find((t) => t.id === tradeId) || null;
 }
 
 // ── Search ───────────────────────────────────────────────────────────
 
-export async function searchStaticTrades(query: string): Promise<{
+export async function searchStaticTrades(query: string, league: League = 'NBA'): Promise<{
   trades: StaticTrade[];
   players: string[];
 }> {
   if (query.length < 2) return { trades: [], players: [] };
 
-  const index = await loadSearchIndex();
+  const index = await loadSearchIndex(league);
   const q = query.toLowerCase();
 
   // Find matching index entries
@@ -96,7 +109,7 @@ export async function searchStaticTrades(query: string): Promise<{
 
   const trades: StaticTrade[] = [];
   for (const [season, ids] of seasonGroups) {
-    const seasonTrades = await loadSeason(season);
+    const seasonTrades = await loadSeason(season, league);
     for (const id of ids) {
       const t = seasonTrades.find((st) => st.id === id);
       if (t) trades.push(t);
@@ -114,8 +127,8 @@ export async function searchStaticTrades(query: string): Promise<{
 
 // ── Find all trades for a specific player ───────────────────────────
 
-export async function findTradesForPlayer(playerName: string): Promise<StaticTrade[]> {
-  const index = await loadSearchIndex();
+export async function findTradesForPlayer(playerName: string, league: League = 'NBA'): Promise<StaticTrade[]> {
+  const index = await loadSearchIndex(league);
   const lowerName = playerName.toLowerCase();
 
   // Find all index entries where this player appears (exact match)
@@ -132,7 +145,7 @@ export async function findTradesForPlayer(playerName: string): Promise<StaticTra
 
   const trades: StaticTrade[] = [];
   for (const [season, ids] of seasonGroups) {
-    const seasonTrades = await loadSeason(season);
+    const seasonTrades = await loadSeason(season, league);
     for (const id of ids) {
       const t = seasonTrades.find(st => st.id === id);
       if (t) trades.push(t);

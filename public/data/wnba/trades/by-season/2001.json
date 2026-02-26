@@ -1,0 +1,806 @@
+[
+  {
+    "id": "wnba-2001-02-20-39996b85",
+    "date": "2001-02-20",
+    "season": "2001",
+    "title": "Lynn Pride, Michele Van Gorp, Kristin Folkl Trade",
+    "description": "The Portland Fire traded Lynn Pride and Michele Van Gorp to the Minnesota Lynx for Kristin Folkl and a 2001 2nd round pick (LaQuanda Barksdale later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-POR",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Lynn Pride",
+        "from_team_id": "W-POR",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Michele Van Gorp",
+        "from_team_id": "W-POR",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kristin Folkl",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-POR",
+        "pick_year": 2001,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2001-04-11-0b106c86",
+    "date": "2001-04-11",
+    "season": "2001",
+    "title": "Kara Wolters Trade",
+    "description": "The Indiana Fever traded Kara Wolters to the Sacramento Monarchs for a 2001 1st round pick (Kelly Schumacher later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kara Wolters",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-IND",
+        "pick_year": 2001,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "April Brown",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2001-04-17-5ce8cc73",
+    "date": "2001-04-17",
+    "season": "2001",
+    "title": "Annie Burgess Trade",
+    "description": "The Minnesota Lynx traded Annie Burgess to the Washington Mystics for a 2001 2nd round pick (Janell Burse later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Annie Burgess",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-MIN",
+        "pick_year": 2001,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2001-04-17-dada1420",
+    "date": "2001-04-17",
+    "season": "2001",
+    "title": "Andrea Nagy, Taru Tuukkanen Trade",
+    "description": "The Washington Mystics traded Andrea Nagy and a 2001 4th round pick (Taru Tuukkanen later selected) to the New York Liberty for a 2001 2nd round pick (Janell Burse later selected) and a 2001 3rd round pick (Elena Karpova later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Andrea Nagy",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Taru Tuukkanen",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-WAS",
+        "pick_year": 2001,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-WAS",
+        "pick_year": 2001,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2001-04-20-82dcfeb2",
+    "date": "2001-04-20",
+    "season": "2001",
+    "title": "Val Whiting-Raymond Trade",
+    "description": "The Detroit Shock traded Val Whiting-Raymond to the Minnesota Lynx for a 2002 2nd round pick (Kathy Wambe later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Val Whiting-Raymond",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-DAL",
+        "pick_year": 2002,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2001-04-20-13ac841a",
+    "date": "2001-04-20",
+    "season": "2001",
+    "title": "Georgia Schweitzer, Marla Brumfield Trade",
+    "description": "The Miami Sol traded Georgia Schweitzer to the Minnesota Lynx for Marla Brumfield.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Georgia Schweitzer",
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Marla Brumfield",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2001-04-23-e443cfef",
+    "date": "2001-04-23",
+    "season": "2001",
+    "title": "Anna DeForge, Jennifer Rizzotti Trade",
+    "description": "The Detroit Shock traded Anna DeForge to the Houston Comets for Jennifer Rizzotti.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Anna DeForge",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jennifer Rizzotti",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2001-04-24-d94400b7",
+    "date": "2001-04-24",
+    "season": "2001",
+    "title": "Edna Campbell, Jermisha Dosty, Katy Steding Trade",
+    "description": "The Seattle Storm traded Edna Campbell and a 2002 4th round pick (Jermisha Dosty later selected) to the Sacramento Monarchs for Katy Steding and a 2002 2nd round pick (Felicia Ragland later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Edna Campbell",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jermisha Dosty",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Katy Steding",
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-SEA",
+        "pick_year": 2002,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2001-05-12-5d937604",
+    "date": "2001-05-12",
+    "season": "2001",
+    "title": "Tamicha Jackson, Melody Johnson Trade",
+    "description": "The Detroit Shock traded Tamicha Jackson and a 2002 4th round pick (Melody Johnson later selected) to the Portland Fire for a 2002 2nd round pick (Jill Chapman-Daily later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-POR",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tamicha Jackson",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Melody Johnson",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-POR",
+        "to_team_id": "W-DAL",
+        "pick_year": 2002,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2001-05-27-66a617ff",
+    "date": "2001-05-27",
+    "season": "2001",
+    "title": "Jaynetta Saunders Trade",
+    "description": "The Cleveland Rockers traded Jaynetta Saunders to the Phoenix Mercury for a 2002 2nd round pick (Brandi McCain later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CLE",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jaynetta Saunders",
+        "from_team_id": "W-CLE",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CLE",
+        "pick_year": 2002,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2001-05-27-cde8928c",
+    "date": "2001-05-27",
+    "season": "2001",
+    "title": "Keisha Anderson, Cass Bauer-Bilodeau Trade",
+    "description": "The Washington Mystics traded Keisha Anderson to the Charlotte Sting for Cass Bauer-Bilodeau.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Keisha Anderson",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cass Bauer-Bilodeau",
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2001-05-27-ce0ed288",
+    "date": "2001-05-27",
+    "season": "2001",
+    "title": "Jennifer Rizzotti Trade",
+    "description": "The Detroit Shock traded Jennifer Rizzotti to the Cleveland Rockers for a 2002 3rd round pick (Ericka Haney later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CLE",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jennifer Rizzotti",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CLE",
+        "to_team_id": "W-DAL",
+        "pick_year": 2002,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2001-05-27-e238b7b4",
+    "date": "2001-05-27",
+    "season": "2001",
+    "title": "Olympia Scott Trade",
+    "description": "The Detroit Shock traded Olympia Scott and a 2002 3rd round pick (Kelly Komara later selected) to the Indiana Fever for a 2002 2nd round pick (Ayana Walker later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Olympia Scott",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-IND",
+        "pick_year": 2002,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-DAL",
+        "pick_year": 2002,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2001-06-05-555cf14d",
+    "date": "2001-06-05",
+    "season": "2001",
+    "title": "Camille Cooper Trade",
+    "description": "The Los Angeles Sparks traded Camille Cooper to the New York Liberty for a 2002 2nd round pick (Gergana Slavtcheva later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Camille Cooper",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-LAS",
+        "pick_year": 2002,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2001-06-22-7f754738",
+    "date": "2001-06-22",
+    "season": "2001",
+    "title": "Tonya Edwards Trade",
+    "description": "The Phoenix Mercury traded Tonya Edwards to the Charlotte Sting for a 2002 2nd round pick (Tootie Shaw later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tonya Edwards",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHA",
+        "to_team_id": "W-PHO",
+        "pick_year": 2002,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2001-12-05-6cb93748",
+    "date": "2001-12-05",
+    "season": "2001",
+    "title": "Nikki McCray, LaKeisha Taylor, Angie Braziel Trade",
+    "description": "The Washington Mystics traded Nikki McCray, a 2002 2nd round pick (Zuzi Klimesova later selected), and a 2002 4th round pick (LaKeisha Taylor later selected) to the Indiana Fever for Angie Braziel, a 2002 1st round pick (Asjha Jones later selected), and a 2002 3rd round pick (Teresa Geter later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nikki McCray",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-IND",
+        "pick_year": 2002,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "LaKeisha Taylor",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Angie Braziel",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-WAS",
+        "pick_year": 2002,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Teresa Geter",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-WAS",
+        "pick_year": 2002,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

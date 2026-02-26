@@ -1,0 +1,543 @@
+[
+  {
+    "id": "wnba-2019-04-10-e3f52a2c",
+    "date": "2019-04-10",
+    "season": "2019",
+    "title": "Brianna Turner, Marie Gulich Trade",
+    "description": "The Atlanta Dream traded Brianna Turner to the Phoenix Mercury for Marie Gulich.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Brianna Turner",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Marie Gulich",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2019-04-10-75f10632",
+    "date": "2019-04-10",
+    "season": "2019",
+    "title": "Lexie Brown, Natisha Hiedeman Trade",
+    "description": "The Connecticut Sun traded Lexie Brown to the Minnesota Lynx for Natisha Hiedeman.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Lexie Brown",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Natisha Hiedeman",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2019-04-11-de080cd0",
+    "date": "2019-04-11",
+    "season": "2019",
+    "title": "Tanisha Wright Trade",
+    "description": "The Minnesota Lynx traded Tanisha Wright to the New York Liberty for a 2020 2nd round pick (Kathleen Doyle later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tanisha Wright",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-MIN",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2019-04-11-66a0ae3b",
+    "date": "2019-04-11",
+    "season": "2019",
+    "title": "Nia Coffey, Sugar Rodgers Trade",
+    "description": "In a 3-team trade, the Las Vegas Aces traded Nia Coffey to the Atlanta Dream; the New York Liberty traded Sugar Rodgers to the Las Vegas Aces; the Atlanta Dream traded a 2020 2nd round pick (Kylee Shook later selected) to the New York Liberty.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nia Coffey",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sugar Rodgers",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2019-04-22-cc8fb4e6",
+    "date": "2019-04-22",
+    "season": "2019",
+    "title": "Alexis Jones, Odyssey Sims Trade",
+    "description": "The Minnesota Lynx traded Alexis Jones to the Los Angeles Sparks for Odyssey Sims.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Alexis Jones",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Odyssey Sims",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2019-04-27-5c71082c",
+    "date": "2019-04-27",
+    "season": "2019",
+    "title": "Chiney Ogwumike Trade",
+    "description": "The Connecticut Sun traded Chiney Ogwumike to the Los Angeles Sparks for a 2020 1st round pick (Jocelyn Willoughby later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Chiney Ogwumike",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CON",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Juicy Landrum",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2019-05-16-deb3e9f1",
+    "date": "2019-05-16",
+    "season": "2019",
+    "title": "Liz Cambage, Moriah Jefferson, Isabelle Harrison Trade",
+    "description": "The Dallas Wings traded Liz Cambage to the Las Vegas Aces for Moriah Jefferson, Isabelle Harrison, a 2020 1st round pick (Megan Walker later selected), and a 2020 2nd round pick (Luisa Geiselsoder later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Liz Cambage",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Moriah Jefferson",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Isabelle Harrison",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-DAL",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Luisa Geiselsoder",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-DAL",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2019-05-16-79ef0049",
+    "date": "2019-05-16",
+    "season": "2019",
+    "title": "Imani McGee-Stafford Trade",
+    "description": "The Atlanta Dream traded Imani McGee-Stafford to the Dallas Wings for a 2020 3rd round pick (Kobi Thornton later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Imani McGee-Stafford",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-ATL",
+        "pick_year": 2020,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2019-05-20-1335d917",
+    "date": "2019-05-20",
+    "season": "2019",
+    "title": "Jantel Lavender Trade",
+    "description": "The Los Angeles Sparks traded Jantel Lavender to the Chicago Sky for a 2020 2nd round pick (Beatrice Mompremier later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jantel Lavender",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-LAS",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2019-05-21-aaa0f6f0",
+    "date": "2019-05-21",
+    "season": "2019",
+    "title": "Alaina Coates Trade",
+    "description": "The Chicago Sky traded Alaina Coates to the Minnesota Lynx for a 2020 3rd round pick (Japreece Dean later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Alaina Coates",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CHI",
+        "pick_year": 2020,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2019-05-21-ff7343a7",
+    "date": "2019-05-21",
+    "season": "2019",
+    "title": "Stephanie Talbot Trade",
+    "description": "The Phoenix Mercury traded Stephanie Talbot to the Minnesota Lynx for a 2020 2nd round pick (Te'a Cooper later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Stephanie Talbot",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-PHO",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2019-08-06-b80ec8e8",
+    "date": "2019-08-06",
+    "season": "2019",
+    "title": "Kristine Anigwe, Theresa Plaisance Trade",
+    "description": "The Connecticut Sun traded Kristine Anigwe to the Dallas Wings for Theresa Plaisance.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kristine Anigwe",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Theresa Plaisance",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

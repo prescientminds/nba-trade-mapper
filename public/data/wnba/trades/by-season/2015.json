@@ -1,0 +1,622 @@
+[
+  {
+    "id": "wnba-2015-01-28-0eabc06b",
+    "date": "2015-01-28",
+    "season": "2015",
+    "title": "Camille Little, Shekinna Stricklen, Renee Montgomery Trade",
+    "description": "The Seattle Storm traded Camille Little and Shekinna Stricklen to the Connecticut Sun for Renee Montgomery, a 2015 1st round pick (Kaleena Mosqueda-Lewis later selected), and a 2015 2nd round pick (Natasha Cloud later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Camille Little",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shekinna Stricklen",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Renee Montgomery",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-SEA",
+        "pick_year": 2015,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Nneka Enemkpali",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CON",
+        "to_team_id": "W-SEA",
+        "pick_year": 2015,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2015-02-16-6889a30e",
+    "date": "2015-02-16",
+    "season": "2015",
+    "title": "Epiphanny Prince, Cappie Pondexter Trade",
+    "description": "The Chicago Sky traded Epiphanny Prince to the New York Liberty for Cappie Pondexter.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Epiphanny Prince",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cappie Pondexter",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2015-02-23-76152875",
+    "date": "2015-02-23",
+    "season": "2015",
+    "title": "Quanitra Hollingsworth Trade",
+    "description": "The Washington Mystics traded Quanitra Hollingsworth and a 2015 2nd round pick (Vicky McIntyre later selected) to the Seattle Storm for a 2015 2nd round pick (Natasha Cloud later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Quanitra Hollingsworth",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-SEA",
+        "pick_year": 2015,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-WAS",
+        "pick_year": 2015,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2015-03-12-83f7891f",
+    "date": "2015-03-12",
+    "season": "2015",
+    "title": "Shenise Johnson Trade",
+    "description": "The San Antonio Stars traded Shenise Johnson and a 2015 2nd round pick (Chelsea Gardner later selected) to the Indiana Fever for a 2015 1st round pick (Dearica Hamby later selected) and a 2015 3rd round pick (Dragana Stankovic later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Shenise Johnson",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-IND",
+        "pick_year": 2015,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-LVA",
+        "pick_year": 2015,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Nikki Moody",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-LVA",
+        "pick_year": 2015,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2015-04-16-fc4b139f",
+    "date": "2015-04-16",
+    "season": "2015",
+    "title": "Jasmine Thomas, Brittany Hrynko Trade",
+    "description": "The Atlanta Dream traded Jasmine Thomas to the Connecticut Sun for Brittany Hrynko.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jasmine Thomas",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brittany Hrynko",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2015-04-16-5bc92e41",
+    "date": "2015-04-16",
+    "season": "2015",
+    "title": "Anna Cruz Trade",
+    "description": "The New York Liberty traded Anna Cruz, a 2015 2nd round pick (Reshanda Gray later selected), and a 2015 3rd round pick (Shae Kelley later selected) to the Minnesota Lynx for a 2015 1st round pick (Kiah Stokes later selected), a 2015 2nd round pick (Amber Orrange later selected), and a 2015 3rd round pick (Michala Johnson later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Anna Cruz",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-MIN",
+        "pick_year": 2015,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-MIN",
+        "pick_year": 2015,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-NYL",
+        "pick_year": 2015,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Michala Johnson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-NYL",
+        "pick_year": 2015,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-NYL",
+        "pick_year": 2015,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2015-04-17-218e9994",
+    "date": "2015-04-17",
+    "season": "2015",
+    "title": "Alex Montgomery Trade",
+    "description": "The New York Liberty traded Alex Montgomery to the San Antonio Stars for a 2015 1st round pick (Brittany Boyd later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Alex Montgomery",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-NYL",
+        "pick_year": 2015,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Michala Johnson",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2015-05-13-39c676e2",
+    "date": "2015-05-13",
+    "season": "2015",
+    "title": "Asjha Jones Trade",
+    "description": "The Connecticut Sun traded Asjha Jones to the Minnesota Lynx for a 2016 2nd round pick (Brianna Butler later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Asjha Jones",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-CON",
+        "pick_year": 2016,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2015-07-05-ca5a034b",
+    "date": "2015-07-05",
+    "season": "2015",
+    "title": "Samantha Logic Trade",
+    "description": "The Atlanta Dream traded Samantha Logic to the San Antonio Stars for a 2016 2nd round pick (Rachel Hollivay later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Samantha Logic",
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-ATL",
+        "pick_year": 2016,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2015-07-20-db97da08",
+    "date": "2015-07-20",
+    "season": "2015",
+    "title": "Renee Montgomery, Monica Wright Trade",
+    "description": "The Seattle Storm traded Renee Montgomery and a 2016 2nd round pick (Jazmon Gwathmey later selected) to the Minnesota Lynx for Monica Wright.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Renee Montgomery",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-MIN",
+        "pick_year": 2016,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Monica Wright",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2015-07-27-f92aadda",
+    "date": "2015-07-27",
+    "season": "2015",
+    "title": "Sylvia Fowles, Damiris Dantas, Reshanda Gray Trade",
+    "description": "In a 3-team trade, the Chicago Sky traded Sylvia Fowles and a 2016 2nd round pick (Bashaara Graves later selected) to the Minnesota Lynx; the Minnesota Lynx traded Damiris Dantas, Reshanda Gray, and a 2016 1st round pick (Bria Holmes later selected) to the Atlanta Dream; the Atlanta Dream traded Erika de Souza to the Chicago Sky.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sylvia Fowles",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-MIN",
+        "pick_year": 2016,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Damiris Dantas",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Reshanda Gray",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-ATL",
+        "pick_year": 2016,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Niya Johnson",
+        "notes": null
+      }
+    ]
+  }
+]

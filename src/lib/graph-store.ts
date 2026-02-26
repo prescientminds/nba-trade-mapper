@@ -8,9 +8,10 @@ import {
   applyEdgeChanges,
 } from '@xyflow/react';
 import { getSupabase, TradeWithDetails, TransactionAsset, PlayerSeason, PlayerAccolade, TeamSeason, PlayerContract } from './supabase';
-import { TEAMS, getTeamDisplayInfo } from './teams';
+import { getAnyTeam, getAnyTeamDisplayInfo } from './teams';
 import { layoutGraph, layoutPlayerTimeline } from './graph-layout';
 import { searchStaticTrades, staticTradeToTradeWithDetails, loadSeason, loadTrade, loadSearchIndex } from './trade-data';
+import { type League, leagueForTeam } from './league';
 import { getDraftInfo } from './draft-data';
 import type { StaticTrade } from './supabase';
 
@@ -150,7 +151,9 @@ interface GraphState {
   pendingFitTarget: string | null;
   expandedGapIds: Set<string>;
   highlightedEdges: Set<string>;
+  selectedLeague: League;
 
+  setSelectedLeague: (league: League) => void;
   onNodesChange: OnNodesChange;
   onEdgesChange: OnEdgesChange;
 
@@ -179,7 +182,7 @@ interface GraphState {
   collapseOneDegree: () => void;
   clearPendingFitTarget: () => void;
   openTradeFromTransition: (tradeId: string, sourceNodeId?: string) => Promise<void>;
-  search: (query: string) => Promise<{
+  search: (query: string, league?: League) => Promise<{
     trades: TradeWithDetails[];
     players: string[];
   }>;
@@ -243,7 +246,7 @@ function makeChampionshipNode(
 
 function makeTradeNode(trade: TradeWithDetails, position = { x: 0, y: 0 }): Node {
   const teamIds = trade.transaction_teams.map((tt) => tt.team_id);
-  const teamColors = teamIds.map((id) => TEAMS[id]?.color || '#666');
+  const teamColors = teamIds.map((id) => getAnyTeam(id)?.color || '#666');
   return {
     id: tradeNodeId(trade.id),
     type: 'trade',
@@ -445,12 +448,14 @@ async function findTradeBetweenStints(
   toTeamId: string,
   fromLastSeason: string,
   toFirstSeason: string,
+  league?: League,
 ): Promise<StaticTrade | null> {
+  const activeLeague = league ?? leagueForTeam(fromTeamId);
   // Load both seasons — the trade could be in either
   const seasons = new Set([fromLastSeason, toFirstSeason]);
   const allTrades: StaticTrade[] = [];
   for (const season of seasons) {
-    const trades = await loadSeason(season);
+    const trades = await loadSeason(season, activeLeague);
     allTrades.push(...trades);
   }
 
@@ -482,8 +487,8 @@ async function findTradeBetweenStints(
 }
 
 // ── Find all trades involving a name (as player or pick became_player_name) ──
-async function findAllTradesForName(name: string): Promise<StaticTrade[]> {
-  const index = await loadSearchIndex();
+async function findAllTradesForName(name: string, league: League = 'NBA'): Promise<StaticTrade[]> {
+  const index = await loadSearchIndex(league);
   const nameLower = name.toLowerCase();
 
   // Find all index entries where this name appears in the players list
@@ -501,7 +506,7 @@ async function findAllTradesForName(name: string): Promise<StaticTrade[]> {
 
   const trades: StaticTrade[] = [];
   for (const [season, ids] of seasonGroups) {
-    const seasonTrades = await loadSeason(season);
+    const seasonTrades = await loadSeason(season, league);
     for (const id of ids) {
       const t = seasonTrades.find(st => st.id === id);
       if (t) {
@@ -525,7 +530,9 @@ async function findEntryTrade(
   playerName: string,
   toTeamId: string,
   firstSeason: string,
+  league?: League,
 ): Promise<StaticTrade | null> {
+  const activeLeague = league ?? leagueForTeam(toTeamId);
   // Check the first season and the prior season (trade may have happened in offseason)
   const seasonsToCheck = [firstSeason];
   const startYear = parseInt(firstSeason.split('-')[0]);
@@ -536,7 +543,7 @@ async function findEntryTrade(
 
   const allTrades: StaticTrade[] = [];
   for (const season of seasonsToCheck) {
-    const trades = await loadSeason(season);
+    const trades = await loadSeason(season, activeLeague);
     allTrades.push(...trades);
   }
 
@@ -572,7 +579,9 @@ async function findTradesAfterLastStint(
   playerName: string,
   lastTeamId: string,
   lastSeason: string,
+  league?: League,
 ): Promise<{ trade: StaticTrade; toTeamId: string }[]> {
+  const activeLeague = league ?? leagueForTeam(lastTeamId);
   const results: { trade: StaticTrade; toTeamId: string }[] = [];
   const nameLower = playerName.toLowerCase();
 
@@ -585,7 +594,7 @@ async function findTradesAfterLastStint(
   const allTrades: StaticTrade[] = [];
   for (const season of seasonsToCheck) {
     try {
-      const trades = await loadSeason(season);
+      const trades = await loadSeason(season, activeLeague);
       allTrades.push(...trades);
     } catch {
       // Season file may not exist yet
@@ -679,7 +688,12 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   pendingFitTarget: null,
   expandedGapIds: new Set(),
   highlightedEdges: new Set(),
+  selectedLeague: 'NBA' as League,
   championshipContext: null,
+
+  setSelectedLeague: (league: League) => {
+    set({ selectedLeague: league });
+  },
 
   onNodesChange: (changes) => {
     set({ nodes: applyNodeChanges(changes, get().nodes) });
@@ -907,7 +921,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
   // ── Open trade from transition node click ───────────────────────
   openTradeFromTransition: async (tradeId: string, sourceNodeId?: string) => {
-    const trade = await loadTrade(tradeId);
+    const trade = await loadTrade(tradeId, get().selectedLeague);
     if (!trade) return;
     const tradeWithDetails = staticTradeToTradeWithDetails(trade);
     const state = get();
@@ -946,11 +960,13 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   },
 
   // ── Search ───────────────────────────────────────────────────────
-  search: async (query: string) => {
+  search: async (query: string, league?: League) => {
     if (query.length < 2) return { trades: [], players: [] };
 
+    const activeLeague = league ?? get().selectedLeague;
+
     // Search static JSON first (covers all historical trades)
-    const staticResult = await searchStaticTrades(query);
+    const staticResult = await searchStaticTrades(query, activeLeague);
     const allTrades: TradeWithDetails[] = staticResult.trades.map(staticTradeToTradeWithDetails);
     const uniquePlayers = [...staticResult.players];
 
@@ -959,6 +975,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const { data: seasonPlayers } = await sb
       .from('player_seasons')
       .select('player_name')
+      .eq('league', activeLeague)
       .ilike('player_name', `%${query}%`)
       .limit(50) as { data: { player_name: string }[] | null };
 
@@ -1086,7 +1103,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     // Fallback: no chain data or no qualifying players — extract players from trade assets
     if (valuablePlayers.length === 0) {
-      const rootTrade = await loadTrade(tradeId);
+      const rootTrade = await loadTrade(tradeId, get().selectedLeague);
       if (!rootTrade) return;
       const playerAssets = rootTrade.assets
         .filter(a => a.type === 'player' && a.player_name);
@@ -1121,14 +1138,15 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       }
       walkFallback(winnerData.assets);
 
-      const index = await loadSearchIndex();
+      const league = get().selectedLeague;
+      const index = await loadSearchIndex(league);
       const indexMap = new Map(index.map(e => [e.id, e]));
       const fallbackNodes: Node[] = [];
       const fallbackEdges: Edge[] = [];
       for (const tid of coreTradeIds) {
         const entry = indexMap.get(tid);
         if (!entry) continue;
-        const seasonTrades = await loadSeason(entry.season);
+        const seasonTrades = await loadSeason(entry.season, league);
         const st = seasonTrades.find(t => t.id === tid);
         if (!st) continue;
         fallbackNodes.push(makeTradeNode(staticTradeToTradeWithDetails(st), { x: 0, y: 0 }));
@@ -1155,7 +1173,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     // 3b. If still no players (e.g. picks-only trade with no chain data), show single trade
     if (valuablePlayers.length === 0) {
-      const st = await loadTrade(tradeId);
+      const st = await loadTrade(tradeId, get().selectedLeague);
       if (!st) return;
       const trade = staticTradeToTradeWithDetails(st);
       get().seedFromTrade(trade);
@@ -1163,7 +1181,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     }
 
     // 4. Load root trade from static JSON, create root trade node
-    const rootStaticTrade = await loadTrade(tradeId);
+    const rootStaticTrade = await loadTrade(tradeId, get().selectedLeague);
     if (!rootStaticTrade) return;
     const rootTrade = staticTradeToTradeWithDetails(rootStaticTrade);
     const rootNode = makeTradeNode(rootTrade, { x: 0, y: 0 });
@@ -1187,7 +1205,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     }
 
     // Load search index for trade lookups
-    const index = await loadSearchIndex();
+    const chainLeague = get().selectedLeague;
+    const index = await loadSearchIndex(chainLeague);
     const indexMap = new Map(index.map(e => [e.id, e]));
 
     // Pre-load all needed trades from static JSON
@@ -1199,7 +1218,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       }
       const entry = indexMap.get(tid);
       if (!entry) continue;
-      const seasonTrades = await loadSeason(entry.season);
+      const seasonTrades = await loadSeason(entry.season, chainLeague);
       const st = seasonTrades.find(t => t.id === tid);
       if (st) staticTradeCache.set(tid, st);
     }
@@ -1612,7 +1631,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
           trade = await findTradeBetweenStints(name, fromTeamId, toTeamId, lastSeason, firstSeason).catch(() => null);
         } else {
           // Last stint case: search all trades for this player after the last season
-          const allTrades = await findAllTradesForName(name).catch(() => [] as StaticTrade[]);
+          const allTrades = await findAllTradesForName(name, get().selectedLeague).catch(() => [] as StaticTrade[]);
           const nameLower = name.toLowerCase();
           // Find the first trade after the last season where the player leaves fromTeamId
           trade = allTrades.find(t => {
@@ -2867,7 +2886,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       }
 
       const pickName = asset.became_player_name;
-      const allTrades = await findAllTradesForName(pickName);
+      const allTrades = await findAllTradesForName(pickName, get().selectedLeague);
       const currentTradeId = tradeNodeId_.replace('trade-', '');
       const otherTrades = allTrades.filter(t => t.id !== currentTradeId);
 
@@ -3302,7 +3321,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     if (allPlayerData.length === 0) return;
 
     // 3. Create ONE championship hub node
-    const teamInfo = getTeamDisplayInfo(teamId, `${season.split('-')[0]}-06-15`);
+    const teamInfo = getAnyTeamDisplayInfo(teamId, `${season.split('-')[0]}-06-15`);
     const champNode = makeChampionshipNode(
       teamId,
       season,

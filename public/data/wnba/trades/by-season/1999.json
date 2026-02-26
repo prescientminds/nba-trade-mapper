@@ -1,0 +1,501 @@
+[
+  {
+    "id": "wnba-1999-05-24-cfaccd87",
+    "date": "1999-05-24",
+    "season": "1999",
+    "title": "Quacy Barnes, Cindy Blodgett Trade",
+    "description": "The Sacramento Monarchs traded Quacy Barnes to the Cleveland Rockers for Cindy Blodgett.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CLE",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Quacy Barnes",
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cindy Blodgett",
+        "from_team_id": "W-CLE",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-1999-06-21-531fa563",
+    "date": "1999-06-21",
+    "season": "1999",
+    "title": "Jamila Wideman, Jennifer Howard Trade",
+    "description": "The Los Angeles Sparks traded Jamila Wideman to the Cleveland Rockers for Jennifer Howard.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CLE",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jamila Wideman",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jennifer Howard",
+        "from_team_id": "W-CLE",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-1999-07-11-4614b2e4",
+    "date": "1999-07-11",
+    "season": "1999",
+    "title": "Alessandra Santos de Oliveira, Nyree Roberts Trade",
+    "description": "The Washington Mystics traded Alessandra Santos de Oliveira to the Houston Comets for Nyree Roberts.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Alessandra Santos de Oliveira",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nyree Roberts",
+        "from_team_id": "W-HOU",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-1999-07-30-6de6dfbd",
+    "date": "1999-07-30",
+    "season": "1999",
+    "title": "Cindy Brown, Korie Hlede, Wendy Palmer Trade",
+    "description": "The Detroit Shock traded Cindy Brown and Korie Hlede to the Utah Starzz for Wendy Palmer and Olympia Scott.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Cindy Brown",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Korie Hlede",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Wendy Palmer",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Olympia Scott",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-1999-10-27-cc0bef08",
+    "date": "1999-10-27",
+    "season": "1999",
+    "title": "Marlies Askamp, Kristi Harrower, Angela Aycock Trade",
+    "description": "The Phoenix Mercury traded Marlies Askamp, Kristi Harrower, and Angela Aycock to the Minnesota Lynx for Adia Barnes, Tonya Edwards, and Trisha Fallon.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Marlies Askamp",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kristi Harrower",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Angela Aycock",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Adia Barnes",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tonya Edwards",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Trisha Fallon",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-1999-12-15-e686ba18",
+    "date": "1999-12-15",
+    "season": "1999",
+    "title": "Michele Van Gorp, expansion draft considerations (for POR selecting Sophia Witherspoon, Coquese Washington in expansion draft). Trade",
+    "description": "The New York Liberty traded Michele Van Gorp to the Portland Fire for expansion draft considerations (for POR selecting Sophia Witherspoon and Coquese Washington in expansion draft).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-POR",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Michele Van Gorp",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "expansion draft considerations (for POR selecting Sophia Witherspoon",
+        "from_team_id": "W-POR",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Coquese Washington in expansion draft).",
+        "from_team_id": "W-POR",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-1999-12-15-5935d765",
+    "date": "1999-12-15",
+    "season": "1999",
+    "title": "Monica Maxwell, Latina Davis, agreement to select Nyree Roberts in expansion draft. Trade",
+    "description": "The Washington Mystics traded Monica Maxwell and a 2000 4th round pick (Latina Davis later selected) to the Indiana Fever for agreement to select Nyree Roberts in expansion draft.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Monica Maxwell",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Latina Davis",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "agreement to select Nyree Roberts in expansion draft.",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-1999-12-15-f6ba83ae",
+    "date": "1999-12-15",
+    "season": "1999",
+    "title": "Stephanie White, Sandy Brondello Trade",
+    "description": "The Miami Sol traded Stephanie White to the Indiana Fever for Sandy Brondello and a 2000 1st round pick (Maylana Martin later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Stephanie White",
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sandy Brondello",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-MIA",
+        "pick_year": 2000,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Milena Flores",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-1999-12-15-ec6e29f9",
+    "date": "1999-12-15",
+    "season": "1999",
+    "title": "Kate Starbird, Elena Baranova Trade",
+    "description": "The Miami Sol traded Kate Starbird and a 2000 1st round pick (Tamicha Jackson later selected) to the Utah Starzz for Elena Baranova and a 2000 2nd round pick (Jameka Jones later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kate Starbird",
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-LVA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIA",
+        "to_team_id": "W-LVA",
+        "pick_year": 2000,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Kristen Rasmussen",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Elena Baranova",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-MIA",
+        "pick_year": 2000,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

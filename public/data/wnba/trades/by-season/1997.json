@@ -1,0 +1,44 @@
+[
+  {
+    "id": "wnba-1997-07-31-33694181",
+    "date": "1997-07-31",
+    "season": "1997",
+    "title": "Mikiko Hagiwara, future considerations. Trade",
+    "description": "The Sacramento Monarchs traded Mikiko Hagiwara to the Phoenix Mercury for future considerations.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mikiko Hagiwara",
+        "from_team_id": "W-SAC",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "future considerations.",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]

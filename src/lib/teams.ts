@@ -126,3 +126,39 @@ export function getTeamDisplayInfo(teamId: string, tradeDate?: string | null): T
 
   return fallback;
 }
+
+// ── Unified team lookup (NBA + WNBA) ─────────────────────────────────
+// Lazy-loaded to avoid circular imports. WNBA teams are looked up
+// only when a W- prefixed team ID is encountered.
+
+let _allTeams: Record<string, TeamInfo> | null = null;
+
+function getAllTeams(): Record<string, TeamInfo> {
+  if (_allTeams) return _allTeams;
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const { ALL_WNBA_TEAMS } = require('./wnba-teams');
+  const merged = { ...TEAMS, ...ALL_WNBA_TEAMS };
+  _allTeams = merged;
+  return merged;
+}
+
+/**
+ * Look up any team (NBA or WNBA) by ID.
+ * Falls back to WNBA teams if the ID starts with "W-".
+ */
+export function getAnyTeam(teamId: string): TeamInfo | undefined {
+  return TEAMS[teamId] || getAllTeams()[teamId];
+}
+
+/**
+ * Unified display info for any team (NBA or WNBA).
+ * Delegates to the correct league's relocation logic.
+ */
+export function getAnyTeamDisplayInfo(teamId: string, tradeDate?: string | null): TeamDisplayInfo {
+  if (teamId.startsWith('W-')) {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { getWnbaTeamDisplayInfo } = require('./wnba-teams');
+    return getWnbaTeamDisplayInfo(teamId, tradeDate);
+  }
+  return getTeamDisplayInfo(teamId, tradeDate);
+}

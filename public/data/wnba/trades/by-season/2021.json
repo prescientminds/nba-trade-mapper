@@ -1,0 +1,755 @@
+[
+  {
+    "id": "wnba-2021-02-05-c36ea686",
+    "date": "2021-02-05",
+    "season": "2021",
+    "title": "Erica McCall Trade",
+    "description": "The Minnesota Lynx traded Erica McCall to the Washington Mystics for a 2022 3rd round pick (Hannah Sjerven later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Erica McCall",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-MIN",
+        "pick_year": 2022,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2021-02-09-8897e39e",
+    "date": "2021-02-09",
+    "season": "2021",
+    "title": "CHI / DAL Trade",
+    "description": "The Chicago Sky traded a 2022 2nd round pick (Olivia Nelson-Ododa later selected) to the Dallas Wings for a 2021 2nd round pick (Natasha Mack later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-DAL",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-CHI",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2021-02-10-8fae3c38",
+    "date": "2021-02-10",
+    "season": "2021",
+    "title": "Kia Nurse, Megan Walker Trade",
+    "description": "The New York Liberty traded Kia Nurse and Megan Walker to the Phoenix Mercury for a 2021 1st round pick (Michaela Onyenwere later selected) and a 2022 1st round pick (Mya Hollingshed later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kia Nurse",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Megan Walker",
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-NYL",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Marine Fauthoux",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-NYL",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Sika Koné",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2021-02-10-84995a9f",
+    "date": "2021-02-10",
+    "season": "2021",
+    "title": "Natasha Howard Trade",
+    "description": "The Seattle Storm traded Natasha Howard to the New York Liberty for a 2021 1st round pick (Charli Collier later selected), a 2022 1st round pick (Mya Hollingshed later selected), and a 2022 2nd round pick (Elissa Cunane later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-NYL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Natasha Howard",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-NYL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-SEA",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Natalie Kucowski",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-SEA",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jade Melbourne",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-NYL",
+        "to_team_id": "W-SEA",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2021-02-10-6999bbe7",
+    "date": "2021-02-10",
+    "season": "2021",
+    "title": "Mikiah Herbert Harrigan Trade",
+    "description": "The Minnesota Lynx traded Mikiah Herbert Harrigan to the Seattle Storm for a 2022 1st round pick (Mya Hollingshed later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Mikiah Herbert Harrigan",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-MIN",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Hannah Sjerven",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2021-02-10-16f868b7",
+    "date": "2021-02-10",
+    "season": "2021",
+    "title": "Katie Lou Samuelson Trade",
+    "description": "The Dallas Wings traded Katie Lou Samuelson and a 2022 2nd round pick (Lorela Cubaj later selected) to the Seattle Storm for a 2021 1st round pick (Charli Collier later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Katie Lou Samuelson",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-SEA",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-DAL",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Dana Evans",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2021-02-13-f00dd83e",
+    "date": "2021-02-13",
+    "season": "2021",
+    "title": "Yvonne Turner Trade",
+    "description": "The Phoenix Mercury traded Yvonne Turner to the Atlanta Dream for a 2022 3rd round pick (Maya Dodson later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Yvonne Turner",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-ATL",
+        "to_team_id": "W-PHO",
+        "pick_year": 2022,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2021-02-15-def640ef",
+    "date": "2021-02-15",
+    "season": "2021",
+    "title": "Lindsay Allen Trade",
+    "description": "The Las Vegas Aces traded Lindsay Allen and a 2021 2nd round pick (Trinity Baptiste later selected) to the Indiana Fever for a 2021 2nd round pick (Destiny Slocum later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LVA",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Lindsay Allen",
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LVA",
+        "to_team_id": "W-IND",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-LVA",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2021-02-15-0effaaae",
+    "date": "2021-02-15",
+    "season": "2021",
+    "title": "Odyssey Sims, Temi Fagbenle Trade",
+    "description": "The Minnesota Lynx traded Odyssey Sims, Temi Fagbenle, a 2022 1st round pick (Queen Egbo later selected), and a 2022 3rd round pick (Ali Patberg later selected) to the Indiana Fever for a 2022 2nd round pick (Khayla Pointer later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Odyssey Sims",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Temi Fagbenle",
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-IND",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Ali Patberg",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-IND",
+        "pick_year": 2022,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-IND",
+        "to_team_id": "W-MIN",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2021-04-14-0cb9cf25",
+    "date": "2021-04-14",
+    "season": "2021",
+    "title": "DAL / LAS Trade",
+    "description": "The Dallas Wings traded a 2021 1st round pick (Jasmine Walker later selected) and a 2022 2nd round pick (Olivia Nelson-Ododa later selected) to the Los Angeles Sparks for a 2022 1st round pick (Emily Engstler later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LAS",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Aina Ayuso",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-LAS",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-DAL",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jazz Bond",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2021-04-15-61bfacce",
+    "date": "2021-04-15",
+    "season": "2021",
+    "title": "Kennedy Burke, Aaliyah Wilson Trade",
+    "description": "The Indiana Fever traded Kennedy Burke to the Seattle Storm for Aaliyah Wilson.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kennedy Burke",
+        "from_team_id": "W-IND",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Aaliyah Wilson",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2021-05-09-4980bbdf",
+    "date": "2021-05-09",
+    "season": "2021",
+    "title": "Gabby Williams, Stephanie Watts, Leonie Fiebich Trade",
+    "description": "The Chicago Sky traded Gabby Williams to the Los Angeles Sparks for Stephanie Watts and Leonie Fiebich.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Gabby Williams",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Stephanie Watts",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Leonie Fiebich",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2021-05-13-4712ebc4",
+    "date": "2021-05-13",
+    "season": "2021",
+    "title": "Sydney Wiese Trade",
+    "description": "The Los Angeles Sparks traded Sydney Wiese to the Washington Mystics for a 2022 2nd round pick (Kianna Smith later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Sydney Wiese",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-LAS",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2021-06-02-82fa6113",
+    "date": "2021-06-02",
+    "season": "2021",
+    "title": "Shyla Heal, Jazz Bond, Dana Evans Trade",
+    "description": "The Chicago Sky traded Shyla Heal, a 2022 3rd round pick (Jazz Bond later selected), and a 2022 1st round pick (Right to swap 2022 first round picks) to the Dallas Wings for Dana Evans.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Shyla Heal",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jazz Bond",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dana Evans",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": null,
+        "to_team_id": null,
+        "pick_year": 2022,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": null,
+        "to_team_id": null,
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": null,
+        "to_team_id": null,
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]
