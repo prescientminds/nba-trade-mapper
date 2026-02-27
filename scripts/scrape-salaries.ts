@@ -258,8 +258,59 @@ function getTradedPlayerNames(): string[] {
 const BBREF_ID_OVERRIDES: Record<string, string> = {
   // Players with non-standard IDs or common name collisions
   'Nene': 'nenexxx01',
-  'Nenê': 'nenexxx01',
+  'Metta World Peace': 'artesro01',
+  'Ron Artest': 'artesro01',
+  'Anfernee Hardaway': 'hardaan01',
+  'Penny Hardaway': 'hardaan01',
+  'Predrag Stojakovic': 'stojape01',
+  'Peja Stojakovic': 'stojape01',
+  'Hidayet Turkoglu': 'turkohe01',
+  'Hedo Turkoglu': 'turkohe01',
+  'Amare Stoudemire': 'stoudam01',
+  'Amar\'e Stoudemire': 'stoudam01',
+  'Mo Williams': 'willima01',
+  'Maurice Williams': 'willima01',
+  'K.J. Martin': 'martike04',
+  'Kenyon Martin Jr.': 'martike04',
+  'Kenyon Martin Jr': 'martike04',
 };
+
+/**
+ * Known alternate names for the same player.
+ * Used to verify we found the right BBRef page when the page name differs
+ * from the search name (e.g., "Ron Artest" page shows "Metta World Peace").
+ */
+const NAME_ALIASES: Record<string, string[]> = {
+  'ron artest': ['metta world peace'],
+  'metta world peace': ['ron artest'],
+  'anfernee hardaway': ['penny hardaway'],
+  'penny hardaway': ['anfernee hardaway'],
+  'predrag stojakovic': ['peja stojakovic'],
+  'peja stojakovic': ['predrag stojakovic'],
+  'hidayet turkoglu': ['hedo turkoglu'],
+  'hedo turkoglu': ['hidayet turkoglu'],
+  'amare stoudemire': ["amar'e stoudemire"],
+  'mo williams': ['maurice williams'],
+  'maurice williams': ['mo williams'],
+  'k.j. martin': ['kenyon martin jr.', 'kenyon martin jr', 'kj martin'],
+  'kenyon martin jr.': ['k.j. martin', 'kj martin'],
+  'kj martin': ['k.j. martin', 'kenyon martin jr.'],
+};
+
+/** Suffixes that are not part of the "last name" for BBRef ID purposes. */
+const NAME_SUFFIXES = new Set(['jr', 'jr.', 'sr', 'sr.', 'ii', 'iii', 'iv', 'v']);
+
+/** Strip name suffixes and return [firstName, lastName] */
+function parseNameParts(name: string): { firstName: string; lastName: string } {
+  const parts = stripDiacritics(name).split(' ').filter(Boolean);
+  // Remove trailing suffixes
+  while (parts.length > 2 && NAME_SUFFIXES.has(parts[parts.length - 1].toLowerCase())) {
+    parts.pop();
+  }
+  const firstName = parts[0] || '';
+  const lastName = parts[parts.length - 1] || '';
+  return { firstName, lastName };
+}
 
 /**
  * Generate a BBRef player ID guess from a player name.
@@ -272,25 +323,21 @@ function guessPlayerId(name: string): string {
   if (BBREF_ID_OVERRIDES[name]) return BBREF_ID_OVERRIDES[name];
   if (BBREF_ID_OVERRIDES[normalized]) return BBREF_ID_OVERRIDES[normalized];
 
-  const parts = normalized.split(' ');
-  if (parts.length < 2) return name.toLowerCase().replace(/[^a-z]/g, '').slice(0, 7) + '01';
+  const { firstName, lastName } = parseNameParts(name);
+  if (!firstName || !lastName) return name.toLowerCase().replace(/[^a-z]/g, '').slice(0, 7) + '01';
 
-  const firstName = parts[0].toLowerCase().replace(/[^a-z]/g, '');
-  const lastName = parts[parts.length - 1].toLowerCase().replace(/[^a-z]/g, '');
+  const fn = firstName.toLowerCase().replace(/[^a-z]/g, '');
+  const ln = lastName.toLowerCase().replace(/[^a-z]/g, '');
 
   // BBRef uses up to 5 chars of last name (NO padding) + 2 chars of first name + suffix
-  const lastPart = lastName.slice(0, 5);
-  const firstPart = firstName.slice(0, 2);
-
-  return `${lastPart}${firstPart}01`;
+  return `${ln.slice(0, 5)}${fn.slice(0, 2)}01`;
 }
 
 /**
  * Get the first letter for the BBRef player URL path.
  */
 function playerUrlLetter(name: string): string {
-  const parts = stripDiacritics(name).split(' ');
-  const lastName = parts[parts.length - 1];
+  const { lastName } = parseNameParts(name);
   return lastName[0].toLowerCase();
 }
 
@@ -375,10 +422,17 @@ async function scrapePlayerHistory(
     // Verify this is the right player by checking the page name
     const $ = cheerio.load(html);
     const pagePlayerName = $('h1 span').first().text().trim();
-    const pageNormalized = stripDiacritics(pagePlayerName).toLowerCase();
-    const queryNormalized = stripDiacritics(playerName).toLowerCase();
+    const norm = (s: string) => stripDiacritics(s).toLowerCase().replace(/['.]/g, '').replace(/\s+/g, ' ').trim();
+    const pageNorm = norm(pagePlayerName);
+    const queryNorm = norm(playerName);
 
-    if (pagePlayerName && pageNormalized !== queryNormalized) {
+    // Check direct match, or known alias match (try both raw and normalized keys)
+    const queryLower = stripDiacritics(playerName).toLowerCase();
+    const aliases = NAME_ALIASES[queryLower] || NAME_ALIASES[queryNorm] || [];
+    const isMatch = pageNorm === queryNorm
+      || aliases.some(a => norm(a) === pageNorm);
+
+    if (pagePlayerName && !isMatch) {
       // Wrong player (name collision) — try next suffix
       await sleep(RATE_LIMIT_MS);
       continue;

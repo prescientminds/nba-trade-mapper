@@ -80,6 +80,104 @@ interface TradeSalaryScore {
   salary_details: Record<string, TeamSalaryScore>;
 }
 
+// ── Name normalization ───────────────────────────────────────────────
+
+function stripDiacritics(str: string): string {
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+/**
+ * Aliases mapping trade-JSON player names → player_contracts canonical names.
+ * Keys are lowercase; values are the exact name in player_contracts.
+ */
+const SALARY_NAME_ALIASES: Record<string, string> = {
+  // Nicknames / alternate names
+  'maurice williams': 'Mo Williams',
+  'anfernee hardaway': 'Anfernee Hardaway',
+  'penny hardaway': 'Anfernee Hardaway',
+  'predrag stojakovic': 'Peja Stojakovic',
+  'ron artest': 'Metta World Peace',
+  'metta world peace': 'Metta World Peace',
+  'amare stoudemire': "Amar'e Stoudemire",
+  "amar'e stoudemire": "Amar'e Stoudemire",
+  'hidayet turkoglu': 'Hedo Turkoglu',
+  'matthew dellavedova': 'Matthew Dellavedova',
+  'matt dellavedova': 'Matthew Dellavedova',
+  'domas sabonis': 'Domantas Sabonis',
+  'louis williams': 'Lou Williams',
+  'ishmael smith': 'Ish Smith',
+  'louis amundson': 'Lou Amundson',
+  'moe harkless': 'Maurice Harkless',
+  'sviatoslav mykhailiuk': 'Svi Mykhailiuk',
+  'moe wagner': 'Moritz Wagner',
+  'patrick mills': 'Patty Mills',
+  'ogugua anunoby': 'OG Anunoby',
+  'o.g. anunoby': 'OG Anunoby',
+  'mohamed bamba': 'Mo Bamba',
+  'osasere ighodaro': 'Oso Ighodaro',
+  'k.j. martin': 'Kenyon Martin Jr.',
+  'kj martin': 'Kenyon Martin Jr.',
+
+  // Jr./Sr. suffix mismatches
+  'tim hardaway sr.': 'Tim Hardaway',
+  'tim hardaway sr': 'Tim Hardaway',
+  'mike dunleavy jr.': 'Mike Dunleavy',
+  'mike dunleavy jr': 'Mike Dunleavy',
+  'glen rice sr.': 'Glen Rice',
+  'glen rice sr': 'Glen Rice',
+  'marvin bagley': 'Marvin Bagley III',
+  'r.j. barrett': 'RJ Barrett',
+  'rj barrett': 'RJ Barrett',
+  'walter clayton jr.': 'Walter Clayton',
+  'walter clayton jr': 'Walter Clayton',
+  'andre jackson': 'Andre Jackson Jr.',
+
+  // Disambiguators from trade data
+  'clifford robinson (r.)': 'Clifford Robinson',
+};
+
+/** Strings in trade JSON that aren't real player names */
+const NOT_PLAYER_NAMES = new Set([
+  'trade exception', 'did not convey', 'cash considerations',
+  'cash', 'tpe', 'player option', 'team option',
+]);
+
+/**
+ * Normalize a player name from trade JSON to match player_contracts.
+ * Returns null if the string is not a real player name.
+ */
+function normalizePlayerName(name: string): string | null {
+  if (!name) return null;
+
+  // Strip diacritics first
+  let cleaned = stripDiacritics(name).trim();
+
+  // Remove disambiguators like (R.), (a), (b)
+  cleaned = cleaned.replace(/\s*\([^)]*\)\s*$/, '').trim();
+
+  // Check if it's a known non-player string
+  const lower = cleaned.toLowerCase();
+  if (NOT_PLAYER_NAMES.has(lower)) return null;
+  if (lower.includes('trade exception')) return null;
+  if (lower.includes('did not convey')) return null;
+  if (lower.includes('protected')) return null;
+  if (lower.includes('becomes $')) return null;
+  if (lower.includes('picks)')) return null;
+
+  // Check alias map
+  const alias = SALARY_NAME_ALIASES[lower];
+  if (alias) return alias;
+
+  // Try without suffix for alias lookup
+  const withoutSuffix = lower.replace(/\s+(jr\.?|sr\.?|iii|ii|iv|v)$/i, '').trim();
+  if (withoutSuffix !== lower) {
+    const suffixAlias = SALARY_NAME_ALIASES[withoutSuffix];
+    if (suffixAlias) return suffixAlias;
+  }
+
+  return cleaned;
+}
+
 // ── Helpers ───────────────────────────────────────────────────────────
 
 function fmt$(n: number): string {
@@ -163,16 +261,20 @@ function scoreTradeSalary(
     let teamTotal = 0;
 
     for (const asset of assets) {
-      let playerName: string | null = null;
+      let rawName: string | null = null;
       let seasonCutoff = tradeSeason;
 
       if (asset.type === 'player' && asset.player_name) {
-        playerName = asset.player_name;
+        rawName = asset.player_name;
       } else if (asset.type === 'pick' && asset.became_player_name) {
-        playerName = asset.became_player_name;
+        rawName = asset.became_player_name;
         seasonCutoff = asset.pick_year ? pickYearToSeason(asset.pick_year) : tradeSeason;
       }
 
+      if (!rawName) continue;
+
+      // Normalize the player name (handles aliases, diacritics, suffixes, garbage)
+      const playerName = normalizePlayerName(rawName);
       if (!playerName) continue;
 
       // Strategy 1: Look for salary on receiving team (exact match)
@@ -185,6 +287,21 @@ function scoreTradeSalary(
       if (contracts.length === 0) {
         contracts = (contractsByPlayer.get(playerName) || [])
           .filter(c => seasonGte(c.season, seasonCutoff));
+      }
+
+      // Strategy 3: Try with Jr./III suffix added/removed
+      if (contracts.length === 0) {
+        const suffixVariants = [
+          playerName + ' Jr.',
+          playerName + ' III',
+          playerName + ' Sr.',
+          playerName.replace(/\s+(Jr\.|III|Sr\.)$/i, '').trim(),
+        ];
+        for (const variant of suffixVariants) {
+          contracts = (contractsByPlayer.get(variant) || [])
+            .filter(c => seasonGte(c.season, seasonCutoff));
+          if (contracts.length > 0) break;
+        }
       }
 
       if (contracts.length === 0) continue;
@@ -262,19 +379,28 @@ async function main() {
   console.log(`  player_contracts: ${contracts.length} rows`);
   console.log(`  salary_cap_history: ${capHistory.length} rows`);
 
-  // Build lookup indexes
+  // Build lookup indexes (both exact name and normalized/lowercase for fuzzy matching)
   const contractsByPlayerTeam = new Map<string, ContractRow[]>();
   const contractsByPlayer = new Map<string, ContractRow[]>();
 
-  for (const row of contracts) {
-    if (!row.salary) continue;
-
-    const ptKey = `${row.player_name}|${row.team_id}`;
+  function addToIndex(name: string, row: ContractRow) {
+    const ptKey = `${name}|${row.team_id}`;
     if (!contractsByPlayerTeam.has(ptKey)) contractsByPlayerTeam.set(ptKey, []);
     contractsByPlayerTeam.get(ptKey)!.push(row);
 
-    if (!contractsByPlayer.has(row.player_name)) contractsByPlayer.set(row.player_name, []);
-    contractsByPlayer.get(row.player_name)!.push(row);
+    if (!contractsByPlayer.has(name)) contractsByPlayer.set(name, []);
+    contractsByPlayer.get(name)!.push(row);
+  }
+
+  for (const row of contracts) {
+    if (!row.salary) continue;
+    // Index under exact name
+    addToIndex(row.player_name, row);
+    // Also index under stripped-diacritics version if different
+    const normalized = stripDiacritics(row.player_name);
+    if (normalized !== row.player_name) {
+      addToIndex(normalized, row);
+    }
   }
 
   const capBySeason = new Map<string, number>();
