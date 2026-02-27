@@ -55,7 +55,7 @@ function parseDollar(text: string): number | null {
 }
 
 function cleanPlayerName(name: string): string {
-  return name.replace(/\*/g, '').trim();
+  return stripDiacritics(name.replace(/\*/g, '').trim());
 }
 
 async function fetchWithCache(url: string, cachePath: string, refresh: boolean): Promise<string | null> {
@@ -210,7 +210,15 @@ function isValidPlayerName(name: string): boolean {
 }
 
 /**
+ * Strip diacritical marks from a string (e.g., "Jokić" → "Jokic").
+ */
+function stripDiacritics(str: string): string {
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+/**
  * Get unique traded player names from our static trade JSON files.
+ * Includes both direct player assets AND players that draft picks became.
  */
 function getTradedPlayerNames(): string[] {
   const players = new Set<string>();
@@ -228,8 +236,13 @@ function getTradedPlayerNames(): string[] {
 
     for (const trade of trades) {
       for (const asset of trade.assets || []) {
+        // Players directly traded
         if (asset.type === 'player' && asset.player_name && isValidPlayerName(asset.player_name)) {
-          players.add(asset.player_name);
+          players.add(stripDiacritics(asset.player_name));
+        }
+        // Players that draft picks became (e.g., Curry, Tatum)
+        if (asset.became_player_name && isValidPlayerName(asset.became_player_name)) {
+          players.add(stripDiacritics(asset.became_player_name));
         }
       }
     }
@@ -239,18 +252,34 @@ function getTradedPlayerNames(): string[] {
 }
 
 /**
+ * Known BBRef player IDs that don't follow the standard pattern.
+ * Maps "First Last" → "bbref_id" (without .html).
+ */
+const BBREF_ID_OVERRIDES: Record<string, string> = {
+  // Players with non-standard IDs or common name collisions
+  'Nene': 'nenexxx01',
+  'Nenê': 'nenexxx01',
+};
+
+/**
  * Generate a BBRef player ID guess from a player name.
- * Pattern: {last5}{first2}{suffix} where suffix starts at 01.
- * Example: "LeBron James" → "jamesle01"
+ * Pattern: {last_up_to_5}{first2}{suffix} — NO padding.
+ * Example: "LeBron James" → "jamesle01", "Lonzo Ball" → "balllo01"
  */
 function guessPlayerId(name: string): string {
-  const parts = name.split(' ');
-  if (parts.length < 2) return name.toLowerCase().slice(0, 7) + '01';
+  // Check overrides first
+  const normalized = stripDiacritics(name);
+  if (BBREF_ID_OVERRIDES[name]) return BBREF_ID_OVERRIDES[name];
+  if (BBREF_ID_OVERRIDES[normalized]) return BBREF_ID_OVERRIDES[normalized];
+
+  const parts = normalized.split(' ');
+  if (parts.length < 2) return name.toLowerCase().replace(/[^a-z]/g, '').slice(0, 7) + '01';
 
   const firstName = parts[0].toLowerCase().replace(/[^a-z]/g, '');
   const lastName = parts[parts.length - 1].toLowerCase().replace(/[^a-z]/g, '');
 
-  const lastPart = lastName.slice(0, 5).padEnd(5, 'x');
+  // BBRef uses up to 5 chars of last name (NO padding) + 2 chars of first name + suffix
+  const lastPart = lastName.slice(0, 5);
   const firstPart = firstName.slice(0, 2);
 
   return `${lastPart}${firstPart}01`;
@@ -260,7 +289,7 @@ function guessPlayerId(name: string): string {
  * Get the first letter for the BBRef player URL path.
  */
 function playerUrlLetter(name: string): string {
-  const parts = name.split(' ');
+  const parts = stripDiacritics(name).split(' ');
   const lastName = parts[parts.length - 1];
   return lastName[0].toLowerCase();
 }
@@ -346,8 +375,10 @@ async function scrapePlayerHistory(
     // Verify this is the right player by checking the page name
     const $ = cheerio.load(html);
     const pagePlayerName = $('h1 span').first().text().trim();
+    const pageNormalized = stripDiacritics(pagePlayerName).toLowerCase();
+    const queryNormalized = stripDiacritics(playerName).toLowerCase();
 
-    if (pagePlayerName && pagePlayerName.toLowerCase() !== playerName.toLowerCase()) {
+    if (pagePlayerName && pageNormalized !== queryNormalized) {
       // Wrong player (name collision) — try next suffix
       await sleep(RATE_LIMIT_MS);
       continue;
@@ -424,9 +455,29 @@ async function main() {
     limit = parseInt(args[limitIdx + 1]);
   }
 
+  // --names "Player One,Player Two,..." — scrape specific players only
+  const namesIdx = args.indexOf('--names');
+  const specificNames = namesIdx >= 0 && args[namesIdx + 1]
+    ? args[namesIdx + 1].split(',').map(n => n.trim())
+    : null;
+
   let allRows: SalaryRow[];
 
-  if (historical) {
+  if (specificNames) {
+    console.log(`=== Scraping ${specificNames.length} specific players ===\n`);
+    allRows = [];
+    for (const name of specificNames) {
+      console.log(`  ${name}...`);
+      const rows = await scrapePlayerHistory(name, refresh);
+      if (rows.length > 0) {
+        allRows.push(...rows);
+        console.log(`    → ${rows.length} salary records`);
+      } else {
+        console.log(`    → No data found`);
+      }
+      await sleep(RATE_LIMIT_MS);
+    }
+  } else if (historical) {
     console.log('=== Historical Salary Scraper (BBRef Player Pages) ===\n');
     allRows = await scrapeHistoricalSalaries(refresh, limit);
   } else {
