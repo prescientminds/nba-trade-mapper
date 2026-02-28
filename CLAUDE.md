@@ -22,7 +22,7 @@ A **visual graph explorer** for NBA trades and player journeys. The entire UI is
 
 ### What Works — confirmed Feb 2026
 - **Graph UI built** — React Flow with search bar, click-to-expand, auto-layout (ELK.js)
-- **5 active node types**: TradeNode, PlayerNode, PickNode, PlayerStintNode, GapNode
+- **6 active node types**: TradeNode, PlayerNode, PickNode, PlayerStintNode, GapNode, ChampionshipNode
 - **1,935 trades in static JSON** — 1,541 from Supabase (1976–Feb 2019) + 394 scraped from BBRef (Feb 2019–Feb 2026)
 - **50 season files** in `public/data/trades/by-season/` (1976-77 through 2025-26) + search index
 - **23,567 player-season stat rows** in Supabase — regular + 8 playoff columns. 9,187 rows have playoff_ws (1977–2025).
@@ -48,100 +48,17 @@ Run these scripts in order if rebuilding trade data from scratch:
 
 Daily updates: `scripts/scrape-today.ts` (used by `.github/workflows/update-trades.yml`)
 
-### What's Remaining (Priority Order)
+### Trade Data Quality Fix (reference — ✅ COMPLETE)
 
-#### 1. FIX: Trade data quality + Rebuild player journey UX (IMMEDIATE — use James Harden as test case)
+**Root cause:** `import-trades.ts` misread the bipartite CSV format. All 1,552 CSV-imported trades (1976-2019) had inverted directions.
+**Fix:** `scripts/fix-csv-trades.py` — re-processes with correct logic. 1,526 trades patched.
+**Re-run required** after any `export-existing-trades.ts` since Supabase still has original bug.
 
-**Step 1a: Audit & fix trade data quality — ✅ COMPLETE**
-- **Root cause found:** `import-trades.ts` misread the bipartite CSV format. CSV has `to`=received, `from`=sent, `action_team`=receiver — but the import assigned `from_team_id=action_team` (wrong; action_team is the RECEIVER) and ignored all `from` assets (sent side) entirely.
-- **Scope:** ALL 1,552 CSV-imported trades (1976-2019) were broken. BBRef-scraped trades (2019+, 383 trades) and 6 curated sample trades were already correct.
-- **Fix applied:** `scripts/fix-csv-trades.py` — re-processes the CSV bipartite graph with correct logic:
-  - **Direction fix:** `to` assets go `other_team → action_team`; `from` assets go `action_team → other_team`
-  - **Missing assets added:** both sides of every trade now recorded
-  - **Pick detection:** value is a pick if ALL rows containing it in the trade group have `pick_involved=TRUE`
-  - 1,526 trades patched; 9 obscure historical trades couldn't be matched (team name resolution failures, minor edge cases)
-- **Verified:** Harden (OKC→HOU + Kevin Martin/Lamb/picks HOU→OKC ✓), KG (MIN→BOS + Jefferson/Green/picks BOS→MIN ✓), Kobe (Vlade LAL→CHA + Kobe CHA→LAL ✓), Pierce/KG to Brooklyn (both sides ✓)
-- **Re-run the fix after any re-export:** If `export-existing-trades.ts` is re-run (rebuilds from Supabase), must also re-run `python3 scripts/fix-csv-trades.py` since Supabase data still has the original bug.
+### Target Player Journey UX (reference — design spec)
+Using Harden as reference: Draft card → click → OKC seasons (inline, not modal) → trade card (collapsed: date/teams/count) → click to expand both sides → click player name for stint stats → parallel columns for secondary players anchored at shared trade node. Transactions are the organizing spine; seasons nest under stints; stints separated by trades.
 
-**Step 1b: Rebuild player journey UX (target flow)**
-Using Harden as the reference implementation:
-1. **Draft card** — first node: "Drafted by OKC, R1 Pick #3, 2009"
-2. **Click player name on draft card** → slide-out panel or inline expansion showing all OKC seasons with stats & awards (NOT a modal — modals break spatial context)
-3. **Trade card (collapsed by default)** — one-line summary: "Oct 27, 2012 · OKC → HOU · 5 players, 2 picks"
-4. **Click trade card to expand** → shows all players/picks in the trade (BOTH sides)
-5. **Click Harden in expanded trade** → stint panel for HOU seasons
-6. **Click another player (e.g., Cole Aldrich)** → their trajectory appears in parallel column, aligned at the shared trade node (trade node is horizontal anchor, columns scroll independently above/below)
-7. **Click that player's name in trade node** → see their stint stats
-8. Line back to their column, showing next step in their trajectory
-9. Continue down the timeline for each subsequent trade...
-
-**Key UX decisions:**
-- Stint details = slide-out panel or inline expansion, NOT modal popup
-- Collapsed trade cards show: date · teams · player/pick count
-- Parallel columns for secondary players with shared trade node as anchor
-- Transactions are the organizing spine; seasons nest under stints; stints separated by trades
-
-#### 2. FIX: Compact node sizing
-- Current tiles/squares are too large — user has to scroll too far between nodes
-- Make all node types smaller and more compact so more fits on one screen
-- Should be intuitive and easy to follow without excessive scrolling
-
-#### 3. ✅ DONE: Accolades fixed
-- Root bug: `End of Season Teams.csv` has `number_tm` values `'1st'`/`'2nd'`/`'3rd'` but code compared `=== '1'`/`'2'`/`'3'`
-- Fix: updated comparison in `import-accolades.ts`, wiped table, reimported 2,510 clean rows
-- Table also had duplicates (INSERT run twice) — wipe before re-importing
-
-#### 4. ✅ DONE: GitHub push + Vercel deployment
-- Repo: https://github.com/wandebao/nba-trade-mapper
-- Auto-deploys on push to main. Daily trade update via `.github/workflows/update-trades.yml`.
-
-#### 5. ✅ DONE: Playoff results + Trade impact scoring
-- `scrape-playoff-results.ts` — full bracket results in `team_seasons` (playoff_result + championship)
-- `scrape-playoff-stats.ts` — playoff WS/PPG/BPM in `player_seasons` (migration 005)
-- `score-trades.ts` — scores all 1,927 trades; upserts to `trade_scores` (migration 006)
-- Trade verdict bar chart shown in expanded TradeNode UI (lazy-fetched, no RLS needed)
-
-#### 6. (Optional) Salary/contract data
-- `player_contracts` table exists but is empty. Could scrape HoopsHype.
-
-### Recent Changes (Feb 2026)
-
-#### expandWeb multi-degree + free agency — ✅ DONE (Feb 2026)
-- **File:** `graph-store.ts` `expandWeb` function (~lines 1241–1510)
-- **Bug 1 fixed:** Robert Parish (BOS→CHA→CHI via FA) — `findTradeBetweenStints` returns null for FA moves. Now creates direct stint→stint edges instead of silently dropping the player.
-- **Bug 2 fixed:** Only source trade players expanded — BFS now collects players from ALL reachable trade nodes, so downstream trade players expand on subsequent + clicks.
-- **Key additions:** `playerOriginTrade` map, `playerDataMap` for FA fallback, `nextStintIdx` threading, `hasOutgoing` checks both trade and stint edges.
-- **Tested:** Parish FA expansion, Harden normal expansion, collapse all confirmed working.
-
-### What's Remaining (Next Priorities)
-
-#### 1. Compact node sizing (HIGH IMPACT)
-- All node types are still too large — users scroll too far between nodes
-- TradeNode: target ~180px wide, ~44px collapsed height
-- PlayerStintNode: reduce padding, tighten stat rows
-- Goal: fit 3–4 nodes in one viewport without zooming out
-
-#### 2. Per-asset score in TradeNode UI
-- `trade_scores.team_scores.assets[]` has per-player breakdown (ws, playoff_ws, championships, score) — not yet shown in UI
-- Add each player's score next to their name in expanded trade card (e.g., `Wiggins  29.3`)
-- Helps users understand WHY a team won the trade
-
-#### 3. Winner badge on collapsed TradeNode
-- Currently verdict only shows when card is expanded (lazy fetch on expand)
-- To show on collapsed: fetch `trade_scores` inside `expandTradeNode` store action, store result in `TradeNodeData.tradeScore`
-- Avoids fetching for every collapsed node on mount (only load when that trade is first interacted with)
-- Show as small colored pill: `GSW ↑` in team color next to the `3P 2Pk` summary
-
-#### 4. "Paved the way" chain (BIG FEATURE)
-- Given a championship team/season, trace backward through all trades that built the roster
-- Example: "How did GSW assemble the 2022 championship team?" → show the trade chains for Wiggins, Curry, Klay, Draymond
-- Implementation: new UI entry point + backward graph traversal from a team's final roster
-- Data is already all there (trade_scores, playoff_ws, championships) — this is purely a new graph traversal + UI
-
-#### 5. Explore by trade score (DISCOVERY FEATURE)
-- New panel or search mode: "most lopsided trades ever", "best picks hauls", "biggest steals"
-- Query `trade_scores ORDER BY lopsidedness DESC` and display as a ranked list
-- Clicking a result seeds the graph with that trade
+### Recent Changes
+See changelog in `~/.claude/projects/-Users-michaelweintraub/memory/nba-trade-mapper.md`
 
 ## Tech Stack
 - **Next.js 16** (App Router, TypeScript, Tailwind CSS v4)
@@ -270,7 +187,7 @@ nba-trade-mapper/
 - Card labels (`flattenChainPlayers` in DiscoverySection) walk the full recursive tree — may show deep players that are many hops from the root
 - **Do NOT show outgoing players' WS** — e.g., Pippen's Chicago WS must not count for Seattle's tree
 
-### Journey Data Flow (CURRENT — needs rework, see "What's Remaining #1")
+### Journey Data Flow (CURRENT — see "Target Player Journey UX" above for design spec)
 Current: Click player → sprawls all seasons in no clear order.
 
 **TARGET flow (transaction-based organization):**
@@ -359,7 +276,7 @@ npx tsx scripts/score-trades.ts                         # Recompute all trade sc
 1. **prosportstransactions.com is behind Cloudflare** — `scrape-trades.ts` doesn't work. BBRef scraper (`scrape-bbref-trades.ts`) is the replacement.
 2. **Supabase DB direct connection fails** — pooler (port 6543) and direct (port 5432) both reject the service role key as password. Use Supabase SQL Editor directly for DDL.
 3. **Kaggle CSV column names** — don't match what you'd expect. Always `head -1` the CSV first. See Data Sources section above. Key gotcha: `End of Season Teams.csv` stores `number_tm` as `'1st'`/`'2nd'`/`'3rd'` strings, not integers.
-4. **player_contracts table is empty** — schema exists but no import script for salary data yet.
+4. **player_contracts table** — 15,370 salary records (1984–2031), 2,102 unique players. Scraped via `scrape-salaries.ts` + `scrape-cap-history.ts`. Trade salary scoring via `score-trade-salaries.ts` (90.5% coverage).
 5. **BBRef rate limit** — scraper uses 3.1s delay per request. First run ~2 hours for full history. Cached in `data/bbref-cache/` so re-runs are instant.
 6. **CSV trade direction bug** — `scripts/fix-csv-trades.py` fixes the JSON files; Supabase `transactions` table still has the original inversion. Re-run the fix script after any re-export.
 7. **Supabase PostgREST row limit** — default 1000 rows per response. Always paginate with `.range(from, from+999)` and loop; break when `data.length < 1000`.
@@ -374,22 +291,14 @@ npx tsx scripts/score-trades.ts                         # Recompute all trade sc
 - ✅ All-NBA tiers fixed — tiers were all showing "3rd" due to CSV column comparison bug
 - ✅ All team IDs validated — no legacy codes in any static JSON file
 - ✅ Trade Tree `seedFromChain` fixed — only shows winning team stints, bridge players maintain chain connectivity
+- ✅ Salary data: 15,370 contracts, 90.5% trade coverage, diacritics/aliases/suffix handling all fixed
 - ⚠️ Supabase `transactions` table still has original CSV direction bug — static JSON is source of truth
 - ⚠️ `import-accolades.ts` uses INSERT — wipe table before re-running
+- ⚠️ salary_cap_history supplementary columns (luxury_tax, apron, MLE, BAE) are all NULL
 
-## Next Session Priority
-1. **Push expandWeb fix** — tested and working, needs `git push` to deploy via Vercel
-2. **Compact node sizing** — all nodes still too large (TradeNode, PlayerStintNode, PlayerNode). Biggest UX win remaining.
-3. **Per-asset score display** — show `team_scores.assets[].score` next to each player name in expanded TradeNode
-4. **Winner badge on collapsed TradeNode** — fetch score in `expandTradeNode` store action, persist in `TradeNodeData`
-5. **"Paved the way" chain** — trace backward from championship roster through founding trades
-6. **Explore by trade score** — ranked list of most lopsided trades, seeding the graph on click
+## Priorities & Session State
 
-## Data Quality Notes (Feb 2026)
-- ✅ Trade direction fixed (fix-csv-trades.py) — all 1,535 CSV-era trades have correct sides
-- ✅ NOP/CHA fixed — 50 New Orleans Hornets trades (2002-03 through 2012-13) corrected from CHA → NOP
-- ✅ Pippen/Polynice 1987 — B.J. Armstrong / Sylvester Gray removed as pick names (those picks resolved elsewhere)
-- ✅ All-NBA tiers fixed — tiers were all showing "3rd" due to CSV column comparison bug
-- ✅ All team IDs validated — no legacy codes in any static JSON file
-- ⚠️ Supabase `transactions` table still has original CSV direction bug — static JSON is source of truth
-- ⚠️ `import-accolades.ts` uses INSERT — wipe table before re-running
+**Do not track priorities here.** This file is for codebase architecture only.
+
+Current priorities, WIP state, and changelog live in the **single source of truth:**
+`~/.claude/projects/-Users-michaelweintraub/memory/nba-trade-mapper.md`
