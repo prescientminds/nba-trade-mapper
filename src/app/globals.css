@@ -89,6 +89,11 @@ body {
   50% { transform: translateY(6px); }
 }
 
+@keyframes pulse-gold {
+  0%, 100% { opacity: 0.8; box-shadow: 0 0 4px rgba(249,199,79,0.2); }
+  50% { opacity: 1; box-shadow: 0 0 12px rgba(249,199,79,0.5); }
+}
+
 /* ── React Flow dark theme overrides ─────────────────────────────── */
 
 .react-flow__background {

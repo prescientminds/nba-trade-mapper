@@ -12,14 +12,16 @@ function HighlightableEdge({
   targetY,
 }: EdgeProps) {
   const isHighlighted = useGraphStore((s) => s.highlightedEdges.has(id));
-  const hasAnyHighlight = useGraphStore((s) => s.highlightedEdges.size > 0);
+  const isFollowHighlighted = useGraphStore((s) => s.followHighlightedEdges.has(id));
+  const hasAnyHighlight = useGraphStore((s) => s.highlightedEdges.size > 0 || s.followHighlightedEdges.size > 0);
   const highlightEdgePath = useGraphStore((s) => s.highlightEdgePath);
 
   const [edgePath] = getStraightPath({ sourceX, sourceY, targetX, targetY });
 
-  const strokeColor = isHighlighted ? '#ff6b35' : hasAnyHighlight ? '#333' : '#555';
-  const strokeWidth = isHighlighted ? 2.5 : 1.5;
-  const opacity = hasAnyHighlight && !isHighlighted ? 0.25 : 1;
+  // Color priority: follow gold > click orange > dimmed > default
+  const strokeColor = isFollowHighlighted ? '#f9c74f' : isHighlighted ? '#ff6b35' : hasAnyHighlight ? '#333' : '#555';
+  const strokeWidth = isFollowHighlighted ? 2.5 : isHighlighted ? 2.5 : 1.5;
+  const opacity = hasAnyHighlight && !isHighlighted && !isFollowHighlighted ? 0.25 : 1;
 
   return (
     <>

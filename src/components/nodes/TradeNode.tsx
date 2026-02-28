@@ -27,6 +27,10 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const loadingNodes = useGraphStore((s) => s.loadingNodes);
   const coreNodes = useGraphStore((s) => s.coreNodes);
   const nodes = useGraphStore((s) => s.nodes);
+  const followPath = useGraphStore((s) => s.followPath);
+  const startFollowPath = useGraphStore((s) => s.startFollowPath);
+  const advanceFollowPath = useGraphStore((s) => s.advanceFollowPath);
+  const exitFollowPath = useGraphStore((s) => s.exitFollowPath);
 
   const [expandLoading, setExpandLoading] = useState(false);
 
@@ -563,7 +567,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                     marginBottom: 2,
                   }}
                 >
-                  {teamName} receives
+                  {teamName} receive
                 </div>
 
                 {/* No data fallback for old trades with incomplete records */}
@@ -747,10 +751,52 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             >
                               Path
                             </div>
+                          ) : followPath?.playerName === playerName ? (
+                            <div
+                              className="nopan nodrag"
+                              onClick={(e) => { e.stopPropagation(); exitFollowPath(); }}
+                              style={{
+                                fontSize: 8,
+                                color: '#f9c74f',
+                                padding: '1px 4px',
+                                borderRadius: 3,
+                                background: 'rgba(249,199,79,0.12)',
+                                cursor: 'pointer',
+                                flexShrink: 0,
+                                whiteSpace: 'nowrap',
+                                transition: 'background 0.15s',
+                              }}
+                              onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(249,199,79,0.25)'; }}
+                              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(249,199,79,0.12)'; }}
+                            >
+                              {'\u2715'} Following
+                            </div>
                           ) : (
-                            <span style={{ fontSize: 7, color: 'var(--text-muted)', flexShrink: 0 }}>
-                              on graph
-                            </span>
+                            <div
+                              className="nopan nodrag"
+                              onClick={(e) => { e.stopPropagation(); startFollowPath(playerName); }}
+                              style={{
+                                fontSize: 8,
+                                color: 'var(--text-muted)',
+                                padding: '1px 4px',
+                                borderRadius: 3,
+                                background: 'var(--bg-tertiary)',
+                                cursor: 'pointer',
+                                flexShrink: 0,
+                                whiteSpace: 'nowrap',
+                                transition: 'background 0.15s, color 0.15s',
+                              }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.background = 'rgba(249,199,79,0.15)';
+                                e.currentTarget.style.color = '#f9c74f';
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.background = 'var(--bg-tertiary)';
+                                e.currentTarget.style.color = 'var(--text-muted)';
+                              }}
+                            >
+                              Follow {'\u2192'}
+                            </div>
                           )}
                         </div>
 
@@ -1012,6 +1058,52 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                           >
                             Path
                           </div>
+                        ) : pickPlayerName && followPath?.playerName === pickPlayerName ? (
+                          <div
+                            className="nopan nodrag"
+                            onClick={(e) => { e.stopPropagation(); exitFollowPath(); }}
+                            style={{
+                              fontSize: 8,
+                              color: '#f9c74f',
+                              padding: '1px 4px',
+                              borderRadius: 3,
+                              background: 'rgba(249,199,79,0.12)',
+                              cursor: 'pointer',
+                              flexShrink: 0,
+                              whiteSpace: 'nowrap',
+                              transition: 'background 0.15s',
+                            }}
+                            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(249,199,79,0.25)'; }}
+                            onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(249,199,79,0.12)'; }}
+                          >
+                            {'\u2715'} Following
+                          </div>
+                        ) : pickPlayerName ? (
+                          <div
+                            className="nopan nodrag"
+                            onClick={(e) => { e.stopPropagation(); startFollowPath(pickPlayerName); }}
+                            style={{
+                              fontSize: 8,
+                              color: 'var(--text-muted)',
+                              padding: '1px 4px',
+                              borderRadius: 3,
+                              background: 'var(--bg-tertiary)',
+                              cursor: 'pointer',
+                              flexShrink: 0,
+                              whiteSpace: 'nowrap',
+                              transition: 'background 0.15s, color 0.15s',
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = 'rgba(249,199,79,0.15)';
+                              e.currentTarget.style.color = '#f9c74f';
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = 'var(--bg-tertiary)';
+                              e.currentTarget.style.color = 'var(--text-muted)';
+                            }}
+                          >
+                            Follow {'\u2192'}
+                          </div>
                         ) : (
                           <span style={{ fontSize: 7, color: 'var(--text-muted)' }}>on graph</span>
                         )}
@@ -1108,6 +1200,33 @@ function TradeNodeComponent({ id, data }: NodeProps) {
           }}
         >
           +
+        </div>
+      )}
+
+      {/* Follow indicator — pulsing gold ▼ Next button */}
+      {followPath && followPath.orderedNodeIds[followPath.currentIndex] === id && (
+        <div
+          className="nopan nodrag"
+          onClick={(e) => { e.stopPropagation(); advanceFollowPath(); }}
+          style={{
+            position: 'absolute',
+            bottom: -18,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            fontSize: 9,
+            fontWeight: 600,
+            color: '#f9c74f',
+            background: 'rgba(249,199,79,0.15)',
+            border: '1px solid rgba(249,199,79,0.3)',
+            borderRadius: 4,
+            padding: '1px 8px',
+            cursor: 'pointer',
+            whiteSpace: 'nowrap',
+            zIndex: 10,
+            animation: 'pulse-gold 2s ease-in-out infinite',
+          }}
+        >
+          {followPath.currentIndex < followPath.orderedNodeIds.length - 1 ? '\u25BC Next' : '\u25CF'}
         </div>
       )}
 

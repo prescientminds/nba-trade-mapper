@@ -155,6 +155,8 @@ interface GraphState {
   pendingFitTarget: string | null;
   expandedGapIds: Set<string>;
   highlightedEdges: Set<string>;
+  followHighlightedEdges: Set<string>;
+  followPath: { playerName: string; orderedNodeIds: string[]; currentIndex: number } | null;
   selectedLeague: League;
 
   setSelectedLeague: (league: League) => void;
@@ -192,6 +194,9 @@ interface GraphState {
   }>;
   highlightEdgePath: (edgeId: string) => void;
   clearHighlightedEdges: () => void;
+  startFollowPath: (playerName: string) => void;
+  advanceFollowPath: () => void;
+  exitFollowPath: () => void;
   championshipContext: ChampionshipContext | null;
   seedChampionshipRoster: (teamId: string, season: string) => Promise<void>;
   expandChampionshipPlayer: (playerName: string) => Promise<void>;
@@ -697,6 +702,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   pendingFitTarget: null,
   expandedGapIds: new Set(),
   highlightedEdges: new Set(),
+  followHighlightedEdges: new Set(),
+  followPath: null,
   selectedLeague: 'NBA' as League,
   championshipContext: null,
 
@@ -741,6 +748,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       pendingFitTarget: null,
       expandedGapIds: new Set(),
       highlightedEdges: new Set(),
+      followHighlightedEdges: new Set(),
+      followPath: null,
       championshipContext: null,
     });
   },
@@ -793,6 +802,97 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   clearHighlightedEdges: () => {
     if (get().highlightedEdges.size > 0) {
       set({ highlightedEdges: new Set() });
+    }
+  },
+
+  startFollowPath: (playerName: string) => {
+    const state = get();
+
+    // Reuse highlightEdgePath's logic to find all player edges
+    const getPlayerFromNode = (nodeId: string): string | null => {
+      const n = state.nodes.find(nn => nn.id === nodeId);
+      if (!n) return null;
+      if (n.type === 'playerStint') return (n.data as PlayerStintNodeData).playerName;
+      if (n.type === 'player') return (n.data as PlayerNodeData).name;
+      if (n.type === 'gap') return (n.data as GapNodeData).playerName;
+      return null;
+    };
+
+    const isPlayerNode = (nodeId: string): boolean => getPlayerFromNode(nodeId) === playerName;
+
+    // Collect all edges belonging to this player's journey
+    const playerEdgeIds = new Set<string>();
+    const adjacency = new Map<string, string>(); // source → target
+    const allTargets = new Set<string>();
+
+    for (const e of state.edges) {
+      if (isPlayerNode(e.source) || isPlayerNode(e.target)) {
+        playerEdgeIds.add(e.id);
+        adjacency.set(e.source, e.target);
+        allTargets.add(e.target);
+      }
+    }
+
+    if (playerEdgeIds.size === 0) return;
+
+    // Find root: appears as source but never as target among player edges
+    const allSources = new Set(adjacency.keys());
+    let root: string | null = null;
+    for (const src of allSources) {
+      if (!allTargets.has(src)) {
+        root = src;
+        break;
+      }
+    }
+    if (!root) root = allSources.values().next().value ?? null;
+    if (!root) return;
+
+    // Walk from root to build ordered node list
+    const orderedNodeIds: string[] = [];
+    let current: string | null = root;
+    const visited = new Set<string>();
+    while (current && !visited.has(current)) {
+      visited.add(current);
+      // Skip gap nodes — don't stop on them
+      const node = state.nodes.find(n => n.id === current);
+      if (node && node.type !== 'gap') {
+        orderedNodeIds.push(current);
+      }
+      current = adjacency.get(current) ?? null;
+    }
+
+    if (orderedNodeIds.length === 0) return;
+
+    set({
+      followHighlightedEdges: playerEdgeIds,
+      followPath: { playerName, orderedNodeIds, currentIndex: 0 },
+      pendingFitTarget: orderedNodeIds[0],
+    });
+  },
+
+  advanceFollowPath: () => {
+    const state = get();
+    if (!state.followPath) return;
+
+    const { orderedNodeIds, currentIndex } = state.followPath;
+    const nextIndex = currentIndex + 1;
+
+    if (nextIndex >= orderedNodeIds.length) {
+      // At the end — exit follow mode
+      set({ followPath: null, followHighlightedEdges: new Set() });
+      return;
+    }
+
+    set({
+      followPath: { ...state.followPath, currentIndex: nextIndex },
+      pendingFitTarget: orderedNodeIds[nextIndex],
+    });
+  },
+
+  exitFollowPath: () => {
+    const state = get();
+    if (state.followPath) {
+      set({ followPath: null, followHighlightedEdges: new Set() });
     }
   },
 
@@ -857,6 +957,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         nextColumnIndex: 0,
         prevColumnIndex: -1,
         highlightedEdges: new Set(),
+        followHighlightedEdges: new Set(),
+        followPath: null,
         championshipContext: {
           ...ctx,
           expandedPaths: new Set<string>(),
@@ -890,10 +992,10 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const emptyExpanded = new Set<string>();
     if (state.layoutMode === 'timeline') {
       const laid = layoutPlayerTimeline(updatedNodes, updatedEdges, state.playerColumns, emptyExpanded, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections);
-      set({ nodes: laid, edges: updatedEdges, expandedNodes: emptyExpanded, highlightedEdges: new Set() });
+      set({ nodes: laid, edges: updatedEdges, expandedNodes: emptyExpanded, highlightedEdges: new Set(), followHighlightedEdges: new Set(), followPath: null });
     } else {
       layoutGraph(updatedNodes, updatedEdges, undefined, emptyExpanded).then((laid) => {
-        set({ nodes: laid, edges: updatedEdges, expandedNodes: emptyExpanded, highlightedEdges: new Set() });
+        set({ nodes: laid, edges: updatedEdges, expandedNodes: emptyExpanded, highlightedEdges: new Set(), followHighlightedEdges: new Set(), followPath: null });
       });
     }
   },

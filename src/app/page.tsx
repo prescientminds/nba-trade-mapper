@@ -301,6 +301,7 @@ function GraphCanvas() {
   const pendingFitTarget = useGraphStore((s) => s.pendingFitTarget);
   const clearPendingFitTarget = useGraphStore((s) => s.clearPendingFitTarget);
   const clearHighlightedEdges = useGraphStore((s) => s.clearHighlightedEdges);
+  const exitFollowPath = useGraphStore((s) => s.exitFollowPath);
   const { fitView } = useReactFlow();
   const isMobile = useMobile();
 
@@ -339,7 +340,7 @@ function GraphCanvas() {
           onEdgesChange={onEdgesChange}
           nodeTypes={nodeTypes}
           edgeTypes={edgeTypes}
-          onPaneClick={clearHighlightedEdges}
+          onPaneClick={() => { clearHighlightedEdges(); exitFollowPath(); }}
           minZoom={0.1}
           maxZoom={2}
           panOnDrag={true}

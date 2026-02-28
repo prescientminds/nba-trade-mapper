@@ -31,6 +31,8 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
   const loadingNodes = useGraphStore((s) => s.loadingNodes);
   const coreNodes = useGraphStore((s) => s.coreNodes);
   const expandChampionshipPlayer = useGraphStore((s) => s.expandChampionshipPlayer);
+  const followPath = useGraphStore((s) => s.followPath);
+  const advanceFollowPath = useGraphStore((s) => s.advanceFollowPath);
 
   const isExpanded = expandedNodes.has(id);
   const isLoading = loadingNodes.has(id);
@@ -328,6 +330,33 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
             animation: 'spin 0.8s linear infinite',
           }}
         />
+      )}
+
+      {/* Follow indicator — pulsing gold ▼ Next button */}
+      {followPath && followPath.orderedNodeIds[followPath.currentIndex] === id && (
+        <div
+          className="nopan nodrag"
+          onClick={(e) => { e.stopPropagation(); advanceFollowPath(); }}
+          style={{
+            position: 'absolute',
+            bottom: -18,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            fontSize: 9,
+            fontWeight: 600,
+            color: '#f9c74f',
+            background: 'rgba(249,199,79,0.15)',
+            border: '1px solid rgba(249,199,79,0.3)',
+            borderRadius: 4,
+            padding: '1px 8px',
+            cursor: 'pointer',
+            whiteSpace: 'nowrap',
+            zIndex: 10,
+            animation: 'pulse-gold 2s ease-in-out infinite',
+          }}
+        >
+          {followPath.currentIndex < followPath.orderedNodeIds.length - 1 ? '\u25BC Next' : '\u25CF'}
+        </div>
       )}
 
       <Handle type="source" position={Position.Bottom} style={{ opacity: 0 }} />
