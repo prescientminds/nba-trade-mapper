@@ -240,12 +240,32 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
               fontWeight: 600,
               letterSpacing: 0.7,
               textTransform: 'uppercase',
-              color: 'var(--text-muted)',
+              color: '#f9c74f',
               fontFamily: 'var(--font-body)',
-              marginBottom: 3,
+              marginBottom: 2,
             }}
           >
-            Roster
+            Playoff Stats
+          </div>
+
+          {/* Column headers — spacer at end matches Path/After button width */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 3,
+            padding: '0 3px 2px',
+          }}>
+            <span style={{ flex: 1, fontSize: 6, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: 0.5 }}>
+              Player
+            </span>
+            <span style={{ fontSize: 6, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: 0.3, flexShrink: 0, width: 52, textAlign: 'right' }}>
+              PPG/RPG/APG
+            </span>
+            <span style={{ fontSize: 6, color: '#f9c74f', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: 0.3, flexShrink: 0, width: 16, textAlign: 'right' }}>
+              WS
+            </span>
+            {/* Spacer matching Path/After/on-graph button */}
+            <span style={{ flexShrink: 0, width: 28 }} />
           </div>
 
           {/* Separator */}
@@ -298,16 +318,21 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
                     {player.playerName}
                   </div>
 
-                  {/* Stats summary */}
-                  {player.avgPpg !== null && (
+                  {/* Playoff stats (preferred) or regular season fallback */}
+                  {(player.playoffPpg != null || player.avgPpg != null) && (
                     <span style={{
                       fontSize: 7,
                       fontFamily: 'var(--font-mono)',
-                      color: 'var(--text-muted)',
+                      color: player.playoffPpg != null ? 'var(--text-secondary)' : 'var(--text-muted)',
                       flexShrink: 0,
                       whiteSpace: 'nowrap',
+                      width: 52,
+                      textAlign: 'right',
                     }}>
-                      {player.avgPpg.toFixed(1)}/{player.avgRpg?.toFixed(1) ?? '-'}/{player.avgApg?.toFixed(1) ?? '-'}
+                      {player.playoffPpg != null
+                        ? `${player.playoffPpg.toFixed(1)}/${player.playoffRpg?.toFixed(1) ?? '-'}/${player.playoffApg?.toFixed(1) ?? '-'}`
+                        : `${player.avgPpg!.toFixed(1)}/${player.avgRpg?.toFixed(1) ?? '-'}/${player.avgApg?.toFixed(1) ?? '-'}`
+                      }
                     </span>
                   )}
 
@@ -318,6 +343,8 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
                       fontFamily: 'var(--font-mono)',
                       color: '#f9c74f',
                       flexShrink: 0,
+                      width: 16,
+                      textAlign: 'right',
                     }}>
                       {player.playoffWs.toFixed(1)}
                     </span>

@@ -270,7 +270,7 @@ function GraphToolbar() {
           {hasRoadPhasePlayers && (
             <ToolbarButton
               icon={<IconExpand />}
-              label="Show After"
+              label="Post-Championship"
               title="Show where players went after the championship"
               onClick={async () => {
                 setChampExpanding(true);

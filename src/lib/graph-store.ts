@@ -108,6 +108,10 @@ export interface ChampionshipNodeData {
     avgPpg: number | null;
     avgRpg: number | null;
     avgApg: number | null;
+    playoffPpg: number | null;
+    playoffRpg: number | null;
+    playoffApg: number | null;
+    playoffGp: number | null;
     playoffWs: number | null;
     totalWinShares: number | null;
   }>;
@@ -428,6 +432,10 @@ function sum(nums: (number | null)[]): number | null {
 export interface ChampionshipPlayerData {
   playerName: string;
   playoffWs: number | null;
+  playoffPpg: number | null;
+  playoffRpg: number | null;
+  playoffApg: number | null;
+  playoffGp: number | null;
   allStints: Stint[];
   championshipStintIndex: number;
   draftInfo: { year: number; round: number; pick: number } | null;
@@ -1432,8 +1440,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       expandedGapIds: new Set(),
     });
 
-    // Auto-expand root trade after a tick
-    setTimeout(() => get().expandTradeNode(rootNodeId), 50);
+    // Root trade is already in expandedSet — no toggle needed
   },
 
   // ── Expand web: one generation per click ────────────────────────
@@ -3338,7 +3345,11 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
       return {
         playerName: ps.player_name,
-        playoffWs: (ps as PlayerSeason & { playoff_ws?: number | null }).playoff_ws ?? null,
+        playoffWs: ps.playoff_ws ?? null,
+        playoffPpg: ps.playoff_ppg ?? null,
+        playoffRpg: ps.playoff_rpg ?? null,
+        playoffApg: ps.playoff_apg ?? null,
+        playoffGp: ps.playoff_gp ?? null,
         allStints: stints,
         championshipStintIndex: champIdx,
         draftInfo: draftInfo ? { year: draftInfo.year, round: draftInfo.round, pick: draftInfo.pick } : null,
@@ -3367,6 +3378,10 @@ export const useGraphStore = create<GraphState>((set, get) => ({
           avgPpg: avg(champStint.seasons.map(s => s.ppg)),
           avgRpg: avg(champStint.seasons.map(s => s.rpg)),
           avgApg: avg(champStint.seasons.map(s => s.apg)),
+          playoffPpg: pd.playoffPpg,
+          playoffRpg: pd.playoffRpg,
+          playoffApg: pd.playoffApg,
+          playoffGp: pd.playoffGp,
           playoffWs: pd.playoffWs,
           totalWinShares: sum(champStint.seasons.map(s => s.win_shares)),
         };
@@ -3482,9 +3497,20 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     }
 
     // Edge from championship node to championship stint
+    // Excluded from topo sort so the stint sits at its natural Y in its own column
+    // beside the championship card, not forced below it
     const champStintId = stintNodeId(playerName, stints[champIdx].teamId, champIdx);
-    if (!edgeExists(newEdges, champNodeId_, champStintId) && !edgeExists(state.edges, champNodeId_, champStintId))
-      newEdges.push(makeEdge(champNodeId_, champStintId));
+    if (!edgeExists(newEdges, champNodeId_, champStintId) && !edgeExists(state.edges, champNodeId_, champStintId)) {
+      newEdges.push({
+        id: `e-${champNodeId_}-${champStintId}`,
+        source: champNodeId_,
+        target: champStintId,
+        type: 'highlightable',
+        animated: false,
+        style: { stroke: '#555', strokeWidth: 1.5 },
+        data: { excludeFromTopoSort: true },
+      });
+    }
 
     // Assign column for this player
     const col = state.nextColumnIndex;
@@ -3588,9 +3614,19 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       }
 
       // Edge from championship node to championship stint
+      // Excluded from topo sort so stints sit beside the championship card
       const champStintId = stintNodeId(pd.playerName, stints[champIdx].teamId, champIdx);
-      if (!edgeExists(newEdges, champNodeId_, champStintId))
-        newEdges.push(makeEdge(champNodeId_, champStintId));
+      if (!edgeExists(newEdges, champNodeId_, champStintId)) {
+        newEdges.push({
+          id: `e-${champNodeId_}-${champStintId}`,
+          source: champNodeId_,
+          target: champStintId,
+          type: 'highlightable',
+          animated: false,
+          style: { stroke: '#555', strokeWidth: 1.5 },
+          data: { excludeFromTopoSort: true },
+        });
+      }
     }
 
     const tradeResults = await Promise.all(tradePromises);

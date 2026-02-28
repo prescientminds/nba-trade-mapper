@@ -79,6 +79,14 @@ export interface PlayerSeason {
   win_shares: number | null;
   per: number | null;
   vorp: number | null;
+  playoff_gp: number | null;
+  playoff_ppg: number | null;
+  playoff_rpg: number | null;
+  playoff_apg: number | null;
+  playoff_ws: number | null;
+  playoff_per: number | null;
+  playoff_bpm: number | null;
+  playoff_vorp: number | null;
 }
 
 export interface PlayerContract {

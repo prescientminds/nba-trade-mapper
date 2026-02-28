@@ -74,6 +74,10 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
         padding: isExpanded ? '4px 8px' : '3px 6px',
         fontFamily: 'var(--font-body)',
         position: 'relative',
+        cursor: 'pointer',
+      }}
+      onClick={() => {
+        if (!isLoading) expandStintDetails(id);
       }}
       onMouseEnter={(e) => {
         if (!isExpanded) {

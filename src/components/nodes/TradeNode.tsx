@@ -665,14 +665,14 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             <span
                               data-chevron
                               style={{
-                                fontSize: 7,
+                                fontSize: 10,
                                 color: isInlineExpanded ? 'var(--accent-orange)' : 'var(--text-muted)',
                                 transition: 'transform 0.2s, color 0.15s, background 0.15s',
                                 transform: isInlineExpanded ? 'rotate(90deg)' : 'rotate(0deg)',
                                 lineHeight: 1,
                                 flexShrink: 0,
-                                width: 12,
-                                height: 12,
+                                width: 16,
+                                height: 16,
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
@@ -873,14 +873,14 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                                 <span
                                   data-chevron
                                   style={{
-                                    fontSize: 7,
+                                    fontSize: 10,
                                     color: isPickInlineExpanded ? 'var(--accent-orange)' : 'var(--text-muted)',
                                     transition: 'transform 0.2s, color 0.15s, background 0.15s',
                                     transform: isPickInlineExpanded ? 'rotate(90deg)' : 'rotate(0deg)',
                                     lineHeight: 1,
                                     flexShrink: 0,
-                                    width: 12,
-                                    height: 12,
+                                    width: 16,
+                                    height: 16,
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',

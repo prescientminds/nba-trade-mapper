@@ -1604,7 +1604,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
         const allCategories: Category[] = [
           {
             id: 'trade-tree',
-            label: 'Trade Tree Value',
+            label: 'Asset Chain Value',
             description: 'Team-centric value from flipping assets through multiple trades — what one GM accumulated through smart asset management.',
             accentColor: 'var(--accent-teal)',
             ...METRIC_DEFS['trade-tree'],
