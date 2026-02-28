@@ -52,7 +52,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
       .then(({ data }) => { if (data) setTradeScore(data as TradeScoreRow); setScoreLoading(false); });
   }, [isExpanded, scoreFetched, trade.id]);
   const hasInlineData = inlinePlayers && Object.keys(inlinePlayers).length > 0;
-  const cardWidth = hasInlineData ? 230 : 180;
+  const cardWidth = hasInlineData ? 320 : 180;
 
   const dateStr = trade.date
     ? new Date(trade.date).toLocaleDateString('en-US', {
@@ -633,24 +633,64 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             style={{
                               fontSize: 10,
                               fontWeight: 500,
-                              color: isInlineExpanded ? 'var(--accent-orange)' : 'var(--text-primary)',
+                              color: 'var(--text-primary)',
                               cursor: 'pointer',
                               flex: 1,
                               overflow: 'hidden',
-                              textOverflow: 'ellipsis',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: 3,
                               whiteSpace: 'nowrap',
-                              transition: 'color 0.15s',
                             }}
                             onMouseEnter={(e) => {
-                              if (!isInlineExpanded) e.currentTarget.style.color = 'var(--text-primary)';
-                              e.currentTarget.style.textDecoration = 'underline';
+                              const nameEl = e.currentTarget.querySelector('[data-name]') as HTMLElement;
+                              if (nameEl) nameEl.style.textDecoration = 'underline';
+                              const chevron = e.currentTarget.querySelector('[data-chevron]') as HTMLElement;
+                              if (chevron) {
+                                chevron.style.background = 'rgba(255,255,255,0.12)';
+                                chevron.style.color = 'var(--text-primary)';
+                              }
                             }}
                             onMouseLeave={(e) => {
-                              e.currentTarget.style.color = isInlineExpanded ? 'var(--accent-orange)' : 'var(--text-primary)';
-                              e.currentTarget.style.textDecoration = 'none';
+                              const nameEl = e.currentTarget.querySelector('[data-name]') as HTMLElement;
+                              if (nameEl) nameEl.style.textDecoration = 'none';
+                              const chevron = e.currentTarget.querySelector('[data-chevron]') as HTMLElement;
+                              if (chevron) {
+                                chevron.style.background = 'transparent';
+                                chevron.style.color = isInlineExpanded ? 'var(--accent-orange)' : 'var(--text-muted)';
+                              }
                             }}
                           >
-                            {playerName}
+                            {/* Expand chevron indicator */}
+                            <span
+                              data-chevron
+                              style={{
+                                fontSize: 7,
+                                color: isInlineExpanded ? 'var(--accent-orange)' : 'var(--text-muted)',
+                                transition: 'transform 0.2s, color 0.15s, background 0.15s',
+                                transform: isInlineExpanded ? 'rotate(90deg)' : 'rotate(0deg)',
+                                lineHeight: 1,
+                                flexShrink: 0,
+                                width: 12,
+                                height: 12,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                borderRadius: 2,
+                                background: 'transparent',
+                              }}
+                            >
+                              ▸
+                            </span>
+                            <span
+                              data-name
+                              style={{
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                              }}
+                            >
+                              {playerName}
+                            </span>
                           </div>
 
                           {/* Per-asset score */}
@@ -789,7 +829,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                           justifyContent: 'space-between',
                           fontSize: 10,
                           fontWeight: 500,
-                          color: inGraph ? 'var(--text-muted)' : 'var(--text-primary)',
+                          color: inGraph ? 'var(--text-muted)' : 'var(--pick-yellow)',
                           padding: '1px 3px',
                           borderRadius: 3,
                           opacity: inGraph ? 0.5 : 1,
@@ -797,56 +837,129 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                         }}
                       >
                         <div style={{ flex: 1, minWidth: 0 }}>
-                          {/* Pick label — clickable only if it IS the player name (historical) */}
-                          {labelIsPlayer && canInline ? (
+                          {labelIsPlayer ? (
+                            /* Historical pick — render like a player row: white name + chevron */
                             <div
                               className="nopan nodrag"
-                              onClick={(e) => handleInlineClick(e, asset)}
+                              onClick={(e) => canInline ? handleInlineClick(e, asset) : undefined}
                               style={{
-                                color: isPickInlineExpanded ? 'var(--accent-orange)' : 'var(--accent-gold)',
-                                cursor: 'pointer',
-                                transition: 'color 0.15s',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 3,
+                                color: 'var(--text-primary)',
+                                cursor: canInline ? 'pointer' : 'default',
                               }}
-                              onMouseEnter={(e) => { e.currentTarget.style.textDecoration = 'underline'; }}
+                              onMouseEnter={(e) => {
+                                if (!canInline) return;
+                                const nameEl = e.currentTarget.querySelector('[data-name]') as HTMLElement;
+                                if (nameEl) nameEl.style.textDecoration = 'underline';
+                                const chevron = e.currentTarget.querySelector('[data-chevron]') as HTMLElement;
+                                if (chevron) {
+                                  chevron.style.background = 'rgba(255,255,255,0.12)';
+                                  chevron.style.color = 'var(--text-primary)';
+                                }
+                              }}
                               onMouseLeave={(e) => {
-                                e.currentTarget.style.textDecoration = 'none';
-                                e.currentTarget.style.color = isPickInlineExpanded ? 'var(--accent-orange)' : 'var(--accent-gold)';
+                                const nameEl = e.currentTarget.querySelector('[data-name]') as HTMLElement;
+                                if (nameEl) nameEl.style.textDecoration = 'none';
+                                const chevron = e.currentTarget.querySelector('[data-chevron]') as HTMLElement;
+                                if (chevron) {
+                                  chevron.style.background = 'transparent';
+                                  chevron.style.color = isPickInlineExpanded ? 'var(--accent-orange)' : 'var(--text-muted)';
+                                }
                               }}
                             >
-                              {label}
+                              {canInline && (
+                                <span
+                                  data-chevron
+                                  style={{
+                                    fontSize: 7,
+                                    color: isPickInlineExpanded ? 'var(--accent-orange)' : 'var(--text-muted)',
+                                    transition: 'transform 0.2s, color 0.15s, background 0.15s',
+                                    transform: isPickInlineExpanded ? 'rotate(90deg)' : 'rotate(0deg)',
+                                    lineHeight: 1,
+                                    flexShrink: 0,
+                                    width: 12,
+                                    height: 12,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    borderRadius: 2,
+                                    background: 'transparent',
+                                  }}
+                                >
+                                  ▸
+                                </span>
+                              )}
+                              <span data-name>{label}</span>
                             </div>
                           ) : (
-                            <div>{label}</div>
+                            <>
+                              {/* Pick label: year/round/team in yellow */}
+                              <div>{label}</div>
+                              {/* Drafted player name underneath, indented, white, clickable */}
+                              {sublabel && canInline ? (
+                                <div
+                                  className="nopan nodrag"
+                                  onClick={(e) => handleInlineClick(e, asset)}
+                                  style={{
+                                    fontSize: 10,
+                                    fontWeight: 500,
+                                    color: 'var(--text-primary)',
+                                    cursor: 'pointer',
+                                    paddingLeft: 8,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: 3,
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    const nameEl = e.currentTarget.querySelector('[data-name]') as HTMLElement;
+                                    if (nameEl) nameEl.style.textDecoration = 'underline';
+                                    const chevron = e.currentTarget.querySelector('[data-chevron]') as HTMLElement;
+                                    if (chevron) {
+                                      chevron.style.background = 'rgba(255,255,255,0.12)';
+                                      chevron.style.color = 'var(--text-primary)';
+                                    }
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    const nameEl = e.currentTarget.querySelector('[data-name]') as HTMLElement;
+                                    if (nameEl) nameEl.style.textDecoration = 'none';
+                                    const chevron = e.currentTarget.querySelector('[data-chevron]') as HTMLElement;
+                                    if (chevron) {
+                                      chevron.style.background = 'transparent';
+                                      chevron.style.color = isPickInlineExpanded ? 'var(--accent-orange)' : 'var(--text-muted)';
+                                    }
+                                  }}
+                                >
+                                  <span
+                                    data-chevron
+                                    style={{
+                                      fontSize: 7,
+                                      color: isPickInlineExpanded ? 'var(--accent-orange)' : 'var(--text-muted)',
+                                      transition: 'transform 0.2s, color 0.15s, background 0.15s',
+                                      transform: isPickInlineExpanded ? 'rotate(90deg)' : 'rotate(0deg)',
+                                      lineHeight: 1,
+                                      flexShrink: 0,
+                                      width: 12,
+                                      height: 12,
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      justifyContent: 'center',
+                                      borderRadius: 2,
+                                      background: 'transparent',
+                                    }}
+                                  >
+                                    ▸
+                                  </span>
+                                  <span data-name>{sublabel}</span>
+                                </div>
+                              ) : sublabel ? (
+                                <div style={{ fontSize: 10, color: 'var(--text-primary)', fontWeight: 500, paddingLeft: 8 }}>
+                                  {sublabel}
+                                </div>
+                              ) : null}
+                            </>
                           )}
-                          {/* Sublabel — clickable player name for picks with year */}
-                          {sublabel && !labelIsPlayer && canInline ? (
-                            <div
-                              className="nopan nodrag"
-                              onClick={(e) => handleInlineClick(e, asset)}
-                              style={{
-                                fontSize: 9,
-                                fontWeight: 400,
-                                color: isPickInlineExpanded ? 'var(--accent-orange)' : 'var(--accent-gold)',
-                                cursor: 'pointer',
-                                transition: 'color 0.15s',
-                              }}
-                              onMouseEnter={(e) => { e.currentTarget.style.textDecoration = 'underline'; }}
-                              onMouseLeave={(e) => {
-                                e.currentTarget.style.textDecoration = 'none';
-                                e.currentTarget.style.color = isPickInlineExpanded ? 'var(--accent-orange)' : 'var(--accent-gold)';
-                              }}
-                            >
-                              {sublabel}
-                            </div>
-                          ) : sublabel && !labelIsPlayer ? (
-                            <div style={{ fontSize: 9, color: 'var(--accent-gold)', fontWeight: 400 }}>
-                              {sublabel}
-                            </div>
-                          ) : labelIsPlayer && sublabel ? (
-                            <div style={{ fontSize: 9, color: 'var(--text-muted)', fontWeight: 400 }}>
-                              {sublabel}
-                            </div>
-                          ) : null}
                         </div>
                         {/* Per-asset score for picks */}
                         {pickScore !== null && (

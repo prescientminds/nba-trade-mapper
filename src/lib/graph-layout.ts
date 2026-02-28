@@ -45,7 +45,7 @@ function expandedTradeDimensions(node: Node): { width: number; height: number } 
   }
 
   const hasInlinePlayers = data.inlinePlayers && Object.keys(data.inlinePlayers).length > 0;
-  const width = hasInlinePlayers ? 230 : 180;
+  const width = hasInlinePlayers ? 320 : 180;
   return { width, height: Math.max(height, 60) };
 }
 
@@ -102,7 +102,7 @@ export function layoutPlayerTimeline(
   const PIXELS_PER_YEAR = 10; // compact: topo BFS dominates year-based spacing
   const COLUMN_WIDTH = 210;
   const LEFT_MARGIN = 40;
-  const MIN_GAP = 24;
+  const MIN_GAP = 32;
   const GAP_THRESHOLD = 100; // effectively disable gap compression (conflicts with compact layout)
 
   // Separate gap nodes from regular nodes
@@ -175,22 +175,8 @@ export function layoutPlayerTimeline(
       return playerColumns.get(playerName)!;
     }
     if (node.type === 'championship') {
-      // Center across all connected player columns, or sit at -1 if none connected yet
-      const connectedIds = adjacency.get(node.id) ?? [];
-      const cols: number[] = [];
-      for (const id of connectedIds) {
-        const neighbor = nodeMap.get(id);
-        if (!neighbor) continue;
-        const name = getPlayerName(neighbor);
-        if (name && playerColumns.has(name)) {
-          cols.push(playerColumns.get(name)!);
-        }
-      }
-      if (cols.length > 0) {
-        const posCols = cols.filter(c => c >= 0);
-        return posCols.length > 0 ? Math.min(...posCols) : Math.min(...cols);
-      }
-      return -1; // Far left when no player paths expanded yet
+      // Championship card always stays in its own column to the left of player paths
+      return -1;
     }
     if (node.type === 'trade') {
       // Center across all connected player/stint nodes
@@ -276,14 +262,39 @@ export function layoutPlayerTimeline(
   for (let i = 0; i < sortedCols.length; i++) {
     denseColMap.set(sortedCols[i], i);
   }
-  // Remap x-positions in initPos to use dense columns
+
+  // Compute per-column widths accounting for expanded trade nodes with inline stats
+  const maxDenseCols = sortedCols.length;
+  const colWidths = new Array(maxDenseCols).fill(COLUMN_NODE_WIDTH);
+  for (const [id, pos] of initPos) {
+    const logicalCol = Math.round(pos.col);
+    const denseCol = denseColMap.get(logicalCol) ?? logicalCol;
+    if (denseCol >= maxDenseCols) continue;
+    const node = nodeMap.get(id);
+    if (node && expandedNodeIds?.has(node.id) && node.type === 'trade') {
+      const w = expandedTradeDimensions(node).width;
+      colWidths[denseCol] = Math.max(colWidths[denseCol], w);
+    }
+    if (node && node.type === 'playerStint') {
+      colWidths[denseCol] = Math.max(colWidths[denseCol], 210);
+    }
+  }
+  // Build cumulative x-offsets per dense column
+  const COL_GAP = COLUMN_WIDTH - COLUMN_NODE_WIDTH; // spacing between node edges
+  const colXOffset = new Array(maxDenseCols).fill(LEFT_MARGIN);
+  for (let i = 1; i < maxDenseCols; i++) {
+    colXOffset[i] = colXOffset[i - 1] + colWidths[i - 1] + COL_GAP;
+  }
+
+  // Remap x-positions in initPos to use dense columns with dynamic widths
   for (const [id, pos] of initPos) {
     const logicalCol = Math.round(pos.col);
     const denseCol = denseColMap.get(logicalCol) ?? logicalCol;
     const node = nodeMap.get(id);
+    const baseX = denseCol < maxDenseCols ? colXOffset[denseCol] : LEFT_MARGIN + denseCol * COLUMN_WIDTH;
     const x = node?.type === 'player'
-      ? LEFT_MARGIN + denseCol * COLUMN_WIDTH + (COLUMN_NODE_WIDTH - PLAYER_NODE_WIDTH) / 2
-      : LEFT_MARGIN + denseCol * COLUMN_WIDTH;
+      ? baseX + (COLUMN_NODE_WIDTH - PLAYER_NODE_WIDTH) / 2
+      : baseX;
     initPos.set(id, { ...pos, x });
   }
 
@@ -602,7 +613,7 @@ export function layoutPlayerTimeline(
     const col = playerColumns.has(data.playerName) ? playerColumns.get(data.playerName)! : 0;
     const intCol = Math.round(col);
     const denseCol = denseColMap.get(intCol) ?? intCol;
-    const x = LEFT_MARGIN + denseCol * COLUMN_WIDTH;
+    const x = denseCol < maxDenseCols ? colXOffset[denseCol] : LEFT_MARGIN + denseCol * COLUMN_WIDTH;
 
     // Find neighboring nodes via edges
     const prevEdge = edges.find(e => e.target === gn.id);
