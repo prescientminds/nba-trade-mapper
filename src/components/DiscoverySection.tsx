@@ -757,31 +757,35 @@ function ViewToggle({
   onToggle: () => void;
 }) {
   const [hovered, setHovered] = useState(false);
+  const label = mode === 'cards' ? 'Explore' : 'Card view';
   return (
     <button
       onClick={onToggle}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       aria-label={mode === 'cards' ? 'Switch to list view' : 'Switch to card view'}
-      title={mode === 'cards' ? 'List view' : 'Card view'}
       style={{
         background: hovered ? 'var(--bg-tertiary)' : 'var(--bg-elevated)',
         border: `1px solid ${hovered ? 'var(--border-medium)' : 'var(--border-subtle)'}`,
-        borderRadius: 'var(--radius-sm)',
+        borderRadius: 'var(--radius-full, 999px)',
         color: hovered ? 'var(--text-primary)' : 'var(--text-secondary)',
         cursor: 'pointer',
-        width: 22,
-        height: 22,
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 11,
-        padding: 0,
+        gap: 4,
+        fontSize: 9,
+        fontWeight: 600,
+        fontFamily: 'var(--font-body)',
+        letterSpacing: 0.5,
+        textTransform: 'uppercase',
+        padding: '3px 10px',
         transition: 'var(--transition-fast)',
         flexShrink: 0,
+        whiteSpace: 'nowrap',
       }}
     >
-      {mode === 'cards' ? '☰' : '▦'}
+      <span style={{ fontSize: 10, lineHeight: 1 }}>{mode === 'cards' ? '☰' : '▦'}</span>
+      {label}
     </button>
   );
 }
@@ -1099,7 +1103,7 @@ function CategoryRow({
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [viewMode, setViewMode] = useState<'cards' | 'list'>('cards');
-  const [expanded, setExpanded] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(10);
 
   const scroll = (dir: 'left' | 'right') => {
     scrollRef.current?.scrollBy({ left: dir === 'right' ? 210 : -210, behavior: 'smooth' });
@@ -1115,8 +1119,9 @@ function CategoryRow({
     if (trade) onSelectTrade(staticTradeToTradeWithDetails(trade));
   };
 
-  const listCards = expanded ? category.cards : category.cards.slice(0, 5);
-  const canExpand = category.cards.length > 5;
+  const maxVisible = Math.min(visibleCount, 200);
+  const listCards = category.cards.slice(0, maxVisible);
+  const hasMore = category.cards.length > maxVisible;
 
   return (
     <div style={{ marginTop: 20 }}>
@@ -1141,7 +1146,7 @@ function CategoryRow({
         </div>
         <ViewToggle
           mode={viewMode}
-          onToggle={() => { setViewMode(viewMode === 'cards' ? 'list' : 'cards'); setExpanded(false); }}
+          onToggle={() => { setViewMode(viewMode === 'cards' ? 'list' : 'cards'); setVisibleCount(10); }}
         />
         {viewMode === 'cards' && (
           <>
@@ -1227,10 +1232,10 @@ function CategoryRow({
             )
           )}
 
-          {/* See more / See less */}
-          {canExpand && (
+          {/* See next 10 */}
+          {hasMore && (
             <button
-              onClick={() => setExpanded(!expanded)}
+              onClick={() => setVisibleCount(prev => Math.min(prev + 10, 200))}
               style={{
                 width: '100%',
                 padding: '8px 12px',
@@ -1248,7 +1253,7 @@ function CategoryRow({
               onMouseEnter={(e) => { (e.target as HTMLButtonElement).style.color = 'var(--text-primary)'; }}
               onMouseLeave={(e) => { (e.target as HTMLButtonElement).style.color = 'var(--text-secondary)'; }}
             >
-              {expanded ? 'See less ↑' : `See more (${category.cards.length}) ↓`}
+              See next 10 ↓
             </button>
           )}
         </div>
@@ -1435,7 +1440,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             };
           })
           .filter((c): c is TradeCard => c !== null)
-          .slice(0, 20);
+          .slice(0, 200);
 
         // 0a-b. League Impact — total career value across the league from trade cascades
         const leagueImpactCards: TradeCard[] = [...chainRows]
@@ -1463,7 +1468,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             };
           })
           .filter((c): c is TradeCard => c !== null)
-          .slice(0, 20);
+          .slice(0, 200);
 
         // 0b. Alchemists — breadth over magnitude, no single asset dominating
         const alchemistCards: TradeCard[] = [...chainRows]
@@ -1502,13 +1507,13 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
           })
           .filter((c): c is (TradeCard & { _breadth: number }) => c !== null)
           .sort((a, b) => b._breadth - a._breadth)
-          .slice(0, 20)
+          .slice(0, 200)
           .map(({ _breadth: _, ...card }) => card);
 
         // 1. Heist Index
         const heistCards: TradeCard[] = enriched
           .filter(({ s }) => !tpeTradeIds.has(s.trade_id))
-          .slice(0, 20)
+          .slice(0, 200)
           .map(({ s, entry }) => ({
             type: 'trade' as const,
             tradeId: s.trade_id,
@@ -1525,7 +1530,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
         const champCards: TradeCard[] = enriched
           .filter((e) => e.champWithin4 && !tpeTradeIds.has(e.s.trade_id))
           .sort((a, b) => b.s.lopsidedness - a.s.lopsidedness)
-          .slice(0, 20)
+          .slice(0, 200)
           .map(({ s, entry }) => {
             const tradeYear = seasonYear(entry.season);
             const winnerChamps = champYears.get(s.winner) ?? new Set<number>();
@@ -1560,7 +1565,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             return { s, entry, floorScore };
           })
           .sort((a, b) => b.floorScore - a.floorScore)
-          .slice(0, 20)
+          .slice(0, 200)
           .map(({ s, entry, floorScore }) => ({
             type: 'trade' as const,
             tradeId: s.trade_id,
@@ -1588,7 +1593,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
         }
         const journeyCards: PlayerCard[] = [...playerCount.entries()]
           .sort((a, b) => b[1] - a[1])
-          .slice(0, 20)
+          .slice(0, 200)
           .map(([name, count]) => ({
             type: 'player' as const,
             name,
