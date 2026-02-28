@@ -195,6 +195,7 @@ interface GraphState {
   expandChampionshipPlayerAfter: (playerName: string) => Promise<void>;
   expandChampionshipWeb: () => Promise<void>;
   expandInlineChampionshipPlayer: (nodeId: string, playerName: string) => Promise<void>;
+  collapseChampionshipStaged: () => void;
 }
 
 // ── Helpers ──────────────────────────────────────────────────────────
@@ -3822,6 +3823,124 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     const laid = layoutPlayerTimeline(finalNodes, currentState.edges, currentState.playerColumns, currentState.expandedNodes, currentState.expandedGapIds, currentState.playerAnchorTrades, currentState.playerAnchorDirections, nodeId);
     set({ nodes: laid });
+  },
+
+  // Staged collapse for championship:
+  // Stage 1 (any "full" players): revert dissolution stints back to "road" only
+  // Stage 2 (any "road" players, no "full"): clear all player paths, leave just the championship card
+  // Stage 3 (no expanded paths): collapse the championship card itself
+  collapseChampionshipStaged: () => {
+    const state = get();
+    const ctx = state.championshipContext;
+    if (!ctx) return;
+
+    const champNodeId_ = championshipNodeId(ctx.teamId, ctx.season);
+
+    // Check what phase we're in
+    const fullPlayers = ctx.players.filter(p => ctx.playerPhases.get(p.playerName) === 'full');
+    const hasExpandedPaths = ctx.expandedPaths.size > 0;
+
+    if (fullPlayers.length > 0) {
+      // ── Stage 1: Remove post-championship (dissolution) stints, revert "full" → "road" ──
+      // Collect node IDs for post-championship stints and their connecting trades
+      const nodesToRemove = new Set<string>();
+      for (const pd of fullPlayers) {
+        const stints = pd.allStints;
+        const champIdx = pd.championshipStintIndex;
+        // Mark post-champ stint nodes for removal
+        for (let i = champIdx + 1; i < stints.length; i++) {
+          nodesToRemove.add(stintNodeId(pd.playerName, stints[i].teamId, i));
+        }
+      }
+      // Also remove trade nodes that only connect post-champ stints
+      // Find edges that connect to removed nodes — remove those edges, then check if
+      // the trade nodes on those edges have any remaining connections
+      const removedEdges = state.edges.filter(
+        e => nodesToRemove.has(e.source) || nodesToRemove.has(e.target)
+      );
+      const tradeNodesOnRemovedEdges = new Set<string>();
+      for (const e of removedEdges) {
+        if (e.source.startsWith('trade-')) tradeNodesOnRemovedEdges.add(e.source);
+        if (e.target.startsWith('trade-')) tradeNodesOnRemovedEdges.add(e.target);
+      }
+      // Only remove trade nodes that have NO remaining edges after the post-champ removal
+      const remainingEdges = state.edges.filter(
+        e => !nodesToRemove.has(e.source) && !nodesToRemove.has(e.target)
+      );
+      for (const tId of tradeNodesOnRemovedEdges) {
+        const hasRemainingEdge = remainingEdges.some(e => e.source === tId || e.target === tId);
+        if (!hasRemainingEdge) nodesToRemove.add(tId);
+      }
+
+      const newNodes = state.nodes.filter(n => !nodesToRemove.has(n.id));
+      const newEdges = remainingEdges;
+      const newExpanded = new Set(state.expandedNodes);
+      for (const id of nodesToRemove) newExpanded.delete(id);
+      const newCore = new Set(state.coreNodes);
+      for (const id of nodesToRemove) newCore.delete(id);
+
+      // Revert all "full" players back to "road"
+      const newPhases = new Map(ctx.playerPhases);
+      for (const pd of fullPlayers) {
+        newPhases.set(pd.playerName, 'road');
+      }
+
+      const laid = layoutPlayerTimeline(newNodes, newEdges, state.playerColumns, newExpanded, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections, champNodeId_);
+      set({
+        nodes: laid,
+        edges: newEdges,
+        expandedNodes: newExpanded,
+        coreNodes: newCore,
+        championshipContext: { ...ctx, playerPhases: newPhases },
+      });
+    } else if (hasExpandedPaths) {
+      // ── Stage 2: Remove ALL player paths, leave just the championship card ──
+      const champNode = state.nodes.find(n => n.id === champNodeId_);
+      if (!champNode) return;
+
+      // Strip inline players from championship node
+      const champData = champNode.data as ChampionshipNodeData;
+      const cleanedChampNode = champData.inlinePlayers
+        ? { ...champNode, data: { ...champData, inlinePlayers: undefined } }
+        : champNode;
+
+      // Keep only the championship node, remove everything else
+      const newEdges: Edge[] = [];
+      const newExpanded = new Set<string>();
+      newExpanded.add(champNodeId_); // Keep the card expanded so roster is visible
+
+      const laid = layoutPlayerTimeline([cleanedChampNode], newEdges, new Map(), newExpanded, state.expandedGapIds, new Map(), new Map(), champNodeId_);
+      set({
+        nodes: laid,
+        edges: newEdges,
+        expandedNodes: newExpanded,
+        coreNodes: new Set([champNodeId_]),
+        playerColumns: new Map(),
+        nextColumnIndex: 0,
+        prevColumnIndex: -1,
+        championshipContext: {
+          ...ctx,
+          expandedPaths: new Set<string>(),
+          playerPhases: new Map<string, 'road' | 'full'>(),
+        },
+      });
+    } else {
+      // ── Stage 3: Collapse the championship card itself ──
+      const newExpanded = new Set(state.expandedNodes);
+      newExpanded.delete(champNodeId_);
+
+      // Strip inline players from the card
+      const newNodes = state.nodes.map(n => {
+        if (n.id !== champNodeId_) return n;
+        const d = n.data as ChampionshipNodeData;
+        if (!d.inlinePlayers) return n;
+        const { inlinePlayers: _, ...rest } = d;
+        return { ...n, data: rest };
+      });
+
+      const laid = layoutPlayerTimeline(newNodes, state.edges, state.playerColumns, newExpanded, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections, champNodeId_);
+      set({ nodes: laid, expandedNodes: newExpanded });
+    }
   },
 
   // ── Expand pick node (sync - creates player from became_player_name) ─

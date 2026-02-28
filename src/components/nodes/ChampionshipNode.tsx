@@ -20,7 +20,7 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
   const expandChampionshipPlayer = useGraphStore((s) => s.expandChampionshipPlayer);
   const expandChampionshipPlayerAfter = useGraphStore((s) => s.expandChampionshipPlayerAfter);
   const expandChampionshipWeb = useGraphStore((s) => s.expandChampionshipWeb);
-  const collapseWeb = useGraphStore((s) => s.collapseWeb);
+  const collapseChampionshipStaged = useGraphStore((s) => s.collapseChampionshipStaged);
   const expandInlineChampionshipPlayer = useGraphStore((s) => s.expandInlineChampionshipPlayer);
   const expandedNodes = useGraphStore((s) => s.expandedNodes);
   const nodes = useGraphStore((s) => s.nodes);
@@ -119,7 +119,7 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
         {/* Collapse (-) */}
         <div
           className="nopan nodrag"
-          onClick={(e) => { e.stopPropagation(); collapseWeb(id); }}
+          onClick={(e) => { e.stopPropagation(); collapseChampionshipStaged(); }}
           style={{
             width: 16, height: 16,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
