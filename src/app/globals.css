@@ -62,6 +62,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* Scrollbar */
@@ -173,12 +174,6 @@ button, a, [role="button"] {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-/* D-pad tactile press feedback */
-.dpad-btn:active {
-  transform: scale(0.9);
-  background: rgba(255, 255, 255, 0.14) !important;
 }
 
 /* ── End Mobile ──────────────────────────────────────────────────── */

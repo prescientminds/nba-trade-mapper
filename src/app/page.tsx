@@ -21,7 +21,6 @@ import GapNode from '@/components/nodes/GapNode';
 import ChampionshipNode from '@/components/nodes/ChampionshipNode';
 import HighlightableEdge from '@/components/edges/HighlightableEdge';
 import SearchOverlay from '@/components/SearchOverlay';
-import MobileNav from '@/components/MobileNav';
 
 const nodeTypes = {
   trade: TradeNode,
@@ -198,7 +197,7 @@ function GraphToolbar() {
       style={{
         position: 'absolute',
         top: isMobile ? 'auto' : 62,
-        bottom: isMobile ? 16 : 'auto',
+        bottom: isMobile ? 'calc(12px + env(safe-area-inset-bottom, 16px))' : 'auto',
         left: '50%',
         transform: 'translateX(-50%)',
         zIndex: 8,
@@ -342,7 +341,6 @@ function GraphCanvas() {
     <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
       <SearchOverlay />
       <GraphToolbar />
-      {isMobile && nodes.length > 0 && <MobileNav />}
       <div
         style={{
           position: 'absolute',
