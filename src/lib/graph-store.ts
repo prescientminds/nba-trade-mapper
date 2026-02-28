@@ -822,6 +822,42 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   collapseAll: () => {
     const state = get();
     if (state.nodes.length === 0) return;
+
+    // Championship mode: reset to just the championship card (no player paths)
+    if (state.championshipContext) {
+      const ctx = state.championshipContext;
+      const champNodeId_ = championshipNodeId(ctx.teamId, ctx.season);
+      const champNode = state.nodes.find(n => n.id === champNodeId_);
+      if (!champNode) return;
+
+      // Strip inline players from championship node
+      const champData = champNode.data as ChampionshipNodeData;
+      const cleanedChampNode = champData.inlinePlayers
+        ? { ...champNode, data: { ...champData, inlinePlayers: undefined } }
+        : champNode;
+
+      const newExpanded = new Set<string>();
+      newExpanded.add(champNodeId_);
+
+      const laid = layoutPlayerTimeline([cleanedChampNode], [], new Map(), newExpanded, state.expandedGapIds, new Map(), new Map(), champNodeId_);
+      set({
+        nodes: laid,
+        edges: [],
+        expandedNodes: newExpanded,
+        coreNodes: new Set([champNodeId_]),
+        playerColumns: new Map(),
+        nextColumnIndex: 0,
+        prevColumnIndex: -1,
+        highlightedEdges: new Set(),
+        championshipContext: {
+          ...ctx,
+          expandedPaths: new Set<string>(),
+          playerPhases: new Map<string, 'road' | 'full'>(),
+        },
+      });
+      return;
+    }
+
     const coreIds = state.coreNodes;
     // Keep only core nodes, strip inline details
     const updatedNodes = state.nodes
@@ -844,16 +880,12 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const keptIds = new Set(updatedNodes.map(n => n.id));
     const updatedEdges = state.edges.filter(e => keptIds.has(e.source) && keptIds.has(e.target));
     const emptyExpanded = new Set<string>();
-    // Reset championship context phases so buttons reappear correctly
-    const resetChampCtx = state.championshipContext
-      ? { ...state.championshipContext, expandedPaths: new Set<string>(), playerPhases: new Map<string, 'road' | 'full'>() }
-      : null;
     if (state.layoutMode === 'timeline') {
       const laid = layoutPlayerTimeline(updatedNodes, updatedEdges, state.playerColumns, emptyExpanded, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections);
-      set({ nodes: laid, edges: updatedEdges, expandedNodes: emptyExpanded, championshipContext: resetChampCtx, highlightedEdges: new Set() });
+      set({ nodes: laid, edges: updatedEdges, expandedNodes: emptyExpanded, highlightedEdges: new Set() });
     } else {
       layoutGraph(updatedNodes, updatedEdges, undefined, emptyExpanded).then((laid) => {
-        set({ nodes: laid, edges: updatedEdges, expandedNodes: emptyExpanded, championshipContext: resetChampCtx, highlightedEdges: new Set() });
+        set({ nodes: laid, edges: updatedEdges, expandedNodes: emptyExpanded, highlightedEdges: new Set() });
       });
     }
   },

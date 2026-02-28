@@ -169,6 +169,7 @@ function GraphToolbar() {
   const collapseAll = useGraphStore((s) => s.collapseAll);
   const expandOneDegree = useGraphStore((s) => s.expandOneDegree);
   const collapseOneDegree = useGraphStore((s) => s.collapseOneDegree);
+  const collapseChampionshipStaged = useGraphStore((s) => s.collapseChampionshipStaged);
   const coreNodes = useGraphStore((s) => s.coreNodes);
   const championshipContext = useGraphStore((s) => s.championshipContext);
   const expandAllChampionshipPlayers = useGraphStore((s) => s.expandAllChampionshipPlayers);
@@ -243,7 +244,7 @@ function GraphToolbar() {
         icon={<IconReduce />}
         label="Reduce"
         title="Collapse outermost layer of nodes"
-        onClick={collapseOneDegree}
+        onClick={championshipContext ? collapseChampionshipStaged : collapseOneDegree}
         disabled={!hasNonCoreNodes}
         isMobile={isMobile}
       />
