@@ -175,6 +175,12 @@ button, a, [role="button"] {
   }
 }
 
+/* D-pad tactile press feedback */
+.dpad-btn:active {
+  transform: scale(0.9);
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+
 /* ── End Mobile ──────────────────────────────────────────────────── */
 
 /* Hide default node styling */

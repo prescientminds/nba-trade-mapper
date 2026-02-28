@@ -386,7 +386,7 @@ export default function SearchOverlay() {
           left: '50%',
           transform: 'translateX(-50%)',
           zIndex: 10,
-          width: 400,
+          width: 'min(calc(100vw - 80px), 400px)',
           display: 'flex',
           alignItems: 'center',
           gap: 6,

@@ -1,19 +1,7 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
-
-/** True on narrow/touch screens. Re-checks on resize. */
-function useMobile(): boolean {
-  const [mobile, setMobile] = useState(false);
-  useEffect(() => {
-    const check = () =>
-      setMobile(window.innerWidth < 768 || 'ontouchstart' in window);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
-  }, []);
-  return mobile;
-}
+import { useEffect, useState, useCallback, useRef } from 'react';
+import { useMobile } from '@/lib/use-mobile';
 import {
   ReactFlow,
   Background,
@@ -33,6 +21,7 @@ import GapNode from '@/components/nodes/GapNode';
 import ChampionshipNode from '@/components/nodes/ChampionshipNode';
 import HighlightableEdge from '@/components/edges/HighlightableEdge';
 import SearchOverlay from '@/components/SearchOverlay';
+import MobileNav from '@/components/MobileNav';
 
 const nodeTypes = {
   trade: TradeNode,
@@ -227,14 +216,14 @@ function GraphToolbar() {
       {/* Zoom group */}
       <ToolbarButton icon={<IconZoomOut />} title="Zoom Out" onClick={() => zoomOut({ duration: 200 })} isMobile={isMobile} />
       <ToolbarButton icon={<IconZoomIn />} title="Zoom In" onClick={() => zoomIn({ duration: 200 })} isMobile={isMobile} />
-      <ToolbarButton icon={<IconFitView />} label="Fit" title="Fit all nodes in view" onClick={handleFit} isMobile={isMobile} />
+      <ToolbarButton icon={<IconFitView />} label={isMobile ? undefined : "Fit"} title="Fit all nodes in view" onClick={handleFit} isMobile={isMobile} />
 
       <Separator />
 
       {/* Expand / Reduce group */}
       <ToolbarButton
         icon={<IconExpand />}
-        label="Expand"
+        label={isMobile ? undefined : "Expand"}
         title="Expand trade web one layer deeper"
         onClick={handleExpand}
         disabled={!hasTradeNodes || expanding}
@@ -242,7 +231,7 @@ function GraphToolbar() {
       />
       <ToolbarButton
         icon={<IconReduce />}
-        label="Reduce"
+        label={isMobile ? undefined : "Reduce"}
         title="Collapse outermost layer of nodes"
         onClick={championshipContext ? collapseChampionshipStaged : collapseOneDegree}
         disabled={!hasNonCoreNodes}
@@ -256,7 +245,7 @@ function GraphToolbar() {
           {hasUnexpandedPlayers && (
             <ToolbarButton
               icon={<IconExpand />}
-              label="All Paths"
+              label={isMobile ? undefined : "All Paths"}
               title="Expand road-to-championship paths for all players"
               onClick={async () => {
                 setChampExpanding(true);
@@ -270,7 +259,7 @@ function GraphToolbar() {
           {hasRoadPhasePlayers && (
             <ToolbarButton
               icon={<IconExpand />}
-              label="Post-Championship"
+              label={isMobile ? undefined : "Post-Championship"}
               title="Show where players went after the championship"
               onClick={async () => {
                 setChampExpanding(true);
@@ -287,8 +276,8 @@ function GraphToolbar() {
       <Separator />
 
       {/* Reset / Home group */}
-      <ToolbarButton icon={<IconReset />} label="Reset" title="Collapse all expansions back to initial view" onClick={collapseAll} isMobile={isMobile} />
-      <ToolbarButton icon={<IconHome />} label="Home" title="Clear graph and start a new search" onClick={clearGraph} isMobile={isMobile} />
+      <ToolbarButton icon={<IconReset />} label={isMobile ? undefined : "Reset"} title="Collapse all expansions back to initial view" onClick={collapseAll} isMobile={isMobile} />
+      <ToolbarButton icon={<IconHome />} label={isMobile ? undefined : "Home"} title="Clear graph and start a new search" onClick={clearGraph} isMobile={isMobile} />
     </div>
   );
 }
@@ -302,8 +291,10 @@ function GraphCanvas() {
   const clearPendingFitTarget = useGraphStore((s) => s.clearPendingFitTarget);
   const clearHighlightedEdges = useGraphStore((s) => s.clearHighlightedEdges);
   const exitFollowPath = useGraphStore((s) => s.exitFollowPath);
+  const expandedNodes = useGraphStore((s) => s.expandedNodes);
   const { fitView } = useReactFlow();
   const isMobile = useMobile();
+  const prevExpandedRef = useRef<Set<string>>(new Set());
 
   // Center viewport on the target node after journey/trade loads
   useEffect(() => {
@@ -320,10 +311,38 @@ function GraphCanvas() {
     return () => clearTimeout(timer);
   }, [pendingFitTarget, fitView, clearPendingFitTarget]);
 
+  // Auto-center newly expanded nodes on mobile
+  useEffect(() => {
+    if (!isMobile) {
+      prevExpandedRef.current = new Set(expandedNodes);
+      return;
+    }
+    const prev = prevExpandedRef.current;
+    // Find nodes that are in expandedNodes but weren't before
+    const newlyExpanded: string[] = [];
+    expandedNodes.forEach((id) => {
+      if (!prev.has(id)) newlyExpanded.push(id);
+    });
+    prevExpandedRef.current = new Set(expandedNodes);
+
+    if (newlyExpanded.length > 0 && !pendingFitTarget) {
+      const timer = setTimeout(() => {
+        fitView({
+          nodes: newlyExpanded.map((id) => ({ id })),
+          padding: 0.4,
+          duration: 400,
+          maxZoom: 1.2,
+        });
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, [expandedNodes, isMobile, fitView, pendingFitTarget]);
+
   return (
     <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
       <SearchOverlay />
       <GraphToolbar />
+      {isMobile && nodes.length > 0 && <MobileNav />}
       <div
         style={{
           position: 'absolute',

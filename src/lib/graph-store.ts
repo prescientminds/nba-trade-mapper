@@ -186,6 +186,7 @@ interface GraphState {
   collapseAll: () => void;
   expandOneDegree: () => Promise<void>;
   collapseOneDegree: () => void;
+  setPendingFitTarget: (nodeId: string) => void;
   clearPendingFitTarget: () => void;
   openTradeFromTransition: (tradeId: string, sourceNodeId?: string) => Promise<void>;
   search: (query: string, league?: League) => Promise<{
@@ -754,6 +755,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     });
   },
 
+  setPendingFitTarget: (nodeId: string) => set({ pendingFitTarget: nodeId }),
   clearPendingFitTarget: () => set({ pendingFitTarget: null }),
 
   highlightEdgePath: (edgeId: string) => {
