@@ -774,7 +774,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                           ) : (
                             <div
                               className="nopan nodrag"
-                              onClick={(e) => { e.stopPropagation(); startFollowPath(playerName); }}
+                              onClick={(e) => { e.stopPropagation(); startFollowPath(playerName, id); }}
                               style={{
                                 fontSize: 8,
                                 color: 'var(--text-muted)',
@@ -1081,7 +1081,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                         ) : pickPlayerName ? (
                           <div
                             className="nopan nodrag"
-                            onClick={(e) => { e.stopPropagation(); startFollowPath(pickPlayerName); }}
+                            onClick={(e) => { e.stopPropagation(); startFollowPath(pickPlayerName, id); }}
                             style={{
                               fontSize: 8,
                               color: 'var(--text-muted)',

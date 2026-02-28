@@ -194,7 +194,7 @@ interface GraphState {
   }>;
   highlightEdgePath: (edgeId: string) => void;
   clearHighlightedEdges: () => void;
-  startFollowPath: (playerName: string) => void;
+  startFollowPath: (playerName: string, fromTradeNodeId: string) => void;
   advanceFollowPath: () => void;
   exitFollowPath: () => void;
   championshipContext: ChampionshipContext | null;
@@ -805,7 +805,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     }
   },
 
-  startFollowPath: (playerName: string) => {
+  startFollowPath: (playerName: string, fromTradeNodeId: string) => {
     const state = get();
 
     // Reuse highlightEdgePath's logic to find all player edges
@@ -823,39 +823,25 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     // Collect all edges belonging to this player's journey
     const playerEdgeIds = new Set<string>();
     const adjacency = new Map<string, string>(); // source → target
-    const allTargets = new Set<string>();
 
     for (const e of state.edges) {
       if (isPlayerNode(e.source) || isPlayerNode(e.target)) {
         playerEdgeIds.add(e.id);
         adjacency.set(e.source, e.target);
-        allTargets.add(e.target);
       }
     }
 
     if (playerEdgeIds.size === 0) return;
 
-    // Find root: appears as source but never as target among player edges
-    const allSources = new Set(adjacency.keys());
-    let root: string | null = null;
-    for (const src of allSources) {
-      if (!allTargets.has(src)) {
-        root = src;
-        break;
-      }
-    }
-    if (!root) root = allSources.values().next().value ?? null;
-    if (!root) return;
-
-    // Walk from root to build ordered node list
+    // Walk FORWARD from the trade node where Follow was clicked
     const orderedNodeIds: string[] = [];
-    let current: string | null = root;
+    let current: string | null = fromTradeNodeId;
     const visited = new Set<string>();
     while (current && !visited.has(current)) {
       visited.add(current);
-      // Skip gap nodes — don't stop on them
+      // Skip gap nodes and the origin trade node itself
       const node = state.nodes.find(n => n.id === current);
-      if (node && node.type !== 'gap') {
+      if (node && node.type !== 'gap' && current !== fromTradeNodeId) {
         orderedNodeIds.push(current);
       }
       current = adjacency.get(current) ?? null;
@@ -863,13 +849,10 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     if (orderedNodeIds.length === 0) return;
 
-    // Skip the origin trade node — Follow should jump straight to the first destination
-    const startIndex = orderedNodeIds.length > 1 && orderedNodeIds[0].startsWith('trade-') ? 1 : 0;
-
     set({
       followHighlightedEdges: playerEdgeIds,
-      followPath: { playerName, orderedNodeIds, currentIndex: startIndex },
-      pendingFitTarget: orderedNodeIds[startIndex],
+      followPath: { playerName, orderedNodeIds, currentIndex: 0 },
+      pendingFitTarget: orderedNodeIds[0],
     });
   },
 
