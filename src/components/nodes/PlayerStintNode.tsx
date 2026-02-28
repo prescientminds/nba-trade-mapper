@@ -59,12 +59,13 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
   const hasMVP = accolades.some((a) => a === 'MVP');
   const hasAllNBA = accolades.some((a) => a.includes('All-NBA'));
   const hasAnyAccolade = hasAllStar || hasChampion || hasMVP || hasAllNBA;
+  const isFollowTarget = followPath?.orderedNodeIds[followPath.currentIndex] === id;
 
   return (
     <div
       style={{
         width: isExpanded ? 230 : 180,
-        overflow: canExpandBackward ? 'visible' : 'hidden',
+        overflow: (canExpandBackward || isFollowTarget) ? 'visible' : 'hidden',
         background: 'var(--bg-card)',
         borderRadius: 'var(--radius-md)',
         border: `1px solid ${isExpanded ? color + '66' : 'var(--border-medium)'}`,

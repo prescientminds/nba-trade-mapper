@@ -863,10 +863,13 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     if (orderedNodeIds.length === 0) return;
 
+    // Skip the origin trade node — Follow should jump straight to the first destination
+    const startIndex = orderedNodeIds.length > 1 && orderedNodeIds[0].startsWith('trade-') ? 1 : 0;
+
     set({
       followHighlightedEdges: playerEdgeIds,
-      followPath: { playerName, orderedNodeIds, currentIndex: 0 },
-      pendingFitTarget: orderedNodeIds[0],
+      followPath: { playerName, orderedNodeIds, currentIndex: startIndex },
+      pendingFitTarget: orderedNodeIds[startIndex],
     });
   },
 
