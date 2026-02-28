@@ -147,4 +147,5 @@ export interface TradeSearchIndexEntry {
   title: string;
   teams: string[];
   players: string[];
+  topAssets?: string[];  // parallel to teams — top player sent FROM each team
 }

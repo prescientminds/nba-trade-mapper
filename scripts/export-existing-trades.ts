@@ -70,6 +70,7 @@ interface SearchIndexEntry {
   title: string;
   teams: string[];
   players: string[];
+  topAssets: string[];
 }
 
 /**
@@ -138,6 +139,14 @@ function buildIndexEntry(trade: StaticTrade): SearchIndexEntry {
     .filter((n): n is string => !!n)
     .filter((v, i, arr) => arr.indexOf(v) === i);
 
+  // Top player sent FROM each team (parallel to teams array)
+  const topAssets = trade.teams.map(({ team_id }) => {
+    const asset = trade.assets.find(
+      (a) => a.type === 'player' && a.player_name && a.from_team_id === team_id,
+    );
+    return asset?.player_name || '';
+  });
+
   return {
     id: trade.id,
     date: trade.date,
@@ -145,6 +154,7 @@ function buildIndexEntry(trade: StaticTrade): SearchIndexEntry {
     title: trade.title,
     teams: trade.teams.map((t) => t.team_id),
     players,
+    topAssets,
   };
 }
 

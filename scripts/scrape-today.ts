@@ -46,6 +46,7 @@ interface SearchIndexEntry {
   title: string;
   teams: string[];
   players: string[];
+  topAssets: string[];
 }
 
 function generateTradeId(date: string, teamIds: string[]): string {
@@ -206,6 +207,14 @@ async function main() {
         .filter((a) => a.player_name)
         .map((a) => a.player_name!)
         .filter((v, i, arr) => arr.indexOf(v) === i);
+
+      const topAssets = t.teams.map(({ team_id }) => {
+        const asset = t.assets.find(
+          (a) => a.type === 'player' && a.player_name && a.from_team_id === team_id,
+        );
+        return asset?.player_name || '';
+      });
+
       newIndex.push({
         id: t.id,
         date: t.date,
@@ -213,6 +222,7 @@ async function main() {
         title: t.title,
         teams: t.teams.map((x) => x.team_id),
         players,
+        topAssets,
       });
     }
   }

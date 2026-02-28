@@ -14,7 +14,7 @@ import type { League } from '@/lib/league';
 interface TradeCard {
   type: 'trade';
   tradeId: string;
-  heading: string;    // "Lakers & Celtics"
+  heading: string;    // "Harden for Martin"
   players: string[];  // ["Kobe Bryant", "Shaq O'Neal", ...]
   season: string;
   teams: string[];
@@ -25,8 +25,21 @@ interface TradeCard {
   date?: string;      // ISO date for historical team name lookup
 }
 
-/** "Warriors & Rockets" from team IDs, or "3-Team Trade" */
-function teamHeading(teams: string[], tradeDate?: string): string {
+/** Build heading from marquee players: "Harden for Martin", or fallback to team names */
+function tradeHeading(
+  topAssets: string[] | undefined,
+  teams: string[],
+  tradeDate?: string,
+): string {
+  const lastName = (name: string) => name.split(' ').pop() || name;
+
+  if (topAssets) {
+    const names = topAssets.filter(Boolean).map(lastName);
+    if (names.length >= 2) return `${names[0]} for ${names[1]}`;
+    if (names.length === 1) return `${names[0]} Trade`;
+  }
+
+  // Fallback: team nicknames
   if (teams.length === 0) return 'Trade';
   if (teams.length === 2) {
     const n1 = getAnyTeamDisplayInfo(teams[0], tradeDate).name.split(' ').pop() || teams[0];
@@ -1474,7 +1487,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             return {
               type: 'trade',
               tradeId: row.trade_id,
-              heading: teamHeading(entry.teams, entry.date),
+              heading: tradeHeading(entry.topAssets, entry.teams, entry.date),
               players: playerLabels,
               season: entry.season,
               teams: entry.teams,
@@ -1502,7 +1515,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             return {
               type: 'trade',
               tradeId: row.trade_id,
-              heading: teamHeading(entry.teams, entry.date),
+              heading: tradeHeading(entry.topAssets, entry.teams, entry.date),
               players: playerLabels,
               season: entry.season,
               teams: entry.teams,
@@ -1539,7 +1552,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             return {
               type: 'trade',
               tradeId: row.trade_id,
-              heading: teamHeading(entry.teams, entry.date),
+              heading: tradeHeading(entry.topAssets, entry.teams, entry.date),
               players: playerNames,
               season: entry.season,
               teams: entry.teams,
@@ -1563,7 +1576,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
           .map(({ s, entry }) => ({
             type: 'trade' as const,
             tradeId: s.trade_id,
-            heading: teamHeading(entry.teams, entry.date),
+            heading: tradeHeading(entry.topAssets, entry.teams, entry.date),
             players: entry.players,
             season: entry.season,
             teams: entry.teams,
@@ -1586,7 +1599,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             return {
               type: 'trade' as const,
               tradeId: s.trade_id,
-              heading: teamHeading(entry.teams, entry.date),
+              heading: tradeHeading(entry.topAssets, entry.teams, entry.date),
               players: entry.players,
               season: entry.season,
               teams: entry.teams,
@@ -1615,7 +1628,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
           .map(({ s, entry, floorScore }) => ({
             type: 'trade' as const,
             tradeId: s.trade_id,
-            heading: teamHeading(entry.teams, entry.date),
+            heading: tradeHeading(entry.topAssets, entry.teams, entry.date),
             players: entry.players,
             season: entry.season,
             teams: entry.teams,
