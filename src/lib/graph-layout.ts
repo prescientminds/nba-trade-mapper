@@ -28,8 +28,9 @@ function expandedTradeDimensions(node: Node): { width: number; height: number } 
     }
   }
   const teamCount = new Set(assets.map(a => a.to_team_id).filter(Boolean)).size;
-  // Header (~44) + separator (1) + team headers (18 each) + assets (20 each) + padding
-  let height = 44 + 1 + teamCount * 18 + assetCount * 20 + 6;
+  // Header (~44) + trade score section (~20 header + 12 per team bar) + separator (1)
+  // + team headers (18 each) + assets (20 each) + padding (12)
+  let height = 44 + (20 + teamCount * 12) + 1 + teamCount * 18 + assetCount * 20 + 12;
 
   // Add height for each inline player panel
   if (data.inlinePlayers) {
@@ -725,8 +726,8 @@ export async function layoutGraph(
     layoutOptions: {
       'elk.algorithm': 'layered',
       'elk.direction': 'DOWN',
-      'elk.spacing.nodeNode': '20',
-      'elk.layered.spacing.nodeNodeBetweenLayers': '30',
+      'elk.spacing.nodeNode': '30',
+      'elk.layered.spacing.nodeNodeBetweenLayers': '40',
       'elk.layered.nodePlacement.strategy': 'BRANDES_KOEPF',
     },
     children: elkNodes,
