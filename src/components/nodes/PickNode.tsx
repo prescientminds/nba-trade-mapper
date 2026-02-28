@@ -21,7 +21,7 @@ function PickNodeComponent({ id, data }: NodeProps) {
         background: 'var(--bg-card)',
         borderRadius: 'var(--radius-sm)',
         border: '1px solid var(--border-medium)',
-        borderLeft: '2px solid var(--accent-gold)',
+        borderLeft: '2px solid var(--pick-yellow)',
         cursor: hasAction ? 'pointer' : 'default',
         transition: 'var(--transition-base)',
         padding: '3px 5px',
@@ -29,8 +29,8 @@ function PickNodeComponent({ id, data }: NodeProps) {
       }}
       onMouseEnter={(e) => {
         if (hasAction) {
-          e.currentTarget.style.borderColor = 'var(--accent-gold)';
-          e.currentTarget.style.boxShadow = '0 0 12px rgba(249,199,79,0.2)';
+          e.currentTarget.style.borderColor = 'var(--pick-yellow)';
+          e.currentTarget.style.boxShadow = '0 0 12px rgba(245,230,163,0.2)';
         }
       }}
       onMouseLeave={(e) => {
@@ -46,7 +46,7 @@ function PickNodeComponent({ id, data }: NodeProps) {
         style={{
           fontSize: 8,
           fontWeight: 600,
-          color: 'var(--accent-gold)',
+          color: 'var(--pick-yellow)',
           fontFamily: 'var(--font-mono)',
         }}
       >
@@ -61,7 +61,7 @@ function PickNodeComponent({ id, data }: NodeProps) {
             marginTop: 1,
           }}
         >
-          {'\u2192'} <span style={{ color: 'var(--accent-blue)', fontWeight: 500 }}>{becamePlayer}</span>
+          {'\u2192'} <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{becamePlayer}</span>
         </div>
       )}
 

@@ -1056,7 +1056,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             padding: '4px 6px',
                             background: 'var(--bg-tertiary)',
                             borderRadius: 3,
-                            borderLeft: '2px solid var(--accent-gold)',
+                            borderLeft: '2px solid var(--pick-yellow)',
                           }}
                         >
                           <div style={{
