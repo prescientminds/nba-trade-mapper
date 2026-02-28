@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { getSupabase } from '@/lib/supabase';
 import { getAnyTeam, getAnyTeamDisplayInfo } from '@/lib/teams';
 import { contrastText } from '@/lib/colors';
@@ -276,9 +276,9 @@ function CategoryInfoTooltip({ description }: { description: string }) {
   );
 }
 
-// ── Arrow Button ──────────────────────────────────────────────────────
+// ── Side Arrow Button ─────────────────────────────────────────────────
 
-function ArrowBtn({ dir, onClick }: { dir: 'left' | 'right'; onClick: () => void }) {
+function SideArrowBtn({ dir, onClick, visible }: { dir: 'left' | 'right'; onClick: () => void; visible: boolean }) {
   const [hovered, setHovered] = useState(false);
   return (
     <button
@@ -287,23 +287,31 @@ function ArrowBtn({ dir, onClick }: { dir: 'left' | 'right'; onClick: () => void
       onMouseLeave={() => setHovered(false)}
       aria-label={dir === 'left' ? 'Scroll left' : 'Scroll right'}
       style={{
+        position: 'absolute',
+        top: '50%',
+        transform: 'translateY(-50%)',
+        [dir === 'left' ? 'left' : 'right']: -4,
+        zIndex: 2,
         background: hovered ? 'var(--bg-tertiary)' : 'var(--bg-elevated)',
         border: `1px solid ${hovered ? 'var(--border-medium)' : 'var(--border-subtle)'}`,
-        borderRadius: 'var(--radius-sm)',
+        borderRadius: '50%',
         color: hovered ? 'var(--text-primary)' : 'var(--text-secondary)',
         cursor: 'pointer',
-        width: 22,
-        height: 22,
+        width: 28,
+        height: 28,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        fontSize: 11,
+        fontSize: 13,
         padding: 0,
-        transition: 'var(--transition-fast)',
+        transition: 'opacity 0.2s, background 0.15s, border-color 0.15s, color 0.15s',
         flexShrink: 0,
+        opacity: visible ? 1 : 0,
+        pointerEvents: visible ? 'auto' : 'none',
+        boxShadow: hovered ? '0 2px 8px rgba(0,0,0,0.4)' : '0 1px 4px rgba(0,0,0,0.3)',
       }}
     >
-      {dir === 'left' ? '←' : '→'}
+      {dir === 'left' ? '‹' : '›'}
     </button>
   );
 }
@@ -1104,6 +1112,28 @@ function CategoryRow({
   const scrollRef = useRef<HTMLDivElement>(null);
   const [viewMode, setViewMode] = useState<'cards' | 'list'>('cards');
   const [visibleCount, setVisibleCount] = useState(10);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const updateScrollState = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 0);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el || viewMode !== 'cards') return;
+    updateScrollState();
+    el.addEventListener('scroll', updateScrollState, { passive: true });
+    const ro = new ResizeObserver(updateScrollState);
+    ro.observe(el);
+    return () => {
+      el.removeEventListener('scroll', updateScrollState);
+      ro.disconnect();
+    };
+  }, [viewMode, updateScrollState, category.cards.length]);
 
   const scroll = (dir: 'left' | 'right') => {
     scrollRef.current?.scrollBy({ left: dir === 'right' ? 210 : -210, behavior: 'smooth' });
@@ -1148,52 +1178,68 @@ function CategoryRow({
           mode={viewMode}
           onToggle={() => { setViewMode(viewMode === 'cards' ? 'list' : 'cards'); setVisibleCount(10); }}
         />
-        {viewMode === 'cards' && (
-          <>
-            <ArrowBtn dir="left" onClick={() => scroll('left')} />
-            <ArrowBtn dir="right" onClick={() => scroll('right')} />
-          </>
-        )}
         <div style={{ flex: 1, height: 1, background: 'var(--border-subtle)' }} />
       </div>
 
       {viewMode === 'cards' ? (
-        /* Scrollable card row */
-        <div
-          ref={scrollRef}
-          style={{
-            display: 'flex',
-            gap: 10,
-            overflowX: 'auto',
-            paddingBottom: 4,
-            scrollbarWidth: 'none',
-            msOverflowStyle: 'none',
-          }}
-        >
-          {category.cards.map((card) =>
-            card.type === 'trade' ? (
-              <TradeCardItem
-                key={card.tradeId}
-                card={card}
-                accentColor={category.accentColor}
-                metricLabel={category.metricLabel}
-                metricExplanation={category.metricExplanation}
-                onClick={() => handleTradeClick(card)}
-              />
-            ) : card.type === 'championship' ? (
-              <ChampionshipCardItem
-                key={`${card.teamId}-${card.season}`}
-                card={card}
-                onClick={() => onSelectChampionship?.(card.teamId, card.season)}
-              />
-            ) : (
-              <PlayerCardItem
-                key={card.name}
-                card={card}
-                onClick={() => onSelectPlayer(card.name)}
-              />
-            )
+        /* Scrollable card row with side arrows */
+        <div style={{ position: 'relative' }}>
+          <SideArrowBtn dir="left" onClick={() => scroll('left')} visible={canScrollLeft} />
+          <SideArrowBtn dir="right" onClick={() => scroll('right')} visible={canScrollRight} />
+          {/* Left fade */}
+          {canScrollLeft && (
+            <div style={{
+              position: 'absolute', top: 0, left: 0, bottom: 4,
+              width: 32, zIndex: 1, pointerEvents: 'none',
+              background: 'linear-gradient(to right, var(--bg-primary), transparent)',
+            }} />
           )}
+          {/* Right fade */}
+          {canScrollRight && (
+            <div style={{
+              position: 'absolute', top: 0, right: 0, bottom: 4,
+              width: 32, zIndex: 1, pointerEvents: 'none',
+              background: 'linear-gradient(to left, var(--bg-primary), transparent)',
+            }} />
+          )}
+          <div
+            ref={scrollRef}
+            style={{
+              display: 'flex',
+              gap: 10,
+              overflowX: 'auto',
+              paddingBottom: 4,
+              paddingLeft: 4,
+              paddingRight: 4,
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+            }}
+          >
+            {category.cards.map((card) =>
+              card.type === 'trade' ? (
+                <TradeCardItem
+                  key={card.tradeId}
+                  card={card}
+                  accentColor={category.accentColor}
+                  metricLabel={category.metricLabel}
+                  metricExplanation={category.metricExplanation}
+                  onClick={() => handleTradeClick(card)}
+                />
+              ) : card.type === 'championship' ? (
+                <ChampionshipCardItem
+                  key={`${card.teamId}-${card.season}`}
+                  card={card}
+                  onClick={() => onSelectChampionship?.(card.teamId, card.season)}
+                />
+              ) : (
+                <PlayerCardItem
+                  key={card.name}
+                  card={card}
+                  onClick={() => onSelectPlayer(card.name)}
+                />
+              )
+            )}
+          </div>
         </div>
       ) : (
         /* List view */
