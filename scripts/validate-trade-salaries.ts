@@ -61,6 +61,135 @@ interface CapRow {
   second_apron: number | null;
 }
 
+// ── Name normalization (ported from score-trade-salaries.ts) ─────────
+
+function stripDiacritics(str: string): string {
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+/**
+ * Aliases mapping trade-JSON player names → player_contracts canonical names.
+ * Keys are lowercase; values are the exact name in player_contracts.
+ */
+const SALARY_NAME_ALIASES: Record<string, string> = {
+  // Nicknames / alternate names
+  'maurice williams': 'Mo Williams',
+  'anfernee hardaway': 'Anfernee Hardaway',
+  'penny hardaway': 'Anfernee Hardaway',
+  'predrag stojakovic': 'Peja Stojakovic',
+  'ron artest': 'Metta World Peace',
+  'metta world peace': 'Metta World Peace',
+  'amare stoudemire': "Amar'e Stoudemire",
+  "amar'e stoudemire": "Amar'e Stoudemire",
+  'hidayet turkoglu': 'Hedo Turkoglu',
+  'matthew dellavedova': 'Matthew Dellavedova',
+  'matt dellavedova': 'Matthew Dellavedova',
+  'domas sabonis': 'Domantas Sabonis',
+  'louis williams': 'Lou Williams',
+  'ishmael smith': 'Ish Smith',
+  'louis amundson': 'Lou Amundson',
+  'moe harkless': 'Maurice Harkless',
+  'sviatoslav mykhailiuk': 'Svi Mykhailiuk',
+  'moe wagner': 'Moritz Wagner',
+  'patrick mills': 'Patty Mills',
+  'ogugua anunoby': 'OG Anunoby',
+  'o.g. anunoby': 'OG Anunoby',
+  'mohamed bamba': 'Mo Bamba',
+  'osasere ighodaro': 'Oso Ighodaro',
+  'k.j. martin': 'Kenyon Martin Jr.',
+  'kj martin': 'Kenyon Martin Jr.',
+
+  // Jr./Sr. suffix mismatches
+  'tim hardaway sr.': 'Tim Hardaway',
+  'tim hardaway sr': 'Tim Hardaway',
+  'mike dunleavy jr.': 'Mike Dunleavy',
+  'mike dunleavy jr': 'Mike Dunleavy',
+  'glen rice sr.': 'Glen Rice',
+  'glen rice sr': 'Glen Rice',
+  'marvin bagley': 'Marvin Bagley III',
+  'r.j. barrett': 'RJ Barrett',
+  'rj barrett': 'RJ Barrett',
+  'walter clayton jr.': 'Walter Clayton',
+  'walter clayton jr': 'Walter Clayton',
+  'andre jackson': 'Andre Jackson Jr.',
+  'kelly oubre jr.': 'Kelly Oubre',
+  'kelly oubre jr': 'Kelly Oubre',
+  'larry nance jr.': 'Larry Nance',
+  'larry nance jr': 'Larry Nance',
+  'kevin porter jr.': 'Kevin Porter',
+  'kevin porter jr': 'Kevin Porter',
+
+  // Spanish / accented names
+  'juan hernangomez': 'Juancho Hernangomez',
+  'juancho hernangomez': 'Juancho Hernangomez',
+  'willy hernangomez': 'Guillermo Hernangomez',
+
+  // Nickname variations
+  'nick van exel': 'Nick Van Exel',
+  'robert traylor': 'Robert Traylor',
+  'tractor traylor': 'Robert Traylor',
+  'popeye jones': 'Popeye Jones',
+  'ronald jones': 'Popeye Jones',
+  'truck robinson': 'Leonard Robinson',
+  'malcom lee': 'Malcolm Lee',
+
+  // Disambiguators from trade data
+  'clifford robinson (r.)': 'Clifford Robinson',
+};
+
+/** Strings in trade JSON that aren't real player names */
+const NOT_PLAYER_NAMES = new Set([
+  'trade exception', 'did not convey', 'cash considerations',
+  'cash', 'tpe', 'player option', 'team option',
+]);
+
+/**
+ * Normalize a player name from trade JSON to match player_contracts.
+ * Returns null if the string is not a real player name.
+ */
+function normalizePlayerName(name: string): string | null {
+  if (!name) return null;
+
+  // Handle slash-separated alternate names: "Maurice Williams / Mo Williams"
+  // Try the second part first (usually the more common name), then first part
+  if (name.includes(' / ')) {
+    const parts = name.split(' / ').map(p => p.trim());
+    for (const part of parts.reverse()) {
+      const result = normalizePlayerName(part);
+      if (result) return result;
+    }
+    return null;
+  }
+
+  // Strip diacritics first
+  let cleaned = stripDiacritics(name).trim();
+
+  // Remove disambiguators like (R.), (a), (b)
+  cleaned = cleaned.replace(/\s*\([^)]*\)\s*$/, '').trim();
+
+  // Check if it's a known non-player string
+  const lower = cleaned.toLowerCase();
+  if (NOT_PLAYER_NAMES.has(lower)) return null;
+  if (lower.includes('trade exception')) return null;
+  if (lower.includes('did not convey')) return null;
+  if (lower.includes('protected')) return null;
+  if (lower.includes('becomes $')) return null;
+  if (lower.includes('picks)')) return null;
+
+  // Check alias map
+  const alias = SALARY_NAME_ALIASES[lower];
+  if (alias) return alias;
+
+  // Try without suffix for alias lookup
+  const withoutSuffix = lower.replace(/\s+(jr\.?|sr\.?|iii|ii|iv|v)$/i, '').trim();
+  if (withoutSuffix !== lower) {
+    const suffixAlias = SALARY_NAME_ALIASES[withoutSuffix];
+    if (suffixAlias) return suffixAlias;
+  }
+
+  return cleaned;
+}
+
 // ── Helpers ──────────────────────────────────────────────────────────
 
 async function fetchAll<T>(table: string, columns: string): Promise<T[]> {
@@ -101,7 +230,7 @@ async function main() {
   console.log(`  salary_cap_history: ${capHistory.length} rows`);
 
   // Build salary lookup: "playerName|season" → salary
-  // Use the player's salary for their team in that season
+  // Index under both exact name and diacritics-stripped name for matching
   const salaryMap = new Map<string, number>();
   for (const c of contracts) {
     const key = `${c.player_name}|${c.season}`;
@@ -110,6 +239,15 @@ async function main() {
     const existing = salaryMap.get(key);
     if (!existing || c.salary > existing) {
       salaryMap.set(key, c.salary);
+    }
+    // Also index under diacritics-stripped name for fuzzy matching
+    const stripped = stripDiacritics(c.player_name);
+    if (stripped !== c.player_name) {
+      const strippedKey = `${stripped}|${c.season}`;
+      const existingStripped = salaryMap.get(strippedKey);
+      if (!existingStripped || c.salary > existingStripped) {
+        salaryMap.set(strippedKey, c.salary);
+      }
     }
   }
 
@@ -144,18 +282,37 @@ async function main() {
     const cap = capBySeason.get(trade.season);
     if (!cap) continue;  // No cap data for this season
 
-    // Only validate trades with player assets
-    const playerAssets = trade.assets.filter(a => a.type === 'player' && a.player_name);
-    if (playerAssets.length === 0) continue;  // Picks-only trade — no salary matching needed
+    // Only validate trades with real player assets (filter out fake entries)
+    const playerAssets = trade.assets.filter(a => {
+      if (a.type !== 'player' || !a.player_name) return false;
+      return normalizePlayerName(a.player_name) !== null;
+    });
+    if (playerAssets.length === 0) continue;  // Picks-only trade or all fake entries — skip
 
-    // Build assets with salary data
-    const assetsWithSalary: TradeAssetWithSalary[] = trade.assets.map(a => ({
-      type: a.type,
-      player_name: a.player_name,
-      from_team_id: a.from_team_id,
-      to_team_id: a.to_team_id,
-      salary: a.player_name ? (salaryMap.get(`${a.player_name}|${trade.season}`) ?? null) : null,
-    }));
+    // Build assets with salary data, using normalized names for lookup
+    const assetsWithSalary: TradeAssetWithSalary[] = trade.assets.map(a => {
+      if (a.type !== 'player' || !a.player_name) {
+        return { type: a.type, player_name: a.player_name, from_team_id: a.from_team_id, to_team_id: a.to_team_id, salary: null };
+      }
+      const normalized = normalizePlayerName(a.player_name);
+      if (!normalized) {
+        // Fake entry (trade exception, etc.) — treat as non-player asset
+        return { type: 'cash' as const, player_name: null, from_team_id: a.from_team_id, to_team_id: a.to_team_id, salary: null };
+      }
+      // Try normalized name, then exact original name, then each slash-separated part
+      let salary = salaryMap.get(`${normalized}|${trade.season}`)
+        ?? salaryMap.get(`${a.player_name}|${trade.season}`)
+        ?? null;
+      if (salary === null && a.player_name.includes(' / ')) {
+        for (const part of a.player_name.split(' / ').map((p: string) => p.trim())) {
+          salary = salaryMap.get(`${part}|${trade.season}`)
+            ?? salaryMap.get(`${stripDiacritics(part)}|${trade.season}`)
+            ?? null;
+          if (salary !== null) break;
+        }
+      }
+      return { type: a.type, player_name: normalized, from_team_id: a.from_team_id, to_team_id: a.to_team_id, salary };
+    });
 
     const result = validateTrade(trade.id, trade.date, trade.season, assetsWithSalary, cap);
     results.push(result);
