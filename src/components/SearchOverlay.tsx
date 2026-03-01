@@ -7,6 +7,7 @@ import { contrastText } from '@/lib/colors';
 import { useGraphStore } from '@/lib/graph-store';
 import DiscoverySection from '@/components/DiscoverySection';
 import type { League } from '@/lib/league';
+import Link from 'next/link';
 
 export default function SearchOverlay() {
   const [query, setQuery] = useState('');
@@ -508,6 +509,28 @@ export default function SearchOverlay() {
           >
             Search for any player or trade to begin
           </p>
+          <Link
+            href="/methodology"
+            style={{
+              display: 'inline-block',
+              marginTop: 10,
+              fontSize: 12,
+              color: 'var(--text-muted)',
+              textDecoration: 'none',
+              borderBottom: '1px solid var(--border-subtle)',
+              transition: 'var(--transition-fast)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = 'var(--accent-orange)';
+              e.currentTarget.style.borderBottomColor = 'var(--accent-orange)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = 'var(--text-muted)';
+              e.currentTarget.style.borderBottomColor = 'var(--border-subtle)';
+            }}
+          >
+            How we score trades &rarr;
+          </Link>
         </div>
 
         {/* Search bar + dropdown */}

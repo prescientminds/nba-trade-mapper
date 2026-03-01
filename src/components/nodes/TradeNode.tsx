@@ -482,6 +482,24 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                     All-NBA 1st +2 · 2nd +1.2 · 3rd +0.7{'\n'}
                     All-Defensive +0.5 · All-Star +0.3
                   </div>
+                  <a
+                    href="/methodology"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                      display: 'inline-block',
+                      marginTop: 6,
+                      fontSize: 8,
+                      color: 'var(--accent-orange)',
+                      textDecoration: 'none',
+                      borderBottom: '1px solid transparent',
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.borderBottomColor = 'var(--accent-orange)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.borderBottomColor = 'transparent'; }}
+                  >
+                    Full methodology &rarr;
+                  </a>
                 </div>
               )}
 
