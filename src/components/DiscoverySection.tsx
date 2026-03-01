@@ -1324,7 +1324,7 @@ function CategoryRow({
 // ── Metric explanations ───────────────────────────────────────────────
 
 const FORMULA_BASE =
-  'Each player\'s score = Win Shares + (VORP × 0.5) + (Playoff Win Shares × 1.5) + (Championships × 5) + accolade bonus. Accolade weights: MVP +5, DPOY +2.5, ROY +1.5, All-NBA 1st +2, 2nd +1.2, 3rd +0.7, All-Defensive +0.5, All-Star +0.3.';
+  'Each player\'s score = Win Shares + (Playoff Win Shares × 1.5) + championship bonus (contribution-weighted) + accolade bonus. Championship bonus = 5.0 × (player playoff WS / team playoff WS). Accolade weights: MVP +5, Finals MVP +3, DPOY +2.5, ROY +1.5, All-NBA 1st +2, 2nd +1.2, 3rd +0.7, All-Defensive +0.5, All-Star +0.3.';
 
 const METRIC_DEFS: Record<string, { metricLabel: string; metricExplanation: string }> = {
   heist: {

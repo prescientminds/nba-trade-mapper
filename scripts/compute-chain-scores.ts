@@ -14,7 +14,7 @@
  * PREREQUISITE: Run database/migrations/007-chain-scores.sql first.
  *
  * Value formula (same as score-trades.ts):
- *   score = win_shares + vorp×0.5 + playoff_ws×1.5 + championships×5 + accolade_bonus
+ *   score = win_shares + playoff_ws×1.5 + championship_bonus(contribution-weighted) + accolade_bonus
  *
  * Stored metadata (for discovery page filtering):
  *   max_chain_score   — highest chain total across teams in the trade
@@ -40,6 +40,7 @@ const MAX_DEPTH = 12;  // Prevent runaway recursion on unusual trade loops
 
 const ACCOLADE_WEIGHTS: Record<string, number> = {
   'MVP':                5.0,
+  'Finals MVP':         3.0,
   'DPOY':               2.5,
   'ROY':                1.5,
   'Sixth Man':          0.8,
@@ -78,7 +79,6 @@ interface PlayerSeason {
   team_id: string;
   season: string;
   win_shares: number | null;
-  vorp: number | null;
   playoff_ws: number | null;
 }
 
@@ -173,17 +173,21 @@ function scorePlayer(
   seasonsByPlayerTeam: Map<string, PlayerSeason[]>,
   accoladesByPlayer: Map<string, Accolade[]>,
   championshipSet: Set<string>,
+  teamChampPlayoffWs: Map<string, number>,
 ): number {
   const key = `${playerName}|${teamId}`;
   const eligible = (seasonsByPlayerTeam.get(key) || []).filter(s => s.season >= seasonCutoff);
   const seasonSet = new Set(eligible.map(s => s.season));
 
-  let ws = 0, vorp = 0, playoffWs = 0, championships = 0;
+  let ws = 0, playoffWs = 0, championshipBonus = 0;
   for (const s of eligible) {
     ws        += s.win_shares ?? 0;
-    vorp      += s.vorp       ?? 0;
     playoffWs += s.playoff_ws ?? 0;
-    if (championshipSet.has(`${teamId}|${s.season}`)) championships++;
+    const champKey = `${teamId}|${s.season}`;
+    if (championshipSet.has(champKey)) {
+      const teamTotal = teamChampPlayoffWs.get(champKey) || 1;
+      championshipBonus += 5.0 * ((s.playoff_ws ?? 0) / teamTotal);
+    }
   }
 
   let accoladeBonus = 0;
@@ -193,7 +197,7 @@ function scorePlayer(
     }
   }
 
-  return r2(ws + vorp * 0.5 + playoffWs * 1.5 + championships * 5.0 + accoladeBonus);
+  return r2(ws + playoffWs * 1.5 + championshipBonus + accoladeBonus);
 }
 
 // ── Score a player's FULL career (all teams) after a cutoff season ────────────
@@ -204,18 +208,23 @@ function scorePlayerCareer(
   seasonsByPlayer: Map<string, PlayerSeason[]>,
   accoladesByPlayer: Map<string, Accolade[]>,
   championshipSet: Set<string>,
+  teamChampPlayoffWs: Map<string, number>,
 ): number {
   const eligible = (seasonsByPlayer.get(playerName) || []).filter(s => s.season >= seasonCutoff);
   if (eligible.length === 0) return 0;
 
-  let ws = 0, vorp = 0, playoffWs = 0;
-  // Deduplicate championships per season (mid-season trade could double-count)
-  const champSeasons = new Set<string>();
+  let ws = 0, playoffWs = 0, championshipBonus = 0;
+  // Track championship seasons to avoid double-counting if player was traded mid-season
+  const champSeasonsCounted = new Set<string>();
   for (const s of eligible) {
     ws        += s.win_shares ?? 0;
-    vorp      += s.vorp       ?? 0;
     playoffWs += s.playoff_ws ?? 0;
-    if (championshipSet.has(`${s.team_id}|${s.season}`)) champSeasons.add(s.season);
+    const champKey = `${s.team_id}|${s.season}`;
+    if (championshipSet.has(champKey) && !champSeasonsCounted.has(s.season)) {
+      champSeasonsCounted.add(s.season);
+      const teamTotal = teamChampPlayoffWs.get(champKey) || 1;
+      championshipBonus += 5.0 * ((s.playoff_ws ?? 0) / teamTotal);
+    }
   }
 
   const seasonSet = new Set(eligible.map(s => s.season));
@@ -226,7 +235,7 @@ function scorePlayerCareer(
     }
   }
 
-  return r2(ws + vorp * 0.5 + playoffWs * 1.5 + champSeasons.size * 5.0 + accoladeBonus);
+  return r2(ws + playoffWs * 1.5 + championshipBonus + accoladeBonus);
 }
 
 // ── Index: for each (playerName, fromTeamId), sorted exit trades by date ──────
@@ -260,10 +269,11 @@ function computeChain(
   seasonsByPlayerTeam: Map<string, PlayerSeason[]>,
   accoladesByPlayer: Map<string, Accolade[]>,
   championshipSet: Set<string>,
+  teamChampPlayoffWs: Map<string, number>,
 ): ChainNode {
   const direct = scorePlayer(
     playerName, teamId, seasonCutoff,
-    seasonsByPlayerTeam, accoladesByPlayer, championshipSet,
+    seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs,
   );
 
   // Stop recursion at max depth or if we've already walked this (playerName, teamId, arrivedDate)
@@ -297,7 +307,7 @@ function computeChain(
       children.push(computeChain(
         asset.player_name, teamId, exitTrade.date, exitTrade.season,
         'player', depth + 1, visited,
-        exitTradeIndex, seasonsByPlayerTeam, accoladesByPlayer, championshipSet,
+        exitTradeIndex, seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs,
       ));
     } else if (asset.type === 'pick' && asset.became_player_name) {
       // Pick resolves to a player — their stats start the season after the draft
@@ -305,7 +315,7 @@ function computeChain(
       children.push(computeChain(
         asset.became_player_name, teamId, exitTrade.date, pickSeason,
         'pick', depth + 1, visited,
-        exitTradeIndex, seasonsByPlayerTeam, accoladesByPlayer, championshipSet,
+        exitTradeIndex, seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs,
       ));
     }
     // Unresolved picks (no became_player_name) contribute nothing
@@ -332,6 +342,7 @@ function scoreTradeChain(
   seasonsByPlayerTeam: Map<string, PlayerSeason[]>,
   accoladesByPlayer: Map<string, Accolade[]>,
   championshipSet: Set<string>,
+  teamChampPlayoffWs: Map<string, number>,
 ): Record<string, TeamChain> {
   // Group assets by receiving team
   const byTeam = new Map<string, TradeAsset[]>();
@@ -367,7 +378,7 @@ function scoreTradeChain(
       const node = computeChain(
         playerName, teamId, trade.date, seasonCutoff, assetType,
         0, visited,
-        exitTradeIndex, seasonsByPlayerTeam, accoladesByPlayer, championshipSet,
+        exitTradeIndex, seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs,
       );
       topLevelNodes.push(node);
     }
@@ -403,6 +414,7 @@ function computeLeagueImpact(
   seasonsByPlayer: Map<string, PlayerSeason[]>,
   accoladesByPlayer: Map<string, Accolade[]>,
   championshipSet: Set<string>,
+  teamChampPlayoffWs: Map<string, number>,
 ): LeagueImpactResult {
   const visitedPlayers = new Set<string>();
   const playerScores: { name: string; score: number }[] = [];
@@ -422,7 +434,7 @@ function computeLeagueImpact(
       visitedPlayers.add(playerName);
       const score = scorePlayerCareer(
         playerName, seasonCutoff,
-        seasonsByPlayer, accoladesByPlayer, championshipSet,
+        seasonsByPlayer, accoladesByPlayer, championshipSet, teamChampPlayoffWs,
       );
       if (score > 0) {
         playerScores.push({ name: playerName, score });
@@ -535,7 +547,7 @@ async function main() {
   console.log('Loading Supabase data...');
 
   const [playerSeasons, accolades, teamSeasons] = await Promise.all([
-    fetchAll<PlayerSeason>('player_seasons', 'player_name,team_id,season,win_shares,vorp,playoff_ws'),
+    fetchAll<PlayerSeason>('player_seasons', 'player_name,team_id,season,win_shares,playoff_ws'),
     fetchAll<Accolade>('player_accolades', 'player_name,accolade,season'),
     fetchAll<{ team_id: string; season: string; championship: boolean }>('team_seasons', 'team_id,season,championship'),
   ]);
@@ -566,7 +578,17 @@ async function main() {
   const championshipSet = new Set<string>(
     teamSeasons.filter(r => r.championship).map(r => `${r.team_id}|${r.season}`)
   );
-  console.log(`  Championships:    ${championshipSet.size}\n`);
+  console.log(`  Championships:    ${championshipSet.size}`);
+
+  // Build team total playoff WS for championship seasons (for contribution-weighted bonus)
+  const teamChampPlayoffWs = new Map<string, number>();
+  for (const row of playerSeasons) {
+    const champKey = `${row.team_id}|${row.season}`;
+    if (championshipSet.has(champKey)) {
+      teamChampPlayoffWs.set(champKey, (teamChampPlayoffWs.get(champKey) || 0) + (row.playoff_ws ?? 0));
+    }
+  }
+  console.log(`  Championship team playoff WS totals: ${teamChampPlayoffWs.size} team-seasons\n`);
 
   // Load ALL trades (needed to build exit index) even in single-season mode
   const allSeasonFiles = fs.readdirSync(TRADES_DIR)
@@ -608,7 +630,7 @@ async function main() {
   for (const trade of tradesToScore) {
     const chainScores = scoreTradeChain(
       trade, exitTradeIndex,
-      seasonsByPlayerTeam, accoladesByPlayer, championshipSet,
+      seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs,
     );
 
     const teams = Object.values(chainScores);
@@ -618,7 +640,7 @@ async function main() {
 
     const li = computeLeagueImpact(
       trade, exitTradeIndex,
-      seasonsByPlayer, accoladesByPlayer, championshipSet,
+      seasonsByPlayer, accoladesByPlayer, championshipSet, teamChampPlayoffWs,
     );
 
     results.push({

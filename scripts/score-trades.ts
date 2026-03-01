@@ -10,13 +10,12 @@
  *
  * Value formula per player asset (while on receiving team, post-trade):
  *   score = win_shares
- *         + vorp × 0.5
  *         + playoff_ws × 1.5
- *         + championships × 5.0
+ *         + championship_bonus (contribution-weighted: 5.0 × player_playoff_ws / team_total_playoff_ws)
  *         + accolade_bonus
  *
  * Accolade bonuses:
- *   MVP=5, DPOY=2.5, ROY=1.5, All-NBA 1st=2, 2nd=1.2, 3rd=0.7,
+ *   MVP=5, Finals MVP=3, DPOY=2.5, ROY=1.5, All-NBA 1st=2, 2nd=1.2, 3rd=0.7,
  *   All-Star=0.3, All-Defensive=0.5, Sixth Man=0.8, MIP=0.5
  *
  * Usage:
@@ -36,6 +35,7 @@ const TRADES_DIR = path.join(__dirname, '..', 'public', 'data', 'trades', 'by-se
 
 const ACCOLADE_WEIGHTS: Record<string, number> = {
   'MVP':               5.0,
+  'Finals MVP':        3.0,
   'DPOY':              2.5,
   'ROY':               1.5,
   'Sixth Man':         0.8,
@@ -77,7 +77,6 @@ interface PlayerSeason {
   team_id: string;
   season: string;
   win_shares: number | null;
-  vorp: number | null;
   playoff_ws: number | null;
 }
 
@@ -92,9 +91,9 @@ interface AssetScore {
   type: 'player' | 'pick';
   seasons: number;
   ws: number;
-  vorp: number;
   playoff_ws: number;
   championships: number;
+  championship_bonus: number;
   accolades: string[];
   accolade_bonus: number;
   score: number;
@@ -159,6 +158,7 @@ function scorePlayer(
   seasonsByPlayerTeam: Map<string, PlayerSeason[]>,
   accoladesByPlayer: Map<string, Accolade[]>,
   championshipSet: Set<string>,  // "team_id|season" strings
+  teamChampPlayoffWs: Map<string, number>,  // "team_id|season" → total team playoff WS
 ): AssetScore {
   const key = `${playerName}|${receivingTeamId}`;
   const eligibleSeasons = (seasonsByPlayerTeam.get(key) || [])
@@ -167,12 +167,17 @@ function scorePlayer(
   // Season strings this player was on this team post-trade (for accolade filtering)
   const seasonSet = new Set(eligibleSeasons.map(s => s.season));
 
-  let ws = 0, vorp = 0, playoffWs = 0, championships = 0;
+  let ws = 0, playoffWs = 0, championships = 0, championshipBonus = 0;
   for (const s of eligibleSeasons) {
     ws       += s.win_shares  ?? 0;
-    vorp     += s.vorp        ?? 0;
     playoffWs += s.playoff_ws ?? 0;
-    if (championshipSet.has(`${receivingTeamId}|${s.season}`)) championships++;
+    const champKey = `${receivingTeamId}|${s.season}`;
+    if (championshipSet.has(champKey)) {
+      championships++;
+      // Contribution-weighted: 5.0 × (player_playoff_ws / team_total_playoff_ws)
+      const teamTotal = teamChampPlayoffWs.get(champKey) || 1;
+      championshipBonus += 5.0 * ((s.playoff_ws ?? 0) / teamTotal);
+    }
   }
 
   // Accolades earned while on this team
@@ -187,16 +192,16 @@ function scorePlayer(
     }
   }
 
-  const score = r2(ws + vorp * 0.5 + playoffWs * 1.5 + championships * 5.0 + accoladeBonus);
+  const score = r2(ws + playoffWs * 1.5 + championshipBonus + accoladeBonus);
 
   return {
     name: playerName,
     type: assetType,
     seasons: eligibleSeasons.length,
     ws: r2(ws),
-    vorp: r2(vorp),
     playoff_ws: r2(playoffWs),
     championships,
+    championship_bonus: r2(championshipBonus),
     accolades,
     accolade_bonus: r2(accoladeBonus),
     score,
@@ -208,6 +213,7 @@ function scoreTrade(
   seasonsByPlayerTeam: Map<string, PlayerSeason[]>,
   accoladesByPlayer: Map<string, Accolade[]>,
   championshipSet: Set<string>,
+  teamChampPlayoffWs: Map<string, number>,
 ): TradeScore {
   // Group assets by receiving team
   const byTeam = new Map<string, TradeAsset[]>();
@@ -245,6 +251,7 @@ function scoreTrade(
         seasonsByPlayerTeam,
         accoladesByPlayer,
         championshipSet,
+        teamChampPlayoffWs,
       );
 
       scored.push(assetScore);
@@ -293,7 +300,7 @@ async function main() {
   console.log('Loading Supabase data...');
 
   const [playerSeasons, accolades, teamSeasons] = await Promise.all([
-    fetchAll<PlayerSeason>('player_seasons', 'player_name,team_id,season,win_shares,vorp,playoff_ws'),
+    fetchAll<PlayerSeason>('player_seasons', 'player_name,team_id,season,win_shares,playoff_ws'),
     fetchAll<Accolade>('player_accolades', 'player_name,accolade,season'),
     fetchAll<{ team_id: string; season: string; championship: boolean }>('team_seasons', 'team_id,season,championship'),
   ]);
@@ -319,7 +326,17 @@ async function main() {
   const championshipSet = new Set<string>(
     teamSeasons.filter(r => r.championship).map(r => `${r.team_id}|${r.season}`)
   );
-  console.log(`  Championships indexed: ${championshipSet.size}\n`);
+  console.log(`  Championships indexed: ${championshipSet.size}`);
+
+  // Build team total playoff WS for championship seasons (for contribution-weighted bonus)
+  const teamChampPlayoffWs = new Map<string, number>();
+  for (const row of playerSeasons) {
+    const champKey = `${row.team_id}|${row.season}`;
+    if (championshipSet.has(champKey)) {
+      teamChampPlayoffWs.set(champKey, (teamChampPlayoffWs.get(champKey) || 0) + (row.playoff_ws ?? 0));
+    }
+  }
+  console.log(`  Championship team playoff WS totals: ${teamChampPlayoffWs.size} team-seasons\n`);
 
   // Load trade JSON files
   const seasonFiles = fs.readdirSync(TRADES_DIR)
@@ -337,7 +354,7 @@ async function main() {
   // Score each trade
   const results: TradeScore[] = [];
   for (const trade of allTrades) {
-    results.push(scoreTrade(trade, seasonsByPlayerTeam, accoladesByPlayer, championshipSet));
+    results.push(scoreTrade(trade, seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs));
   }
 
   // Summary stats

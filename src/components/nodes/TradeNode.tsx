@@ -472,7 +472,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                     fontSize: 9, color: 'var(--text-secondary)',
                     fontFamily: 'var(--font-body)', lineHeight: 1.55,
                   }}>
-                    Each player: Win Shares + (VORP × 0.5) + (Playoff WS × 1.5) + (Championships × 5) + accolade bonus.
+                    Each player: Win Shares + (Playoff WS × 1.5) + championship bonus (contribution-weighted) + accolade bonus.
                   </div>
                   <div style={{
                     fontSize: 8, color: 'var(--text-muted)',
