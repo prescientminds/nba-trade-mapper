@@ -948,7 +948,7 @@
     "id": "c6295370-ae36-4517-adce-ea547eb546f4",
     "date": "2017-01-07",
     "season": "2016-17",
-    "title": "Kyle Korver, Kyle Korver Trade",
+    "title": "Kyle Korver, Mike Dunleavy, Maurice Williams / Mo Williams Trade",
     "description": "On 2017-01-07:  Hawks acquire Mike Dunleavy  Cavaliers acquire Kyle Korver",
     "is_multi_team": false,
     "teams": [
@@ -1129,8 +1129,8 @@
     "id": "818ac218-7c76-447d-a89d-587e588fc9f3",
     "date": "2017-02-12",
     "season": "2016-17",
-    "title": "Jusuf Nurkic Trade",
-    "description": "On 2017-02-12:  Nuggets acquire Mason Plumlee  Blazers acquire Jusuf Nurkic",
+    "title": "Jusuf Nurkić Trade",
+    "description": "On 2017-02-12:  Nuggets acquire Mason Plumlee  Blazers acquire Jusuf Nurkić",
     "is_multi_team": false,
     "teams": [
       {
@@ -1145,7 +1145,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Jusuf Nurkic",
+        "player_name": "Jusuf Nurkić",
         "from_team_id": "DEN",
         "to_team_id": "POR",
         "pick_year": null,
@@ -1257,7 +1257,7 @@
     "id": "2a9f05df-d4a9-4536-a361-9cf5a691f8cd",
     "date": "2017-02-19",
     "season": "2016-17",
-    "title": "Buddy Hield, Buddy Hield, Tyreke Evans Trade",
+    "title": "Buddy Hield, Tyreke Evans, Langston Galloway Trade",
     "description": "On 2017-02-19:  Pelicans acquire DeMarcus Cousins  Kings acquire Buddy Hield",
     "is_multi_team": false,
     "teams": [
@@ -1429,8 +1429,8 @@
     "id": "61afc5df-48bf-4136-9753-8b5559ffb1ac",
     "date": "2017-02-22",
     "season": "2016-17",
-    "title": "Andrew Nicholson, Andrew Nicholson, Marcus Thornton (T.) Trade",
-    "description": "On 2017-02-22:  Wizards acquire Bojan Bogdanovic  Nets acquire Andrew Nicholson",
+    "title": "Andrew Nicholson, Marcus Thornton (T.), Bojan Bogdanović Trade",
+    "description": "On 2017-02-22:  Wizards acquire Bojan Bogdanović  Nets acquire Andrew Nicholson",
     "is_multi_team": false,
     "teams": [
       {
@@ -1478,7 +1478,7 @@
       },
       {
         "type": "player",
-        "player_name": "Bojan Bogdanovic",
+        "player_name": "Bojan Bogdanović",
         "from_team_id": "BKN",
         "to_team_id": "WAS",
         "pick_year": null,
@@ -1557,7 +1557,7 @@
     "id": "6e5ef8ae-11ba-4332-883d-ba6e67c0dfff",
     "date": "2017-02-23",
     "season": "2016-17",
-    "title": "Cameron Payne, Cameron Payne, Joffrey Lauvergne Trade",
+    "title": "Cameron Payne, Joffrey Lauvergne, Anthony Morrow Trade",
     "description": "On 2017-02-23:  Thunder acquire Taj Gibson  Bulls acquire Cameron Payne",
     "is_multi_team": false,
     "teams": [
@@ -2365,7 +2365,7 @@
     "id": "930a19d4-7946-4161-9d64-625a98d6f9cc",
     "date": "2017-06-22",
     "season": "2016-17",
-    "title": "Brook Lopez, Brook Lopez Trade",
+    "title": "Brook Lopez, Kyle Kuzma, D'Angelo Russell Trade",
     "description": "On 2017-06-22:  Nets acquire D'Angelo Russell  Lakers acquire Brook Lopez",
     "is_multi_team": false,
     "teams": [

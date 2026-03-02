@@ -1244,7 +1244,7 @@
     "date": "2023-09-27",
     "season": "2023-24",
     "title": "Grayson Allen, Jrue Holiday, Deandre Ayton Trade",
-    "description": "In a 3-team trade, the Milwaukee Bucks traded Grayson Allen to the Phoenix Suns; the Milwaukee Bucks traded Jrue Holiday, a 2028 1st round draft pick, a 2029 1st round draft pick and a 2030 1st round draft pick to the Portland Trail Blazers; the Phoenix Suns traded Deandre Ayton and Toumani Camara to the Portland Trail Blazers; the Portland Trail Blazers traded Damian Lillard to the Milwaukee Bucks; and the Portland Trail Blazers traded Keon Johnson, Nassir Little and Jusuf Nurkic to the Phoenix Suns. 2029 1st-rd pick is MIL own 2028 1st-rd pick is a swap 2030 1st-rd pick is a swap",
+    "description": "In a 3-team trade, the Milwaukee Bucks traded Grayson Allen to the Phoenix Suns; the Milwaukee Bucks traded Jrue Holiday, a 2028 1st round draft pick, a 2029 1st round draft pick and a 2030 1st round draft pick to the Portland Trail Blazers; the Phoenix Suns traded Deandre Ayton and Toumani Camara to the Portland Trail Blazers; the Portland Trail Blazers traded Damian Lillard to the Milwaukee Bucks; and the Portland Trail Blazers traded Keon Johnson, Nassir Little and Jusuf Nurkić to the Phoenix Suns. 2029 1st-rd pick is MIL own 2028 1st-rd pick is a swap 2030 1st-rd pick is a swap",
     "is_multi_team": true,
     "teams": [
       {
@@ -1373,7 +1373,7 @@
       },
       {
         "type": "player",
-        "player_name": "Jusuf Nurkic",
+        "player_name": "Jusuf Nurkić",
         "from_team_id": "POR",
         "to_team_id": "PHX",
         "pick_year": null,
@@ -2539,8 +2539,8 @@
     "id": "bbref-2024-02-08-e4009093",
     "date": "2024-02-08",
     "season": "2023-24",
-    "title": "Bojan Bogdanovic, Alec Burks, Ryan Arcidiacono Trade",
-    "description": "The Detroit Pistons traded Bojan Bogdanovic and Alec Burks to the New York Knicks for Ryan Arcidiacono, Malachi Flynn, Evan Fournier, Quentin Grimes and cash. New York also received at trade exception Detroit also received a trade exception",
+    "title": "Bojan Bogdanović, Alec Burks, Ryan Arcidiacono Trade",
+    "description": "The Detroit Pistons traded Bojan Bogdanović and Alec Burks to the New York Knicks for Ryan Arcidiacono, Malachi Flynn, Evan Fournier, Quentin Grimes and cash. New York also received at trade exception Detroit also received a trade exception",
     "is_multi_team": false,
     "teams": [
       {
@@ -2555,7 +2555,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Bojan Bogdanovic",
+        "player_name": "Bojan Bogdanović",
         "from_team_id": "DET",
         "to_team_id": "NYK",
         "pick_year": null,

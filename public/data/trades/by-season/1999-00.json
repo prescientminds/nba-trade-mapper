@@ -45,7 +45,7 @@
     "id": "b0216301-4e22-484f-b112-b6daf820b516",
     "date": "1999-08-02",
     "season": "1999-00",
-    "title": "Steve Smith (Delano), Steve Smith (Delano), Ed Gray Trade",
+    "title": "Steve Smith (Delano), Ed Gray, Isaiah Rider / J.R. Rider Trade",
     "description": "On 1999-08-02:  Hawks acquire Isaiah Rider / J.R. Rider  Blazers acquire Steve Smith (Delano)",
     "is_multi_team": false,
     "teams": [
@@ -109,7 +109,7 @@
     "id": "787987ea-1f4d-4081-93b3-331658a42f66",
     "date": "1999-08-03",
     "season": "1999-00",
-    "title": "Danny Fortson, Danny Fortson, Danny Fortson Trade",
+    "title": "Danny Fortson, Eric Williams, Eric Washington Trade",
     "description": "On 1999-08-03:  Nuggets acquire Ron Mercer  Celtics acquire Danny Fortson",
     "is_multi_team": false,
     "teams": [
@@ -259,7 +259,7 @@
     "id": "4298532f-cc7b-48a7-8f01-73520b496bca",
     "date": "1999-08-04",
     "season": "1999-00",
-    "title": "Lamond Murray, Lamond Murray Trade",
+    "title": "Lamond Murray, Derek Anderson, Johnny Newman Trade",
     "description": "On 1999-08-04:  Clippers acquire Derek Anderson  Cavaliers acquire Lamond Murray",
     "is_multi_team": false,
     "teams": [
@@ -568,7 +568,7 @@
     "id": "b051a390-820f-4533-87da-90b48ecf64a6",
     "date": "1999-08-13",
     "season": "1999-00",
-    "title": "Billy Owens, Billy Owens Trade",
+    "title": "Billy Owens, Harvey Grant, Anthony Parker Trade",
     "description": "On 1999-08-13:  Magic acquire Harvey Grant  76ers acquire Billy Owens",
     "is_multi_team": false,
     "teams": [
@@ -621,7 +621,7 @@
     "id": "de8926d9-8f21-4760-b34c-b06c911575ff",
     "date": "1999-08-19",
     "season": "1999-00",
-    "title": "Danny Manning, Danny Manning, Dale Ellis Trade",
+    "title": "Danny Manning, Dale Ellis, Chris Gatling Trade",
     "description": "On 1999-08-19:  Magic acquire Chris Gatling  Bucks acquire Danny Manning",
     "is_multi_team": false,
     "teams": [
@@ -685,7 +685,7 @@
     "id": "bd680cc5-7bf7-4e6e-ae2d-b7d2ffe74e0e",
     "date": "1999-08-27",
     "season": "1999-00",
-    "title": "Michael Dickerson, Michael Dickerson, Michael Dickerson Trade",
+    "title": "Michael Dickerson, Othella Harrington, Brent Price Trade",
     "description": "On 1999-08-27:  Rockets acquire Tony Massenburg  Grizzlies acquire Michael Dickerson Other Team(s) Involved in Trade: Magic",
     "is_multi_team": true,
     "teams": [
@@ -1062,7 +1062,7 @@
     "id": "2042a602-d661-4edf-9564-3d6822434821",
     "date": "1999-10-02",
     "season": "1999-00",
-    "title": "Scottie Pippen, Scottie Pippen, Scottie Pippen Trade",
+    "title": "Scottie Pippen, Walt Williams, Kelvin Cato Trade",
     "description": "On 1999-10-02:  Rockets acquire Walt Williams  Blazers acquire Scottie Pippen",
     "is_multi_team": false,
     "teams": [
@@ -1276,7 +1276,7 @@
     "id": "0632a145-11a6-4f89-b187-f6707bd9e516",
     "date": "2000-02-01",
     "season": "1999-00",
-    "title": "Ron Mercer, Ron Mercer, Chauncey Billups Trade",
+    "title": "Ron Mercer, Chauncey Billups, Johnny Taylor Trade",
     "description": "On 2000-02-01:  Nuggets acquire Tariq Abdul-Wahad / Olivier Saint-Jean  Magic acquire Ron Mercer",
     "is_multi_team": false,
     "teams": [
@@ -1373,7 +1373,7 @@
     "id": "7f2e4214-63d7-4041-ab16-7c7c8e631673",
     "date": "2000-02-16",
     "season": "1999-00",
-    "title": "Toni Kukoc, Toni Kukoc, Toni Kukoc Trade",
+    "title": "Toni Kukoc, Bruce Bowen, Larry Hughes Trade",
     "description": "On 2000-02-16:  Bulls acquire John Starks  Warriors acquire Larry Hughes Other Team(s) Involved in Trade: 76ers",
     "is_multi_team": true,
     "teams": [
@@ -1525,7 +1525,7 @@
     "id": "1a8e986f-b2f2-4527-bb73-aa555d00b4f2",
     "date": "2000-06-27",
     "season": "1999-00",
-    "title": "Jason Caffey, Jason Caffey, Jason Caffey Trade",
+    "title": "Jason Caffey, Billy Owens, J.R. Reid Trade",
     "description": "On 2000-06-27:  Cavaliers acquire J.R. Reid  Bucks acquire Jason Caffey Other Team(s) Involved in Trade:Warriors",
     "is_multi_team": true,
     "teams": [
@@ -1604,7 +1604,7 @@
     "id": "40a38c0d-626f-42a8-b6b9-99c5faa807a8",
     "date": "2000-06-27",
     "season": "1999-00",
-    "title": "Chris Gatling, Chris Gatling Trade",
+    "title": "Chris Gatling, Voshon Lenard, Mark Strickland Trade",
     "description": "On 2000-06-27:  Nuggets acquire Voshon Lenard  Heat acquire Chris Gatling",
     "is_multi_team": false,
     "teams": [

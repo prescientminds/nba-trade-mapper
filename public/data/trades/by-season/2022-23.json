@@ -861,8 +861,8 @@
     "id": "bbref-2022-09-22-250c5567",
     "date": "2022-09-22",
     "season": "2022-23",
-    "title": "Bojan Bogdanovic, Saben Lee, Kelly Olynyk Trade",
-    "description": "The Utah Jazz traded Bojan Bogdanovic to the Detroit Pistons for Saben Lee, Kelly Olynyk and cash. Utah also received a trade exception",
+    "title": "Bojan Bogdanović, Saben Lee, Kelly Olynyk Trade",
+    "description": "The Utah Jazz traded Bojan Bogdanović to the Detroit Pistons for Saben Lee, Kelly Olynyk and cash. Utah also received a trade exception",
     "is_multi_team": false,
     "teams": [
       {
@@ -877,7 +877,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Bojan Bogdanovic",
+        "player_name": "Bojan Bogdanović",
         "from_team_id": "UTA",
         "to_team_id": "DET",
         "pick_year": null,
@@ -2085,8 +2085,8 @@
     "id": "bbref-2023-02-09-2b06747e",
     "date": "2023-02-09",
     "season": "2022-23",
-    "title": "Darius Bazley, Dario Saric Trade",
-    "description": "The Oklahoma City Thunder traded Darius Bazley to the Phoenix Suns for Dario Saric and a 2029 2nd round draft pick. Phoenix also received a trade exception Oklahoma City also received a trade exception 2029 2nd-rd pick is PHO own",
+    "title": "Darius Bazley, Dario Šarić Trade",
+    "description": "The Oklahoma City Thunder traded Darius Bazley to the Phoenix Suns for Dario Šarić and a 2029 2nd round draft pick. Phoenix also received a trade exception Oklahoma City also received a trade exception 2029 2nd-rd pick is PHO own",
     "is_multi_team": false,
     "teams": [
       {
@@ -2112,7 +2112,7 @@
       },
       {
         "type": "player",
-        "player_name": "Dario Saric",
+        "player_name": "Dario Šarić",
         "from_team_id": "PHX",
         "to_team_id": "OKC",
         "pick_year": null,

@@ -827,8 +827,8 @@
     "id": "bbref-2021-08-06-99dc726e",
     "date": "2021-08-06",
     "season": "2021-22",
-    "title": "Kyle Lowry, Precious Achiuwa, Goran Dragic Trade",
-    "description": "The Toronto Raptors traded Kyle Lowry to the Miami Heat for Precious Achiuwa and Goran Dragic. Toronto also received a trade exception",
+    "title": "Kyle Lowry, Precious Achiuwa, Goran Dragić Trade",
+    "description": "The Toronto Raptors traded Kyle Lowry to the Miami Heat for Precious Achiuwa and Goran Dragić. Toronto also received a trade exception",
     "is_multi_team": false,
     "teams": [
       {
@@ -865,7 +865,7 @@
       },
       {
         "type": "player",
-        "player_name": "Goran Dragic",
+        "player_name": "Goran Dragić",
         "from_team_id": "MIA",
         "to_team_id": "TOR",
         "pick_year": null,
@@ -3727,8 +3727,8 @@
     "id": "bbref-2022-02-10-41f2dc28",
     "date": "2022-02-10",
     "season": "2021-22",
-    "title": "Goran Dragic, Drew Eubanks, Thaddeus Young Trade",
-    "description": "The Toronto Raptors traded Goran Dragic and a 2022 1st round draft pick (Malaki Branham was later selected) to the San Antonio Spurs for Drew Eubanks, Thaddeus Young and a 2022 2nd round draft pick (Christian Koloko was later selected). Toronto also received a trade exception 2022 2nd-rd pick is DET own 2022 1st-rd pick is top-14 protected",
+    "title": "Goran Dragić, Drew Eubanks, Thaddeus Young Trade",
+    "description": "The Toronto Raptors traded Goran Dragić and a 2022 1st round draft pick (Malaki Branham was later selected) to the San Antonio Spurs for Drew Eubanks, Thaddeus Young and a 2022 2nd round draft pick (Christian Koloko was later selected). Toronto also received a trade exception 2022 2nd-rd pick is DET own 2022 1st-rd pick is top-14 protected",
     "is_multi_team": false,
     "teams": [
       {
@@ -3743,7 +3743,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Goran Dragic",
+        "player_name": "Goran Dragić",
         "from_team_id": "TOR",
         "to_team_id": "SAS",
         "pick_year": null,

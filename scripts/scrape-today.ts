@@ -16,6 +16,24 @@ import { resolveTeamId, dateToSeason } from './lib/team-resolver';
 const OUT_DIR = path.join(__dirname, '..', 'public', 'data', 'trades');
 const SEASON_DIR = path.join(OUT_DIR, 'by-season');
 
+// BBRef strips diacritics from player names. Map ASCII→correct Unicode.
+const DIACRITICS_MAP: Record<string, string> = {
+  'Luka Doncic': 'Luka Dončić',
+  'Bogdan Bogdanovic': 'Bogdan Bogdanović',
+  'Bojan Bogdanovic': 'Bojan Bogdanović',
+  'Dario Saric': 'Dario Šarić',
+  'Goran Dragic': 'Goran Dragić',
+  'Jonas Valanciunas': 'Jonas Valančiūnas',
+  'Jusuf Nurkic': 'Jusuf Nurkić',
+  'Nikola Vucevic': 'Nikola Vučević',
+  'Nikola Jokic': 'Nikola Jokić',
+  'Luka Samanic': 'Luka Šamanić',
+};
+
+function fixDiacritics(name: string): string {
+  return DIACRITICS_MAP[name] ?? name;
+}
+
 interface StaticTradeAsset {
   type: 'player' | 'pick' | 'swap' | 'cash';
   player_name: string | null;
@@ -138,7 +156,7 @@ async function main() {
       for (const name of players) {
         assets.push({
           type: 'player',
-          player_name: name,
+          player_name: fixDiacritics(name),
           from_team_id: teamArr[0] || null,
           to_team_id: teamArr[1] || null,
           pick_year: null,

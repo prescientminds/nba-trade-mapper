@@ -1171,8 +1171,8 @@
     "id": "bbref-2025-07-13-aaa8b844",
     "date": "2025-07-13",
     "season": "2025-26",
-    "title": "Jonas Valanciunas, Dario Saric Trade",
-    "description": "The Sacramento Kings traded Jonas Valanciunas to the Denver Nuggets for Dario Saric. Denver also received a trade exception Sacramento also received a trade exception",
+    "title": "Jonas Valančiūnas, Dario Šarić Trade",
+    "description": "The Sacramento Kings traded Jonas Valančiūnas to the Denver Nuggets for Dario Šarić. Denver also received a trade exception Sacramento also received a trade exception",
     "is_multi_team": false,
     "teams": [
       {
@@ -1187,7 +1187,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Jonas Valanciunas",
+        "player_name": "Jonas Valančiūnas",
         "from_team_id": "SAC",
         "to_team_id": "DEN",
         "pick_year": null,
@@ -1198,7 +1198,7 @@
       },
       {
         "type": "player",
-        "player_name": "Dario Saric",
+        "player_name": "Dario Šarić",
         "from_team_id": "DEN",
         "to_team_id": "SAC",
         "pick_year": null,
@@ -1542,8 +1542,8 @@
     "id": "bbref-2026-02-01-fcd4c372",
     "date": "2026-02-01",
     "season": "2025-26",
-    "title": "Emanuel Miller, De'Andre Hunter, Dario Saric Trade",
-    "description": "In a 3-team trade, the Chicago Bulls traded Emanuel Miller to the Cleveland Cavaliers; the Cleveland Cavaliers traded a 2027 2nd round draft pick to the Chicago Bulls; the Cleveland Cavaliers traded De'Andre Hunter to the Sacramento Kings; the Sacramento Kings traded Dario Saric and a 2029 2nd round draft pick to the Chicago Bulls; and the Sacramento Kings traded Keon Ellis and Dennis Schroder to the Cleveland Cavaliers.",
+    "title": "Emanuel Miller, De'Andre Hunter, Dario Šarić Trade",
+    "description": "In a 3-team trade, the Chicago Bulls traded Emanuel Miller to the Cleveland Cavaliers; the Cleveland Cavaliers traded a 2027 2nd round draft pick to the Chicago Bulls; the Cleveland Cavaliers traded De'Andre Hunter to the Sacramento Kings; the Sacramento Kings traded Dario Šarić and a 2029 2nd round draft pick to the Chicago Bulls; and the Sacramento Kings traded Keon Ellis and Dennis Schroder to the Cleveland Cavaliers.",
     "is_multi_team": true,
     "teams": [
       {
@@ -1595,7 +1595,7 @@
       },
       {
         "type": "player",
-        "player_name": "Dario Saric",
+        "player_name": "Dario Šarić",
         "from_team_id": "SAC",
         "to_team_id": "CHI",
         "pick_year": null,
@@ -1762,8 +1762,8 @@
     "id": "bbref-2026-02-03-84dd6326",
     "date": "2026-02-03",
     "season": "2025-26",
-    "title": "Kevin Huerter, Dario Saric, Jaden Ivey Trade",
-    "description": "In a 3-team trade, the Chicago Bulls traded Kevin Huerter and Dario Saric to the Detroit Pistons; the Detroit Pistons traded Jaden Ivey to the Chicago Bulls; the Detroit Pistons traded to the Minnesota Timberwolves; the Minnesota Timberwolves traded Mike Conley to the Chicago Bulls; and the Minnesota Timberwolves traded a 2026 1st round draft pick to the Detroit Pistons. 2026 1st-rd pick is a protected right to swap Minnesota also received a trade exception",
+    "title": "Kevin Huerter, Dario Šarić, Jaden Ivey Trade",
+    "description": "In a 3-team trade, the Chicago Bulls traded Kevin Huerter and Dario Šarić to the Detroit Pistons; the Detroit Pistons traded Jaden Ivey to the Chicago Bulls; the Detroit Pistons traded to the Minnesota Timberwolves; the Minnesota Timberwolves traded Mike Conley to the Chicago Bulls; and the Minnesota Timberwolves traded a 2026 1st round draft pick to the Detroit Pistons. 2026 1st-rd pick is a protected right to swap Minnesota also received a trade exception",
     "is_multi_team": true,
     "teams": [
       {
@@ -1793,7 +1793,7 @@
       },
       {
         "type": "player",
-        "player_name": "Dario Saric",
+        "player_name": "Dario Šarić",
         "from_team_id": "CHI",
         "to_team_id": "DET",
         "pick_year": null,
@@ -2377,8 +2377,8 @@
     "id": "bbref-2026-02-05-c67e472c",
     "date": "2026-02-05",
     "season": "2025-26",
-    "title": "Anfernee Simons, Nikola Vucevic Trade",
-    "description": "The Boston Celtics traded Anfernee Simons and a 2026 2nd round draft pick to the Chicago Bulls for Nikola Vucevic and a 2027 2nd round draft pick. 2026 2nd-rd pick is more favorable Boston also received a trade exception 2027 2nd-rd pick is DEN own",
+    "title": "Anfernee Simons, Nikola Vučević Trade",
+    "description": "The Boston Celtics traded Anfernee Simons and a 2026 2nd round draft pick to the Chicago Bulls for Nikola Vučević and a 2027 2nd round draft pick. 2026 2nd-rd pick is more favorable Boston also received a trade exception 2027 2nd-rd pick is DEN own",
     "is_multi_team": false,
     "teams": [
       {
@@ -2415,7 +2415,7 @@
       },
       {
         "type": "player",
-        "player_name": "Nikola Vucevic",
+        "player_name": "Nikola Vučević",
         "from_team_id": "CHI",
         "to_team_id": "BOS",
         "pick_year": null,

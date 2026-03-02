@@ -56,7 +56,7 @@
     "id": "d469564f-19dc-4bab-bea5-163a699ec197",
     "date": "2006-07-12",
     "season": "2006-07",
-    "title": "Derek Fisher, Derek Fisher, Derek Fisher Trade",
+    "title": "Derek Fisher, Devin Brown, Keith McLeod Trade",
     "description": "On 2006-07-12:  Warriors acquire Devin Brown  Jazz acquire Derek Fisher",
     "is_multi_team": false,
     "teams": [
@@ -407,7 +407,7 @@
     "id": "b849038e-2aa1-4348-ace3-1db1c4d87b46",
     "date": "2006-07-24",
     "season": "2006-07",
-    "title": "Anthony Johnson, Anthony Johnson, Anthony Johnson Trade",
+    "title": "Anthony Johnson, Darrell Armstrong, Josh Powell Trade",
     "description": "On 2006-07-24:  Pacers acquire Darrell Armstrong  Mavericks acquire Anthony Johnson",
     "is_multi_team": false,
     "teams": [
@@ -513,7 +513,7 @@
     "id": "e776bee2-96e9-467c-9cf3-251526c93abe",
     "date": "2006-07-31",
     "season": "2006-07",
-    "title": "Jamaal Magloire, Jamaal Magloire, Jamaal Magloire Trade",
+    "title": "Jamaal Magloire, Steve Blake, Brian Skinner Trade",
     "description": "On 2006-07-31:  Bucks acquire Steve Blake  Blazers acquire Jamaal Magloire",
     "is_multi_team": false,
     "teams": [
@@ -778,7 +778,7 @@
     "id": "653760b7-0971-4050-84ac-785bbaab9dfd",
     "date": "2006-12-19",
     "season": "2006-07",
-    "title": "Andre Miller, Andre Miller, Joe Smith Trade",
+    "title": "Andre Miller, Joe Smith, Allen Iverson Trade",
     "description": "On 2006-12-19:  Nuggets acquire Allen Iverson  76ers acquire Andre Miller",
     "is_multi_team": false,
     "teams": [
@@ -981,7 +981,7 @@
     "id": "3e0d3180-8c53-438a-950c-e008b0d63890",
     "date": "2007-01-17",
     "season": "2006-07",
-    "title": "Ike Diogu, Ike Diogu, Ike Diogu Trade",
+    "title": "Ike Diogu, Mike Dunleavy Jr., Keith McLeod Trade",
     "description": "On 2007-01-17:  Warriors acquire Al Harrington  Pacers acquire Ike Diogu",
     "is_multi_team": false,
     "teams": [
@@ -1575,7 +1575,7 @@
     "id": "bbd9abed-351b-4136-97fc-f0db4f68e765",
     "date": "2007-06-28",
     "season": "2006-07",
-    "title": "Steve Francis, Steve Francis, Steve Francis Trade",
+    "title": "Steve Francis, Channing Frye, Zach Randolph Trade",
     "description": "On 2007-06-28:  Knicks acquire Zach Randolph  Blazers acquire Steve Francis",
     "is_multi_team": false,
     "teams": [
@@ -1725,7 +1725,7 @@
     "id": "c93d41bd-640e-488a-b6a1-771b1e9f847b",
     "date": "2007-06-28",
     "season": "2006-07",
-    "title": "Ray Allen, Ray Allen Trade",
+    "title": "Ray Allen, Glen Davis, Wally Szczerbiak Trade",
     "description": "On 2007-06-28:  Sonics acquire Wally Szczerbiak  Celtics acquire Ray Allen",
     "is_multi_team": false,
     "teams": [
@@ -2013,7 +2013,7 @@
     "date": "2007-06-28",
     "season": "2006-07",
     "title": "Heat / Pacers Trade",
-    "description": "On 2007-06-28:  Pacers acquire rights to Stanko Barac  Heat acquire 2009 second round pick (#43-Marcus\u00a0Thornton)",
+    "description": "On 2007-06-28:  Pacers acquire rights to Stanko Barac  Heat acquire 2009 second round pick (#43-Marcus Thornton)",
     "is_multi_team": false,
     "teams": [
       {
@@ -2034,7 +2034,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Marcus\u00a0Thornton",
+        "became_player_name": "Marcus Thornton",
         "notes": null
       },
       {
@@ -2055,7 +2055,7 @@
     "date": "2007-06-28",
     "season": "2006-07",
     "title": "Raptors / Spurs Trade",
-    "description": "On 2007-06-28:  Spurs acquire 2008 second round pick (#45-Goran Dragic)  Raptors acquire rights to Giorgos Printezis",
+    "description": "On 2007-06-28:  Spurs acquire 2008 second round pick (#45-Goran Dragić)  Raptors acquire rights to Giorgos Printezis",
     "is_multi_team": false,
     "teams": [
       {

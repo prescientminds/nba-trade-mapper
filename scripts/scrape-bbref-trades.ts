@@ -26,6 +26,31 @@ const OUT_DIR = path.join(__dirname, '..', 'public', 'data', 'trades');
 const SEASON_DIR = path.join(OUT_DIR, 'by-season');
 const RATE_LIMIT_MS = 3100; // 3.1 seconds between requests
 
+// BBRef strips diacritics from player names. Map ASCII→correct Unicode.
+const DIACRITICS_MAP: Record<string, string> = {
+  'Luka Doncic': 'Luka Dončić',
+  'Bogdan Bogdanovic': 'Bogdan Bogdanović',
+  'Bojan Bogdanovic': 'Bojan Bogdanović',
+  'Dario Saric': 'Dario Šarić',
+  'Goran Dragic': 'Goran Dragić',
+  'Jonas Valanciunas': 'Jonas Valančiūnas',
+  'Jusuf Nurkic': 'Jusuf Nurkić',
+  'Nikola Vucevic': 'Nikola Vučević',
+  'Nikola Jokic': 'Nikola Jokić',
+  'Luka Samanic': 'Luka Šamanić',
+  'Vanja Marinkovic': 'Vanja Marinković',
+  'Nikola Djurisic': 'Nikola Đurišić',
+  'Ante Tomic': 'Ante Tomić',
+  'Tadija Dragicevic': 'Tadija Dragičević',
+  'Nemanja Dangubic': 'Nemanja Dangubić',
+  'Luka Mitrovic': 'Luka Mitrović',
+  'Bojan Dubljevic': 'Bojan Dubljivić',
+};
+
+function fixDiacritics(name: string): string {
+  return DIACRITICS_MAP[name] ?? name;
+}
+
 interface StaticTradeAsset {
   type: 'player' | 'pick' | 'swap' | 'cash';
   player_name: string | null;
@@ -431,7 +456,7 @@ function parseAssetsFromText(
     if (matchedPlayer) {
       assets.push({
         type: 'player',
-        player_name: matchedPlayer.text.trim(),
+        player_name: fixDiacritics(matchedPlayer.text.trim()),
         from_team_id: fromTeam,
         to_team_id: toTeam,
         pick_year: null,
@@ -444,7 +469,7 @@ function parseAssetsFromText(
       // Might be a player name not linked
       assets.push({
         type: 'player',
-        player_name: trimmed.replace(/^the\s+/i, ''),
+        player_name: fixDiacritics(trimmed.replace(/^the\s+/i, '')),
         from_team_id: fromTeam,
         to_team_id: toTeam,
         pick_year: null,

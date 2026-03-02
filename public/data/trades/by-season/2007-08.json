@@ -46,7 +46,7 @@
     "date": "2007-07-11",
     "season": "2007-08",
     "title": "Rashard Lewis Trade",
-    "description": "On 2007-07-11:  Sonics acquire 2009 protected second round pick (top 55 in 2009, extinguished thereafter) (#57-Emir Preld\u017eic)  Magic acquire Rashard Lewis",
+    "description": "On 2007-07-11:  Sonics acquire 2009 protected second round pick (top 55 in 2009, extinguished thereafter) (#57-Emir Preldžic)  Magic acquire Rashard Lewis",
     "is_multi_team": false,
     "teams": [
       {
@@ -78,7 +78,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Emir Preld\u017eic",
+        "became_player_name": "Emir Preldžic",
         "notes": null
       },
       {
@@ -174,7 +174,7 @@
     "date": "2007-07-20",
     "season": "2007-08",
     "title": "Kurt Thomas Trade",
-    "description": "On 2007-07-20:  Suns acquire 2009 second round pick (protected top 55 in 2009, extinguished thereafter) (#57-Emir Preld\u017eic)  Sonics acquire Kurt Thomas",
+    "description": "On 2007-07-20:  Suns acquire 2009 second round pick (protected top 55 in 2009, extinguished thereafter) (#57-Emir Preldžic)  Sonics acquire Kurt Thomas",
     "is_multi_team": false,
     "teams": [
       {
@@ -228,7 +228,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Emir Preld\u017eic",
+        "became_player_name": "Emir Preldžic",
         "notes": null
       },
       {
@@ -248,7 +248,7 @@
     "id": "0dc1038b-87d5-48da-8c30-380692c5d335",
     "date": "2007-07-31",
     "season": "2007-08",
-    "title": "Kevin Garnett, Kevin Garnett, Kevin Garnett Trade",
+    "title": "Kevin Garnett, Al Jefferson, Gerald Green (b) Trade",
     "description": "On 2007-07-31:  Timberwolves acquire Al Jefferson  Celtics acquire Kevin Garnett",
     "is_multi_team": false,
     "teams": [
@@ -409,7 +409,7 @@
     "id": "5ff7c70e-f715-42d6-9582-b29976103b9f",
     "date": "2007-09-10",
     "season": "2007-08",
-    "title": "Reggie Evans, Reggie Evans Trade",
+    "title": "Reggie Evans, Ricky Sanchez, Steven Hunter Trade",
     "description": "On 2007-09-10:  Nuggets acquire Steven Hunter  76ers acquire Reggie Evans",
     "is_multi_team": false,
     "teams": [
@@ -610,7 +610,7 @@
     "id": "2ccd98e8-3635-4e20-b010-7bb571d4e5e2",
     "date": "2007-10-24",
     "season": "2007-08",
-    "title": "Ricky Davis, Ricky Davis, Ricky Davis Trade",
+    "title": "Ricky Davis, Mark Blount, Antoine Walker Trade",
     "description": "On 2007-10-24:  Timberwolves acquire Antoine Walker  Heat acquire Ricky Davis",
     "is_multi_team": false,
     "teams": [
@@ -771,7 +771,7 @@
     "id": "3f8f974d-a21d-4a44-8246-c0ab20923dbb",
     "date": "2007-11-20",
     "season": "2007-08",
-    "title": "Trevor Ariza, Trevor Ariza Trade",
+    "title": "Trevor Ariza, Brian Cook, Maurice Evans Trade",
     "description": "On 2007-11-20:  Magic acquire Brian Cook  Lakers acquire Trevor Ariza",
     "is_multi_team": false,
     "teams": [
@@ -824,7 +824,7 @@
     "id": "00d8d8ab-6266-4a7e-b499-7833fa4d9b1a",
     "date": "2007-12-14",
     "season": "2007-08",
-    "title": "Nazr Mohammed, Nazr Mohammed Trade",
+    "title": "Nazr Mohammed, Primoz Brezec, Walter Herrmann Trade",
     "description": "On 2007-12-14:  Pistons acquire Primoz Brezec  Bobcats acquire Nazr Mohammed",
     "is_multi_team": false,
     "teams": [
@@ -1155,7 +1155,7 @@
     "id": "72cf3b65-6d58-4135-96af-b28377daaa3b",
     "date": "2008-02-16",
     "season": "2007-08",
-    "title": "Mike Bibby, Mike Bibby, Mike Bibby Trade",
+    "title": "Mike Bibby, Anthony Johnson, Tyronn Lue Trade",
     "description": "On 2008-02-16:  Kings acquire Anthony Johnson  Hawks acquire Mike Bibby",
     "is_multi_team": false,
     "teams": [
@@ -1241,7 +1241,7 @@
     "id": "ce35e333-39f4-4c09-aaba-f8ebebe0bc19",
     "date": "2008-02-19",
     "season": "2007-08",
-    "title": "Jason Kidd, Jason Kidd, Jason Kidd Trade",
+    "title": "Jason Kidd, Malik Allen, Antoine Wright Trade",
     "description": "On 2008-02-19:  Nets acquire Devin Harris  Mavericks acquire Jason Kidd",
     "is_multi_team": false,
     "teams": [
@@ -1477,7 +1477,7 @@
     "id": "a8490bb0-154a-44e6-8837-3758423caad4",
     "date": "2008-02-21",
     "season": "2007-08",
-    "title": "Larry Hughes, Larry Hughes, Larry Hughes Trade",
+    "title": "Larry Hughes, Drew Gooden, Shannon Brown Trade",
     "description": "On 2008-02-21:  Cavaliers acquire Wally Szczerbiak  Sonics acquire Adrian Griffin Other Team(s) Involved in Trade: Bulls",
     "is_multi_team": true,
     "teams": [
@@ -1580,7 +1580,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Danny\u00a0Green",
+        "became_player_name": "Danny Green",
         "notes": null
       }
     ]
@@ -1589,7 +1589,7 @@
     "id": "68b5957c-09b8-43bc-843f-6951a46c79a3",
     "date": "2008-02-21",
     "season": "2007-08",
-    "title": "Bonzi Wells, Bonzi Wells, Mike James (Lamont) Trade",
+    "title": "Marcus Vinicius Viera de Souza, Malick Badiane, Sergei Lishouk / Sergei Lishchuk Trade",
     "description": "On 2008-02-21:  Rockets acquire rights to Sergei Lishouk / Sergei Lishchuk  Grizzlies acquire Marcus Vinicius Viera de Souza Other Team(s) Involved in Trade: Hornets",
     "is_multi_team": true,
     "teams": [
@@ -1805,7 +1805,7 @@
     "id": "60b0f58c-a51a-416a-a16b-f8974b29ac8f",
     "date": "2008-06-26",
     "season": "2007-08",
-    "title": "Richard Jefferson, Richard Jefferson Trade",
+    "title": "Richard Jefferson, Yi Jianlian / Jianlian Yi, Bobby Simmons Trade",
     "description": "On 2008-06-26:  Nets acquire Yi Jianlian / Jianlian Yi  Bucks acquire Richard Jefferson",
     "is_multi_team": false,
     "teams": [
@@ -1858,7 +1858,7 @@
     "id": "3626dddd-9c75-4d02-bd71-c0ba1e881db3",
     "date": "2008-06-26",
     "season": "2007-08",
-    "title": "Marko Jaric, Marko Jaric, Marko Jaric Trade",
+    "title": "Marko Jaric, Antoine Walker, Greg Buckner Trade",
     "description": "On 2008-06-26:  Timberwolves acquire Mike Miller  Grizzlies acquire Marko Jaric",
     "is_multi_team": false,
     "teams": [
@@ -2214,7 +2214,7 @@
     "date": "2008-06-26",
     "season": "2007-08",
     "title": "Spurs / Suns Trade",
-    "description": "On 2008-06-26:  Suns acquire rights to Goran Dragic  Spurs acquire rights to Malik Hairston",
+    "description": "On 2008-06-26:  Suns acquire rights to Goran Dragić  Spurs acquire rights to Malik Hairston",
     "is_multi_team": false,
     "teams": [
       {
@@ -2262,7 +2262,7 @@
       },
       {
         "type": "player",
-        "player_name": "Goran Dragic",
+        "player_name": "Goran Dragić",
         "from_team_id": "SAS",
         "to_team_id": "PHX",
         "pick_year": null,

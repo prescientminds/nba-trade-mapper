@@ -475,7 +475,7 @@
     "id": "c1a3a57c-349d-42e4-8648-5988eabb3c74",
     "date": "2014-07-14",
     "season": "2014-15",
-    "title": "Omer Asik, Omer Asik, Omri Casspi Trade",
+    "title": "Omer Asik, Omri Casspi, Alonzo Gee Trade",
     "description": "On 2014-07-14:  Rockets acquire Trevor Ariza  Wizards acquire Melvin Ely Other Team(s) Involved in Trade: Pelicans",
     "is_multi_team": true,
     "teams": [
@@ -777,7 +777,7 @@
     "id": "868e547a-06e7-4030-b88d-5acf650dd39b",
     "date": "2014-08-06",
     "season": "2014-15",
-    "title": "Wayne Ellington, Wayne Ellington, Jeremy Tyler Trade",
+    "title": "Wayne Ellington, Jeremy Tyler, Quincy Acy Trade",
     "description": "On 2014-08-06:  Knicks acquire Quincy Acy  Kings acquire Wayne Ellington",
     "is_multi_team": false,
     "teams": [
@@ -951,7 +951,7 @@
     "id": "09731b43-13a5-4de9-9905-95b250e6cfd1",
     "date": "2014-08-26",
     "season": "2014-15",
-    "title": "Jared Dudley, Jared Dudley Trade",
+    "title": "Jared Dudley, Carlos Delfino, Miroslav Raduljica Trade",
     "description": "On 2014-08-26:  Clippers acquire Carlos Delfino  Bucks acquire Jared Dudley",
     "is_multi_team": false,
     "teams": [
@@ -1112,7 +1112,7 @@
     "id": "6013a769-cae2-4ade-98c8-240ef7c55f31",
     "date": "2014-09-25",
     "season": "2014-15",
-    "title": "Keith Bogans, Keith Bogans, Keith Bogans Trade",
+    "title": "Keith Bogans, Dwight Powell, Erik Murphy Trade",
     "description": "On 2014-09-25:  Celtics acquire Dwight Powell  Cavaliers acquire Keith Bogans",
     "is_multi_team": false,
     "teams": [
@@ -1454,7 +1454,7 @@
     "id": "00d46730-8aa4-4a9e-9543-9c0b3b01d232",
     "date": "2014-12-18",
     "season": "2014-15",
-    "title": "Brandan Wright, Brandan Wright, Jae Crowder Trade",
+    "title": "Brandan Wright, Jae Crowder, Jameer Nelson Trade",
     "description": "On 2014-12-18:  Mavericks acquire Rajon Rondo  Celtics acquire Brandan Wright",
     "is_multi_team": false,
     "teams": [
@@ -1672,7 +1672,7 @@
     "id": "2e0cd768-4dab-4876-9517-100305136e04",
     "date": "2015-01-05",
     "season": "2014-15",
-    "title": "J.R. Smith, J.R. Smith, J.R. Smith Trade",
+    "title": "J.R. Smith, Iman Shumpert, Dion Waiters Trade",
     "description": "On 2015-01-05:  Knicks acquire Lance Thomas  Thunder acquire Dion Waiters Other Team(s) Involved in Trade: Cavaliers",
     "is_multi_team": true,
     "teams": [
@@ -2311,7 +2311,7 @@
     "id": "5114be67-f9ea-4f2f-87b7-8f82ce2ffb22",
     "date": "2015-02-19",
     "season": "2014-15",
-    "title": "Arron Afflalo, Arron Afflalo, Arron Afflalo Trade",
+    "title": "Arron Afflalo, Alonzo Gee, Will Barton Trade",
     "description": "On 2015-02-19:  Nuggets acquire Will Barton  Blazers acquire Arron Afflalo",
     "is_multi_team": false,
     "teams": [
@@ -2675,7 +2675,7 @@
     "id": "ae9b6266-cf96-4790-85bd-fb89d5e26a80",
     "date": "2015-02-19",
     "season": "2014-15",
-    "title": "Goran Dragic, Goran Dragic, Goran Dragic Trade",
+    "title": "Goran Dragić, Zoran Dragic, Danny Granger Trade",
     "description": "On 2015-02-19:  Suns acquire John Salmons  Pelicans acquire Norris Cole (a) Other Team(s) Involved in Trade: Heat",
     "is_multi_team": true,
     "teams": [
@@ -2695,7 +2695,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Goran Dragic",
+        "player_name": "Goran Dragić",
         "from_team_id": "PHX",
         "to_team_id": "MIA",
         "pick_year": null,
@@ -2776,7 +2776,7 @@
     "id": "490871c9-f210-405c-96d4-58e5211cdb7e",
     "date": "2015-02-19",
     "season": "2014-15",
-    "title": "Grant Jerrett, Grant Jerrett, Kendrick Perkins Trade",
+    "title": "Grant Jerrett, Kendrick Perkins, Tibor Pleiss Trade",
     "description": "On 2015-02-19:  Thunder acquire D.J. Augustin  Pistons acquire Reggie Jackson (b) Other Team(s) Involved in Trade: Jazz",
     "is_multi_team": true,
     "teams": [
@@ -2930,7 +2930,7 @@
     "id": "cb1772ed-c142-4ef0-93e8-4fdab82dec55",
     "date": "2015-06-15",
     "season": "2014-15",
-    "title": "Lance Stephenson, Lance Stephenson Trade",
+    "title": "Lance Stephenson, Spencer Hawes, Matt Barnes Trade",
     "description": "On 2015-06-15:  Hornets acquire Spencer Hawes  Clippers acquire Lance Stephenson",
     "is_multi_team": false,
     "teams": [

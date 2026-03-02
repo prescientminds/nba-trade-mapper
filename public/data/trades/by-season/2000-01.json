@@ -3,7 +3,7 @@
     "id": "52ec922a-8bcb-4826-96d7-8317f392eaca",
     "date": "2000-08-01",
     "season": "2000-01",
-    "title": "Eddie Jones, Eddie Jones, Eddie Jones Trade",
+    "title": "Eddie Jones, Anthony Mason Sr., Ricky Davis Trade",
     "description": "On 2000-08-01:  Hornets acquire Jamal Mashburn  Heat acquire Eddie Jones",
     "is_multi_team": false,
     "teams": [
@@ -164,7 +164,7 @@
     "id": "52931a2c-4dd4-415e-8414-069213743808",
     "date": "2000-08-03",
     "season": "2000-01",
-    "title": "Grant Hill, Grant Hill Trade",
+    "title": "Grant Hill, Ben Wallace, Chucky Atkins Trade",
     "description": "On 2000-08-03:  Pistons acquire Ben Wallace  Magic acquire Grant Hill",
     "is_multi_team": false,
     "teams": [
@@ -259,7 +259,7 @@
     "id": "595cc0f2-31d3-4283-9643-de7f49863b11",
     "date": "2000-08-16",
     "season": "2000-01",
-    "title": "Robert Pack, Robert Pack, John Williams / Hot Rod Williams Trade",
+    "title": "Robert Pack, John Williams / Hot Rod Williams, Danny Fortson Trade",
     "description": "On 2000-08-16:  Jazz acquire Donyell Marshall  Warriors acquire Danny Fortson Other Team(s) Involved in Trade: Celtics, Mavericks",
     "is_multi_team": true,
     "teams": [
@@ -395,7 +395,7 @@
     "id": "95ad0b7b-f653-4128-a0b4-45adfffa219f",
     "date": "2000-08-22",
     "season": "2000-01",
-    "title": "Isaac Austin / Ike Austin, Isaac Austin / Ike Austin, Isaac Austin / Ike Austin Trade",
+    "title": "Isaac Austin / Ike Austin, Dennis Scott, Cherokee Parks Trade",
     "description": "On 2000-08-22:  Wizards acquire Dennis Scott  Grizzlies acquire Isaac Austin / Ike Austin",
     "is_multi_team": false,
     "teams": [
@@ -470,7 +470,7 @@
     "id": "632ef6f1-3697-4efe-bcae-1ffd6d87f99a",
     "date": "2000-08-29",
     "season": "2000-01",
-    "title": "Christian Laettner, Christian Laettner, Christian Laettner Trade",
+    "title": "Christian Laettner, Terry Mills, Cedric Ceballos Trade",
     "description": "On 2000-08-29:  Pistons acquire Cedric Ceballos  Mavericks acquire Christian Laettner",
     "is_multi_team": false,
     "teams": [
@@ -567,7 +567,7 @@
     "id": "721d1698-e639-467e-a8d2-2571368d52b7",
     "date": "2000-08-30",
     "season": "2000-01",
-    "title": "Shawn Kemp, Shawn Kemp, Clarence Weatherspoon Trade",
+    "title": "Shawn Kemp, Brian Grant, Gary Grant Trade",
     "description": "On 2000-08-30:  Cavaliers acquire Clarence Weatherspoon  Heat acquire Brian Grant Other Team(s) Involved in Trade: Blazers",
     "is_multi_team": true,
     "teams": [
@@ -624,7 +624,7 @@
     "id": "3ed99ca5-c94c-436e-b056-3a82d6dbfa5f",
     "date": "2000-08-31",
     "season": "2000-01",
-    "title": "Dale Davis, Dale Davis Trade",
+    "title": "Dale Davis, Jermaine O'Neal, Joe Kleine Trade",
     "description": "On 2000-08-31:  Pacers acquire Jermaine O'Neal  Blazers acquire Dale Davis",
     "is_multi_team": false,
     "teams": [
@@ -677,7 +677,7 @@
     "id": "1a60d195-f6a6-4c4d-bc3c-dcb8fd823d54",
     "date": "2000-09-20",
     "season": "2000-01",
-    "title": "Luc Longley, Luc Longley, Glen Rice Sr. Trade",
+    "title": "Luc Longley, Glen Rice Sr., Travis Knight Trade",
     "description": "On 2000-09-20:  Lakers acquire Horace Grant  Sonics acquire Patrick Ewing Sr. Other Team(s) Involved in Trade: Knicks,Suns",
     "is_multi_team": true,
     "teams": [
@@ -996,7 +996,7 @@
     "id": "fd4f0651-c93d-4968-a1ad-a248d10389f9",
     "date": "2000-10-16",
     "season": "2000-01",
-    "title": "Bryant Stith, Bryant Stith, Chris Herren Trade",
+    "title": "Bryant Stith, Chris Herren, Robert Pack Trade",
     "description": "On 2000-10-16:  Nuggets acquire Robert Pack  Celtics acquire Bryant Stith",
     "is_multi_team": false,
     "teams": [
@@ -1060,7 +1060,7 @@
     "id": "643c3b0b-75e4-4df1-a899-ec006ed69747",
     "date": "2000-10-17",
     "season": "2000-01",
-    "title": "Loy Vaught, Loy Vaught Trade",
+    "title": "Loy Vaught, Dana Barros, Ansu Sesay Trade",
     "description": "On 2000-10-17:  Pistons acquire Dana Barros  Mavericks acquire Loy Vaught",
     "is_multi_team": false,
     "teams": [
@@ -1294,7 +1294,7 @@
     "id": "48b16478-b913-49b7-9e76-729969bab149",
     "date": "2001-01-12",
     "season": "2000-01",
-    "title": "Kevin Willis, Kevin Willis, Kevin Willis Trade",
+    "title": "Kevin Willis, Aleksandar Radojevic, Garth Joseph Trade",
     "description": "On 2001-01-12:  Raptors acquire Keon Clark  Nuggets acquire Kevin Willis",
     "is_multi_team": false,
     "teams": [
@@ -1391,7 +1391,7 @@
     "id": "794a2477-998a-44ea-bd76-6ba9257620cd",
     "date": "2001-01-26",
     "season": "2000-01",
-    "title": "Vinny Del Negro, Vinny Del Negro, Vinny Del Negro Trade",
+    "title": "Vinny Del Negro, Corie Blount, Ruben Garces Trade",
     "description": "On 2001-01-26:  Warriors acquire Corie Blount  Suns acquire Vinny Del Negro",
     "is_multi_team": false,
     "teams": [
@@ -1519,7 +1519,7 @@
     "id": "0be4c5b6-47a4-4563-8dba-4da250789191",
     "date": "2001-02-22",
     "season": "2000-01",
-    "title": "Dikembe Mutombo, Dikembe Mutombo, Dikembe Mutombo Trade",
+    "title": "Dikembe Mutombo, Roshown McLeod, Toni Kukoc Trade",
     "description": "On 2001-02-22:  Hawks acquire Toni Kukoc  76ers acquire Dikembe Mutombo",
     "is_multi_team": false,
     "teams": [
@@ -1669,7 +1669,7 @@
     "id": "2f24ae49-c640-4187-8be4-dc9b1864a77a",
     "date": "2001-02-22",
     "season": "2000-01",
-    "title": "Juwan Howard, Juwan Howard, Juwan Howard Trade",
+    "title": "Juwan Howard, Calvin Booth, Obinna Ekezie Trade",
     "description": "On 2001-02-22:  Wizards acquire Christian Laettner  Mavericks acquire Juwan Howard",
     "is_multi_team": false,
     "teams": [
@@ -1788,7 +1788,7 @@
     "id": "5795cc40-c28c-46cc-b9a3-2863a1cc1914",
     "date": "2001-02-22",
     "season": "2000-01",
-    "title": "Corliss Williamson, Corliss Williamson, Tyrone Corbin Trade",
+    "title": "Corliss Williamson, Tyrone Corbin, Kornel David Trade",
     "description": "On 2001-02-22:  Raptors acquire Jerome Williams  Pistons acquire Corliss Williamson",
     "is_multi_team": false,
     "teams": [
@@ -2042,7 +2042,7 @@
     "id": "e369dfaf-0419-4df7-849e-411ccaf90076",
     "date": "2001-06-27",
     "season": "2000-01",
-    "title": "Jason Williams, Jason Williams, Nick Anderson Trade",
+    "title": "Jason Williams, Nick Anderson, Mike Bibby Trade",
     "description": "On 2001-06-27:  Kings acquire Mike Bibby  Grizzlies acquire Jason Williams",
     "is_multi_team": false,
     "teams": [
@@ -2391,7 +2391,7 @@
     "id": "3c27a44b-8de5-46ae-93d9-96bc20360630",
     "date": "2001-06-28",
     "season": "2000-01",
-    "title": "Clifford Robinson (R.), Clifford Robinson (R.) Trade",
+    "title": "Clifford Robinson (R.), John Wallace, Jud Buechler Trade",
     "description": "On 2001-06-28:  announced Suns to be done 2001-07-18 acquire John Wallace  Pistons acquire Clifford Robinson (R.)",
     "is_multi_team": false,
     "teams": [

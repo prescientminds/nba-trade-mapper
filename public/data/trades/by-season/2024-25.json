@@ -279,8 +279,8 @@
     "id": "bbref-2024-07-06-e349a389",
     "date": "2024-07-06",
     "season": "2024-25",
-    "title": "Jonas Valanciunas Trade",
-    "description": "The New Orleans Pelicans traded Jonas Valanciunas to the Washington Wizards for a 2027 2nd round draft pick. 2027 2nd-rd pick is CHI own, New Orleans also received a trade exception",
+    "title": "Jonas Valančiūnas Trade",
+    "description": "The New Orleans Pelicans traded Jonas Valančiūnas to the Washington Wizards for a 2027 2nd round draft pick. 2027 2nd-rd pick is CHI own, New Orleans also received a trade exception",
     "is_multi_team": false,
     "teams": [
       {
@@ -295,7 +295,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Jonas Valanciunas",
+        "player_name": "Jonas Valančiūnas",
         "from_team_id": "NOP",
         "to_team_id": "WAS",
         "pick_year": null,
@@ -322,7 +322,7 @@
     "date": "2024-07-06",
     "season": "2024-25",
     "title": "Keita Bates-Diop, Mikal Bridges, Juan Pablo Vaulet Trade",
-    "description": "The Brooklyn Nets traded Keita Bates-Diop, Mikal Bridges, Juan Pablo Vaulet and a 2026 2nd round draft pick to the New York Knicks for Bojan Bogdanovic, Mamadi Diakite, Shake Milton, a 2025 1st round draft pick (Ben Saraf was later selected), a 2025 1st round draft pick (Nolan Traoré was later selected), a 2025 2nd round draft pick (Adou Thiero was later selected), a 2027 1st round draft pick, a 2028 1st round draft pick, a 2029 1st round draft pick and a 2031 1st round draft pick. 2026 2nd-rd pick is least favorable 2025 1st-rd pick is NYK own conditional 2025 1st-rd pick is MIL own 2025 2nd-rd pick is BRK own 2027 1st-rd pick is NYK own 2028 1st-rd pick is a swap 2029 1st-rd pick is NYK own 2031 1st-rd pick is NYK own, Brooklyn also received trade exceptions",
+    "description": "The Brooklyn Nets traded Keita Bates-Diop, Mikal Bridges, Juan Pablo Vaulet and a 2026 2nd round draft pick to the New York Knicks for Bojan Bogdanović, Mamadi Diakite, Shake Milton, a 2025 1st round draft pick (Ben Saraf was later selected), a 2025 1st round draft pick (Nolan Traoré was later selected), a 2025 2nd round draft pick (Adou Thiero was later selected), a 2027 1st round draft pick, a 2028 1st round draft pick, a 2029 1st round draft pick and a 2031 1st round draft pick. 2026 2nd-rd pick is least favorable 2025 1st-rd pick is NYK own conditional 2025 1st-rd pick is MIL own 2025 2nd-rd pick is BRK own 2027 1st-rd pick is NYK own 2028 1st-rd pick is a swap 2029 1st-rd pick is NYK own 2031 1st-rd pick is NYK own, Brooklyn also received trade exceptions",
     "is_multi_team": false,
     "teams": [
       {
@@ -381,7 +381,7 @@
       },
       {
         "type": "player",
-        "player_name": "Bojan Bogdanovic",
+        "player_name": "Bojan Bogdanović",
         "from_team_id": "NYK",
         "to_team_id": "BKN",
         "pick_year": null,
@@ -1850,8 +1850,8 @@
     "id": "bbref-2025-02-02-c0459335",
     "date": "2025-02-02",
     "season": "2024-25",
-    "title": "Luka Doncic, Maxi Kleber, Markieff Morris Trade",
-    "description": "In a 3-team trade, the Dallas Mavericks traded Luka Doncic, Maxi Kleber and Markieff Morris to the Los Angeles Lakers; the Los Angeles Lakers traded Max Christie, Anthony Davis and a 2029 1st round draft pick to the Dallas Mavericks; the Los Angeles Lakers traded Jalen Hood-Schifino and a 2025 2nd round draft pick (John Tonje was later selected) to the Utah Jazz; the Utah Jazz traded cash and a 2025 2nd round draft pick to the Dallas Mavericks; and the Utah Jazz traded cash to the Los Angeles Lakers. Los Angeles also received a trade exception 2025 2nd-rd pick is LAC own Dallas also received multiple trade exceptions 2025 2nd-rd pick is a right to swap, did not convey 2029 1st-rd pick is LAL own",
+    "title": "Luka Dončić, Maxi Kleber, Markieff Morris Trade",
+    "description": "In a 3-team trade, the Dallas Mavericks traded Luka Dončić, Maxi Kleber and Markieff Morris to the Los Angeles Lakers; the Los Angeles Lakers traded Max Christie, Anthony Davis and a 2029 1st round draft pick to the Dallas Mavericks; the Los Angeles Lakers traded Jalen Hood-Schifino and a 2025 2nd round draft pick (John Tonje was later selected) to the Utah Jazz; the Utah Jazz traded cash and a 2025 2nd round draft pick to the Dallas Mavericks; and the Utah Jazz traded cash to the Los Angeles Lakers. Los Angeles also received a trade exception 2025 2nd-rd pick is LAC own Dallas also received multiple trade exceptions 2025 2nd-rd pick is a right to swap, did not convey 2029 1st-rd pick is LAL own",
     "is_multi_team": true,
     "teams": [
       {
@@ -1870,7 +1870,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Luka Doncic",
+        "player_name": "Luka Dončić",
         "from_team_id": "DAL",
         "to_team_id": "LAL",
         "pick_year": null,
@@ -2237,8 +2237,8 @@
     "id": "bbref-2025-02-05-b0fc751e",
     "date": "2025-02-05",
     "season": "2024-25",
-    "title": "Jonas Valanciunas, Sidy Cissoko Trade",
-    "description": "The Washington Wizards traded Jonas Valanciunas to the Sacramento Kings for Sidy Cissoko, a 2028 2nd round draft pick and a 2029 2nd round draft pick. Sacramento also received a trade exception Washington also received a trade exception conditional 2028 2nd-rd pick is DEN own 2029 2nd-rd pick is SAC own",
+    "title": "Jonas Valančiūnas, Sidy Cissoko Trade",
+    "description": "The Washington Wizards traded Jonas Valančiūnas to the Sacramento Kings for Sidy Cissoko, a 2028 2nd round draft pick and a 2029 2nd round draft pick. Sacramento also received a trade exception Washington also received a trade exception conditional 2028 2nd-rd pick is DEN own 2029 2nd-rd pick is SAC own",
     "is_multi_team": false,
     "teams": [
       {
@@ -2253,7 +2253,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Jonas Valanciunas",
+        "player_name": "Jonas Valančiūnas",
         "from_team_id": "WAS",
         "to_team_id": "SAC",
         "pick_year": null,
@@ -2351,70 +2351,6 @@
     ]
   },
   {
-    "id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb1",
-    "date": "2025-02-06",
-    "season": "2024-25",
-    "title": "Luka Dončić to Lakers",
-    "description": "Mavericks trade Luka Dončić to Lakers for Anthony Davis and future picks. The 2018 draft swap saga continues.",
-    "is_multi_team": false,
-    "teams": [
-      {
-        "team_id": "LAL",
-        "role": "receiver"
-      },
-      {
-        "team_id": "DAL",
-        "role": "sender"
-      }
-    ],
-    "assets": [
-      {
-        "type": "player",
-        "player_name": "Luka Dončić",
-        "from_team_id": "DAL",
-        "to_team_id": "LAL",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Anthony Davis",
-        "from_team_id": "LAL",
-        "to_team_id": "DAL",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "LAL",
-        "to_team_id": "DAL",
-        "pick_year": 2029,
-        "pick_round": 1,
-        "original_team_id": "LAL",
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "LAL",
-        "to_team_id": "DAL",
-        "pick_year": 2031,
-        "pick_round": 1,
-        "original_team_id": "LAL",
-        "became_player_name": null,
-        "notes": null
-      }
-    ]
-  },
-  {
     "id": "bbref-2025-02-06-fb2dcaf8",
     "date": "2025-02-06",
     "season": "2024-25",
@@ -2460,8 +2396,8 @@
     "id": "bbref-2025-02-06-614586ed",
     "date": "2025-02-06",
     "season": "2024-25",
-    "title": "Bogdan Bogdanovic, Bones Hyland, Terance Mann Trade",
-    "description": "The Atlanta Hawks traded Bogdan Bogdanovic and a 2025 2nd round draft pick (Mohamed Diawara was later selected) to the Los Angeles Clippers for Bones Hyland and Terance Mann. Los Angeles also received trade exceptions Atlanta also received a trade exception 2025 2nd-d pick is MIN own",
+    "title": "Bogdan Bogdanović, Bones Hyland, Terance Mann Trade",
+    "description": "The Atlanta Hawks traded Bogdan Bogdanović and a 2025 2nd round draft pick (Mohamed Diawara was later selected) to the Los Angeles Clippers for Bones Hyland and Terance Mann. Los Angeles also received trade exceptions Atlanta also received a trade exception 2025 2nd-d pick is MIN own",
     "is_multi_team": false,
     "teams": [
       {
@@ -2476,7 +2412,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Bogdan Bogdanovic",
+        "player_name": "Bogdan Bogdanović",
         "from_team_id": "ATL",
         "to_team_id": "LAC",
         "pick_year": null,
@@ -2907,8 +2843,8 @@
     "id": "bbref-2025-02-06-063bc8b0",
     "date": "2025-02-06",
     "season": "2024-25",
-    "title": "Jusuf Nurkic, Cody Martin, Vasilije Micić Trade",
-    "description": "The Phoenix Suns traded Jusuf Nurkic to the Charlotte Hornets for Cody Martin and Vasilije Micić. Phoenix also received a trade exception",
+    "title": "Jusuf Nurkić, Cody Martin, Vasilije Micić Trade",
+    "description": "The Phoenix Suns traded Jusuf Nurkić to the Charlotte Hornets for Cody Martin and Vasilije Micić. Phoenix also received a trade exception",
     "is_multi_team": false,
     "teams": [
       {
@@ -2923,7 +2859,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Jusuf Nurkic",
+        "player_name": "Jusuf Nurkić",
         "from_team_id": "PHX",
         "to_team_id": "CHA",
         "pick_year": null,
@@ -4092,8 +4028,8 @@
     "id": "bbref-2025-06-29-b4d7595e",
     "date": "2025-06-29",
     "season": "2024-25",
-    "title": "Collin Sexton, Jusuf Nurkic Trade",
-    "description": "The Utah Jazz traded Collin Sexton to the Charlotte Hornets for Jusuf Nurkic. Utah also received a trade exception",
+    "title": "Collin Sexton, Jusuf Nurkić Trade",
+    "description": "The Utah Jazz traded Collin Sexton to the Charlotte Hornets for Jusuf Nurkić. Utah also received a trade exception",
     "is_multi_team": false,
     "teams": [
       {
@@ -4119,7 +4055,7 @@
       },
       {
         "type": "player",
-        "player_name": "Jusuf Nurkic",
+        "player_name": "Jusuf Nurkić",
         "from_team_id": "CHA",
         "to_team_id": "UTA",
         "pick_year": null,

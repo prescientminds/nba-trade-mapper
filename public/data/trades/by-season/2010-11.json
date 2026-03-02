@@ -494,7 +494,7 @@
     "date": "2010-07-12",
     "season": "2010-11",
     "title": "Heat / Timberwolves Trade",
-    "description": "On 2010-07-12:  Timberwolves acquire Michael Beasley  Heat acquire 2011 second round pick (#31-Bojan Bogdanovic)",
+    "description": "On 2010-07-12:  Timberwolves acquire Michael Beasley  Heat acquire 2011 second round pick (#31-Bojan Bogdanović)",
     "is_multi_team": false,
     "teams": [
       {
@@ -599,7 +599,7 @@
     "id": "f1715cdd-80e1-4c60-ba74-9aa27a8387a5",
     "date": "2010-07-13",
     "season": "2010-11",
-    "title": "Erick Dampier, Erick Dampier, Matt Carroll Trade",
+    "title": "Erick Dampier, Matt Carroll, Eduardo Najera Trade",
     "description": "On 2010-07-13:  Mavericks acquire Tyson Chandler  Bobcats acquire Erick Dampier",
     "is_multi_team": false,
     "teams": [
@@ -897,7 +897,7 @@
     "id": "0978be34-6306-4b8d-a520-54fb558f3999",
     "date": "2010-07-26",
     "season": "2010-11",
-    "title": "Ramon Sessions, Ramon Sessions, Ryan Hollins Trade",
+    "title": "Ramon Sessions, Ryan Hollins, Delonte West Trade",
     "description": "On 2010-07-26:  Timberwolves acquire Delonte West  Cavaliers acquire Ramon Sessions",
     "is_multi_team": false,
     "teams": [
@@ -1014,7 +1014,7 @@
     "id": "c126801a-043f-4c1b-a22c-942471286754",
     "date": "2010-08-11",
     "season": "2010-11",
-    "title": "Trevor Ariza, Trevor Ariza, Troy Murphy Trade",
+    "title": "Trevor Ariza, Darren Collison, James Posey Trade",
     "description": "On 2010-08-11:  Pacers acquire Darren Collison  Hornets acquire Trevor Ariza Other Team(s) Involved in Trade: Nets,Rockets",
     "is_multi_team": true,
     "teams": [
@@ -1075,7 +1075,7 @@
     "id": "ed3c5580-5ba4-43bb-8c44-1e9a03edb2a8",
     "date": "2010-09-23",
     "season": "2010-11",
-    "title": "Craig Brackins, Craig Brackins, Darius Songaila Trade",
+    "title": "Craig Brackins, Darius Songaila, Willie Green Trade",
     "description": "On 2010-09-23:  Hornets acquire Willie Green  76ers acquire Craig Brackins",
     "is_multi_team": false,
     "teams": [
@@ -1245,7 +1245,7 @@
     "id": "04fc6ce9-c3b6-4de8-8f6c-e26bff1334e0",
     "date": "2010-11-20",
     "season": "2010-11",
-    "title": "David Andersen, David Andersen, Marcus Banks Trade",
+    "title": "David Andersen, Marcus Banks, Jarrett Jack Trade",
     "description": "On 2010-11-20:  Raptors acquire Jerryd Bayless  Hornets acquire David Andersen",
     "is_multi_team": false,
     "teams": [
@@ -1410,7 +1410,7 @@
     "id": "9e63e510-92eb-46c3-918c-23ebb8719a80",
     "date": "2010-12-18",
     "season": "2010-11",
-    "title": "Gilbert Arenas, Gilbert Arenas, Gilbert Arenas Trade",
+    "title": "Gilbert Arenas, Jason Richardson, Hidayet Turkoglu / Hedo Turkoglu Trade",
     "description": "On 2010-12-18:  Wizards acquire Rashard Lewis  Magic acquire Gilbert Arenas Other Team(s) Involved in Trade: Suns",
     "is_multi_team": true,
     "teams": [
@@ -1650,7 +1650,7 @@
     "id": "ca73d478-c0de-4f10-b95b-2cb5bf924ac2",
     "date": "2011-02-22",
     "season": "2010-11",
-    "title": "Carmelo Anthony, Carmelo Anthony, Carmelo Anthony Trade",
+    "title": "Carmelo Anthony, Chauncey Billups, Renaldo Balkman Trade",
     "description": "On 2011-02-22:  Timberwolves acquire 2015 second round pick (#37-Richaun Holmes)  Nuggets acquire Wilson Chandler Other Team(s) Involved in Trade: Knicks",
     "is_multi_team": true,
     "teams": [
@@ -1872,7 +1872,7 @@
     "id": "4e7a0780-bd98-48d3-9280-9ae18ad093cb",
     "date": "2011-02-23",
     "season": "2010-11",
-    "title": "Kirk Hinrich, Kirk Hinrich, Kirk Hinrich Trade",
+    "title": "Kirk Hinrich, Hilton Armstrong, Mike Bibby Trade",
     "description": "On 2011-02-23:  Wizards acquire Mike Bibby  Hawks acquire Kirk Hinrich",
     "is_multi_team": false,
     "teams": [
@@ -2139,7 +2139,7 @@
     "id": "906398ce-3bff-4b25-b872-6a265fd4b3bf",
     "date": "2011-02-24",
     "season": "2010-11",
-    "title": "Gerald Wallace, Gerald Wallace, Gerald Wallace Trade",
+    "title": "Gerald Wallace, Dante Cunningham, Joel Przybilla Trade",
     "description": "On 2011-02-24:  Bobcats acquire Dante Cunningham  Blazers acquire Gerald Wallace",
     "is_multi_team": false,
     "teams": [
@@ -2278,7 +2278,7 @@
     "id": "65355fae-f067-475e-a366-5764f5ca5021",
     "date": "2011-02-24",
     "season": "2010-11",
-    "title": "Baron Davis, Baron Davis Trade",
+    "title": "Baron Davis, Maurice Williams / Mo Williams, Jamario Moon Trade",
     "description": "On 2011-02-24:  Clippers acquire Maurice Williams / Mo Williams  Cavaliers acquire Baron Davis",
     "is_multi_team": false,
     "teams": [
@@ -2395,7 +2395,7 @@
     "id": "140574c5-2558-4857-ad5b-379f55ba1b72",
     "date": "2011-02-24",
     "season": "2010-11",
-    "title": "Jeff Green, Jeff Green, Nenad Krstic Trade",
+    "title": "Jeff Green, Nenad Krstic, Kendrick Perkins Trade",
     "description": "On 2011-02-24:  Thunder acquire Kendrick Perkins  Celtics acquire Jeff Green",
     "is_multi_team": false,
     "teams": [
@@ -2470,7 +2470,7 @@
     "id": "bc100e13-f4e4-4ace-8630-3376c04f7598",
     "date": "2011-02-24",
     "season": "2010-11",
-    "title": "Shane Battier, Shane Battier, Ishmael Smith / Ish Smith Trade",
+    "title": "Shane Battier, Ishmael Smith / Ish Smith, Hasheem Thabeet Trade",
     "description": "On 2011-02-24:  Rockets acquire Hasheem Thabeet  Grizzlies acquire Shane Battier",
     "is_multi_team": false,
     "teams": [
@@ -2545,8 +2545,8 @@
     "id": "35a378d7-f3b7-4740-9af1-2edbc8d8a1b9",
     "date": "2011-02-24",
     "season": "2010-11",
-    "title": "Goran Dragic Trade",
-    "description": "On 2011-02-24:  Suns acquire Aaron Brooks  Rockets acquire Goran Dragic",
+    "title": "Goran Dragić Trade",
+    "description": "On 2011-02-24:  Suns acquire Aaron Brooks  Rockets acquire Goran Dragić",
     "is_multi_team": false,
     "teams": [
       {
@@ -2561,7 +2561,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Goran Dragic",
+        "player_name": "Goran Dragić",
         "from_team_id": "PHX",
         "to_team_id": "HOU",
         "pick_year": null,
@@ -2640,7 +2640,7 @@
     "id": "d37e56c2-5b1c-4ad5-b7ea-2e3103fae3db",
     "date": "2011-06-23",
     "season": "2010-11",
-    "title": "Raymond Felton, Raymond Felton Trade",
+    "title": "Raymond Felton, Tanguy Ngombo, Andre Miller Trade",
     "description": "On 2011-06-23:  Nuggets acquire rights to Jordan Hamilton  Mavericks acquire Rudy Fernandez Other Team(s) Involved in Trade: Blazers",
     "is_multi_team": true,
     "teams": [
@@ -2730,7 +2730,7 @@
     "id": "e7c12b94-ad97-4baf-9eea-dd3e6d27087a",
     "date": "2011-06-23",
     "season": "2010-11",
-    "title": "Corey Maggette, Corey Maggette, Stephen Jackson Trade",
+    "title": "Corey Maggette, Bismack Biyombo, Stephen Jackson Trade",
     "description": "On 2011-06-23:  Bobcats acquire rights to Bismack Biyombo  Kings acquire John Salmons Other Team(s) Involved in Trade:Bucks",
     "is_multi_team": true,
     "teams": [
@@ -3194,7 +3194,7 @@
     "date": "2011-06-24",
     "season": "2010-11",
     "title": "Heat / Timberwolves Trade",
-    "description": "On 2011-06-24:  Timberwolves acquire rights to Bojan Bogdanovic  Heat acquire rights to Norris Cole (a)",
+    "description": "On 2011-06-24:  Timberwolves acquire rights to Bojan Bogdanović  Heat acquire rights to Norris Cole (a)",
     "is_multi_team": false,
     "teams": [
       {
@@ -3220,7 +3220,7 @@
       },
       {
         "type": "player",
-        "player_name": "Bojan Bogdanovic",
+        "player_name": "Bojan Bogdanović",
         "from_team_id": "MIA",
         "to_team_id": "MIN",
         "pick_year": null,
@@ -3258,7 +3258,7 @@
     "date": "2011-06-24",
     "season": "2010-11",
     "title": "Nets / Timberwolves Trade",
-    "description": "On 2011-06-24:  Timberwolves acquire 2013 second round pick (#52-Lorenzo Brown)  Nets acquire rights to Bojan Bogdanovic",
+    "description": "On 2011-06-24:  Timberwolves acquire 2013 second round pick (#52-Lorenzo Brown)  Nets acquire rights to Bojan Bogdanović",
     "is_multi_team": false,
     "teams": [
       {
@@ -3273,7 +3273,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Bojan Bogdanovic",
+        "player_name": "Bojan Bogdanović",
         "from_team_id": "MIN",
         "to_team_id": "BKN",
         "pick_year": null,
