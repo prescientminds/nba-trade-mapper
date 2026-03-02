@@ -25,6 +25,9 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
   const expandedNodes = useGraphStore((s) => s.expandedNodes);
   const nodes = useGraphStore((s) => s.nodes);
   const championshipContext = useGraphStore((s) => s.championshipContext);
+  const followPath = useGraphStore((s) => s.followPath);
+  const startFollowPathForPlayer = useGraphStore((s) => s.startFollowPathForPlayer);
+  const exitFollowPath = useGraphStore((s) => s.exitFollowPath);
 
   const [pathLoading, setPathLoading] = useState<string | null>(null);
   const [afterLoading, setAfterLoading] = useState<string | null>(null);
@@ -362,7 +365,7 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
                     }} />
                   )}
 
-                  {/* Path / After / on graph buttons */}
+                  {/* Path / Follow / Following / After buttons */}
                   {!onGraph ? (
                     <div
                       className="nopan nodrag"
@@ -399,46 +402,89 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
                         }} />
                       ) : 'Path'}
                     </div>
-                  ) : canShowAfter ? (
+                  ) : followPath?.playerName === player.playerName ? (
                     <div
                       className="nopan nodrag"
-                      onClick={(e) => handleAfterClick(e, player.playerName)}
+                      onClick={(e) => { e.stopPropagation(); exitFollowPath(); }}
                       style={{
                         fontSize: 8,
-                        color: isAfterLoading ? '#f9c74f' : 'var(--text-muted)',
+                        color: '#f9c74f',
                         padding: '1px 4px',
                         borderRadius: 3,
-                        background: 'var(--bg-tertiary)',
-                        cursor: isAfterLoading ? 'default' : 'pointer',
+                        background: 'rgba(249,199,79,0.12)',
+                        cursor: 'pointer',
                         flexShrink: 0,
                         whiteSpace: 'nowrap',
-                        transition: 'background 0.15s, color 0.15s',
+                        transition: 'background 0.15s',
                       }}
-                      onMouseEnter={(e) => {
-                        if (!isAfterLoading) {
-                          e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-                          e.currentTarget.style.color = '#f9c74f';
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = 'var(--bg-tertiary)';
-                        e.currentTarget.style.color = isAfterLoading ? '#f9c74f' : 'var(--text-muted)';
-                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(249,199,79,0.25)'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(249,199,79,0.12)'; }}
                     >
-                      {isAfterLoading ? (
-                        <div style={{
-                          width: 8, height: 8,
-                          border: '1.5px solid var(--text-muted)',
-                          borderTopColor: '#f9c74f',
-                          borderRadius: '50%',
-                          animation: 'spin 0.8s linear infinite',
-                        }} />
-                      ) : 'After'}
+                      {'\u2715'} Following
                     </div>
                   ) : (
-                    <span style={{ fontSize: 7, color: 'var(--text-muted)', flexShrink: 0 }}>
-                      on graph
-                    </span>
+                    <div style={{ display: 'flex', gap: 2, flexShrink: 0 }}>
+                      <div
+                        className="nopan nodrag"
+                        onClick={(e) => { e.stopPropagation(); startFollowPathForPlayer(player.playerName); }}
+                        style={{
+                          fontSize: 8,
+                          color: 'var(--text-muted)',
+                          padding: '1px 4px',
+                          borderRadius: 3,
+                          background: 'var(--bg-tertiary)',
+                          cursor: 'pointer',
+                          whiteSpace: 'nowrap',
+                          transition: 'background 0.15s, color 0.15s',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = 'rgba(249,199,79,0.15)';
+                          e.currentTarget.style.color = '#f9c74f';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = 'var(--bg-tertiary)';
+                          e.currentTarget.style.color = 'var(--text-muted)';
+                        }}
+                      >
+                        Follow {'\u2192'}
+                      </div>
+                      {canShowAfter && (
+                        <div
+                          className="nopan nodrag"
+                          onClick={(e) => handleAfterClick(e, player.playerName)}
+                          style={{
+                            fontSize: 8,
+                            color: isAfterLoading ? '#f9c74f' : 'var(--text-muted)',
+                            padding: '1px 4px',
+                            borderRadius: 3,
+                            background: 'var(--bg-tertiary)',
+                            cursor: isAfterLoading ? 'default' : 'pointer',
+                            whiteSpace: 'nowrap',
+                            transition: 'background 0.15s, color 0.15s',
+                          }}
+                          onMouseEnter={(e) => {
+                            if (!isAfterLoading) {
+                              e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+                              e.currentTarget.style.color = '#f9c74f';
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = 'var(--bg-tertiary)';
+                            e.currentTarget.style.color = isAfterLoading ? '#f9c74f' : 'var(--text-muted)';
+                          }}
+                        >
+                          {isAfterLoading ? (
+                            <div style={{
+                              width: 8, height: 8,
+                              border: '1.5px solid var(--text-muted)',
+                              borderTopColor: '#f9c74f',
+                              borderRadius: '50%',
+                              animation: 'spin 0.8s linear infinite',
+                            }} />
+                          ) : 'After'}
+                        </div>
+                      )}
+                    </div>
                   )}
                 </div>
 
