@@ -476,23 +476,37 @@ async function findTradeBetweenStints(
 
   const nameLower = playerName.toLowerCase();
 
-  // Find trades where this player appears AND both teams are involved.
-  // Asset from_team_id/to_team_id in the data don't reliably indicate direction,
-  // so we check that the trade involves both teams via the teams array instead.
-  const matches = allTrades.filter((t) => {
-    const tradeTeamIds = t.teams.map((tm) => tm.team_id);
-    if (!tradeTeamIds.includes(fromTeamId) || !tradeTeamIds.includes(toTeamId)) return false;
-
-    // Primary check: player appears in structured assets
+  // Helper: does this trade involve the player (by asset or description)?
+  const tradeInvolvesPlayer = (t: StaticTrade): boolean => {
     const hasPlayerInAssets = t.assets.some(
       (a) => a.type === 'player' && a.player_name?.toLowerCase() === nameLower
     );
     if (hasPlayerInAssets) return true;
-
-    // Fallback: player name appears in trade description (catches cases where
-    // the scraper failed to parse player assets from complex multi-team trades)
     return t.description?.toLowerCase().includes(nameLower) ?? false;
+  };
+
+  // Primary: find trades where both teams appear in the teams array
+  let matches = allTrades.filter((t) => {
+    const tradeTeamIds = t.teams.map((tm) => tm.team_id);
+    if (!tradeTeamIds.includes(fromTeamId) || !tradeTeamIds.includes(toTeamId)) return false;
+    return tradeInvolvesPlayer(t);
   });
+
+  // Fallback for pass-through trades: player was routed through an intermediary
+  // team (e.g. Jrue Holiday MIL→POR→BOS via two linked trades days apart).
+  // Find the trade that delivered the player to toTeamId by checking asset-level
+  // to_team_id, even if fromTeamId isn't in that trade's teams array.
+  if (matches.length === 0) {
+    matches = allTrades.filter((t) => {
+      const tradeTeamIds = t.teams.map((tm) => tm.team_id);
+      if (!tradeTeamIds.includes(toTeamId)) return false;
+      // Must have a structured asset sending this player TO the destination team
+      return t.assets.some(
+        (a) => a.type === 'player' && a.player_name?.toLowerCase() === nameLower
+          && a.to_team_id === toTeamId
+      );
+    });
+  }
 
   if (matches.length === 0) return null;
 
