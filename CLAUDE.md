@@ -82,7 +82,8 @@ nba-trade-mapper/
 │       ├── 003-accolades-player-name.sql # player_name col on accolades (APPLIED)
 │       ├── 004-fix-trade-lineage-security.sql # (APPLIED)
 │       ├── 005-playoff-stats.sql     # 8 playoff columns on player_seasons (APPLIED)
-│       └── 006-trade-scores.sql      # trade_scores table (APPLIED)
+│       ├── 006-trade-scores.sql      # trade_scores table (APPLIED)
+│       └── 012-playoff-game-logs.sql # playoff_game_logs table (APPLIED)
 ├── data/
 │   ├── trades.csv                    # 37K rows, source: svitkin/bball-trade-network
 │   └── kaggle/                       # BBRef datasets (gitignored)
@@ -107,6 +108,7 @@ nba-trade-mapper/
 │   ├── import-team-seasons.ts        # Kaggle → team_seasons (ALREADY RUN, 1376 rows)
 │   ├── scrape-playoff-results.ts     # BBRef brackets → team_seasons playoff_result+championship (ALREADY RUN)
 │   ├── scrape-playoff-stats.ts       # BBRef playoff pages → player_seasons playoff_ws etc (ALREADY RUN)
+│   ├── scrape-playoff-game-logs.ts   # BBRef player pages → playoff_game_logs per-game stats (ALREADY RUN)
 │   ├── score-trades.ts               # Scores all trades → trade_scores table (ALREADY RUN)
 │   ├── run-migrations.ts             # Run migrations via direct postgres connection
 │   ├── run-migrations-api.ts         # Run migrations via Supabase Management API
@@ -145,7 +147,8 @@ nba-trade-mapper/
 - **team_seasons** — W/L records, playoff results, championship flags (1,376 rows imported)
 - **player_accolades** — MVP, All-Star, All-NBA, DPOY, ROY, MIP, Sixth Man by season (2,510 rows)
 - **player_seasons** — per-game + advanced stats by player/team/season (23,308 rows)
-- **player_contracts** — salary + contract type by season (EMPTY — not yet populated)
+- **player_contracts** — salary + contract type by season (15,370 rows)
+- **playoff_game_logs** — per-game playoff stats by player/date/team (scraped from BBRef player pages)
 
 ### Lineage Fields (on transactions)
 - `root_transaction_id` — the original trade this stems from

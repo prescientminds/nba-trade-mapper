@@ -56,6 +56,17 @@ export interface PickNodeData {
   [key: string]: unknown;
 }
 
+export interface PlayoffPeakGame {
+  gameScore: number;
+  pts: number;
+  trb: number;
+  ast: number;
+  opponentId: string;
+  gameDate: string;
+  result: string | null;
+  gameMargin: number | null;
+}
+
 export interface SeasonDetailRow {
   season: string;
   gp: number | null;
@@ -68,6 +79,7 @@ export interface SeasonDetailRow {
   playoffResult: string | null;
   accolades: string[];
   salary: number | null;
+  playoffPeakGames?: PlayoffPeakGame[];
 }
 
 export interface PlayerStintNodeData {
@@ -2444,6 +2456,39 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       for (const c of contracts) contractMap.set(c.season, c);
     }
 
+    // Fetch playoff game logs for peak game badges
+    const { data: playoffGames } = await sb
+      .from('playoff_game_logs')
+      .select('season,game_date,game_score,game_margin,pts,trb,ast,opponent_id,result')
+      .ilike('player_name', playerName)
+      .eq('team_id', teamId)
+      .in('season', seasons)
+      .not('game_score', 'is', null)
+      .order('game_score', { ascending: false }) as { data: { season: string; game_date: string; game_score: number; game_margin: number | null; pts: number; trb: number; ast: number; opponent_id: string; result: string | null }[] | null };
+
+    // Group peak games by season — only close games (margin <= 10 or margin unknown)
+    const peakGamesBySeason = new Map<string, PlayoffPeakGame[]>();
+    if (playoffGames) {
+      for (const g of playoffGames) {
+        const dominated = g.game_margin !== null && Math.abs(g.game_margin) > 10;
+        if (dominated) continue;
+        const arr = peakGamesBySeason.get(g.season) || [];
+        if (arr.length < 5) {
+          arr.push({
+            gameScore: g.game_score,
+            pts: g.pts,
+            trb: g.trb,
+            ast: g.ast,
+            opponentId: g.opponent_id,
+            gameDate: g.game_date,
+            result: g.result,
+            gameMargin: g.game_margin,
+          });
+          peakGamesBySeason.set(g.season, arr);
+        }
+      }
+    }
+
     // Build SeasonDetailRow[] and inject into the stint node's data
     const seasonDetails: SeasonDetailRow[] = [];
     if (seasonStats) {
@@ -2461,6 +2506,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
           playoffResult: ts?.playoff_result ?? null,
           accolades: accoladesByS.get(ss.season) || [],
           salary: contractMap.get(ss.season)?.salary ?? null,
+          playoffPeakGames: peakGamesBySeason.get(ss.season),
         });
       }
     }

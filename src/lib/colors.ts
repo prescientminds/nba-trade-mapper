@@ -1,15 +1,39 @@
-/** Lighten very dark colors (luminance < 80) by blending with white */
-export function ensureReadable(hex: string): string {
+/** WCAG relative luminance for a hex color */
+function relLuminance(hex: string): number {
+  const toLinear = (c: number) => {
+    const s = c / 255;
+    return s <= 0.04045 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
+  };
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
   const b = parseInt(hex.slice(5, 7), 16);
-  const luminance = 0.299 * r + 0.587 * g + 0.114 * b;
-  if (luminance >= 80) return hex;
-  const blend = 0.55;
-  const nr = Math.round(r + (255 - r) * blend);
-  const ng = Math.round(g + (255 - g) * blend);
-  const nb = Math.round(b + (255 - b) * blend);
-  return `#${nr.toString(16).padStart(2, '0')}${ng.toString(16).padStart(2, '0')}${nb.toString(16).padStart(2, '0')}`;
+  return 0.2126 * toLinear(r) + 0.7152 * toLinear(g) + 0.0722 * toLinear(b);
+}
+
+// Card background #16161f — relative luminance ≈ 0.0084
+const BG_LUMINANCE = relLuminance('#16161f');
+
+/**
+ * Lighten a color until it passes WCAG AA (4.5:1) against the card background.
+ * Preserves hue by blending toward white in 12% increments.
+ */
+export function ensureReadable(hex: string): string {
+  let r = parseInt(hex.slice(1, 3), 16);
+  let g = parseInt(hex.slice(3, 5), 16);
+  let b = parseInt(hex.slice(5, 7), 16);
+
+  for (let i = 0; i < 12; i++) {
+    const current = `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+    const lum = relLuminance(current);
+    const ratio = (lum + 0.05) / (BG_LUMINANCE + 0.05);
+    if (ratio >= 4.5) return current;
+    // Blend 12% toward white each step
+    r = Math.min(255, Math.round(r + (255 - r) * 0.12));
+    g = Math.min(255, Math.round(g + (255 - g) * 0.12));
+    b = Math.min(255, Math.round(b + (255 - b) * 0.12));
+  }
+
+  return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
 }
 
 /**

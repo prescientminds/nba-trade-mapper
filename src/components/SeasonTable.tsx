@@ -1,11 +1,12 @@
 'use client';
 
-import type { SeasonDetailRow } from '@/lib/graph-store';
+import { useState } from 'react';
+import type { SeasonDetailRow, PlayoffPeakGame } from '@/lib/graph-store';
 
 function playoffBadge(result: string | null): { label: string; color: string; bg: string } | null {
   if (result === 'CHAMP')  return { label: '🏆 Champ',  color: '#f9c74f', bg: 'rgba(249,199,79,0.18)' };
-  if (result === 'FINALS') return { label: 'Finals',    color: '#9b5de5', bg: 'rgba(155,93,229,0.18)' };
-  if (result === 'CONF')   return { label: 'Conf Finals', color: '#4ecdc4', bg: 'rgba(78,205,196,0.15)' };
+  if (result === 'FINALS') return { label: 'Finals',    color: '#c4a0f5', bg: 'rgba(196,160,245,0.18)' };
+  if (result === 'CONF')   return { label: 'Conf Finals', color: '#6ee0d8', bg: 'rgba(110,224,216,0.15)' };
   return null;
 }
 
@@ -21,6 +22,90 @@ function abbreviateAccolade(a: string): string {
   if (a === 'MIP') return 'MIP';
   if (a === 'Sixth Man') return '6MOY';
   return a.length > 8 ? a.slice(0, 7) + '\u2026' : a;
+}
+
+function formatPeakDate(dateStr: string): string {
+  const parts = dateStr.split('-');
+  if (parts.length !== 3) return dateStr;
+  return `${parseInt(parts[1])}/${parseInt(parts[2])}`;
+}
+
+function PeakBadge({ games }: { games: PlayoffPeakGame[] }) {
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  if (!games || games.length === 0) return null;
+  const top = games[0];
+
+  return (
+    <span
+      style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}
+      onMouseEnter={() => setShowTooltip(true)}
+      onMouseLeave={() => setShowTooltip(false)}
+    >
+      <span
+        style={{
+          fontSize: 7,
+          fontFamily: 'var(--font-body)',
+          fontWeight: 600,
+          padding: '0px 3px',
+          borderRadius: 2,
+          background: 'rgba(78,205,196,0.15)',
+          color: '#4ecdc4',
+          whiteSpace: 'nowrap',
+          cursor: 'default',
+        }}
+      >
+        GS {top.gameScore.toFixed(1)}
+      </span>
+      {showTooltip && (
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '100%',
+            right: 0,
+            marginBottom: 4,
+            background: '#1a1a2e',
+            border: '1px solid rgba(255,255,255,0.15)',
+            borderRadius: 4,
+            padding: '4px 6px',
+            zIndex: 100,
+            minWidth: 140,
+            boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
+          }}
+        >
+          <div style={{ fontSize: 7, color: 'var(--text-muted)', marginBottom: 2, whiteSpace: 'nowrap' }}>
+            Top playoff games (close)
+          </div>
+          {games.map((g, i) => (
+            <div
+              key={i}
+              style={{
+                fontSize: 8,
+                fontFamily: 'var(--font-mono)',
+                color: i === 0 ? '#4ecdc4' : 'var(--text-secondary)',
+                whiteSpace: 'nowrap',
+                lineHeight: '13px',
+              }}
+            >
+              <span style={{ fontWeight: 600 }}>{g.gameScore.toFixed(1)}</span>
+              {' '}
+              <span style={{ color: 'var(--text-muted)' }}>
+                {g.pts}/{g.trb}/{g.ast}
+              </span>
+              {' '}
+              <span style={{ color: 'var(--text-tertiary)' }}>
+                {g.result === 'W' ? 'W' : 'L'} vs {g.opponentId}
+              </span>
+              {' '}
+              <span style={{ color: 'var(--text-muted)', fontSize: 7 }}>
+                {formatPeakDate(g.gameDate)}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+    </span>
+  );
 }
 
 export function SeasonTable({ rows }: { rows: SeasonDetailRow[] }) {
@@ -121,6 +206,9 @@ export function SeasonTable({ rows }: { rows: SeasonDetailRow[] }) {
                       </span>
                     );
                   })()}
+                  {r.playoffPeakGames && r.playoffPeakGames.length > 0 && (
+                    <PeakBadge games={r.playoffPeakGames} />
+                  )}
                 </span>
               </td>
             </tr>
