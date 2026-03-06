@@ -190,6 +190,25 @@ function normalizePlayerName(name: string): string | null {
   return cleaned;
 }
 
+/** Get adjacent seasons for fallback salary lookup */
+function getAdjacentSeasons(season: string): string[] {
+  const start = parseInt(season.split('-')[0]);
+  return [
+    `${start - 1}-${String(start).slice(2)}`,
+    `${start + 1}-${String(start + 2).slice(2)}`,
+  ];
+}
+
+/** Estimate rookie salary based on draft round and salary cap */
+function estimateRookieSalary(pickRound: number, cap: number): number {
+  if (pickRound === 1) {
+    // Mid-first-round estimate: ~4% of salary cap
+    return Math.round(cap * 0.04);
+  }
+  // Second round: ~1.5% of cap (near minimum)
+  return Math.round(cap * 0.015);
+}
+
 // ── Helpers ──────────────────────────────────────────────────────────
 
 async function fetchAll<T>(table: string, columns: string): Promise<T[]> {
@@ -275,6 +294,34 @@ async function main() {
   }
   console.log(`Loaded ${allTrades.length} trades from ${seasonFiles.length} files.\n`);
 
+  // Load known NBA player names for stash detection
+  const playerSeasonRows = await fetchAll<{ player_name: string }>('player_seasons', 'player_name');
+  const knownNBAPlayers = new Set<string>();
+  for (const p of playerSeasonRows) {
+    knownNBAPlayers.add(p.player_name);
+    knownNBAPlayers.add(stripDiacritics(p.player_name));
+  }
+  console.log(`  Known NBA players (from player_seasons): ${knownNBAPlayers.size} unique name forms`);
+
+  // Build rookie info from became_player_name across all trades
+  const rookieInfo = new Map<string, { pick_round: number }>();
+  for (const trade of allTrades) {
+    for (const asset of trade.assets) {
+      if (asset.became_player_name && asset.pick_round) {
+        const name = stripDiacritics(asset.became_player_name);
+        if (!rookieInfo.has(name)) {
+          rookieInfo.set(name, { pick_round: asset.pick_round });
+        }
+      }
+    }
+  }
+  console.log(`  Rookie info entries (from became_player_name): ${rookieInfo.size}`);
+
+  // Diagnostic counters
+  let adjSeasonHits = 0;
+  let stashExclusions = 0;
+  let rookieEstimates = 0;
+
   // Validate each trade
   const results: TradeValidationResult[] = [];
 
@@ -311,6 +358,31 @@ async function main() {
           if (salary !== null) break;
         }
       }
+      // Fallback 1: adjacent season (player has contract data for nearby season)
+      if (salary === null) {
+        for (const adjSeason of getAdjacentSeasons(trade.season)) {
+          salary = salaryMap.get(`${normalized}|${adjSeason}`)
+            ?? salaryMap.get(`${a.player_name}|${adjSeason}`)
+            ?? null;
+          if (salary !== null) { adjSeasonHits++; break; }
+        }
+      }
+      // Fallback 2: stash player — never appeared in NBA player_seasons
+      if (salary === null) {
+        const isKnownPlayer = knownNBAPlayers.has(normalized) || knownNBAPlayers.has(a.player_name);
+        if (!isKnownPlayer) {
+          stashExclusions++;
+          return { type: 'cash' as const, player_name: null, from_team_id: a.from_team_id, to_team_id: a.to_team_id, salary: null };
+        }
+      }
+      // Fallback 3: rookie scale estimation from draft info
+      if (salary === null) {
+        const ri = rookieInfo.get(normalized) || rookieInfo.get(stripDiacritics(a.player_name));
+        if (ri) {
+          salary = estimateRookieSalary(ri.pick_round, cap.salary_cap);
+          rookieEstimates++;
+        }
+      }
       return { type: a.type, player_name: normalized, from_team_id: a.from_team_id, to_team_id: a.to_team_id, salary };
     });
 
@@ -329,6 +401,11 @@ async function main() {
   console.log(`  Legal (salary matching works):   ${legal.length} (${Math.round(legal.length / totalValidated * 100)}%)`);
   console.log(`  Illegal (may use cap room/TPE):  ${illegal.length} (${Math.round(illegal.length / totalValidated * 100)}%)`);
   console.log(`  Incomplete (missing salary data): ${incomplete.length} (${Math.round(incomplete.length / totalValidated * 100)}%)`);
+
+  console.log(`\nFallback resolution:`);
+  console.log(`  Adjacent season hits:   ${adjSeasonHits} player lookups resolved via ±1 season`);
+  console.log(`  Stash player excluded:  ${stashExclusions} assets reclassified (never played in NBA)`);
+  console.log(`  Rookie scale estimates: ${rookieEstimates} salaries estimated from draft round`);
 
   // CBA era breakdown
   const byEra = new Map<string, { total: number; legal: number; illegal: number; incomplete: number }>();
