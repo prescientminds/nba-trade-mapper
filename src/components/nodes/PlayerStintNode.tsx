@@ -237,18 +237,26 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
       {/* Stats summary — always visible below the heading */}
       {avgPpg !== null && (
         <div style={{
-          fontSize: 9,
+          display: 'flex',
+          gap: 6,
+          marginTop: 2,
           fontFamily: 'var(--font-mono)',
-          color: 'var(--text-secondary)',
-          marginTop: 1,
         }}>
-          {avgPpg.toFixed(1)}/{avgRpg?.toFixed(1) ?? '--'}/{avgApg?.toFixed(1) ?? '--'}
-          <span style={{ fontSize: 7, color: 'var(--text-muted)', marginLeft: 3 }}>PPG/RPG/APG</span>
-          {totalWinShares !== null && (
-            <span style={{ fontSize: 8, color: 'var(--text-muted)', marginLeft: 6 }}>
-              WS: {totalWinShares.toFixed(1)}
-            </span>
-          )}
+          {[
+            { val: avgPpg, label: 'PPG' },
+            { val: avgRpg, label: 'RPG' },
+            { val: avgApg, label: 'APG' },
+            ...(totalWinShares !== null ? [{ val: totalWinShares, label: 'WS' }] : []),
+          ].map(({ val, label }) => (
+            <div key={label} style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: 9, color: 'var(--text-secondary)', lineHeight: 1.1 }}>
+                {val?.toFixed(1) ?? '--'}
+              </div>
+              <div style={{ fontSize: 6, color: 'var(--text-muted)', letterSpacing: '0.03em' }}>
+                {label}
+              </div>
+            </div>
+          ))}
         </div>
       )}
 

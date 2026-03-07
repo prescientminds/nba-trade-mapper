@@ -66,6 +66,7 @@ export interface PlayoffPeakGame {
   result: string | null;
   gameMargin: number | null;
   gameNumber: number;
+  round: number;
 }
 
 export interface PlayoffSeriesGame {
@@ -81,6 +82,7 @@ export interface PlayoffSeriesGame {
 
 export interface PlayoffSeries {
   opponentId: string;
+  round: number;
   games: PlayoffSeriesGame[];
 }
 
@@ -2513,20 +2515,36 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         });
       }
 
-      // Build game number lookup: "game_date|opponent_id" → game number
-      const gameNumberLookup = new Map<string, number>();
-      for (const [, series] of seriesMap) {
-        for (const g of series.games) {
-          gameNumberLookup.set(`${g.gameDate}|${series.opponentId}`, g.gameNumber);
-        }
-      }
-
-      // Build series data grouped by season
+      // Assign round numbers: group series by season, sort by first game date
+      const seriesBySeasonRaw = new Map<string, { key: string; opponentId: string; firstDate: string; games: PlayoffSeriesGame[] }[]>();
       for (const [key, series] of seriesMap) {
         const season = key.split('|')[0];
-        const arr = seriesBySeason.get(season) || [];
-        arr.push(series);
-        seriesBySeason.set(season, arr);
+        const arr = seriesBySeasonRaw.get(season) || [];
+        arr.push({ key, opponentId: series.opponentId, firstDate: series.games[0]?.gameDate ?? '', games: series.games });
+        seriesBySeasonRaw.set(season, arr);
+      }
+
+      // Sort each season's series chronologically → round 1, 2, 3, 4
+      const roundLookup = new Map<string, number>(); // "season|opponent_id" → round
+      for (const [season, seriesList] of seriesBySeasonRaw) {
+        seriesList.sort((a, b) => a.firstDate.localeCompare(b.firstDate));
+        const builtSeries: PlayoffSeries[] = [];
+        seriesList.forEach((s, i) => {
+          const round = i + 1;
+          roundLookup.set(`${season}|${s.opponentId}`, round);
+          builtSeries.push({ opponentId: s.opponentId, round, games: s.games });
+        });
+        seriesBySeason.set(season, builtSeries);
+      }
+
+      // Build game number + round lookup: "game_date|opponent_id" → { gameNumber, round }
+      const gameLookup = new Map<string, { gameNumber: number; round: number }>();
+      for (const [key, series] of seriesMap) {
+        const season = key.split('|')[0];
+        const round = roundLookup.get(`${season}|${series.opponentId}`) ?? 1;
+        for (const g of series.games) {
+          gameLookup.set(`${g.gameDate}|${series.opponentId}`, { gameNumber: g.gameNumber, round });
+        }
       }
 
       // Peak games: GS >= 20, top 1 per season (playoffGames already sorted by game_score DESC)
@@ -2534,6 +2552,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         if (g.game_score < 20) continue;
         const arr = peakGamesBySeason.get(g.season) || [];
         if (arr.length < 1) {
+          const info = gameLookup.get(`${g.game_date}|${g.opponent_id}`);
           arr.push({
             gameScore: g.game_score,
             pts: g.pts,
@@ -2543,7 +2562,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
             gameDate: g.game_date,
             result: g.result,
             gameMargin: g.game_margin,
-            gameNumber: gameNumberLookup.get(`${g.game_date}|${g.opponent_id}`) ?? 0,
+            gameNumber: info?.gameNumber ?? 0,
+            round: info?.round ?? 1,
           });
           peakGamesBySeason.set(g.season, arr);
         }

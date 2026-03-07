@@ -40,9 +40,9 @@ function PeakBadge({ game, onClick }: { game: PlayoffPeakGame; onClick: () => vo
         whiteSpace: 'nowrap',
         cursor: 'pointer',
       }}
-      title="Click to see series"
+      title="Game Score — click to see series"
     >
-      Gm {game.gameNumber} vs {game.opponentId} {game.gameScore.toFixed(1)}
+      {'\uD83D\uDD26'} {game.gameScore.toFixed(1)} R{game.round}G{game.gameNumber}
     </span>
   );
 }
@@ -78,7 +78,7 @@ function SeriesPanel({ series }: { series: PlayoffSeries }) {
         color: '#4ecdc4',
         marginBottom: 2,
       }}>
-        vs {series.opponentId} ({seriesResult})
+        R{series.round} vs {series.opponentId} ({seriesResult})
       </div>
       <table style={{ width: '100%', borderCollapse: 'collapse' }}>
         <thead>
