@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import type { SeasonDetailRow, PlayoffPeakGame } from '@/lib/graph-store';
+import React, { useState } from 'react';
+import type { SeasonDetailRow, PlayoffPeakGame, PlayoffSeries } from '@/lib/graph-store';
 
 function playoffBadge(result: string | null): { label: string; color: string; bg: string } | null {
   if (result === 'CHAMP')  return { label: '🏆 Champ',  color: '#f9c74f', bg: 'rgba(249,199,79,0.18)' };
@@ -24,91 +24,111 @@ function abbreviateAccolade(a: string): string {
   return a.length > 8 ? a.slice(0, 7) + '\u2026' : a;
 }
 
-function formatPeakDate(dateStr: string): string {
-  const parts = dateStr.split('-');
-  if (parts.length !== 3) return dateStr;
-  return `${parseInt(parts[1])}/${parseInt(parts[2])}`;
-}
-
-function PeakBadge({ games }: { games: PlayoffPeakGame[] }) {
-  const [showTooltip, setShowTooltip] = useState(false);
-
-  if (!games || games.length === 0) return null;
-  const top = games[0];
-
+function PeakBadge({ game, onClick }: { game: PlayoffPeakGame; onClick: () => void }) {
   return (
     <span
-      style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}
-      onMouseEnter={() => setShowTooltip(true)}
-      onMouseLeave={() => setShowTooltip(false)}
+      className="nopan nodrag"
+      onClick={(e) => { e.stopPropagation(); onClick(); }}
+      style={{
+        fontSize: 7,
+        fontFamily: 'var(--font-body)',
+        fontWeight: 600,
+        padding: '0px 3px',
+        borderRadius: 2,
+        background: 'rgba(78,205,196,0.15)',
+        color: '#4ecdc4',
+        whiteSpace: 'nowrap',
+        cursor: 'pointer',
+      }}
+      title="Click to see series"
     >
-      <span
-        style={{
-          fontSize: 7,
-          fontFamily: 'var(--font-body)',
-          fontWeight: 600,
-          padding: '0px 3px',
-          borderRadius: 2,
-          background: 'rgba(78,205,196,0.15)',
-          color: '#4ecdc4',
-          whiteSpace: 'nowrap',
-          cursor: 'default',
-        }}
-      >
-        GS {top.gameScore.toFixed(1)}
-      </span>
-      {showTooltip && (
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '100%',
-            right: 0,
-            marginBottom: 4,
-            background: '#1a1a2e',
-            border: '1px solid rgba(255,255,255,0.15)',
-            borderRadius: 4,
-            padding: '4px 6px',
-            zIndex: 100,
-            minWidth: 140,
-            boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
-          }}
-        >
-          <div style={{ fontSize: 7, color: 'var(--text-muted)', marginBottom: 2, whiteSpace: 'nowrap' }}>
-            Top playoff games (close)
-          </div>
-          {games.map((g, i) => (
-            <div
-              key={i}
-              style={{
-                fontSize: 8,
-                fontFamily: 'var(--font-mono)',
-                color: i === 0 ? '#4ecdc4' : 'var(--text-secondary)',
-                whiteSpace: 'nowrap',
-                lineHeight: '13px',
-              }}
-            >
-              <span style={{ fontWeight: 600 }}>{g.gameScore.toFixed(1)}</span>
-              {' '}
-              <span style={{ color: 'var(--text-muted)' }}>
-                {g.pts}/{g.trb}/{g.ast}
-              </span>
-              {' '}
-              <span style={{ color: 'var(--text-tertiary)' }}>
-                {g.result === 'W' ? 'W' : 'L'} vs {g.opponentId}
-              </span>
-              {' '}
-              <span style={{ color: 'var(--text-muted)', fontSize: 7 }}>
-                {formatPeakDate(g.gameDate)}
-              </span>
-            </div>
-          ))}
-        </div>
-      )}
+      Gm {game.gameNumber} vs {game.opponentId} {game.gameScore.toFixed(1)}
     </span>
   );
 }
 
+function SeriesPanel({ series }: { series: PlayoffSeries }) {
+  const wins = series.games.filter(g => g.result === 'W').length;
+  const losses = series.games.filter(g => g.result !== 'W').length;
+  const seriesResult = wins > losses ? `W ${wins}-${losses}` : `L ${wins}-${losses}`;
+
+  const thStyle: React.CSSProperties = {
+    fontSize: 7,
+    fontWeight: 600,
+    color: 'var(--text-muted)',
+    textAlign: 'right',
+    padding: '1px 2px',
+    whiteSpace: 'nowrap',
+  };
+  const tdStyle: React.CSSProperties = {
+    fontSize: 8,
+    fontFamily: 'var(--font-mono)',
+    color: 'var(--text-secondary)',
+    textAlign: 'right',
+    padding: '1px 2px',
+    lineHeight: '12px',
+    whiteSpace: 'nowrap',
+  };
+
+  return (
+    <div style={{ padding: '3px 0 2px' }}>
+      <div style={{
+        fontSize: 8,
+        fontWeight: 600,
+        color: '#4ecdc4',
+        marginBottom: 2,
+      }}>
+        vs {series.opponentId} ({seriesResult})
+      </div>
+      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <thead>
+          <tr>
+            <th style={{ ...thStyle, textAlign: 'left', width: 18 }}>Gm</th>
+            <th style={{ ...thStyle, width: 22 }}>PTS</th>
+            <th style={{ ...thStyle, width: 22 }}>REB</th>
+            <th style={{ ...thStyle, width: 22 }}>AST</th>
+            <th style={{ ...thStyle, width: 26 }}>GS</th>
+            <th style={{ ...thStyle, textAlign: 'left' }}></th>
+          </tr>
+        </thead>
+        <tbody>
+          {series.games.map(g => (
+            <tr key={g.gameNumber}>
+              <td style={{ ...tdStyle, textAlign: 'left', color: 'var(--text-muted)' }}>{g.gameNumber}</td>
+              <td style={tdStyle}>{g.pts}</td>
+              <td style={tdStyle}>{g.trb}</td>
+              <td style={tdStyle}>{g.ast}</td>
+              <td style={{
+                ...tdStyle,
+                color: g.gameScore !== null && g.gameScore >= 20 ? '#4ecdc4' : 'var(--text-secondary)',
+                fontWeight: g.gameScore !== null && g.gameScore >= 20 ? 600 : 400,
+              }}>
+                {g.gameScore !== null ? g.gameScore.toFixed(1) : '--'}
+              </td>
+              <td style={{
+                ...tdStyle,
+                textAlign: 'left',
+                paddingLeft: 3,
+                color: g.result === 'W' ? 'var(--text-secondary)' : 'var(--text-muted)',
+              }}>
+                {g.result === 'W' ? 'W' : 'L'}
+                {g.gameMargin != null && (
+                  <span style={{ color: 'var(--text-muted)', fontSize: 7 }}>
+                    {' '}{g.gameMargin > 0 ? `+${g.gameMargin}` : g.gameMargin}
+                  </span>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 export function SeasonTable({ rows }: { rows: SeasonDetailRow[] }) {
+  const [expandedSeries, setExpandedSeries] = useState<{ season: string; opponentId: string } | null>(null);
+
   const thStyle: React.CSSProperties = {
     fontSize: 8,
     fontWeight: 600,
@@ -156,7 +176,8 @@ export function SeasonTable({ rows }: { rows: SeasonDetailRow[] }) {
           const shortSeason = r.season.length > 5 ? r.season.slice(2) : r.season;
           const compactTd: React.CSSProperties = { ...tdStyle, padding: '1px 2px' };
           return (
-            <tr key={r.season}>
+            <React.Fragment key={r.season}>
+            <tr>
               <td style={{ ...compactTd, textAlign: 'left', fontSize: 9, color: 'var(--text-tertiary)', padding: '1px 2px 1px 0' }}>
                 {shortSeason}
               </td>
@@ -207,11 +228,33 @@ export function SeasonTable({ rows }: { rows: SeasonDetailRow[] }) {
                     );
                   })()}
                   {r.playoffPeakGames && r.playoffPeakGames.length > 0 && (
-                    <PeakBadge games={r.playoffPeakGames} />
+                    <PeakBadge
+                      game={r.playoffPeakGames[0]}
+                      onClick={() => {
+                        const peak = r.playoffPeakGames![0];
+                        setExpandedSeries(
+                          expandedSeries?.season === r.season && expandedSeries?.opponentId === peak.opponentId
+                            ? null
+                            : { season: r.season, opponentId: peak.opponentId }
+                        );
+                      }}
+                    />
                   )}
                 </span>
               </td>
             </tr>
+            {expandedSeries?.season === r.season && r.playoffSeries && (() => {
+              const series = r.playoffSeries.find(s => s.opponentId === expandedSeries.opponentId);
+              if (!series) return null;
+              return (
+                <tr key={`${r.season}-series`}>
+                  <td colSpan={7} style={{ padding: '0 2px', borderBottom: '1px solid var(--border-subtle, rgba(255,255,255,0.08))' }}>
+                    <SeriesPanel series={series} />
+                  </td>
+                </tr>
+              );
+            })()}
+          </React.Fragment>
           );
         })}
       </tbody>

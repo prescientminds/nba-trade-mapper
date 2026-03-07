@@ -65,6 +65,23 @@ export interface PlayoffPeakGame {
   gameDate: string;
   result: string | null;
   gameMargin: number | null;
+  gameNumber: number;
+}
+
+export interface PlayoffSeriesGame {
+  gameNumber: number;
+  gameDate: string;
+  gameScore: number | null;
+  pts: number;
+  trb: number;
+  ast: number;
+  result: string | null;
+  gameMargin: number | null;
+}
+
+export interface PlayoffSeries {
+  opponentId: string;
+  games: PlayoffSeriesGame[];
 }
 
 export interface SeasonDetailRow {
@@ -80,6 +97,7 @@ export interface SeasonDetailRow {
   accolades: string[];
   salary: number | null;
   playoffPeakGames?: PlayoffPeakGame[];
+  playoffSeries?: PlayoffSeries[];
 }
 
 export interface PlayerStintNodeData {
@@ -2466,14 +2484,56 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       .not('game_score', 'is', null)
       .order('game_score', { ascending: false }) as { data: { season: string; game_date: string; game_score: number; game_margin: number | null; pts: number; trb: number; ast: number; opponent_id: string; result: string | null }[] | null };
 
-    // Group peak games by season — only close games (margin <= 10 or margin unknown)
+    // Compute game numbers within each series and build series data
     const peakGamesBySeason = new Map<string, PlayoffPeakGame[]>();
+    const seriesBySeason = new Map<string, PlayoffSeries[]>();
     if (playoffGames) {
+      // Sort chronologically to assign game numbers
+      const chronological = [...playoffGames].sort((a, b) =>
+        a.game_date.localeCompare(b.game_date)
+      );
+
+      // Group by season+opponent, assign game numbers
+      const seriesMap = new Map<string, { opponentId: string; games: PlayoffSeriesGame[] }>();
+      for (const g of chronological) {
+        const key = `${g.season}|${g.opponent_id}`;
+        if (!seriesMap.has(key)) {
+          seriesMap.set(key, { opponentId: g.opponent_id, games: [] });
+        }
+        const series = seriesMap.get(key)!;
+        series.games.push({
+          gameNumber: series.games.length + 1,
+          gameDate: g.game_date,
+          gameScore: g.game_score,
+          pts: g.pts,
+          trb: g.trb,
+          ast: g.ast,
+          result: g.result,
+          gameMargin: g.game_margin,
+        });
+      }
+
+      // Build game number lookup: "game_date|opponent_id" → game number
+      const gameNumberLookup = new Map<string, number>();
+      for (const [, series] of seriesMap) {
+        for (const g of series.games) {
+          gameNumberLookup.set(`${g.gameDate}|${series.opponentId}`, g.gameNumber);
+        }
+      }
+
+      // Build series data grouped by season
+      for (const [key, series] of seriesMap) {
+        const season = key.split('|')[0];
+        const arr = seriesBySeason.get(season) || [];
+        arr.push(series);
+        seriesBySeason.set(season, arr);
+      }
+
+      // Peak games: GS >= 20, top 1 per season (playoffGames already sorted by game_score DESC)
       for (const g of playoffGames) {
-        const dominated = g.game_margin !== null && Math.abs(g.game_margin) > 10;
-        if (dominated) continue;
+        if (g.game_score < 20) continue;
         const arr = peakGamesBySeason.get(g.season) || [];
-        if (arr.length < 5) {
+        if (arr.length < 1) {
           arr.push({
             gameScore: g.game_score,
             pts: g.pts,
@@ -2483,6 +2543,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
             gameDate: g.game_date,
             result: g.result,
             gameMargin: g.game_margin,
+            gameNumber: gameNumberLookup.get(`${g.game_date}|${g.opponent_id}`) ?? 0,
           });
           peakGamesBySeason.set(g.season, arr);
         }
@@ -2507,6 +2568,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
           accolades: accoladesByS.get(ss.season) || [],
           salary: contractMap.get(ss.season)?.salary ?? null,
           playoffPeakGames: peakGamesBySeason.get(ss.season),
+          playoffSeries: seriesBySeason.get(ss.season),
         });
       }
     }
