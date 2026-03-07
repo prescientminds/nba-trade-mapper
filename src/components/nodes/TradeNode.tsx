@@ -8,11 +8,27 @@ import { SeasonTable } from '@/components/SeasonTable';
 import type { TransactionAsset } from '@/lib/supabase';
 import { ensureReadable, contrastText } from '@/lib/colors';
 import { getSupabase } from '@/lib/supabase';
+import { useHints } from '@/lib/use-hints';
+import { HintLabel } from '@/components/HintLabel';
+
+function fmtSalary(n: number): string {
+  if (n >= 1_000_000_000) return `$${(n / 1_000_000_000).toFixed(1)}B`;
+  if (n >= 1_000_000) return `$${(n / 1_000_000).toFixed(1)}M`;
+  if (n >= 1_000) return `$${(n / 1_000).toFixed(0)}K`;
+  return `$${n}`;
+}
 
 interface TradeScoreRow {
   team_scores: Record<string, { score: number; assets?: { name: string; type?: string; seasons?: number; ws?: number; playoff_ws?: number; championships?: number; accolades?: string[]; score: number }[] }>;
   winner: string | null;
   lopsidedness: number;
+  salary_details: Record<string, {
+    total: number;
+    total_acquired: number;
+    cap_pct: number;
+    players: { name: string; salary_at_trade: number; acquired_value: number; acquired_seasons: number }[];
+    got_under_cap?: boolean;
+  }> | null;
 }
 
 function TradeNodeComponent({ id, data }: NodeProps) {
@@ -33,6 +49,8 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const exitFollowPath = useGraphStore((s) => s.exitFollowPath);
 
   const [expandLoading, setExpandLoading] = useState(false);
+  const hintStep = useHints((s) => s.step);
+  const dismissHint = useHints((s) => s.dismiss);
 
   const isExpanded = expandedNodes.has(id);
   const isLoading = loadingNodes.has(id);
@@ -50,11 +68,18 @@ function TradeNodeComponent({ id, data }: NodeProps) {
     setScoreLoading(true);
     getSupabase()
       .from('trade_scores')
-      .select('team_scores,winner,lopsidedness')
+      .select('team_scores,winner,lopsidedness,salary_details')
       .eq('trade_id', trade.id)
       .single()
       .then(({ data }) => { if (data) setTradeScore(data as TradeScoreRow); setScoreLoading(false); });
   }, [isExpanded, scoreFetched, trade.id]);
+
+  // Auto-dismiss hint 4 after 5s when scores are visible
+  useEffect(() => {
+    if (hintStep !== 4 || !tradeScore) return;
+    const timer = setTimeout(() => dismissHint(4), 5000);
+    return () => clearTimeout(timer);
+  }, [hintStep, tradeScore, dismissHint]);
   const hasInlineData = inlinePlayers && Object.keys(inlinePlayers).length > 0;
   const cardWidth = hasInlineData ? 320 : 180;
 
@@ -179,6 +204,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const handlePathClick = (e: React.MouseEvent, asset: TransactionAsset) => {
     e.stopPropagation();
     if (isInGraph(asset)) return;
+    dismissHint(3);
     expandPlayerFullPathFromTrade(id, asset);
   };
 
@@ -189,7 +215,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
 
   return (
     <div
-      onClick={() => expandTradeNode(id)}
+      onClick={() => { dismissHint(2); expandTradeNode(id); }}
       style={{
         width: cardWidth,
         minHeight: isExpanded ? 60 : 44,
@@ -277,8 +303,10 @@ function TradeNodeComponent({ id, data }: NodeProps) {
               e.stopPropagation();
               if (expandLoading) return;
               if (!isExpanded) {
+                dismissHint(2);
                 expandTradeNode(id);
               } else {
+                dismissHint(5);
                 setExpandLoading(true);
                 expandWeb(id).finally(() => setExpandLoading(false));
               }
@@ -360,6 +388,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
           const bg = displayInfo.color;
           const textColor = contrastText(bg);
           const needsOutline = 0.299 * parseInt(bg.slice(1,3),16) + 0.587 * parseInt(bg.slice(3,5),16) + 0.114 * parseInt(bg.slice(5,7),16) < 30;
+          const gotUnderCap = tradeScore?.salary_details?.[tid]?.got_under_cap;
           return (
             <span
               key={tid}
@@ -372,9 +401,15 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                 color: textColor,
                 letterSpacing: 0.3,
                 border: needsOutline ? '1px solid rgba(255,255,255,0.25)' : 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 2,
               }}
             >
               {displayInfo.abbreviation}
+              {gotUnderCap && (
+                <span title="Got under the cap" style={{ fontSize: 6, opacity: 0.8, lineHeight: 1 }}>▾</span>
+              )}
             </span>
           );
         })}
@@ -572,6 +607,9 @@ function TradeNodeComponent({ id, data }: NodeProps) {
               return false;
             });
 
+            const teamSalary = tradeScore?.salary_details?.[teamId];
+            const acquiredTotal = teamSalary?.total_acquired;
+
             return (
               <div key={teamId} style={{ marginBottom: 4 }}>
                 {/* Team header */}
@@ -583,9 +621,26 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                     letterSpacing: 0.6,
                     color: teamColor,
                     marginBottom: 2,
+                    display: 'flex',
+                    alignItems: 'baseline',
+                    gap: 4,
                   }}
                 >
-                  {teamName} receive
+                  <span>{teamName} receive</span>
+                  {acquiredTotal != null && acquiredTotal > 0 && (
+                    <span
+                      style={{
+                        fontSize: 7,
+                        fontWeight: 400,
+                        fontFamily: 'var(--font-mono)',
+                        color: 'var(--text-muted)',
+                        textTransform: 'none',
+                        letterSpacing: 0,
+                      }}
+                    >
+                      {fmtSalary(acquiredTotal)}
+                    </span>
+                  )}
                 </div>
 
                 {/* No data fallback for old trades with incomplete records */}
@@ -1185,6 +1240,16 @@ function TradeNodeComponent({ id, data }: NodeProps) {
             );
           })}
 
+          {/* Progressive hints */}
+          {hintStep === 3 && (
+            <HintLabel text="Follow their career" style={{ marginTop: 4 }} />
+          )}
+          {hintStep === 4 && scoreEntries && (
+            <HintLabel text="Win Shares — who got more" style={{ marginTop: 4 }} />
+          )}
+          {hintStep === 5 && (
+            <HintLabel text="Keep going — expand the web" style={{ marginTop: 4 }} />
+          )}
 
         </div>
       )}

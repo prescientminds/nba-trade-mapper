@@ -62,15 +62,19 @@ interface CapRow {
 interface PlayerSalaryDetail {
   name: string;
   salary_at_trade: number;        // Salary in the trade season
-  future_salary: number;          // Sum of remaining contract on receiving team
+  future_salary: number;          // Sum of remaining contract (may include fallback to other teams)
   seasons_remaining: number;
   cap_pct: number;                // salary_at_trade / cap at trade time
+  acquired_value: number;         // Total salary at the acquiring team only (from trade season through departure)
+  acquired_seasons: number;       // Number of seasons at the acquiring team
 }
 
 interface TeamSalaryScore {
-  total: number;                  // Total future salary received
+  total: number;                  // Total future salary received (may include fallback)
+  total_acquired: number;         // Total salary at the acquiring team only (sum of acquired_value)
   cap_pct: number;                // Total as multiple of salary cap
   players: PlayerSalaryDetail[];
+  got_under_cap?: boolean;        // True if team went from over cap to under cap via this trade
 }
 
 interface TradeSalaryScore {
@@ -241,6 +245,7 @@ function scoreTradeSalary(
   contractsByPlayerTeam: Map<string, ContractRow[]>,
   contractsByPlayer: Map<string, ContractRow[]>,
   capBySeason: Map<string, number>,
+  teamPayrolls: Map<string, number>,      // teamId|season → total team payroll
 ): TradeSalaryScore {
   const tradeSeason = trade.season;
   const capAtTrade = capBySeason.get(tradeSeason) || 0;
@@ -253,12 +258,21 @@ function scoreTradeSalary(
     byTeam.get(asset.to_team_id)!.push(asset);
   }
 
+  // Also track what each team sends out (for under-cap calculation)
+  const outgoingByTeam = new Map<string, TradeAsset[]>();
+  for (const asset of trade.assets) {
+    if (!asset.from_team_id) continue;
+    if (!outgoingByTeam.has(asset.from_team_id)) outgoingByTeam.set(asset.from_team_id, []);
+    outgoingByTeam.get(asset.from_team_id)!.push(asset);
+  }
+
   const salaryDetails: Record<string, TeamSalaryScore> = {};
   let totalExchanged = 0;
 
   for (const [teamId, assets] of byTeam) {
     const players: PlayerSalaryDetail[] = [];
     let teamTotal = 0;
+    let teamTotalAcquired = 0;
 
     for (const asset of assets) {
       let rawName: string | null = null;
@@ -277,13 +291,17 @@ function scoreTradeSalary(
       const playerName = normalizePlayerName(rawName);
       if (!playerName) continue;
 
-      // Strategy 1: Look for salary on receiving team (exact match)
+      // ── Acquired value: contracts specifically on the receiving team ──
       const keyExact = `${playerName}|${teamId}`;
-      let contracts = (contractsByPlayerTeam.get(keyExact) || [])
+      const acquiringTeamContracts = (contractsByPlayerTeam.get(keyExact) || [])
         .filter(c => seasonGte(c.season, seasonCutoff));
+      const acquiredValue = acquiringTeamContracts.reduce((sum, c) => sum + c.salary, 0);
+      const acquiredSeasons = acquiringTeamContracts.length;
+
+      // ── Future salary: broader search (fallback to any team for coverage) ──
+      let contracts = acquiringTeamContracts;
 
       // Strategy 2: If no contracts on receiving team, look for ANY contracts
-      // starting from trade season (player might have been traded again quickly)
       if (contracts.length === 0) {
         contracts = (contractsByPlayer.get(playerName) || [])
           .filter(c => seasonGte(c.season, seasonCutoff));
@@ -312,7 +330,7 @@ function scoreTradeSalary(
         || contracts[0];
       const salaryAtTrade = tradeSeasonContract?.salary || 0;
 
-      // Future salary = sum of all remaining contract value
+      // Future salary = sum of all remaining contract value (broader — includes fallback)
       const futureSalary = contracts.reduce((sum, c) => sum + c.salary, 0);
       const seasonsRemaining = contracts.length;
 
@@ -324,27 +342,63 @@ function scoreTradeSalary(
         future_salary: futureSalary,
         seasons_remaining: seasonsRemaining,
         cap_pct: capPct,
+        acquired_value: acquiredValue,
+        acquired_seasons: acquiredSeasons,
       });
 
       teamTotal += futureSalary;
+      teamTotalAcquired += acquiredValue;
     }
 
-    // Sort players by future salary descending
-    players.sort((a, b) => b.future_salary - a.future_salary);
+    // Sort players by acquired value descending (primary), future salary as tiebreak
+    players.sort((a, b) => b.acquired_value - a.acquired_value || b.future_salary - a.future_salary);
+
+    // ── Under-cap detection ──
+    // Check if the team went from over-cap to under-cap via this trade.
+    // We need the team's outgoing salary and incoming salary for the trade season.
+    let gotUnderCap: boolean | undefined;
+    if (capAtTrade > 0) {
+      const teamPayroll = teamPayrolls.get(`${teamId}|${tradeSeason}`);
+      if (teamPayroll != null && teamPayroll >= capAtTrade) {
+        // Team was at or over the cap. Calculate net salary change from this trade.
+        const outgoing = outgoingByTeam.get(teamId) || [];
+        let outgoingSalary = 0;
+        for (const a of outgoing) {
+          if (a.type !== 'player' || !a.player_name) continue;
+          const name = normalizePlayerName(a.player_name);
+          if (!name) continue;
+          const key = `${name}|${teamId}`;
+          const c = (contractsByPlayerTeam.get(key) || []).find(c => c.season === tradeSeason);
+          if (c) outgoingSalary += c.salary;
+        }
+
+        let incomingSalary = 0;
+        for (const p of players) {
+          incomingSalary += p.salary_at_trade;
+        }
+
+        const postTradePayroll = teamPayroll - outgoingSalary + incomingSalary;
+        if (postTradePayroll < capAtTrade) {
+          gotUnderCap = true;
+        }
+      }
+    }
 
     salaryDetails[teamId] = {
       total: teamTotal,
+      total_acquired: teamTotalAcquired,
       cap_pct: capAtTrade > 0 ? r2(teamTotal / capAtTrade) : 0,
       players,
+      ...(gotUnderCap ? { got_under_cap: true } : {}),
     };
 
     totalExchanged += teamTotal;
   }
 
-  // Determine salary winner (team that received more contract value)
-  const entries = Object.entries(salaryDetails).sort((a, b) => b[1].total - a[1].total);
+  // Determine salary winner (team that received more acquired value)
+  const entries = Object.entries(salaryDetails).sort((a, b) => b[1].total_acquired - a[1].total_acquired);
   let salaryWinner: string | null = null;
-  if (entries.length >= 2 && entries[0][1].total > entries[1][1].total * 1.1) {
+  if (entries.length >= 2 && entries[0][1].total_acquired > entries[1][1].total_acquired * 1.1) {
     // 10% threshold to declare a salary winner
     salaryWinner = entries[0][0];
   }
@@ -408,7 +462,16 @@ async function main() {
     capBySeason.set(row.season, row.salary_cap);
   }
 
+  // Build team payroll index: teamId|season → total salary on that team's books
+  const teamPayrolls = new Map<string, number>();
+  for (const row of contracts) {
+    if (!row.salary || !row.team_id) continue;
+    const key = `${row.team_id}|${row.season}`;
+    teamPayrolls.set(key, (teamPayrolls.get(key) || 0) + row.salary);
+  }
+
   console.log(`  Unique players with contracts: ${contractsByPlayer.size}`);
+  console.log(`  Team-season payrolls: ${teamPayrolls.size}`);
   console.log(`  Seasons with cap data: ${capBySeason.size}\n`);
 
   // Load trade JSON files
@@ -427,7 +490,7 @@ async function main() {
   // Score each trade
   const results: TradeSalaryScore[] = [];
   for (const trade of allTrades) {
-    results.push(scoreTradeSalary(trade, contractsByPlayerTeam, contractsByPlayer, capBySeason));
+    results.push(scoreTradeSalary(trade, contractsByPlayerTeam, contractsByPlayer, capBySeason, teamPayrolls));
   }
 
   // Summary stats
@@ -441,6 +504,16 @@ async function main() {
   console.log(`  Clear salary winner: ${withWinner.length}`);
   console.log(`  Total $ exchanged:   ${fmt$(totalValue)}`);
   console.log(`  Average per trade:   ${fmt$(Math.round(totalValue / (withSalaryData.length || 1)))}`);
+
+  // Acquired value stats
+  const totalAcquired = withSalaryData.reduce((sum, r) => {
+    return sum + Object.values(r.salary_details).reduce((ts, t) => ts + t.total_acquired, 0);
+  }, 0);
+  const gotUnderCapCount = withSalaryData.filter(r =>
+    Object.values(r.salary_details).some(t => t.got_under_cap)
+  ).length;
+  console.log(`  Total acquired $:    ${fmt$(totalAcquired)}`);
+  console.log(`  Got-under-cap trades: ${gotUnderCapCount}`);
 
   // Print biggest trades by total salary exchanged
   const printCount = topN || (dryRun ? 30 : 0);

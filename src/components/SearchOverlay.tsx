@@ -6,6 +6,8 @@ import { getAnyTeam } from '@/lib/teams';
 import { contrastText } from '@/lib/colors';
 import { useGraphStore } from '@/lib/graph-store';
 import DiscoverySection from '@/components/DiscoverySection';
+import { useHints } from '@/lib/use-hints';
+import { HintLabel } from '@/components/HintLabel';
 import type { League } from '@/lib/league';
 import Link from 'next/link';
 
@@ -32,6 +34,8 @@ export default function SearchOverlay() {
   const nodes = useGraphStore((s) => s.nodes);
   const selectedLeague = useGraphStore((s) => s.selectedLeague);
   const setSelectedLeague = useGraphStore((s) => s.setSelectedLeague);
+  const hintStep = useHints((s) => s.step);
+  const dismissHint = useHints((s) => s.dismiss);
 
   useEffect(() => {
     setHasGraph(nodes.length > 0);
@@ -62,24 +66,32 @@ export default function SearchOverlay() {
   const selectTrade = (trade: TradeWithDetails) => {
     setOpen(false);
     setQuery('');
+    dismissHint(1);
+    dismissHint(6);
     seedFromTrade(trade);
   };
 
   const selectPlayer = (name: string) => {
     setOpen(false);
     setQuery('');
+    dismissHint(1);
+    dismissHint(6);
     seedFromPlayer(name);
   };
 
   const selectChain = (tradeId: string, chainScores?: Record<string, unknown>) => {
     setOpen(false);
     setQuery('');
+    dismissHint(1);
+    dismissHint(6);
     seedFromChain(tradeId, chainScores as Parameters<typeof seedFromChain>[1]);
   };
 
   const selectChampionship = (teamId: string, season: string) => {
     setOpen(false);
     setQuery('');
+    dismissHint(1);
+    dismissHint(6);
     seedChampionshipRoster(teamId, season);
   };
 
@@ -420,6 +432,9 @@ export default function SearchOverlay() {
           {searchInput}
           {resultsDropdown}
         </div>
+        {hintStep === 2 && (
+          <HintLabel text="Click a node to expand it" style={{ marginLeft: 4 }} />
+        )}
       </div>
     );
   }
@@ -544,6 +559,10 @@ export default function SearchOverlay() {
           {resultsDropdown}
         </div>
 
+        {hintStep === 1 && (
+          <HintLabel text="Search a player or team" style={{ marginTop: 12 }} />
+        )}
+
       </div>
 
       {/* ── Discovery section: scrolls in below the fold ── */}
@@ -554,6 +573,9 @@ export default function SearchOverlay() {
           padding: '0 24px 120px',
         }}
       >
+        {hintStep === 6 && (
+          <HintLabel text="Browse curated trades" style={{ marginBottom: 12 }} />
+        )}
         <DiscoverySection league={selectedLeague} onSelectTrade={selectTrade} onSelectPlayer={selectPlayer} onSelectChain={selectChain} onSelectChampionship={selectChampionship} />
       </div>
     </div>

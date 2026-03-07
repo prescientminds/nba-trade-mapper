@@ -4,6 +4,7 @@ import { memo } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
 import { getAnyTeam } from '@/lib/teams';
 import { useGraphStore, PlayerNodeData } from '@/lib/graph-store';
+import { useHints } from '@/lib/use-hints';
 
 function PlayerNodeComponent({ id, data }: NodeProps) {
   const { name, teamId, draftYear, draftRound, draftPick } = data as PlayerNodeData;
@@ -25,7 +26,7 @@ function PlayerNodeComponent({ id, data }: NodeProps) {
 
   return (
     <div
-      onClick={() => !isExpanded && !isLoading && expandPlayerNode(id)}
+      onClick={() => { if (!isExpanded && !isLoading) { useHints.getState().dismiss(2); expandPlayerNode(id); } }}
       style={{
         width: 110,
         background: color + '11',

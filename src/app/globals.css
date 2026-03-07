@@ -85,6 +85,11 @@ body {
   to { transform: rotate(360deg); }
 }
 
+@keyframes hintPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
 @keyframes scrollBounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(6px); }
