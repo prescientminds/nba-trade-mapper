@@ -88,6 +88,7 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
   const loadingNodes = useGraphStore((s) => s.loadingNodes);
   const coreNodes = useGraphStore((s) => s.coreNodes);
   const expandChampionshipPlayer = useGraphStore((s) => s.expandChampionshipPlayer);
+  const adjustLayoutForToggle = useGraphStore((s) => s.adjustLayoutForToggle);
   const followPath = useGraphStore((s) => s.followPath);
   const advanceFollowPath = useGraphStore((s) => s.advanceFollowPath);
 
@@ -322,12 +323,15 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
               style={{ textAlign: 'center', cursor: 'pointer', position: 'relative' }}
               onClick={(e) => {
                 e.stopPropagation();
+                const SPARKLINE_H = 42;
                 if (!seasonDetails || seasonDetails.length === 0) {
                   // Load season details first, then show sparkline
                   if (!isExpanded && !isLoading) expandStintDetails(id);
                   setShowSparkline(true);
+                  adjustLayoutForToggle(id, SPARKLINE_H);
                 } else {
                   setShowSparkline(!showSparkline);
+                  adjustLayoutForToggle(id, showSparkline ? -SPARKLINE_H : SPARKLINE_H);
                 }
               }}
               title="Win shares by season"
@@ -415,7 +419,7 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
       {isExpanded && (
         <div style={{ marginTop: 2 }}>
           {seasonDetails && seasonDetails.length > 0 && (
-            <SeasonTable rows={seasonDetails} />
+            <SeasonTable rows={seasonDetails} onHeightChange={(delta) => adjustLayoutForToggle(id, delta)} />
           )}
         </div>
       )}

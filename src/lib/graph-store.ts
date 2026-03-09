@@ -239,6 +239,7 @@ interface GraphState {
   expandChampionshipWeb: () => Promise<void>;
   expandInlineChampionshipPlayer: (nodeId: string, playerName: string) => Promise<void>;
   collapseChampionshipStaged: () => void;
+  adjustLayoutForToggle: (nodeId: string, deltaH: number) => void;
 }
 
 // ── Helpers ──────────────────────────────────────────────────────────
@@ -814,6 +815,20 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const newCore = new Set(state.coreNodes);
     newCore.delete(nodeId);
     set({ nodes: newNodes, edges: newEdges, expandedNodes: newExpanded, loadingNodes: newLoading, coreNodes: newCore });
+  },
+
+  adjustLayoutForToggle: (nodeId: string, deltaH: number) => {
+    const state = get();
+    const sourceNode = state.nodes.find(n => n.id === nodeId);
+    if (!sourceNode || deltaH === 0) return;
+    const sourceY = sourceNode.position.y;
+    const updatedNodes = state.nodes.map(n => {
+      if (n.position.y > sourceY && n.id !== nodeId) {
+        return { ...n, position: { x: n.position.x, y: n.position.y + deltaH } };
+      }
+      return n;
+    });
+    set({ nodes: updatedNodes });
   },
 
   clearGraph: () => {

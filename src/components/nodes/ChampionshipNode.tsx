@@ -28,6 +28,7 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
   const followPath = useGraphStore((s) => s.followPath);
   const startFollowPathForPlayer = useGraphStore((s) => s.startFollowPathForPlayer);
   const exitFollowPath = useGraphStore((s) => s.exitFollowPath);
+  const adjustLayoutForToggle = useGraphStore((s) => s.adjustLayoutForToggle);
 
   const [pathLoading, setPathLoading] = useState<string | null>(null);
   const [afterLoading, setAfterLoading] = useState<string | null>(null);
@@ -514,7 +515,7 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
                         </span>
                       )}
                     </div>
-                    <SeasonTable rows={inlineData.seasonDetails} />
+                    <SeasonTable rows={inlineData.seasonDetails} onHeightChange={(delta) => adjustLayoutForToggle(id, delta)} />
                   </div>
                 )}
               </div>

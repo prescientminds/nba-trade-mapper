@@ -193,6 +193,10 @@ button, a, [role="button"] {
   font-size: inherit !important;
   color: inherit !important;
   width: auto !important;
+  transition: transform 0.15s ease-out;
+}
+.react-flow__node.dragging {
+  transition: none !important;
 }
 
 .react-flow__handle {

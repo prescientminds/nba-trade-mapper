@@ -126,8 +126,103 @@ function SeriesPanel({ series }: { series: PlayoffSeries }) {
   );
 }
 
-export function SeasonTable({ rows }: { rows: SeasonDetailRow[] }) {
+function ValueChart({ rows }: { rows: SeasonDetailRow[] }) {
+  const data = rows
+    .map(r => ({ season: r.season, ws: r.winShares, salary: r.salary }))
+    .filter(d => d.ws !== null || d.salary !== null);
+
+  if (data.length < 2) return null;
+
+  const W = 180;
+  const H = 56;
+  const padL = 22;
+  const padR = 22;
+  const padT = 6;
+  const padB = 14;
+  const plotW = W - padL - padR;
+  const plotH = H - padT - padB;
+
+  const wsVals = data.map(d => d.ws ?? 0);
+  const salVals = data.map(d => d.salary ?? 0);
+  const wsMax = Math.max(...wsVals, 1);
+  const salMax = Math.max(...salVals, 1);
+
+  const xStep = data.length > 1 ? plotW / (data.length - 1) : 0;
+
+  const wsPoints = data.map((d, i) => ({
+    x: padL + i * xStep,
+    y: padT + plotH - ((d.ws ?? 0) / wsMax) * plotH,
+  }));
+  const salPoints = data.map((d, i) => ({
+    x: padL + i * xStep,
+    y: padT + plotH - ((d.salary ?? 0) / salMax) * plotH,
+  }));
+
+  const toPath = (pts: { x: number; y: number }[]) =>
+    pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+
+  const hasSalary = salVals.some(v => v > 0);
+
+  return (
+    <div style={{ padding: '4px 0 2px', overflow: 'hidden' }}>
+      <svg width={W} height={H} style={{ display: 'block' }}>
+        {/* Grid lines */}
+        <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="rgba(255,255,255,0.06)" strokeWidth={0.5} />
+        <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="rgba(255,255,255,0.06)" strokeWidth={0.5} />
+
+        {/* Salary line (behind) */}
+        {hasSalary && (
+          <>
+            <path d={toPath(salPoints)} fill="none" stroke="#4ecdc4" strokeWidth={1.2} opacity={0.5} />
+            {salPoints.map((p, i) => (
+              <circle key={`s${i}`} cx={p.x} cy={p.y} r={1.5} fill="#4ecdc4" opacity={0.6} />
+            ))}
+          </>
+        )}
+
+        {/* WS line (front) */}
+        <path d={toPath(wsPoints)} fill="none" stroke="#ff6b35" strokeWidth={1.5} opacity={0.9} />
+        {wsPoints.map((p, i) => (
+          <circle key={`w${i}`} cx={p.x} cy={p.y} r={1.5} fill="#ff6b35" />
+        ))}
+
+        {/* Y-axis labels */}
+        <text x={padL - 2} y={padT + 3} textAnchor="end" fontSize={6} fill="#ff6b35" fontFamily="var(--font-mono)">
+          {wsMax.toFixed(0)}
+        </text>
+        <text x={padL - 2} y={padT + plotH} textAnchor="end" fontSize={6} fill="var(--text-muted)" fontFamily="var(--font-mono)">
+          0
+        </text>
+        {hasSalary && (
+          <text x={padL + plotW + 2} y={padT + 3} textAnchor="start" fontSize={6} fill="#4ecdc4" fontFamily="var(--font-mono)">
+            {salMax >= 1_000_000 ? `$${(salMax / 1_000_000).toFixed(0)}M` : `$${(salMax / 1_000).toFixed(0)}K`}
+          </text>
+        )}
+
+        {/* X-axis season labels */}
+        {data.map((d, i) => {
+          const x = padL + i * xStep;
+          const shortYr = d.season.length > 5 ? d.season.slice(2, 4) : d.season.slice(0, 2);
+          return (
+            <text key={d.season} x={x} y={H - 2} textAnchor="middle" fontSize={5.5} fill="var(--text-muted)" fontFamily="var(--font-mono)">
+              {shortYr}
+            </text>
+          );
+        })}
+      </svg>
+
+      {/* Legend */}
+      <div style={{ display: 'flex', gap: 8, paddingLeft: padL, marginTop: 1 }}>
+        <span style={{ fontSize: 6, color: '#ff6b35', fontFamily: 'var(--font-mono)' }}>WS</span>
+        {hasSalary && <span style={{ fontSize: 6, color: '#4ecdc4', fontFamily: 'var(--font-mono)', opacity: 0.7 }}>Salary</span>}
+      </div>
+    </div>
+  );
+}
+
+export function SeasonTable({ rows, onHeightChange }: { rows: SeasonDetailRow[]; onHeightChange?: (delta: number) => void }) {
   const [expandedSeries, setExpandedSeries] = useState<{ season: string; opponentId: string } | null>(null);
+  const [showValueChart, setShowValueChart] = useState(false);
 
   const thStyle: React.CSSProperties = {
     fontSize: 8,
@@ -149,6 +244,7 @@ export function SeasonTable({ rows }: { rows: SeasonDetailRow[] }) {
   };
 
   return (
+    <>
     <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: 2, tableLayout: 'fixed' }}>
       {/* Fixed widths for stat columns; last column gets remainder for accolades */}
       <colgroup>
@@ -167,7 +263,24 @@ export function SeasonTable({ rows }: { rows: SeasonDetailRow[] }) {
           <th style={thStyle}>PPG</th>
           <th style={thStyle}>RPG</th>
           <th style={thStyle}>APG</th>
-          <th style={thStyle}>WS</th>
+          <th
+            className="nopan nodrag"
+            onClick={(e) => {
+              e.stopPropagation();
+              const VALUE_CHART_H = 70;
+              onHeightChange?.(showValueChart ? -VALUE_CHART_H : VALUE_CHART_H);
+              setShowValueChart(!showValueChart);
+            }}
+            style={{
+              ...thStyle,
+              color: showValueChart ? '#ff6b35' : '#5b9bd5',
+              cursor: 'pointer',
+              userSelect: 'none',
+            }}
+            title="Toggle WS vs Salary chart"
+          >
+            WS
+          </th>
           <th style={{ ...thStyle, textAlign: 'left', paddingLeft: 5 }}></th>
         </tr>
       </thead>
@@ -232,11 +345,24 @@ export function SeasonTable({ rows }: { rows: SeasonDetailRow[] }) {
                       game={r.playoffPeakGames[0]}
                       onClick={() => {
                         const peak = r.playoffPeakGames![0];
-                        setExpandedSeries(
-                          expandedSeries?.season === r.season && expandedSeries?.opponentId === peak.opponentId
-                            ? null
-                            : { season: r.season, opponentId: peak.opponentId }
-                        );
+                        const isClosing = expandedSeries?.season === r.season && expandedSeries?.opponentId === peak.opponentId;
+                        if (isClosing) {
+                          // Closing current series
+                          const series = r.playoffSeries?.find(s => s.opponentId === peak.opponentId);
+                          if (series) onHeightChange?.(-(28 + series.games.length * 12));
+                          setExpandedSeries(null);
+                        } else {
+                          // Close previous series if any
+                          if (expandedSeries) {
+                            const prevRow = rows.find(rr => rr.season === expandedSeries.season);
+                            const prevSeries = prevRow?.playoffSeries?.find(s => s.opponentId === expandedSeries.opponentId);
+                            if (prevSeries) onHeightChange?.(-(28 + prevSeries.games.length * 12));
+                          }
+                          // Open new series
+                          const series = r.playoffSeries?.find(s => s.opponentId === peak.opponentId);
+                          if (series) onHeightChange?.(28 + series.games.length * 12);
+                          setExpandedSeries({ season: r.season, opponentId: peak.opponentId });
+                        }
                       }}
                     />
                   )}
@@ -282,5 +408,8 @@ export function SeasonTable({ rows }: { rows: SeasonDetailRow[] }) {
         </tfoot>
       )}
     </table>
+    {showValueChart && <ValueChart rows={rows} />}
+    </>
   );
 }
+

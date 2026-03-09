@@ -47,6 +47,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const startFollowPath = useGraphStore((s) => s.startFollowPath);
   const advanceFollowPath = useGraphStore((s) => s.advanceFollowPath);
   const exitFollowPath = useGraphStore((s) => s.exitFollowPath);
+  const adjustLayoutForToggle = useGraphStore((s) => s.adjustLayoutForToggle);
 
   const [expandLoading, setExpandLoading] = useState(false);
   const hintStep = useHints((s) => s.step);
@@ -453,7 +454,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
           {scoreEntries && (
             <div style={{ marginBottom: 4 }}>
               {/* Section label + info icon */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: 3, marginBottom: 3 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 3, marginBottom: 3, position: 'relative' }}>
                 <span style={{
                   fontSize: 7, fontWeight: 600, letterSpacing: 0.7,
                   textTransform: 'uppercase', color: 'var(--text-muted)',
@@ -483,18 +484,23 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                 >
                   i
                 </span>
-              </div>
 
-              {/* Inline formula explanation */}
+              {/* Formula explanation — absolute overlay */}
               {scoreTooltipOpen && (
                 <div
                   className="nopan nodrag"
                   style={{
+                    position: 'absolute',
+                    top: '100%',
+                    left: 0,
+                    zIndex: 20,
+                    width: 200,
                     background: 'var(--bg-tertiary)',
                     borderRadius: 4,
                     padding: '6px 8px',
-                    marginBottom: 6,
+                    marginTop: 2,
                     borderLeft: '2px solid var(--border-medium)',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.4)',
                   }}
                 >
                   <div style={{
@@ -539,6 +545,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   </a>
                 </div>
               )}
+              </div>
 
               {/* Bars */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
@@ -651,9 +658,19 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                         className="nopan nodrag"
                         onClick={(e) => {
                           e.stopPropagation();
+                          const playerCount = teamSalary?.players?.length ?? 0;
+                          const SALARY_ROW_H = 13;
+                          const SALARY_PAD = 12;
+                          const salaryPanelH = playerCount * SALARY_ROW_H + SALARY_PAD;
                           setSalaryExpandedTeams((prev) => {
                             const next = new Set(prev);
-                            next.has(teamId) ? next.delete(teamId) : next.add(teamId);
+                            if (next.has(teamId)) {
+                              next.delete(teamId);
+                              adjustLayoutForToggle(id, -salaryPanelH);
+                            } else {
+                              next.add(teamId);
+                              adjustLayoutForToggle(id, salaryPanelH);
+                            }
                             return next;
                           });
                         }}
@@ -1005,7 +1022,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                                 </span>
                               )}
                             </div>
-                            <SeasonTable rows={inlineData.seasonDetails} />
+                            <SeasonTable rows={inlineData.seasonDetails} onHeightChange={(delta) => adjustLayoutForToggle(id, delta)} />
                           </div>
                         )}
                       </div>
@@ -1313,7 +1330,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                               </span>
                             )}
                           </div>
-                          <SeasonTable rows={pickInlineData.seasonDetails} />
+                          <SeasonTable rows={pickInlineData.seasonDetails} onHeightChange={(delta) => adjustLayoutForToggle(id, delta)} />
                         </div>
                       )}
 
