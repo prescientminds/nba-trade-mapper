@@ -451,7 +451,7 @@ function TradeCardItem({
         </div>
       </div>
 
-      {/* Heading: Nickname A & Nickname B */}
+      {/* Heading: Nickname A & Nickname B — or chain narrative */}
       <div
         style={{
           fontSize: 12,
@@ -463,7 +463,13 @@ function TradeCardItem({
           marginBottom: card.players.length > 0 ? 3 : 10,
           overflow: 'hidden',
           textOverflow: 'ellipsis',
-          whiteSpace: 'nowrap',
+          ...(card.players.length === 0
+            ? {
+                display: '-webkit-box',
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: 'vertical' as const,
+              }
+            : { whiteSpace: 'nowrap' as const }),
         }}
       >
         {card.heading}
@@ -1481,14 +1487,34 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             if (winnerData.depth < 2) return null;
             if (winnerData.chain <= winnerData.direct * 1.2) return null;
             const chainPlayers = flattenChainPlayers(winnerData.assets);
-            const playerLabels = chainPlayers.length > 0
-              ? chainPlayers.slice(0, 3).map((p) => `${p.name} (${p.score.toFixed(1)})`)
-              : entry.players;
+
+            // Build narrative heading: "Seattle turned Jackson into Allen, George, SGA…"
+            const lastName = (name: string) => name.split(' ').pop() || name;
+            const teamDisplay = getAnyTeamDisplayInfo(winnerTeam, entry.date);
+            const teamNickname = teamDisplay.name.split(' ').pop() || winnerTeam;
+            // Root assets = originally acquired players in this trade
+            const rootNames = winnerData.assets
+              .filter((a) => a.type === 'player')
+              .map((a) => lastName(a.name));
+            // Downstream players = everyone else in the chain, sorted by WS
+            const rootNameSet = new Set(winnerData.assets.filter((a) => a.type === 'player').map((a) => a.name));
+            const downstreamPlayers = chainPlayers.filter((p) => !rootNameSet.has(p.name));
+            const downstreamNames = downstreamPlayers.map((p) => lastName(p.name));
+
+            let chainHeading: string;
+            const rootPart = rootNames.length > 0 ? rootNames.join(', ') : 'picks';
+            if (downstreamNames.length > 0) {
+              chainHeading = `${teamNickname} turned ${rootPart} into ${downstreamNames.join(', ')}`;
+            } else {
+              // No downstream — fallback to standard heading
+              chainHeading = tradeHeading(entry.topAssets, entry.teams, entry.date);
+            }
+
             return {
               type: 'trade',
               tradeId: row.trade_id,
-              heading: tradeHeading(entry.topAssets, entry.teams, entry.date),
-              players: playerLabels,
+              heading: chainHeading,
+              players: [],
               season: entry.season,
               teams: entry.teams,
               winner: winnerTeam,
