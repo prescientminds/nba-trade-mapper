@@ -383,6 +383,16 @@ function makeGapNode(
   };
 }
 
+// Helper: extract player name from a node (shared by highlight/follow methods)
+function getPlayerFromNode(nodes: Node[], nodeId: string): string | null {
+  const n = nodes.find(nn => nn.id === nodeId);
+  if (!n) return null;
+  if (n.type === 'playerStint') return (n.data as PlayerStintNodeData).playerName;
+  if (n.type === 'player') return (n.data as PlayerNodeData).name;
+  if (n.type === 'gap') return (n.data as GapNodeData).playerName;
+  return null;
+}
+
 function makeEdge(source: string, target: string, label?: string): Edge {
   return {
     id: `e-${source}-${target}`,
@@ -398,6 +408,32 @@ function makeEdge(source: string, target: string, label?: string): Edge {
 // Helper: check if an edge already exists between source and target
 function edgeExists(edges: Edge[], src: string, tgt: string): boolean {
   return edges.some(e => e.source === src && e.target === tgt);
+}
+
+// Helper: find one trade node per connected component (undirected BFS)
+function findTradeComponentRoots(nodes: Node[], edges: Edge[]): string[] {
+  const tradeNodes = nodes.filter(n => n.type === 'trade');
+  if (tradeNodes.length === 0) return [];
+
+  const visited = new Set<string>();
+  const roots: string[] = [];
+  for (const tn of tradeNodes) {
+    if (visited.has(tn.id)) continue;
+    roots.push(tn.id);
+    const queue = [tn.id];
+    visited.add(tn.id);
+    while (queue.length > 0) {
+      const current = queue.shift()!;
+      for (const e of edges) {
+        const neighbor = e.source === current ? e.target : (e.target === current ? e.source : null);
+        if (neighbor && !visited.has(neighbor)) {
+          visited.add(neighbor);
+          queue.push(neighbor);
+        }
+      }
+    }
+  }
+  return roots;
 }
 
 // Helper: group consecutive seasons with same team into stints
@@ -810,37 +846,20 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const clickedEdge = state.edges.find(e => e.id === edgeId);
     if (!clickedEdge) return;
 
-    // Toggle off if already highlighted
     if (state.highlightedEdges.has(edgeId)) {
       set({ highlightedEdges: new Set() });
       return;
     }
 
-    // Extract player name from connected nodes
-    const getPlayerFromNode = (nodeId: string): string | null => {
-      const n = state.nodes.find(nn => nn.id === nodeId);
-      if (!n) return null;
-      if (n.type === 'playerStint') return (n.data as PlayerStintNodeData).playerName;
-      if (n.type === 'player') return (n.data as PlayerNodeData).name;
-      if (n.type === 'gap') return (n.data as GapNodeData).playerName;
-      return null;
-    };
-
-    const playerName = getPlayerFromNode(clickedEdge.source) || getPlayerFromNode(clickedEdge.target);
+    const playerName = getPlayerFromNode(state.nodes, clickedEdge.source) || getPlayerFromNode(state.nodes, clickedEdge.target);
     if (!playerName) {
-      // No player context — highlight just this edge
       set({ highlightedEdges: new Set([edgeId]) });
       return;
     }
 
-    // Find all edges belonging to this player's journey
-    const isPlayerNode = (nodeId: string): boolean => {
-      return getPlayerFromNode(nodeId) === playerName;
-    };
-
     const pathEdges = new Set<string>();
     for (const e of state.edges) {
-      if (isPlayerNode(e.source) || isPlayerNode(e.target)) {
+      if (getPlayerFromNode(state.nodes, e.source) === playerName || getPlayerFromNode(state.nodes, e.target) === playerName) {
         pathEdges.add(e.id);
       }
     }
@@ -857,17 +876,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   startFollowPath: (playerName: string, fromTradeNodeId: string) => {
     const state = get();
 
-    // Reuse highlightEdgePath's logic to find all player edges
-    const getPlayerFromNode = (nodeId: string): string | null => {
-      const n = state.nodes.find(nn => nn.id === nodeId);
-      if (!n) return null;
-      if (n.type === 'playerStint') return (n.data as PlayerStintNodeData).playerName;
-      if (n.type === 'player') return (n.data as PlayerNodeData).name;
-      if (n.type === 'gap') return (n.data as GapNodeData).playerName;
-      return null;
-    };
-
-    const isPlayerNode = (nodeId: string): boolean => getPlayerFromNode(nodeId) === playerName;
+    const isPlayerNode = (nodeId: string): boolean => getPlayerFromNode(state.nodes, nodeId) === playerName;
 
     // Collect all edges belonging to this player's journey
     const playerEdgeIds = new Set<string>();
@@ -910,16 +919,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   startFollowPathForPlayer: (playerName: string) => {
     const state = get();
 
-    const getPlayerFromNode = (nodeId: string): string | null => {
-      const n = state.nodes.find(nn => nn.id === nodeId);
-      if (!n) return null;
-      if (n.type === 'playerStint') return (n.data as PlayerStintNodeData).playerName;
-      if (n.type === 'player') return (n.data as PlayerNodeData).name;
-      if (n.type === 'gap') return (n.data as GapNodeData).playerName;
-      return null;
-    };
-
-    const isPlayerNode = (nodeId: string): boolean => getPlayerFromNode(nodeId) === playerName;
+    const isPlayerNode = (nodeId: string): boolean => getPlayerFromNode(state.nodes, nodeId) === playerName;
 
     const playerEdgeIds = new Set<string>();
     const adjacency = new Map<string, string>();
@@ -1101,30 +1101,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   // ── Expand one degree — expand web outward one layer from all trade nodes ──
   expandOneDegree: async () => {
     const state = get();
-    const tradeNodes = state.nodes.filter(n => n.type === 'trade');
-    if (tradeNodes.length === 0) return;
-
-    // Find one trade node per connected component (undirected BFS)
-    const visited = new Set<string>();
-    const componentRoots: string[] = [];
-    for (const tn of tradeNodes) {
-      if (visited.has(tn.id)) continue;
-      componentRoots.push(tn.id);
-      const queue = [tn.id];
-      visited.add(tn.id);
-      while (queue.length > 0) {
-        const current = queue.shift()!;
-        for (const e of state.edges) {
-          const neighbor = e.source === current ? e.target : (e.target === current ? e.source : null);
-          if (neighbor && !visited.has(neighbor)) {
-            visited.add(neighbor);
-            queue.push(neighbor);
-          }
-        }
-      }
-    }
-
-    for (const rootId of componentRoots) {
+    const roots = findTradeComponentRoots(state.nodes, state.edges);
+    for (const rootId of roots) {
       await get().expandWeb(rootId);
     }
   },
@@ -1132,30 +1110,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   // ── Collapse one degree — remove outermost layer from all trade webs ──
   collapseOneDegree: () => {
     const state = get();
-    const tradeNodes = state.nodes.filter(n => n.type === 'trade');
-    if (tradeNodes.length === 0) return;
-
-    // Find one trade node per connected component
-    const visited = new Set<string>();
-    const componentRoots: string[] = [];
-    for (const tn of tradeNodes) {
-      if (visited.has(tn.id)) continue;
-      componentRoots.push(tn.id);
-      const queue = [tn.id];
-      visited.add(tn.id);
-      while (queue.length > 0) {
-        const current = queue.shift()!;
-        for (const e of state.edges) {
-          const neighbor = e.source === current ? e.target : (e.target === current ? e.source : null);
-          if (neighbor && !visited.has(neighbor)) {
-            visited.add(neighbor);
-            queue.push(neighbor);
-          }
-        }
-      }
-    }
-
-    for (const rootId of componentRoots) {
+    const roots = findTradeComponentRoots(state.nodes, state.edges);
+    for (const rootId of roots) {
       get().collapseWeb(rootId);
     }
   },
@@ -1190,11 +1146,9 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       ? [...state.edges, makeEdge(nodeId, sourceNodeId)]
       : [...state.edges];
 
-    const allEdges = newEdges;
-
     // Anchor on the source node so the view stays stable
-    const laid = await layoutGraph(allNodes, allEdges, sourceNodeId || undefined, state.expandedNodes);
-    set({ nodes: laid, edges: allEdges });
+    const laid = await layoutGraph(allNodes, newEdges, sourceNodeId || undefined, state.expandedNodes);
+    set({ nodes: laid, edges: newEdges });
 
     // Auto-expand after a tick
     setTimeout(() => get().expandTradeNode(nodeId), 50);

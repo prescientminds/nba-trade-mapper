@@ -1,11 +1,68 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
 import { getAnyTeamDisplayInfo } from '@/lib/teams';
 import { useGraphStore, PlayerStintNodeData } from '@/lib/graph-store';
 import { SeasonTable } from '@/components/SeasonTable';
 import { ensureReadable } from '@/lib/colors';
+
+function WsSparkline({ rows, color }: { rows: { season: string; ws: number | null }[]; color: string }) {
+  const values = rows.map(r => r.ws ?? 0);
+  const max = Math.max(...values, 1);
+  const barW = Math.min(14, Math.floor(160 / rows.length));
+  const gap = 1;
+  const chartW = rows.length * (barW + gap) - gap;
+  const chartH = 28;
+
+  return (
+    <div style={{ padding: '3px 0 1px', overflow: 'hidden' }}>
+      <svg width={chartW} height={chartH + 10} style={{ display: 'block' }}>
+        {rows.map((r, i) => {
+          const val = r.ws ?? 0;
+          const h = (val / max) * chartH;
+          const x = i * (barW + gap);
+          const shortYr = r.season.length > 5 ? r.season.slice(2, 4) : r.season.slice(0, 2);
+          return (
+            <g key={r.season}>
+              <rect
+                x={x}
+                y={chartH - h}
+                width={barW}
+                height={Math.max(h, 0.5)}
+                fill={val > 0 ? color : 'rgba(255,255,255,0.06)'}
+                opacity={0.7}
+                rx={1}
+              />
+              {val > 0 && (
+                <text
+                  x={x + barW / 2}
+                  y={chartH - h - 2}
+                  textAnchor="middle"
+                  fontSize={6}
+                  fill="var(--text-muted)"
+                  fontFamily="var(--font-mono)"
+                >
+                  {val.toFixed(1)}
+                </text>
+              )}
+              <text
+                x={x + barW / 2}
+                y={chartH + 8}
+                textAnchor="middle"
+                fontSize={5}
+                fill="var(--text-muted)"
+                fontFamily="var(--font-mono)"
+              >
+                {shortYr}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+    </div>
+  );
+}
 
 function PlayerStintNodeComponent({ id, data }: NodeProps) {
   const {
@@ -33,6 +90,8 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
   const expandChampionshipPlayer = useGraphStore((s) => s.expandChampionshipPlayer);
   const followPath = useGraphStore((s) => s.followPath);
   const advanceFollowPath = useGraphStore((s) => s.advanceFollowPath);
+
+  const [showSparkline, setShowSparkline] = useState(false);
 
   const isExpanded = expandedNodes.has(id);
   const isLoading = loadingNodes.has(id);
@@ -241,12 +300,12 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
           gap: 6,
           marginTop: 2,
           fontFamily: 'var(--font-mono)',
+          alignItems: 'flex-end',
         }}>
           {[
             { val: avgPpg, label: 'PPG' },
             { val: avgRpg, label: 'RPG' },
             { val: avgApg, label: 'APG' },
-            ...(totalWinShares !== null ? [{ val: totalWinShares, label: 'WS' }] : []),
           ].map(({ val, label }) => (
             <div key={label} style={{ textAlign: 'center' }}>
               <div style={{ fontSize: 9, color: 'var(--text-secondary)', lineHeight: 1.1 }}>
@@ -257,7 +316,44 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
               </div>
             </div>
           ))}
+          {totalWinShares !== null && (
+            <div
+              className="nopan nodrag"
+              style={{ textAlign: 'center', cursor: 'pointer', position: 'relative' }}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (!seasonDetails || seasonDetails.length === 0) {
+                  // Load season details first, then show sparkline
+                  if (!isExpanded && !isLoading) expandStintDetails(id);
+                  setShowSparkline(true);
+                } else {
+                  setShowSparkline(!showSparkline);
+                }
+              }}
+              title="Win shares by season"
+            >
+              <div style={{ fontSize: 9, color: showSparkline ? color : 'var(--text-secondary)', lineHeight: 1.1, display: 'flex', alignItems: 'center', gap: 2 }}>
+                <span>{totalWinShares.toFixed(1)}</span>
+                <svg width="7" height="7" viewBox="0 0 10 10" style={{ opacity: 0.6 }}>
+                  <rect x="0" y="5" width="2.5" height="5" fill={showSparkline ? color : 'currentColor'} rx="0.5" />
+                  <rect x="3.75" y="2" width="2.5" height="8" fill={showSparkline ? color : 'currentColor'} rx="0.5" />
+                  <rect x="7.5" y="4" width="2.5" height="6" fill={showSparkline ? color : 'currentColor'} rx="0.5" />
+                </svg>
+              </div>
+              <div style={{ fontSize: 6, color: 'var(--text-muted)', letterSpacing: '0.03em' }}>
+                WS
+              </div>
+            </div>
+          )}
         </div>
+      )}
+
+      {/* Win Shares sparkline */}
+      {showSparkline && seasonDetails && seasonDetails.length > 0 && (
+        <WsSparkline
+          rows={seasonDetails.map(r => ({ season: r.season, ws: r.winShares }))}
+          color={color}
+        />
       )}
 
       {/* Playoff Win Shares — shown in championship mode */}

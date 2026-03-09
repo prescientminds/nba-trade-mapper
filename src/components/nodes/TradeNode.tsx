@@ -645,7 +645,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                       }}
                     >
                       <span style={{ fontFamily: 'var(--font-body)', fontSize: 7, opacity: 0.7 }}>
-                        Salary acquired
+                        Future salary committed
                       </span>
                       <span
                         className="nopan nodrag"
@@ -701,7 +701,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                           }}
                         >
                           <div style={{ fontSize: 8, color: 'var(--text-secondary)', fontFamily: 'var(--font-body)', lineHeight: 1.5 }}>
-                            Total future contract value this team acquired in the trade — sum of remaining salary owed to incoming players.
+                            Total salary this team paid to incoming players while they were on the roster — from trade date until the player left or contract ended.
                           </div>
                         </div>
                       )}
