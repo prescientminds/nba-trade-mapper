@@ -62,6 +62,8 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const [scoreFetched, setScoreFetched] = useState(false);
   const [scoreLoading, setScoreLoading] = useState(false);
   const [scoreTooltipOpen, setScoreTooltipOpen] = useState(false);
+  const [salaryTooltipTeam, setSalaryTooltipTeam] = useState<string | null>(null);
+  const [salaryExpandedTeams, setSalaryExpandedTeams] = useState<Set<string>>(new Set());
   useEffect(() => {
     if (!isExpanded || scoreFetched) return;
     setScoreFetched(true);
@@ -636,12 +638,115 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                         color: 'var(--text-muted)',
                         textTransform: 'none',
                         letterSpacing: 0,
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 3,
+                        position: 'relative',
                       }}
                     >
-                      {fmtSalary(acquiredTotal)}
+                      <span style={{ fontFamily: 'var(--font-body)', fontSize: 7, opacity: 0.7 }}>
+                        Salary acquired
+                      </span>
+                      <span
+                        className="nopan nodrag"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSalaryExpandedTeams((prev) => {
+                            const next = new Set(prev);
+                            next.has(teamId) ? next.delete(teamId) : next.add(teamId);
+                            return next;
+                          });
+                        }}
+                        style={{ cursor: 'pointer', borderBottom: '1px dotted var(--text-muted)' }}
+                      >
+                        {fmtSalary(acquiredTotal)}
+                      </span>
+                      {/* Info icon */}
+                      <span
+                        className="nopan nodrag"
+                        onMouseEnter={() => setSalaryTooltipTeam(teamId)}
+                        onMouseLeave={() => setSalaryTooltipTeam(null)}
+                        onClick={(e) => { e.stopPropagation(); setSalaryTooltipTeam((v) => v === teamId ? null : teamId); }}
+                        style={{
+                          width: 10, height: 10,
+                          borderRadius: '50%',
+                          border: '1px solid var(--border-medium)',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: 7, fontStyle: 'italic',
+                          fontFamily: 'Georgia, serif',
+                          color: 'var(--text-muted)',
+                          cursor: 'pointer',
+                          userSelect: 'none',
+                          flexShrink: 0,
+                        }}
+                      >
+                        i
+                      </span>
+                      {salaryTooltipTeam === teamId && (
+                        <div
+                          className="nopan nodrag"
+                          style={{
+                            position: 'absolute',
+                            top: '100%',
+                            left: 0,
+                            marginTop: 4,
+                            background: 'var(--bg-tertiary)',
+                            borderRadius: 4,
+                            padding: '5px 7px',
+                            borderLeft: '2px solid var(--border-medium)',
+                            zIndex: 10,
+                            width: 180,
+                          }}
+                        >
+                          <div style={{ fontSize: 8, color: 'var(--text-secondary)', fontFamily: 'var(--font-body)', lineHeight: 1.5 }}>
+                            Total future contract value this team acquired in the trade — sum of remaining salary owed to incoming players.
+                          </div>
+                        </div>
+                      )}
                     </span>
                   )}
                 </div>
+
+                {/* Per-player salary breakdown */}
+                {salaryExpandedTeams.has(teamId) && teamSalary?.players && teamSalary.players.length > 0 && (
+                  <div
+                    style={{
+                      background: 'var(--bg-tertiary)',
+                      borderRadius: 4,
+                      padding: '4px 6px',
+                      marginBottom: 4,
+                      borderLeft: '2px solid var(--border-medium)',
+                    }}
+                  >
+                    {teamSalary.players.map((p) => (
+                      <div
+                        key={p.name}
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'baseline',
+                          fontSize: 8,
+                          lineHeight: 1.6,
+                          gap: 6,
+                        }}
+                      >
+                        <span style={{ color: 'var(--text-secondary)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>
+                          {p.name}
+                        </span>
+                        <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', flexShrink: 0 }}>
+                          {fmtSalary(p.acquired_value)}
+                          {p.acquired_seasons > 0 && (
+                            <span style={{ opacity: 0.6, marginLeft: 3 }}>
+                              ({p.acquired_seasons}yr)
+                            </span>
+                          )}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {/* No data fallback for old trades with incomplete records */}
                 {!hasRenderableAssets && (
