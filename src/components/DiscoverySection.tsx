@@ -1178,7 +1178,7 @@ function CategoryRow({
               fontWeight: 700,
               letterSpacing: 1.8,
               textTransform: 'uppercase',
-              color: 'var(--text-muted)',
+              color: '#ffffff',
               fontFamily: 'var(--font-body)',
               whiteSpace: 'nowrap',
             }}
@@ -1669,7 +1669,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
           {
             id: 'trade-tree',
             label: 'Asset Chain Value',
-            description: 'Team-centric value from flipping assets through multiple trades — what one GM accumulated through smart asset management.',
+            description: 'Player 1 becomes Player 2, Player 3, Player 4 — follow how one trade ripples into the next.',
             accentColor: 'var(--accent-teal)',
             ...METRIC_DEFS['trade-tree'],
             cards: chainCards,
@@ -1780,6 +1780,18 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
 
   return (
     <div style={{ marginTop: 20 }}>
+      <h2 style={{
+        fontSize: 11,
+        fontWeight: 700,
+        letterSpacing: 2.4,
+        textTransform: 'uppercase',
+        color: '#ffffff',
+        fontFamily: 'var(--font-body)',
+        textAlign: 'center',
+        marginBottom: 8,
+      }}>
+        Explore
+      </h2>
       {categories.map((cat) => (
         <CategoryRow
           key={cat.id}
