@@ -89,7 +89,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "James Penn / Scoonie Penn",
+        "became_player_name": "Scoonie Penn",
         "notes": null
       }
     ]
@@ -645,7 +645,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Ron Artest / Metta World Peace",
+        "became_player_name": "Metta World Peace",
         "notes": null
       },
       {
@@ -1020,8 +1020,8 @@
     "id": "487a0a12-6dbf-412c-b0cd-1d75ed61072f",
     "date": "1999-06-29",
     "season": "1998-99",
-    "title": "Vernell Coles / Bimbo Coles, Duane Ferrell Trade",
-    "description": "On 1999-06-29:  Warriors acquire Mookie Blaylock  Hawks acquire Vernell Coles / Bimbo Coles",
+    "title": "Bimbo Coles, Duane Ferrell Trade",
+    "description": "On 1999-06-29:  Warriors acquire Mookie Blaylock  Hawks acquire Bimbo Coles",
     "is_multi_team": false,
     "teams": [
       {
@@ -1036,7 +1036,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Vernell Coles / Bimbo Coles",
+        "player_name": "Bimbo Coles",
         "from_team_id": "GSW",
         "to_team_id": "ATL",
         "pick_year": null,

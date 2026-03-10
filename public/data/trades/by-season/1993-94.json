@@ -88,7 +88,7 @@
     "date": "1993-08-19",
     "season": "1993-94",
     "title": "Todd Lichti, Anthony Cook Trade",
-    "description": "On 1993-08-19:  Nuggets acquire Brian Williams / Bison Dele  Magic acquire Todd Lichti",
+    "description": "On 1993-08-19:  Nuggets acquire Bison Dele  Magic acquire Todd Lichti",
     "is_multi_team": false,
     "teams": [
       {
@@ -136,7 +136,7 @@
       },
       {
         "type": "player",
-        "player_name": "Brian Williams / Bison Dele",
+        "player_name": "Bison Dele",
         "from_team_id": "ORL",
         "to_team_id": "DEN",
         "pick_year": null,
@@ -1189,7 +1189,7 @@
       },
       {
         "type": "player",
-        "player_name": "Theodore Edwards / Blue Edwards",
+        "player_name": "Blue Edwards",
         "from_team_id": "MIL",
         "to_team_id": "BOS",
         "pick_year": null,
@@ -1205,7 +1205,7 @@
     "date": "1994-06-29",
     "season": "1993-94",
     "title": "Lakers / Warriors Trade",
-    "description": "On 1994-06-29:  Warriors acquire 1995 conditional second round pick (better of two picks Lakers own from 76ers and Bucks) (#40-Dwayne Whitfield)  Lakers acquire rights to Anthony Miller / Pig Miller",
+    "description": "On 1994-06-29:  Warriors acquire 1995 conditional second round pick (better of two picks Lakers own from 76ers and Bucks) (#40-Dwayne Whitfield)  Lakers acquire rights to Anthony Miller",
     "is_multi_team": false,
     "teams": [
       {
@@ -1226,7 +1226,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Anthony Miller / Pig Miller",
+        "became_player_name": "Anthony Miller",
         "notes": null
       },
       {
@@ -1247,7 +1247,7 @@
     "date": "1994-06-29",
     "season": "1993-94",
     "title": "Sonics / Timberwolves Trade",
-    "description": "On 1994-06-29:  Timberwolves acquire rights to Zeljko Rebraca  Sonics acquire 1996 second round pick (#35-Joseph Blair / Joe Blair)",
+    "description": "On 1994-06-29:  Timberwolves acquire rights to Zeljko Rebraca  Sonics acquire 1996 second round pick (#35-Joe Blair)",
     "is_multi_team": false,
     "teams": [
       {
@@ -1268,7 +1268,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Joseph Blair / Joe Blair",
+        "became_player_name": "Joe Blair",
         "notes": null
       },
       {
@@ -1288,8 +1288,8 @@
     "id": "2f6b6562-620d-47ce-be78-f091bb340f14",
     "date": "1994-06-30",
     "season": "1993-94",
-    "title": "Jerome Richardson / Pooh Richardson, Malik Sealy Trade",
-    "description": "On 1994-06-30:  Pacers acquire Mark Jackson  Clippers acquire Jerome Richardson / Pooh Richardson",
+    "title": "Pooh Richardson, Malik Sealy Trade",
+    "description": "On 1994-06-30:  Pacers acquire Mark Jackson  Clippers acquire Pooh Richardson",
     "is_multi_team": false,
     "teams": [
       {
@@ -1304,7 +1304,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Jerome Richardson / Pooh Richardson",
+        "player_name": "Pooh Richardson",
         "from_team_id": "IND",
         "to_team_id": "LAC",
         "pick_year": null,

@@ -131,7 +131,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Robert Werdann / Rob Werdann",
+        "became_player_name": "Robert Werdann",
         "notes": null
       },
       {
@@ -851,8 +851,8 @@
     "id": "e300ac2c-d074-4986-b337-37a16e5a955d",
     "date": "1992-06-24",
     "season": "1991-92",
-    "title": "Theodore Edwards / Blue Edwards, Eric Murdock, Jay Humphries Trade",
-    "description": "On 1992-06-24:  Jazz acquire Jay Humphries  Bucks acquire Theodore Edwards / Blue Edwards",
+    "title": "Blue Edwards, Eric Murdock, Jay Humphries Trade",
+    "description": "On 1992-06-24:  Jazz acquire Jay Humphries  Bucks acquire Blue Edwards",
     "is_multi_team": false,
     "teams": [
       {
@@ -867,7 +867,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Theodore Edwards / Blue Edwards",
+        "player_name": "Blue Edwards",
         "from_team_id": "UTA",
         "to_team_id": "MIL",
         "pick_year": null,

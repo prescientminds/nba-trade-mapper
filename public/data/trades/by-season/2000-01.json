@@ -259,7 +259,7 @@
     "id": "595cc0f2-31d3-4283-9643-de7f49863b11",
     "date": "2000-08-16",
     "season": "2000-01",
-    "title": "Robert Pack, John Williams / Hot Rod Williams, Danny Fortson Trade",
+    "title": "Robert Pack, John Williams, Danny Fortson Trade",
     "description": "On 2000-08-16:  Jazz acquire Donyell Marshall  Warriors acquire Danny Fortson Other Team(s) Involved in Trade: Celtics, Mavericks",
     "is_multi_team": true,
     "teams": [
@@ -294,7 +294,7 @@
       },
       {
         "type": "player",
-        "player_name": "John Williams / Hot Rod Williams",
+        "player_name": "John Williams",
         "from_team_id": "GSW",
         "to_team_id": "BOS",
         "pick_year": null,
@@ -395,8 +395,8 @@
     "id": "95ad0b7b-f653-4128-a0b4-45adfffa219f",
     "date": "2000-08-22",
     "season": "2000-01",
-    "title": "Isaac Austin / Ike Austin, Dennis Scott, Cherokee Parks Trade",
-    "description": "On 2000-08-22:  Wizards acquire Dennis Scott  Grizzlies acquire Isaac Austin / Ike Austin",
+    "title": "Isaac Austin, Dennis Scott, Cherokee Parks Trade",
+    "description": "On 2000-08-22:  Wizards acquire Dennis Scott  Grizzlies acquire Isaac Austin",
     "is_multi_team": false,
     "teams": [
       {
@@ -411,7 +411,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Isaac Austin / Ike Austin",
+        "player_name": "Isaac Austin",
         "from_team_id": "WAS",
         "to_team_id": "MEM",
         "pick_year": null,
@@ -849,7 +849,7 @@
     "date": "2000-09-25",
     "season": "2000-01",
     "title": "Tracy Murray Trade",
-    "description": "On 2000-09-25:  Wizards acquire Ronald Jones / Popeye Jones  Nuggets acquire Tracy Murray",
+    "description": "On 2000-09-25:  Wizards acquire Popeye Jones  Nuggets acquire Tracy Murray",
     "is_multi_team": false,
     "teams": [
       {
@@ -875,7 +875,7 @@
       },
       {
         "type": "player",
-        "player_name": "Ronald Jones / Popeye Jones",
+        "player_name": "Popeye Jones",
         "from_team_id": "DEN",
         "to_team_id": "WAS",
         "pick_year": null,
@@ -1590,7 +1590,7 @@
       },
       {
         "type": "player",
-        "player_name": "Juan Sanchez / Pepe Sanchez",
+        "player_name": "Pepe Sanchez",
         "from_team_id": "PHI",
         "to_team_id": "ATL",
         "pick_year": null,
@@ -1605,7 +1605,7 @@
     "id": "b8f9ba64-335d-481f-aa08-eae6946aeef3",
     "date": "2001-02-22",
     "season": "2000-01",
-    "title": "Mark Jackson, Tyrone Bogues / Muggsy Bogues Trade",
+    "title": "Mark Jackson, Muggsy Bogues Trade",
     "description": "On 2001-02-22:  Raptors acquire Chris Childs  Knicks acquire Mark Jackson",
     "is_multi_team": false,
     "teams": [
@@ -1632,7 +1632,7 @@
       },
       {
         "type": "player",
-        "player_name": "Tyrone Bogues / Muggsy Bogues",
+        "player_name": "Muggsy Bogues",
         "from_team_id": "TOR",
         "to_team_id": "NYK",
         "pick_year": null,
@@ -2255,7 +2255,7 @@
     "date": "2001-06-27",
     "season": "2000-01",
     "title": "Sonics / Wizards Trade",
-    "description": "On 2001-06-27:  Wizards acquire rights to Bobby Simmons  Sonics acquire rights to Predrag Drobnjak / Peja Drobnjak",
+    "description": "On 2001-06-27:  Wizards acquire rights to Bobby Simmons  Sonics acquire rights to Predrag Drobnjak",
     "is_multi_team": false,
     "teams": [
       {
@@ -2270,7 +2270,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Predrag Drobnjak / Peja Drobnjak",
+        "player_name": "Predrag Drobnjak",
         "from_team_id": "WAS",
         "to_team_id": "OKC",
         "pick_year": null,

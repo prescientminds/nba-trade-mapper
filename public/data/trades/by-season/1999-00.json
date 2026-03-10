@@ -45,8 +45,8 @@
     "id": "b0216301-4e22-484f-b112-b6daf820b516",
     "date": "1999-08-02",
     "season": "1999-00",
-    "title": "Steve Smith (Delano), Ed Gray, Isaiah Rider / J.R. Rider Trade",
-    "description": "On 1999-08-02:  Hawks acquire Isaiah Rider / J.R. Rider  Blazers acquire Steve Smith (Delano)",
+    "title": "Steve Smith (Delano), Ed Gray, Isaiah Rider Trade",
+    "description": "On 1999-08-02:  Hawks acquire Isaiah Rider  Blazers acquire Steve Smith (Delano)",
     "is_multi_team": false,
     "teams": [
       {
@@ -83,7 +83,7 @@
       },
       {
         "type": "player",
-        "player_name": "Isaiah Rider / J.R. Rider",
+        "player_name": "Isaiah Rider",
         "from_team_id": "POR",
         "to_team_id": "ATL",
         "pick_year": null,
@@ -180,7 +180,7 @@
       },
       {
         "type": "player",
-        "player_name": "Ronald Jones / Popeye Jones",
+        "player_name": "Popeye Jones",
         "from_team_id": "BOS",
         "to_team_id": "DEN",
         "pick_year": null,
@@ -207,7 +207,7 @@
     "date": "1999-08-03",
     "season": "1999-00",
     "title": "Nick Anderson Trade",
-    "description": "On 1999-08-03:  Magic acquire Tariq Abdul-Wahad / Olivier Saint-Jean  Kings acquire Nick Anderson",
+    "description": "On 1999-08-03:  Magic acquire Tariq Abdul-Wahad  Kings acquire Nick Anderson",
     "is_multi_team": false,
     "teams": [
       {
@@ -233,7 +233,7 @@
       },
       {
         "type": "player",
-        "player_name": "Tariq Abdul-Wahad / Olivier Saint-Jean",
+        "player_name": "Tariq Abdul-Wahad",
         "from_team_id": "SAC",
         "to_team_id": "ORL",
         "pick_year": null,
@@ -313,7 +313,7 @@
     "date": "1999-08-05",
     "season": "1999-00",
     "title": "Danny Manning, Pat Garrity Trade",
-    "description": "On 1999-08-05:  Suns acquire Anfernee Hardaway / Penny Hardaway  Magic acquire Danny Manning",
+    "description": "On 1999-08-05:  Suns acquire Anfernee Hardaway  Magic acquire Danny Manning",
     "is_multi_team": false,
     "teams": [
       {
@@ -367,12 +367,12 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Amare Stoudemire / Amar'e Stoudemire",
+        "became_player_name": "Amar'e Stoudemire",
         "notes": null
       },
       {
         "type": "player",
-        "player_name": "Anfernee Hardaway / Penny Hardaway",
+        "player_name": "Anfernee Hardaway",
         "from_team_id": "ORL",
         "to_team_id": "PHX",
         "pick_year": null,
@@ -441,7 +441,7 @@
     "date": "1999-08-11",
     "season": "1999-00",
     "title": "Terry Davis, Ben Wallace, Tim Legler Trade",
-    "description": "On 1999-08-11:  Wizards acquire Isaac Austin / Ike Austin  Magic acquire Terry Davis",
+    "description": "On 1999-08-11:  Wizards acquire Isaac Austin  Magic acquire Terry Davis",
     "is_multi_team": false,
     "teams": [
       {
@@ -500,7 +500,7 @@
       },
       {
         "type": "player",
-        "player_name": "Isaac Austin / Ike Austin",
+        "player_name": "Isaac Austin",
         "from_team_id": "ORL",
         "to_team_id": "WAS",
         "pick_year": null,
@@ -670,7 +670,7 @@
       },
       {
         "type": "player",
-        "player_name": "Armon Gilliam / Armen Gilliam",
+        "player_name": "Armen Gilliam",
         "from_team_id": "MIL",
         "to_team_id": "ORL",
         "pick_year": null,
@@ -1203,7 +1203,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Predrag Drobnjak / Peja Drobnjak",
+        "became_player_name": "Predrag Drobnjak",
         "notes": null
       },
       {
@@ -1277,7 +1277,7 @@
     "date": "2000-02-01",
     "season": "1999-00",
     "title": "Ron Mercer, Chauncey Billups, Johnny Taylor Trade",
-    "description": "On 2000-02-01:  Nuggets acquire Tariq Abdul-Wahad / Olivier Saint-Jean  Magic acquire Ron Mercer",
+    "description": "On 2000-02-01:  Nuggets acquire Tariq Abdul-Wahad  Magic acquire Ron Mercer",
     "is_multi_team": false,
     "teams": [
       {
@@ -1325,7 +1325,7 @@
       },
       {
         "type": "player",
-        "player_name": "Tariq Abdul-Wahad / Olivier Saint-Jean",
+        "player_name": "Tariq Abdul-Wahad",
         "from_team_id": "ORL",
         "to_team_id": "DEN",
         "pick_year": null,
@@ -1578,7 +1578,7 @@
       },
       {
         "type": "player",
-        "player_name": "Robert Traylor / Tractor Traylor",
+        "player_name": "Robert Traylor",
         "from_team_id": "MIL",
         "to_team_id": "GSW",
         "pick_year": null,

@@ -4,7 +4,7 @@
     "date": "1996-07-11",
     "season": "1996-97",
     "title": "Bucks / Timberwolves Trade",
-    "description": "On 1996-07-11:  Timberwolves acquire 1999 or 2000 first round pick (1999 #14-William Avery / Will Avery)  Bucks acquire Andrew Lang",
+    "description": "On 1996-07-11:  Timberwolves acquire 1999 or 2000 first round pick (1999 #14-William Avery)  Bucks acquire Andrew Lang",
     "is_multi_team": false,
     "teams": [
       {
@@ -36,7 +36,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "William Avery / Will Avery",
+        "became_player_name": "William Avery",
         "notes": null
       }
     ]
@@ -418,8 +418,8 @@
     "id": "23e9f1d5-79ad-4037-b13e-90fd3a785651",
     "date": "1996-07-23",
     "season": "1996-97",
-    "title": "Isaiah Rider / J.R. Rider, James Robinson, Bill Curley Trade",
-    "description": "On 1996-07-23:  Timberwolves acquire James Robinson  Blazers acquire Isaiah Rider / J.R. Rider",
+    "title": "Isaiah Rider, James Robinson, Bill Curley Trade",
+    "description": "On 1996-07-23:  Timberwolves acquire James Robinson  Blazers acquire Isaiah Rider",
     "is_multi_team": false,
     "teams": [
       {
@@ -434,7 +434,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Isaiah Rider / J.R. Rider",
+        "player_name": "Isaiah Rider",
         "from_team_id": "MIN",
         "to_team_id": "POR",
         "pick_year": null,
@@ -483,7 +483,7 @@
     "date": "1996-07-23",
     "season": "1996-97",
     "title": "Jimmy King Trade",
-    "description": "On 1996-07-23:  Raptors acquire Ronald Jones / Popeye Jones  Mavericks acquire Jimmy King",
+    "description": "On 1996-07-23:  Raptors acquire Popeye Jones  Mavericks acquire Jimmy King",
     "is_multi_team": false,
     "teams": [
       {
@@ -520,7 +520,7 @@
       },
       {
         "type": "player",
-        "player_name": "Ronald Jones / Popeye Jones",
+        "player_name": "Popeye Jones",
         "from_team_id": "DAL",
         "to_team_id": "TOR",
         "pick_year": null,
@@ -1197,7 +1197,7 @@
     "id": "d3a90468-9a26-4876-b4e7-480807ab77df",
     "date": "1997-02-14",
     "season": "1996-97",
-    "title": "Jamal Mashburn, Kurt Thomas, Predrag Danilovic / Sasha Danilovic Trade",
+    "title": "Jamal Mashburn, Kurt Thomas, Sasha Danilovic Trade",
     "description": "On 1997-02-14:  Mavericks acquire Kurt Thomas  Heat acquire Jamal Mashburn",
     "is_multi_team": false,
     "teams": [
@@ -1235,7 +1235,7 @@
       },
       {
         "type": "player",
-        "player_name": "Predrag Danilovic / Sasha Danilovic",
+        "player_name": "Sasha Danilovic",
         "from_team_id": "MIA",
         "to_team_id": "DAL",
         "pick_year": null,

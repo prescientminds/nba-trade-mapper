@@ -772,7 +772,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Vernell Coles / Bimbo Coles",
+        "became_player_name": "Bimbo Coles",
         "notes": null
       },
       {
@@ -962,8 +962,8 @@
     "id": "9413710c-803c-44d0-b643-9d4b4cb4536c",
     "date": "1989-05-28",
     "season": "1988-89",
-    "title": "Greg Anderson / Cadillac Anderson, Alvin Robertson Trade",
-    "description": "On 1989-05-28:  Spurs acquire Terry Cummings  Bucks acquire Greg Anderson / Cadillac Anderson",
+    "title": "Greg Anderson, Alvin Robertson Trade",
+    "description": "On 1989-05-28:  Spurs acquire Terry Cummings  Bucks acquire Greg Anderson",
     "is_multi_team": false,
     "teams": [
       {
@@ -978,7 +978,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Greg Anderson / Cadillac Anderson",
+        "player_name": "Greg Anderson",
         "from_team_id": "SAS",
         "to_team_id": "MIL",
         "pick_year": null,

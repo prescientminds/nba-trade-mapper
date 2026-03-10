@@ -99,7 +99,7 @@
     "date": "1985-08-21",
     "season": "1985-86",
     "title": "Nets / Warriors Trade",
-    "description": "On 1985-08-21:  Warriors acquire 1986 third round pick (#59-Wendell Alexis)  Nets acquire Wallace Johnson / Mickey Johnson",
+    "description": "On 1985-08-21:  Warriors acquire 1986 third round pick (#59-Wendell Alexis)  Nets acquire Mickey Johnson",
     "is_multi_team": false,
     "teams": [
       {
@@ -120,7 +120,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Wallace Johnson / Mickey Johnson",
+        "became_player_name": "Mickey Johnson",
         "notes": null
       },
       {

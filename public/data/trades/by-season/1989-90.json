@@ -289,7 +289,7 @@
     "date": "1989-10-02",
     "season": "1989-90",
     "title": "Heat / Warriors Trade",
-    "description": "On 1989-10-02:  Warriors acquire Cavaliers 1990 or 1992 second round pick (1990 #41-Stephen Bardo / Steve Bardo)  Heat acquire Tellis Frank",
+    "description": "On 1989-10-02:  Warriors acquire Cavaliers 1990 or 1992 second round pick (1990 #41-Steve Bardo)  Heat acquire Tellis Frank",
     "is_multi_team": false,
     "teams": [
       {
@@ -321,7 +321,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Stephen Bardo / Steve Bardo",
+        "became_player_name": "Steve Bardo",
         "notes": null
       }
     ]
@@ -617,8 +617,8 @@
     "id": "5b4e5b21-46ba-4187-9c3a-ef1c2efe0042",
     "date": "1989-12-13",
     "season": "1989-90",
-    "title": "Armon Gilliam / Armen Gilliam Trade",
-    "description": "On 1989-12-13:  Suns acquire Kurt Rambis  Hornets acquire Armon Gilliam / Armen Gilliam",
+    "title": "Armen Gilliam Trade",
+    "description": "On 1989-12-13:  Suns acquire Kurt Rambis  Hornets acquire Armen Gilliam",
     "is_multi_team": false,
     "teams": [
       {
@@ -633,7 +633,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Armon Gilliam / Armen Gilliam",
+        "player_name": "Armen Gilliam",
         "from_team_id": "PHX",
         "to_team_id": "CHA",
         "pick_year": null,
@@ -1129,7 +1129,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Predrag Danilovic / Sasha Danilovic",
+        "became_player_name": "Sasha Danilovic",
         "notes": null
       }
     ]
@@ -1349,7 +1349,7 @@
     "date": "1990-06-21",
     "season": "1989-90",
     "title": "Mavericks / Nuggets Trade",
-    "description": "On 1990-06-21:  Nuggets acquire 1990 first round pick (#9-Willie Burton)  Mavericks acquire Lafayette Lever / Fat Lever",
+    "description": "On 1990-06-21:  Nuggets acquire 1990 first round pick (#9-Willie Burton)  Mavericks acquire Fat Lever",
     "is_multi_team": false,
     "teams": [
       {
@@ -1370,7 +1370,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Lafayette Lever / Fat Lever",
+        "became_player_name": "Fat Lever",
         "notes": null
       },
       {
@@ -1833,7 +1833,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Stephen Bardo / Steve Bardo",
+        "became_player_name": "Steve Bardo",
         "notes": null
       },
       {
@@ -1918,7 +1918,7 @@
     "date": "1990-06-27",
     "season": "1989-90",
     "title": "Heat / Kings Trade",
-    "description": "On 1990-06-27:  Kings acquire Rory Sparrow  Heat acquire rights to Vernell Coles / Bimbo Coles",
+    "description": "On 1990-06-27:  Kings acquire Rory Sparrow  Heat acquire rights to Bimbo Coles",
     "is_multi_team": false,
     "teams": [
       {
@@ -1933,7 +1933,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Vernell Coles / Bimbo Coles",
+        "player_name": "Bimbo Coles",
         "from_team_id": "SAC",
         "to_team_id": "MIA",
         "pick_year": null,

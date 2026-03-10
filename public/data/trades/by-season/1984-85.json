@@ -121,7 +121,7 @@
     "date": "1984-08-29",
     "season": "1984-85",
     "title": "Clippers / Rockets Trade",
-    "description": "On 1984-08-29:  Rockets acquire Hank McDowell  Clippers acquire 1985 third round pick (#65-Ken Perry / Kenny Perry)",
+    "description": "On 1984-08-29:  Rockets acquire Hank McDowell  Clippers acquire 1985 third round pick (#65-Kenny Perry)",
     "is_multi_team": false,
     "teams": [
       {
@@ -142,7 +142,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Ken Perry / Kenny Perry",
+        "became_player_name": "Kenny Perry",
         "notes": null
       },
       {
@@ -289,7 +289,7 @@
     "date": "1984-09-25",
     "season": "1984-85",
     "title": "Bullets / Clippers Trade",
-    "description": "On 1984-09-25:  Clippers acquire Bryan Warrick  Bullets acquire 1985 third round pick (#65-Ken Perry / Kenny Perry)",
+    "description": "On 1984-09-25:  Clippers acquire Bryan Warrick  Bullets acquire 1985 third round pick (#65-Kenny Perry)",
     "is_multi_team": false,
     "teams": [
       {
@@ -310,7 +310,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Ken Perry / Kenny Perry",
+        "became_player_name": "Kenny Perry",
         "notes": null
       },
       {
@@ -545,7 +545,7 @@
     "date": "1984-10-19",
     "season": "1984-85",
     "title": "Knicks / Pacers Trade",
-    "description": "On 1984-10-19:  Pacers acquire 1985 second round pick (#27-Dwayne McClain)  Knicks acquire Clarence Carter / Butch Carter",
+    "description": "On 1984-10-19:  Pacers acquire 1985 second round pick (#27-Dwayne McClain)  Knicks acquire Butch Carter",
     "is_multi_team": false,
     "teams": [
       {
@@ -566,7 +566,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Clarence Carter / Butch Carter",
+        "became_player_name": "Butch Carter",
         "notes": null
       },
       {
@@ -883,7 +883,7 @@
     "date": "1985-02-12",
     "season": "1984-85",
     "title": "Bucks / Cavaliers Trade",
-    "description": "On 1985-02-12:  Cavaliers acquire 1985 second round pick (#45-John Williams / Hot Rod Williams)  Bucks acquire Paul Thompson",
+    "description": "On 1985-02-12:  Cavaliers acquire 1985 second round pick (#45-John Williams)  Bucks acquire Paul Thompson",
     "is_multi_team": false,
     "teams": [
       {
@@ -915,7 +915,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "John Williams / Hot Rod Williams",
+        "became_player_name": "John Williams",
         "notes": null
       },
       {

@@ -163,7 +163,7 @@
     "date": "2006-07-12",
     "season": "2006-07",
     "title": "Hornets / Pacers Trade",
-    "description": "On 2006-07-12:  Pacers acquire rights to Andrew Betts  Hornets acquire Predrag Stojakovic / Peja Stojakovic",
+    "description": "On 2006-07-12:  Pacers acquire rights to Andrew Betts  Hornets acquire Peja Stojakovic",
     "is_multi_team": false,
     "teams": [
       {
@@ -178,7 +178,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Predrag Stojakovic / Peja Stojakovic",
+        "player_name": "Peja Stojakovic",
         "from_team_id": "IND",
         "to_team_id": "NOP",
         "pick_year": null,
@@ -1090,7 +1090,7 @@
     "date": "2007-02-13",
     "season": "2006-07",
     "title": "Scott Padgett Trade",
-    "description": "On 2007-02-13:  Rockets acquire Iakovos Tsakalidis / Jake Tsakalidis  Grizzlies acquire Scott Padgett",
+    "description": "On 2007-02-13:  Rockets acquire Jake Tsakalidis  Grizzlies acquire Scott Padgett",
     "is_multi_team": false,
     "teams": [
       {
@@ -1116,7 +1116,7 @@
       },
       {
         "type": "player",
-        "player_name": "Iakovos Tsakalidis / Jake Tsakalidis",
+        "player_name": "Jake Tsakalidis",
         "from_team_id": "MEM",
         "to_team_id": "HOU",
         "pick_year": null,

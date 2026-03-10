@@ -97,8 +97,8 @@
     "id": "5eef6f26-f81f-4cf9-94e5-1d851199dd6a",
     "date": "2003-07-24",
     "season": "2003-04",
-    "title": "Brad Miller, Hidayet Turkoglu / Hedo Turkoglu, Scot Pollard Trade",
-    "description": "On 2003-07-24:  Spurs acquire Hidayet Turkoglu / Hedo Turkoglu  Kings acquire Brad Miller Other Team(s) Involved in Trade: Pacers",
+    "title": "Brad Miller, Hedo Turkoglu, Scot Pollard Trade",
+    "description": "On 2003-07-24:  Spurs acquire Hedo Turkoglu  Kings acquire Brad Miller Other Team(s) Involved in Trade: Pacers",
     "is_multi_team": true,
     "teams": [
       {
@@ -128,7 +128,7 @@
       },
       {
         "type": "player",
-        "player_name": "Hidayet Turkoglu / Hedo Turkoglu",
+        "player_name": "Hedo Turkoglu",
         "from_team_id": "SAC",
         "to_team_id": "SAS",
         "pick_year": null,
@@ -364,7 +364,7 @@
       },
       {
         "type": "player",
-        "player_name": "Ronald Jones / Popeye Jones",
+        "player_name": "Popeye Jones",
         "from_team_id": "DAL",
         "to_team_id": "GSW",
         "pick_year": null,
@@ -401,7 +401,7 @@
     "id": "ce1c5656-4e03-41ab-844a-3e467de73629",
     "date": "2003-08-21",
     "season": "2003-04",
-    "title": "Bob Sura, Clifford Robinson (R.), Juan Sanchez / Pepe Sanchez Trade",
+    "title": "Bob Sura, Clifford Robinson (R.), Pepe Sanchez Trade",
     "description": "On 2003-08-21:  Warriors acquire Clifford Robinson (R.)  Pistons acquire Bob Sura",
     "is_multi_team": false,
     "teams": [
@@ -439,7 +439,7 @@
       },
       {
         "type": "player",
-        "player_name": "Juan Sanchez / Pepe Sanchez",
+        "player_name": "Pepe Sanchez",
         "from_team_id": "DET",
         "to_team_id": "GSW",
         "pick_year": null,
@@ -497,7 +497,7 @@
     "date": "2003-09-28",
     "season": "2003-04",
     "title": "Clippers / Sonics Trade",
-    "description": "On 2003-09-28:  Sonics acquire second round pick (2004 #35-Andre Emmett )  Clippers acquire Predrag Drobnjak / Peja Drobnjak",
+    "description": "On 2003-09-28:  Sonics acquire second round pick (2004 #35-Andre Emmett )  Clippers acquire Predrag Drobnjak",
     "is_multi_team": false,
     "teams": [
       {
@@ -518,7 +518,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Predrag Drobnjak / Peja Drobnjak",
+        "became_player_name": "Predrag Drobnjak",
         "notes": null
       },
       {
@@ -538,8 +538,8 @@
     "id": "77fa1f83-046f-41fb-b4a9-ceafa4f4f660",
     "date": "2003-09-30",
     "season": "2003-04",
-    "title": "Charles Outlaw / Bo Outlaw, Iakovos Tsakalidis / Jake Tsakalidis, Brevin Knight Trade",
-    "description": "On 2003-09-30:  Suns acquire Brevin Knight  Grizzlies acquire Charles Outlaw / Bo Outlaw",
+    "title": "Bo Outlaw, Jake Tsakalidis, Brevin Knight Trade",
+    "description": "On 2003-09-30:  Suns acquire Brevin Knight  Grizzlies acquire Bo Outlaw",
     "is_multi_team": false,
     "teams": [
       {
@@ -554,7 +554,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Charles Outlaw / Bo Outlaw",
+        "player_name": "Bo Outlaw",
         "from_team_id": "PHX",
         "to_team_id": "MEM",
         "pick_year": null,
@@ -565,7 +565,7 @@
       },
       {
         "type": "player",
-        "player_name": "Iakovos Tsakalidis / Jake Tsakalidis",
+        "player_name": "Jake Tsakalidis",
         "from_team_id": "PHX",
         "to_team_id": "MEM",
         "pick_year": null,
@@ -1222,8 +1222,8 @@
     "id": "598ad600-737d-4e80-8bec-eaba4a7c7939",
     "date": "2003-12-30",
     "season": "2003-04",
-    "title": "Martyn Norris / Moochie Norris, John Amaechi Trade",
-    "description": "On 2003-12-30:  Rockets acquire Clarence Weatherspoon  Knicks acquire Martyn Norris / Moochie Norris",
+    "title": "Moochie Norris, John Amaechi Trade",
+    "description": "On 2003-12-30:  Rockets acquire Clarence Weatherspoon  Knicks acquire Moochie Norris",
     "is_multi_team": false,
     "teams": [
       {
@@ -1238,7 +1238,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Martyn Norris / Moochie Norris",
+        "player_name": "Moochie Norris",
         "from_team_id": "HOU",
         "to_team_id": "NYK",
         "pick_year": null,
@@ -1350,7 +1350,7 @@
     "id": "0606d69d-a511-40e7-9996-f98c339efb9c",
     "date": "2004-01-05",
     "season": "2003-04",
-    "title": "Stephon Marbury, Anfernee Hardaway / Penny Hardaway, Cezary Trybanski Trade",
+    "title": "Stephon Marbury, Anfernee Hardaway, Cezary Trybanski Trade",
     "description": "On 2004-01-05:  Suns acquire Antonio McDyess  Knicks acquire Stephon Marbury",
     "is_multi_team": false,
     "teams": [
@@ -1377,7 +1377,7 @@
       },
       {
         "type": "player",
-        "player_name": "Anfernee Hardaway / Penny Hardaway",
+        "player_name": "Anfernee Hardaway",
         "from_team_id": "PHX",
         "to_team_id": "NYK",
         "pick_year": null,
@@ -2065,7 +2065,7 @@
     "date": "2004-06-23",
     "season": "2003-04",
     "title": "Bobcats / Bucks Trade",
-    "description": "On 2004-06-23:  Bucks acquire Zaur Pachulia / Zaza Pachulia  Bobcats acquire 2004 second round pick (#45-Bernard Robinson)",
+    "description": "On 2004-06-23:  Bucks acquire Zaza Pachulia  Bobcats acquire 2004 second round pick (#45-Bernard Robinson)",
     "is_multi_team": false,
     "teams": [
       {
@@ -2097,7 +2097,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Zaur Pachulia / Zaza Pachulia",
+        "became_player_name": "Zaza Pachulia",
         "notes": null
       }
     ]
@@ -2107,7 +2107,7 @@
     "date": "2004-06-23",
     "season": "2003-04",
     "title": "Bobcats / Cavaliers Trade",
-    "description": "On 2004-06-23:  Cavaliers acquire Aleksandar Pavlovic / Sasha Pavlovic  Bobcats acquire first round pick (protected top 17 in 2005, top 16 in 2006, top 15 in 2007, top 14 in 2008) (2007 #22-Jared Dudley)",
+    "description": "On 2004-06-23:  Cavaliers acquire Sasha Pavlovic  Bobcats acquire first round pick (protected top 17 in 2005, top 16 in 2006, top 15 in 2007, top 14 in 2008) (2007 #22-Jared Dudley)",
     "is_multi_team": false,
     "teams": [
       {
@@ -2139,7 +2139,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Aleksandar Pavlovic / Sasha Pavlovic",
+        "became_player_name": "Sasha Pavlovic",
         "notes": null
       }
     ]

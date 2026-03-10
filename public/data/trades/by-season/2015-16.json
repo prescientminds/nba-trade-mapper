@@ -387,7 +387,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Juancho Hernangomez / Juan Hernangomez",
+        "became_player_name": "Juan Hernangomez",
         "notes": null
       },
       {
@@ -578,7 +578,7 @@
     "date": "2015-12-24",
     "season": "2015-16",
     "title": "76ers / Pelicans Trade",
-    "description": "On 2015-12-24:  Pelicans acquire 2016 second round pick (#39-David Michineau)  76ers acquire Ishmael Smith / Ish Smith",
+    "description": "On 2015-12-24:  Pelicans acquire 2016 second round pick (#39-David Michineau)  76ers acquire Ish Smith",
     "is_multi_team": false,
     "teams": [
       {
@@ -599,7 +599,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Ishmael Smith / Ish Smith",
+        "became_player_name": "Ish Smith",
         "notes": null
       },
       {
@@ -668,7 +668,7 @@
       },
       {
         "type": "player",
-        "player_name": "Sergei Lishouk / Sergei Lishchuk",
+        "player_name": "Sergei Lishchuk",
         "from_team_id": "LAC",
         "to_team_id": "HOU",
         "pick_year": null,
@@ -727,7 +727,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Georgios Papagiannis / Giorgios Papagiannis / George Papagiannis",
+        "became_player_name": "Georgios Papagiannis",
         "notes": null
       },
       {
@@ -933,7 +933,7 @@
     "date": "2016-02-18",
     "season": "2015-16",
     "title": "Justin Holiday, Kirk Hinrich Trade",
-    "description": "On 2016-02-18:  Bulls acquire 2018 second round pick (#47-Sviatoslav Mykhailiuk / Svi Mykhailiuk)  Jazz acquire Shelvin Mack Other Team(s) Involved in Trade:Hawks",
+    "description": "On 2016-02-18:  Bulls acquire 2018 second round pick (#47-Svi Mykhailiuk)  Jazz acquire Shelvin Mack Other Team(s) Involved in Trade:Hawks",
     "is_multi_team": true,
     "teams": [
       {
@@ -969,7 +969,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Sviatoslav Mykhailiuk / Svi Mykhailiuk",
+        "became_player_name": "Svi Mykhailiuk",
         "notes": null
       },
       {
@@ -1367,7 +1367,7 @@
       },
       {
         "type": "player",
-        "player_name": "Georgios Papagiannis / Giorgios Papagiannis / George Papagiannis",
+        "player_name": "Georgios Papagiannis",
         "from_team_id": "PHX",
         "to_team_id": "SAC",
         "pick_year": null,
@@ -1453,7 +1453,7 @@
       },
       {
         "type": "player",
-        "player_name": "Domantas Sabonis / Domas Sabonis",
+        "player_name": "Domantas Sabonis",
         "from_team_id": "ORL",
         "to_team_id": "OKC",
         "pick_year": null,

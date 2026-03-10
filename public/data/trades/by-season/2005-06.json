@@ -668,7 +668,7 @@
     "id": "c86fa4c1-d8da-4078-bdea-0b97197206d4",
     "date": "2005-10-04",
     "season": "2005-06",
-    "title": "Tim Thomas, Michael Sweetney / Mike Sweetney, Jermaine Jackson Trade",
+    "title": "Tim Thomas, Mike Sweetney, Jermaine Jackson Trade",
     "description": "On 2005-10-04:  Knicks acquire Eddy Curry  Bulls acquire Tim Thomas",
     "is_multi_team": false,
     "teams": [
@@ -695,7 +695,7 @@
       },
       {
         "type": "player",
-        "player_name": "Michael Sweetney / Mike Sweetney",
+        "player_name": "Mike Sweetney",
         "from_team_id": "NYK",
         "to_team_id": "CHI",
         "pick_year": null,
@@ -977,8 +977,8 @@
     "id": "c6e1be2e-e7ed-4c9c-ad0f-2c419c1559d8",
     "date": "2006-01-25",
     "season": "2005-06",
-    "title": "Ron Artest / Metta World Peace Trade",
-    "description": "On 2006-01-25:  Pacers acquire Predrag Stojakovic / Peja Stojakovic  Kings acquire Ron Artest / Metta World Peace",
+    "title": "Metta World Peace Trade",
+    "description": "On 2006-01-25:  Pacers acquire Peja Stojakovic  Kings acquire Metta World Peace",
     "is_multi_team": false,
     "teams": [
       {
@@ -993,7 +993,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Ron Artest / Metta World Peace",
+        "player_name": "Metta World Peace",
         "from_team_id": "IND",
         "to_team_id": "SAC",
         "pick_year": null,
@@ -1004,7 +1004,7 @@
       },
       {
         "type": "player",
-        "player_name": "Predrag Stojakovic / Peja Stojakovic",
+        "player_name": "Peja Stojakovic",
         "from_team_id": "SAC",
         "to_team_id": "IND",
         "pick_year": null,
@@ -1339,8 +1339,8 @@
     "id": "e66a56dd-68dd-4c5e-8809-312c197ba580",
     "date": "2006-02-13",
     "season": "2005-06",
-    "title": "Martyn Norris / Moochie Norris Trade",
-    "description": "On 2006-02-13:  Rockets acquire Maciej Lampe  Hornets acquire Martyn Norris / Moochie Norris",
+    "title": "Moochie Norris Trade",
+    "description": "On 2006-02-13:  Rockets acquire Maciej Lampe  Hornets acquire Moochie Norris",
     "is_multi_team": false,
     "teams": [
       {
@@ -1355,7 +1355,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Martyn Norris / Moochie Norris",
+        "player_name": "Moochie Norris",
         "from_team_id": "HOU",
         "to_team_id": "NOP",
         "pick_year": null,
@@ -1487,7 +1487,7 @@
     "id": "9d4dedd5-ac54-42a6-a558-b1ae560100d8",
     "date": "2006-02-22",
     "season": "2005-06",
-    "title": "Steve Francis, Trevor Ariza, Anfernee Hardaway / Penny Hardaway Trade",
+    "title": "Steve Francis, Trevor Ariza, Anfernee Hardaway Trade",
     "description": "On 2006-02-22:  Magic acquire Trevor Ariza  Knicks acquire Steve Francis",
     "is_multi_team": false,
     "teams": [
@@ -1525,7 +1525,7 @@
       },
       {
         "type": "player",
-        "player_name": "Anfernee Hardaway / Penny Hardaway",
+        "player_name": "Anfernee Hardaway",
         "from_team_id": "NYK",
         "to_team_id": "ORL",
         "pick_year": null,
@@ -1623,8 +1623,8 @@
     "id": "e2274386-6275-47e5-977a-00be37165dd9",
     "date": "2006-02-23",
     "season": "2005-06",
-    "title": "Ronald Murray / Flip Murray Trade",
-    "description": "On 2006-02-23:  Sonics acquire Mike Wilks  Cavaliers acquire Ronald Murray / Flip Murray",
+    "title": "Ronald Murray Trade",
+    "description": "On 2006-02-23:  Sonics acquire Mike Wilks  Cavaliers acquire Ronald Murray",
     "is_multi_team": false,
     "teams": [
       {
@@ -1639,7 +1639,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Ronald Murray / Flip Murray",
+        "player_name": "Ronald Murray",
         "from_team_id": "OKC",
         "to_team_id": "CLE",
         "pick_year": null,
@@ -1846,8 +1846,8 @@
     "id": "9e691551-eae5-40b5-89c6-706d2c493e6b",
     "date": "2006-06-21",
     "season": "2005-06",
-    "title": "Radoslav Nesterovic / Rasho Nesterovic, Matt Bonner, Eric Williams Trade",
-    "description": "On 2006-06-21:  Spurs acquire Matt Bonner  Raptors acquire Radoslav Nesterovic / Rasho Nesterovic",
+    "title": "Rasho Nesterovic, Matt Bonner, Eric Williams Trade",
+    "description": "On 2006-06-21:  Spurs acquire Matt Bonner  Raptors acquire Rasho Nesterovic",
     "is_multi_team": false,
     "teams": [
       {
@@ -1862,7 +1862,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Radoslav Nesterovic / Rasho Nesterovic",
+        "player_name": "Rasho Nesterovic",
         "from_team_id": "SAS",
         "to_team_id": "TOR",
         "pick_year": null,
@@ -2271,7 +2271,7 @@
     "date": "2006-06-28",
     "season": "2005-06",
     "title": "Lakers / Mavericks Trade",
-    "description": "On 2006-06-28:  Mavericks acquire 2007 second round pick (#50-Renaldas Seibutis)  Lakers acquire rights to Danilo Pinnock / J.R. Pinnock",
+    "description": "On 2006-06-28:  Mavericks acquire 2007 second round pick (#50-Renaldas Seibutis)  Lakers acquire rights to J.R. Pinnock",
     "is_multi_team": false,
     "teams": [
       {
@@ -2292,7 +2292,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Danilo Pinnock / J.R. Pinnock",
+        "became_player_name": "J.R. Pinnock",
         "notes": null
       },
       {

@@ -4,7 +4,7 @@
     "date": "2009-07-09",
     "season": "2009-10",
     "title": "Jerry Stackhouse, trade exception, Shawn Marion Trade",
-    "description": "On 2009-07-09:  Mavericks acquire Shawn Marion  Raptors acquire Hidayet Turkoglu / Hedo Turkoglu Other Team(s) Involved in Trade: Grizzlies, Magic",
+    "description": "On 2009-07-09:  Mavericks acquire Shawn Marion  Raptors acquire Hedo Turkoglu Other Team(s) Involved in Trade: Grizzlies, Magic",
     "is_multi_team": true,
     "teams": [
       {
@@ -590,7 +590,7 @@
     "id": "0f1cb800-bc53-4712-92b0-f0f843ff3b57",
     "date": "2009-08-17",
     "season": "2009-10",
-    "title": "Carlos Delfino, Roko-Leni Ukic / Roko Ukic, Amir Johnson Trade",
+    "title": "Carlos Delfino, Roko Ukic, Amir Johnson Trade",
     "description": "On 2009-08-17:  Raptors acquire Amir Johnson  Bucks acquire Carlos Delfino",
     "is_multi_team": false,
     "teams": [
@@ -617,7 +617,7 @@
       },
       {
         "type": "player",
-        "player_name": "Roko-Leni Ukic / Roko Ukic",
+        "player_name": "Roko Ukic",
         "from_team_id": "TOR",
         "to_team_id": "MIL",
         "pick_year": null,
@@ -974,7 +974,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Hamady Ndiaye / Hamady N'Diaye",
+        "became_player_name": "Hamady N'Diaye",
         "notes": null
       },
       {
@@ -1499,8 +1499,8 @@
     "id": "90233f6b-5f1c-4790-97a2-d757fb291572",
     "date": "2010-02-18",
     "season": "2009-10",
-    "title": "Tyrus Thomas, Ronald Murray / Flip Murray, Acie Law Trade",
-    "description": "On 2010-02-18:  Bulls acquire Ronald Murray / Flip Murray  Bobcats acquire Tyrus Thomas",
+    "title": "Tyrus Thomas, Ronald Murray, Acie Law Trade",
+    "description": "On 2010-02-18:  Bulls acquire Ronald Murray  Bobcats acquire Tyrus Thomas",
     "is_multi_team": false,
     "teams": [
       {
@@ -1526,7 +1526,7 @@
       },
       {
         "type": "player",
-        "player_name": "Ronald Murray / Flip Murray",
+        "player_name": "Ronald Murray",
         "from_team_id": "CHA",
         "to_team_id": "CHI",
         "pick_year": null,
@@ -2490,7 +2490,7 @@
       },
       {
         "type": "player",
-        "player_name": "Hamady Ndiaye / Hamady N'Diaye",
+        "player_name": "Hamady N'Diaye",
         "from_team_id": "MIN",
         "to_team_id": "WAS",
         "pick_year": null,
@@ -2506,7 +2506,7 @@
     "date": "2010-06-29",
     "season": "2009-10",
     "title": "Quinton Ross Trade",
-    "description": "On 2010-06-29:  Wizards acquire Yi Jianlian / Jianlian Yi  Nets acquire Quinton Ross",
+    "description": "On 2010-06-29:  Wizards acquire Yi Jianlian  Nets acquire Quinton Ross",
     "is_multi_team": false,
     "teams": [
       {
@@ -2532,7 +2532,7 @@
       },
       {
         "type": "player",
-        "player_name": "Yi Jianlian / Jianlian Yi",
+        "player_name": "Yi Jianlian",
         "from_team_id": "BKN",
         "to_team_id": "WAS",
         "pick_year": null,

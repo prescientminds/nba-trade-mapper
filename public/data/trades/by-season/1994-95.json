@@ -312,7 +312,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Predrag Drobnjak / Peja Drobnjak",
+        "became_player_name": "Predrag Drobnjak",
         "notes": null
       },
       {
@@ -538,7 +538,7 @@
       },
       {
         "type": "player",
-        "player_name": "Predrag Danilovic / Sasha Danilovic",
+        "player_name": "Sasha Danilovic",
         "from_team_id": "GSW",
         "to_team_id": "MIA",
         "pick_year": null,
@@ -693,7 +693,7 @@
     "date": "1995-02-03",
     "season": "1994-95",
     "title": "Celtics / Jazz Trade",
-    "description": "On 1995-02-03:  Jazz acquire Theodore Edwards / Blue Edwards  Celtics acquire 1995 second round pick (#33-Junior Burrough)",
+    "description": "On 1995-02-03:  Jazz acquire Blue Edwards  Celtics acquire 1995 second round pick (#33-Junior Burrough)",
     "is_multi_team": false,
     "teams": [
       {
@@ -725,7 +725,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Theodore Edwards / Blue Edwards",
+        "became_player_name": "Blue Edwards",
         "notes": null
       }
     ]
@@ -1350,8 +1350,8 @@
     "id": "3e7d2d28-b941-4414-bdd4-43ac95da0ec9",
     "date": "1995-06-29",
     "season": "1994-95",
-    "title": "Anthony Webb / Spud Webb Trade",
-    "description": "On 1995-06-29:  Kings acquire Tyrone Corbin  Hawks acquire Anthony Webb / Spud Webb",
+    "title": "Spud Webb Trade",
+    "description": "On 1995-06-29:  Kings acquire Tyrone Corbin  Hawks acquire Spud Webb",
     "is_multi_team": false,
     "teams": [
       {
@@ -1366,7 +1366,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Anthony Webb / Spud Webb",
+        "player_name": "Spud Webb",
         "from_team_id": "SAC",
         "to_team_id": "ATL",
         "pick_year": null,

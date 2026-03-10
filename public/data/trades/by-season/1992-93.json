@@ -151,7 +151,7 @@
     "id": "c840534d-babc-4588-8f6a-8b778ad901cb",
     "date": "1992-09-08",
     "season": "1992-93",
-    "title": "Sam Mitchell, Jerome Richardson / Pooh Richardson, Chuck Person Trade",
+    "title": "Sam Mitchell, Pooh Richardson, Chuck Person Trade",
     "description": "On 1992-09-08:  Timberwolves acquire Chuck Person  Pacers acquire Sam Mitchell",
     "is_multi_team": false,
     "teams": [
@@ -178,7 +178,7 @@
       },
       {
         "type": "player",
-        "player_name": "Jerome Richardson / Pooh Richardson",
+        "player_name": "Pooh Richardson",
         "from_team_id": "MIN",
         "to_team_id": "IND",
         "pick_year": null,
@@ -356,7 +356,7 @@
     "id": "183b2457-146c-49ab-9f4f-364d8c162b5b",
     "date": "1992-09-22",
     "season": "1992-93",
-    "title": "Mark Jackson, Stanley Roberts, Glenn Rivers / Doc Rivers Trade",
+    "title": "Mark Jackson, Stanley Roberts, Doc Rivers Trade",
     "description": "On 1992-09-22:  Clippers acquire Stanley Roberts  Magic acquire 1993 first round pick (from Knicks) (#26-Geert Hammink) Other Team(s) Involved in Trade:Knicks",
     "is_multi_team": true,
     "teams": [
@@ -409,7 +409,7 @@
       },
       {
         "type": "player",
-        "player_name": "Glenn Rivers / Doc Rivers",
+        "player_name": "Doc Rivers",
         "from_team_id": "LAC",
         "to_team_id": "ORL",
         "pick_year": null,
@@ -1229,7 +1229,7 @@
     "date": "1993-06-30",
     "season": "1992-93",
     "title": "Mavericks / Rockets Trade",
-    "description": "On 1993-06-30:  Rockets acquire rights to Eric Riley  Mavericks acquire rights to Ronald Jones / Popeye Jones",
+    "description": "On 1993-06-30:  Rockets acquire rights to Eric Riley  Mavericks acquire rights to Popeye Jones",
     "is_multi_team": false,
     "teams": [
       {
@@ -1244,7 +1244,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Ronald Jones / Popeye Jones",
+        "player_name": "Popeye Jones",
         "from_team_id": "HOU",
         "to_team_id": "DAL",
         "pick_year": null,
@@ -1314,7 +1314,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Anthony Miller / Pig Miller",
+        "became_player_name": "Anthony Miller",
         "notes": null
       }
     ]
@@ -1324,7 +1324,7 @@
     "date": "1993-06-30",
     "season": "1992-93",
     "title": "Magic / Warriors Trade",
-    "description": "On 1993-06-30:  Warriors acquire rights to Chris Webber  Magic acquire rights to Anfernee Hardaway / Penny Hardaway",
+    "description": "On 1993-06-30:  Warriors acquire rights to Chris Webber  Magic acquire rights to Anfernee Hardaway",
     "is_multi_team": false,
     "teams": [
       {
@@ -1339,7 +1339,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Anfernee Hardaway / Penny Hardaway",
+        "player_name": "Anfernee Hardaway",
         "from_team_id": "GSW",
         "to_team_id": "ORL",
         "pick_year": null,

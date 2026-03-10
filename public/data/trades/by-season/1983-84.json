@@ -3,8 +3,8 @@
     "id": "25d8cc14-be4b-4a3b-92d4-0e1bb4aacd19",
     "date": "1983-08-12",
     "season": "1983-84",
-    "title": "Clarence Walker / Foots Walker Trade",
-    "description": "On 1983-08-12:  Nets acquire Kelvin Ransey  Mavericks acquire Clarence Walker / Foots Walker",
+    "title": "Foots Walker Trade",
+    "description": "On 1983-08-12:  Nets acquire Kelvin Ransey  Mavericks acquire Foots Walker",
     "is_multi_team": false,
     "teams": [
       {
@@ -19,7 +19,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Clarence Walker / Foots Walker",
+        "player_name": "Foots Walker",
         "from_team_id": "BKN",
         "to_team_id": "DAL",
         "pick_year": null,
@@ -707,7 +707,7 @@
     "id": "390e1a59-933d-456f-ba97-6c5c0fc96da7",
     "date": "1983-10-10",
     "season": "1983-84",
-    "title": "Norm Nixon, Ed Jordan / Eddie Jordan Trade",
+    "title": "Norm Nixon, Eddie Jordan Trade",
     "description": "On 1983-10-10:  Lakers acquire Swen Nater  Clippers acquire Norm Nixon",
     "is_multi_team": false,
     "teams": [
@@ -734,7 +734,7 @@
       },
       {
         "type": "player",
-        "player_name": "Ed Jordan / Eddie Jordan",
+        "player_name": "Eddie Jordan",
         "from_team_id": "LAL",
         "to_team_id": "LAC",
         "pick_year": null,
@@ -1396,8 +1396,8 @@
     "id": "02c9d56c-fa0f-4c39-bbb1-21e73daec8c0",
     "date": "1984-06-07",
     "season": "1983-84",
-    "title": "Kiki Vandeweghe, Lafayette Lever / Fat Lever, Calvin Natt Trade",
-    "description": "On 1984-06-07:  Nuggets acquire Lafayette Lever / Fat Lever  Blazers acquire Kiki Vandeweghe",
+    "title": "Kiki Vandeweghe, Fat Lever, Calvin Natt Trade",
+    "description": "On 1984-06-07:  Nuggets acquire Fat Lever  Blazers acquire Kiki Vandeweghe",
     "is_multi_team": false,
     "teams": [
       {
@@ -1423,7 +1423,7 @@
       },
       {
         "type": "player",
-        "player_name": "Lafayette Lever / Fat Lever",
+        "player_name": "Fat Lever",
         "from_team_id": "POR",
         "to_team_id": "DEN",
         "pick_year": null,

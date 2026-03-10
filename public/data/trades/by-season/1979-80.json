@@ -479,7 +479,7 @@
     "date": "1979-10-05",
     "season": "1979-80",
     "title": "Lakers / Spurs Trade",
-    "description": "On 1979-10-05:  Spurs acquire Irv Kiffin  Lakers acquire 1980 second round pick (#37-Clarence Carter / Butch Carter)",
+    "description": "On 1979-10-05:  Spurs acquire Irv Kiffin  Lakers acquire 1980 second round pick (#37-Butch Carter)",
     "is_multi_team": false,
     "teams": [
       {
@@ -500,7 +500,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Clarence Carter / Butch Carter",
+        "became_player_name": "Butch Carter",
         "notes": null
       },
       {
@@ -923,7 +923,7 @@
     "date": "1979-10-27",
     "season": "1979-80",
     "title": "Cavaliers / Clippers Trade",
-    "description": "On 1979-10-27:  Clippers acquire Bobby Smith (b) / Bingo Smith  Cavaliers acquire 1980 third round pick (#53-Stuart House)",
+    "description": "On 1979-10-27:  Clippers acquire Bingo Smith  Cavaliers acquire 1980 third round pick (#53-Stuart House)",
     "is_multi_team": false,
     "teams": [
       {
@@ -955,7 +955,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Bobby Smith (b) / Bingo Smith",
+        "became_player_name": "Bingo Smith",
         "notes": null
       }
     ]
@@ -1249,8 +1249,8 @@
     "id": "95c8ff69-ac46-4b4d-bb20-03244d606033",
     "date": "1980-01-24",
     "season": "1979-80",
-    "title": "James McElroy / Jim McElroy Trade",
-    "description": "On 1980-01-24:  Pistons acquire Ron Lee  Hawks acquire James McElroy / Jim McElroy",
+    "title": "Jim McElroy Trade",
+    "description": "On 1980-01-24:  Pistons acquire Ron Lee  Hawks acquire Jim McElroy",
     "is_multi_team": false,
     "teams": [
       {
@@ -1265,7 +1265,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "James McElroy / Jim McElroy",
+        "player_name": "Jim McElroy",
         "from_team_id": "DET",
         "to_team_id": "ATL",
         "pick_year": null,

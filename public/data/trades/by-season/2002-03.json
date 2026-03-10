@@ -143,7 +143,7 @@
     "date": "2002-08-01",
     "season": "2002-03",
     "title": "Magic / Nuggets Trade",
-    "description": "On 2002-08-01:  Nuggets acquire Don Reid  Magic acquire 2004 second round pick (#49-Sergei Lishouk / Sergei Lishchuk)",
+    "description": "On 2002-08-01:  Nuggets acquire Don Reid  Magic acquire 2004 second round pick (#49-Sergei Lishchuk)",
     "is_multi_team": false,
     "teams": [
       {
@@ -164,7 +164,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Sergei Lishouk / Sergei Lishchuk",
+        "became_player_name": "Sergei Lishchuk",
         "notes": null
       },
       {
@@ -872,7 +872,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Sergei Lishouk / Sergei Lishchuk",
+        "became_player_name": "Sergei Lishchuk",
         "notes": null
       },
       {
@@ -1091,7 +1091,7 @@
       },
       {
         "type": "player",
-        "player_name": "Ronald Murray / Flip Murray",
+        "player_name": "Ronald Murray",
         "from_team_id": "MIL",
         "to_team_id": "OKC",
         "pick_year": null,

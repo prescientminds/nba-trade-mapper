@@ -268,7 +268,7 @@
     "id": "ab03825b-45d9-460a-a9de-017a88fcf24c",
     "date": "1976-12-13",
     "season": "1976-77",
-    "title": "Gus Gerard, Chuck Williams / Chuckie Williams Trade",
+    "title": "Gus Gerard, Chuck Williams Trade",
     "description": "On 1976-12-13:  Nuggets acquire Jim Price  Braves acquire Gus Gerard",
     "is_multi_team": false,
     "teams": [
@@ -295,7 +295,7 @@
       },
       {
         "type": "player",
-        "player_name": "Chuck Williams / Chuckie Williams",
+        "player_name": "Chuck Williams",
         "from_team_id": "DEN",
         "to_team_id": "LAC",
         "pick_year": null,
@@ -322,7 +322,7 @@
     "date": "1976-12-13",
     "season": "1976-77",
     "title": "Leonard Gray Trade",
-    "description": "On 1976-12-13:  Sonics acquire Nick Weatherspoon / Nick Witherspoon  Bullets acquire Leonard Gray",
+    "description": "On 1976-12-13:  Sonics acquire Nick Weatherspoon  Bullets acquire Leonard Gray",
     "is_multi_team": false,
     "teams": [
       {
@@ -348,7 +348,7 @@
       },
       {
         "type": "player",
-        "player_name": "Nick Weatherspoon / Nick Witherspoon",
+        "player_name": "Nick Weatherspoon",
         "from_team_id": "WAS",
         "to_team_id": "OKC",
         "pick_year": null,
@@ -523,7 +523,7 @@
     "date": "1977-01-20",
     "season": "1976-77",
     "title": "Tom Henderson Trade",
-    "description": "On 1977-01-20:  Hawks acquire Leonard Robinson / Truck Robinson  Bullets acquire Tom Henderson",
+    "description": "On 1977-01-20:  Hawks acquire Truck Robinson  Bullets acquire Tom Henderson",
     "is_multi_team": false,
     "teams": [
       {
@@ -560,7 +560,7 @@
       },
       {
         "type": "player",
-        "player_name": "Leonard Robinson / Truck Robinson",
+        "player_name": "Truck Robinson",
         "from_team_id": "WAS",
         "to_team_id": "ATL",
         "pick_year": null,
@@ -577,7 +577,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Wayne Rollins / Tree Rollins",
+        "became_player_name": "Tree Rollins",
         "notes": null
       }
     ]

@@ -353,7 +353,7 @@
     "date": "1977-09-16",
     "season": "1977-78",
     "title": "Braves / Nets Trade",
-    "description": "On 1977-09-16:  Nets acquire William Averitt / Bird Averitt  Braves acquire cash",
+    "description": "On 1977-09-16:  Nets acquire Bird Averitt  Braves acquire cash",
     "is_multi_team": false,
     "teams": [
       {
@@ -379,7 +379,7 @@
       },
       {
         "type": "player",
-        "player_name": "William Averitt / Bird Averitt",
+        "player_name": "Bird Averitt",
         "from_team_id": "LAC",
         "to_team_id": "BKN",
         "pick_year": null,
@@ -574,7 +574,7 @@
     "date": "1977-10-13",
     "season": "1977-78",
     "title": "Hawks / Jazz Trade",
-    "description": "On 1977-10-13:  Jazz acquire Joe Meriweather / Joe C. Meriweather  Hawks acquire 1978 first round pick (#16-Jack Givens)",
+    "description": "On 1977-10-13:  Jazz acquire Joe Meriweather  Hawks acquire 1978 first round pick (#16-Jack Givens)",
     "is_multi_team": false,
     "teams": [
       {
@@ -606,7 +606,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Joe Meriweather / Joe C. Meriweather",
+        "became_player_name": "Joe Meriweather",
         "notes": null
       }
     ]
@@ -1335,8 +1335,8 @@
     "id": "5f5a951e-0e6b-4195-81e0-40f5e23de79e",
     "date": "1978-01-04",
     "season": "1977-78",
-    "title": "Don Watts / Slick Watts Trade",
-    "description": "On 1978-01-04:  Warriors acquire Nate Williams  Jazz acquire Don Watts / Slick Watts Other Team(s) Involved in Trade: Sonics",
+    "title": "Slick Watts Trade",
+    "description": "On 1978-01-04:  Warriors acquire Nate Williams  Jazz acquire Slick Watts Other Team(s) Involved in Trade: Sonics",
     "is_multi_team": true,
     "teams": [
       {
@@ -1355,7 +1355,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Don Watts / Slick Watts",
+        "player_name": "Slick Watts",
         "from_team_id": "GSW",
         "to_team_id": "UTA",
         "pick_year": null,
@@ -1372,7 +1372,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Tom Green / Tommy Green",
+        "became_player_name": "Tommy Green",
         "notes": null
       },
       {
@@ -1564,7 +1564,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Mitchell Anderson / J.J. Anderson",
+        "became_player_name": "J.J. Anderson",
         "notes": null
       },
       {
@@ -2123,7 +2123,7 @@
     "date": "1978-06-30",
     "season": "1977-78",
     "title": "Blazers / Pacers Trade",
-    "description": "On 1978-06-30:  Pacers acquire David Calhoun / Corky Calhoun  Blazers acquire 1980 second round pick (#32-David Lawrence)",
+    "description": "On 1978-06-30:  Pacers acquire Corky Calhoun  Blazers acquire 1980 second round pick (#32-David Lawrence)",
     "is_multi_team": false,
     "teams": [
       {
@@ -2155,7 +2155,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "David Calhoun / Corky Calhoun",
+        "became_player_name": "Corky Calhoun",
         "notes": null
       }
     ]

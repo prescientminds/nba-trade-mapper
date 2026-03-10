@@ -544,7 +544,7 @@
     "id": "e3d49cba-ef1c-4fa9-8c60-bb4eb093811d",
     "date": "2001-08-03",
     "season": "2001-02",
-    "title": "Matt Harpring, Robert Traylor / Tractor Traylor, Cedric Henderson (E.) Trade",
+    "title": "Matt Harpring, Robert Traylor, Cedric Henderson (E.) Trade",
     "description": "On 2001-08-03:  Cavaliers acquire Tyrone Hill  76ers acquire Matt Harpring",
     "is_multi_team": false,
     "teams": [
@@ -571,7 +571,7 @@
       },
       {
         "type": "player",
-        "player_name": "Robert Traylor / Tractor Traylor",
+        "player_name": "Robert Traylor",
         "from_team_id": "CLE",
         "to_team_id": "PHI",
         "pick_year": null,
@@ -620,7 +620,7 @@
     "date": "2001-08-10",
     "season": "2001-02",
     "title": "Shandon Anderson, Howard Eisley, Glen Rice Sr. Trade",
-    "description": "On 2001-08-10:  Rockets acquire rights to Kyle Hill  Mavericks acquire Tyrone Bogues / Muggsy Bogues Other Team(s) Involved in Trade: Knicks",
+    "description": "On 2001-08-10:  Rockets acquire rights to Kyle Hill  Mavericks acquire Muggsy Bogues Other Team(s) Involved in Trade: Knicks",
     "is_multi_team": true,
     "teams": [
       {
@@ -672,7 +672,7 @@
       },
       {
         "type": "player",
-        "player_name": "Tyrone Bogues / Muggsy Bogues",
+        "player_name": "Muggsy Bogues",
         "from_team_id": "NYK",
         "to_team_id": "DAL",
         "pick_year": null,
@@ -978,7 +978,7 @@
       },
       {
         "type": "player",
-        "player_name": "Robert Traylor / Tractor Traylor",
+        "player_name": "Robert Traylor",
         "from_team_id": "PHI",
         "to_team_id": "GSW",
         "pick_year": null,
@@ -1167,8 +1167,8 @@
     "id": "28952181-9a67-401a-a4a8-4dec7ea541b1",
     "date": "2001-11-15",
     "season": "2001-02",
-    "title": "Jud Buechler, Charles Outlaw / Bo Outlaw Trade",
-    "description": "On 2001-11-15:  Unknown Team acquire Vinny Del Negro  Suns acquire Charles Outlaw / Bo Outlaw Other Team(s) Involved in Trade: Clippers, Magic",
+    "title": "Jud Buechler, Bo Outlaw Trade",
+    "description": "On 2001-11-15:  Unknown Team acquire Vinny Del Negro  Suns acquire Bo Outlaw Other Team(s) Involved in Trade: Clippers, Magic",
     "is_multi_team": true,
     "teams": [
       {
@@ -1198,7 +1198,7 @@
       },
       {
         "type": "player",
-        "player_name": "Charles Outlaw / Bo Outlaw",
+        "player_name": "Bo Outlaw",
         "from_team_id": "ORL",
         "to_team_id": "LAC",
         "pick_year": null,
@@ -1215,7 +1215,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Amare Stoudemire / Amar'e Stoudemire",
+        "became_player_name": "Amar'e Stoudemire",
         "notes": null
       },
       {
@@ -1236,7 +1236,7 @@
     "date": "2002-02-19",
     "season": "2001-02",
     "title": "Jalen Rose, Travis Best, Norm Richardson Trade",
-    "description": "On 2002-02-19:  Pacers acquire Ron Artest / Metta World Peace  Bulls acquire Jalen Rose",
+    "description": "On 2002-02-19:  Pacers acquire Metta World Peace  Bulls acquire Jalen Rose",
     "is_multi_team": false,
     "teams": [
       {
@@ -1295,7 +1295,7 @@
       },
       {
         "type": "player",
-        "player_name": "Ron Artest / Metta World Peace",
+        "player_name": "Metta World Peace",
         "from_team_id": "CHI",
         "to_team_id": "IND",
         "pick_year": null,
@@ -1478,7 +1478,7 @@
       },
       {
         "type": "player",
-        "player_name": "Tariq Abdul-Wahad / Olivier Saint-Jean",
+        "player_name": "Tariq Abdul-Wahad",
         "from_team_id": "DEN",
         "to_team_id": "DAL",
         "pick_year": null,
@@ -1697,7 +1697,7 @@
     "date": "2002-06-26",
     "season": "2001-02",
     "title": "Mark Bryant Trade",
-    "description": "On 2002-06-26:  Spurs acquire Craig Claxton / Speedy Claxton  76ers acquire Mark Bryant",
+    "description": "On 2002-06-26:  Spurs acquire Speedy Claxton  76ers acquire Mark Bryant",
     "is_multi_team": false,
     "teams": [
       {
@@ -1745,7 +1745,7 @@
       },
       {
         "type": "player",
-        "player_name": "Craig Claxton / Speedy Claxton",
+        "player_name": "Speedy Claxton",
         "from_team_id": "PHI",
         "to_team_id": "SAS",
         "pick_year": null,
@@ -2202,7 +2202,7 @@
       },
       {
         "type": "player",
-        "player_name": "Nene / Nene Hilario / Maybyner Hilario",
+        "player_name": "Nene Hilario",
         "from_team_id": "NYK",
         "to_team_id": "DEN",
         "pick_year": null,

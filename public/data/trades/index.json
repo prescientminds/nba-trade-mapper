@@ -94,14 +94,14 @@
     "id": "ab03825b-45d9-460a-a9de-017a88fcf24c",
     "date": "1976-12-13",
     "season": "1976-77",
-    "title": "Gus Gerard, Chuck Williams / Chuckie Williams Trade",
+    "title": "Gus Gerard, Chuck Williams Trade",
     "teams": [
       "LAC",
       "DEN"
     ],
     "players": [
       "Gus Gerard",
-      "Chuck Williams / Chuckie Williams",
+      "Chuck Williams",
       "Jim Price"
     ],
     "topAssets": [
@@ -120,10 +120,10 @@
     ],
     "players": [
       "Leonard Gray",
-      "Nick Weatherspoon / Nick Witherspoon"
+      "Nick Weatherspoon"
     ],
     "topAssets": [
-      "Nick Weatherspoon / Nick Witherspoon",
+      "Nick Weatherspoon",
       "Leonard Gray"
     ]
   },
@@ -196,11 +196,11 @@
     "players": [
       "Tom Henderson",
       "Greg Ballard",
-      "Leonard Robinson / Truck Robinson",
-      "Wayne Rollins / Tree Rollins"
+      "Truck Robinson",
+      "Tree Rollins"
     ],
     "topAssets": [
-      "Leonard Robinson / Truck Robinson",
+      "Truck Robinson",
       "Tom Henderson"
     ]
   },
@@ -550,10 +550,10 @@
       "BKN"
     ],
     "players": [
-      "William Averitt / Bird Averitt"
+      "Bird Averitt"
     ],
     "topAssets": [
-      "William Averitt / Bird Averitt",
+      "Bird Averitt",
       ""
     ]
   },
@@ -641,7 +641,7 @@
     ],
     "players": [
       "Jack Givens",
-      "Joe Meriweather / Joe C. Meriweather"
+      "Joe Meriweather"
     ],
     "topAssets": [
       "",
@@ -878,22 +878,22 @@
     "id": "5f5a951e-0e6b-4195-81e0-40f5e23de79e",
     "date": "1978-01-04",
     "season": "1977-78",
-    "title": "Don Watts / Slick Watts Trade",
+    "title": "Slick Watts Trade",
     "teams": [
       "UTA",
       "OKC",
       "GSW"
     ],
     "players": [
-      "Don Watts / Slick Watts",
-      "Tom Green / Tommy Green",
+      "Slick Watts",
+      "Tommy Green",
       "Nate Williams",
       "Danny Vranes"
     ],
     "topAssets": [
       "Nate Williams",
       "",
-      "Don Watts / Slick Watts"
+      "Slick Watts"
     ]
   },
   {
@@ -945,7 +945,7 @@
     ],
     "players": [
       "Clint Richardson",
-      "Mitchell Anderson / J.J. Anderson",
+      "J.J. Anderson",
       "Claude Riley",
       "Wilson Washington"
     ],
@@ -1157,7 +1157,7 @@
     ],
     "players": [
       "David Lawrence",
-      "David Calhoun / Corky Calhoun"
+      "Corky Calhoun"
     ],
     "topAssets": [
       "",
@@ -1292,7 +1292,7 @@
     ],
     "players": [
       "Danny Schayes",
-      "Don Watts / Slick Watts"
+      "Slick Watts"
     ],
     "topAssets": [
       "",
@@ -1364,7 +1364,7 @@
     ],
     "players": [
       "Charles Barkley",
-      "Lloyd Free / World B. Free"
+      "World B. Free"
     ],
     "topAssets": [
       "",
@@ -1437,10 +1437,10 @@
     ],
     "players": [
       "Spencer Haywood",
-      "Joe Meriweather / Joe C. Meriweather"
+      "Joe Meriweather"
     ],
     "topAssets": [
-      "Joe Meriweather / Joe C. Meriweather",
+      "Joe Meriweather",
       "Spencer Haywood"
     ]
   },
@@ -1458,10 +1458,10 @@
       "Ron Lee",
       "Larry Knight",
       "John Duren",
-      "Leonard Robinson / Truck Robinson"
+      "Truck Robinson"
     ],
     "topAssets": [
-      "Leonard Robinson / Truck Robinson",
+      "Truck Robinson",
       "Marty Byrnes"
     ]
   },
@@ -1493,7 +1493,7 @@
       "OKC"
     ],
     "players": [
-      "Sylvester Williams / Sly Williams",
+      "Sly Williams",
       "Dennis Awtrey"
     ],
     "topAssets": [
@@ -1587,11 +1587,11 @@
       "Bob McAdoo",
       "Bill Cartwright",
       "Larry Demic",
-      "Sylvester Williams / Sly Williams",
-      "Tom Barker / Tommy Barker"
+      "Sly Williams",
+      "Tom Barker"
     ],
     "topAssets": [
-      "Tom Barker / Tommy Barker",
+      "Tom Barker",
       "Bob McAdoo"
     ]
   },
@@ -1661,7 +1661,7 @@
       "DEN"
     ],
     "players": [
-      "Lawrence Butler / Larry Butler",
+      "Larry Butler",
       "Cortez Collins"
     ],
     "topAssets": [
@@ -1896,7 +1896,7 @@
       "SAS"
     ],
     "players": [
-      "Clarence Carter / Butch Carter",
+      "Butch Carter",
       "Irv Kiffin"
     ],
     "topAssets": [
@@ -2062,7 +2062,7 @@
     ],
     "players": [
       "Stuart House",
-      "Bobby Smith (b) / Bingo Smith"
+      "Bingo Smith"
     ],
     "topAssets": [
       "",
@@ -2183,20 +2183,20 @@
     "id": "95c8ff69-ac46-4b4d-bb20-03244d606033",
     "date": "1980-01-24",
     "season": "1979-80",
-    "title": "James McElroy / Jim McElroy Trade",
+    "title": "Jim McElroy Trade",
     "teams": [
       "ATL",
       "DET"
     ],
     "players": [
-      "James McElroy / Jim McElroy",
+      "Jim McElroy",
       "Ron Lee",
       "Brad Branson",
       "Jonathan Moore"
     ],
     "topAssets": [
       "Ron Lee",
-      "James McElroy / Jim McElroy"
+      "Jim McElroy"
     ]
   },
   {
@@ -2515,10 +2515,10 @@
     "players": [
       "Phil Smith",
       "Lancaster Gordon",
-      "Lloyd Free / World B. Free"
+      "World B. Free"
     ],
     "topAssets": [
-      "Lloyd Free / World B. Free",
+      "World B. Free",
       "Phil Smith"
     ]
   },
@@ -2543,19 +2543,19 @@
     "id": "26908207-8159-42a4-a9fa-1693bfb5caa5",
     "date": "1980-09-11",
     "season": "1980-81",
-    "title": "Wallace Johnson / Mickey Johnson Trade",
+    "title": "Mickey Johnson Trade",
     "teams": [
       "MIL",
       "IND"
     ],
     "players": [
-      "Wallace Johnson / Mickey Johnson",
+      "Mickey Johnson",
       "George Johnson (Lee)",
       "Jose Slaughter"
     ],
     "topAssets": [
       "George Johnson (Lee)",
-      "Wallace Johnson / Mickey Johnson"
+      "Mickey Johnson"
     ]
   },
   {
@@ -2624,10 +2624,10 @@
     ],
     "players": [
       "Roger Phegley",
-      "Clarence Walker / Foots Walker"
+      "Foots Walker"
     ],
     "topAssets": [
-      "Clarence Walker / Foots Walker",
+      "Foots Walker",
       "Roger Phegley"
     ]
   },
@@ -2635,7 +2635,7 @@
     "id": "a4842e02-8614-4f70-88c3-cdbf755254ec",
     "date": "1980-09-25",
     "season": "1980-81",
-    "title": "Bill Robinzine, Joe Meriweather / Joe C. Meriweather, Michael Russell / Campy Russell Trade",
+    "title": "Bill Robinzine, Joe Meriweather, Campy Russell Trade",
     "teams": [
       "CLE",
       "SAC",
@@ -2643,10 +2643,10 @@
     ],
     "players": [
       "Bill Robinzine",
-      "Michael Russell / Campy Russell"
+      "Campy Russell"
     ],
     "topAssets": [
-      "Michael Russell / Campy Russell",
+      "Campy Russell",
       "Bill Robinzine",
       ""
     ]
@@ -2827,7 +2827,7 @@
       "BKN"
     ],
     "players": [
-      "Ed Jordan / Eddie Jordan",
+      "Eddie Jordan",
       "Eddie Phillips"
     ],
     "topAssets": [
@@ -3033,7 +3033,7 @@
       "HOU"
     ],
     "players": [
-      "Charles Davis / Charlie Davis) (E.)",
+      "Charlie Davis",
       "Sidney Lowe",
       "Elvin Hayes"
     ],
@@ -3184,7 +3184,7 @@
       "NYK"
     ],
     "players": [
-      "Tom Barker / Tommy Barker",
+      "Tom Barker",
       "Craig Tucker"
     ],
     "topAssets": [
@@ -3330,7 +3330,7 @@
     ],
     "players": [
       "Willie D. Jones",
-      "Clarence Carter / Butch Carter"
+      "Butch Carter"
     ],
     "topAssets": [
       "",
@@ -3642,7 +3642,7 @@
       "GSW"
     ],
     "players": [
-      "Glenn Rivers / Doc Rivers",
+      "Doc Rivers",
       "Wayne Sappleton"
     ],
     "topAssets": [
@@ -3764,18 +3764,18 @@
     "id": "62286caa-720f-44b7-bcec-a7306558ea05",
     "date": "1982-07-07",
     "season": "1982-83",
-    "title": "Leonard Robinson / Truck Robinson Trade",
+    "title": "Truck Robinson Trade",
     "teams": [
       "NYK",
       "PHX"
     ],
     "players": [
-      "Leonard Robinson / Truck Robinson",
+      "Truck Robinson",
       "Maurice Lucas"
     ],
     "topAssets": [
       "Maurice Lucas",
-      "Leonard Robinson / Truck Robinson"
+      "Truck Robinson"
     ]
   },
   {
@@ -4027,7 +4027,7 @@
       "IND"
     ],
     "players": [
-      "Carlton McCray / Scooter McCray",
+      "Scooter McCray",
       "Brad Branson"
     ],
     "topAssets": [
@@ -4066,11 +4066,11 @@
     "players": [
       "Phil Ford",
       "Ted Kitchel",
-      "Wallace Johnson / Mickey Johnson",
+      "Mickey Johnson",
       "Fred Roberts"
     ],
     "topAssets": [
-      "Wallace Johnson / Mickey Johnson",
+      "Mickey Johnson",
       "Phil Ford"
     ]
   },
@@ -4097,18 +4097,18 @@
     "id": "f7c2a9d2-705c-44b1-b89c-d69b61cc14ec",
     "date": "1982-12-15",
     "season": "1982-83",
-    "title": "World B. Free / Lloyd Free Trade",
+    "title": "World B. Free Trade",
     "teams": [
       "CLE",
       "GSW"
     ],
     "players": [
-      "World B. Free / Lloyd Free",
+      "World B. Free",
       "Ron Brewer"
     ],
     "topAssets": [
       "Ron Brewer",
-      "World B. Free / Lloyd Free"
+      "World B. Free"
     ]
   },
   {
@@ -4187,18 +4187,18 @@
     "id": "2e736277-ddce-48e1-91ed-afa0d4b06e41",
     "date": "1983-02-06",
     "season": "1982-83",
-    "title": "Micheal Ray Richardson, Eric Floyd / Sleepy Floyd, Wallace Johnson / Mickey Johnson Trade",
+    "title": "Micheal Ray Richardson, Sleepy Floyd, Mickey Johnson Trade",
     "teams": [
       "BKN",
       "GSW"
     ],
     "players": [
       "Micheal Ray Richardson",
-      "Eric Floyd / Sleepy Floyd",
-      "Wallace Johnson / Mickey Johnson"
+      "Sleepy Floyd",
+      "Mickey Johnson"
     ],
     "topAssets": [
-      "Eric Floyd / Sleepy Floyd",
+      "Sleepy Floyd",
       "Micheal Ray Richardson"
     ]
   },
@@ -4420,7 +4420,7 @@
     ],
     "players": [
       "Lonnie Shelton",
-      "Carlton McCray / Scooter McCray"
+      "Scooter McCray"
     ],
     "topAssets": [
       "",
@@ -4537,28 +4537,28 @@
       "NYK"
     ],
     "players": [
-      "Sylvester Williams / Sly Williams"
+      "Sly Williams"
     ],
     "topAssets": [
       "",
-      "Sylvester Williams / Sly Williams"
+      "Sly Williams"
     ]
   },
   {
     "id": "ae502823-efd5-4c79-9bd2-27c950c56c49",
     "date": "1983-06-29",
     "season": "1982-83",
-    "title": "Sylvester Williams / Sly Williams Trade",
+    "title": "Sly Williams Trade",
     "teams": [
       "ATL",
       "NYK"
     ],
     "players": [
-      "Sylvester Williams / Sly Williams"
+      "Sly Williams"
     ],
     "topAssets": [
       "",
-      "Sylvester Williams / Sly Williams"
+      "Sly Williams"
     ]
   },
   {
@@ -4585,20 +4585,20 @@
     "id": "25d8cc14-be4b-4a3b-92d4-0e1bb4aacd19",
     "date": "1983-08-12",
     "season": "1983-84",
-    "title": "Clarence Walker / Foots Walker Trade",
+    "title": "Foots Walker Trade",
     "teams": [
       "DAL",
       "BKN"
     ],
     "players": [
-      "Clarence Walker / Foots Walker",
+      "Foots Walker",
       "Tom Sluby",
       "Bill Wennington",
       "Kelvin Ransey"
     ],
     "topAssets": [
       "Kelvin Ransey",
-      "Clarence Walker / Foots Walker"
+      "Foots Walker"
     ]
   },
   {
@@ -4834,14 +4834,14 @@
     "id": "390e1a59-933d-456f-ba97-6c5c0fc96da7",
     "date": "1983-10-10",
     "season": "1983-84",
-    "title": "Norm Nixon, Ed Jordan / Eddie Jordan Trade",
+    "title": "Norm Nixon, Eddie Jordan Trade",
     "teams": [
       "LAC",
       "LAL"
     ],
     "players": [
       "Norm Nixon",
-      "Ed Jordan / Eddie Jordan",
+      "Eddie Jordan",
       "Jeff Hornacek",
       "Bruce Dalrymple",
       "Swen Nater",
@@ -5077,21 +5077,21 @@
     "id": "02c9d56c-fa0f-4c39-bbb1-21e73daec8c0",
     "date": "1984-06-07",
     "season": "1983-84",
-    "title": "Kiki Vandeweghe, Lafayette Lever / Fat Lever, Calvin Natt Trade",
+    "title": "Kiki Vandeweghe, Fat Lever, Calvin Natt Trade",
     "teams": [
       "POR",
       "DEN"
     ],
     "players": [
       "Kiki Vandeweghe",
-      "Lafayette Lever / Fat Lever",
+      "Fat Lever",
       "Calvin Natt",
       "Wayne Cooper",
       "Willie White",
       "Blair Rasmussen"
     ],
     "topAssets": [
-      "Lafayette Lever / Fat Lever",
+      "Fat Lever",
       "Kiki Vandeweghe"
     ]
   },
@@ -5223,7 +5223,7 @@
       "HOU"
     ],
     "players": [
-      "Ken Perry / Kenny Perry",
+      "Kenny Perry",
       "Hank McDowell"
     ],
     "topAssets": [
@@ -5295,7 +5295,7 @@
       "LAC"
     ],
     "players": [
-      "Ken Perry / Kenny Perry",
+      "Kenny Perry",
       "Bryan Warrick"
     ],
     "topAssets": [
@@ -5373,7 +5373,7 @@
       "IND"
     ],
     "players": [
-      "Clarence Carter / Butch Carter",
+      "Butch Carter",
       "Dwayne McClain"
     ],
     "topAssets": [
@@ -5502,7 +5502,7 @@
     ],
     "players": [
       "Paul Thompson",
-      "John Williams / Hot Rod Williams",
+      "John Williams",
       "Kannard Johnson"
     ],
     "topAssets": [
@@ -5690,7 +5690,7 @@
       "GSW"
     ],
     "players": [
-      "Wallace Johnson / Mickey Johnson",
+      "Mickey Johnson",
       "Wendell Alexis"
     ],
     "topAssets": [
@@ -6497,7 +6497,7 @@
       "Mychal Thompson",
       "Frank Brickowski",
       "Petur Gudmundsson",
-      "Greg Anderson / Cadillac Anderson",
+      "Greg Anderson",
       "Sean Higgins"
     ],
     "topAssets": [
@@ -6883,14 +6883,14 @@
     "id": "4497360b-c76b-41c6-9f78-83a5aa0b03ec",
     "date": "1987-12-12",
     "season": "1987-88",
-    "title": "Joe Barry Carroll, Eric Floyd / Sleepy Floyd, Ralph Sampson Trade",
+    "title": "Joe Barry Carroll, Sleepy Floyd, Ralph Sampson Trade",
     "teams": [
       "HOU",
       "GSW"
     ],
     "players": [
       "Joe Barry Carroll",
-      "Eric Floyd / Sleepy Floyd",
+      "Sleepy Floyd",
       "Ralph Sampson",
       "Steve Harris"
     ],
@@ -7099,7 +7099,7 @@
     ],
     "players": [
       "Darnell Valentine",
-      "Stephen Bardo / Steve Bardo"
+      "Steve Bardo"
     ],
     "topAssets": [
       "",
@@ -7542,7 +7542,7 @@
     ],
     "players": [
       "Wayman Tisdale",
-      "Vernell Coles / Bimbo Coles",
+      "Bimbo Coles",
       "LaSalle Thompson",
       "Randy Wittman"
     ],
@@ -7612,13 +7612,13 @@
     "id": "9413710c-803c-44d0-b643-9d4b4cb4536c",
     "date": "1989-05-28",
     "season": "1988-89",
-    "title": "Greg Anderson / Cadillac Anderson, Alvin Robertson Trade",
+    "title": "Greg Anderson, Alvin Robertson Trade",
     "teams": [
       "MIL",
       "SAS"
     ],
     "players": [
-      "Greg Anderson / Cadillac Anderson",
+      "Greg Anderson",
       "Alvin Robertson",
       "Frank Kornet",
       "Terry Cummings",
@@ -7626,7 +7626,7 @@
     ],
     "topAssets": [
       "Terry Cummings",
-      "Greg Anderson / Cadillac Anderson"
+      "Greg Anderson"
     ]
   },
   {
@@ -7879,7 +7879,7 @@
     ],
     "players": [
       "Tellis Frank",
-      "Stephen Bardo / Steve Bardo"
+      "Steve Bardo"
     ],
     "topAssets": [
       "",
@@ -7987,20 +7987,20 @@
     "id": "5b4e5b21-46ba-4187-9c3a-ef1c2efe0042",
     "date": "1989-12-13",
     "season": "1989-90",
-    "title": "Armon Gilliam / Armen Gilliam Trade",
+    "title": "Armen Gilliam Trade",
     "teams": [
       "CHA",
       "PHX"
     ],
     "players": [
-      "Armon Gilliam / Armen Gilliam",
+      "Armen Gilliam",
       "Kurt Rambis",
       "Negele Knight",
       "Chad Gallagher"
     ],
     "topAssets": [
       "Kurt Rambis",
-      "Armon Gilliam / Armen Gilliam"
+      "Armen Gilliam"
     ]
   },
   {
@@ -8148,7 +8148,7 @@
     "players": [
       "Winston Garland",
       "Kevin Pritchard",
-      "Predrag Danilovic / Sasha Danilovic"
+      "Sasha Danilovic"
     ],
     "topAssets": [
       "",
@@ -8255,7 +8255,7 @@
       "DEN"
     ],
     "players": [
-      "Lafayette Lever / Fat Lever",
+      "Fat Lever",
       "Willie Burton",
       "LaBradford Smith"
     ],
@@ -8398,7 +8398,7 @@
     "players": [
       "Rumeal Robinson",
       "Trevor Wilson",
-      "Stephen Bardo / Steve Bardo",
+      "Steve Bardo",
       "Tyrone Hill",
       "Les Jepsen"
     ],
@@ -8436,12 +8436,12 @@
       "SAC"
     ],
     "players": [
-      "Vernell Coles / Bimbo Coles",
+      "Bimbo Coles",
       "Rory Sparrow"
     ],
     "topAssets": [
       "Rory Sparrow",
-      "Vernell Coles / Bimbo Coles"
+      "Bimbo Coles"
     ]
   },
   {
@@ -8670,19 +8670,19 @@
     "id": "48cbecb1-9b8d-4f89-8d94-5296414c842a",
     "date": "1991-01-04",
     "season": "1990-91",
-    "title": "Armon Gilliam / Armen Gilliam, David Hoppen / Dave Hoppen Trade",
+    "title": "Armen Gilliam, Dave Hoppen Trade",
     "teams": [
       "PHI",
       "CHA"
     ],
     "players": [
-      "Armon Gilliam / Armen Gilliam",
-      "David Hoppen / Dave Hoppen",
+      "Armen Gilliam",
+      "Dave Hoppen",
       "Mike Gminski"
     ],
     "topAssets": [
       "Mike Gminski",
-      "Armon Gilliam / Armen Gilliam"
+      "Armen Gilliam"
     ]
   },
   {
@@ -8696,10 +8696,10 @@
     ],
     "players": [
       "Lester Conner",
-      "Greg Anderson / Cadillac Anderson"
+      "Greg Anderson"
     ],
     "topAssets": [
-      "Greg Anderson / Cadillac Anderson",
+      "Greg Anderson",
       "Lester Conner"
     ]
   },
@@ -8865,7 +8865,7 @@
       "ATL"
     ],
     "players": [
-      "Glenn Rivers / Doc Rivers",
+      "Doc Rivers",
       "Stacey Augmon",
       "Richard Manning",
       "Gaylon Nickerson"
@@ -8961,11 +8961,11 @@
     ],
     "players": [
       "Travis Mays",
-      "Anthony Webb / Spud Webb",
+      "Spud Webb",
       "Lawrence Funderburke"
     ],
     "topAssets": [
-      "Anthony Webb / Spud Webb",
+      "Spud Webb",
       "Travis Mays"
     ]
   },
@@ -9017,7 +9017,7 @@
     ],
     "players": [
       "Scott Hastings",
-      "Robert Werdann / Rob Werdann",
+      "Robert Werdann",
       "Orlando Woolridge"
     ],
     "topAssets": [
@@ -9277,13 +9277,13 @@
     "id": "e300ac2c-d074-4986-b337-37a16e5a955d",
     "date": "1992-06-24",
     "season": "1991-92",
-    "title": "Theodore Edwards / Blue Edwards, Eric Murdock, Jay Humphries Trade",
+    "title": "Blue Edwards, Eric Murdock, Jay Humphries Trade",
     "teams": [
       "MIL",
       "UTA"
     ],
     "players": [
-      "Theodore Edwards / Blue Edwards",
+      "Blue Edwards",
       "Eric Murdock",
       "Lee Mayberry",
       "Jay Humphries",
@@ -9291,7 +9291,7 @@
     ],
     "topAssets": [
       "Jay Humphries",
-      "Theodore Edwards / Blue Edwards"
+      "Blue Edwards"
     ]
   },
   {
@@ -9411,14 +9411,14 @@
     "id": "c840534d-babc-4588-8f6a-8b778ad901cb",
     "date": "1992-09-08",
     "season": "1992-93",
-    "title": "Sam Mitchell, Jerome Richardson / Pooh Richardson, Chuck Person Trade",
+    "title": "Sam Mitchell, Pooh Richardson, Chuck Person Trade",
     "teams": [
       "IND",
       "MIN"
     ],
     "players": [
       "Sam Mitchell",
-      "Jerome Richardson / Pooh Richardson",
+      "Pooh Richardson",
       "Chuck Person",
       "Micheal Williams"
     ],
@@ -9488,7 +9488,7 @@
     "id": "183b2457-146c-49ab-9f4f-364d8c162b5b",
     "date": "1992-09-22",
     "season": "1992-93",
-    "title": "Mark Jackson, Stanley Roberts, Glenn Rivers / Doc Rivers Trade",
+    "title": "Mark Jackson, Stanley Roberts, Doc Rivers Trade",
     "teams": [
       "LAC",
       "NYK",
@@ -9498,13 +9498,13 @@
       "Mark Jackson",
       "Stanley Roberts",
       "Constantin Popa",
-      "Glenn Rivers / Doc Rivers",
+      "Doc Rivers",
       "Charles Smith (Daniel)",
       "Bo Kimble",
       "Brooks Thompson"
     ],
     "topAssets": [
-      "Glenn Rivers / Doc Rivers",
+      "Doc Rivers",
       "",
       "Mark Jackson"
     ]
@@ -9815,12 +9815,12 @@
       "HOU"
     ],
     "players": [
-      "Ronald Jones / Popeye Jones",
+      "Popeye Jones",
       "Eric Riley"
     ],
     "topAssets": [
       "Eric Riley",
-      "Ronald Jones / Popeye Jones"
+      "Popeye Jones"
     ]
   },
   {
@@ -9835,7 +9835,7 @@
     "players": [
       "Darnell Mee",
       "Josh Grant",
-      "Anthony Miller / Pig Miller"
+      "Anthony Miller"
     ],
     "topAssets": [
       "Josh Grant",
@@ -9852,7 +9852,7 @@
       "GSW"
     ],
     "players": [
-      "Anfernee Hardaway / Penny Hardaway",
+      "Anfernee Hardaway",
       "Todd Fuller",
       "Keon Clark",
       "Mike Miller",
@@ -9860,7 +9860,7 @@
     ],
     "topAssets": [
       "Chris Webber",
-      "Anfernee Hardaway / Penny Hardaway"
+      "Anfernee Hardaway"
     ]
   },
   {
@@ -9912,10 +9912,10 @@
       "Todd Lichti",
       "Anthony Cook",
       "Rodney Dent",
-      "Brian Williams / Bison Dele"
+      "Bison Dele"
     ],
     "topAssets": [
-      "Brian Williams / Bison Dele",
+      "Bison Dele",
       "Todd Lichti"
     ]
   },
@@ -10263,7 +10263,7 @@
       "Ed Pinckney",
       "Andrei Fetisov",
       "Derek Strong",
-      "Theodore Edwards / Blue Edwards"
+      "Blue Edwards"
     ],
     "topAssets": [
       "Derek Strong",
@@ -10280,7 +10280,7 @@
       "GSW"
     ],
     "players": [
-      "Anthony Miller / Pig Miller",
+      "Anthony Miller",
       "Dwayne Whitfield"
     ],
     "topAssets": [
@@ -10298,7 +10298,7 @@
       "MIN"
     ],
     "players": [
-      "Joseph Blair / Joe Blair",
+      "Joe Blair",
       "Zeljko Rebraca"
     ],
     "topAssets": [
@@ -10310,13 +10310,13 @@
     "id": "2f6b6562-620d-47ce-be78-f091bb340f14",
     "date": "1994-06-30",
     "season": "1993-94",
-    "title": "Jerome Richardson / Pooh Richardson, Malik Sealy Trade",
+    "title": "Pooh Richardson, Malik Sealy Trade",
     "teams": [
       "LAC",
       "IND"
     ],
     "players": [
-      "Jerome Richardson / Pooh Richardson",
+      "Pooh Richardson",
       "Malik Sealy",
       "Eric Piatkowski",
       "Mark Jackson",
@@ -10324,7 +10324,7 @@
     ],
     "topAssets": [
       "Mark Jackson",
-      "Jerome Richardson / Pooh Richardson"
+      "Pooh Richardson"
     ]
   },
   {
@@ -10434,7 +10434,7 @@
     ],
     "players": [
       "Ronnie Henderson",
-      "Predrag Drobnjak / Peja Drobnjak",
+      "Predrag Drobnjak",
       "Michael Adams"
     ],
     "topAssets": [
@@ -10526,7 +10526,7 @@
     ],
     "players": [
       "Billy Owens",
-      "Predrag Danilovic / Sasha Danilovic",
+      "Sasha Danilovic",
       "Rony Seikaly"
     ],
     "topAssets": [
@@ -10585,7 +10585,7 @@
     ],
     "players": [
       "Junior Burrough",
-      "Theodore Edwards / Blue Edwards"
+      "Blue Edwards"
     ],
     "topAssets": [
       "",
@@ -10808,18 +10808,18 @@
     "id": "3e7d2d28-b941-4414-bdd4-43ac95da0ec9",
     "date": "1995-06-29",
     "season": "1994-95",
-    "title": "Anthony Webb / Spud Webb Trade",
+    "title": "Spud Webb Trade",
     "teams": [
       "ATL",
       "SAC"
     ],
     "players": [
-      "Anthony Webb / Spud Webb",
+      "Spud Webb",
       "Tyrone Corbin"
     ],
     "topAssets": [
       "Tyrone Corbin",
-      "Anthony Webb / Spud Webb"
+      "Spud Webb"
     ]
   },
   {
@@ -10884,18 +10884,18 @@
     "id": "cca6fdac-74f8-4d02-a2ce-0eb23439c516",
     "date": "1995-09-19",
     "season": "1995-96",
-    "title": "Brian Williams / Bison Dele Trade",
+    "title": "Bison Dele Trade",
     "teams": [
       "LAC",
       "DEN"
     ],
     "players": [
-      "Brian Williams / Bison Dele",
+      "Bison Dele",
       "Elmore Spencer"
     ],
     "topAssets": [
       "Elmore Spencer",
-      "Brian Williams / Bison Dele"
+      "Bison Dele"
     ]
   },
   {
@@ -10966,10 +10966,10 @@
       "Dan Majerle",
       "Antonio Lang",
       "Brevin Knight",
-      "John Williams / Hot Rod Williams"
+      "John Williams"
     ],
     "topAssets": [
-      "John Williams / Hot Rod Williams",
+      "John Williams",
       "Dan Majerle"
     ]
   },
@@ -11215,7 +11215,7 @@
     "id": "11efecab-b5a0-4415-83be-7e80e620f4df",
     "date": "1996-02-22",
     "season": "1995-96",
-    "title": "Christian Laettner, Sean Rooks, Anthony Webb / Spud Webb Trade",
+    "title": "Christian Laettner, Sean Rooks, Spud Webb Trade",
     "teams": [
       "ATL",
       "MIN"
@@ -11223,11 +11223,11 @@
     "players": [
       "Christian Laettner",
       "Sean Rooks",
-      "Anthony Webb / Spud Webb",
+      "Spud Webb",
       "Andrew Lang"
     ],
     "topAssets": [
-      "Anthony Webb / Spud Webb",
+      "Spud Webb",
       "Christian Laettner"
     ]
   },
@@ -11244,7 +11244,7 @@
       "Tim Hardaway Sr.",
       "Chris Gatling",
       "Kevin Willis",
-      "Vernell Coles / Bimbo Coles"
+      "Bimbo Coles"
     ],
     "topAssets": [
       "Kevin Willis",
@@ -11313,19 +11313,19 @@
     "id": "90859d74-3938-495a-8131-4df55651ac5f",
     "date": "1996-06-13",
     "season": "1995-96",
-    "title": "Mahmoud Abdul-Rauf / Chris Jackson Trade",
+    "title": "Mahmoud Abdul-Rauf Trade",
     "teams": [
       "SAC",
       "DEN"
     ],
     "players": [
-      "Mahmoud Abdul-Rauf / Chris Jackson",
+      "Mahmoud Abdul-Rauf",
       "Sarunas Marciulionis",
       "Jeff McInnis"
     ],
     "topAssets": [
       "Sarunas Marciulionis",
-      "Mahmoud Abdul-Rauf / Chris Jackson"
+      "Mahmoud Abdul-Rauf"
     ]
   },
   {
@@ -11441,7 +11441,7 @@
     ],
     "players": [
       "Ray Allen",
-      "William Avery / Will Avery",
+      "William Avery",
       "Stephon Marbury"
     ],
     "topAssets": [
@@ -11478,7 +11478,7 @@
     ],
     "players": [
       "Andrew Lang",
-      "William Avery / Will Avery"
+      "William Avery"
     ],
     "topAssets": [
       "",
@@ -11608,20 +11608,20 @@
     "id": "23e9f1d5-79ad-4037-b13e-90fd3a785651",
     "date": "1996-07-23",
     "season": "1996-97",
-    "title": "Isaiah Rider / J.R. Rider, James Robinson, Bill Curley Trade",
+    "title": "Isaiah Rider, James Robinson, Bill Curley Trade",
     "teams": [
       "POR",
       "MIN"
     ],
     "players": [
-      "Isaiah Rider / J.R. Rider",
+      "Isaiah Rider",
       "James Robinson",
       "Bill Curley",
       "Paul Grant"
     ],
     "topAssets": [
       "James Robinson",
-      "Isaiah Rider / J.R. Rider"
+      "Isaiah Rider"
     ]
   },
   {
@@ -11636,11 +11636,11 @@
     "players": [
       "Jimmy King",
       "Gordan Giricek",
-      "Ronald Jones / Popeye Jones",
+      "Popeye Jones",
       "John Thomas"
     ],
     "topAssets": [
-      "Ronald Jones / Popeye Jones",
+      "Popeye Jones",
       "Jimmy King"
     ]
   },
@@ -11848,7 +11848,7 @@
     "id": "d3a90468-9a26-4876-b4e7-480807ab77df",
     "date": "1997-02-14",
     "season": "1996-97",
-    "title": "Jamal Mashburn, Kurt Thomas, Predrag Danilovic / Sasha Danilovic Trade",
+    "title": "Jamal Mashburn, Kurt Thomas, Sasha Danilovic Trade",
     "teams": [
       "MIA",
       "DAL"
@@ -11856,7 +11856,7 @@
     "players": [
       "Jamal Mashburn",
       "Kurt Thomas",
-      "Predrag Danilovic / Sasha Danilovic",
+      "Sasha Danilovic",
       "Martin Muursepp"
     ],
     "topAssets": [
@@ -12496,18 +12496,18 @@
     "id": "8708eef8-d484-4fe8-8a41-54852c5cdea8",
     "date": "1997-11-07",
     "season": "1997-98",
-    "title": "B.J. Armstrong, Tyrone Bogues / Muggsy Bogues, Tony Delk Trade",
+    "title": "B.J. Armstrong, Muggsy Bogues, Tony Delk Trade",
     "teams": [
       "CHA",
       "GSW"
     ],
     "players": [
       "B.J. Armstrong",
-      "Tyrone Bogues / Muggsy Bogues",
+      "Muggsy Bogues",
       "Tony Delk"
     ],
     "topAssets": [
-      "Tyrone Bogues / Muggsy Bogues",
+      "Muggsy Bogues",
       "B.J. Armstrong"
     ]
   },
@@ -12636,14 +12636,14 @@
     "id": "844f53fd-ac08-4c09-b31b-cae691d8bf7e",
     "date": "1998-02-18",
     "season": "1997-98",
-    "title": "Kenny Anderson, Ronald Jones / Popeye Jones, Zan Tabak Trade",
+    "title": "Kenny Anderson, Popeye Jones, Zan Tabak Trade",
     "teams": [
       "BOS",
       "TOR"
     ],
     "players": [
       "Kenny Anderson",
-      "Ronald Jones / Popeye Jones",
+      "Popeye Jones",
       "Zan Tabak",
       "Chauncey Billups",
       "Dee Brown (a)",
@@ -12754,20 +12754,20 @@
     "id": "512c4797-052a-45fd-96cf-d455903f119a",
     "date": "1998-02-19",
     "season": "1997-98",
-    "title": "Isaac Austin / Ike Austin, Charles Smith (Cornelius) Trade",
+    "title": "Isaac Austin, Charles Smith (Cornelius) Trade",
     "teams": [
       "LAC",
       "MIA"
     ],
     "players": [
-      "Isaac Austin / Ike Austin",
+      "Isaac Austin",
       "Charles Smith (Cornelius)",
       "Brian Skinner",
       "Brent Barry"
     ],
     "topAssets": [
       "Brent Barry",
-      "Isaac Austin / Ike Austin"
+      "Isaac Austin"
     ]
   },
   {
@@ -12879,13 +12879,13 @@
       "DAL"
     ],
     "players": [
-      "Robert Traylor / Tractor Traylor",
+      "Robert Traylor",
       "Dirk Nowitzki",
       "Pat Garrity"
     ],
     "topAssets": [
       "Dirk Nowitzki",
-      "Robert Traylor / Tractor Traylor"
+      "Robert Traylor"
     ]
   },
   {
@@ -13014,7 +13014,7 @@
     "players": [
       "Bonzi Wells",
       "Jumaine Jones",
-      "James Penn / Scoonie Penn"
+      "Scoonie Penn"
     ],
     "topAssets": [
       "",
@@ -13208,7 +13208,7 @@
       "Mark Bryant",
       "Martin Muursepp",
       "Bubba Wells",
-      "Ron Artest / Metta World Peace",
+      "Metta World Peace",
       "Luc Longley"
     ],
     "topAssets": [
@@ -13339,13 +13339,13 @@
     "id": "487a0a12-6dbf-412c-b0cd-1d75ed61072f",
     "date": "1999-06-29",
     "season": "1998-99",
-    "title": "Vernell Coles / Bimbo Coles, Duane Ferrell Trade",
+    "title": "Bimbo Coles, Duane Ferrell Trade",
     "teams": [
       "ATL",
       "GSW"
     ],
     "players": [
-      "Vernell Coles / Bimbo Coles",
+      "Bimbo Coles",
       "Duane Ferrell",
       "Jason Terry",
       "Mookie Blaylock",
@@ -13353,7 +13353,7 @@
     ],
     "topAssets": [
       "Mookie Blaylock",
-      "Vernell Coles / Bimbo Coles"
+      "Bimbo Coles"
     ]
   },
   {
@@ -13474,7 +13474,7 @@
     "id": "b0216301-4e22-484f-b112-b6daf820b516",
     "date": "1999-08-02",
     "season": "1999-00",
-    "title": "Steve Smith (Delano), Ed Gray, Isaiah Rider / J.R. Rider Trade",
+    "title": "Steve Smith (Delano), Ed Gray, Isaiah Rider Trade",
     "teams": [
       "POR",
       "ATL"
@@ -13482,11 +13482,11 @@
     "players": [
       "Steve Smith (Delano)",
       "Ed Gray",
-      "Isaiah Rider / J.R. Rider",
+      "Isaiah Rider",
       "Jim Jackson"
     ],
     "topAssets": [
-      "Isaiah Rider / J.R. Rider",
+      "Isaiah Rider",
       "Steve Smith (Delano)"
     ]
   },
@@ -13505,7 +13505,7 @@
       "Eric Washington",
       "Kedrick Brown",
       "Ron Mercer",
-      "Ronald Jones / Popeye Jones",
+      "Popeye Jones",
       "Dwayne Schintzius"
     ],
     "topAssets": [
@@ -13524,11 +13524,11 @@
     ],
     "players": [
       "Nick Anderson",
-      "Tariq Abdul-Wahad / Olivier Saint-Jean",
+      "Tariq Abdul-Wahad",
       "Kendrick Perkins"
     ],
     "topAssets": [
-      "Tariq Abdul-Wahad / Olivier Saint-Jean",
+      "Tariq Abdul-Wahad",
       "Nick Anderson"
     ]
   },
@@ -13564,11 +13564,11 @@
       "Danny Manning",
       "Pat Garrity",
       "Jason Collins",
-      "Amare Stoudemire / Amar'e Stoudemire",
-      "Anfernee Hardaway / Penny Hardaway"
+      "Amar'e Stoudemire",
+      "Anfernee Hardaway"
     ],
     "topAssets": [
-      "Anfernee Hardaway / Penny Hardaway",
+      "Anfernee Hardaway",
       "Danny Manning"
     ]
   },
@@ -13605,10 +13605,10 @@
       "Ben Wallace",
       "Tim Legler",
       "Jeff McInnis",
-      "Isaac Austin / Ike Austin"
+      "Isaac Austin"
     ],
     "topAssets": [
-      "Isaac Austin / Ike Austin",
+      "Isaac Austin",
       "Terry Davis"
     ]
   },
@@ -13663,7 +13663,7 @@
       "Danny Manning",
       "Dale Ellis",
       "Chris Gatling",
-      "Armon Gilliam / Armen Gilliam"
+      "Armen Gilliam"
     ],
     "topAssets": [
       "Chris Gatling",
@@ -13826,7 +13826,7 @@
     "players": [
       "Shaun Livingston",
       "Lionel Chalmers",
-      "Predrag Drobnjak / Peja Drobnjak",
+      "Predrag Drobnjak",
       "Emeka Okafor"
     ],
     "topAssets": [
@@ -13866,12 +13866,12 @@
       "Ron Mercer",
       "Chauncey Billups",
       "Johnny Taylor",
-      "Tariq Abdul-Wahad / Olivier Saint-Jean",
+      "Tariq Abdul-Wahad",
       "Chris Gatling",
       "Omar Cook"
     ],
     "topAssets": [
-      "Tariq Abdul-Wahad / Olivier Saint-Jean",
+      "Tariq Abdul-Wahad",
       "Ron Mercer"
     ]
   },
@@ -13947,7 +13947,7 @@
       "Jason Caffey",
       "Billy Owens",
       "J.R. Reid",
-      "Robert Traylor / Tractor Traylor",
+      "Robert Traylor",
       "Vinny Del Negro"
     ],
     "topAssets": [
@@ -14233,7 +14233,7 @@
     "id": "595cc0f2-31d3-4283-9643-de7f49863b11",
     "date": "2000-08-16",
     "season": "2000-01",
-    "title": "Robert Pack, John Williams / Hot Rod Williams, Danny Fortson Trade",
+    "title": "Robert Pack, John Williams, Danny Fortson Trade",
     "teams": [
       "BOS",
       "UTA",
@@ -14242,7 +14242,7 @@
     ],
     "players": [
       "Robert Pack",
-      "John Williams / Hot Rod Williams",
+      "John Williams",
       "Joseph Forte",
       "Danny Fortson",
       "Dana Barros"
@@ -14276,13 +14276,13 @@
     "id": "95ad0b7b-f653-4128-a0b4-45adfffa219f",
     "date": "2000-08-22",
     "season": "2000-01",
-    "title": "Isaac Austin / Ike Austin, Dennis Scott, Cherokee Parks Trade",
+    "title": "Isaac Austin, Dennis Scott, Cherokee Parks Trade",
     "teams": [
       "MEM",
       "WAS"
     ],
     "players": [
-      "Isaac Austin / Ike Austin",
+      "Isaac Austin",
       "Dennis Scott",
       "Cherokee Parks",
       "Obinna Ekezie",
@@ -14290,7 +14290,7 @@
     ],
     "topAssets": [
       "Dennis Scott",
-      "Isaac Austin / Ike Austin"
+      "Isaac Austin"
     ]
   },
   {
@@ -14399,11 +14399,11 @@
     ],
     "players": [
       "Tracy Murray",
-      "Ronald Jones / Popeye Jones",
+      "Popeye Jones",
       "Rod Grizzard"
     ],
     "topAssets": [
-      "Ronald Jones / Popeye Jones",
+      "Popeye Jones",
       "Tracy Murray"
     ]
   },
@@ -14620,7 +14620,7 @@
       "Toni Kukoc",
       "Theo Ratliff",
       "Nazr Mohammed",
-      "Juan Sanchez / Pepe Sanchez"
+      "Pepe Sanchez"
     ],
     "topAssets": [
       "Toni Kukoc",
@@ -14631,14 +14631,14 @@
     "id": "b8f9ba64-335d-481f-aa08-eae6946aeef3",
     "date": "2001-02-22",
     "season": "2000-01",
-    "title": "Mark Jackson, Tyrone Bogues / Muggsy Bogues Trade",
+    "title": "Mark Jackson, Muggsy Bogues Trade",
     "teams": [
       "NYK",
       "TOR"
     ],
     "players": [
       "Mark Jackson",
-      "Tyrone Bogues / Muggsy Bogues",
+      "Muggsy Bogues",
       "Chris Childs",
       "Kareem Rush"
     ],
@@ -14850,12 +14850,12 @@
       "WAS"
     ],
     "players": [
-      "Predrag Drobnjak / Peja Drobnjak",
+      "Predrag Drobnjak",
       "Bobby Simmons"
     ],
     "topAssets": [
       "Bobby Simmons",
-      "Predrag Drobnjak / Peja Drobnjak"
+      "Predrag Drobnjak"
     ]
   },
   {
@@ -15109,14 +15109,14 @@
     "id": "e3d49cba-ef1c-4fa9-8c60-bb4eb093811d",
     "date": "2001-08-03",
     "season": "2001-02",
-    "title": "Matt Harpring, Robert Traylor / Tractor Traylor, Cedric Henderson (E.) Trade",
+    "title": "Matt Harpring, Robert Traylor, Cedric Henderson (E.) Trade",
     "teams": [
       "PHI",
       "CLE"
     ],
     "players": [
       "Matt Harpring",
-      "Robert Traylor / Tractor Traylor",
+      "Robert Traylor",
       "Cedric Henderson (E.)",
       "Tyrone Hill",
       "Jumaine Jones"
@@ -15140,7 +15140,7 @@
       "Shandon Anderson",
       "Howard Eisley",
       "Glen Rice Sr.",
-      "Tyrone Bogues / Muggsy Bogues"
+      "Muggsy Bogues"
     ],
     "topAssets": [
       "Glen Rice Sr.",
@@ -15242,7 +15242,7 @@
       "Vonteego Cummings",
       "George Lynch",
       "Jerome Moiso",
-      "Robert Traylor / Tractor Traylor",
+      "Robert Traylor",
       "Cedric Henderson (E.)",
       "Joey Graham"
     ],
@@ -15314,7 +15314,7 @@
     "id": "28952181-9a67-401a-a4a8-4dec7ea541b1",
     "date": "2001-11-15",
     "season": "2001-02",
-    "title": "Jud Buechler, Charles Outlaw / Bo Outlaw Trade",
+    "title": "Jud Buechler, Bo Outlaw Trade",
     "teams": [
       "ORL",
       "LAC",
@@ -15322,11 +15322,11 @@
     ],
     "players": [
       "Jud Buechler",
-      "Charles Outlaw / Bo Outlaw",
-      "Amare Stoudemire / Amar'e Stoudemire"
+      "Bo Outlaw",
+      "Amar'e Stoudemire"
     ],
     "topAssets": [
-      "Charles Outlaw / Bo Outlaw",
+      "Bo Outlaw",
       "Jud Buechler",
       ""
     ]
@@ -15345,13 +15345,13 @@
       "Travis Best",
       "Norm Richardson",
       "Lonny Baxter",
-      "Ron Artest / Metta World Peace",
+      "Metta World Peace",
       "Brad Miller",
       "Ron Mercer",
       "Kevin Ollie"
     ],
     "topAssets": [
-      "Ron Artest / Metta World Peace",
+      "Metta World Peace",
       "Jalen Rose"
     ]
   },
@@ -15390,7 +15390,7 @@
       "Nick Van Exel",
       "Raef LaFrentz",
       "Avery Johnson",
-      "Tariq Abdul-Wahad / Olivier Saint-Jean",
+      "Tariq Abdul-Wahad",
       "Juwan Howard",
       "Donnell Harvey",
       "Tim Hardaway Sr.",
@@ -15470,10 +15470,10 @@
       "Mark Bryant",
       "Randy Holcomb",
       "John Salmons",
-      "Craig Claxton / Speedy Claxton"
+      "Speedy Claxton"
     ],
     "topAssets": [
-      "Craig Claxton / Speedy Claxton",
+      "Speedy Claxton",
       "Mark Bryant"
     ]
   },
@@ -15625,7 +15625,7 @@
       "Maciej Lampe",
       "Marcus Camby",
       "Mark Jackson",
-      "Nene / Nene Hilario / Maybyner Hilario"
+      "Nene Hilario"
     ],
     "topAssets": [
       "Marcus Camby",
@@ -15701,7 +15701,7 @@
       "DEN"
     ],
     "players": [
-      "Sergei Lishouk / Sergei Lishchuk",
+      "Sergei Lishchuk",
       "Don Reid",
       "Marcus Williams"
     ],
@@ -15922,7 +15922,7 @@
       "Mike Miller",
       "Ryan Humphrey",
       "Kendrick Perkins",
-      "Sergei Lishouk / Sergei Lishchuk",
+      "Sergei Lishchuk",
       "Drew Gooden",
       "Gordan Giricek"
     ],
@@ -15983,7 +15983,7 @@
       "Desmond Mason",
       "Ray Allen",
       "Kevin Ollie",
-      "Ronald Murray / Flip Murray",
+      "Ronald Murray",
       "Luke Ridnour"
     ],
     "topAssets": [
@@ -16168,7 +16168,7 @@
     "id": "5eef6f26-f81f-4cf9-94e5-1d851199dd6a",
     "date": "2003-07-24",
     "season": "2003-04",
-    "title": "Brad Miller, Hidayet Turkoglu / Hedo Turkoglu, Scot Pollard Trade",
+    "title": "Brad Miller, Hedo Turkoglu, Scot Pollard Trade",
     "teams": [
       "SAC",
       "IND",
@@ -16176,11 +16176,11 @@
     ],
     "players": [
       "Brad Miller",
-      "Hidayet Turkoglu / Hedo Turkoglu",
+      "Hedo Turkoglu",
       "Scot Pollard"
     ],
     "topAssets": [
-      "Hidayet Turkoglu / Hedo Turkoglu",
+      "Hedo Turkoglu",
       "",
       "Brad Miller"
     ]
@@ -16241,7 +16241,7 @@
       "Jiri Welsch",
       "Nick Van Exel",
       "Avery Johnson",
-      "Ronald Jones / Popeye Jones",
+      "Popeye Jones",
       "Antoine Rigaudeau",
       "Evan Eschmeyer"
     ],
@@ -16254,7 +16254,7 @@
     "id": "ce1c5656-4e03-41ab-844a-3e467de73629",
     "date": "2003-08-21",
     "season": "2003-04",
-    "title": "Bob Sura, Clifford Robinson (R.), Juan Sanchez / Pepe Sanchez Trade",
+    "title": "Bob Sura, Clifford Robinson (R.), Pepe Sanchez Trade",
     "teams": [
       "DET",
       "GSW"
@@ -16262,7 +16262,7 @@
     "players": [
       "Bob Sura",
       "Clifford Robinson (R.)",
-      "Juan Sanchez / Pepe Sanchez"
+      "Pepe Sanchez"
     ],
     "topAssets": [
       "Clifford Robinson (R.)",
@@ -16297,7 +16297,7 @@
       "OKC"
     ],
     "players": [
-      "Predrag Drobnjak / Peja Drobnjak",
+      "Predrag Drobnjak",
       "Andre Emmett"
     ],
     "topAssets": [
@@ -16309,21 +16309,21 @@
     "id": "77fa1f83-046f-41fb-b4a9-ceafa4f4f660",
     "date": "2003-09-30",
     "season": "2003-04",
-    "title": "Charles Outlaw / Bo Outlaw, Iakovos Tsakalidis / Jake Tsakalidis, Brevin Knight Trade",
+    "title": "Bo Outlaw, Jake Tsakalidis, Brevin Knight Trade",
     "teams": [
       "MEM",
       "PHX"
     ],
     "players": [
-      "Charles Outlaw / Bo Outlaw",
-      "Iakovos Tsakalidis / Jake Tsakalidis",
+      "Bo Outlaw",
+      "Jake Tsakalidis",
       "Brevin Knight",
       "Robert Archibald",
       "Cezary Trybanski"
     ],
     "topAssets": [
       "Brevin Knight",
-      "Charles Outlaw / Bo Outlaw"
+      "Bo Outlaw"
     ]
   },
   {
@@ -16510,19 +16510,19 @@
     "id": "598ad600-737d-4e80-8bec-eaba4a7c7939",
     "date": "2003-12-30",
     "season": "2003-04",
-    "title": "Martyn Norris / Moochie Norris, John Amaechi Trade",
+    "title": "Moochie Norris, John Amaechi Trade",
     "teams": [
       "NYK",
       "HOU"
     ],
     "players": [
-      "Martyn Norris / Moochie Norris",
+      "Moochie Norris",
       "John Amaechi",
       "Clarence Weatherspoon"
     ],
     "topAssets": [
       "Clarence Weatherspoon",
-      "Martyn Norris / Moochie Norris"
+      "Moochie Norris"
     ]
   },
   {
@@ -16550,14 +16550,14 @@
     "id": "0606d69d-a511-40e7-9996-f98c339efb9c",
     "date": "2004-01-05",
     "season": "2003-04",
-    "title": "Stephon Marbury, Anfernee Hardaway / Penny Hardaway, Cezary Trybanski Trade",
+    "title": "Stephon Marbury, Anfernee Hardaway, Cezary Trybanski Trade",
     "teams": [
       "NYK",
       "PHX"
     ],
     "players": [
       "Stephon Marbury",
-      "Anfernee Hardaway / Penny Hardaway",
+      "Anfernee Hardaway",
       "Cezary Trybanski",
       "Antonio McDyess",
       "Maciej Lampe",
@@ -16763,7 +16763,7 @@
     ],
     "players": [
       "Bernard Robinson",
-      "Zaur Pachulia / Zaza Pachulia"
+      "Zaza Pachulia"
     ],
     "topAssets": [
       "",
@@ -16781,7 +16781,7 @@
     ],
     "players": [
       "Jared Dudley",
-      "Aleksandar Pavlovic / Sasha Pavlovic"
+      "Sasha Pavlovic"
     ],
     "topAssets": [
       "",
@@ -17265,7 +17265,7 @@
     ],
     "players": [
       "Ronny Turiaf",
-      "Predrag Drobnjak / Peja Drobnjak"
+      "Predrag Drobnjak"
     ],
     "topAssets": [
       "",
@@ -17690,19 +17690,19 @@
     "id": "b29abdb1-7fbb-4025-8fc6-bfd5c89d9be1",
     "date": "2005-02-24",
     "season": "2004-05",
-    "title": "Craig Claxton / Speedy Claxton, Dale Davis Trade",
+    "title": "Speedy Claxton, Dale Davis Trade",
     "teams": [
       "NOP",
       "GSW"
     ],
     "players": [
-      "Craig Claxton / Speedy Claxton",
+      "Speedy Claxton",
       "Dale Davis",
       "Baron Davis"
     ],
     "topAssets": [
       "Baron Davis",
-      "Craig Claxton / Speedy Claxton"
+      "Speedy Claxton"
     ]
   },
   {
@@ -17730,19 +17730,19 @@
     "id": "46ea4afe-99b0-4520-8883-2f83218b8fac",
     "date": "2005-02-24",
     "season": "2004-05",
-    "title": "Maurice Taylor, Martyn Norris / Moochie Norris, Vin Baker Trade",
+    "title": "Maurice Taylor, Moochie Norris, Vin Baker Trade",
     "teams": [
       "NYK",
       "HOU"
     ],
     "players": [
       "Maurice Taylor",
-      "Martyn Norris / Moochie Norris",
+      "Moochie Norris",
       "Vin Baker",
       "Steve Novak"
     ],
     "topAssets": [
-      "Martyn Norris / Moochie Norris",
+      "Moochie Norris",
       "Maurice Taylor"
     ]
   },
@@ -18120,14 +18120,14 @@
     "id": "c86fa4c1-d8da-4078-bdea-0b97197206d4",
     "date": "2005-10-04",
     "season": "2005-06",
-    "title": "Tim Thomas, Michael Sweetney / Mike Sweetney, Jermaine Jackson Trade",
+    "title": "Tim Thomas, Mike Sweetney, Jermaine Jackson Trade",
     "teams": [
       "CHI",
       "NYK"
     ],
     "players": [
       "Tim Thomas",
-      "Michael Sweetney / Mike Sweetney",
+      "Mike Sweetney",
       "Jermaine Jackson",
       "LaMarcus Aldridge",
       "Joakim Noah",
@@ -18218,18 +18218,18 @@
     "id": "c6e1be2e-e7ed-4c9c-ad0f-2c419c1559d8",
     "date": "2006-01-25",
     "season": "2005-06",
-    "title": "Ron Artest / Metta World Peace Trade",
+    "title": "Metta World Peace Trade",
     "teams": [
       "SAC",
       "IND"
     ],
     "players": [
-      "Ron Artest / Metta World Peace",
-      "Predrag Stojakovic / Peja Stojakovic"
+      "Metta World Peace",
+      "Peja Stojakovic"
     ],
     "topAssets": [
-      "Predrag Stojakovic / Peja Stojakovic",
-      "Ron Artest / Metta World Peace"
+      "Peja Stojakovic",
+      "Metta World Peace"
     ]
   },
   {
@@ -18335,18 +18335,18 @@
     "id": "e66a56dd-68dd-4c5e-8809-312c197ba580",
     "date": "2006-02-13",
     "season": "2005-06",
-    "title": "Martyn Norris / Moochie Norris Trade",
+    "title": "Moochie Norris Trade",
     "teams": [
       "NOP",
       "HOU"
     ],
     "players": [
-      "Martyn Norris / Moochie Norris",
+      "Moochie Norris",
       "Maciej Lampe"
     ],
     "topAssets": [
       "Maciej Lampe",
-      "Martyn Norris / Moochie Norris"
+      "Moochie Norris"
     ]
   },
   {
@@ -18391,7 +18391,7 @@
     "id": "9d4dedd5-ac54-42a6-a558-b1ae560100d8",
     "date": "2006-02-22",
     "season": "2005-06",
-    "title": "Steve Francis, Trevor Ariza, Anfernee Hardaway / Penny Hardaway Trade",
+    "title": "Steve Francis, Trevor Ariza, Anfernee Hardaway Trade",
     "teams": [
       "NYK",
       "ORL"
@@ -18399,7 +18399,7 @@
     "players": [
       "Steve Francis",
       "Trevor Ariza",
-      "Anfernee Hardaway / Penny Hardaway"
+      "Anfernee Hardaway"
     ],
     "topAssets": [
       "Trevor Ariza",
@@ -18435,18 +18435,18 @@
     "id": "e2274386-6275-47e5-977a-00be37165dd9",
     "date": "2006-02-23",
     "season": "2005-06",
-    "title": "Ronald Murray / Flip Murray Trade",
+    "title": "Ronald Murray Trade",
     "teams": [
       "CLE",
       "OKC"
     ],
     "players": [
-      "Ronald Murray / Flip Murray",
+      "Ronald Murray",
       "Mike Wilks"
     ],
     "topAssets": [
       "Mike Wilks",
-      "Ronald Murray / Flip Murray"
+      "Ronald Murray"
     ]
   },
   {
@@ -18510,20 +18510,20 @@
     "id": "9e691551-eae5-40b5-89c6-706d2c493e6b",
     "date": "2006-06-21",
     "season": "2005-06",
-    "title": "Radoslav Nesterovic / Rasho Nesterovic, Matt Bonner, Eric Williams Trade",
+    "title": "Rasho Nesterovic, Matt Bonner, Eric Williams Trade",
     "teams": [
       "TOR",
       "SAS"
     ],
     "players": [
-      "Radoslav Nesterovic / Rasho Nesterovic",
+      "Rasho Nesterovic",
       "Matt Bonner",
       "Eric Williams",
       "Jack McClinton"
     ],
     "topAssets": [
       "Matt Bonner",
-      "Radoslav Nesterovic / Rasho Nesterovic"
+      "Rasho Nesterovic"
     ]
   },
   {
@@ -18665,7 +18665,7 @@
       "DAL"
     ],
     "players": [
-      "Danilo Pinnock / J.R. Pinnock",
+      "J.R. Pinnock",
       "Renaldas Seibutis"
     ],
     "topAssets": [
@@ -18854,12 +18854,12 @@
       "IND"
     ],
     "players": [
-      "Predrag Stojakovic / Peja Stojakovic",
+      "Peja Stojakovic",
       "Andrew Betts"
     ],
     "topAssets": [
       "Andrew Betts",
-      "Predrag Stojakovic / Peja Stojakovic"
+      "Peja Stojakovic"
     ]
   },
   {
@@ -19146,10 +19146,10 @@
     ],
     "players": [
       "Scott Padgett",
-      "Iakovos Tsakalidis / Jake Tsakalidis"
+      "Jake Tsakalidis"
     ],
     "topAssets": [
-      "Iakovos Tsakalidis / Jake Tsakalidis",
+      "Jake Tsakalidis",
       "Scott Padgett"
     ]
   },
@@ -19955,7 +19955,7 @@
     "id": "68b5957c-09b8-43bc-843f-6951a46c79a3",
     "date": "2008-02-21",
     "season": "2007-08",
-    "title": "Marcus Vinicius Viera de Souza, Malick Badiane, Sergei Lishouk / Sergei Lishchuk Trade",
+    "title": "Marcus Vinicius Viera de Souza, Malick Badiane, Sergei Lishchuk Trade",
     "teams": [
       "MEM",
       "NOP",
@@ -19964,10 +19964,10 @@
     "players": [
       "Marcus Vinicius Viera de Souza",
       "Malick Badiane",
-      "Sergei Lishouk / Sergei Lishchuk"
+      "Sergei Lishchuk"
     ],
     "topAssets": [
-      "Sergei Lishouk / Sergei Lishchuk",
+      "Sergei Lishchuk",
       "Marcus Vinicius Viera de Souza",
       ""
     ]
@@ -20019,7 +20019,7 @@
       "DEN"
     ],
     "players": [
-      "Alexis Ajinca / Alex Ajinca",
+      "Alex Ajinca",
       "Luke Babbitt"
     ],
     "topAssets": [
@@ -20031,18 +20031,18 @@
     "id": "60b0f58c-a51a-416a-a16b-f8974b29ac8f",
     "date": "2008-06-26",
     "season": "2007-08",
-    "title": "Richard Jefferson, Yi Jianlian / Jianlian Yi, Bobby Simmons Trade",
+    "title": "Richard Jefferson, Yi Jianlian, Bobby Simmons Trade",
     "teams": [
       "MIL",
       "BKN"
     ],
     "players": [
       "Richard Jefferson",
-      "Yi Jianlian / Jianlian Yi",
+      "Yi Jianlian",
       "Bobby Simmons"
     ],
     "topAssets": [
-      "Yi Jianlian / Jianlian Yi",
+      "Yi Jianlian",
       "Richard Jefferson"
     ]
   },
@@ -20211,7 +20211,7 @@
       "DEN"
     ],
     "players": [
-      "Patrick Mills / Patty Mills",
+      "Patty Mills",
       "Jon Brockman",
       "Jerome Jordan",
       "Omer Asik"
@@ -20266,14 +20266,14 @@
     "id": "cdcbf1d2-8321-4aa0-a991-2cf4790dcaad",
     "date": "2008-07-09",
     "season": "2008-09",
-    "title": "T.J. Ford, Radoslav Nesterovic / Rasho Nesterovic, Maceo Baston Trade",
+    "title": "T.J. Ford, Rasho Nesterovic, Maceo Baston Trade",
     "teams": [
       "IND",
       "TOR"
     ],
     "players": [
       "T.J. Ford",
-      "Radoslav Nesterovic / Rasho Nesterovic",
+      "Rasho Nesterovic",
       "Maceo Baston",
       "Roy Hibbert",
       "Jermaine O'Neal",
@@ -20392,11 +20392,11 @@
       "Luke Ridnour",
       "Adrian Griffin",
       "Damon Jones",
-      "Maurice Williams / Mo Williams",
+      "Mo Williams",
       "Desmond Mason"
     ],
     "topAssets": [
-      "Maurice Williams / Mo Williams",
+      "Mo Williams",
       "",
       "Luke Ridnour"
     ]
@@ -20405,7 +20405,7 @@
     "id": "7334430e-beb3-4217-b358-b21590c85965",
     "date": "2008-08-14",
     "season": "2008-09",
-    "title": "Bobby Jackson, Donte Greene, Ron Artest / Metta World Peace Trade",
+    "title": "Bobby Jackson, Donte Greene, Metta World Peace Trade",
     "teams": [
       "SAC",
       "HOU"
@@ -20414,12 +20414,12 @@
       "Bobby Jackson",
       "Donte Greene",
       "Omri Casspi",
-      "Ron Artest / Metta World Peace",
+      "Metta World Peace",
       "Sean Singletary",
       "Patrick Ewing Jr."
     ],
     "topAssets": [
-      "Ron Artest / Metta World Peace",
+      "Metta World Peace",
       "Bobby Jackson"
     ]
   },
@@ -20939,7 +20939,7 @@
     ],
     "players": [
       "Victor Claver",
-      "B.J. Mullens / Byron Mullens",
+      "Byron Mullens",
       "Ahmad Nivins",
       "Magnum Rolle"
     ],
@@ -20974,7 +20974,7 @@
     "id": "1a9c065a-a4de-4e2e-9db3-4281ca92c823",
     "date": "2009-06-25",
     "season": "2008-09",
-    "title": "Shaquille O'Neal, Ben Wallace, Aleksandar Pavlovic / Sasha Pavlovic Trade",
+    "title": "Shaquille O'Neal, Ben Wallace, Sasha Pavlovic Trade",
     "teams": [
       "CLE",
       "PHX"
@@ -20982,7 +20982,7 @@
     "players": [
       "Shaquille O'Neal",
       "Ben Wallace",
-      "Aleksandar Pavlovic / Sasha Pavlovic",
+      "Sasha Pavlovic",
       "Dwayne Collins"
     ],
     "topAssets": [
@@ -21012,7 +21012,7 @@
     "id": "3df37dbb-3f62-4386-90f0-0698b23efd2f",
     "date": "2009-06-25",
     "season": "2008-09",
-    "title": "Jamal Crawford, Acie Law, Craig Claxton / Speedy Claxton Trade",
+    "title": "Jamal Crawford, Acie Law, Speedy Claxton Trade",
     "teams": [
       "ATL",
       "GSW"
@@ -21020,7 +21020,7 @@
     "players": [
       "Jamal Crawford",
       "Acie Law",
-      "Craig Claxton / Speedy Claxton"
+      "Speedy Claxton"
     ],
     "topAssets": [
       "Acie Law",
@@ -21094,13 +21094,13 @@
       "SAC"
     ],
     "players": [
-      "Jeff Pendergraph / Jeff Ayres",
+      "Jeff Ayres",
       "Sergio Rodriguez",
       "Jon Brockman"
     ],
     "topAssets": [
       "Sergio Rodriguez",
-      "Jeff Pendergraph / Jeff Ayres"
+      "Jeff Ayres"
     ]
   },
   {
@@ -21170,10 +21170,10 @@
     "players": [
       "Rodrigue Beaubois",
       "Solomon Alabi",
-      "B.J. Mullens / Byron Mullens"
+      "Byron Mullens"
     ],
     "topAssets": [
-      "B.J. Mullens / Byron Mullens",
+      "Byron Mullens",
       "Rodrigue Beaubois"
     ]
   },
@@ -21424,14 +21424,14 @@
     "id": "0f1cb800-bc53-4712-92b0-f0f843ff3b57",
     "date": "2009-08-17",
     "season": "2009-10",
-    "title": "Carlos Delfino, Roko-Leni Ukic / Roko Ukic, Amir Johnson Trade",
+    "title": "Carlos Delfino, Roko Ukic, Amir Johnson Trade",
     "teams": [
       "MIL",
       "TOR"
     ],
     "players": [
       "Carlos Delfino",
-      "Roko-Leni Ukic / Roko Ukic",
+      "Roko Ukic",
       "Amir Johnson",
       "Sonny Weems"
     ],
@@ -21548,7 +21548,7 @@
     "players": [
       "Jason Hart",
       "Alando Tucker",
-      "Hamady Ndiaye / Hamady N'Diaye"
+      "Hamady N'Diaye"
     ],
     "topAssets": [
       "Alando Tucker",
@@ -21718,19 +21718,19 @@
     "id": "90233f6b-5f1c-4790-97a2-d757fb291572",
     "date": "2010-02-18",
     "season": "2009-10",
-    "title": "Tyrus Thomas, Ronald Murray / Flip Murray, Acie Law Trade",
+    "title": "Tyrus Thomas, Ronald Murray, Acie Law Trade",
     "teams": [
       "CHA",
       "CHI"
     ],
     "players": [
       "Tyrus Thomas",
-      "Ronald Murray / Flip Murray",
+      "Ronald Murray",
       "Acie Law",
       "Jusuf Nurkić"
     ],
     "topAssets": [
-      "Ronald Murray / Flip Murray",
+      "Ronald Murray",
       "Tyrus Thomas"
     ]
   },
@@ -22055,7 +22055,7 @@
       "Lazar Hayward",
       "Nemanja Bjelica",
       "Trevor Booker",
-      "Hamady Ndiaye / Hamady N'Diaye"
+      "Hamady N'Diaye"
     ],
     "topAssets": [
       "Trevor Booker",
@@ -22073,10 +22073,10 @@
     ],
     "players": [
       "Quinton Ross",
-      "Yi Jianlian / Jianlian Yi"
+      "Yi Jianlian"
     ],
     "topAssets": [
-      "Yi Jianlian / Jianlian Yi",
+      "Yi Jianlian",
       "Quinton Ross"
     ]
   },
@@ -22149,7 +22149,7 @@
     ],
     "players": [
       "Carlos Boozer",
-      "Malcolm Lee / Malcom Lee",
+      "Malcolm Lee",
       "trade exception"
     ],
     "topAssets": [
@@ -22161,18 +22161,18 @@
     "id": "b0ca95e5-ad0b-4b92-990c-25705dc6f1c5",
     "date": "2010-07-08",
     "season": "2010-11",
-    "title": "Amare Stoudemire / Amar'e Stoudemire Trade",
+    "title": "Amar'e Stoudemire Trade",
     "teams": [
       "NYK",
       "PHX"
     ],
     "players": [
-      "Amare Stoudemire / Amar'e Stoudemire",
+      "Amar'e Stoudemire",
       "trade exception"
     ],
     "topAssets": [
       "trade exception",
-      "Amare Stoudemire / Amar'e Stoudemire"
+      "Amar'e Stoudemire"
     ]
   },
   {
@@ -22188,7 +22188,7 @@
       "Milan Macvan",
       "Jae Crowder",
       "Nemanja Nedovic",
-      "Timothe Luwawu / Timothe Luwawu-Cabarrot",
+      "Timothe Luwawu-Cabarrot",
       "trade exception",
       "LeBron James"
     ],
@@ -22289,7 +22289,7 @@
       "Matt Carroll",
       "Eduardo Najera",
       "Tyson Chandler",
-      "Alexis Ajinca / Alex Ajinca"
+      "Alex Ajinca"
     ],
     "topAssets": [
       "Tyson Chandler",
@@ -22328,10 +22328,10 @@
     "players": [
       "Leandro Barbosa",
       "Dwayne Jones",
-      "Hidayet Turkoglu / Hedo Turkoglu"
+      "Hedo Turkoglu"
     ],
     "topAssets": [
-      "Hidayet Turkoglu / Hedo Turkoglu",
+      "Hedo Turkoglu",
       "Leandro Barbosa"
     ]
   },
@@ -22507,7 +22507,7 @@
       "Marcus Banks",
       "Jarrett Jack",
       "Jerryd Bayless",
-      "Predrag Stojakovic / Peja Stojakovic"
+      "Peja Stojakovic"
     ],
     "topAssets": [
       "Jerryd Bayless",
@@ -22526,7 +22526,7 @@
     ],
     "players": [
       "Joe Smith",
-      "Sergei Lishouk / Sergei Lishchuk",
+      "Sergei Lishchuk",
       "Darius Morris",
       "Robert Sacre",
       "Sasha Vujacic",
@@ -22542,7 +22542,7 @@
     "id": "9e63e510-92eb-46c3-918c-23ebb8719a80",
     "date": "2010-12-18",
     "season": "2010-11",
-    "title": "Gilbert Arenas, Jason Richardson, Hidayet Turkoglu / Hedo Turkoglu Trade",
+    "title": "Gilbert Arenas, Jason Richardson, Hedo Turkoglu Trade",
     "teams": [
       "ORL",
       "PHX",
@@ -22551,7 +22551,7 @@
     "players": [
       "Gilbert Arenas",
       "Jason Richardson",
-      "Hidayet Turkoglu / Hedo Turkoglu",
+      "Hedo Turkoglu",
       "Earl Clark",
       "Rashard Lewis",
       "Vince Carter",
@@ -22576,11 +22576,11 @@
     ],
     "players": [
       "Giorgos Printezis",
-      "Alexis Ajinca / Alex Ajinca",
+      "Alex Ajinca",
       "Jamaal Franklin"
     ],
     "topAssets": [
-      "Alexis Ajinca / Alex Ajinca",
+      "Alex Ajinca",
       "Giorgos Printezis"
     ]
   },
@@ -22763,7 +22763,7 @@
     "id": "65355fae-f067-475e-a366-5764f5ca5021",
     "date": "2011-02-24",
     "season": "2010-11",
-    "title": "Baron Davis, Maurice Williams / Mo Williams, Jamario Moon Trade",
+    "title": "Baron Davis, Mo Williams, Jamario Moon Trade",
     "teams": [
       "CLE",
       "LAC"
@@ -22771,11 +22771,11 @@
     "players": [
       "Baron Davis",
       "Kyrie Irving",
-      "Maurice Williams / Mo Williams",
+      "Mo Williams",
       "Jamario Moon"
     ],
     "topAssets": [
-      "Maurice Williams / Mo Williams",
+      "Mo Williams",
       "Baron Davis"
     ]
   },
@@ -22823,14 +22823,14 @@
     "id": "bc100e13-f4e4-4ace-8630-3376c04f7598",
     "date": "2011-02-24",
     "season": "2010-11",
-    "title": "Shane Battier, Ishmael Smith / Ish Smith, Hasheem Thabeet Trade",
+    "title": "Shane Battier, Ish Smith, Hasheem Thabeet Trade",
     "teams": [
       "MEM",
       "HOU"
     ],
     "players": [
       "Shane Battier",
-      "Ishmael Smith / Ish Smith",
+      "Ish Smith",
       "Hasheem Thabeet",
       "DeMarre Carroll",
       "Andre Roberson"
@@ -22870,7 +22870,7 @@
     ],
     "players": [
       "Alex Oriakhi",
-      "Chukwudiebere Maduabum / Chu Chu Maduabum"
+      "Chu Chu Maduabum"
     ],
     "topAssets": [
       "",
@@ -22893,7 +22893,7 @@
       "Andre Miller",
       "Rudy Fernandez",
       "Petteri Koponen",
-      "Roy Devyn Marble / Roy Marble (Devyn)"
+      "Devyn Marble"
     ],
     "topAssets": [
       "Andre Miller",
@@ -23034,7 +23034,7 @@
     "players": [
       "Nikola Mirotic",
       "Norris Cole (a)",
-      "Malcolm Lee / Malcom Lee"
+      "Malcolm Lee"
     ],
     "topAssets": [
       "Norris Cole (a)",
@@ -23243,19 +23243,19 @@
     "id": "f58c7b72-631f-494e-bd24-e12c43352201",
     "date": "2011-12-18",
     "season": "2011-12",
-    "title": "Louis Amundson / Lou Amundson Trade",
+    "title": "Lou Amundson Trade",
     "teams": [
       "IND",
       "GSW"
     ],
     "players": [
-      "Louis Amundson / Lou Amundson",
+      "Lou Amundson",
       "Luka Mitrovic",
       "Brandon Rush"
     ],
     "topAssets": [
       "Brandon Rush",
-      "Louis Amundson / Lou Amundson"
+      "Lou Amundson"
     ]
   },
   {
@@ -23268,7 +23268,7 @@
       "OKC"
     ],
     "players": [
-      "Byron Mullens / B.J. Mullens",
+      "Byron Mullens",
       "Alex Abrines"
     ],
     "topAssets": [
@@ -23666,11 +23666,11 @@
     ],
     "players": [
       "Lamar Odom",
-      "Maurice Williams / Mo Williams",
+      "Mo Williams",
       "Furkan Aldemir"
     ],
     "topAssets": [
-      "Maurice Williams / Mo Williams",
+      "Mo Williams",
       "",
       "Lamar Odom",
       ""
@@ -23921,14 +23921,14 @@
     "id": "23b54995-9e5b-4021-ab7a-55866372ae45",
     "date": "2012-07-20",
     "season": "2012-13",
-    "title": "Aleksandar Pavlovic / Sasha Pavlovic, Jon Diebler Trade",
+    "title": "Sasha Pavlovic, Jon Diebler Trade",
     "teams": [
       "POR",
       "BOS",
       "HOU"
     ],
     "players": [
-      "Aleksandar Pavlovic / Sasha Pavlovic",
+      "Sasha Pavlovic",
       "Jeff Withey",
       "Marko Todorovic",
       "Jon Diebler"
@@ -23936,7 +23936,7 @@
     "topAssets": [
       "Jon Diebler",
       "",
-      "Aleksandar Pavlovic / Sasha Pavlovic"
+      "Sasha Pavlovic"
     ]
   },
   {
@@ -24034,7 +24034,7 @@
       "Andrew Bynum",
       "Jason Richardson",
       "Andre Iguodala",
-      "Maurice Harkless / Moe Harkless",
+      "Maurice Harkless",
       "Nikola Vučević",
       "De'Aaron Fox"
     ],
@@ -24175,7 +24175,7 @@
     "id": "f7c1849e-6a05-42ec-ba03-d728c58d2db8",
     "date": "2013-02-21",
     "season": "2012-13",
-    "title": "J.J. Redick, Gustavo Ayon, Ishmael Smith / Ish Smith Trade",
+    "title": "J.J. Redick, Gustavo Ayon, Ish Smith Trade",
     "teams": [
       "MIL",
       "ORL"
@@ -24183,7 +24183,7 @@
     "players": [
       "J.J. Redick",
       "Gustavo Ayon",
-      "Ishmael Smith / Ish Smith",
+      "Ish Smith",
       "Doron Lamb",
       "Beno Udrih",
       "Tobias Harris"
@@ -24461,7 +24461,7 @@
     ],
     "players": [
       "Pat Connaughton",
-      "Raulzinho Neto / Raul Neto"
+      "Raul Neto"
     ],
     "topAssets": [
       "",
@@ -24534,11 +24534,11 @@
     ],
     "players": [
       "Alessandro Gentile",
-      "Malcolm Lee / Malcom Lee",
+      "Malcolm Lee",
       "Andre Roberson"
     ],
     "topAssets": [
-      "Malcolm Lee / Malcom Lee",
+      "Malcolm Lee",
       ""
     ]
   },
@@ -24627,13 +24627,13 @@
       "GSW"
     ],
     "players": [
-      "Malcolm Lee / Malcom Lee",
+      "Malcolm Lee",
       "Archie Goodwin",
       "Nemanja Nedovic"
     ],
     "topAssets": [
       "Nemanja Nedovic",
-      "Malcolm Lee / Malcom Lee"
+      "Malcolm Lee"
     ]
   },
   {
@@ -24717,7 +24717,7 @@
       "Tyrone Wallace",
       "Josh Hart",
       "Alpha Kaba",
-      "Sviatoslav Mykhailiuk / Svi Mykhailiuk",
+      "Svi Mykhailiuk",
       "Randy Foye",
       "Kevin Murphy"
     ],
@@ -24802,7 +24802,7 @@
     ],
     "players": [
       "Malcolm Brogdon",
-      "Luc Richard Mbah a Moute / Luc Mbah a Moute"
+      "Luc Mbah a Moute"
     ],
     "topAssets": [
       "",
@@ -24863,7 +24863,7 @@
     "id": "d3ebb4d7-8e7d-40c1-93eb-aceb13478857",
     "date": "2013-07-30",
     "season": "2013-14",
-    "title": "Brandon Knight, Khris Middleton, Viacheslav Kravtsov / Viacheslav Kravstov / Sasha Kravtsov Trade",
+    "title": "Brandon Knight, Khris Middleton, Viacheslav Kravtsov Trade",
     "teams": [
       "MIL",
       "DET"
@@ -24871,7 +24871,7 @@
     "players": [
       "Brandon Knight",
       "Khris Middleton",
-      "Viacheslav Kravtsov / Viacheslav Kravstov / Sasha Kravtsov",
+      "Viacheslav Kravtsov",
       "Brandon Jennings"
     ],
     "topAssets": [
@@ -24919,18 +24919,18 @@
     "id": "cda7df77-f17a-454e-8ecf-ec5f5e5c6892",
     "date": "2013-08-29",
     "season": "2013-14",
-    "title": "Caron Butler, Ishmael Smith / Ish Smith, Viacheslav Kravtsov / Viacheslav Kravstov / Sasha Kravtsov Trade",
+    "title": "Caron Butler, Ish Smith, Viacheslav Kravtsov Trade",
     "teams": [
       "MIL",
       "PHX"
     ],
     "players": [
       "Caron Butler",
-      "Ishmael Smith / Ish Smith",
-      "Viacheslav Kravtsov / Viacheslav Kravstov / Sasha Kravtsov"
+      "Ish Smith",
+      "Viacheslav Kravtsov"
     ],
     "topAssets": [
-      "Ishmael Smith / Ish Smith",
+      "Ish Smith",
       "Caron Butler"
     ]
   },
@@ -24949,7 +24949,7 @@
       "Marcin Gortat",
       "Kendall Marshall",
       "Shannon Brown",
-      "Malcolm Lee / Malcom Lee"
+      "Malcolm Lee"
     ],
     "topAssets": [
       "Marcin Gortat",
@@ -24967,10 +24967,10 @@
     ],
     "players": [
       "Derrick Williams",
-      "Luc Richard Mbah a Moute / Luc Mbah a Moute"
+      "Luc Mbah a Moute"
     ],
     "topAssets": [
-      "Luc Richard Mbah a Moute / Luc Mbah a Moute",
+      "Luc Mbah a Moute",
       "Derrick Williams"
     ]
   },
@@ -25328,7 +25328,7 @@
     ],
     "players": [
       "Dario Šarić",
-      "Guillermo Hernangomez / Willy Hernangomez",
+      "Willy Hernangomez",
       "De'Aaron Fox",
       "Elfrid Payton"
     ],
@@ -25476,7 +25476,7 @@
     ],
     "players": [
       "Evan Fournier",
-      "Roy Devyn Marble / Roy Marble (Devyn)",
+      "Devyn Marble",
       "Arron Afflalo"
     ],
     "topAssets": [
@@ -25581,11 +25581,11 @@
     "players": [
       "John Salmons",
       "Marcus Eriksson",
-      "Louis Williams / Lou Williams",
+      "Lou Williams",
       "Lucas Nogueira"
     ],
     "topAssets": [
-      "Louis Williams / Lou Williams",
+      "Lou Williams",
       "John Salmons"
     ]
   },
@@ -25699,10 +25699,10 @@
     "players": [
       "Jeremy Lin",
       "Larry Nance Jr.",
-      "Sergei Lishouk / Sergei Lishchuk"
+      "Sergei Lishchuk"
     ],
     "topAssets": [
-      "Sergei Lishouk / Sergei Lishchuk",
+      "Sergei Lishchuk",
       "Jeremy Lin"
     ]
   },
@@ -25867,21 +25867,21 @@
     "id": "bf1cd7c2-d008-4137-9930-2cf91aa6f8ba",
     "date": "2014-08-23",
     "season": "2014-15",
-    "title": "Luc Richard Mbah a Moute / Luc Mbah a Moute, Alexey Shved, Kevin Love Trade",
+    "title": "Luc Mbah a Moute, Alexey Shved, Kevin Love Trade",
     "teams": [
       "PHI",
       "CLE",
       "MIN"
     ],
     "players": [
-      "Luc Richard Mbah a Moute / Luc Mbah a Moute",
+      "Luc Mbah a Moute",
       "Alexey Shved",
-      "Timothe Luwawu / Timothe Luwawu-Cabarrot",
+      "Timothe Luwawu-Cabarrot",
       "Thaddeus Young"
     ],
     "topAssets": [
       "Thaddeus Young",
-      "Luc Richard Mbah a Moute / Luc Mbah a Moute",
+      "Luc Mbah a Moute",
       ""
     ]
   },
@@ -25914,7 +25914,7 @@
     ],
     "players": [
       "Jared Dudley",
-      "Ogugua Anunoby / O.G. Anunoby",
+      "O.G. Anunoby",
       "Carlos Delfino",
       "Miroslav Raduljica",
       "Marcus Paige"
@@ -26083,7 +26083,7 @@
     ],
     "players": [
       "Ronny Turiaf",
-      "Sergei Lishouk / Sergei Lishchuk",
+      "Sergei Lishchuk",
       "J.P. Tokoto",
       "Alexey Shved"
     ],
@@ -26167,10 +26167,10 @@
     "players": [
       "Jared Cunningham",
       "Cenk Akyol",
-      "Sergei Lishouk / Sergei Lishchuk"
+      "Sergei Lishchuk"
     ],
     "topAssets": [
-      "Sergei Lishouk / Sergei Lishchuk",
+      "Sergei Lishchuk",
       "Jared Cunningham"
     ]
   },
@@ -26275,19 +26275,19 @@
     "id": "f446f28c-8fc9-4b94-9f27-83d9770e947f",
     "date": "2015-02-10",
     "season": "2014-15",
-    "title": "Maurice Williams / Mo Williams, Troy Daniels Trade",
+    "title": "Mo Williams, Troy Daniels Trade",
     "teams": [
       "CHA",
       "MIN"
     ],
     "players": [
-      "Maurice Williams / Mo Williams",
+      "Mo Williams",
       "Troy Daniels",
       "Gary Neal"
     ],
     "topAssets": [
       "Gary Neal",
-      "Maurice Williams / Mo Williams"
+      "Mo Williams"
     ]
   },
   {
@@ -26320,7 +26320,7 @@
     ],
     "players": [
       "JaVale McGee",
-      "Chukwudiebere Maduabum / Chu Chu Maduabum",
+      "Chu Chu Maduabum",
       "Furkan Korkmaz",
       "Cenk Akyol"
     ],
@@ -26373,19 +26373,19 @@
     "id": "414b4abd-5eb4-48be-ad51-a7bab24c14a6",
     "date": "2015-02-19",
     "season": "2014-15",
-    "title": "Luigi Datome / Gigi Datome, Jonas Jerebko Trade",
+    "title": "Gigi Datome, Jonas Jerebko Trade",
     "teams": [
       "BOS",
       "DET"
     ],
     "players": [
-      "Luigi Datome / Gigi Datome",
+      "Gigi Datome",
       "Jonas Jerebko",
       "Tayshaun Prince"
     ],
     "topAssets": [
       "Tayshaun Prince",
-      "Luigi Datome / Gigi Datome"
+      "Gigi Datome"
     ]
   },
   {
@@ -26598,10 +26598,10 @@
       "NYK"
     ],
     "players": [
-      "Guillermo Hernangomez / Willy Hernangomez"
+      "Willy Hernangomez"
     ],
     "topAssets": [
-      "Guillermo Hernangomez / Willy Hernangomez",
+      "Willy Hernangomez",
       ""
     ]
   },
@@ -26674,7 +26674,7 @@
     "players": [
       "Greivis Vasquez",
       "Norman Powell",
-      "Ogugua Anunoby / O.G. Anunoby"
+      "O.G. Anunoby"
     ],
     "topAssets": [
       "Norman Powell",
@@ -26750,7 +26750,7 @@
     ],
     "players": [
       "Arnoldas Kulboka",
-      "Juan Vaulet / Juan Pablo Vaulet"
+      "Juan Pablo Vaulet"
     ],
     "topAssets": [
       "",
@@ -26903,7 +26903,7 @@
       "Kostas Papanikolaou",
       "Pablo Prigioni",
       "Joey Dorsey",
-      "Juancho Hernangomez / Juan Hernangomez",
+      "Juan Hernangomez",
       "Ty Lawson",
       "Isaiah Hartenstein"
     ],
@@ -26979,7 +26979,7 @@
       "NOP"
     ],
     "players": [
-      "Ishmael Smith / Ish Smith",
+      "Ish Smith",
       "David Michineau",
       "Frank Mason"
     ],
@@ -27000,7 +27000,7 @@
     "players": [
       "Maarty Leunen",
       "Josh Smith",
-      "Sergei Lishouk / Sergei Lishchuk"
+      "Sergei Lishchuk"
     ],
     "topAssets": [
       "Josh Smith",
@@ -27019,7 +27019,7 @@
     "players": [
       "Kris Humphries",
       "DeJuan Blair",
-      "Georgios Papagiannis / Giorgios Papagiannis / George Papagiannis",
+      "Georgios Papagiannis",
       "Markieff Morris"
     ],
     "topAssets": [
@@ -27099,7 +27099,7 @@
     ],
     "players": [
       "Justin Holiday",
-      "Sviatoslav Mykhailiuk / Svi Mykhailiuk",
+      "Svi Mykhailiuk",
       "Kirk Hinrich"
     ],
     "topAssets": [
@@ -27235,7 +27235,7 @@
     ],
     "players": [
       "Bogdan Bogdanović",
-      "Georgios Papagiannis / Giorgios Papagiannis / George Papagiannis",
+      "Georgios Papagiannis",
       "Skal Labissiere",
       "Marquese Chriss"
     ],
@@ -27257,7 +27257,7 @@
       "Serge Ibaka",
       "Victor Oladipo",
       "Ersan Ilyasova",
-      "Domantas Sabonis / Domas Sabonis"
+      "Domantas Sabonis"
     ],
     "topAssets": [
       "Victor Oladipo",
@@ -27276,7 +27276,7 @@
     "players": [
       "Ater Majok",
       "Jose Calderon",
-      "Sviatoslav Mykhailiuk / Svi Mykhailiuk"
+      "Svi Mykhailiuk"
     ],
     "topAssets": [
       "Jose Calderon",
@@ -27406,12 +27406,12 @@
       "CLE"
     ],
     "players": [
-      "Matthew Dellavedova / Matt Dellavedova",
+      "Matthew Dellavedova",
       "Albert Miralles"
     ],
     "topAssets": [
       "Albert Miralles",
-      "Matthew Dellavedova / Matt Dellavedova"
+      "Matthew Dellavedova"
     ]
   },
   {
@@ -27480,10 +27480,10 @@
     ],
     "players": [
       "Sasha Kaun",
-      "Chukwudiebere Maduabum / Chu Chu Maduabum"
+      "Chu Chu Maduabum"
     ],
     "topAssets": [
-      "Chukwudiebere Maduabum / Chu Chu Maduabum",
+      "Chu Chu Maduabum",
       "Sasha Kaun"
     ]
   },
@@ -27491,18 +27491,18 @@
     "id": "abc8ed54-6977-4941-892a-2b1fc392ddcc",
     "date": "2016-07-15",
     "season": "2016-17",
-    "title": "Roy Devyn Marble / Roy Marble (Devyn) Trade",
+    "title": "Devyn Marble Trade",
     "teams": [
       "LAC",
       "ORL"
     ],
     "players": [
-      "Roy Devyn Marble / Roy Marble (Devyn)",
+      "Devyn Marble",
       "C.J. Wilcox"
     ],
     "topAssets": [
       "C.J. Wilcox",
-      "Roy Devyn Marble / Roy Marble (Devyn)"
+      "Devyn Marble"
     ]
   },
   {
@@ -27609,7 +27609,7 @@
     ],
     "players": [
       "Caleb Swanigan",
-      "Moritz Wagner / Moe Wagner"
+      "Moritz Wagner"
     ],
     "topAssets": [
       "",
@@ -27620,7 +27620,7 @@
     "id": "c6295370-ae36-4517-adce-ea547eb546f4",
     "date": "2017-01-07",
     "season": "2016-17",
-    "title": "Kyle Korver, Mike Dunleavy, Maurice Williams / Mo Williams Trade",
+    "title": "Kyle Korver, Mike Dunleavy, Mo Williams Trade",
     "teams": [
       "CLE",
       "ATL"
@@ -27628,7 +27628,7 @@
     "players": [
       "Kyle Korver",
       "Mike Dunleavy",
-      "Maurice Williams / Mo Williams"
+      "Mo Williams"
     ],
     "topAssets": [
       "Mike Dunleavy",
@@ -27647,10 +27647,10 @@
     "players": [
       "Cenk Akyol",
       "trade exception",
-      "Maurice Williams / Mo Williams"
+      "Mo Williams"
     ],
     "topAssets": [
-      "Maurice Williams / Mo Williams",
+      "Mo Williams",
       "Cenk Akyol"
     ]
   },
@@ -27832,11 +27832,11 @@
       "Tony Bradley",
       "Tyler Ennis",
       "Brad Newley",
-      "Louis Williams / Lou Williams",
-      "Marcelinho Huertas / Marcelo Huertas"
+      "Lou Williams",
+      "Marcelo Huertas"
     ],
     "topAssets": [
-      "Louis Williams / Lou Williams",
+      "Lou Williams",
       "Corey Brewer"
     ]
   },
@@ -28135,7 +28135,7 @@
       "Montrezl Harrell",
       "Darrun Hilliard",
       "DeAndre Liggins",
-      "Louis Williams / Lou Williams",
+      "Lou Williams",
       "Kyle Wiltjer",
       "Omari Spellman",
       "Chris Paul"
@@ -28184,14 +28184,14 @@
     "id": "565dba7b-89e6-41de-b5fe-6a24c0d5de41",
     "date": "2017-07-06",
     "season": "2017-18",
-    "title": "Victor Oladipo, Domantas Sabonis / Domas Sabonis Trade",
+    "title": "Victor Oladipo, Domantas Sabonis Trade",
     "teams": [
       "IND",
       "OKC"
     ],
     "players": [
       "Victor Oladipo",
-      "Domantas Sabonis / Domas Sabonis",
+      "Domantas Sabonis",
       "Paul George"
     ],
     "topAssets": [
@@ -28400,14 +28400,14 @@
       "ATL"
     ],
     "players": [
-      "Sergiy Gladyr / Sergey Gladyr",
+      "Sergey Gladyr",
       "Dimitrios Agravanis",
       "Richard Jefferson",
-      "Kahlil Felder / Kay Felder"
+      "Kay Felder"
     ],
     "topAssets": [
       "Richard Jefferson",
-      "Sergiy Gladyr / Sergey Gladyr"
+      "Sergey Gladyr"
     ]
   },
   {
@@ -28515,18 +28515,18 @@
     "id": "27b26f8b-7c12-4111-9466-7a056465d206",
     "date": "2018-02-07",
     "season": "2017-18",
-    "title": "Guillermo Hernangomez / Willy Hernangomez Trade",
+    "title": "Willy Hernangomez Trade",
     "teams": [
       "CHA",
       "NYK"
     ],
     "players": [
-      "Guillermo Hernangomez / Willy Hernangomez",
+      "Willy Hernangomez",
       "Johnny O'Bryant III"
     ],
     "topAssets": [
       "Johnny O'Bryant III",
-      "Guillermo Hernangomez / Willy Hernangomez"
+      "Willy Hernangomez"
     ]
   },
   {
@@ -28561,7 +28561,7 @@
       "Larry Nance Jr.",
       "Isaiah Thomas",
       "Channing Frye",
-      "Moritz Wagner / Moe Wagner"
+      "Moritz Wagner"
     ],
     "topAssets": [
       "Isaiah Thomas",
@@ -28822,10 +28822,10 @@
       "HOU"
     ],
     "players": [
-      "Vincent Edwards / Vince Edwards"
+      "Vince Edwards"
     ],
     "topAssets": [
-      "Vincent Edwards / Vince Edwards",
+      "Vince Edwards",
       ""
     ]
   },
@@ -29146,7 +29146,7 @@
     "id": "71e24ca8-d935-462f-bcc9-ad119e37475c",
     "date": "2018-07-25",
     "season": "2018-19",
-    "title": "Mike Muscala, Justin Anderson, Timothe Luwawu / Timothe Luwawu-Cabarrot Trade",
+    "title": "Mike Muscala, Justin Anderson, Timothe Luwawu-Cabarrot Trade",
     "teams": [
       "PHI",
       "ATL",
@@ -29155,7 +29155,7 @@
     "players": [
       "Mike Muscala",
       "Justin Anderson",
-      "Timothe Luwawu / Timothe Luwawu-Cabarrot"
+      "Timothe Luwawu-Cabarrot"
     ],
     "topAssets": [
       "Justin Anderson",
@@ -29224,18 +29224,18 @@
     "id": "e297c650-564f-4616-ac13-a1581c4f333a",
     "date": "2018-10-15",
     "season": "2018-19",
-    "title": "Alexis Ajinca / Alex Ajinca Trade",
+    "title": "Alex Ajinca Trade",
     "teams": [
       "LAC",
       "NOP"
     ],
     "players": [
-      "Alexis Ajinca / Alex Ajinca",
-      "Wesley Johnson / Wes Johnson"
+      "Alex Ajinca",
+      "Wesley Johnson"
     ],
     "topAssets": [
-      "Wesley Johnson / Wes Johnson",
-      "Alexis Ajinca / Alex Ajinca"
+      "Wesley Johnson",
+      "Alex Ajinca"
     ]
   },
   {
@@ -29281,7 +29281,7 @@
     "id": "0635191f-07ff-4e48-9a29-985514178a42",
     "date": "2018-12-07",
     "season": "2018-19",
-    "title": "George Hill, Jason Smith, Matthew Dellavedova / Matt Dellavedova Trade",
+    "title": "George Hill, Jason Smith, Matthew Dellavedova Trade",
     "teams": [
       "MIL",
       "CLE",
@@ -29290,11 +29290,11 @@
     "players": [
       "George Hill",
       "Jason Smith",
-      "Matthew Dellavedova / Matt Dellavedova",
+      "Matthew Dellavedova",
       "John Henson"
     ],
     "topAssets": [
-      "Matthew Dellavedova / Matt Dellavedova",
+      "Matthew Dellavedova",
       "",
       "George Hill"
     ]
@@ -29427,10 +29427,10 @@
     ],
     "players": [
       "Reggie Bullock",
-      "Sviatoslav Mykhailiuk / Svi Mykhailiuk"
+      "Svi Mykhailiuk"
     ],
     "topAssets": [
-      "Sviatoslav Mykhailiuk / Svi Mykhailiuk",
+      "Svi Mykhailiuk",
       "Reggie Bullock"
     ]
   },

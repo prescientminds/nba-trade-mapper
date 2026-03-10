@@ -3,7 +3,7 @@
     "id": "565dba7b-89e6-41de-b5fe-6a24c0d5de41",
     "date": "2017-07-06",
     "season": "2017-18",
-    "title": "Victor Oladipo, Domantas Sabonis / Domas Sabonis Trade",
+    "title": "Victor Oladipo, Domantas Sabonis Trade",
     "description": "On 2017-07-06:  Thunder acquire Paul George  Pacers acquire Victor Oladipo",
     "is_multi_team": false,
     "teams": [
@@ -30,7 +30,7 @@
       },
       {
         "type": "player",
-        "player_name": "Domantas Sabonis / Domas Sabonis",
+        "player_name": "Domantas Sabonis",
         "from_team_id": "OKC",
         "to_team_id": "IND",
         "pick_year": null,
@@ -624,7 +624,7 @@
     "date": "2017-10-14",
     "season": "2017-18",
     "title": "Cavaliers / Hawks Trade",
-    "description": "On 2017-10-14:  Hawks acquire Richard Jefferson  Cavaliers acquire rights to Sergiy Gladyr / Sergey Gladyr",
+    "description": "On 2017-10-14:  Hawks acquire Richard Jefferson  Cavaliers acquire rights to Sergey Gladyr",
     "is_multi_team": false,
     "teams": [
       {
@@ -639,7 +639,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Sergiy Gladyr / Sergey Gladyr",
+        "player_name": "Sergey Gladyr",
         "from_team_id": "ATL",
         "to_team_id": "CLE",
         "pick_year": null,
@@ -672,7 +672,7 @@
       },
       {
         "type": "player",
-        "player_name": "Kahlil Felder / Kay Felder",
+        "player_name": "Kay Felder",
         "from_team_id": "CLE",
         "to_team_id": "ATL",
         "pick_year": null,
@@ -1029,8 +1029,8 @@
     "id": "27b26f8b-7c12-4111-9466-7a056465d206",
     "date": "2018-02-07",
     "season": "2017-18",
-    "title": "Guillermo Hernangomez / Willy Hernangomez Trade",
-    "description": "On 2018-02-07:  Knicks acquire Johnny O'Bryant III  Hornets acquire Guillermo Hernangomez / Willy Hernangomez",
+    "title": "Willy Hernangomez Trade",
+    "description": "On 2018-02-07:  Knicks acquire Johnny O'Bryant III  Hornets acquire Willy Hernangomez",
     "is_multi_team": false,
     "teams": [
       {
@@ -1045,7 +1045,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Guillermo Hernangomez / Willy Hernangomez",
+        "player_name": "Willy Hernangomez",
         "from_team_id": "NYK",
         "to_team_id": "CHA",
         "pick_year": null,
@@ -1179,7 +1179,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Moritz Wagner / Moe Wagner",
+        "became_player_name": "Moritz Wagner",
         "notes": null
       }
     ]
@@ -1831,7 +1831,7 @@
     "date": "2018-06-21",
     "season": "2017-18",
     "title": "Jazz / Rockets Trade",
-    "description": "On 2018-06-21:  Rockets acquire rights to Vincent Edwards / Vince Edwards  Jazz acquire cash",
+    "description": "On 2018-06-21:  Rockets acquire rights to Vince Edwards  Jazz acquire cash",
     "is_multi_team": false,
     "teams": [
       {
@@ -1857,7 +1857,7 @@
       },
       {
         "type": "player",
-        "player_name": "Vincent Edwards / Vince Edwards",
+        "player_name": "Vince Edwards",
         "from_team_id": "UTA",
         "to_team_id": "HOU",
         "pick_year": null,

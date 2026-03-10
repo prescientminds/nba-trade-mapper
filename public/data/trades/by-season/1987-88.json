@@ -718,7 +718,7 @@
     "id": "4497360b-c76b-41c6-9f78-83a5aa0b03ec",
     "date": "1987-12-12",
     "season": "1987-88",
-    "title": "Joe Barry Carroll, Eric Floyd / Sleepy Floyd, Ralph Sampson Trade",
+    "title": "Joe Barry Carroll, Sleepy Floyd, Ralph Sampson Trade",
     "description": "On 1987-12-12:  Warriors acquire Ralph Sampson  Rockets acquire Joe Barry Carroll",
     "is_multi_team": false,
     "teams": [
@@ -745,7 +745,7 @@
       },
       {
         "type": "player",
-        "player_name": "Eric Floyd / Sleepy Floyd",
+        "player_name": "Sleepy Floyd",
         "from_team_id": "GSW",
         "to_team_id": "HOU",
         "pick_year": null,
@@ -1353,7 +1353,7 @@
     "date": "1988-06-23",
     "season": "1987-88",
     "title": "Cavaliers / Heat Trade",
-    "description": "On 1988-06-23:  Heat acquire 1990 or 1992 second round pick (1990 #41-Stephen Bardo / Steve Bardo)  Cavaliers acquire Darnell Valentine",
+    "description": "On 1988-06-23:  Heat acquire 1990 or 1992 second round pick (1990 #41-Steve Bardo)  Cavaliers acquire Darnell Valentine",
     "is_multi_team": false,
     "teams": [
       {
@@ -1385,7 +1385,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Stephen Bardo / Steve Bardo",
+        "became_player_name": "Steve Bardo",
         "notes": null
       }
     ]

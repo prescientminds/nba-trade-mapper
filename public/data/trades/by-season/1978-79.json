@@ -377,7 +377,7 @@
     "date": "1978-09-21",
     "season": "1978-79",
     "title": "Jazz / Rockets Trade",
-    "description": "On 1978-09-21:  Rockets acquire Don Watts / Slick Watts  Jazz acquire 1981 first round pick (#13-Danny Schayes)",
+    "description": "On 1978-09-21:  Rockets acquire Slick Watts  Jazz acquire 1981 first round pick (#13-Danny Schayes)",
     "is_multi_team": false,
     "teams": [
       {
@@ -409,7 +409,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Don Watts / Slick Watts",
+        "became_player_name": "Slick Watts",
         "notes": null
       }
     ]
@@ -567,7 +567,7 @@
     "date": "1978-10-12",
     "season": "1978-79",
     "title": "76ers / Clippers Trade",
-    "description": "On 1978-10-12:  Clippers acquire Lloyd Free / World B. Free  76ers acquire 1984 first round pick (#5-Charles Barkley)",
+    "description": "On 1978-10-12:  Clippers acquire World B. Free  76ers acquire 1984 first round pick (#5-Charles Barkley)",
     "is_multi_team": false,
     "teams": [
       {
@@ -599,7 +599,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Lloyd Free / World B. Free",
+        "became_player_name": "World B. Free",
         "notes": null
       }
     ]
@@ -746,7 +746,7 @@
     "date": "1979-01-04",
     "season": "1978-79",
     "title": "Spencer Haywood Trade",
-    "description": "On 1979-01-04:  Knicks acquire Joe Meriweather / Joe C. Meriweather  Jazz acquire Spencer Haywood",
+    "description": "On 1979-01-04:  Knicks acquire Joe Meriweather  Jazz acquire Spencer Haywood",
     "is_multi_team": false,
     "teams": [
       {
@@ -772,7 +772,7 @@
       },
       {
         "type": "player",
-        "player_name": "Joe Meriweather / Joe C. Meriweather",
+        "player_name": "Joe Meriweather",
         "from_team_id": "UTA",
         "to_team_id": "NYK",
         "pick_year": null,
@@ -788,7 +788,7 @@
     "date": "1979-01-12",
     "season": "1978-79",
     "title": "Marty Byrnes, Ron Lee Trade",
-    "description": "On 1979-01-12:  Suns acquire Leonard Robinson / Truck Robinson  Jazz acquire Marty Byrnes",
+    "description": "On 1979-01-12:  Suns acquire Truck Robinson  Jazz acquire Marty Byrnes",
     "is_multi_team": false,
     "teams": [
       {
@@ -858,7 +858,7 @@
       },
       {
         "type": "player",
-        "player_name": "Leonard Robinson / Truck Robinson",
+        "player_name": "Truck Robinson",
         "from_team_id": "UTA",
         "to_team_id": "PHX",
         "pick_year": null,
@@ -916,7 +916,7 @@
     "date": "1979-01-17",
     "season": "1978-79",
     "title": "Celtics / Sonics Trade",
-    "description": "On 1979-01-17:  Sonics acquire Dennis Awtrey  Celtics acquire 1979 first round pick (#21-Sylvester Williams / Sly Williams)",
+    "description": "On 1979-01-17:  Sonics acquire Dennis Awtrey  Celtics acquire 1979 first round pick (#21-Sly Williams)",
     "is_multi_team": false,
     "teams": [
       {
@@ -937,7 +937,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Sylvester Williams / Sly Williams",
+        "became_player_name": "Sly Williams",
         "notes": null
       },
       {
@@ -1202,12 +1202,12 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Sylvester Williams / Sly Williams",
+        "became_player_name": "Sly Williams",
         "notes": null
       },
       {
         "type": "player",
-        "player_name": "Tom Barker / Tommy Barker",
+        "player_name": "Tom Barker",
         "from_team_id": "BOS",
         "to_team_id": "NYK",
         "pick_year": null,
@@ -1371,7 +1371,7 @@
     "date": "1979-06-23",
     "season": "1978-79",
     "title": "Bulls / Nuggets Trade",
-    "description": "On 1979-06-23:  Nuggets acquire cash  Bulls acquire 1979 draft pick (probably #33-Lawrence Butler / Larry Butler)",
+    "description": "On 1979-06-23:  Nuggets acquire cash  Bulls acquire 1979 draft pick (probably #33-Larry Butler)",
     "is_multi_team": false,
     "teams": [
       {
@@ -1392,7 +1392,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Lawrence Butler / Larry Butler",
+        "became_player_name": "Larry Butler",
         "notes": null
       },
       {

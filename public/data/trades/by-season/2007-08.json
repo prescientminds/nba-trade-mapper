@@ -1589,8 +1589,8 @@
     "id": "68b5957c-09b8-43bc-843f-6951a46c79a3",
     "date": "2008-02-21",
     "season": "2007-08",
-    "title": "Marcus Vinicius Viera de Souza, Malick Badiane, Sergei Lishouk / Sergei Lishchuk Trade",
-    "description": "On 2008-02-21:  Rockets acquire rights to Sergei Lishouk / Sergei Lishchuk  Grizzlies acquire Marcus Vinicius Viera de Souza Other Team(s) Involved in Trade: Hornets",
+    "title": "Marcus Vinicius Viera de Souza, Malick Badiane, Sergei Lishchuk Trade",
+    "description": "On 2008-02-21:  Rockets acquire rights to Sergei Lishchuk  Grizzlies acquire Marcus Vinicius Viera de Souza Other Team(s) Involved in Trade: Hornets",
     "is_multi_team": true,
     "teams": [
       {
@@ -1631,7 +1631,7 @@
       },
       {
         "type": "player",
-        "player_name": "Sergei Lishouk / Sergei Lishchuk",
+        "player_name": "Sergei Lishchuk",
         "from_team_id": "MEM",
         "to_team_id": "NOP",
         "pick_year": null,
@@ -1764,7 +1764,7 @@
     "date": "2008-06-25",
     "season": "2007-08",
     "title": "Bobcats / Nuggets Trade",
-    "description": "On 2008-06-25:  Nuggets acquire first round pick (protected lottery in 2009, top 12 in 2010, top 10 in 2011, top 8 in 2012, top 3 in 2013, unprotected in 2014) (2010 #16-Luke Babbitt)  Bobcats acquire 2008 first round pick (#20-Alexis Ajinca / Alex Ajinca)",
+    "description": "On 2008-06-25:  Nuggets acquire first round pick (protected lottery in 2009, top 12 in 2010, top 10 in 2011, top 8 in 2012, top 3 in 2013, unprotected in 2014) (2010 #16-Luke Babbitt)  Bobcats acquire 2008 first round pick (#20-Alex Ajinca)",
     "is_multi_team": false,
     "teams": [
       {
@@ -1785,7 +1785,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Alexis Ajinca / Alex Ajinca",
+        "became_player_name": "Alex Ajinca",
         "notes": null
       },
       {
@@ -1805,8 +1805,8 @@
     "id": "60b0f58c-a51a-416a-a16b-f8974b29ac8f",
     "date": "2008-06-26",
     "season": "2007-08",
-    "title": "Richard Jefferson, Yi Jianlian / Jianlian Yi, Bobby Simmons Trade",
-    "description": "On 2008-06-26:  Nets acquire Yi Jianlian / Jianlian Yi  Bucks acquire Richard Jefferson",
+    "title": "Richard Jefferson, Yi Jianlian, Bobby Simmons Trade",
+    "description": "On 2008-06-26:  Nets acquire Yi Jianlian  Bucks acquire Richard Jefferson",
     "is_multi_team": false,
     "teams": [
       {
@@ -1832,7 +1832,7 @@
       },
       {
         "type": "player",
-        "player_name": "Yi Jianlian / Jianlian Yi",
+        "player_name": "Yi Jianlian",
         "from_team_id": "MIL",
         "to_team_id": "BKN",
         "pick_year": null,
@@ -2320,7 +2320,7 @@
     "date": "2008-06-26",
     "season": "2007-08",
     "title": "Blazers / Bulls / Nuggets Trade",
-    "description": "On 2008-06-26:  Bulls acquire rights to Omer Asik  Blazers acquire 2009 second round pick (from Nuggets) (#55-Patrick Mills / Patty Mills) Other Team(s) Involved in Trade:Nuggets",
+    "description": "On 2008-06-26:  Bulls acquire rights to Omer Asik  Blazers acquire 2009 second round pick (from Nuggets) (#55-Patty Mills) Other Team(s) Involved in Trade:Nuggets",
     "is_multi_team": true,
     "teams": [
       {
@@ -2345,7 +2345,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Patrick Mills / Patty Mills",
+        "became_player_name": "Patty Mills",
         "notes": null
       },
       {

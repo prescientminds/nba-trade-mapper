@@ -142,8 +142,8 @@
     "id": "cca6fdac-74f8-4d02-a2ce-0eb23439c516",
     "date": "1995-09-19",
     "season": "1995-96",
-    "title": "Brian Williams / Bison Dele Trade",
-    "description": "On 1995-09-19:  Nuggets acquire Elmore Spencer  Clippers acquire Brian Williams / Bison Dele",
+    "title": "Bison Dele Trade",
+    "description": "On 1995-09-19:  Nuggets acquire Elmore Spencer  Clippers acquire Bison Dele",
     "is_multi_team": false,
     "teams": [
       {
@@ -158,7 +158,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Brian Williams / Bison Dele",
+        "player_name": "Bison Dele",
         "from_team_id": "DEN",
         "to_team_id": "LAC",
         "pick_year": null,
@@ -322,7 +322,7 @@
     "date": "1995-10-07",
     "season": "1995-96",
     "title": "Dan Majerle, Antonio Lang Trade",
-    "description": "On 1995-10-07:  Suns acquire John Williams / Hot Rod Williams  Cavaliers acquire Dan Majerle",
+    "description": "On 1995-10-07:  Suns acquire John Williams  Cavaliers acquire Dan Majerle",
     "is_multi_team": false,
     "teams": [
       {
@@ -370,7 +370,7 @@
       },
       {
         "type": "player",
-        "player_name": "John Williams / Hot Rod Williams",
+        "player_name": "John Williams",
         "from_team_id": "CLE",
         "to_team_id": "PHX",
         "pick_year": null,
@@ -1142,8 +1142,8 @@
     "id": "11efecab-b5a0-4415-83be-7e80e620f4df",
     "date": "1996-02-22",
     "season": "1995-96",
-    "title": "Christian Laettner, Sean Rooks, Anthony Webb / Spud Webb Trade",
-    "description": "On 1996-02-22:  Timberwolves acquire Anthony Webb / Spud Webb  Hawks acquire Christian Laettner",
+    "title": "Christian Laettner, Sean Rooks, Spud Webb Trade",
+    "description": "On 1996-02-22:  Timberwolves acquire Spud Webb  Hawks acquire Christian Laettner",
     "is_multi_team": false,
     "teams": [
       {
@@ -1180,7 +1180,7 @@
       },
       {
         "type": "player",
-        "player_name": "Anthony Webb / Spud Webb",
+        "player_name": "Spud Webb",
         "from_team_id": "ATL",
         "to_team_id": "MIN",
         "pick_year": null,
@@ -1255,7 +1255,7 @@
       },
       {
         "type": "player",
-        "player_name": "Vernell Coles / Bimbo Coles",
+        "player_name": "Bimbo Coles",
         "from_team_id": "MIA",
         "to_team_id": "GSW",
         "pick_year": null,
@@ -1440,8 +1440,8 @@
     "id": "90859d74-3938-495a-8131-4df55651ac5f",
     "date": "1996-06-13",
     "season": "1995-96",
-    "title": "Mahmoud Abdul-Rauf / Chris Jackson Trade",
-    "description": "On 1996-06-13:  Nuggets acquire Sarunas Marciulionis  Kings acquire Mahmoud Abdul-Rauf / Chris Jackson",
+    "title": "Mahmoud Abdul-Rauf Trade",
+    "description": "On 1996-06-13:  Nuggets acquire Sarunas Marciulionis  Kings acquire Mahmoud Abdul-Rauf",
     "is_multi_team": false,
     "teams": [
       {
@@ -1456,7 +1456,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Mahmoud Abdul-Rauf / Chris Jackson",
+        "player_name": "Mahmoud Abdul-Rauf",
         "from_team_id": "DEN",
         "to_team_id": "SAC",
         "pick_year": null,
@@ -1868,7 +1868,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "William Avery / Will Avery",
+        "became_player_name": "William Avery",
         "notes": null
       },
       {

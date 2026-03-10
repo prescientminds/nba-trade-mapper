@@ -47,7 +47,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Sviatoslav Mykhailiuk / Svi Mykhailiuk",
+        "became_player_name": "Svi Mykhailiuk",
         "notes": null
       }
     ]
@@ -357,7 +357,7 @@
     "date": "2016-07-07",
     "season": "2016-17",
     "title": "Bucks / Cavaliers Trade",
-    "description": "On 2016-07-07:  Cavaliers acquire rights to Albert Miralles  Bucks acquire Matthew Dellavedova / Matt Dellavedova",
+    "description": "On 2016-07-07:  Cavaliers acquire rights to Albert Miralles  Bucks acquire Matthew Dellavedova",
     "is_multi_team": false,
     "teams": [
       {
@@ -372,7 +372,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Matthew Dellavedova / Matt Dellavedova",
+        "player_name": "Matthew Dellavedova",
         "from_team_id": "CLE",
         "to_team_id": "MIL",
         "pick_year": null,
@@ -558,7 +558,7 @@
     "date": "2016-07-15",
     "season": "2016-17",
     "title": "76ers / Cavaliers Trade",
-    "description": "On 2016-07-15:  Cavaliers acquire rights to Chukwudiebere Maduabum / Chu Chu Maduabum  76ers acquire Sasha Kaun",
+    "description": "On 2016-07-15:  Cavaliers acquire rights to Chu Chu Maduabum  76ers acquire Sasha Kaun",
     "is_multi_team": false,
     "teams": [
       {
@@ -595,7 +595,7 @@
       },
       {
         "type": "player",
-        "player_name": "Chukwudiebere Maduabum / Chu Chu Maduabum",
+        "player_name": "Chu Chu Maduabum",
         "from_team_id": "PHI",
         "to_team_id": "CLE",
         "pick_year": null,
@@ -610,8 +610,8 @@
     "id": "abc8ed54-6977-4941-892a-2b1fc392ddcc",
     "date": "2016-07-15",
     "season": "2016-17",
-    "title": "Roy Devyn Marble / Roy Marble (Devyn) Trade",
-    "description": "On 2016-07-15:  Magic acquire C.J. Wilcox  Clippers acquire Roy Devyn Marble / Roy Marble (Devyn)",
+    "title": "Devyn Marble Trade",
+    "description": "On 2016-07-15:  Magic acquire C.J. Wilcox  Clippers acquire Devyn Marble",
     "is_multi_team": false,
     "teams": [
       {
@@ -626,7 +626,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Roy Devyn Marble / Roy Marble (Devyn)",
+        "player_name": "Devyn Marble",
         "from_team_id": "ORL",
         "to_team_id": "LAC",
         "pick_year": null,
@@ -907,7 +907,7 @@
     "date": "2017-01-06",
     "season": "2016-17",
     "title": "Blazers / Cavaliers Trade",
-    "description": "On 2017-01-06:  Cavaliers acquire 2018 first round pick (#25-Moritz Wagner / Moe Wagner)  Blazers acquire 2017 first round pick (#26-Caleb Swanigan)",
+    "description": "On 2017-01-06:  Cavaliers acquire 2018 first round pick (#25-Moritz Wagner)  Blazers acquire 2017 first round pick (#26-Caleb Swanigan)",
     "is_multi_team": false,
     "teams": [
       {
@@ -939,7 +939,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Moritz Wagner / Moe Wagner",
+        "became_player_name": "Moritz Wagner",
         "notes": null
       }
     ]
@@ -948,7 +948,7 @@
     "id": "c6295370-ae36-4517-adce-ea547eb546f4",
     "date": "2017-01-07",
     "season": "2016-17",
-    "title": "Kyle Korver, Mike Dunleavy, Maurice Williams / Mo Williams Trade",
+    "title": "Kyle Korver, Mike Dunleavy, Mo Williams Trade",
     "description": "On 2017-01-07:  Hawks acquire Mike Dunleavy  Cavaliers acquire Kyle Korver",
     "is_multi_team": false,
     "teams": [
@@ -986,7 +986,7 @@
       },
       {
         "type": "player",
-        "player_name": "Maurice Williams / Mo Williams",
+        "player_name": "Mo Williams",
         "from_team_id": "CLE",
         "to_team_id": "ATL",
         "pick_year": null,
@@ -1002,7 +1002,7 @@
     "date": "2017-01-18",
     "season": "2016-17",
     "title": "trade exception Trade",
-    "description": "On 2017-01-18:  Nuggets acquire Maurice Williams / Mo Williams  Hawks acquire rights to Cenk Akyol",
+    "description": "On 2017-01-18:  Nuggets acquire Mo Williams  Hawks acquire rights to Cenk Akyol",
     "is_multi_team": false,
     "teams": [
       {
@@ -1039,7 +1039,7 @@
       },
       {
         "type": "player",
-        "player_name": "Maurice Williams / Mo Williams",
+        "player_name": "Mo Williams",
         "from_team_id": "ATL",
         "to_team_id": "DEN",
         "pick_year": null,
@@ -1644,7 +1644,7 @@
     "date": "2017-02-23",
     "season": "2016-17",
     "title": "Corey Brewer, Tyler Ennis Trade",
-    "description": "On 2017-02-23:  Rockets acquire Louis Williams / Lou Williams  Lakers acquire Corey Brewer",
+    "description": "On 2017-02-23:  Rockets acquire Lou Williams  Lakers acquire Corey Brewer",
     "is_multi_team": false,
     "teams": [
       {
@@ -1703,7 +1703,7 @@
       },
       {
         "type": "player",
-        "player_name": "Louis Williams / Lou Williams",
+        "player_name": "Lou Williams",
         "from_team_id": "LAL",
         "to_team_id": "HOU",
         "pick_year": null,
@@ -1714,7 +1714,7 @@
       },
       {
         "type": "player",
-        "player_name": "Marcelinho Huertas / Marcelo Huertas",
+        "player_name": "Marcelo Huertas",
         "from_team_id": "LAL",
         "to_team_id": "HOU",
         "pick_year": null,
@@ -2584,7 +2584,7 @@
       },
       {
         "type": "player",
-        "player_name": "Louis Williams / Lou Williams",
+        "player_name": "Lou Williams",
         "from_team_id": "HOU",
         "to_team_id": "LAC",
         "pick_year": null,

@@ -3,8 +3,8 @@
     "id": "62286caa-720f-44b7-bcec-a7306558ea05",
     "date": "1982-07-07",
     "season": "1982-83",
-    "title": "Leonard Robinson / Truck Robinson Trade",
-    "description": "On 1982-07-07:  Suns acquire Maurice Lucas  Knicks acquire Leonard Robinson / Truck Robinson",
+    "title": "Truck Robinson Trade",
+    "description": "On 1982-07-07:  Suns acquire Maurice Lucas  Knicks acquire Truck Robinson",
     "is_multi_team": false,
     "teams": [
       {
@@ -19,7 +19,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Leonard Robinson / Truck Robinson",
+        "player_name": "Truck Robinson",
         "from_team_id": "PHX",
         "to_team_id": "NYK",
         "pick_year": null,
@@ -680,7 +680,7 @@
     "date": "1982-10-25",
     "season": "1982-83",
     "title": "Cavaliers / Pacers Trade",
-    "description": "On 1982-10-25:  Pacers acquire Brad Branson  Cavaliers acquire 1983 second round pick (#36-Carlton McCray / Scooter McCray)",
+    "description": "On 1982-10-25:  Pacers acquire Brad Branson  Cavaliers acquire 1983 second round pick (#36-Scooter McCray)",
     "is_multi_team": false,
     "teams": [
       {
@@ -701,7 +701,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Carlton McCray / Scooter McCray",
+        "became_player_name": "Scooter McCray",
         "notes": null
       },
       {
@@ -775,7 +775,7 @@
     "date": "1982-11-10",
     "season": "1982-83",
     "title": "Phil Ford Trade",
-    "description": "On 1982-11-10:  Nets acquire Wallace Johnson / Mickey Johnson  Bucks acquire Phil Ford",
+    "description": "On 1982-11-10:  Nets acquire Mickey Johnson  Bucks acquire Phil Ford",
     "is_multi_team": false,
     "teams": [
       {
@@ -812,7 +812,7 @@
       },
       {
         "type": "player",
-        "player_name": "Wallace Johnson / Mickey Johnson",
+        "player_name": "Mickey Johnson",
         "from_team_id": "MIL",
         "to_team_id": "BKN",
         "pick_year": null,
@@ -891,8 +891,8 @@
     "id": "f7c2a9d2-705c-44b1-b89c-d69b61cc14ec",
     "date": "1982-12-15",
     "season": "1982-83",
-    "title": "World B. Free / Lloyd Free Trade",
-    "description": "On 1982-12-15:  Warriors acquire Ron Brewer  Cavaliers acquire World B. Free / Lloyd Free",
+    "title": "World B. Free Trade",
+    "description": "On 1982-12-15:  Warriors acquire Ron Brewer  Cavaliers acquire World B. Free",
     "is_multi_team": false,
     "teams": [
       {
@@ -907,7 +907,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "World B. Free / Lloyd Free",
+        "player_name": "World B. Free",
         "from_team_id": "GSW",
         "to_team_id": "CLE",
         "pick_year": null,
@@ -1134,8 +1134,8 @@
     "id": "2e736277-ddce-48e1-91ed-afa0d4b06e41",
     "date": "1983-02-06",
     "season": "1982-83",
-    "title": "Micheal Ray Richardson, Eric Floyd / Sleepy Floyd, Wallace Johnson / Mickey Johnson Trade",
-    "description": "On 1983-02-06:  Warriors acquire Eric Floyd / Sleepy Floyd  Nets acquire Micheal Ray Richardson",
+    "title": "Micheal Ray Richardson, Sleepy Floyd, Mickey Johnson Trade",
+    "description": "On 1983-02-06:  Warriors acquire Sleepy Floyd  Nets acquire Micheal Ray Richardson",
     "is_multi_team": false,
     "teams": [
       {
@@ -1161,7 +1161,7 @@
       },
       {
         "type": "player",
-        "player_name": "Eric Floyd / Sleepy Floyd",
+        "player_name": "Sleepy Floyd",
         "from_team_id": "BKN",
         "to_team_id": "GSW",
         "pick_year": null,
@@ -1172,7 +1172,7 @@
       },
       {
         "type": "player",
-        "player_name": "Wallace Johnson / Mickey Johnson",
+        "player_name": "Mickey Johnson",
         "from_team_id": "BKN",
         "to_team_id": "GSW",
         "pick_year": null,
@@ -1797,7 +1797,7 @@
     "date": "1983-06-27",
     "season": "1982-83",
     "title": "Cavaliers / Sonics Trade",
-    "description": "On 1983-06-27:  Sonics acquire 1983 second round pick (#36-Carlton McCray / Scooter McCray)  Cavaliers acquire Lonnie Shelton",
+    "description": "On 1983-06-27:  Sonics acquire 1983 second round pick (#36-Scooter McCray)  Cavaliers acquire Lonnie Shelton",
     "is_multi_team": false,
     "teams": [
       {
@@ -1829,7 +1829,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Carlton McCray / Scooter McCray",
+        "became_player_name": "Scooter McCray",
         "notes": null
       },
       {
@@ -2170,7 +2170,7 @@
     "date": "1983-06-29",
     "season": "1982-83",
     "title": "Hawks / Knicks Trade",
-    "description": "On 1983-06-29:  Knicks acquire cash  Hawks acquire Sylvester Williams / Sly Williams",
+    "description": "On 1983-06-29:  Knicks acquire cash  Hawks acquire Sly Williams",
     "is_multi_team": false,
     "teams": [
       {
@@ -2185,7 +2185,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Sylvester Williams / Sly Williams",
+        "player_name": "Sly Williams",
         "from_team_id": "NYK",
         "to_team_id": "ATL",
         "pick_year": null,
@@ -2211,8 +2211,8 @@
     "id": "ae502823-efd5-4c79-9bd2-27c950c56c49",
     "date": "1983-06-29",
     "season": "1982-83",
-    "title": "Sylvester Williams / Sly Williams Trade",
-    "description": "On 1983-06-29:  Knicks (per NBA Register & Knicks media guide) acquire Durand Macklin / Rudy Macklin  Hawks acquire Sylvester Williams / Sly Williams",
+    "title": "Sly Williams Trade",
+    "description": "On 1983-06-29:  Knicks (per NBA Register & Knicks media guide) acquire Durand Macklin / Rudy Macklin  Hawks acquire Sly Williams",
     "is_multi_team": false,
     "teams": [
       {
@@ -2227,7 +2227,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Sylvester Williams / Sly Williams",
+        "player_name": "Sly Williams",
         "from_team_id": "NYK",
         "to_team_id": "ATL",
         "pick_year": null,

@@ -206,7 +206,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Malcolm Lee / Malcom Lee",
+        "became_player_name": "Malcolm Lee",
         "notes": null
       },
       {
@@ -226,8 +226,8 @@
     "id": "b0ca95e5-ad0b-4b92-990c-25705dc6f1c5",
     "date": "2010-07-08",
     "season": "2010-11",
-    "title": "Amare Stoudemire / Amar'e Stoudemire Trade",
-    "description": "On 2010-07-08:  Suns acquire $16.5M trade exception  Knicks acquire Amare Stoudemire / Amar'e Stoudemire",
+    "title": "Amar'e Stoudemire Trade",
+    "description": "On 2010-07-08:  Suns acquire $16.5M trade exception  Knicks acquire Amar'e Stoudemire",
     "is_multi_team": false,
     "teams": [
       {
@@ -242,7 +242,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Amare Stoudemire / Amar'e Stoudemire",
+        "player_name": "Amar'e Stoudemire",
         "from_team_id": "PHX",
         "to_team_id": "NYK",
         "pick_year": null,
@@ -323,7 +323,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Timothe Luwawu / Timothe Luwawu-Cabarrot",
+        "became_player_name": "Timothe Luwawu-Cabarrot",
         "notes": null
       },
       {
@@ -659,7 +659,7 @@
       },
       {
         "type": "player",
-        "player_name": "Alexis Ajinca / Alex Ajinca",
+        "player_name": "Alex Ajinca",
         "from_team_id": "CHA",
         "to_team_id": "DAL",
         "pick_year": null,
@@ -739,7 +739,7 @@
     "date": "2010-07-14",
     "season": "2010-11",
     "title": "Leandro Barbosa, Dwayne Jones Trade",
-    "description": "On 2010-07-14:  Suns acquire Hidayet Turkoglu / Hedo Turkoglu  Raptors acquire Leandro Barbosa",
+    "description": "On 2010-07-14:  Suns acquire Hedo Turkoglu  Raptors acquire Leandro Barbosa",
     "is_multi_team": false,
     "teams": [
       {
@@ -776,7 +776,7 @@
       },
       {
         "type": "player",
-        "player_name": "Hidayet Turkoglu / Hedo Turkoglu",
+        "player_name": "Hedo Turkoglu",
         "from_team_id": "TOR",
         "to_team_id": "PHX",
         "pick_year": null,
@@ -1305,7 +1305,7 @@
       },
       {
         "type": "player",
-        "player_name": "Predrag Stojakovic / Peja Stojakovic",
+        "player_name": "Peja Stojakovic",
         "from_team_id": "NOP",
         "to_team_id": "TOR",
         "pick_year": null,
@@ -1321,7 +1321,7 @@
     "date": "2010-12-15",
     "season": "2010-11",
     "title": "Joe Smith, Sasha Vujacic Trade",
-    "description": "On 2010-12-15:  Lakers acquire rights to Sergei Lishouk / Sergei Lishchuk  Rockets acquire Terrence Williams Other Team(s) Involved in Trade:Nets",
+    "description": "On 2010-12-15:  Lakers acquire rights to Sergei Lishchuk  Rockets acquire Terrence Williams Other Team(s) Involved in Trade:Nets",
     "is_multi_team": true,
     "teams": [
       {
@@ -1351,7 +1351,7 @@
       },
       {
         "type": "player",
-        "player_name": "Sergei Lishouk / Sergei Lishchuk",
+        "player_name": "Sergei Lishchuk",
         "from_team_id": "BKN",
         "to_team_id": "LAL",
         "pick_year": null,
@@ -1410,7 +1410,7 @@
     "id": "9e63e510-92eb-46c3-918c-23ebb8719a80",
     "date": "2010-12-18",
     "season": "2010-11",
-    "title": "Gilbert Arenas, Jason Richardson, Hidayet Turkoglu / Hedo Turkoglu Trade",
+    "title": "Gilbert Arenas, Jason Richardson, Hedo Turkoglu Trade",
     "description": "On 2010-12-18:  Wizards acquire Rashard Lewis  Magic acquire Gilbert Arenas Other Team(s) Involved in Trade: Suns",
     "is_multi_team": true,
     "teams": [
@@ -1452,7 +1452,7 @@
       },
       {
         "type": "player",
-        "player_name": "Hidayet Turkoglu / Hedo Turkoglu",
+        "player_name": "Hedo Turkoglu",
         "from_team_id": "WAS",
         "to_team_id": "ORL",
         "pick_year": null,
@@ -1545,7 +1545,7 @@
     "date": "2011-01-24",
     "season": "2010-11",
     "title": "Mavericks / Raptors Trade",
-    "description": "On 2011-01-24:  Raptors acquire Alexis Ajinca / Alex Ajinca  Mavericks acquire rights to Giorgos Printezis",
+    "description": "On 2011-01-24:  Raptors acquire Alex Ajinca  Mavericks acquire rights to Giorgos Printezis",
     "is_multi_team": false,
     "teams": [
       {
@@ -1571,7 +1571,7 @@
       },
       {
         "type": "player",
-        "player_name": "Alexis Ajinca / Alex Ajinca",
+        "player_name": "Alex Ajinca",
         "from_team_id": "DAL",
         "to_team_id": "TOR",
         "pick_year": null,
@@ -2278,8 +2278,8 @@
     "id": "65355fae-f067-475e-a366-5764f5ca5021",
     "date": "2011-02-24",
     "season": "2010-11",
-    "title": "Baron Davis, Maurice Williams / Mo Williams, Jamario Moon Trade",
-    "description": "On 2011-02-24:  Clippers acquire Maurice Williams / Mo Williams  Cavaliers acquire Baron Davis",
+    "title": "Baron Davis, Mo Williams, Jamario Moon Trade",
+    "description": "On 2011-02-24:  Clippers acquire Mo Williams  Cavaliers acquire Baron Davis",
     "is_multi_team": false,
     "teams": [
       {
@@ -2316,7 +2316,7 @@
       },
       {
         "type": "player",
-        "player_name": "Maurice Williams / Mo Williams",
+        "player_name": "Mo Williams",
         "from_team_id": "CLE",
         "to_team_id": "LAC",
         "pick_year": null,
@@ -2470,7 +2470,7 @@
     "id": "bc100e13-f4e4-4ace-8630-3376c04f7598",
     "date": "2011-02-24",
     "season": "2010-11",
-    "title": "Shane Battier, Ishmael Smith / Ish Smith, Hasheem Thabeet Trade",
+    "title": "Shane Battier, Ish Smith, Hasheem Thabeet Trade",
     "description": "On 2011-02-24:  Rockets acquire Hasheem Thabeet  Grizzlies acquire Shane Battier",
     "is_multi_team": false,
     "teams": [
@@ -2497,7 +2497,7 @@
       },
       {
         "type": "player",
-        "player_name": "Ishmael Smith / Ish Smith",
+        "player_name": "Ish Smith",
         "from_team_id": "HOU",
         "to_team_id": "MEM",
         "pick_year": null,
@@ -2599,7 +2599,7 @@
     "date": "2011-06-23",
     "season": "2010-11",
     "title": "Lakers / Nuggets Trade",
-    "description": "On 2011-06-23:  Nuggets acquire rights to Chukwudiebere Maduabum / Chu Chu Maduabum  Lakers acquire 2013 second round pick (protected top 40 in 2013, unprotected in 2014) (2013 #57-Alex Oriakhi)",
+    "description": "On 2011-06-23:  Nuggets acquire rights to Chu Chu Maduabum  Lakers acquire 2013 second round pick (protected top 40 in 2013, unprotected in 2014) (2013 #57-Alex Oriakhi)",
     "is_multi_team": false,
     "teams": [
       {
@@ -2631,7 +2631,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Chukwudiebere Maduabum / Chu Chu Maduabum",
+        "became_player_name": "Chu Chu Maduabum",
         "notes": null
       }
     ]
@@ -2721,7 +2721,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Roy Devyn Marble / Roy Marble (Devyn)",
+        "became_player_name": "Devyn Marble",
         "notes": null
       }
     ]
@@ -3178,7 +3178,7 @@
       },
       {
         "type": "player",
-        "player_name": "Malcolm Lee / Malcom Lee",
+        "player_name": "Malcolm Lee",
         "from_team_id": "CHI",
         "to_team_id": "MIN",
         "pick_year": null,

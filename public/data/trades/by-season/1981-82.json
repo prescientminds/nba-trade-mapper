@@ -4,7 +4,7 @@
     "date": "1981-08-04",
     "season": "1981-82",
     "title": "Blazers / Knicks Trade",
-    "description": "On 1981-08-04:  Knicks acquire 1982 third round pick (#57-Craig Tucker)  Blazers acquire rights to Tom Barker / Tommy Barker",
+    "description": "On 1981-08-04:  Knicks acquire 1982 third round pick (#57-Craig Tucker)  Blazers acquire rights to Tom Barker",
     "is_multi_team": false,
     "teams": [
       {
@@ -25,7 +25,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Tom Barker / Tommy Barker",
+        "became_player_name": "Tom Barker",
         "notes": null
       },
       {
@@ -362,7 +362,7 @@
     "date": "1981-10-15",
     "season": "1981-82",
     "title": "Lakers / Pacers Trade",
-    "description": "On 1981-10-15:  Pacers acquire Clarence Carter / Butch Carter  Lakers acquire 1982 first round pick (#54-Willie D. Jones)",
+    "description": "On 1981-10-15:  Pacers acquire Butch Carter  Lakers acquire 1982 first round pick (#54-Willie D. Jones)",
     "is_multi_team": false,
     "teams": [
       {
@@ -394,7 +394,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Clarence Carter / Butch Carter",
+        "became_player_name": "Butch Carter",
         "notes": null
       }
     ]
@@ -1226,7 +1226,7 @@
     "date": "1982-06-23",
     "season": "1981-82",
     "title": "Bulls / Warriors Trade",
-    "description": "On 1982-06-23:  Warriors acquire 1982 second round pick (#38-Wayne Sappleton)  Bulls acquire 1983 second round pick (#31-Glenn Rivers / Doc Rivers)",
+    "description": "On 1982-06-23:  Warriors acquire 1982 second round pick (#38-Wayne Sappleton)  Bulls acquire 1983 second round pick (#31-Doc Rivers)",
     "is_multi_team": false,
     "teams": [
       {
@@ -1247,7 +1247,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Glenn Rivers / Doc Rivers",
+        "became_player_name": "Doc Rivers",
         "notes": null
       },
       {

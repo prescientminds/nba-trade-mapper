@@ -791,7 +791,7 @@
     "id": "71e24ca8-d935-462f-bcc9-ad119e37475c",
     "date": "2018-07-25",
     "season": "2018-19",
-    "title": "Mike Muscala, Justin Anderson, Timothe Luwawu / Timothe Luwawu-Cabarrot Trade",
+    "title": "Mike Muscala, Justin Anderson, Timothe Luwawu-Cabarrot Trade",
     "description": "On 2018-07-25:  Hawks acquire Carmelo Anthony  Thunder acquire Timothe Luwawu-Cabarrot Other Team(s) Involved in Trade: 76ers",
     "is_multi_team": true,
     "teams": [
@@ -833,7 +833,7 @@
       },
       {
         "type": "player",
-        "player_name": "Timothe Luwawu / Timothe Luwawu-Cabarrot",
+        "player_name": "Timothe Luwawu-Cabarrot",
         "from_team_id": "PHI",
         "to_team_id": "OKC",
         "pick_year": null,
@@ -1018,8 +1018,8 @@
     "id": "e297c650-564f-4616-ac13-a1581c4f333a",
     "date": "2018-10-15",
     "season": "2018-19",
-    "title": "Alexis Ajinca / Alex Ajinca Trade",
-    "description": "On 2018-10-15:  Pelicans acquire Wesley Johnson / Wes Johnson  Clippers acquire Alexis Ajinca / Alex Ajinca",
+    "title": "Alex Ajinca Trade",
+    "description": "On 2018-10-15:  Pelicans acquire Wesley Johnson  Clippers acquire Alex Ajinca",
     "is_multi_team": false,
     "teams": [
       {
@@ -1034,7 +1034,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Alexis Ajinca / Alex Ajinca",
+        "player_name": "Alex Ajinca",
         "from_team_id": "NOP",
         "to_team_id": "LAC",
         "pick_year": null,
@@ -1045,7 +1045,7 @@
       },
       {
         "type": "player",
-        "player_name": "Wesley Johnson / Wes Johnson",
+        "player_name": "Wesley Johnson",
         "from_team_id": "LAC",
         "to_team_id": "NOP",
         "pick_year": null,
@@ -1177,8 +1177,8 @@
     "id": "0635191f-07ff-4e48-9a29-985514178a42",
     "date": "2018-12-07",
     "season": "2018-19",
-    "title": "George Hill, Jason Smith, Matthew Dellavedova / Matt Dellavedova Trade",
-    "description": "On 2018-12-07:  Cavaliers acquire Matthew Dellavedova / Matt Dellavedova  Bucks acquire George Hill Other Team(s) Involved in Trade:Wizards",
+    "title": "George Hill, Jason Smith, Matthew Dellavedova Trade",
+    "description": "On 2018-12-07:  Cavaliers acquire Matthew Dellavedova  Bucks acquire George Hill Other Team(s) Involved in Trade:Wizards",
     "is_multi_team": true,
     "teams": [
       {
@@ -1230,7 +1230,7 @@
       },
       {
         "type": "player",
-        "player_name": "Matthew Dellavedova / Matt Dellavedova",
+        "player_name": "Matthew Dellavedova",
         "from_team_id": "MIL",
         "to_team_id": "WAS",
         "pick_year": null,
@@ -1619,7 +1619,7 @@
     "date": "2019-02-06",
     "season": "2018-19",
     "title": "Reggie Bullock Trade",
-    "description": "On 2019-02-06:  Pistons acquire Sviatoslav Mykhailiuk / Svi Mykhailiuk  Lakers acquire Reggie Bullock",
+    "description": "On 2019-02-06:  Pistons acquire Svi Mykhailiuk  Lakers acquire Reggie Bullock",
     "is_multi_team": false,
     "teams": [
       {
@@ -1645,7 +1645,7 @@
       },
       {
         "type": "player",
-        "player_name": "Sviatoslav Mykhailiuk / Svi Mykhailiuk",
+        "player_name": "Svi Mykhailiuk",
         "from_team_id": "LAL",
         "to_team_id": "DET",
         "pick_year": null,

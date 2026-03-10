@@ -435,8 +435,8 @@
     "id": "f58c7b72-631f-494e-bd24-e12c43352201",
     "date": "2011-12-18",
     "season": "2011-12",
-    "title": "Louis Amundson / Lou Amundson Trade",
-    "description": "On 2011-12-18:  Warriors acquire Brandon Rush  Pacers acquire Louis Amundson / Lou Amundson",
+    "title": "Lou Amundson Trade",
+    "description": "On 2011-12-18:  Warriors acquire Brandon Rush  Pacers acquire Lou Amundson",
     "is_multi_team": false,
     "teams": [
       {
@@ -451,7 +451,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Louis Amundson / Lou Amundson",
+        "player_name": "Lou Amundson",
         "from_team_id": "GSW",
         "to_team_id": "IND",
         "pick_year": null,
@@ -489,7 +489,7 @@
     "date": "2011-12-19",
     "season": "2011-12",
     "title": "Bobcats / Thunder Trade",
-    "description": "On 2011-12-19:  Thunder acquire 2013 second round pick (#32-Alex Abrines)  Bobcats acquire Byron Mullens / B.J. Mullens",
+    "description": "On 2011-12-19:  Thunder acquire 2013 second round pick (#32-Alex Abrines)  Bobcats acquire Byron Mullens",
     "is_multi_team": false,
     "teams": [
       {
@@ -510,7 +510,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Byron Mullens / B.J. Mullens",
+        "became_player_name": "Byron Mullens",
         "notes": null
       },
       {
@@ -1129,7 +1129,7 @@
     "date": "2012-03-15",
     "season": "2011-12",
     "title": "Nick Young, JaVale McGee, Ronny Turiaf Trade",
-    "description": "On 2012-03-15:  Wizards acquire Nene / Nene Hilario / Maybyner Hilario  Nuggets acquire JaVale McGee Other Team(s) Involved in Trade: Clippers",
+    "description": "On 2012-03-15:  Wizards acquire Nene Hilario  Nuggets acquire JaVale McGee Other Team(s) Involved in Trade: Clippers",
     "is_multi_team": true,
     "teams": [
       {
@@ -1700,7 +1700,7 @@
     "date": "2012-06-29",
     "season": "2011-12",
     "title": "Lamar Odom Trade",
-    "description": "On 2012-06-29:  Mavericks acquire rights to Tadija Dragicevic  Jazz acquire Maurice Williams / Mo Williams Other Team(s) Involved in Trade: Clippers,Rockets",
+    "description": "On 2012-06-29:  Mavericks acquire rights to Tadija Dragicevic  Jazz acquire Mo Williams Other Team(s) Involved in Trade: Clippers,Rockets",
     "is_multi_team": true,
     "teams": [
       {
@@ -1734,7 +1734,7 @@
       },
       {
         "type": "player",
-        "player_name": "Maurice Williams / Mo Williams",
+        "player_name": "Mo Williams",
         "from_team_id": "LAC",
         "to_team_id": "DAL",
         "pick_year": null,

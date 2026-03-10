@@ -306,7 +306,7 @@
     "date": "2014-07-13",
     "season": "2014-15",
     "title": "Lakers / Rockets Trade",
-    "description": "On 2014-07-13:  Rockets acquire rights to Sergei Lishouk / Sergei Lishchuk  Lakers acquire Jeremy Lin",
+    "description": "On 2014-07-13:  Rockets acquire rights to Sergei Lishchuk  Lakers acquire Jeremy Lin",
     "is_multi_team": false,
     "teams": [
       {
@@ -343,7 +343,7 @@
       },
       {
         "type": "player",
-        "player_name": "Sergei Lishouk / Sergei Lishchuk",
+        "player_name": "Sergei Lishchuk",
         "from_team_id": "LAL",
         "to_team_id": "HOU",
         "pick_year": null,
@@ -841,8 +841,8 @@
     "id": "bf1cd7c2-d008-4137-9930-2cf91aa6f8ba",
     "date": "2014-08-23",
     "season": "2014-15",
-    "title": "Luc Richard Mbah a Moute / Luc Mbah a Moute, Alexey Shved, Kevin Love Trade",
-    "description": "On 2014-08-23:  Timberwolves acquire Thaddeus Young  76ers acquire Luc Richard Mbah a Moute / Luc Mbah a Moute Other Team(s) Involved in Trade: Cavaliers",
+    "title": "Luc Mbah a Moute, Alexey Shved, Kevin Love Trade",
+    "description": "On 2014-08-23:  Timberwolves acquire Thaddeus Young  76ers acquire Luc Mbah a Moute Other Team(s) Involved in Trade: Cavaliers",
     "is_multi_team": true,
     "teams": [
       {
@@ -861,7 +861,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Luc Richard Mbah a Moute / Luc Mbah a Moute",
+        "player_name": "Luc Mbah a Moute",
         "from_team_id": "CLE",
         "to_team_id": "PHI",
         "pick_year": null,
@@ -889,7 +889,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Timothe Luwawu / Timothe Luwawu-Cabarrot",
+        "became_player_name": "Timothe Luwawu-Cabarrot",
         "notes": null
       },
       {
@@ -984,7 +984,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Ogugua Anunoby / O.G. Anunoby",
+        "became_player_name": "O.G. Anunoby",
         "notes": null
       },
       {
@@ -1593,7 +1593,7 @@
       },
       {
         "type": "player",
-        "player_name": "Sergei Lishouk / Sergei Lishchuk",
+        "player_name": "Sergei Lishchuk",
         "from_team_id": "MIN",
         "to_team_id": "PHI",
         "pick_year": null,
@@ -1827,7 +1827,7 @@
     "date": "2015-01-07",
     "season": "2014-15",
     "title": "76ers / Clippers Trade",
-    "description": "On 2015-01-07:  Clippers acquire rights to Sergei Lishouk / Sergei Lishchuk  76ers acquire Jared Cunningham",
+    "description": "On 2015-01-07:  Clippers acquire rights to Sergei Lishchuk  76ers acquire Jared Cunningham",
     "is_multi_team": false,
     "teams": [
       {
@@ -1864,7 +1864,7 @@
       },
       {
         "type": "player",
-        "player_name": "Sergei Lishouk / Sergei Lishchuk",
+        "player_name": "Sergei Lishchuk",
         "from_team_id": "PHI",
         "to_team_id": "LAC",
         "pick_year": null,
@@ -2130,8 +2130,8 @@
     "id": "f446f28c-8fc9-4b94-9f27-83d9770e947f",
     "date": "2015-02-10",
     "season": "2014-15",
-    "title": "Maurice Williams / Mo Williams, Troy Daniels Trade",
-    "description": "On 2015-02-10:  Timberwolves acquire Gary Neal  Hornets acquire Maurice Williams / Mo Williams",
+    "title": "Mo Williams, Troy Daniels Trade",
+    "description": "On 2015-02-10:  Timberwolves acquire Gary Neal  Hornets acquire Mo Williams",
     "is_multi_team": false,
     "teams": [
       {
@@ -2146,7 +2146,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Maurice Williams / Mo Williams",
+        "player_name": "Mo Williams",
         "from_team_id": "MIN",
         "to_team_id": "CHA",
         "pick_year": null,
@@ -2274,7 +2274,7 @@
       },
       {
         "type": "player",
-        "player_name": "Chukwudiebere Maduabum / Chu Chu Maduabum",
+        "player_name": "Chu Chu Maduabum",
         "from_team_id": "DEN",
         "to_team_id": "PHI",
         "pick_year": null,
@@ -2439,8 +2439,8 @@
     "id": "414b4abd-5eb4-48be-ad51-a7bab24c14a6",
     "date": "2015-02-19",
     "season": "2014-15",
-    "title": "Luigi Datome / Gigi Datome, Jonas Jerebko Trade",
-    "description": "On 2015-02-19:  Pistons acquire Tayshaun Prince  Celtics acquire Luigi Datome / Gigi Datome",
+    "title": "Gigi Datome, Jonas Jerebko Trade",
+    "description": "On 2015-02-19:  Pistons acquire Tayshaun Prince  Celtics acquire Gigi Datome",
     "is_multi_team": false,
     "teams": [
       {
@@ -2455,7 +2455,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Luigi Datome / Gigi Datome",
+        "player_name": "Gigi Datome",
         "from_team_id": "DET",
         "to_team_id": "BOS",
         "pick_year": null,
@@ -3079,7 +3079,7 @@
     "date": "2015-06-25",
     "season": "2014-15",
     "title": "76ers / Knicks Trade",
-    "description": "On 2015-06-25:  Knicks acquire rights to Guillermo Hernangomez / Willy Hernangomez  76ers acquire cash",
+    "description": "On 2015-06-25:  Knicks acquire rights to Willy Hernangomez  76ers acquire cash",
     "is_multi_team": false,
     "teams": [
       {
@@ -3105,7 +3105,7 @@
       },
       {
         "type": "player",
-        "player_name": "Guillermo Hernangomez / Willy Hernangomez",
+        "player_name": "Willy Hernangomez",
         "from_team_id": "PHI",
         "to_team_id": "NYK",
         "pick_year": null,
@@ -3323,7 +3323,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Ogugua Anunoby / O.G. Anunoby",
+        "became_player_name": "O.G. Anunoby",
         "notes": null
       }
     ]
@@ -3485,7 +3485,7 @@
     "date": "2015-06-25",
     "season": "2014-15",
     "title": "Hornets / Nets Trade",
-    "description": "On 2015-06-25:  Nets acquire rights to Juan Vaulet / Juan Pablo Vaulet  Hornets acquire 2018 second round pick (less favorable of Cavaliers, Nets) (#55-Arnoldas Kulboka)",
+    "description": "On 2015-06-25:  Nets acquire rights to Juan Pablo Vaulet  Hornets acquire 2018 second round pick (less favorable of Cavaliers, Nets) (#55-Arnoldas Kulboka)",
     "is_multi_team": false,
     "teams": [
       {
@@ -3517,7 +3517,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Juan Vaulet / Juan Pablo Vaulet",
+        "became_player_name": "Juan Pablo Vaulet",
         "notes": null
       }
     ]

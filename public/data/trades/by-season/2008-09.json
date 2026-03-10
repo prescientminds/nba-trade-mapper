@@ -78,7 +78,7 @@
     "id": "cdcbf1d2-8321-4aa0-a991-2cf4790dcaad",
     "date": "2008-07-09",
     "season": "2008-09",
-    "title": "T.J. Ford, Radoslav Nesterovic / Rasho Nesterovic, Maceo Baston Trade",
+    "title": "T.J. Ford, Rasho Nesterovic, Maceo Baston Trade",
     "description": "On 2008-07-09:  Raptors acquire Jermaine O'Neal  Pacers acquire T.J. Ford",
     "is_multi_team": false,
     "teams": [
@@ -105,7 +105,7 @@
       },
       {
         "type": "player",
-        "player_name": "Radoslav Nesterovic / Rasho Nesterovic",
+        "player_name": "Rasho Nesterovic",
         "from_team_id": "TOR",
         "to_team_id": "IND",
         "pick_year": null,
@@ -419,7 +419,7 @@
     "date": "2008-08-13",
     "season": "2008-09",
     "title": "Luke Ridnour, Adrian Griffin, Damon Jones Trade",
-    "description": "On 2008-08-13:  Cavaliers acquire Maurice Williams / Mo Williams  Bucks acquire Luke Ridnour Other Team(s) Involved in Trade:Sonics",
+    "description": "On 2008-08-13:  Cavaliers acquire Mo Williams  Bucks acquire Luke Ridnour Other Team(s) Involved in Trade:Sonics",
     "is_multi_team": true,
     "teams": [
       {
@@ -471,7 +471,7 @@
       },
       {
         "type": "player",
-        "player_name": "Maurice Williams / Mo Williams",
+        "player_name": "Mo Williams",
         "from_team_id": "MIL",
         "to_team_id": "OKC",
         "pick_year": null,
@@ -497,8 +497,8 @@
     "id": "7334430e-beb3-4217-b358-b21590c85965",
     "date": "2008-08-14",
     "season": "2008-09",
-    "title": "Bobby Jackson, Donte Greene, Ron Artest / Metta World Peace Trade",
-    "description": "On 2008-08-14:  Rockets acquire Ron Artest / Metta World Peace  Kings acquire Bobby Jackson",
+    "title": "Bobby Jackson, Donte Greene, Metta World Peace Trade",
+    "description": "On 2008-08-14:  Rockets acquire Metta World Peace  Kings acquire Bobby Jackson",
     "is_multi_team": false,
     "teams": [
       {
@@ -557,7 +557,7 @@
       },
       {
         "type": "player",
-        "player_name": "Ron Artest / Metta World Peace",
+        "player_name": "Metta World Peace",
         "from_team_id": "SAC",
         "to_team_id": "HOU",
         "pick_year": null,
@@ -2117,7 +2117,7 @@
     "date": "2009-06-24",
     "season": "2008-09",
     "title": "Blazers / Mavericks Trade",
-    "description": "On 2009-06-24:  Mavericks acquire 2009 first round pick (#24-B.J. Mullens / Byron Mullens)  Blazers acquire 2009 first round pick (#22-Victor Claver)",
+    "description": "On 2009-06-24:  Mavericks acquire 2009 first round pick (#24-Byron Mullens)  Blazers acquire 2009 first round pick (#22-Victor Claver)",
     "is_multi_team": false,
     "teams": [
       {
@@ -2149,7 +2149,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "B.J. Mullens / Byron Mullens",
+        "became_player_name": "Byron Mullens",
         "notes": null
       },
       {
@@ -2266,7 +2266,7 @@
     "id": "1a9c065a-a4de-4e2e-9db3-4281ca92c823",
     "date": "2009-06-25",
     "season": "2008-09",
-    "title": "Shaquille O'Neal, Ben Wallace, Aleksandar Pavlovic / Sasha Pavlovic Trade",
+    "title": "Shaquille O'Neal, Ben Wallace, Sasha Pavlovic Trade",
     "description": "On 2009-06-25:  Suns acquire Ben Wallace  Cavaliers acquire Shaquille O'Neal",
     "is_multi_team": false,
     "teams": [
@@ -2304,7 +2304,7 @@
       },
       {
         "type": "player",
-        "player_name": "Aleksandar Pavlovic / Sasha Pavlovic",
+        "player_name": "Sasha Pavlovic",
         "from_team_id": "CLE",
         "to_team_id": "PHX",
         "pick_year": null,
@@ -2394,7 +2394,7 @@
     "id": "3df37dbb-3f62-4386-90f0-0698b23efd2f",
     "date": "2009-06-25",
     "season": "2008-09",
-    "title": "Jamal Crawford, Acie Law, Craig Claxton / Speedy Claxton Trade",
+    "title": "Jamal Crawford, Acie Law, Speedy Claxton Trade",
     "description": "On 2009-06-25:  Warriors acquire Acie Law  Hawks acquire Jamal Crawford",
     "is_multi_team": false,
     "teams": [
@@ -2432,7 +2432,7 @@
       },
       {
         "type": "player",
-        "player_name": "Craig Claxton / Speedy Claxton",
+        "player_name": "Speedy Claxton",
         "from_team_id": "ATL",
         "to_team_id": "GSW",
         "pick_year": null,
@@ -2607,7 +2607,7 @@
     "date": "2009-06-25",
     "season": "2008-09",
     "title": "Blazers / Kings Trade",
-    "description": "On 2009-06-25:  Kings acquire Sergio Rodriguez  Blazers acquire rights to Jeff Pendergraph / Jeff Ayres",
+    "description": "On 2009-06-25:  Kings acquire Sergio Rodriguez  Blazers acquire rights to Jeff Ayres",
     "is_multi_team": false,
     "teams": [
       {
@@ -2622,7 +2622,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Jeff Pendergraph / Jeff Ayres",
+        "player_name": "Jeff Ayres",
         "from_team_id": "SAC",
         "to_team_id": "POR",
         "pick_year": null,
@@ -2808,7 +2808,7 @@
     "date": "2009-06-25",
     "season": "2008-09",
     "title": "Mavericks / Thunder Trade",
-    "description": "On 2009-06-25:  Thunder acquire rights to B.J. Mullens / Byron Mullens  Mavericks acquire rights to Rodrigue Beaubois",
+    "description": "On 2009-06-25:  Thunder acquire rights to Byron Mullens  Mavericks acquire rights to Rodrigue Beaubois",
     "is_multi_team": false,
     "teams": [
       {
@@ -2845,7 +2845,7 @@
       },
       {
         "type": "player",
-        "player_name": "B.J. Mullens / Byron Mullens",
+        "player_name": "Byron Mullens",
         "from_team_id": "DAL",
         "to_team_id": "OKC",
         "pick_year": null,

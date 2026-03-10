@@ -940,8 +940,8 @@
     "id": "8708eef8-d484-4fe8-8a41-54852c5cdea8",
     "date": "1997-11-07",
     "season": "1997-98",
-    "title": "B.J. Armstrong, Tyrone Bogues / Muggsy Bogues, Tony Delk Trade",
-    "description": "On 1997-11-07:  Warriors acquire Tyrone Bogues / Muggsy Bogues  Hornets acquire B.J. Armstrong",
+    "title": "B.J. Armstrong, Muggsy Bogues, Tony Delk Trade",
+    "description": "On 1997-11-07:  Warriors acquire Muggsy Bogues  Hornets acquire B.J. Armstrong",
     "is_multi_team": false,
     "teams": [
       {
@@ -967,7 +967,7 @@
       },
       {
         "type": "player",
-        "player_name": "Tyrone Bogues / Muggsy Bogues",
+        "player_name": "Muggsy Bogues",
         "from_team_id": "CHA",
         "to_team_id": "GSW",
         "pick_year": null,
@@ -1410,7 +1410,7 @@
     "id": "844f53fd-ac08-4c09-b31b-cae691d8bf7e",
     "date": "1998-02-18",
     "season": "1997-98",
-    "title": "Kenny Anderson, Ronald Jones / Popeye Jones, Zan Tabak Trade",
+    "title": "Kenny Anderson, Popeye Jones, Zan Tabak Trade",
     "description": "On 1998-02-18:  Raptors acquire Chauncey Billups  Celtics acquire Kenny Anderson",
     "is_multi_team": false,
     "teams": [
@@ -1437,7 +1437,7 @@
       },
       {
         "type": "player",
-        "player_name": "Ronald Jones / Popeye Jones",
+        "player_name": "Popeye Jones",
         "from_team_id": "TOR",
         "to_team_id": "BOS",
         "pick_year": null,
@@ -1772,8 +1772,8 @@
     "id": "512c4797-052a-45fd-96cf-d455903f119a",
     "date": "1998-02-19",
     "season": "1997-98",
-    "title": "Isaac Austin / Ike Austin, Charles Smith (Cornelius) Trade",
-    "description": "On 1998-02-19:  Heat acquire Brent Barry  Clippers acquire Isaac Austin / Ike Austin",
+    "title": "Isaac Austin, Charles Smith (Cornelius) Trade",
+    "description": "On 1998-02-19:  Heat acquire Brent Barry  Clippers acquire Isaac Austin",
     "is_multi_team": false,
     "teams": [
       {
@@ -1788,7 +1788,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Isaac Austin / Ike Austin",
+        "player_name": "Isaac Austin",
         "from_team_id": "MIA",
         "to_team_id": "LAC",
         "pick_year": null,
@@ -2146,7 +2146,7 @@
     "date": "1998-06-24",
     "season": "1997-98",
     "title": "Bucks / Mavericks Trade",
-    "description": "On 1998-06-24:  Mavericks acquire rights to Dirk Nowitzki  Bucks acquire rights to Robert Traylor / Tractor Traylor",
+    "description": "On 1998-06-24:  Mavericks acquire rights to Dirk Nowitzki  Bucks acquire rights to Robert Traylor",
     "is_multi_team": false,
     "teams": [
       {
@@ -2161,7 +2161,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Robert Traylor / Tractor Traylor",
+        "player_name": "Robert Traylor",
         "from_team_id": "DAL",
         "to_team_id": "MIL",
         "pick_year": null,

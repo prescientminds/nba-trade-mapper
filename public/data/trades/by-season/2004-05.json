@@ -900,7 +900,7 @@
     "date": "2004-08-16",
     "season": "2004-05",
     "title": "Bobcats / Hawks Trade",
-    "description": "On 2004-08-16:  Hawks acquire Predrag Drobnjak / Peja Drobnjak  Bobcats acquire 2005 second round pick (#37-Ronny Turiaf)",
+    "description": "On 2004-08-16:  Hawks acquire Predrag Drobnjak  Bobcats acquire 2005 second round pick (#37-Ronny Turiaf)",
     "is_multi_team": false,
     "teams": [
       {
@@ -932,7 +932,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Predrag Drobnjak / Peja Drobnjak",
+        "became_player_name": "Predrag Drobnjak",
         "notes": null
       }
     ]
@@ -2263,8 +2263,8 @@
     "id": "b29abdb1-7fbb-4025-8fc6-bfd5c89d9be1",
     "date": "2005-02-24",
     "season": "2004-05",
-    "title": "Craig Claxton / Speedy Claxton, Dale Davis Trade",
-    "description": "On 2005-02-24:  Warriors acquire Baron Davis  Hornets acquire Craig Claxton / Speedy Claxton",
+    "title": "Speedy Claxton, Dale Davis Trade",
+    "description": "On 2005-02-24:  Warriors acquire Baron Davis  Hornets acquire Speedy Claxton",
     "is_multi_team": false,
     "teams": [
       {
@@ -2279,7 +2279,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Craig Claxton / Speedy Claxton",
+        "player_name": "Speedy Claxton",
         "from_team_id": "GSW",
         "to_team_id": "NOP",
         "pick_year": null,
@@ -2413,8 +2413,8 @@
     "id": "46ea4afe-99b0-4520-8883-2f83218b8fac",
     "date": "2005-02-24",
     "season": "2004-05",
-    "title": "Maurice Taylor, Martyn Norris / Moochie Norris, Vin Baker Trade",
-    "description": "On 2005-02-24:  Rockets acquire Martyn Norris / Moochie Norris  Knicks acquire Maurice Taylor",
+    "title": "Maurice Taylor, Moochie Norris, Vin Baker Trade",
+    "description": "On 2005-02-24:  Rockets acquire Moochie Norris  Knicks acquire Maurice Taylor",
     "is_multi_team": false,
     "teams": [
       {
@@ -2440,7 +2440,7 @@
       },
       {
         "type": "player",
-        "player_name": "Martyn Norris / Moochie Norris",
+        "player_name": "Moochie Norris",
         "from_team_id": "NYK",
         "to_team_id": "HOU",
         "pick_year": null,

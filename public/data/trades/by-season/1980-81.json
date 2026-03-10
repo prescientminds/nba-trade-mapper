@@ -68,7 +68,7 @@
     "date": "1980-08-28",
     "season": "1980-81",
     "title": "Phil Smith Trade",
-    "description": "On 1980-08-28:  Warriors acquire Lloyd Free / World B. Free  Clippers acquire Phil Smith",
+    "description": "On 1980-08-28:  Warriors acquire World B. Free  Clippers acquire Phil Smith",
     "is_multi_team": false,
     "teams": [
       {
@@ -105,7 +105,7 @@
       },
       {
         "type": "player",
-        "player_name": "Lloyd Free / World B. Free",
+        "player_name": "World B. Free",
         "from_team_id": "LAC",
         "to_team_id": "GSW",
         "pick_year": null,
@@ -162,8 +162,8 @@
     "id": "26908207-8159-42a4-a9fa-1693bfb5caa5",
     "date": "1980-09-11",
     "season": "1980-81",
-    "title": "Wallace Johnson / Mickey Johnson Trade",
-    "description": "On 1980-09-11:  Pacers acquire George Johnson (Lee)  Bucks acquire Wallace Johnson / Mickey Johnson",
+    "title": "Mickey Johnson Trade",
+    "description": "On 1980-09-11:  Pacers acquire George Johnson (Lee)  Bucks acquire Mickey Johnson",
     "is_multi_team": false,
     "teams": [
       {
@@ -178,7 +178,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Wallace Johnson / Mickey Johnson",
+        "player_name": "Mickey Johnson",
         "from_team_id": "IND",
         "to_team_id": "MIL",
         "pick_year": null,
@@ -353,7 +353,7 @@
     "date": "1980-09-24",
     "season": "1980-81",
     "title": "Roger Phegley Trade",
-    "description": "On 1980-09-24:  Nets acquire Clarence Walker / Foots Walker  Cavaliers acquire Roger Phegley",
+    "description": "On 1980-09-24:  Nets acquire Foots Walker  Cavaliers acquire Roger Phegley",
     "is_multi_team": false,
     "teams": [
       {
@@ -379,7 +379,7 @@
       },
       {
         "type": "player",
-        "player_name": "Clarence Walker / Foots Walker",
+        "player_name": "Foots Walker",
         "from_team_id": "CLE",
         "to_team_id": "BKN",
         "pick_year": null,
@@ -394,8 +394,8 @@
     "id": "a4842e02-8614-4f70-88c3-cdbf755254ec",
     "date": "1980-09-25",
     "season": "1980-81",
-    "title": "Bill Robinzine, Joe Meriweather / Joe C. Meriweather, Michael Russell / Campy Russell Trade",
-    "description": "On 1980-09-25:  Kings acquire Joe Meriweather / Joe C. Meriweather  Knicks acquire Michael Russell / Campy Russell Other Team(s) Involved in Trade: Cavaliers",
+    "title": "Bill Robinzine, Joe Meriweather, Campy Russell Trade",
+    "description": "On 1980-09-25:  Kings acquire Joe Meriweather  Knicks acquire Campy Russell Other Team(s) Involved in Trade: Cavaliers",
     "is_multi_team": true,
     "teams": [
       {
@@ -425,7 +425,7 @@
       },
       {
         "type": "player",
-        "player_name": "Michael Russell / Campy Russell",
+        "player_name": "Campy Russell",
         "from_team_id": "CLE",
         "to_team_id": "SAC",
         "pick_year": null,
@@ -885,7 +885,7 @@
     "date": "1980-11-19",
     "season": "1980-81",
     "title": "Lakers / Nets Trade",
-    "description": "On 1980-11-19:  Nets acquire 1982 first round pick (#21-Eddie Phillips)  Lakers acquire Ed Jordan / Eddie Jordan",
+    "description": "On 1980-11-19:  Nets acquire 1982 first round pick (#21-Eddie Phillips)  Lakers acquire Eddie Jordan",
     "is_multi_team": false,
     "teams": [
       {
@@ -906,7 +906,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Ed Jordan / Eddie Jordan",
+        "became_player_name": "Eddie Jordan",
         "notes": null
       },
       {
@@ -1446,7 +1446,7 @@
     "date": "1981-06-08",
     "season": "1980-81",
     "title": "Bullets / Rockets Trade",
-    "description": "On 1981-06-08:  Rockets acquire Elvin Hayes  Bullets acquire 1981 second round pick (#35-Charles Davis / Charlie Davis) (E.))",
+    "description": "On 1981-06-08:  Rockets acquire Elvin Hayes  Bullets acquire 1981 second round pick (#35-Charlie Davis)",
     "is_multi_team": false,
     "teams": [
       {
@@ -1467,7 +1467,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Charles Davis / Charlie Davis) (E.)",
+        "became_player_name": "Charlie Davis",
         "notes": null
       },
       {
