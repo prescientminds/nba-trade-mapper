@@ -31,7 +31,12 @@ import { supabase } from './lib/supabase-admin';
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
-const TRADES_DIR = path.join(__dirname, '..', 'public', 'data', 'trades', 'by-season');
+function getTradesDir(league: string): string {
+  if (league === 'WNBA') {
+    return path.join(__dirname, '..', 'public', 'data', 'wnba', 'trades', 'by-season');
+  }
+  return path.join(__dirname, '..', 'public', 'data', 'trades', 'by-season');
+}
 
 const ACCOLADE_WEIGHTS: Record<string, number> = {
   'MVP':               5.0,
@@ -47,6 +52,8 @@ const ACCOLADE_WEIGHTS: Record<string, number> = {
   'All-Defensive Team': 0.5,
   'All-Rookie Team':   0.2,
   'All-Star':          0.3,
+  // WNBA accolades
+  'All-WNBA Team':    1.2,
 };
 
 // Below this score margin, no clear winner is declared.
@@ -119,7 +126,8 @@ function r2(n: number): number {
 }
 
 /** Convert pick_year (draft year) to the season string when the player first plays. */
-function pickYearToSeason(year: number): string {
+function pickYearToSeason(year: number, league: string): string {
+  if (league === 'WNBA') return String(year);
   return `${year}-${String(year + 1).slice(2)}`;
 }
 
@@ -214,6 +222,7 @@ function scoreTrade(
   accoladesByPlayer: Map<string, Accolade[]>,
   championshipSet: Set<string>,
   teamChampPlayoffWs: Map<string, number>,
+  league: string,
 ): TradeScore {
   // Group assets by receiving team
   const byTeam = new Map<string, TradeAsset[]>();
@@ -237,8 +246,8 @@ function scoreTrade(
       } else if (asset.type === 'pick' && asset.became_player_name) {
         playerName = asset.became_player_name;
         assetType = 'pick';
-        // Player's first season with the team = the season after they were drafted
-        seasonCutoff = asset.pick_year ? pickYearToSeason(asset.pick_year) : trade.season;
+        // Player's first season with the team = the season after they were drafted (NBA) or same year (WNBA)
+        seasonCutoff = asset.pick_year ? pickYearToSeason(asset.pick_year, league) : trade.season;
       }
 
       if (!playerName) continue;  // Unresolved pick — no stats to score
@@ -296,7 +305,13 @@ async function main() {
   const singleSeason = seasonArg
     ? (seasonArg.includes('=') ? seasonArg.split('=')[1] : args[args.indexOf(seasonArg) + 1])
     : null;
+  const leagueArg = args.find(a => a.startsWith('--league'));
+  const league = leagueArg
+    ? (leagueArg.includes('=') ? leagueArg.split('=')[1] : args[args.indexOf(leagueArg) + 1])
+    : 'NBA';
+  const TRADES_DIR = getTradesDir(league);
 
+  console.log(`Scoring ${league} trades...`);
   console.log('Loading Supabase data...');
 
   const [playerSeasons, accolades, teamSeasons] = await Promise.all([
@@ -354,7 +369,7 @@ async function main() {
   // Score each trade
   const results: TradeScore[] = [];
   for (const trade of allTrades) {
-    results.push(scoreTrade(trade, seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs));
+    results.push(scoreTrade(trade, seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs, league));
   }
 
   // Summary stats
@@ -396,6 +411,7 @@ async function main() {
       team_scores:  r.team_scores,
       winner:       r.winner,
       lopsidedness: r.lopsidedness,
+      league,
     }));
 
     const { error } = await supabase

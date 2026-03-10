@@ -11,34 +11,34 @@ export interface TeamInfo {
 export const TEAMS: Record<string, TeamInfo> = {
   ATL: { id: 'ATL', name: 'Atlanta Hawks', city: 'Atlanta', color: '#E03A3E', secondaryColor: '#C1D32F', conference: 'East', division: 'Southeast' },
   BOS: { id: 'BOS', name: 'Boston Celtics', city: 'Boston', color: '#007A33', secondaryColor: '#BA9653', conference: 'East', division: 'Atlantic' },
-  BKN: { id: 'BKN', name: 'Brooklyn Nets', city: 'Brooklyn', color: '#000000', secondaryColor: '#FFFFFF', conference: 'East', division: 'Atlantic' },
-  CHA: { id: 'CHA', name: 'Charlotte Hornets', city: 'Charlotte', color: '#1D1160', secondaryColor: '#00788C', conference: 'East', division: 'Southeast' },
+  BKN: { id: 'BKN', name: 'Brooklyn Nets', city: 'Brooklyn', color: '#A1A1A4', secondaryColor: '#000000', conference: 'East', division: 'Atlantic' },
+  CHA: { id: 'CHA', name: 'Charlotte Hornets', city: 'Charlotte', color: '#00788C', secondaryColor: '#1D1160', conference: 'East', division: 'Southeast' },
   CHI: { id: 'CHI', name: 'Chicago Bulls', city: 'Chicago', color: '#CE1141', secondaryColor: '#000000', conference: 'East', division: 'Central' },
   CLE: { id: 'CLE', name: 'Cleveland Cavaliers', city: 'Cleveland', color: '#860038', secondaryColor: '#FDBB30', conference: 'East', division: 'Central' },
   DAL: { id: 'DAL', name: 'Dallas Mavericks', city: 'Dallas', color: '#00538C', secondaryColor: '#002B5E', conference: 'West', division: 'Southwest' },
-  DEN: { id: 'DEN', name: 'Denver Nuggets', city: 'Denver', color: '#0E2240', secondaryColor: '#FEC524', conference: 'West', division: 'Northwest' },
+  DEN: { id: 'DEN', name: 'Denver Nuggets', city: 'Denver', color: '#FEC524', secondaryColor: '#0E2240', conference: 'West', division: 'Northwest' },
   DET: { id: 'DET', name: 'Detroit Pistons', city: 'Detroit', color: '#C8102E', secondaryColor: '#1D42BA', conference: 'East', division: 'Central' },
-  GSW: { id: 'GSW', name: 'Golden State Warriors', city: 'San Francisco', color: '#1D428A', secondaryColor: '#FFC72C', conference: 'West', division: 'Pacific' },
+  GSW: { id: 'GSW', name: 'Golden State Warriors', city: 'San Francisco', color: '#FFC72C', secondaryColor: '#1D428A', conference: 'West', division: 'Pacific' },
   HOU: { id: 'HOU', name: 'Houston Rockets', city: 'Houston', color: '#CE1141', secondaryColor: '#000000', conference: 'West', division: 'Southwest' },
-  IND: { id: 'IND', name: 'Indiana Pacers', city: 'Indianapolis', color: '#002D62', secondaryColor: '#FDBB30', conference: 'East', division: 'Central' },
+  IND: { id: 'IND', name: 'Indiana Pacers', city: 'Indianapolis', color: '#FDBB30', secondaryColor: '#002D62', conference: 'East', division: 'Central' },
   LAC: { id: 'LAC', name: 'LA Clippers', city: 'Los Angeles', color: '#C8102E', secondaryColor: '#1D428A', conference: 'West', division: 'Pacific' },
   LAL: { id: 'LAL', name: 'Los Angeles Lakers', city: 'Los Angeles', color: '#552583', secondaryColor: '#FDB927', conference: 'West', division: 'Pacific' },
   MEM: { id: 'MEM', name: 'Memphis Grizzlies', city: 'Memphis', color: '#5D76A9', secondaryColor: '#12173F', conference: 'West', division: 'Southwest' },
   MIA: { id: 'MIA', name: 'Miami Heat', city: 'Miami', color: '#98002E', secondaryColor: '#F9A01B', conference: 'East', division: 'Southeast' },
   MIL: { id: 'MIL', name: 'Milwaukee Bucks', city: 'Milwaukee', color: '#00471B', secondaryColor: '#EEE1C6', conference: 'East', division: 'Central' },
-  MIN: { id: 'MIN', name: 'Minnesota Timberwolves', city: 'Minneapolis', color: '#0C2340', secondaryColor: '#236192', conference: 'West', division: 'Northwest' },
-  NOP: { id: 'NOP', name: 'New Orleans Pelicans', city: 'New Orleans', color: '#0C2340', secondaryColor: '#C8102E', conference: 'West', division: 'Southwest' },
+  MIN: { id: 'MIN', name: 'Minnesota Timberwolves', city: 'Minneapolis', color: '#236192', secondaryColor: '#0C2340', conference: 'West', division: 'Northwest' },
+  NOP: { id: 'NOP', name: 'New Orleans Pelicans', city: 'New Orleans', color: '#C8102E', secondaryColor: '#0C2340', conference: 'West', division: 'Southwest' },
   NYK: { id: 'NYK', name: 'New York Knicks', city: 'New York', color: '#006BB6', secondaryColor: '#F58426', conference: 'East', division: 'Atlantic' },
   OKC: { id: 'OKC', name: 'Oklahoma City Thunder', city: 'Oklahoma City', color: '#007AC1', secondaryColor: '#EF3B24', conference: 'West', division: 'Northwest' },
   ORL: { id: 'ORL', name: 'Orlando Magic', city: 'Orlando', color: '#0077C0', secondaryColor: '#C4CED4', conference: 'East', division: 'Southeast' },
   PHI: { id: 'PHI', name: 'Philadelphia 76ers', city: 'Philadelphia', color: '#006BB6', secondaryColor: '#ED174C', conference: 'East', division: 'Atlantic' },
-  PHX: { id: 'PHX', name: 'Phoenix Suns', city: 'Phoenix', color: '#1D1160', secondaryColor: '#E56020', conference: 'West', division: 'Pacific' },
+  PHX: { id: 'PHX', name: 'Phoenix Suns', city: 'Phoenix', color: '#E56020', secondaryColor: '#1D1160', conference: 'West', division: 'Pacific' },
   POR: { id: 'POR', name: 'Portland Trail Blazers', city: 'Portland', color: '#E03A3E', secondaryColor: '#000000', conference: 'West', division: 'Northwest' },
   SAC: { id: 'SAC', name: 'Sacramento Kings', city: 'Sacramento', color: '#5A2D81', secondaryColor: '#63727A', conference: 'West', division: 'Pacific' },
   SAS: { id: 'SAS', name: 'San Antonio Spurs', city: 'San Antonio', color: '#C4CED4', secondaryColor: '#000000', conference: 'West', division: 'Southwest' },
   TOR: { id: 'TOR', name: 'Toronto Raptors', city: 'Toronto', color: '#CE1141', secondaryColor: '#000000', conference: 'East', division: 'Atlantic' },
-  UTA: { id: 'UTA', name: 'Utah Jazz', city: 'Salt Lake City', color: '#002B5C', secondaryColor: '#00471B', conference: 'West', division: 'Northwest' },
-  WAS: { id: 'WAS', name: 'Washington Wizards', city: 'Washington', color: '#002B5C', secondaryColor: '#E31837', conference: 'East', division: 'Southeast' },
+  UTA: { id: 'UTA', name: 'Utah Jazz', city: 'Salt Lake City', color: '#F9A01B', secondaryColor: '#002B5C', conference: 'West', division: 'Northwest' },
+  WAS: { id: 'WAS', name: 'Washington Wizards', city: 'Washington', color: '#E31837', secondaryColor: '#002B5C', conference: 'East', division: 'Southeast' },
 };
 
 export const TEAM_LIST = Object.values(TEAMS).sort((a, b) => a.name.localeCompare(b.name));
@@ -66,8 +66,10 @@ interface TeamRelocation {
   historicalSecondaryColor: string;
 }
 
+// Multiple entries per team are allowed — sorted newest cutoff first per team
+// so the lookup finds the right era. Display-only: no impact on data or scoring.
 const TEAM_RELOCATIONS: TeamRelocation[] = [
-  // Seattle SuperSonics → Oklahoma City Thunder (2008-09 season)
+  // Seattle SuperSonics → Oklahoma City Thunder (2008-09)
   {
     teamId: 'OKC',
     cutoffDate: '2008-07-01',
@@ -76,7 +78,7 @@ const TEAM_RELOCATIONS: TeamRelocation[] = [
     historicalColor: '#00653A',
     historicalSecondaryColor: '#FFC200',
   },
-  // Vancouver Grizzlies → Memphis Grizzlies (2001-02 season)
+  // Vancouver Grizzlies → Memphis Grizzlies (2001-02)
   {
     teamId: 'MEM',
     cutoffDate: '2001-07-01',
@@ -85,14 +87,77 @@ const TEAM_RELOCATIONS: TeamRelocation[] = [
     historicalColor: '#00B2A9',
     historicalSecondaryColor: '#1D1160',
   },
-  // New Jersey Nets → Brooklyn Nets (2012-13 season)
+  // New Jersey Nets → Brooklyn Nets (2012-13)
   {
     teamId: 'BKN',
     cutoffDate: '2012-07-01',
     historicalName: 'New Jersey Nets',
     historicalAbbreviation: 'NJN',
-    historicalColor: '#002A60',
+    historicalColor: '#A1A1A4',
+    historicalSecondaryColor: '#002A60',
+  },
+  // New Orleans Jazz → Utah Jazz (1979-80)
+  {
+    teamId: 'UTA',
+    cutoffDate: '1979-07-01',
+    historicalName: 'New Orleans Jazz',
+    historicalAbbreviation: 'NOJ',
+    historicalColor: '#6F2DA8',
+    historicalSecondaryColor: '#FFC72C',
+  },
+  // San Diego Clippers → LA Clippers (1984-85)
+  {
+    teamId: 'LAC',
+    cutoffDate: '1984-07-01',
+    historicalName: 'San Diego Clippers',
+    historicalAbbreviation: 'SDC',
+    historicalColor: '#FF6B00',
+    historicalSecondaryColor: '#1D428A',
+  },
+  // Buffalo Braves → San Diego Clippers (1978-79)
+  {
+    teamId: 'LAC',
+    cutoffDate: '1978-07-01',
+    historicalName: 'Buffalo Braves',
+    historicalAbbreviation: 'BUF',
+    historicalColor: '#FF8C00',
+    historicalSecondaryColor: '#000000',
+  },
+  // Kansas City Kings → Sacramento Kings (1985-86)
+  {
+    teamId: 'SAC',
+    cutoffDate: '1985-07-01',
+    historicalName: 'Kansas City Kings',
+    historicalAbbreviation: 'KCK',
+    historicalColor: '#4A90D9',
     historicalSecondaryColor: '#FFFFFF',
+  },
+  // Washington Bullets → Washington Wizards (1997-98)
+  {
+    teamId: 'WAS',
+    cutoffDate: '1997-07-01',
+    historicalName: 'Washington Bullets',
+    historicalAbbreviation: 'WSB',
+    historicalColor: '#E31837',
+    historicalSecondaryColor: '#002B5C',
+  },
+  // New Orleans Hornets → New Orleans Pelicans (2013-14)
+  {
+    teamId: 'NOP',
+    cutoffDate: '2013-07-01',
+    historicalName: 'New Orleans Hornets',
+    historicalAbbreviation: 'NOH',
+    historicalColor: '#00838F',
+    historicalSecondaryColor: '#6F2DA8',
+  },
+  // Charlotte Bobcats → Charlotte Hornets (2014-15)
+  {
+    teamId: 'CHA',
+    cutoffDate: '2014-07-01',
+    historicalName: 'Charlotte Bobcats',
+    historicalAbbreviation: 'CHA',
+    historicalColor: '#F26532',
+    historicalSecondaryColor: '#1D1160',
   },
 ];
 
@@ -112,16 +177,26 @@ export function getTeamDisplayInfo(teamId: string, tradeDate?: string | null): T
 
   if (!tradeDate) return fallback;
 
-  const relocation = TEAM_RELOCATIONS.find((r) => r.teamId === teamId);
-  if (!relocation) return fallback;
+  // Find all relocations for this team.
+  // For multi-era teams (e.g. LAC: Buffalo→San Diego→LA), find the era
+  // whose cutoff is closest to (but still after) the trade date.
+  const relocations = TEAM_RELOCATIONS.filter((r) => r.teamId === teamId);
+  if (relocations.length === 0) return fallback;
 
-  if (tradeDate < relocation.cutoffDate) {
-    return {
-      name: relocation.historicalName,
-      abbreviation: relocation.historicalAbbreviation,
-      color: relocation.historicalColor,
-      secondaryColor: relocation.historicalSecondaryColor,
-    };
+  // Sort by cutoff ascending — walk forward through eras
+  const sorted = relocations.sort((a, b) => a.cutoffDate.localeCompare(b.cutoffDate));
+  // Find the oldest cutoff the trade predates — that's the correct era.
+  // e.g. LAC cutoffs: 1978 (BUF), 1984 (SDC). A 1977 trade < 1978 → BUF.
+  // A 1983 trade >= 1978 but < 1984 → SDC. A 1990 trade >= both → current (LAC).
+  for (const rel of sorted) {
+    if (tradeDate < rel.cutoffDate) {
+      return {
+        name: rel.historicalName,
+        abbreviation: rel.historicalAbbreviation,
+        color: rel.historicalColor,
+        secondaryColor: rel.historicalSecondaryColor,
+      };
+    }
   }
 
   return fallback;

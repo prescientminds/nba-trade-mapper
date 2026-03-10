@@ -56,6 +56,7 @@ const BBREF_TO_TEAM_ID: Record<string, string> = {
   CIN: 'SAC',  // Cincinnati Royals
   SDR: 'HOU',  // San Diego Rockets
   KCO: 'SAC',  // Kansas City-Omaha Kings
+  NOJ: 'UTA',  // New Orleans Jazz
 };
 
 // Teams to skip (multi-team season totals, non-NBA)
@@ -135,6 +136,7 @@ const FULL_NAME_TO_TEAM_ID: Record<string, string> = {
   'Cincinnati Royals': 'SAC',
   'San Diego Rockets': 'HOU',
   'Kansas City-Omaha Kings': 'SAC',
+  'New Orleans Jazz': 'UTA',
 };
 
 /**

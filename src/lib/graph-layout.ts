@@ -28,9 +28,14 @@ function expandedTradeDimensions(node: Node): { width: number; height: number } 
     }
   }
   const teamCount = new Set(assets.map(a => a.to_team_id).filter(Boolean)).size;
-  // Header (~44) + trade score section (~20 header + 12 per team bar) + separator (1)
-  // + team headers (18 each) + assets (20 each) + padding (12)
-  let height = 44 + (20 + teamCount * 12) + 1 + teamCount * 18 + assetCount * 20 + 12;
+  // Header: date (~10) + heading (~14) + subtitle (~11) + badges (~13) + gaps = ~52
+  // Trade score: label (~14) + bars (~16 each) + gap (~6)
+  // Separator + margins: ~6
+  // Team headers: name wraps at 180px + "Future salary committed" line = ~42 each
+  // Asset rows: chevron + name + score + Path button = ~26 each
+  // Per-team bottom margins: ~6 each
+  // Bottom padding: ~10
+  let height = 52 + (20 + teamCount * 16) + 6 + teamCount * 48 + assetCount * 26 + teamCount * 6 + 10;
 
   // Add height for each inline player panel
   if (data.inlinePlayers) {
@@ -758,4 +763,49 @@ export async function layoutGraph(
       position: { x: pos.x + offsetX, y: pos.y + offsetY },
     };
   });
+}
+
+/**
+ * Universal overlap resolver — the "Excel rows" guarantee.
+ * After any node changes size, call this with the current nodes array.
+ * Uses React Flow's measured dimensions (actual DOM) when available,
+ * falls back to static defaults. Returns null if no adjustment needed.
+ */
+export function resolveNodeOverlaps(nodes: Node[]): Node[] | null {
+  if (nodes.length < 2) return null;
+
+  const MIN_GAP = 20;
+  const sorted = [...nodes].sort((a, b) => a.position.y - b.position.y);
+  let changed = false;
+
+  for (let i = 0; i < sorted.length; i++) {
+    const node = sorted[i];
+    const h = node.measured?.height ?? (NODE_DIMENSIONS[node.type || 'trade']?.height ?? 44);
+    const w = node.measured?.width ?? (NODE_DIMENSIONS[node.type || 'trade']?.width ?? 180);
+    const bottom = node.position.y + h;
+
+    for (let j = i + 1; j < sorted.length; j++) {
+      const other = sorted[j];
+      const ow = other.measured?.width ?? (NODE_DIMENSIONS[other.type || 'trade']?.width ?? 180);
+
+      // Skip nodes with no horizontal overlap (different columns)
+      if (node.position.x + w <= other.position.x || other.position.x + ow <= node.position.x) continue;
+
+      // First horizontally-overlapping node below — check vertical gap
+      if (bottom + MIN_GAP > other.position.y) {
+        const shift = bottom + MIN_GAP - other.position.y;
+        // Push this node and everything below it down
+        for (let k = j; k < sorted.length; k++) {
+          sorted[k] = {
+            ...sorted[k],
+            position: { ...sorted[k].position, y: sorted[k].position.y + shift },
+          };
+        }
+        changed = true;
+      }
+      break; // Only need the first horizontal match — further nodes are even lower
+    }
+  }
+
+  return changed ? sorted : null;
 }

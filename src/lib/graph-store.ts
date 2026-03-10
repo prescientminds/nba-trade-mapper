@@ -9,7 +9,7 @@ import {
 } from '@xyflow/react';
 import { getSupabase, TradeWithDetails, TransactionAsset, PlayerSeason, PlayerAccolade, TeamSeason, PlayerContract } from './supabase';
 import { getAnyTeam, getAnyTeamDisplayInfo } from './teams';
-import { layoutGraph, layoutPlayerTimeline } from './graph-layout';
+import { layoutGraph, layoutPlayerTimeline, resolveNodeOverlaps } from './graph-layout';
 import { searchStaticTrades, staticTradeToTradeWithDetails, loadSeason, loadTrade, loadSearchIndex } from './trade-data';
 import { type League, leagueForTeam } from './league';
 import { getDraftInfo } from './draft-data';
@@ -241,6 +241,9 @@ interface GraphState {
   collapseChampionshipStaged: () => void;
   adjustLayoutForToggle: (nodeId: string, deltaH: number) => void;
 }
+
+// Debounce flag for the overlap resolver — prevents multiple checks per frame
+let _overlapCheckScheduled = false;
 
 // ── Helpers ──────────────────────────────────────────────────────────
 function tradeNodeId(txId: string) {
@@ -797,7 +800,20 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   },
 
   onNodesChange: (changes) => {
-    set({ nodes: applyNodeChanges(changes, get().nodes) });
+    const newNodes = applyNodeChanges(changes, get().nodes);
+    set({ nodes: newNodes });
+
+    // When React Flow reports a dimension change (node's actual DOM size changed),
+    // schedule an overlap check using measured heights — the "Excel rows" guarantee.
+    if (!_overlapCheckScheduled && changes.some(c => c.type === 'dimensions')) {
+      _overlapCheckScheduled = true;
+      requestAnimationFrame(() => {
+        _overlapCheckScheduled = false;
+        const current = get().nodes;
+        const resolved = resolveNodeOverlaps(current);
+        if (resolved) set({ nodes: resolved });
+      });
+    }
   },
 
   onEdgesChange: (changes) => {
@@ -2720,14 +2736,21 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const stint = stints[matchedIdx];
     const stintSeasons = stint.seasons.map(s => s.season);
 
-    // Fetch accolades and team seasons in parallel
-    const [accoladesResult, teamSeasonsResult] = await Promise.all([
+    // Fetch accolades, team seasons, and contracts in parallel
+    const [accoladesResult, teamSeasonsResult, contractsResult] = await Promise.all([
       sb.from('player_accolades').select('*').ilike('player_name', playerName).in('season', stintSeasons),
       sb.from('team_seasons').select('*').eq('team_id', toTeamId).in('season', stintSeasons),
+      sb.from('player_contracts').select('*').ilike('player_name', playerName).eq('team_id', toTeamId).in('season', stintSeasons),
     ]);
 
     const accolades = accoladesResult.data as PlayerAccolade[] | null;
     const teamSeasons = teamSeasonsResult.data as TeamSeason[] | null;
+    const contracts = contractsResult.data as PlayerContract[] | null;
+
+    const contractMap = new Map<string, PlayerContract>();
+    if (contracts) {
+      for (const c of contracts) contractMap.set(c.season, c);
+    }
 
     const accoladesByS = new Map<string, string[]>();
     if (accolades) {
@@ -2755,7 +2778,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       teamLosses: teamSeasonMap.get(ss.season)?.losses ?? null,
       playoffResult: teamSeasonMap.get(ss.season)?.playoff_result ?? null,
       accolades: accoladesByS.get(ss.season) ?? [],
-      salary: null,
+      salary: contractMap.get(ss.season)?.salary ?? null,
     }));
 
     const inlineData: InlinePlayerData = {

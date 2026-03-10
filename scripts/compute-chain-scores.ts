@@ -35,7 +35,15 @@ import { supabase } from './lib/supabase-admin';
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
-const TRADES_DIR = path.join(__dirname, '..', 'public', 'data', 'trades', 'by-season');
+// Set in main() based on --league flag
+let LEAGUE = 'NBA';
+
+function getTradesDir(): string {
+  if (LEAGUE === 'WNBA') {
+    return path.join(__dirname, '..', 'public', 'data', 'wnba', 'trades', 'by-season');
+  }
+  return path.join(__dirname, '..', 'public', 'data', 'trades', 'by-season');
+}
 const MAX_DEPTH = 12;  // Prevent runaway recursion on unusual trade loops
 
 const ACCOLADE_WEIGHTS: Record<string, number> = {
@@ -52,6 +60,8 @@ const ACCOLADE_WEIGHTS: Record<string, number> = {
   'All-Defensive Team': 0.5,
   'All-Rookie Team':    0.2,
   'All-Star':           0.3,
+  // WNBA accolades
+  'All-WNBA Team':     1.2,
 };
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -116,6 +126,7 @@ function r2(n: number): number {
 }
 
 function pickYearToSeason(year: number): string {
+  if (LEAGUE === 'WNBA') return String(year);
   return `${year}-${String(year + 1).slice(2)}`;
 }
 
@@ -543,7 +554,13 @@ async function main() {
   const minBreadth = minBreadthArg
     ? parseInt(minBreadthArg.includes('=') ? minBreadthArg.split('=')[1] : args[args.indexOf(minBreadthArg) + 1])
     : 0;
+  const leagueArg = args.find(a => a.startsWith('--league'));
+  LEAGUE = leagueArg
+    ? (leagueArg.includes('=') ? leagueArg.split('=')[1] : args[args.indexOf(leagueArg) + 1])
+    : 'NBA';
+  const TRADES_DIR = getTradesDir();
 
+  console.log(`Computing ${LEAGUE} chain scores...`);
   console.log('Loading Supabase data...');
 
   const [playerSeasons, accolades, teamSeasons] = await Promise.all([
@@ -731,6 +748,7 @@ async function main() {
       league_impact_players: r.league_impact_players,
       league_impact_depth:   r.league_impact_depth,
       league_impact_top:     r.league_impact_top,
+      league:                LEAGUE,
     }));
 
     const { error } = await supabase

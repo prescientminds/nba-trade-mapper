@@ -126,12 +126,16 @@ function SeriesPanel({ series }: { series: PlayoffSeries }) {
   );
 }
 
-function ValueChart({ rows }: { rows: SeasonDetailRow[] }) {
+export function ValueChart({ rows }: { rows: SeasonDetailRow[] }) {
   const data = rows
     .map(r => ({ season: r.season, ws: r.winShares, salary: r.salary }))
     .filter(d => d.ws !== null || d.salary !== null);
 
-  if (data.length < 2) return null;
+  if (data.length < 2) return (
+    <div style={{ padding: '4px 0 2px', fontSize: 7, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', opacity: 0.6 }}>
+      Not enough seasons to chart
+    </div>
+  );
 
   const W = 180;
   const H = 56;

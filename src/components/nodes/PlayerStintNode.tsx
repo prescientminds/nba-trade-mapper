@@ -4,65 +4,8 @@ import { memo, useState } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
 import { getAnyTeamDisplayInfo } from '@/lib/teams';
 import { useGraphStore, PlayerStintNodeData } from '@/lib/graph-store';
-import { SeasonTable } from '@/components/SeasonTable';
+import { SeasonTable, ValueChart } from '@/components/SeasonTable';
 import { ensureReadable } from '@/lib/colors';
-
-function WsSparkline({ rows, color }: { rows: { season: string; ws: number | null }[]; color: string }) {
-  const values = rows.map(r => r.ws ?? 0);
-  const max = Math.max(...values, 1);
-  const barW = Math.min(14, Math.floor(160 / rows.length));
-  const gap = 1;
-  const chartW = rows.length * (barW + gap) - gap;
-  const chartH = 28;
-
-  return (
-    <div style={{ padding: '3px 0 1px', overflow: 'hidden' }}>
-      <svg width={chartW} height={chartH + 10} style={{ display: 'block' }}>
-        {rows.map((r, i) => {
-          const val = r.ws ?? 0;
-          const h = (val / max) * chartH;
-          const x = i * (barW + gap);
-          const shortYr = r.season.length > 5 ? r.season.slice(2, 4) : r.season.slice(0, 2);
-          return (
-            <g key={r.season}>
-              <rect
-                x={x}
-                y={chartH - h}
-                width={barW}
-                height={Math.max(h, 0.5)}
-                fill={val > 0 ? color : 'rgba(255,255,255,0.06)'}
-                opacity={0.7}
-                rx={1}
-              />
-              {val > 0 && (
-                <text
-                  x={x + barW / 2}
-                  y={chartH - h - 2}
-                  textAnchor="middle"
-                  fontSize={6}
-                  fill="var(--text-muted)"
-                  fontFamily="var(--font-mono)"
-                >
-                  {val.toFixed(1)}
-                </text>
-              )}
-              <text
-                x={x + barW / 2}
-                y={chartH + 8}
-                textAnchor="middle"
-                fontSize={5}
-                fill="var(--text-muted)"
-                fontFamily="var(--font-mono)"
-              >
-                {shortYr}
-              </text>
-            </g>
-          );
-        })}
-      </svg>
-    </div>
-  );
-}
 
 function PlayerStintNodeComponent({ id, data }: NodeProps) {
   const {
@@ -323,7 +266,7 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
               style={{ textAlign: 'center', cursor: 'pointer', position: 'relative' }}
               onClick={(e) => {
                 e.stopPropagation();
-                const SPARKLINE_H = 42;
+                const SPARKLINE_H = 70;
                 if (!seasonDetails || seasonDetails.length === 0) {
                   // Load season details first, then show sparkline
                   if (!isExpanded && !isLoading) expandStintDetails(id);
@@ -352,12 +295,9 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
         </div>
       )}
 
-      {/* Win Shares sparkline */}
+      {/* Win Shares vs Salary chart */}
       {showSparkline && seasonDetails && seasonDetails.length > 0 && (
-        <WsSparkline
-          rows={seasonDetails.map(r => ({ season: r.season, ws: r.winShares }))}
-          color={color}
-        />
+        <ValueChart rows={seasonDetails} />
       )}
 
       {/* Playoff Win Shares — shown in championship mode */}
