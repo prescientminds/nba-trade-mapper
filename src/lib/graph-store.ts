@@ -227,8 +227,8 @@ interface GraphState {
   }>;
   highlightEdgePath: (edgeId: string) => void;
   clearHighlightedEdges: () => void;
-  startFollowPath: (playerName: string, fromTradeNodeId: string) => void;
-  startFollowPathForPlayer: (playerName: string) => void;
+  startFollowPath: (playerName: string, fromTradeNodeId: string) => Promise<void>;
+  startFollowPathForPlayer: (playerName: string) => Promise<void>;
   advanceFollowPath: () => void;
   exitFollowPath: () => void;
   championshipContext: ChampionshipContext | null;
@@ -888,98 +888,121 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     }
   },
 
-  startFollowPath: (playerName: string, fromTradeNodeId: string) => {
-    const state = get();
+  startFollowPath: async (playerName: string, fromTradeNodeId: string) => {
+    // Helper: collect edges and build follow path from current graph state
+    const buildFollowPath = () => {
+      const state = get();
+      const isPlayerNode = (nodeId: string): boolean => getPlayerFromNode(state.nodes, nodeId) === playerName;
 
-    const isPlayerNode = (nodeId: string): boolean => getPlayerFromNode(state.nodes, nodeId) === playerName;
+      const playerEdgeIds = new Set<string>();
+      const adjacency = new Map<string, string>();
 
-    // Collect all edges belonging to this player's journey
-    const playerEdgeIds = new Set<string>();
-    const adjacency = new Map<string, string>(); // source → target
-
-    for (const e of state.edges) {
-      if (isPlayerNode(e.source) || isPlayerNode(e.target)) {
-        playerEdgeIds.add(e.id);
-        adjacency.set(e.source, e.target);
+      for (const e of state.edges) {
+        if (isPlayerNode(e.source) || isPlayerNode(e.target)) {
+          playerEdgeIds.add(e.id);
+          adjacency.set(e.source, e.target);
+        }
       }
+
+      if (playerEdgeIds.size === 0) return null;
+
+      // Walk FORWARD from the trade node where Follow was clicked
+      const orderedNodeIds: string[] = [];
+      let current: string | null = fromTradeNodeId;
+      const visited = new Set<string>();
+      while (current && !visited.has(current)) {
+        visited.add(current);
+        const node = state.nodes.find(n => n.id === current);
+        if (node && node.type !== 'gap' && current !== fromTradeNodeId) {
+          orderedNodeIds.push(current);
+        }
+        current = adjacency.get(current) ?? null;
+      }
+
+      if (orderedNodeIds.length === 0) return null;
+      return { playerEdgeIds, orderedNodeIds };
+    };
+
+    // Try with current graph state
+    let result = buildFollowPath();
+
+    // If no edges found, load the player's journey first then retry
+    if (!result) {
+      await get().expandPlayerJourney(playerName, fromTradeNodeId);
+      result = buildFollowPath();
     }
 
-    if (playerEdgeIds.size === 0) return;
-
-    // Walk FORWARD from the trade node where Follow was clicked
-    const orderedNodeIds: string[] = [];
-    let current: string | null = fromTradeNodeId;
-    const visited = new Set<string>();
-    while (current && !visited.has(current)) {
-      visited.add(current);
-      // Skip gap nodes and the origin trade node itself
-      const node = state.nodes.find(n => n.id === current);
-      if (node && node.type !== 'gap' && current !== fromTradeNodeId) {
-        orderedNodeIds.push(current);
-      }
-      current = adjacency.get(current) ?? null;
-    }
-
-    if (orderedNodeIds.length === 0) return;
+    if (!result) return;
 
     set({
-      followHighlightedEdges: playerEdgeIds,
-      followPath: { playerName, orderedNodeIds, currentIndex: 0 },
-      pendingFitTarget: orderedNodeIds[0],
+      followHighlightedEdges: result.playerEdgeIds,
+      followPath: { playerName, orderedNodeIds: result.orderedNodeIds, currentIndex: 0 },
+      pendingFitTarget: result.orderedNodeIds[0],
     });
   },
 
   // Start follow path from the very beginning of a player's journey on the graph
   // (used by championship cards where there's no specific trade node to start from)
-  startFollowPathForPlayer: (playerName: string) => {
-    const state = get();
+  startFollowPathForPlayer: async (playerName: string) => {
+    // Helper: collect edges and build follow path from current graph state
+    const buildFollowPath = () => {
+      const state = get();
+      const isPlayerNode = (nodeId: string): boolean => getPlayerFromNode(state.nodes, nodeId) === playerName;
 
-    const isPlayerNode = (nodeId: string): boolean => getPlayerFromNode(state.nodes, nodeId) === playerName;
+      const playerEdgeIds = new Set<string>();
+      const adjacency = new Map<string, string>();
+      const targets = new Set<string>();
 
-    const playerEdgeIds = new Set<string>();
-    const adjacency = new Map<string, string>();
-    const targets = new Set<string>();
-
-    for (const e of state.edges) {
-      if (isPlayerNode(e.source) || isPlayerNode(e.target)) {
-        playerEdgeIds.add(e.id);
-        adjacency.set(e.source, e.target);
-        targets.add(e.target);
+      for (const e of state.edges) {
+        if (isPlayerNode(e.source) || isPlayerNode(e.target)) {
+          playerEdgeIds.add(e.id);
+          adjacency.set(e.source, e.target);
+          targets.add(e.target);
+        }
       }
+
+      if (playerEdgeIds.size === 0) return null;
+
+      // Find root: first player node that is a source but never a target
+      let rootNode: string | null = null;
+      for (const [source] of adjacency) {
+        if (isPlayerNode(source) && !targets.has(source)) {
+          rootNode = source;
+          break;
+        }
+      }
+
+      if (!rootNode) return null;
+
+      const orderedNodeIds: string[] = [];
+      let current: string | null = rootNode;
+      const visited = new Set<string>();
+      while (current && !visited.has(current)) {
+        visited.add(current);
+        const node = state.nodes.find(n => n.id === current);
+        if (node && node.type !== 'gap') {
+          orderedNodeIds.push(current);
+        }
+        current = adjacency.get(current) ?? null;
+      }
+
+      if (orderedNodeIds.length === 0) return null;
+      return { playerEdgeIds, orderedNodeIds };
+    };
+
+    let result = buildFollowPath();
+
+    if (!result) {
+      await get().expandPlayerJourney(playerName);
+      result = buildFollowPath();
     }
 
-    if (playerEdgeIds.size === 0) return;
-
-    // Find root: first player node that is a source but never a target
-    let rootNode: string | null = null;
-    for (const [source] of adjacency) {
-      if (isPlayerNode(source) && !targets.has(source)) {
-        rootNode = source;
-        break;
-      }
-    }
-
-    if (!rootNode) return;
-
-    // Walk forward from root, including the root itself
-    const orderedNodeIds: string[] = [];
-    let current: string | null = rootNode;
-    const visited = new Set<string>();
-    while (current && !visited.has(current)) {
-      visited.add(current);
-      const node = state.nodes.find(n => n.id === current);
-      if (node && node.type !== 'gap') {
-        orderedNodeIds.push(current);
-      }
-      current = adjacency.get(current) ?? null;
-    }
-
-    if (orderedNodeIds.length === 0) return;
+    if (!result) return;
 
     set({
-      followHighlightedEdges: playerEdgeIds,
-      followPath: { playerName, orderedNodeIds, currentIndex: 0 },
-      pendingFitTarget: orderedNodeIds[0],
+      followHighlightedEdges: result.playerEdgeIds,
+      followPath: { playerName, orderedNodeIds: result.orderedNodeIds, currentIndex: 0 },
+      pendingFitTarget: result.orderedNodeIds[0],
     });
   },
 
