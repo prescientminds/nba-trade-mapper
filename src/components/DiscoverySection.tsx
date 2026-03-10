@@ -1488,21 +1488,21 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             if (winnerData.chain <= winnerData.direct * 1.2) return null;
             const chainPlayers = flattenChainPlayers(winnerData.assets);
 
-            // Build narrative heading: "Jackson becomes Allen, George, SGA…"
+            // Build narrative heading: "Turned Jackson into George, SGA, Williams…"
+            // The outgoing player = what the winning team SENT AWAY to start the chain
             const lastName = (name: string) => name.split(' ').pop() || name;
-            // Root assets = originally acquired players in this trade
-            const rootNames = winnerData.assets
-              .filter((a) => a.type === 'player')
-              .map((a) => lastName(a.name));
-            // Downstream players = everyone else in the chain, sorted by WS
-            const rootNameSet = new Set(winnerData.assets.filter((a) => a.type === 'player').map((a) => a.name));
-            const downstreamPlayers = chainPlayers.filter((p) => !rootNameSet.has(p.name));
-            const downstreamNames = downstreamPlayers.map((p) => lastName(p.name));
+            const winnerIdx = entry.teams.indexOf(winnerTeam);
+            const outgoingPlayer = winnerIdx >= 0 && entry.topAssets?.[winnerIdx]
+              ? lastName(entry.topAssets[winnerIdx])
+              : null;
+            // All chain players sorted by WS — these are what the team got back
+            const chainNames = chainPlayers.map((p) => lastName(p.name));
 
             let chainHeading: string;
-            const rootPart = rootNames.length > 0 ? rootNames.join(', ') : 'picks';
-            if (downstreamNames.length > 0) {
-              chainHeading = `${rootPart} becomes ${downstreamNames.join(', ')}`;
+            if (outgoingPlayer && chainNames.length > 0) {
+              chainHeading = `Turned ${outgoingPlayer} into ${chainNames.join(', ')}`;
+            } else if (chainNames.length > 0) {
+              chainHeading = chainNames.join(', ');
             } else {
               chainHeading = tradeHeading(entry.topAssets, entry.teams, entry.date);
             }
