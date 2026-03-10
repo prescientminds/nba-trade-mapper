@@ -1488,10 +1488,8 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             if (winnerData.chain <= winnerData.direct * 1.2) return null;
             const chainPlayers = flattenChainPlayers(winnerData.assets);
 
-            // Build narrative heading: "Seattle turned Jackson into Allen, George, SGA…"
+            // Build narrative heading: "Jackson becomes Allen, George, SGA…"
             const lastName = (name: string) => name.split(' ').pop() || name;
-            const teamDisplay = getAnyTeamDisplayInfo(winnerTeam, entry.date);
-            const teamNickname = teamDisplay.name.split(' ').pop() || winnerTeam;
             // Root assets = originally acquired players in this trade
             const rootNames = winnerData.assets
               .filter((a) => a.type === 'player')
@@ -1504,9 +1502,8 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             let chainHeading: string;
             const rootPart = rootNames.length > 0 ? rootNames.join(', ') : 'picks';
             if (downstreamNames.length > 0) {
-              chainHeading = `${teamNickname} turned ${rootPart} into ${downstreamNames.join(', ')}`;
+              chainHeading = `${rootPart} becomes ${downstreamNames.join(', ')}`;
             } else {
-              // No downstream — fallback to standard heading
               chainHeading = tradeHeading(entry.topAssets, entry.teams, entry.date);
             }
 
