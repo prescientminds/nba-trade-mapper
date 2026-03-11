@@ -25,16 +25,14 @@ interface TradeCard {
   date?: string;      // ISO date for historical team name lookup
 }
 
-/** Build heading from marquee players: "Harden for Martin", or fallback to team names */
+/** Build heading from marquee players: "Paul Sikma for Bobby Jackson", or fallback to team names */
 function tradeHeading(
   topAssets: string[] | undefined,
   teams: string[],
   tradeDate?: string,
 ): string {
-  const lastName = (name: string) => name.split(' ').pop() || name;
-
   if (topAssets) {
-    const names = topAssets.filter(Boolean).map(lastName);
+    const names = topAssets.filter(Boolean);
     if (names.length >= 2) return `${names[0]} for ${names[1]}`;
     if (names.length === 1) return `${names[0]} Trade`;
   }
@@ -1488,15 +1486,14 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             if (winnerData.chain <= winnerData.direct * 1.2) return null;
             const chainPlayers = flattenChainPlayers(winnerData.assets);
 
-            // Build narrative heading: "Turned Jackson into George, SGA, Williams…"
+            // Build narrative heading: "Turned FirstName LastName into A, B, C…"
             // The outgoing player = what the winning team SENT AWAY to start the chain
-            const lastName = (name: string) => name.split(' ').pop() || name;
             const winnerIdx = entry.teams.indexOf(winnerTeam);
             const outgoingPlayer = winnerIdx >= 0 && entry.topAssets?.[winnerIdx]
-              ? lastName(entry.topAssets[winnerIdx])
+              ? entry.topAssets[winnerIdx]
               : null;
             // All chain players sorted by WS — these are what the team got back
-            const chainNames = chainPlayers.map((p) => lastName(p.name));
+            const chainNames = chainPlayers.map((p) => p.name);
 
             let chainHeading: string;
             if (outgoingPlayer && chainNames.length > 0) {
@@ -1691,7 +1688,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
         const allCategories: Category[] = [
           {
             id: 'trade-tree',
-            label: 'Asset Chain Value',
+            label: 'Value Creation',
             description: 'Player 1 becomes Player 2, Player 3, Player 4 — follow how one trade ripples into the next.',
             accentColor: 'var(--accent-teal)',
             ...METRIC_DEFS['trade-tree'],

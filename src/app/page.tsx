@@ -21,6 +21,7 @@ import GapNode from '@/components/nodes/GapNode';
 import ChampionshipNode from '@/components/nodes/ChampionshipNode';
 import HighlightableEdge from '@/components/edges/HighlightableEdge';
 import SearchOverlay from '@/components/SearchOverlay';
+import ShareButton from '@/components/ShareButton';
 
 const nodeTypes = {
   trade: TradeNode,
@@ -277,6 +278,9 @@ function GraphToolbar() {
       {/* Reset / Home group */}
       <ToolbarButton icon={<IconReset />} label={isMobile ? undefined : "Reset"} title="Collapse all expansions back to initial view" onClick={collapseAll} isMobile={isMobile} />
       <ToolbarButton icon={<IconHome />} label={isMobile ? undefined : "Home"} title="Clear graph and start a new search" onClick={clearGraph} isMobile={isMobile} />
+
+      <Separator />
+      <ShareButton />
     </div>
   );
 }

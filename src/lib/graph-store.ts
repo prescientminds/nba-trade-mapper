@@ -171,6 +171,13 @@ export type ChainTeamData = {
   assets: ChainAsset[];
 };
 
+// ── Seed info for shareable links ────────────────────────────────────
+export type SeedInfo =
+  | { type: 'trade'; tradeId: string }
+  | { type: 'chain'; tradeId: string }
+  | { type: 'player'; playerName: string }
+  | { type: 'championship'; teamId: string; season: string };
+
 // ── Store shape ──────────────────────────────────────────────────────
 interface GraphState {
   nodes: Node[];
@@ -190,6 +197,7 @@ interface GraphState {
   followHighlightedEdges: Set<string>;
   followPath: { playerName: string; orderedNodeIds: string[]; currentIndex: number } | null;
   selectedLeague: League;
+  seedInfo: SeedInfo | null;
 
   setSelectedLeague: (league: League) => void;
   onNodesChange: OnNodesChange;
@@ -793,6 +801,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   followHighlightedEdges: new Set(),
   followPath: null,
   selectedLeague: 'NBA' as League,
+  seedInfo: null,
   championshipContext: null,
 
   setSelectedLeague: (league: League) => {
@@ -865,6 +874,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       highlightedEdges: new Set(),
       followHighlightedEdges: new Set(),
       followPath: null,
+      seedInfo: null,
       championshipContext: null,
     });
   },
@@ -1252,6 +1262,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       loadingNodes: new Set(),
       coreNodes: new Set([node.id]),
       pendingFitTarget: node.id,
+      seedInfo: { type: 'trade', tradeId: trade.id },
     });
     // Auto-expand after a tick
     setTimeout(() => get().expandTradeNode(node.id), 50);
@@ -1415,6 +1426,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         playerAnchorDirections: new Map(),
         nextColumnIndex: 1, prevColumnIndex: -1,
         pendingFitTarget: fallbackNodes[0].id, expandedGapIds: new Set(),
+        seedInfo: { type: 'chain', tradeId },
       });
       setTimeout(() => get().expandTradeNode(fallbackNodes[0].id), 50);
       return;
@@ -1646,6 +1658,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       prevColumnIndex: -1,
       pendingFitTarget: rootNodeId,
       expandedGapIds: new Set(),
+      seedInfo: { type: 'chain', tradeId },
     });
 
     // Root trade is already in expandedSet — no toggle needed
@@ -2072,6 +2085,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         expandedNodes: new Set(),
         loadingNodes: new Set(),
         coreNodes: new Set([node.id]),
+        seedInfo: { type: 'player', playerName },
       });
       // Expand journey after a tick
       setTimeout(() => get().expandPlayerJourney(playerName, node.id), 50);
@@ -2088,7 +2102,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     if (staticTrades.length === 0) {
       const node = makePlayerNode(playerName, null, { x: 400, y: 300 });
-      set({ nodes: [node], edges: [], expandedNodes: new Set(), loadingNodes: new Set(), coreNodes: new Set([node.id]) });
+      set({ nodes: [node], edges: [], expandedNodes: new Set(), loadingNodes: new Set(), coreNodes: new Set([node.id]), seedInfo: { type: 'player', playerName } });
       return;
     }
 
@@ -2116,6 +2130,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       expandedNodes: newExpanded,
       loadingNodes: new Set(),
       coreNodes: newCore,
+      seedInfo: { type: 'player', playerName },
     });
   },
 
@@ -3713,6 +3728,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       prevColumnIndex: -1,
       pendingFitTarget: champNode.id,
       expandedGapIds: new Set(),
+      seedInfo: { type: 'championship', teamId, season },
       championshipContext: {
         teamId,
         season,

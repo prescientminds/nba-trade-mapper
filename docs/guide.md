@@ -18,7 +18,7 @@ Each expanded trade shows a score bar comparing what each team got. The team wit
 Use the +/− web buttons on any trade node to expand the graph outward — follow draft picks that became players, follow players through subsequent trades, see free agency connections. The graph grows as you explore.
 
 ### 6. Discover
-Click "Explore" to browse curated categories: Championship DNA, Heist Index, Asset Chain Value, The Alchemists, Blockbusters, The Journeymen. Each surfaces a different lens on 50 years of trade history.
+Click "Explore" to browse curated categories: Championship DNA, Heist Index, Value Creation, The Alchemists, Blockbusters, The Journeymen. Each surfaces a different lens on 50 years of trade history.
 
 ---
 
@@ -142,7 +142,7 @@ A game score of 20+ is a strong performance. 40+ is historic.
 
 | Category | What it shows |
 |----------|---------------|
-| Asset Chain Value | Trades where downstream re-trades created more value than the original deal |
+| Value Creation | Trades where downstream re-trades created more value than the original deal |
 | League Impact | Trades with total chain impact score above 50 |
 | The Alchemists | Teams that turned one trade into 4+ branches of value |
 | Heist Index | Most lopsided trades by score margin |

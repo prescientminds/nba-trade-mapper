@@ -65,6 +65,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const [scoreTooltipOpen, setScoreTooltipOpen] = useState(false);
   const [salaryTooltipTeam, setSalaryTooltipTeam] = useState<string | null>(null);
   const [salaryExpandedTeams, setSalaryExpandedTeams] = useState<Set<string>>(new Set());
+  const [pathLoading, setPathLoading] = useState<string | null>(null);
   useEffect(() => {
     if (!isExpanded || scoreFetched) return;
     setScoreFetched(true);
@@ -204,11 +205,26 @@ function TradeNodeComponent({ id, data }: NodeProps) {
     return false;
   };
 
-  const handlePathClick = (e: React.MouseEvent, asset: TransactionAsset) => {
+  const handlePathClick = async (e: React.MouseEvent, asset: TransactionAsset) => {
     e.stopPropagation();
-    if (isInGraph(asset)) return;
-    dismissHint(3);
-    expandPlayerFullPathFromTrade(id, asset);
+    const playerName = asset.player_name ?? asset.became_player_name;
+    if (!playerName || pathLoading) return;
+
+    // If already following this player, exit
+    if (followPath?.playerName === playerName) {
+      exitFollowPath();
+      return;
+    }
+
+    // If not on graph, load career first
+    if (!isInGraph(asset)) {
+      dismissHint(3);
+      setPathLoading(playerName);
+      await expandPlayerFullPathFromTrade(id, asset).finally(() => setPathLoading(null));
+    }
+
+    // Auto-start follow (centers on first stint, enables ▼ Next)
+    startFollowPath(playerName, id);
   };
 
   const handleInlineClick = (e: React.MouseEvent, asset: TransactionAsset) => {
@@ -919,37 +935,11 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             />
                           )}
 
-                          {/* Path button: show full career path (both before and after this trade) */}
-                          {!inGraph ? (
+                          {/* Path button: load career + auto-follow, or exit if already following */}
+                          {followPath?.playerName === playerName ? (
                             <div
                               className="nopan nodrag"
                               onClick={(e) => handlePathClick(e, asset)}
-                              style={{
-                                fontSize: 8,
-                                color: 'var(--text-muted)',
-                                padding: '1px 4px',
-                                borderRadius: 3,
-                                background: 'var(--bg-tertiary)',
-                                cursor: 'pointer',
-                                flexShrink: 0,
-                                whiteSpace: 'nowrap',
-                                transition: 'background 0.15s, color 0.15s',
-                              }}
-                              onMouseEnter={(e) => {
-                                e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-                                e.currentTarget.style.color = 'var(--text-primary)';
-                              }}
-                              onMouseLeave={(e) => {
-                                e.currentTarget.style.background = 'var(--bg-tertiary)';
-                                e.currentTarget.style.color = 'var(--text-muted)';
-                              }}
-                            >
-                              Path
-                            </div>
-                          ) : followPath?.playerName === playerName ? (
-                            <div
-                              className="nopan nodrag"
-                              onClick={(e) => { e.stopPropagation(); exitFollowPath(); }}
                               style={{
                                 fontSize: 8,
                                 color: '#f9c74f',
@@ -964,33 +954,43 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                               onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(249,199,79,0.25)'; }}
                               onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(249,199,79,0.12)'; }}
                             >
-                              {'\u2715'} Following
+                              {'\u2715'} Path
                             </div>
                           ) : (
                             <div
                               className="nopan nodrag"
-                              onClick={(e) => { e.stopPropagation(); startFollowPath(playerName, id); }}
+                              onClick={(e) => handlePathClick(e, asset)}
                               style={{
                                 fontSize: 8,
-                                color: 'var(--text-muted)',
+                                color: pathLoading === playerName ? 'var(--accent-orange)' : 'var(--text-muted)',
                                 padding: '1px 4px',
                                 borderRadius: 3,
                                 background: 'var(--bg-tertiary)',
-                                cursor: 'pointer',
+                                cursor: pathLoading === playerName ? 'default' : 'pointer',
                                 flexShrink: 0,
                                 whiteSpace: 'nowrap',
                                 transition: 'background 0.15s, color 0.15s',
                               }}
                               onMouseEnter={(e) => {
-                                e.currentTarget.style.background = 'rgba(249,199,79,0.15)';
-                                e.currentTarget.style.color = '#f9c74f';
+                                if (pathLoading !== playerName) {
+                                  e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+                                  e.currentTarget.style.color = 'var(--text-primary)';
+                                }
                               }}
                               onMouseLeave={(e) => {
                                 e.currentTarget.style.background = 'var(--bg-tertiary)';
-                                e.currentTarget.style.color = 'var(--text-muted)';
+                                e.currentTarget.style.color = pathLoading === playerName ? 'var(--accent-orange)' : 'var(--text-muted)';
                               }}
                             >
-                              Follow {'\u2192'}
+                              {pathLoading === playerName ? (
+                                <div style={{
+                                  width: 8, height: 8,
+                                  border: '1.5px solid var(--text-muted)',
+                                  borderTopColor: 'var(--accent-orange)',
+                                  borderRadius: '50%',
+                                  animation: 'spin 0.8s linear infinite',
+                                }} />
+                              ) : 'Path'}
                             </div>
                           )}
                         </div>
@@ -1227,36 +1227,10 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             }}
                           />
                         )}
-                        {!inGraph ? (
+                        {pickPlayerName && followPath?.playerName === pickPlayerName ? (
                           <div
                             className="nopan nodrag"
                             onClick={(e) => handlePathClick(e, asset)}
-                            style={{
-                              fontSize: 8,
-                              color: 'var(--text-muted)',
-                              padding: '1px 4px',
-                              borderRadius: 3,
-                              background: 'var(--bg-tertiary)',
-                              cursor: 'pointer',
-                              flexShrink: 0,
-                              whiteSpace: 'nowrap',
-                              transition: 'background 0.15s, color 0.15s',
-                            }}
-                            onMouseEnter={(e) => {
-                              e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-                              e.currentTarget.style.color = 'var(--text-primary)';
-                            }}
-                            onMouseLeave={(e) => {
-                              e.currentTarget.style.background = 'var(--bg-tertiary)';
-                              e.currentTarget.style.color = 'var(--text-muted)';
-                            }}
-                          >
-                            Path
-                          </div>
-                        ) : pickPlayerName && followPath?.playerName === pickPlayerName ? (
-                          <div
-                            className="nopan nodrag"
-                            onClick={(e) => { e.stopPropagation(); exitFollowPath(); }}
                             style={{
                               fontSize: 8,
                               color: '#f9c74f',
@@ -1271,36 +1245,44 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(249,199,79,0.25)'; }}
                             onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(249,199,79,0.12)'; }}
                           >
-                            {'\u2715'} Following
+                            {'\u2715'} Path
                           </div>
-                        ) : pickPlayerName ? (
+                        ) : (
                           <div
                             className="nopan nodrag"
-                            onClick={(e) => { e.stopPropagation(); startFollowPath(pickPlayerName, id); }}
+                            onClick={(e) => handlePathClick(e, asset)}
                             style={{
                               fontSize: 8,
-                              color: 'var(--text-muted)',
+                              color: pathLoading === pickPlayerName ? 'var(--accent-orange)' : 'var(--text-muted)',
                               padding: '1px 4px',
                               borderRadius: 3,
                               background: 'var(--bg-tertiary)',
-                              cursor: 'pointer',
+                              cursor: pathLoading === pickPlayerName ? 'default' : 'pointer',
                               flexShrink: 0,
                               whiteSpace: 'nowrap',
                               transition: 'background 0.15s, color 0.15s',
                             }}
                             onMouseEnter={(e) => {
-                              e.currentTarget.style.background = 'rgba(249,199,79,0.15)';
-                              e.currentTarget.style.color = '#f9c74f';
+                              if (pathLoading !== pickPlayerName) {
+                                e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+                                e.currentTarget.style.color = 'var(--text-primary)';
+                              }
                             }}
                             onMouseLeave={(e) => {
                               e.currentTarget.style.background = 'var(--bg-tertiary)';
-                              e.currentTarget.style.color = 'var(--text-muted)';
+                              e.currentTarget.style.color = pathLoading === pickPlayerName ? 'var(--accent-orange)' : 'var(--text-muted)';
                             }}
                           >
-                            Follow {'\u2192'}
+                            {pathLoading === pickPlayerName ? (
+                              <div style={{
+                                width: 8, height: 8,
+                                border: '1.5px solid var(--text-muted)',
+                                borderTopColor: 'var(--accent-orange)',
+                                borderRadius: '50%',
+                                animation: 'spin 0.8s linear infinite',
+                              }} />
+                            ) : 'Path'}
                           </div>
-                        ) : (
-                          <span style={{ fontSize: 7, color: 'var(--text-muted)' }}>on graph</span>
                         )}
                       </div>
 

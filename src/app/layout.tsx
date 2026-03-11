@@ -4,6 +4,17 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "NBA Trade Impact Mapper",
   description: "Trace the ripple effects of NBA trades across time",
+  openGraph: {
+    title: "NBA Trade Impact Mapper",
+    description: "Trace the ripple effects of NBA trades across time",
+    siteName: "NBA Trade Impact Mapper",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NBA Trade Impact Mapper",
+    description: "Trace the ripple effects of NBA trades across time",
+  },
 };
 
 // Prevent browser-level pinch zoom — let React Flow own all zoom gestures
