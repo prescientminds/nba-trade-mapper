@@ -3244,59 +3244,12 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   expandPlayerFullPathFromTrade: async (tradeNodeId_: string, asset: TransactionAsset) => {
     const state = get();
 
-    // Picks with became_player_name: find all trades involving that name and chain them
-    if (asset.asset_type === 'pick' || asset.asset_type === 'swap') {
-      if (!asset.became_player_name) {
-        // No resolved player — fall back to simple pick node
-        return get().expandPlayerFromTrade(tradeNodeId_, asset);
-      }
-
-      const pickName = asset.became_player_name;
-      const allTrades = await findAllTradesForName(pickName, get().selectedLeague);
-      const currentTradeId = tradeNodeId_.replace('trade-', '');
-      const otherTrades = allTrades.filter(t => t.id !== currentTradeId);
-
-      if (otherTrades.length > 0) {
-        // Player was traded elsewhere — show the trade chain
-        let newNodes = [...state.nodes];
-        let newEdges = [...state.edges];
-
-        const orderedTradeNodeIds: string[] = [];
-        for (const trade of allTrades) {
-          const tnId = tradeNodeId(trade.id);
-          orderedTradeNodeIds.push(tnId);
-          if (!newNodes.find(n => n.id === tnId)) {
-            const tradeWithDetails = staticTradeToTradeWithDetails(trade);
-            const node = makeTradeNode(tradeWithDetails, { x: 0, y: 0 });
-            newNodes.push(node);
-          }
-        }
-
-        for (let i = 0; i < orderedTradeNodeIds.length - 1; i++) {
-          const src = orderedTradeNodeIds[i];
-          const tgt = orderedTradeNodeIds[i + 1];
-          if (!edgeExists(newEdges, src, tgt)) {
-            newEdges.push(makeEdge(src, tgt));
-          }
-        }
-
-        const laid = await layoutGraph(newNodes, newEdges, tradeNodeId_, state.expandedNodes);
-        set({
-          nodes: laid,
-          edges: newEdges,
-        });
-
-        for (const trade of allTrades) {
-          const tnId = tradeNodeId(trade.id);
-          if (tnId !== tradeNodeId_ && !state.expandedNodes.has(tnId)) {
-            setTimeout(() => get().expandTradeNode(tnId), 100);
-          }
-        }
-
-        return;
-      }
-      // Player was only drafted (never traded) — fall through to show career journey
+    // Picks without a resolved player — fall back to simple pick node
+    if ((asset.asset_type === 'pick' || asset.asset_type === 'swap') && !asset.became_player_name) {
+      return get().expandPlayerFromTrade(tradeNodeId_, asset);
     }
+    // Picks with became_player_name: fall through to career journey code
+    // which creates stint nodes in a side column with inter-stint trades
 
     // Determine player name: from player asset or from pick's became_player_name
     const playerName = asset.player_name ?? asset.became_player_name;

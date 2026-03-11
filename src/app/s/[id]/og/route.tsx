@@ -1,23 +1,35 @@
+// Dynamic OG image for shared graphs.
+// Trade shares → rich Trade Verdict card with scores + players.
+// Other shares → basic title card (player journey, championship, chain).
+
 import { ImageResponse } from 'next/og';
 import { createClient } from '@supabase/supabase-js';
-
-// Team colors lookup (subset for OG rendering — Edge runtime can't import the full module)
-const TEAM_COLORS: Record<string, string> = {
-  ATL: '#E03A3E', BOS: '#007A33', BKN: '#A1A1A4', CHA: '#00788C',
-  CHI: '#CE1141', CLE: '#860038', DAL: '#00538C', DEN: '#FEC524',
-  DET: '#C8102E', GSW: '#FFC72C', HOU: '#CE1141', IND: '#FDBB30',
-  LAC: '#C8102E', LAL: '#552583', MEM: '#5D76A9', MIA: '#98002E',
-  MIL: '#00471B', MIN: '#236192', NOP: '#C8102E', NYK: '#006BB6',
-  OKC: '#007AC1', ORL: '#0077C0', PHI: '#006BB6', PHX: '#E56020',
-  POR: '#E03A3E', SAC: '#5A2D81', SAS: '#C4CED4', TOR: '#CE1141',
-  UTA: '#F9A01B', WAS: '#E31837',
-};
+import { tradeVerdictCard, CARD_TEAM_COLORS, type TeamScoreEntry } from '@/lib/card-templates';
+import { NBA_PLAYER_IDS } from '@/lib/nba-player-ids';
 
 export const runtime = 'edge';
 
+const NBA_HEADSHOT = (id: number) =>
+  `https://cdn.nba.com/headshots/nba/latest/1040x760/${id}.png`;
+
+function buildHeroImages(
+  teamScores: Record<string, TeamScoreEntry>,
+): Record<string, string> {
+  const result: Record<string, string> = {};
+  for (const [teamId, ts] of Object.entries(teamScores)) {
+    if (!ts.assets.length) continue;
+    const top = ts.assets.reduce((a, b) => (b.score > a.score ? b : a));
+    const nbaId = NBA_PLAYER_IDS[top.name];
+    if (nbaId) {
+      result[teamId] = NBA_HEADSHOT(nbaId);
+    }
+  }
+  return result;
+}
+
 export async function GET(
   _request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   const { id } = await params;
 
@@ -30,7 +42,7 @@ export async function GET(
   const sb = createClient(url, key);
   const { data } = await sb
     .from('shared_graphs')
-    .select('title, subtitle, teams, league')
+    .select('title, subtitle, teams, league, share_state')
     .eq('id', id)
     .single();
 
@@ -38,11 +50,41 @@ export async function GET(
     return new Response('Not found', { status: 404 });
   }
 
-  const { title, subtitle, teams, league } = data;
+  const { title, subtitle, teams, league, share_state } = data;
 
-  // Pick up to 2 team colors for accent bars
+  // ── Rich Trade Verdict card for trade shares ──────────────────
+  if (share_state?.seed?.type === 'trade') {
+    const tradeId = share_state.seed.tradeId;
+    const { data: scoreData } = await sb
+      .from('trade_scores')
+      .select('team_scores, winner, lopsidedness')
+      .eq('trade_id', tradeId)
+      .single();
+
+    if (scoreData) {
+      const heroImages = buildHeroImages(scoreData.team_scores);
+      return new ImageResponse(
+        tradeVerdictCard({
+          date: subtitle,
+          league,
+          teamScores: scoreData.team_scores,
+          winner: scoreData.winner,
+          lopsidedness: scoreData.lopsidedness,
+          heroImages,
+        }),
+        {
+          width: 1200,
+          height: 630,
+          headers: { 'Cache-Control': 'public, max-age=31536000, immutable' },
+        },
+      );
+    }
+  }
+
+  // ── Fallback: basic card (player journey, championship, chain, or missing scores) ──
+
   const teamColors = (teams as string[])
-    .map((t: string) => TEAM_COLORS[t])
+    .map((t: string) => CARD_TEAM_COLORS[t])
     .filter(Boolean)
     .slice(0, 2);
 
@@ -59,7 +101,6 @@ export async function GET(
           flexDirection: 'column',
           justifyContent: 'space-between',
           backgroundColor: '#0a0a0f',
-          padding: 0,
           fontFamily: 'Inter, system-ui, sans-serif',
         }}
       >
@@ -97,7 +138,6 @@ export async function GET(
           padding: '0 48px',
           gap: 16,
         }}>
-          {/* Title */}
           <div style={{
             fontSize: 52,
             fontWeight: 800,
@@ -109,7 +149,6 @@ export async function GET(
             {title}
           </div>
 
-          {/* Subtitle */}
           {subtitle && (
             <div style={{
               fontSize: 22,
@@ -121,7 +160,6 @@ export async function GET(
             </div>
           )}
 
-          {/* Team badges */}
           {teams && (teams as string[]).length > 0 && (
             <div style={{ display: 'flex', gap: 12, marginTop: 8 }}>
               {(teams as string[]).slice(0, 4).map((teamId: string) => (
@@ -130,7 +168,7 @@ export async function GET(
                   style={{
                     padding: '6px 16px',
                     borderRadius: 6,
-                    backgroundColor: TEAM_COLORS[teamId] || '#333',
+                    backgroundColor: CARD_TEAM_COLORS[teamId] || '#333',
                     color: '#ffffff',
                     fontSize: 16,
                     fontWeight: 700,

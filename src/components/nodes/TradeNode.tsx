@@ -66,6 +66,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const [salaryTooltipTeam, setSalaryTooltipTeam] = useState<string | null>(null);
   const [salaryExpandedTeams, setSalaryExpandedTeams] = useState<Set<string>>(new Set());
   const [pathLoading, setPathLoading] = useState<string | null>(null);
+  const [cardDownloading, setCardDownloading] = useState(false);
   useEffect(() => {
     if (!isExpanded || scoreFetched) return;
     setScoreFetched(true);
@@ -499,6 +500,55 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   }}
                 >
                   i
+                </span>
+
+                {/* Download card image */}
+                <span
+                  className="nopan nodrag"
+                  title="Download shareable card"
+                  onClick={async (e) => {
+                    e.stopPropagation();
+                    if (cardDownloading) return;
+                    setCardDownloading(true);
+                    try {
+                      const dateParam = trade.date ? `&date=${trade.date}` : '';
+                      const res = await fetch(`/api/card/trade/${trade.id}?format=og${dateParam}`);
+                      if (!res.ok) throw new Error('Failed');
+                      const blob = await res.blob();
+                      const url = URL.createObjectURL(blob);
+                      const a = document.createElement('a');
+                      a.href = url;
+                      a.download = `trade-${trade.id.slice(0, 8)}.png`;
+                      document.body.appendChild(a);
+                      a.click();
+                      document.body.removeChild(a);
+                      URL.revokeObjectURL(url);
+                    } catch { /* silently fail */ }
+                    setCardDownloading(false);
+                  }}
+                  style={{
+                    marginLeft: 'auto',
+                    width: 14, height: 14,
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: cardDownloading ? 'wait' : 'pointer',
+                    opacity: cardDownloading ? 0.4 : 0.5,
+                    transition: 'opacity 0.15s',
+                    flexShrink: 0,
+                  }}
+                  onMouseEnter={(e) => { if (!cardDownloading) e.currentTarget.style.opacity = '1'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.opacity = cardDownloading ? '0.4' : '0.5'; }}
+                >
+                  {cardDownloading ? (
+                    <svg width="10" height="10" viewBox="0 0 10 10" style={{ animation: 'spin 0.8s linear infinite' }}>
+                      <circle cx="5" cy="5" r="4" fill="none" stroke="var(--text-muted)" strokeWidth="1.5" strokeDasharray="18 8" />
+                    </svg>
+                  ) : (
+                    <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
+                      <path d="M8 1v9m0 0L4.5 6.5M8 10l3.5-3.5M2 13h12" stroke="var(--text-muted)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )}
                 </span>
 
               {/* Formula explanation — absolute overlay */}
