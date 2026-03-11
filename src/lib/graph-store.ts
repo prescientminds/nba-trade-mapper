@@ -3325,30 +3325,60 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const stints = groupIntoStints(allSeasons.filter(s => s.team_id));
     if (stints.length === 0) return;
 
-    // Find startIdx — first stint at to_team_id (for forward)
+    // Find startIdx — the stint at toTeamId that follows the fromTeamId stint
+    // for THIS trade. Simple "first stint at toTeamId" breaks for boomerang players
+    // (e.g., Gugliotta ATL→BOS→ATL: picks the old ATL stint instead of post-trade).
     let startIdx = -1;
-    for (let i = 0; i < stints.length; i++) {
-      if (stints[i].teamId === toTeamId) { startIdx = i; break; }
-    }
-    // Fallback: player was traded to toTeamId but never played there (immediately re-traded).
-    // Use the first stint after the fromTeamId stint instead.
-    if (startIdx === -1 && fromTeamId) {
-      let fromIdx = -1;
+    let fromStintIdx = -1; // The from-team stint that anchors this trade
+
+    if (fromTeamId) {
+      // Get trade season from the anchor trade node to disambiguate
+      const tradeNode = state.nodes.find(n => n.id === tradeNodeId_);
+      const tradeSeason = tradeNode ? (tradeNode.data as TradeNodeData).trade.season : null;
+
+      // Find the fromTeamId stint whose last season reaches the trade season
       for (let i = 0; i < stints.length; i++) {
-        if (stints[i].teamId === fromTeamId) { fromIdx = i; break; }
+        if (stints[i].teamId === fromTeamId) {
+          const lastSeason = stints[i].seasons[stints[i].seasons.length - 1].season;
+          if (!tradeSeason || lastSeason >= tradeSeason) {
+            fromStintIdx = i;
+            break;
+          }
+          fromStintIdx = i; // keep as fallback (latest before trade)
+        }
       }
-      if (fromIdx >= 0 && fromIdx + 1 < stints.length) {
-        startIdx = fromIdx + 1;
+
+      if (fromStintIdx >= 0) {
+        // Look for first toTeamId stint after the from-stint
+        for (let j = fromStintIdx + 1; j < stints.length; j++) {
+          if (stints[j].teamId === toTeamId) { startIdx = j; break; }
+        }
+        // Player never played for toTeamId (immediately re-traded) — use next stint
+        if (startIdx === -1 && fromStintIdx + 1 < stints.length) {
+          startIdx = fromStintIdx + 1;
+        }
+      }
+    }
+
+    // Fallback: no fromTeamId — use first stint at toTeamId
+    if (startIdx === -1) {
+      for (let i = 0; i < stints.length; i++) {
+        if (stints[i].teamId === toTeamId) { startIdx = i; break; }
       }
     }
     if (startIdx === -1) return;
 
-    // Find endIdx — last stint at from_team_id (for backward, only if from_team_id exists)
+    // Find endIdx — the from-stint for backward direction
     let endIdx = -1;
     const hasBackward = !!fromTeamId && fromTeamId !== toTeamId;
     if (hasBackward) {
-      for (let i = stints.length - 1; i >= 0; i--) {
-        if (stints[i].teamId === fromTeamId) { endIdx = i; break; }
+      if (fromStintIdx >= 0 && fromStintIdx < startIdx) {
+        endIdx = fromStintIdx;
+      } else {
+        // Fallback to original logic
+        for (let i = stints.length - 1; i >= 0; i--) {
+          if (stints[i].teamId === fromTeamId) { endIdx = i; break; }
+        }
       }
     }
     // If backward stint comes after forward stint, skip backward (data anomaly guard)
