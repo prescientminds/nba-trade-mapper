@@ -100,6 +100,87 @@ body {
   50% { opacity: 1; box-shadow: 0 0 12px rgba(249,199,79,0.5); }
 }
 
+/* ── Holographic Trading Card Skin ──────────────────────────────── */
+
+@property --holo-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes holo-rotate {
+  to { --holo-angle: 360deg; }
+}
+
+@keyframes holo-sheen {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Rainbow border via double-background technique */
+[data-skin="holographic"] .trade-card,
+[data-skin="holographic"] .stint-card {
+  position: relative;
+  border: 2px solid transparent !important;
+  border-top: 2px solid transparent !important;
+  border-left: 2px solid transparent !important;
+  background:
+    linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+    conic-gradient(from var(--holo-angle), #ff6b35, #f9c74f, #06d6a0, #4ecdc4, #9b5de5, #ef476f, #ff6b35) border-box !important;
+  animation: holo-rotate 4s linear infinite;
+  box-shadow:
+    0 0 8px rgba(155, 93, 229, 0.15),
+    0 0 20px rgba(78, 205, 196, 0.08) !important;
+}
+
+/* Moving light sheen across card surface */
+[data-skin="holographic"] .trade-card::after,
+[data-skin="holographic"] .stint-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.03) 45%,
+    rgba(255, 255, 255, 0.07) 50%,
+    rgba(255, 255, 255, 0.03) 55%,
+    transparent 60%
+  );
+  background-size: 250% 100%;
+  animation: holo-sheen 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Player pills + pick cards — rainbow border, subtler */
+[data-skin="holographic"] .player-pill,
+[data-skin="holographic"] .pick-card {
+  border: 2px solid transparent !important;
+  border-left: 2px solid transparent !important;
+  background:
+    linear-gradient(#0f0f18, #0f0f18) padding-box,
+    conic-gradient(from var(--holo-angle), #ff6b35, #f9c74f, #06d6a0, #4ecdc4, #9b5de5, #ef476f, #ff6b35) border-box !important;
+  animation: holo-rotate 4s linear infinite;
+}
+
+/* Hover intensify */
+[data-skin="holographic"] .trade-card:hover,
+[data-skin="holographic"] .stint-card:hover {
+  box-shadow:
+    0 0 12px rgba(155, 93, 229, 0.25),
+    0 0 30px rgba(78, 205, 196, 0.15),
+    0 0 40px rgba(255, 107, 53, 0.08) !important;
+}
+
+[data-skin="holographic"] .player-pill:hover,
+[data-skin="holographic"] .pick-card:hover {
+  box-shadow:
+    0 0 10px rgba(155, 93, 229, 0.2),
+    0 0 20px rgba(78, 205, 196, 0.1) !important;
+}
+
 /* ── React Flow dark theme overrides ─────────────────────────────── */
 
 .react-flow__background {

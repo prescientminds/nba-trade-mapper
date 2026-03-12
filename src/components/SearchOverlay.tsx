@@ -9,6 +9,7 @@ import DiscoverySection from '@/components/DiscoverySection';
 import { useHints } from '@/lib/use-hints';
 import { HintLabel } from '@/components/HintLabel';
 import type { League } from '@/lib/league';
+import { SKINS, type VisualSkin } from '@/lib/skins';
 import Link from 'next/link';
 
 export default function SearchOverlay() {
@@ -34,6 +35,8 @@ export default function SearchOverlay() {
   const nodes = useGraphStore((s) => s.nodes);
   const selectedLeague = useGraphStore((s) => s.selectedLeague);
   const setSelectedLeague = useGraphStore((s) => s.setSelectedLeague);
+  const visualSkin = useGraphStore((s) => s.visualSkin);
+  const setVisualSkin = useGraphStore((s) => s.setVisualSkin);
   const hintStep = useHints((s) => s.step);
   const dismissHint = useHints((s) => s.dismiss);
 
@@ -399,7 +402,7 @@ export default function SearchOverlay() {
           left: '50%',
           transform: 'translateX(-50%)',
           zIndex: 10,
-          width: 'min(calc(100vw - 80px), 400px)',
+          width: 'min(calc(100vw - 32px), 520px)',
           display: 'flex',
           alignItems: 'center',
           gap: 6,
@@ -431,6 +434,31 @@ export default function SearchOverlay() {
         <div style={{ position: 'relative', flex: 1 }}>
           {searchInput}
           {resultsDropdown}
+        </div>
+        <div style={{ display: 'flex', gap: 2 }}>
+          {SKINS.map((skin) => (
+            <button
+              key={skin.id}
+              onClick={() => setVisualSkin(skin.id)}
+              style={{
+                padding: '6px 8px',
+                borderRadius: 6,
+                border: 'none',
+                background: visualSkin === skin.id
+                  ? (skin.id === 'holographic' ? 'linear-gradient(135deg, #ff6b35, #9b5de5)' : 'var(--accent-orange)')
+                  : 'var(--bg-elevated)',
+                color: visualSkin === skin.id ? '#fff' : 'var(--text-muted)',
+                cursor: 'pointer',
+                fontSize: 10,
+                fontWeight: 700,
+                fontFamily: 'var(--font-display)',
+                letterSpacing: 0.5,
+                transition: 'var(--transition-fast)',
+              }}
+            >
+              {skin.shortLabel}
+            </button>
+          ))}
         </div>
         {hintStep === 2 && (
           <HintLabel text="Click a node to expand it" style={{ marginLeft: 4 }} />
@@ -511,6 +539,40 @@ export default function SearchOverlay() {
                 }}
               >
                 {league}
+              </button>
+            ))}
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              gap: 6,
+              justifyContent: 'center',
+              marginTop: 10,
+            }}
+          >
+            {SKINS.map((skin) => (
+              <button
+                key={skin.id}
+                onClick={() => setVisualSkin(skin.id)}
+                style={{
+                  padding: '4px 14px',
+                  borderRadius: 999,
+                  border: visualSkin === skin.id
+                    ? '2px solid var(--accent-purple)'
+                    : '1px solid var(--border-medium)',
+                  background: visualSkin === skin.id
+                    ? (skin.id === 'holographic' ? 'linear-gradient(135deg, rgba(255,107,53,0.1), rgba(155,93,229,0.1))' : 'var(--accent-purple)11')
+                    : 'transparent',
+                  color: visualSkin === skin.id ? 'var(--accent-purple)' : 'var(--text-muted)',
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 12,
+                  fontWeight: visualSkin === skin.id ? 700 : 400,
+                  letterSpacing: 1,
+                  transition: 'var(--transition-fast)',
+                }}
+              >
+                {skin.label}
               </button>
             ))}
           </div>

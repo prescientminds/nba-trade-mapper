@@ -14,6 +14,7 @@ function PickNodeComponent({ id, data }: NodeProps) {
 
   return (
     <div
+      className="pick-card"
       onClick={() => hasAction && expandPickNode(id)}
       style={{
         width: 100,
