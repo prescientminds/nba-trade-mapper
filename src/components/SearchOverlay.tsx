@@ -404,38 +404,40 @@ export default function SearchOverlay() {
           zIndex: 10,
           width: 'min(calc(100vw - 32px), 520px)',
           display: 'flex',
-          alignItems: 'center',
-          gap: 6,
+          flexDirection: 'column',
+          gap: 4,
         }}
       >
-        <div style={{ display: 'flex', gap: 2 }}>
-          {(['NBA', 'WNBA'] as const).map((league) => (
-            <button
-              key={league}
-              onClick={() => handleLeagueSwitch(league)}
-              style={{
-                padding: '6px 8px',
-                borderRadius: 6,
-                border: 'none',
-                background: selectedLeague === league ? 'var(--accent-orange)' : 'var(--bg-elevated)',
-                color: selectedLeague === league ? '#fff' : 'var(--text-muted)',
-                cursor: 'pointer',
-                fontSize: 10,
-                fontWeight: 700,
-                fontFamily: 'var(--font-display)',
-                letterSpacing: 0.5,
-                transition: 'var(--transition-fast)',
-              }}
-            >
-              {league}
-            </button>
-          ))}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <div style={{ display: 'flex', gap: 2 }}>
+            {(['NBA', 'WNBA'] as const).map((league) => (
+              <button
+                key={league}
+                onClick={() => handleLeagueSwitch(league)}
+                style={{
+                  padding: '6px 8px',
+                  borderRadius: 6,
+                  border: 'none',
+                  background: selectedLeague === league ? 'var(--accent-orange)' : 'var(--bg-elevated)',
+                  color: selectedLeague === league ? '#fff' : 'var(--text-muted)',
+                  cursor: 'pointer',
+                  fontSize: 10,
+                  fontWeight: 700,
+                  fontFamily: 'var(--font-display)',
+                  letterSpacing: 0.5,
+                  transition: 'var(--transition-fast)',
+                }}
+              >
+                {league}
+              </button>
+            ))}
+          </div>
+          <div style={{ position: 'relative', flex: 1 }}>
+            {searchInput}
+            {resultsDropdown}
+          </div>
         </div>
-        <div style={{ position: 'relative', flex: 1 }}>
-          {searchInput}
-          {resultsDropdown}
-        </div>
-        <div style={{ display: 'flex', gap: 2 }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
           {SKINS.map((skin) => (
             <button
               key={skin.id}
@@ -445,7 +447,11 @@ export default function SearchOverlay() {
                 borderRadius: 6,
                 border: 'none',
                 background: visualSkin === skin.id
-                  ? (skin.id === 'holographic' ? 'linear-gradient(135deg, #ff6b35, #9b5de5)' : 'var(--accent-orange)')
+                  ? (skin.id === 'holographic'
+                      ? 'linear-gradient(135deg, #ff6b35, #9b5de5)'
+                      : skin.id === 'insideStuff'
+                        ? 'linear-gradient(135deg, #f5a623, #e8742a)'
+                        : 'var(--accent-orange)')
                   : 'var(--bg-elevated)',
                 color: visualSkin === skin.id ? '#fff' : 'var(--text-muted)',
                 cursor: 'pointer',
@@ -459,10 +465,10 @@ export default function SearchOverlay() {
               {skin.shortLabel}
             </button>
           ))}
+          {hintStep === 2 && (
+            <HintLabel text="Click a node to expand it" style={{ marginLeft: 4 }} />
+          )}
         </div>
-        {hintStep === 2 && (
-          <HintLabel text="Click a node to expand it" style={{ marginLeft: 4 }} />
-        )}
       </div>
     );
   }
@@ -541,65 +547,7 @@ export default function SearchOverlay() {
                 {league}
               </button>
             ))}
-            <div style={{ width: 1, height: 20, background: 'var(--border-medium)', margin: '0 4px' }} />
-            {SKINS.map((skin) => (
-              <button
-                key={skin.id}
-                onClick={() => setVisualSkin(skin.id)}
-                style={{
-                  padding: '6px 18px',
-                  borderRadius: 999,
-                  border: visualSkin === skin.id
-                    ? '2px solid var(--accent-purple)'
-                    : '1px solid var(--border-medium)',
-                  background: visualSkin === skin.id
-                    ? (skin.id === 'holographic' ? 'linear-gradient(135deg, rgba(255,107,53,0.1), rgba(155,93,229,0.1))' : 'var(--accent-purple)11')
-                    : 'transparent',
-                  color: visualSkin === skin.id ? 'var(--accent-purple)' : 'var(--text-muted)',
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-display)',
-                  fontSize: 14,
-                  fontWeight: visualSkin === skin.id ? 700 : 400,
-                  letterSpacing: 1,
-                  transition: 'var(--transition-fast)',
-                }}
-              >
-                {skin.label}
-              </button>
-            ))}
           </div>
-          <p
-            style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: 15,
-              color: 'var(--text-tertiary)',
-              marginTop: 12,
-            }}
-          >
-            Search for any player or trade to begin
-          </p>
-          <Link
-            href="/methodology"
-            style={{
-              display: 'inline-block',
-              marginTop: 10,
-              fontSize: 12,
-              color: 'var(--text-muted)',
-              textDecoration: 'none',
-              borderBottom: '1px solid var(--border-subtle)',
-              transition: 'var(--transition-fast)',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = 'var(--accent-orange)';
-              e.currentTarget.style.borderBottomColor = 'var(--accent-orange)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = 'var(--text-muted)';
-              e.currentTarget.style.borderBottomColor = 'var(--border-subtle)';
-            }}
-          >
-            How we score trades &rarr;
-          </Link>
         </div>
 
         {/* Search bar + dropdown */}
@@ -611,6 +559,80 @@ export default function SearchOverlay() {
         >
           {searchInput}
           {resultsDropdown}
+        </div>
+
+        <p
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: 15,
+            color: 'var(--text-tertiary)',
+            marginTop: 16,
+            textAlign: 'center',
+          }}
+        >
+          Search for any player or trade to begin
+        </p>
+        <Link
+          href="/methodology"
+          style={{
+            display: 'inline-block',
+            marginTop: 10,
+            fontSize: 12,
+            color: 'var(--text-muted)',
+            textDecoration: 'none',
+            borderBottom: '1px solid var(--border-subtle)',
+            transition: 'var(--transition-fast)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = 'var(--accent-orange)';
+            e.currentTarget.style.borderBottomColor = 'var(--accent-orange)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = 'var(--text-muted)';
+            e.currentTarget.style.borderBottomColor = 'var(--border-subtle)';
+          }}
+        >
+          How we score trades &rarr;
+        </Link>
+        <div
+          style={{
+            display: 'flex',
+            gap: 6,
+            justifyContent: 'center',
+            marginTop: 12,
+          }}
+        >
+          {SKINS.map((skin) => (
+            <button
+              key={skin.id}
+              onClick={() => setVisualSkin(skin.id)}
+              style={{
+                padding: '6px 18px',
+                borderRadius: 999,
+                border: visualSkin === skin.id
+                  ? `2px solid ${skin.id === 'insideStuff' ? '#f5a623' : 'var(--accent-purple)'}`
+                  : '1px solid var(--border-medium)',
+                background: visualSkin === skin.id
+                  ? (skin.id === 'holographic'
+                      ? 'linear-gradient(135deg, rgba(255,107,53,0.1), rgba(155,93,229,0.1))'
+                      : skin.id === 'insideStuff'
+                        ? 'rgba(245, 166, 35, 0.1)'
+                        : 'var(--accent-purple)11')
+                  : 'transparent',
+                color: visualSkin === skin.id
+                  ? (skin.id === 'insideStuff' ? '#f5a623' : 'var(--accent-purple)')
+                  : 'var(--text-muted)',
+                cursor: 'pointer',
+                fontFamily: 'var(--font-display)',
+                fontSize: 14,
+                fontWeight: visualSkin === skin.id ? 700 : 400,
+                letterSpacing: 1,
+                transition: 'var(--transition-fast)',
+              }}
+            >
+              {skin.label}
+            </button>
+          ))}
         </div>
 
         {hintStep === 1 && (

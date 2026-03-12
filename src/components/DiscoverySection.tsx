@@ -348,6 +348,7 @@ function TradeCardItem({
 
   return (
     <button
+      className="discovery-card"
       onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -539,6 +540,7 @@ function PlayerCardItem({ card, onClick }: { card: PlayerCard; onClick: () => vo
 
   return (
     <button
+      className="discovery-card"
       onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -636,6 +638,7 @@ function ChampionshipCardItem({ card, onClick }: { card: ChampionshipCard; onCli
 
   return (
     <button
+      className="discovery-card"
       onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}

@@ -219,6 +219,229 @@ body {
   animation: holo-sheen 0.6s ease-out forwards;
 }
 
+/* Discovery cards — holographic skin */
+[data-skin="holographic"] .discovery-card {
+  position: relative;
+  border: 2px solid transparent !important;
+  border-left: 2px solid transparent !important;
+  background:
+    linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+    conic-gradient(from var(--holo-angle), #ff6b35, #f9c74f, #06d6a0, #4ecdc4, #9b5de5, #ef476f, #ff6b35) border-box !important;
+  animation: holo-rotate 4s linear infinite;
+  box-shadow:
+    0 0 8px rgba(155, 93, 229, 0.15),
+    0 0 20px rgba(78, 205, 196, 0.08) !important;
+  overflow: hidden;
+}
+
+[data-skin="holographic"] .discovery-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.03) 45%,
+    rgba(255, 255, 255, 0.07) 50%,
+    rgba(255, 255, 255, 0.03) 55%,
+    transparent 60%
+  );
+  background-size: 250% 100%;
+  background-position: 200% 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+[data-skin="holographic"] .discovery-card:hover {
+  box-shadow:
+    0 0 12px rgba(155, 93, 229, 0.25),
+    0 0 30px rgba(78, 205, 196, 0.15),
+    0 0 40px rgba(255, 107, 53, 0.08) !important;
+}
+
+[data-skin="holographic"] .discovery-card:hover::after {
+  animation: holo-sheen 0.6s ease-out forwards;
+}
+
+/* ── Inside Stuff Skin — 90s NBA Saturday Morning ──────────────── */
+
+/* Override CSS custom properties for purple-indigo palette */
+[data-skin="insideStuff"] {
+  --bg-primary: #0f0a2e;
+  --bg-secondary: #150f38;
+  --bg-tertiary: #1e1548;
+  --bg-card: #1a1040;
+  --bg-elevated: #241a52;
+  --border-subtle: rgba(245, 166, 35, 0.12);
+  --border-medium: rgba(245, 166, 35, 0.22);
+}
+
+/* Gold border + glow on trade/stint cards */
+[data-skin="insideStuff"] .trade-card,
+[data-skin="insideStuff"] .stint-card {
+  position: relative;
+  border: 2px solid #f5a623 !important;
+  border-top: 2px solid #f5a623 !important;
+  border-left: 2px solid #f5a623 !important;
+  box-shadow:
+    0 0 8px rgba(245, 166, 35, 0.15),
+    0 2px 12px rgba(0, 0, 0, 0.4) !important;
+  overflow: hidden;
+}
+
+/* Diagonal stripe pattern overlay */
+[data-skin="insideStuff"] .trade-card::before,
+[data-skin="insideStuff"] .stint-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 8px,
+    rgba(245, 166, 35, 0.03) 8px,
+    rgba(245, 166, 35, 0.03) 9px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Gold sheen on hover */
+[data-skin="insideStuff"] .trade-card::after,
+[data-skin="insideStuff"] .stint-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(245, 166, 35, 0.05) 45%,
+    rgba(245, 166, 35, 0.12) 50%,
+    rgba(245, 166, 35, 0.05) 55%,
+    transparent 60%
+  );
+  background-size: 250% 100%;
+  background-position: 200% 0;
+  transition: none;
+  pointer-events: none;
+  z-index: 2;
+}
+
+[data-skin="insideStuff"] .trade-card:hover::after,
+[data-skin="insideStuff"] .stint-card:hover::after {
+  animation: holo-sheen 0.6s ease-out forwards;
+}
+
+[data-skin="insideStuff"] .trade-card:hover,
+[data-skin="insideStuff"] .stint-card:hover {
+  box-shadow:
+    0 0 12px rgba(245, 166, 35, 0.3),
+    0 0 24px rgba(245, 166, 35, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Player pills + pick cards — gold border */
+[data-skin="insideStuff"] .player-pill,
+[data-skin="insideStuff"] .pick-card {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #f5a623 !important;
+  border-left: 2px solid #f5a623 !important;
+  background: #1a1040 !important;
+}
+
+[data-skin="insideStuff"] .player-pill:hover,
+[data-skin="insideStuff"] .pick-card:hover {
+  box-shadow:
+    0 0 8px rgba(245, 166, 35, 0.2),
+    0 0 16px rgba(245, 166, 35, 0.1) !important;
+}
+
+[data-skin="insideStuff"] .player-pill::after,
+[data-skin="insideStuff"] .pick-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(245, 166, 35, 0.06) 45%,
+    rgba(245, 166, 35, 0.14) 50%,
+    rgba(245, 166, 35, 0.06) 55%,
+    transparent 60%
+  );
+  background-size: 250% 100%;
+  background-position: 200% 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+[data-skin="insideStuff"] .player-pill:hover::after,
+[data-skin="insideStuff"] .pick-card:hover::after {
+  animation: holo-sheen 0.6s ease-out forwards;
+}
+
+/* Discovery cards — Inside Stuff */
+[data-skin="insideStuff"] .discovery-card {
+  position: relative;
+  border: 2px solid #f5a623 !important;
+  border-left: 2px solid #f5a623 !important;
+  box-shadow:
+    0 0 8px rgba(245, 166, 35, 0.15),
+    0 2px 12px rgba(0, 0, 0, 0.4) !important;
+  overflow: hidden;
+}
+
+[data-skin="insideStuff"] .discovery-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 8px,
+    rgba(245, 166, 35, 0.03) 8px,
+    rgba(245, 166, 35, 0.03) 9px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-skin="insideStuff"] .discovery-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(245, 166, 35, 0.05) 45%,
+    rgba(245, 166, 35, 0.12) 50%,
+    rgba(245, 166, 35, 0.05) 55%,
+    transparent 60%
+  );
+  background-size: 250% 100%;
+  background-position: 200% 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+[data-skin="insideStuff"] .discovery-card:hover {
+  box-shadow:
+    0 0 12px rgba(245, 166, 35, 0.3),
+    0 0 24px rgba(245, 166, 35, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-skin="insideStuff"] .discovery-card:hover::after {
+  animation: holo-sheen 0.6s ease-out forwards;
+}
+
 /* ── React Flow dark theme overrides ─────────────────────────────── */
 
 .react-flow__background {
