@@ -541,21 +541,13 @@ export default function SearchOverlay() {
                 {league}
               </button>
             ))}
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              gap: 6,
-              justifyContent: 'center',
-              marginTop: 10,
-            }}
-          >
+            <div style={{ width: 1, height: 20, background: 'var(--border-medium)', margin: '0 4px' }} />
             {SKINS.map((skin) => (
               <button
                 key={skin.id}
                 onClick={() => setVisualSkin(skin.id)}
                 style={{
-                  padding: '4px 14px',
+                  padding: '6px 18px',
                   borderRadius: 999,
                   border: visualSkin === skin.id
                     ? '2px solid var(--accent-purple)'
@@ -566,7 +558,7 @@ export default function SearchOverlay() {
                   color: visualSkin === skin.id ? 'var(--accent-purple)' : 'var(--text-muted)',
                   cursor: 'pointer',
                   fontFamily: 'var(--font-display)',
-                  fontSize: 12,
+                  fontSize: 14,
                   fontWeight: visualSkin === skin.id ? 700 : 400,
                   letterSpacing: 1,
                   transition: 'var(--transition-fast)',
