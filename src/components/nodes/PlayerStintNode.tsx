@@ -66,6 +66,7 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
 
   return (
     <div
+      className="stint-card"
       style={{
         width: isExpanded ? 230 : 180,
         overflow: (isExpanded || canExpandBackward || isFollowTarget) ? 'visible' : 'hidden',

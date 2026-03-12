@@ -26,6 +26,7 @@ function PlayerNodeComponent({ id, data }: NodeProps) {
 
   return (
     <div
+      className="player-pill"
       onClick={() => { if (!isExpanded && !isLoading) { useHints.getState().dismiss(2); expandPlayerNode(id); } }}
       style={{
         width: 110,

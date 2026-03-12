@@ -10,6 +10,8 @@ import { ensureReadable, contrastText } from '@/lib/colors';
 import { getSupabase } from '@/lib/supabase';
 import { useHints } from '@/lib/use-hints';
 import { HintLabel } from '@/components/HintLabel';
+import { createPortal } from 'react-dom';
+import CardPreviewModal from '@/components/CardPreviewModal';
 
 function fmtSalary(n: number): string {
   if (n >= 1_000_000_000) return `$${(n / 1_000_000_000).toFixed(1)}B`;
@@ -66,7 +68,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const [salaryTooltipTeam, setSalaryTooltipTeam] = useState<string | null>(null);
   const [salaryExpandedTeams, setSalaryExpandedTeams] = useState<Set<string>>(new Set());
   const [pathLoading, setPathLoading] = useState<string | null>(null);
-  const [cardDownloading, setCardDownloading] = useState(false);
+  const [cardPreviewOpen, setCardPreviewOpen] = useState(false);
   useEffect(() => {
     if (!isExpanded || scoreFetched) return;
     setScoreFetched(true);
@@ -234,7 +236,9 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   };
 
   return (
+    <>
     <div
+      className="trade-card"
       onClick={() => { dismissHint(2); expandTradeNode(id); }}
       style={{
         width: cardWidth,
@@ -502,29 +506,13 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   i
                 </span>
 
-                {/* Download card image */}
+                {/* Download card image — opens preview modal */}
                 <span
                   className="nopan nodrag"
                   title="Download shareable card"
-                  onClick={async (e) => {
+                  onClick={(e) => {
                     e.stopPropagation();
-                    if (cardDownloading) return;
-                    setCardDownloading(true);
-                    try {
-                      const dateParam = trade.date ? `&date=${trade.date}` : '';
-                      const res = await fetch(`/api/card/trade/${trade.id}?format=og${dateParam}`);
-                      if (!res.ok) throw new Error('Failed');
-                      const blob = await res.blob();
-                      const url = URL.createObjectURL(blob);
-                      const a = document.createElement('a');
-                      a.href = url;
-                      a.download = `trade-${trade.id.slice(0, 8)}.png`;
-                      document.body.appendChild(a);
-                      a.click();
-                      document.body.removeChild(a);
-                      URL.revokeObjectURL(url);
-                    } catch { /* silently fail */ }
-                    setCardDownloading(false);
+                    setCardPreviewOpen(true);
                   }}
                   style={{
                     marginLeft: 'auto',
@@ -532,23 +520,17 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    cursor: cardDownloading ? 'wait' : 'pointer',
-                    opacity: cardDownloading ? 0.4 : 0.5,
-                    transition: 'opacity 0.15s',
+                    cursor: 'pointer',
                     flexShrink: 0,
+                    color: 'var(--text-muted)',
+                    transition: 'color 0.15s',
                   }}
-                  onMouseEnter={(e) => { if (!cardDownloading) e.currentTarget.style.opacity = '1'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.opacity = cardDownloading ? '0.4' : '0.5'; }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = '#f9c74f'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; }}
                 >
-                  {cardDownloading ? (
-                    <svg width="10" height="10" viewBox="0 0 10 10" style={{ animation: 'spin 0.8s linear infinite' }}>
-                      <circle cx="5" cy="5" r="4" fill="none" stroke="var(--text-muted)" strokeWidth="1.5" strokeDasharray="18 8" />
-                    </svg>
-                  ) : (
-                    <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
-                      <path d="M8 1v9m0 0L4.5 6.5M8 10l3.5-3.5M2 13h12" stroke="var(--text-muted)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  )}
+                  <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
+                    <path d="M8 1v9m0 0L4.5 6.5M8 10l3.5-3.5M2 13h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </span>
 
               {/* Formula explanation — absolute overlay */}
@@ -1469,6 +1451,15 @@ function TradeNodeComponent({ id, data }: NodeProps) {
 
       <Handle type="source" position={Position.Bottom} style={{ opacity: 0 }} />
     </div>
+    {cardPreviewOpen && createPortal(
+      <CardPreviewModal
+        tradeId={trade.id}
+        tradeDate={trade.date || undefined}
+        onClose={() => setCardPreviewOpen(false)}
+      />,
+      document.body,
+    )}
+    </>
   );
 }
 

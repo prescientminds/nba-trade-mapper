@@ -12,6 +12,7 @@ import { getAnyTeam, getAnyTeamDisplayInfo } from './teams';
 import { layoutGraph, layoutPlayerTimeline, resolveNodeOverlaps } from './graph-layout';
 import { searchStaticTrades, staticTradeToTradeWithDetails, loadSeason, loadTrade, loadSearchIndex } from './trade-data';
 import { type League, leagueForTeam } from './league';
+import type { VisualSkin } from './skins';
 import { getDraftInfo } from './draft-data';
 import type { StaticTrade } from './supabase';
 
@@ -197,9 +198,11 @@ interface GraphState {
   followHighlightedEdges: Set<string>;
   followPath: { playerName: string; orderedNodeIds: string[]; currentIndex: number } | null;
   selectedLeague: League;
+  visualSkin: VisualSkin;
   seedInfo: SeedInfo | null;
 
   setSelectedLeague: (league: League) => void;
+  setVisualSkin: (skin: VisualSkin) => void;
   onNodesChange: OnNodesChange;
   onEdgesChange: OnEdgesChange;
 
@@ -801,11 +804,16 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   followHighlightedEdges: new Set(),
   followPath: null,
   selectedLeague: 'NBA' as League,
+  visualSkin: 'classic' as VisualSkin,
   seedInfo: null,
   championshipContext: null,
 
   setSelectedLeague: (league: League) => {
     set({ selectedLeague: league });
+  },
+
+  setVisualSkin: (skin: VisualSkin) => {
+    set({ visualSkin: skin });
   },
 
   onNodesChange: (changes) => {

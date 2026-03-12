@@ -295,6 +295,7 @@ function GraphCanvas() {
   const clearHighlightedEdges = useGraphStore((s) => s.clearHighlightedEdges);
   const exitFollowPath = useGraphStore((s) => s.exitFollowPath);
   const expandedNodes = useGraphStore((s) => s.expandedNodes);
+  const visualSkin = useGraphStore((s) => s.visualSkin);
   const { fitView } = useReactFlow();
   const isMobile = useMobile();
   const prevExpandedRef = useRef<Set<string>>(new Set());
@@ -342,7 +343,7 @@ function GraphCanvas() {
   }, [expandedNodes, isMobile, fitView, pendingFitTarget]);
 
   return (
-    <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
+    <div data-skin={visualSkin} style={{ width: '100vw', height: '100vh', position: 'relative' }}>
       <SearchOverlay />
       <GraphToolbar />
       <div

@@ -71,6 +71,7 @@ export async function GET(
           winner: scoreData.winner,
           lopsidedness: scoreData.lopsidedness,
           heroImages,
+          format: 'og',
         }),
         {
           width: 1200,
