@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import type { SeasonDetailRow, PlayoffPeakGame, PlayoffSeries } from '@/lib/graph-store';
 
 function playoffBadge(result: string | null): { label: string; color: string; bg: string } | null {
@@ -224,9 +224,25 @@ export function ValueChart({ rows }: { rows: SeasonDetailRow[] }) {
   );
 }
 
-export function SeasonTable({ rows, onHeightChange }: { rows: SeasonDetailRow[]; onHeightChange?: (delta: number) => void }) {
+export function SeasonTable({ rows, onHeightChange, chartSignal = 0 }: { rows: SeasonDetailRow[]; onHeightChange?: (delta: number) => void; chartSignal?: number }) {
   const [expandedSeries, setExpandedSeries] = useState<{ season: string; opponentId: string } | null>(null);
-  const [showValueChart, setShowValueChart] = useState(false);
+  const [showValueChart, setShowValueChart] = useState(chartSignal > 0);
+  const prevChartSignal = useRef(chartSignal);
+
+  useEffect(() => {
+    if (chartSignal !== prevChartSignal.current) {
+      prevChartSignal.current = chartSignal;
+      if (chartSignal > 0) {
+        setShowValueChart(prev => {
+          if (!prev) {
+            onHeightChange?.(70);
+            return true;
+          }
+          return prev;
+        });
+      }
+    }
+  }, [chartSignal, onHeightChange]);
 
   const thStyle: React.CSSProperties = {
     fontSize: 8,

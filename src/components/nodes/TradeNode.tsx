@@ -69,6 +69,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const [salaryExpandedTeams, setSalaryExpandedTeams] = useState<Set<string>>(new Set());
   const [pathLoading, setPathLoading] = useState<string | null>(null);
   const [cardPreviewOpen, setCardPreviewOpen] = useState(false);
+  const [wsChartSignals, setWsChartSignals] = useState<Record<string, number>>({});
   useEffect(() => {
     if (!isExpanded || scoreFetched) return;
     setScoreFetched(true);
@@ -211,6 +212,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const handlePathClick = async (e: React.MouseEvent, asset: TransactionAsset) => {
     e.stopPropagation();
     const playerName = asset.player_name ?? asset.became_player_name;
+    console.log('[DEBUG Path click]', { playerName, pathLoading, tradeId: id, assetType: asset.asset_type });
     if (!playerName || pathLoading) return;
 
     // If already following this player, exit
@@ -233,6 +235,18 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const handleInlineClick = (e: React.MouseEvent, asset: TransactionAsset) => {
     e.stopPropagation();
     expandInlineTradePlayer(id, asset);
+  };
+
+  const handleWsClick = (e: React.MouseEvent, asset: TransactionAsset) => {
+    e.stopPropagation();
+    const name = asset.player_name ?? asset.became_player_name;
+    if (!name) return;
+    const existing = inlinePlayers?.[name];
+    const isAlreadyExpanded = !!existing && !existing.isLoading;
+    setWsChartSignals(prev => ({ ...prev, [name]: (prev[name] ?? 0) + 1 }));
+    if (!isAlreadyExpanded) {
+      expandInlineTradePlayer(id, asset);
+    }
   };
 
   return (
@@ -828,6 +842,30 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   </div>
                 )}
 
+                {/* Column header — WS label */}
+                {hasRenderableAssets && tradeScore?.team_scores[teamId]?.assets?.some(a => a.score > 0) && (
+                  <div style={{
+                    display: 'flex',
+                    justifyContent: 'flex-end',
+                    gap: 3,
+                    padding: '0 3px 1px',
+                    alignItems: 'center',
+                  }}>
+                    <span style={{
+                      fontSize: 6,
+                      fontWeight: 600,
+                      color: '#f9c74f',
+                      fontFamily: 'var(--font-mono)',
+                      letterSpacing: 0.3,
+                      opacity: 0.7,
+                    }}>
+                      WS
+                    </span>
+                    {/* Spacer matching Path button width */}
+                    <span style={{ width: 28, flexShrink: 0 }} />
+                  </div>
+                )}
+
                 {/* Assets */}
                 {hasRenderableAssets && assets.map((asset) => {
                   const inGraph = isInGraph(asset);
@@ -940,14 +978,26 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             </span>
                           </div>
 
-                          {/* Per-asset score */}
+                          {/* Per-asset score — gold clickable pill → opens WS vs Salary chart */}
                           {playerScore !== null && (
-                            <span style={{
-                              fontSize: 7,
-                              fontFamily: 'var(--font-mono)',
-                              color: 'var(--text-muted)',
-                              flexShrink: 0,
-                            }}>
+                            <span
+                              className="nopan nodrag"
+                              onClick={(e) => handleWsClick(e, asset)}
+                              style={{
+                                fontSize: 7,
+                                fontFamily: 'var(--font-mono)',
+                                color: '#f9c74f',
+                                flexShrink: 0,
+                                padding: '1px 4px',
+                                borderRadius: 3,
+                                background: 'rgba(249,199,79,0.12)',
+                                cursor: 'pointer',
+                                transition: 'background 0.15s',
+                              }}
+                              onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(249,199,79,0.25)'; }}
+                              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(249,199,79,0.12)'; }}
+                              title="Click to view WS vs Salary chart"
+                            >
                               {playerScore.toFixed(1)}
                             </span>
                           )}
@@ -992,6 +1042,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             <div
                               className="nopan nodrag"
                               onClick={(e) => handlePathClick(e, asset)}
+                              onPointerDown={(e) => console.log('[DEBUG Path pointerdown]', playerName, e.type)}
                               style={{
                                 fontSize: 8,
                                 color: pathLoading === playerName ? 'var(--accent-orange)' : 'var(--text-muted)',
@@ -1054,7 +1105,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                                 </span>
                               )}
                             </div>
-                            <SeasonTable rows={inlineData.seasonDetails} onHeightChange={(delta) => adjustLayoutForToggle(id, delta)} />
+                            <SeasonTable rows={inlineData.seasonDetails} onHeightChange={(delta) => adjustLayoutForToggle(id, delta)} chartSignal={wsChartSignals[playerName] ?? 0} />
                           </div>
                         )}
                       </div>
@@ -1234,14 +1285,26 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             </>
                           )}
                         </div>
-                        {/* Per-asset score for picks */}
+                        {/* Per-asset score for picks — gold clickable pill → opens WS vs Salary chart */}
                         {pickScore !== null && (
-                          <span style={{
-                            fontSize: 7,
-                            fontFamily: 'var(--font-mono)',
-                            color: 'var(--text-muted)',
-                            flexShrink: 0,
-                          }}>
+                          <span
+                            className="nopan nodrag"
+                            onClick={(e) => handleWsClick(e, asset)}
+                            style={{
+                              fontSize: 7,
+                              fontFamily: 'var(--font-mono)',
+                              color: '#f9c74f',
+                              flexShrink: 0,
+                              padding: '1px 4px',
+                              borderRadius: 3,
+                              background: 'rgba(249,199,79,0.12)',
+                              cursor: 'pointer',
+                              transition: 'background 0.15s',
+                            }}
+                            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(249,199,79,0.25)'; }}
+                            onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(249,199,79,0.12)'; }}
+                            title="Click to view WS vs Salary chart"
+                          >
                             {pickScore.toFixed(1)}
                           </span>
                         )}
@@ -1344,7 +1407,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                               </span>
                             )}
                           </div>
-                          <SeasonTable rows={pickInlineData.seasonDetails} onHeightChange={(delta) => adjustLayoutForToggle(id, delta)} />
+                          <SeasonTable rows={pickInlineData.seasonDetails} onHeightChange={(delta) => adjustLayoutForToggle(id, delta)} chartSignal={wsChartSignals[pickPlayerName!] ?? 0} />
                         </div>
                       )}
 
