@@ -100,6 +100,14 @@ body {
   50% { opacity: 1; box-shadow: 0 0 12px rgba(249,199,79,0.5); }
 }
 
+/* ── Shared: card content above skin overlays ──────────────────── */
+/* Pseudo-elements (sheen, spotlight, scanlines) sit at z-index:0.
+   Card children need z-index:1 to render above them. */
+[data-skin]:not([data-skin="classic"]) :is(.trade-card, .stint-card, .player-pill, .pick-card, .discovery-card) > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* ── Holographic Trading Card Skin ──────────────────────────────── */
 
 @property --holo-angle {
