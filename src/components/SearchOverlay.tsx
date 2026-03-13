@@ -438,40 +438,11 @@ export default function SearchOverlay() {
             {resultsDropdown}
           </div>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-          {SKINS.map((skin) => (
-            <button
-              key={skin.id}
-              onClick={() => setVisualSkin(skin.id)}
-              style={{
-                padding: '6px 8px',
-                borderRadius: 6,
-                border: 'none',
-                background: visualSkin === skin.id
-                  ? (skin.id === 'holographic'
-                      ? 'linear-gradient(135deg, #ff6b35, #9b5de5)'
-                      : skin.id === 'insideStuff'
-                        ? 'linear-gradient(135deg, #f5a623, #e8742a)'
-                        : skin.id === 'nbaJam'
-                          ? 'linear-gradient(135deg, #00CCCC, #008888)'
-                          : 'var(--accent-orange)')
-                  : 'var(--bg-elevated)',
-                color: visualSkin === skin.id ? '#fff' : 'var(--text-muted)',
-                cursor: 'pointer',
-                fontSize: 10,
-                fontWeight: 700,
-                fontFamily: 'var(--font-display)',
-                letterSpacing: 0.5,
-                transition: 'var(--transition-fast)',
-              }}
-            >
-              {skin.shortLabel}
-            </button>
-          ))}
-          {hintStep === 2 && (
-            <HintLabel text="Click a node to expand it" style={{ marginLeft: 4 }} />
-          )}
-        </div>
+        {hintStep === 2 && (
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <HintLabel text="Click a node to expand it" />
+          </div>
+        )}
       </div>
     );
   }

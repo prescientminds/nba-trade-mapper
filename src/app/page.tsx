@@ -22,6 +22,7 @@ import ChampionshipNode from '@/components/nodes/ChampionshipNode';
 import HighlightableEdge from '@/components/edges/HighlightableEdge';
 import SearchOverlay from '@/components/SearchOverlay';
 import ShareButton from '@/components/ShareButton';
+import { SKINS } from '@/lib/skins';
 
 const nodeTypes = {
   trade: TradeNode,
@@ -163,6 +164,8 @@ function GraphToolbar() {
   const championshipContext = useGraphStore((s) => s.championshipContext);
   const expandAllChampionshipPlayers = useGraphStore((s) => s.expandAllChampionshipPlayers);
   const expandChampionshipWeb = useGraphStore((s) => s.expandChampionshipWeb);
+  const visualSkin = useGraphStore((s) => s.visualSkin);
+  const setVisualSkin = useGraphStore((s) => s.setVisualSkin);
   const { zoomIn, zoomOut, fitView } = useReactFlow();
   const isMobile = useMobile();
   const [expanding, setExpanding] = useState(false);
@@ -281,6 +284,40 @@ function GraphToolbar() {
 
       <Separator />
       <ShareButton />
+
+      <Separator />
+      {/* Skin picker */}
+      <div style={{ display: 'flex', gap: 2 }}>
+        {SKINS.map((skin) => (
+          <button
+            key={skin.id}
+            onClick={() => setVisualSkin(skin.id)}
+            style={{
+              padding: isMobile ? '4px 5px' : '4px 7px',
+              borderRadius: 5,
+              border: 'none',
+              background: visualSkin === skin.id
+                ? (skin.id === 'holographic'
+                    ? 'linear-gradient(135deg, #ff6b35, #9b5de5)'
+                    : skin.id === 'insideStuff'
+                      ? 'linear-gradient(135deg, #f5a623, #e8742a)'
+                      : skin.id === 'nbaJam'
+                        ? 'linear-gradient(135deg, #00CCCC, #008888)'
+                        : 'var(--accent-orange)')
+                : 'transparent',
+              color: visualSkin === skin.id ? '#fff' : 'rgba(255,255,255,0.5)',
+              cursor: 'pointer',
+              fontSize: 9,
+              fontWeight: 700,
+              fontFamily: 'var(--font-display)',
+              letterSpacing: 0.4,
+              transition: 'var(--transition-fast)',
+            }}
+          >
+            {skin.shortLabel}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
