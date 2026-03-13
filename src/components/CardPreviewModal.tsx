@@ -1,8 +1,13 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { SKINS, type VisualSkin } from '@/lib/skins';
+import type { CardSkin } from '@/lib/card-templates';
 
 type Format = 'og' | 'square' | 'story';
+
+// Map graph visual skins to card skins (same IDs)
+const toCardSkin = (vs: VisualSkin): CardSkin => vs as CardSkin;
 
 const FORMAT_LABELS: Record<Format, string> = {
   og: 'Twitter / Link Preview',
@@ -39,20 +44,25 @@ const DEFAULT_SPOTLIGHT: Record<SpotlightKey, boolean> = {
 interface CardPreviewModalProps {
   tradeId: string;
   tradeDate?: string;
+  initialSkin?: VisualSkin;
   onClose: () => void;
 }
 
-export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPreviewModalProps) {
+export default function CardPreviewModal({ tradeId, tradeDate, initialSkin, onClose }: CardPreviewModalProps) {
   const [format, setFormat] = useState<Format>('og');
+  const [skin, setSkin] = useState<VisualSkin>(initialSkin || 'classic');
   const [spotlight, setSpotlight] = useState<Record<SpotlightKey, boolean>>({ ...DEFAULT_SPOTLIGHT });
   const [imgUrl, setImgUrl] = useState<string | null>(null);
+  const [imgBlob, setImgBlob] = useState<Blob | null>(null);
   const [loading, setLoading] = useState(true);
   const [downloading, setDownloading] = useState(false);
+  const [copied, setCopied] = useState(false);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const buildUrl = useCallback((fmt: Format, spot: Record<SpotlightKey, boolean>) => {
+  const buildUrl = useCallback((fmt: Format, sk: VisualSkin, spot: Record<SpotlightKey, boolean>) => {
     const params = new URLSearchParams();
     params.set('format', fmt);
+    if (sk !== 'classic') params.set('skin', toCardSkin(sk));
     if (tradeDate) params.set('date', tradeDate);
     // Only send non-default spotlight values to keep URL short
     for (const opt of SPOTLIGHT_OPTIONS) {
@@ -63,27 +73,31 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
     return `/api/card/trade/${tradeId}?${params.toString()}`;
   }, [tradeId, tradeDate]);
 
-  const fetchCard = useCallback(async (fmt: Format, spot: Record<SpotlightKey, boolean>) => {
+  const fetchCard = useCallback(async (fmt: Format, sk: VisualSkin, spot: Record<SpotlightKey, boolean>) => {
     setLoading(true);
     setImgUrl(null);
+    setImgBlob(null);
+    setCopied(false);
     try {
-      const res = await fetch(buildUrl(fmt, spot));
+      const res = await fetch(buildUrl(fmt, sk, spot));
       if (!res.ok) throw new Error('Failed');
       const blob = await res.blob();
       const url = URL.createObjectURL(blob);
       setImgUrl(url);
+      setImgBlob(blob);
     } catch {
       setImgUrl(null);
+      setImgBlob(null);
     }
     setLoading(false);
   }, [buildUrl]);
 
-  // Fetch on format change (immediate)
+  // Fetch on format or skin change (immediate)
   useEffect(() => {
-    fetchCard(format, spotlight);
+    fetchCard(format, skin, spotlight);
     return () => { if (imgUrl) URL.revokeObjectURL(imgUrl); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [format]);
+  }, [format, skin]);
 
   // Debounced fetch on spotlight change
   const toggleSpotlight = useCallback((key: SpotlightKey) => {
@@ -92,11 +106,11 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
       // Debounce the fetch
       if (debounceRef.current) clearTimeout(debounceRef.current);
       debounceRef.current = setTimeout(() => {
-        fetchCard(format, next);
+        fetchCard(format, skin, next);
       }, 300);
       return next;
     });
-  }, [format, fetchCard]);
+  }, [format, skin, fetchCard]);
 
   const handleDownload = async () => {
     if (!imgUrl || downloading) return;
@@ -108,6 +122,19 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
     a.click();
     document.body.removeChild(a);
     setDownloading(false);
+  };
+
+  const handleCopy = async () => {
+    if (!imgBlob || copied) return;
+    try {
+      await navigator.clipboard.write([
+        new ClipboardItem({ 'image/png': imgBlob }),
+      ]);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Fallback: some browsers don't support clipboard image write
+    }
   };
 
   const dims = FORMAT_DIMS[format];
@@ -149,7 +176,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
             fontSize: 14, fontWeight: 700, color: '#fff',
             fontFamily: 'var(--font-body)',
           }}>
-            Download Card
+            Share Card
           </span>
           <button
             onClick={onClose}
@@ -185,6 +212,55 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
               {FORMAT_LABELS[fmt]}
             </button>
           ))}
+        </div>
+
+        {/* Skin picker */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          <span style={{
+            fontSize: 10, fontWeight: 700, letterSpacing: 2,
+            color: 'rgba(255,255,255,0.3)',
+            textTransform: 'uppercase',
+            fontFamily: 'var(--font-body)',
+          }}>
+            Skin
+          </span>
+          <div style={{ display: 'flex', gap: 6 }}>
+            {SKINS.map((s) => {
+              const active = skin === s.id;
+              const skinAccent = s.id === 'holographic'
+                ? 'linear-gradient(135deg, #ff6b35, #9b5de5)'
+                : s.id === 'insideStuff'
+                  ? 'linear-gradient(135deg, #f5a623, #e8742a)'
+                  : s.id === 'nbaJam'
+                    ? 'linear-gradient(135deg, #00CCCC, #008888)'
+                    : undefined;
+              return (
+                <button
+                  key={s.id}
+                  onClick={() => setSkin(s.id)}
+                  style={{
+                    padding: '5px 12px',
+                    fontSize: 11,
+                    fontWeight: 700,
+                    fontFamily: 'var(--font-body)',
+                    color: active ? '#fff' : 'rgba(255,255,255,0.35)',
+                    background: active
+                      ? (skinAccent || '#f9c74f')
+                      : 'transparent',
+                    border: active
+                      ? '1px solid transparent'
+                      : '1px solid rgba(255,255,255,0.08)',
+                    borderRadius: 20,
+                    cursor: 'pointer',
+                    transition: 'all 0.15s',
+                    letterSpacing: 0.5,
+                  }}
+                >
+                  {s.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Spotlight toggles */}
@@ -281,31 +357,62 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
           {dims.w} &times; {dims.h}px &middot; PNG
         </div>
 
-        {/* Download button */}
-        <button
-          onClick={handleDownload}
-          disabled={!imgUrl || downloading}
-          style={{
-            padding: '10px 0',
-            fontSize: 13,
-            fontWeight: 700,
-            fontFamily: 'var(--font-body)',
-            color: imgUrl ? '#0f0f17' : 'rgba(255,255,255,0.2)',
-            background: imgUrl ? '#f9c74f' : 'rgba(255,255,255,0.06)',
-            border: 'none',
-            borderRadius: 8,
-            cursor: imgUrl ? 'pointer' : 'default',
-            transition: 'all 0.15s',
-          }}
-          onMouseEnter={(e) => {
-            if (imgUrl) e.currentTarget.style.background = '#fad366';
-          }}
-          onMouseLeave={(e) => {
-            if (imgUrl) e.currentTarget.style.background = '#f9c74f';
-          }}
-        >
-          {downloading ? 'Downloading...' : 'Download'}
-        </button>
+        {/* Action buttons */}
+        <div style={{ display: 'flex', gap: 10 }}>
+          {/* Copy to clipboard */}
+          <button
+            onClick={handleCopy}
+            disabled={!imgBlob}
+            style={{
+              flex: 1,
+              padding: '12px 0',
+              fontSize: 13,
+              fontWeight: 700,
+              fontFamily: 'var(--font-body)',
+              color: imgBlob ? '#ffffff' : 'rgba(255,255,255,0.2)',
+              background: imgBlob ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.03)',
+              border: imgBlob ? '1px solid rgba(255,255,255,0.15)' : '1px solid rgba(255,255,255,0.06)',
+              borderRadius: 8,
+              cursor: imgBlob ? 'pointer' : 'default',
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={(e) => {
+              if (imgBlob) e.currentTarget.style.background = 'rgba(255,255,255,0.12)';
+            }}
+            onMouseLeave={(e) => {
+              if (imgBlob) e.currentTarget.style.background = 'rgba(255,255,255,0.08)';
+            }}
+          >
+            {copied ? 'Copied!' : 'Copy Image'}
+          </button>
+
+          {/* Download */}
+          <button
+            onClick={handleDownload}
+            disabled={!imgUrl || downloading}
+            style={{
+              flex: 2,
+              padding: '14px 0',
+              fontSize: 14,
+              fontWeight: 700,
+              fontFamily: 'var(--font-body)',
+              color: imgUrl ? '#0f0f17' : 'rgba(255,255,255,0.2)',
+              background: imgUrl ? '#f9c74f' : 'rgba(255,255,255,0.06)',
+              border: 'none',
+              borderRadius: 8,
+              cursor: imgUrl ? 'pointer' : 'default',
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={(e) => {
+              if (imgUrl) e.currentTarget.style.background = '#fad366';
+            }}
+            onMouseLeave={(e) => {
+              if (imgUrl) e.currentTarget.style.background = '#f9c74f';
+            }}
+          >
+            {downloading ? 'Downloading...' : 'Download Card'}
+          </button>
+        </div>
       </div>
     </div>
   );

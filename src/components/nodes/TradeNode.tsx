@@ -70,6 +70,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const [salaryExpandedTeams, setSalaryExpandedTeams] = useState<Set<string>>(new Set());
   const [pathLoading, setPathLoading] = useState<string | null>(null);
   const [cardPreviewOpen, setCardPreviewOpen] = useState(false);
+  const visualSkin = useGraphStore((s) => s.visualSkin);
   const [wsChartSignals, setWsChartSignals] = useState<Record<string, number>>({});
   useEffect(() => {
     if (!isExpanded || scoreFetched) return;
@@ -1544,6 +1545,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
       <CardPreviewModal
         tradeId={trade.id}
         tradeDate={trade.date || undefined}
+        initialSkin={visualSkin}
         onClose={() => setCardPreviewOpen(false)}
       />,
       document.body,

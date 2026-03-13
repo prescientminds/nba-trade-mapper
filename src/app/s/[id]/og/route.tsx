@@ -4,28 +4,10 @@
 
 import { ImageResponse } from 'next/og';
 import { createClient } from '@supabase/supabase-js';
-import { tradeVerdictCard, CARD_TEAM_COLORS, type TeamScoreEntry } from '@/lib/card-templates';
-import { NBA_PLAYER_IDS } from '@/lib/nba-player-ids';
+import { tradeVerdictCard, CARD_TEAM_COLORS } from '@/lib/card-templates';
+import { buildHeroImages } from '@/lib/hero-images';
 
 export const runtime = 'edge';
-
-const NBA_HEADSHOT = (id: number) =>
-  `https://cdn.nba.com/headshots/nba/latest/1040x760/${id}.png`;
-
-function buildHeroImages(
-  teamScores: Record<string, TeamScoreEntry>,
-): Record<string, string> {
-  const result: Record<string, string> = {};
-  for (const [teamId, ts] of Object.entries(teamScores)) {
-    if (!ts.assets.length) continue;
-    const top = ts.assets.reduce((a, b) => (b.score > a.score ? b : a));
-    const nbaId = NBA_PLAYER_IDS[top.name];
-    if (nbaId) {
-      result[teamId] = NBA_HEADSHOT(nbaId);
-    }
-  }
-  return result;
-}
 
 export async function GET(
   _request: Request,

@@ -8,8 +8,8 @@
 
 import { ImageResponse } from 'next/og';
 import { createClient } from '@supabase/supabase-js';
-import { tradeVerdictCard, type TeamScoreEntry } from '@/lib/card-templates';
-import { NBA_PLAYER_IDS } from '@/lib/nba-player-ids';
+import { tradeVerdictCard, type CardSkin } from '@/lib/card-templates';
+import { buildHeroImages } from '@/lib/hero-images';
 
 export const runtime = 'edge';
 
@@ -18,25 +18,6 @@ const DIMS: Record<string, { width: number; height: number }> = {
   square: { width: 1080, height: 1080 },
   story:  { width: 1080, height: 1920 },
 };
-
-const NBA_HEADSHOT = (id: number) =>
-  `https://cdn.nba.com/headshots/nba/latest/1040x760/${id}.png`;
-
-/** Find the top-scoring player per team and return their headshot URL if available. */
-function buildHeroImages(
-  teamScores: Record<string, TeamScoreEntry>,
-): Record<string, string> {
-  const result: Record<string, string> = {};
-  for (const [teamId, ts] of Object.entries(teamScores)) {
-    if (!ts.assets.length) continue;
-    const top = ts.assets.reduce((a, b) => (b.score > a.score ? b : a));
-    const nbaId = NBA_PLAYER_IDS[top.name];
-    if (nbaId) {
-      result[teamId] = NBA_HEADSHOT(nbaId);
-    }
-  }
-  return result;
-}
 
 function parseBool(val: string | null, fallback: boolean): boolean {
   if (val === null) return fallback;
@@ -52,6 +33,7 @@ export async function GET(
   const date = url.searchParams.get('date');
   const league = url.searchParams.get('league') || 'NBA';
   const format = (url.searchParams.get('format') || 'og') as 'og' | 'square' | 'story';
+  const skin = (url.searchParams.get('skin') || 'classic') as CardSkin;
 
   // Spotlight toggles
   const spotlight = {
@@ -93,6 +75,7 @@ export async function GET(
       heroImages,
       format,
       spotlight,
+      skin,
     }),
     {
       ...dims,

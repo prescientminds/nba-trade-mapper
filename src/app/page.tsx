@@ -22,7 +22,9 @@ import ChampionshipNode from '@/components/nodes/ChampionshipNode';
 import HighlightableEdge from '@/components/edges/HighlightableEdge';
 import SearchOverlay from '@/components/SearchOverlay';
 import ShareButton from '@/components/ShareButton';
+import CardPreviewModal from '@/components/CardPreviewModal';
 import { SKINS } from '@/lib/skins';
+import { createPortal } from 'react-dom';
 
 const nodeTypes = {
   trade: TradeNode,
@@ -166,10 +168,12 @@ function GraphToolbar() {
   const expandChampionshipWeb = useGraphStore((s) => s.expandChampionshipWeb);
   const visualSkin = useGraphStore((s) => s.visualSkin);
   const setVisualSkin = useGraphStore((s) => s.setVisualSkin);
+  const seedInfo = useGraphStore((s) => s.seedInfo);
   const { zoomIn, zoomOut, fitView } = useReactFlow();
   const isMobile = useMobile();
   const [expanding, setExpanding] = useState(false);
   const [champExpanding, setChampExpanding] = useState(false);
+  const [cardModalOpen, setCardModalOpen] = useState(false);
 
   const handleFit = useCallback(() => {
     fitView({ padding: 0.3, duration: 400 });
@@ -284,6 +288,55 @@ function GraphToolbar() {
 
       <Separator />
       <ShareButton />
+
+      {/* Card creator button — only for trade seeds */}
+      {seedInfo?.type === 'trade' && (() => {
+        const tradeNode = nodes.find(n => n.type === 'trade' && (n.data as { trade: { id: string } }).trade.id === seedInfo.tradeId);
+        const tradeDate = tradeNode ? (tradeNode.data as { trade: { date?: string } }).trade.date || undefined : undefined;
+        return (
+          <>
+            <button
+              onClick={() => setCardModalOpen(true)}
+              title="Create shareable card image"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 4,
+                padding: isMobile ? '8px 10px' : '5px 8px',
+                minHeight: isMobile ? 36 : 'auto',
+                fontSize: 11,
+                fontWeight: 600,
+                fontFamily: 'var(--font-body)',
+                color: '#f9c74f',
+                background: 'transparent',
+                border: 'none',
+                borderRadius: 4,
+                cursor: 'pointer',
+                transition: 'background 0.15s',
+                whiteSpace: 'nowrap',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <polyline points="21 15 16 10 5 21" />
+              </svg>
+              {!isMobile && <span>Card</span>}
+            </button>
+            {cardModalOpen && createPortal(
+              <CardPreviewModal
+                tradeId={seedInfo.tradeId}
+                tradeDate={tradeDate}
+                initialSkin={visualSkin}
+                onClose={() => setCardModalOpen(false)}
+              />,
+              document.body,
+            )}
+          </>
+        );
+      })()}
 
       <Separator />
       {/* Skin picker */}
