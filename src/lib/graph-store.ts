@@ -241,6 +241,7 @@ interface GraphState {
   startFollowPath: (playerName: string, fromTradeNodeId: string) => Promise<void>;
   startFollowPathForPlayer: (playerName: string) => Promise<void>;
   advanceFollowPath: () => void;
+  retreatFollowPath: () => void;
   exitFollowPath: () => void;
   championshipContext: ChampionshipContext | null;
   seedChampionshipRoster: (teamId: string, season: string) => Promise<void>;
@@ -1056,6 +1057,20 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     set({
       followPath: { ...state.followPath, currentIndex: nextIndex },
       pendingFitTarget: orderedNodeIds[nextIndex],
+    });
+  },
+
+  retreatFollowPath: () => {
+    const state = get();
+    if (!state.followPath) return;
+
+    const { currentIndex } = state.followPath;
+    if (currentIndex <= 0) return;
+
+    const prevIndex = currentIndex - 1;
+    set({
+      followPath: { ...state.followPath, currentIndex: prevIndex },
+      pendingFitTarget: state.followPath.orderedNodeIds[prevIndex],
     });
   },
 

@@ -34,6 +34,7 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
   const adjustLayoutForToggle = useGraphStore((s) => s.adjustLayoutForToggle);
   const followPath = useGraphStore((s) => s.followPath);
   const advanceFollowPath = useGraphStore((s) => s.advanceFollowPath);
+  const retreatFollowPath = useGraphStore((s) => s.retreatFollowPath);
 
   const [showSparkline, setShowSparkline] = useState(false);
 
@@ -380,6 +381,33 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
             animation: 'spin 0.8s linear infinite',
           }}
         />
+      )}
+
+      {/* Follow indicator — Back button (left side) */}
+      {followPath && followPath.orderedNodeIds[followPath.currentIndex] === id && followPath.currentIndex > 0 && (
+        <div
+          className="nopan nodrag"
+          onClick={(e) => { e.stopPropagation(); retreatFollowPath(); }}
+          style={{
+            position: 'absolute',
+            left: -8,
+            top: '50%',
+            transform: 'translate(-100%, -50%)',
+            fontSize: 9,
+            fontWeight: 600,
+            color: '#f9c74f',
+            background: 'rgba(249,199,79,0.15)',
+            border: '1px solid rgba(249,199,79,0.3)',
+            borderRadius: 4,
+            padding: '1px 8px',
+            cursor: 'pointer',
+            whiteSpace: 'nowrap',
+            zIndex: 10,
+            animation: 'pulse-gold 2s ease-in-out infinite',
+          }}
+        >
+          {'\u25C0 Back'}
+        </div>
       )}
 
       {/* Follow indicator — pulsing gold ▼ Next button */}
