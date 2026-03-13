@@ -543,10 +543,12 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   onMouseEnter={(e) => { e.currentTarget.style.color = '#f9c74f'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; }}
                 >
-                  <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
-                    <rect x="1" y="2" width="14" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
-                    <circle cx="5" cy="6" r="1.5" fill="currentColor"/>
-                    <path d="M1 12l3.5-4 2.5 3 3-3.5L15 12" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg width="14" height="12" viewBox="0 0 21 17" fill="none">
+                    <rect x="1" y="4" width="14" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
+                    <circle cx="5" cy="8" r="1.3" fill="currentColor"/>
+                    <path d="M1 14l3.5-4 2.5 3 3-3.5L15 14" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+                    <line x1="18" y1="1" x2="18" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                    <line x1="15" y1="4" x2="21" y2="4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
                   </svg>
                 </span>
 
