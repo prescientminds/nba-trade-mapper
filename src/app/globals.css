@@ -227,9 +227,8 @@ body {
   animation: holo-sheen 0.6s ease-out forwards;
 }
 
-/* Discovery cards — holographic skin */
+/* Discovery cards — holographic (border + glow only, no pseudo overlays) */
 [data-skin="holographic"] .discovery-card {
-  position: relative;
   border: 2px solid transparent !important;
   border-left: 2px solid transparent !important;
   background:
@@ -239,26 +238,6 @@ body {
   box-shadow:
     0 0 8px rgba(155, 93, 229, 0.15),
     0 0 20px rgba(78, 205, 196, 0.08) !important;
-  overflow: hidden;
-}
-
-[data-skin="holographic"] .discovery-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    105deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.03) 45%,
-    rgba(255, 255, 255, 0.07) 50%,
-    rgba(255, 255, 255, 0.03) 55%,
-    transparent 60%
-  );
-  background-size: 250% 100%;
-  background-position: 200% 0;
-  pointer-events: none;
-  z-index: 0;
 }
 
 [data-skin="holographic"] .discovery-card:hover {
@@ -266,10 +245,6 @@ body {
     0 0 12px rgba(155, 93, 229, 0.25),
     0 0 30px rgba(78, 205, 196, 0.15),
     0 0 40px rgba(255, 107, 53, 0.08) !important;
-}
-
-[data-skin="holographic"] .discovery-card:hover::after {
-  animation: holo-sheen 0.6s ease-out forwards;
 }
 
 /* ── Inside Stuff Skin — 90s NBA Saturday Morning ──────────────── */
@@ -398,9 +373,8 @@ body {
   animation: holo-sheen 0.6s ease-out forwards;
 }
 
-/* Discovery cards — Inside Stuff */
+/* Discovery cards — Inside Stuff (border + glow only) */
 [data-skin="insideStuff"] .discovery-card {
-  position: relative;
   border: 2px solid transparent !important;
   border-left: 2px solid transparent !important;
   background:
@@ -409,41 +383,6 @@ body {
   box-shadow:
     0 0 10px rgba(245, 166, 35, 0.2),
     0 4px 20px rgba(0, 0, 0, 0.6) !important;
-  overflow: hidden;
-}
-
-[data-skin="insideStuff"] .discovery-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    ellipse at 15% 5%,
-    rgba(249, 199, 79, 0.10) 0%,
-    rgba(245, 166, 35, 0.03) 40%,
-    transparent 70%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
-[data-skin="insideStuff"] .discovery-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    105deg,
-    transparent 32%,
-    rgba(249, 199, 79, 0.06) 40%,
-    rgba(245, 166, 35, 0.16) 50%,
-    rgba(249, 199, 79, 0.06) 60%,
-    transparent 68%
-  );
-  background-size: 250% 100%;
-  background-position: 200% 0;
-  pointer-events: none;
-  z-index: 0;
 }
 
 [data-skin="insideStuff"] .discovery-card:hover {
@@ -451,10 +390,6 @@ body {
     0 0 14px rgba(245, 166, 35, 0.35),
     0 0 28px rgba(245, 166, 35, 0.15),
     0 6px 24px rgba(0, 0, 0, 0.6) !important;
-}
-
-[data-skin="insideStuff"] .discovery-card:hover::after {
-  animation: holo-sheen 0.6s ease-out forwards;
 }
 
 /* ── NBA Jam Skin — Arcade Fire ────────────────────────────────── */
@@ -603,53 +538,14 @@ body {
   animation: holo-sheen 0.6s ease-out forwards;
 }
 
-/* Discovery cards — NBA Jam */
+/* Discovery cards — NBA Jam (border + glow only) */
 [data-skin="nbaJam"] .discovery-card {
-  position: relative;
   border: 2px solid #00CCCC !important;
   border-left: 2px solid #00CCCC !important;
   box-shadow: 0 0 6px #00FFFF44, 0 0 14px #00FFFF22 !important;
-  overflow: hidden;
   animation: neon-pulse-subtle 3s ease-in-out infinite;
 }
 
-/* CRT scanlines on discovery cards */
-[data-skin="nbaJam"] .discovery-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.10) 2px,
-    rgba(0, 0, 0, 0.10) 4px
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
-[data-skin="nbaJam"] .discovery-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    105deg,
-    transparent 30%,
-    rgba(255, 136, 0, 0.04) 38%,
-    rgba(255, 68, 0, 0.14) 50%,
-    rgba(255, 136, 0, 0.04) 62%,
-    transparent 70%
-  );
-  background-size: 250% 100%;
-  background-position: 200% 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Fire hover on discovery cards */
 [data-skin="nbaJam"] .discovery-card:hover {
   border-color: #FF8800 !important;
   animation: none;
@@ -659,8 +555,101 @@ body {
     0 0 48px #FF000018 !important;
 }
 
-[data-skin="nbaJam"] .discovery-card:hover::after {
-  animation: holo-sheen 0.6s ease-out forwards;
+/* ── Full-Page Skin Atmosphere ─────────────────────────────────── */
+
+/* Inside Stuff — purple atmosphere + gold spotlights + star sparkles */
+[data-skin="insideStuff"] .welcome-overlay {
+  background:
+    radial-gradient(ellipse at 50% 8%, rgba(245, 166, 35, 0.07), transparent 45%),
+    radial-gradient(ellipse at 15% 55%, rgba(155, 93, 229, 0.05), transparent 40%),
+    radial-gradient(ellipse at 85% 35%, rgba(245, 166, 35, 0.04), transparent 40%),
+    var(--bg-primary) !important;
+}
+
+/* Gold star sparkles scattered across the page */
+[data-skin="insideStuff"] .welcome-overlay::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1.5px 1.5px at 8% 12%, #f9c74f, transparent),
+    radial-gradient(1px 1px at 22% 6%, rgba(249, 199, 79, 0.5), transparent),
+    radial-gradient(2px 2px at 45% 15%, #f9c74f, transparent),
+    radial-gradient(1px 1px at 68% 8%, rgba(249, 199, 79, 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 83% 20%, #f9c74f, transparent),
+    radial-gradient(1px 1px at 12% 35%, rgba(249, 199, 79, 0.4), transparent),
+    radial-gradient(2px 2px at 93% 42%, #f9c74f, transparent),
+    radial-gradient(1px 1px at 35% 50%, rgba(249, 199, 79, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 58% 32%, #f9c74f, transparent),
+    radial-gradient(1px 1px at 75% 52%, rgba(249, 199, 79, 0.4), transparent),
+    radial-gradient(1.5px 1.5px at 5% 62%, #f9c74f, transparent),
+    radial-gradient(1px 1px at 48% 68%, rgba(249, 199, 79, 0.6), transparent),
+    radial-gradient(2px 2px at 88% 65%, #f9c74f, transparent),
+    radial-gradient(1px 1px at 28% 78%, rgba(249, 199, 79, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 72% 75%, #f9c74f, transparent),
+    radial-gradient(1px 1px at 18% 88%, rgba(249, 199, 79, 0.4), transparent),
+    radial-gradient(2px 2px at 62% 85%, #f9c74f, transparent),
+    radial-gradient(1px 1px at 40% 92%, rgba(249, 199, 79, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 92% 88%, #f9c74f, transparent);
+}
+
+/* Inside Stuff — gold gradient title */
+[data-skin="insideStuff"] h1 {
+  background: linear-gradient(180deg, #f9c74f 0%, #f5a623 40%, #d4941e 70%, #f5a623 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  filter: drop-shadow(0 2px 8px rgba(245, 166, 35, 0.4));
+}
+
+/* Inside Stuff — gold search bar */
+[data-skin="insideStuff"] .search-box {
+  border: 1px solid rgba(245, 166, 35, 0.35) !important;
+  box-shadow: 0 0 12px rgba(245, 166, 35, 0.1), 0 0 24px rgba(245, 166, 35, 0.04);
+}
+
+/* NBA Jam — diamond plate pattern + CRT scanlines + vignette */
+[data-skin="nbaJam"] .welcome-overlay {
+  background-color: var(--bg-primary) !important;
+  background-image:
+    radial-gradient(ellipse at 50% 50%, transparent 50%, rgba(0, 0, 0, 0.4) 100%),
+    linear-gradient(45deg, rgba(0, 255, 255, 0.018) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0, 255, 255, 0.018) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0, 255, 255, 0.018) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0, 255, 255, 0.018) 75%) !important;
+  background-size: 100% 100%, 20px 20px, 20px 20px, 20px 20px, 20px 20px !important;
+}
+
+/* CRT scanlines across entire page */
+[data-skin="nbaJam"] .welcome-overlay::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.05) 2px,
+    rgba(0, 0, 0, 0.05) 4px
+  );
+}
+
+/* NBA Jam — neon cyan glow title */
+[data-skin="nbaJam"] h1 {
+  color: #00FFFF !important;
+  text-shadow:
+    0 0 10px rgba(0, 255, 255, 0.6),
+    0 0 20px rgba(0, 255, 255, 0.35),
+    0 0 40px rgba(0, 255, 255, 0.15),
+    0 0 80px rgba(0, 255, 255, 0.05) !important;
+}
+
+/* NBA Jam — neon search bar */
+[data-skin="nbaJam"] .search-box {
+  border: 1px solid rgba(0, 255, 255, 0.3) !important;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.15), 0 0 20px rgba(0, 255, 255, 0.05);
 }
 
 /* ── React Flow dark theme overrides ─────────────────────────────── */

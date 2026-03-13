@@ -131,6 +131,7 @@ export default function SearchOverlay() {
 
   const searchInput = (
     <div
+      className="search-box"
       style={{
         position: 'relative',
         background: 'var(--bg-elevated)',
@@ -482,6 +483,7 @@ export default function SearchOverlay() {
   return (
     <div
       ref={containerRef}
+      className="welcome-overlay"
       style={{
         position: 'absolute',
         inset: 0,
