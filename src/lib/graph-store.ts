@@ -1065,7 +1065,11 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     if (!state.followPath) return;
 
     const { currentIndex } = state.followPath;
-    if (currentIndex <= 0) return;
+    if (currentIndex <= 0) {
+      // At the start — exit follow mode
+      set({ followPath: null });
+      return;
+    }
 
     const prevIndex = currentIndex - 1;
     set({

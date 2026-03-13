@@ -384,7 +384,7 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
       )}
 
       {/* Follow indicator — Back button (left side) */}
-      {followPath && followPath.orderedNodeIds[followPath.currentIndex] === id && followPath.currentIndex > 0 && (
+      {followPath && followPath.orderedNodeIds[followPath.currentIndex] === id && (
         <div
           className="nopan nodrag"
           onClick={(e) => { e.stopPropagation(); retreatFollowPath(); }}
