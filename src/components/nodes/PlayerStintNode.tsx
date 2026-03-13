@@ -281,15 +281,15 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
               }}
               title="Win shares by season"
             >
-              <div style={{ fontSize: 9, color: showSparkline ? color : 'var(--text-secondary)', lineHeight: 1.1, display: 'flex', alignItems: 'center', gap: 2 }}>
+              <div style={{ fontSize: 9, color: showSparkline ? color : '#f9c74f', lineHeight: 1.1, display: 'flex', alignItems: 'center', gap: 2 }}>
                 <span>{totalWinShares.toFixed(1)}</span>
                 <svg width="7" height="7" viewBox="0 0 10 10" style={{ opacity: 0.6 }}>
-                  <rect x="0" y="5" width="2.5" height="5" fill={showSparkline ? color : 'currentColor'} rx="0.5" />
-                  <rect x="3.75" y="2" width="2.5" height="8" fill={showSparkline ? color : 'currentColor'} rx="0.5" />
-                  <rect x="7.5" y="4" width="2.5" height="6" fill={showSparkline ? color : 'currentColor'} rx="0.5" />
+                  <rect x="0" y="5" width="2.5" height="5" fill={showSparkline ? color : '#f9c74f'} rx="0.5" />
+                  <rect x="3.75" y="2" width="2.5" height="8" fill={showSparkline ? color : '#f9c74f'} rx="0.5" />
+                  <rect x="7.5" y="4" width="2.5" height="6" fill={showSparkline ? color : '#f9c74f'} rx="0.5" />
                 </svg>
               </div>
-              <div style={{ fontSize: 6, color: 'var(--text-muted)', letterSpacing: '0.03em' }}>
+              <div style={{ fontSize: 6, color: showSparkline ? color : '#f9c74f', letterSpacing: '0.03em' }}>
                 WS
               </div>
             </div>
