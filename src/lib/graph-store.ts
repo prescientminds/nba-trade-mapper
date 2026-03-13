@@ -1066,8 +1066,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     const { currentIndex } = state.followPath;
     if (currentIndex <= 0) {
-      // At the start — exit follow mode
-      set({ followPath: null, followHighlightedEdges: new Set() });
+      // At the start — nowhere to go, just stay put
       return;
     }
 

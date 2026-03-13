@@ -1485,11 +1485,12 @@ function TradeNodeComponent({ id, data }: NodeProps) {
         </div>
       )}
 
-      {/* Follow indicator — Back button (left side) */}
-      {followPath && followPath.orderedNodeIds[followPath.currentIndex] === id && (
+      {/* Follow indicator — Back button (left side, hidden at first stop) */}
+      {followPath && followPath.currentIndex > 0 && followPath.orderedNodeIds[followPath.currentIndex] === id && (
         <div
           className="nopan nodrag"
           onClick={(e) => { e.stopPropagation(); retreatFollowPath(); }}
+          onPointerDown={(e) => e.stopPropagation()}
           style={{
             position: 'absolute',
             left: -8,
@@ -1517,6 +1518,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
         <div
           className="nopan nodrag"
           onClick={(e) => { e.stopPropagation(); advanceFollowPath(); }}
+          onPointerDown={(e) => e.stopPropagation()}
           style={{
             position: 'absolute',
             bottom: -18,
