@@ -514,6 +514,60 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
         </div>
       )}
 
+      {/* Follow indicator — Back button (left side) */}
+      {followPath && followPath.orderedNodeIds[followPath.currentIndex] === id && (
+        <div
+          className="nopan nodrag"
+          onClick={(e) => { e.stopPropagation(); retreatFollowPath(); }}
+          style={{
+            position: 'absolute',
+            left: -8,
+            top: '50%',
+            transform: 'translate(-100%, -50%)',
+            fontSize: 9,
+            fontWeight: 600,
+            color: '#f9c74f',
+            background: 'rgba(249,199,79,0.15)',
+            border: '1px solid rgba(249,199,79,0.3)',
+            borderRadius: 4,
+            padding: '1px 8px',
+            cursor: 'pointer',
+            whiteSpace: 'nowrap',
+            zIndex: 10,
+            animation: 'pulse-gold 2s ease-in-out infinite',
+          }}
+        >
+          {'\u25C0 Back'}
+        </div>
+      )}
+
+      {/* Follow indicator — pulsing gold ▼ Next button */}
+      {followPath && followPath.orderedNodeIds[followPath.currentIndex] === id && (
+        <div
+          className="nopan nodrag"
+          onClick={(e) => { e.stopPropagation(); advanceFollowPath(); }}
+          style={{
+            position: 'absolute',
+            bottom: -18,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            fontSize: 9,
+            fontWeight: 600,
+            color: '#f9c74f',
+            background: 'rgba(249,199,79,0.15)',
+            border: '1px solid rgba(249,199,79,0.3)',
+            borderRadius: 4,
+            padding: '1px 8px',
+            cursor: 'pointer',
+            whiteSpace: 'nowrap',
+            zIndex: 10,
+            animation: 'pulse-gold 2s ease-in-out infinite',
+          }}
+        >
+          {followPath.currentIndex < followPath.orderedNodeIds.length - 1 ? '\u25BC Next' : '\u25CF'}
+        </div>
+      )}
+
       <Handle type="source" position={Position.Bottom} style={{ opacity: 0 }} />
     </div>
   );
