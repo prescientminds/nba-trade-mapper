@@ -16,6 +16,14 @@ import { resolveTeamId } from './lib/team-resolver';
 const SEASON_DIR = path.join(__dirname, '..', 'public', 'data', 'trades', 'by-season');
 const INDEX_PATH = path.join(__dirname, '..', 'public', 'data', 'trades', 'index.json');
 const DRAFT_CSV = path.join(__dirname, '..', 'data', 'kaggle', 'Draft Pick History.csv');
+const DRAFTS_JSON = path.join(__dirname, '..', 'public', 'data', 'drafts.json');
+
+interface DraftJsonEntry {
+  year: number;
+  round: number;
+  pick: number;
+  teamId: string;
+}
 
 interface DraftPick {
   season: number;      // end year (e.g. 2024 = 2023-24 season's draft)
@@ -158,11 +166,69 @@ async function main() {
     }
   }
 
-  console.log(`\nResults:`);
+  console.log(`\nPhase 1 — Forward enrichment (year/round → player name):`);
   console.log(`  Enriched: ${enriched} picks got became_player_name`);
   console.log(`  Already had: ${alreadyHad}`);
   console.log(`  Not found: ${notFound} (ambiguous or future pick)`);
   console.log(`  No year/round: ${noPick}`);
+
+  // ── Phase 2: Reverse enrichment ──────────────────────────────────────
+  // Picks that have became_player_name but missing pick_year/pick_round.
+  // Look up the player in drafts.json to back-fill the pick metadata.
+  console.log('\nPhase 2 — Reverse enrichment (player name → year/round)...');
+
+  let draftsJson: Record<string, DraftJsonEntry> = {};
+  if (fs.existsSync(DRAFTS_JSON)) {
+    draftsJson = JSON.parse(fs.readFileSync(DRAFTS_JSON, 'utf-8'));
+    console.log(`  ${Object.keys(draftsJson).length} draft entries loaded from drafts.json`);
+  } else {
+    console.log('  ⚠ drafts.json not found — skipping reverse enrichment');
+  }
+
+  let reverseEnriched = 0;
+  let reverseAlreadyHad = 0;
+  let reverseNotFound = 0;
+
+  if (Object.keys(draftsJson).length > 0) {
+    for (const file of seasonFiles) {
+      const filePath = path.join(SEASON_DIR, file);
+      const trades: StaticTrade[] = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      let modified = false;
+
+      for (const trade of trades) {
+        for (const asset of trade.assets) {
+          if (asset.type !== 'pick' && asset.type !== 'swap') continue;
+          if (!asset.became_player_name) continue;
+          if (asset.pick_year && asset.pick_round) {
+            reverseAlreadyHad++;
+            continue;
+          }
+
+          const entry = draftsJson[asset.became_player_name.toLowerCase()];
+          if (entry) {
+            asset.pick_year = entry.year;
+            asset.pick_round = entry.round;
+            if (!asset.original_team_id && !asset.from_team_id) {
+              asset.original_team_id = entry.teamId;
+            }
+            reverseEnriched++;
+            modified = true;
+          } else {
+            reverseNotFound++;
+          }
+        }
+      }
+
+      if (modified && !dryRun) {
+        fs.writeFileSync(filePath, JSON.stringify(trades, null, 2));
+      }
+    }
+  }
+
+  console.log(`\nPhase 2 — Reverse enrichment results:`);
+  console.log(`  Back-filled: ${reverseEnriched} picks got year/round from player name`);
+  console.log(`  Already had: ${reverseAlreadyHad}`);
+  console.log(`  Not found: ${reverseNotFound} (player not in drafts.json)`);
 
   if (dryRun) {
     console.log('\n(dry run — no files modified)');

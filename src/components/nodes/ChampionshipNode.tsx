@@ -28,6 +28,8 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
   const followPath = useGraphStore((s) => s.followPath);
   const startFollowPathForPlayer = useGraphStore((s) => s.startFollowPathForPlayer);
   const exitFollowPath = useGraphStore((s) => s.exitFollowPath);
+  const advanceFollowPath = useGraphStore((s) => s.advanceFollowPath);
+  const retreatFollowPath = useGraphStore((s) => s.retreatFollowPath);
   const adjustLayoutForToggle = useGraphStore((s) => s.adjustLayoutForToggle);
 
   const [pathLoading, setPathLoading] = useState<string | null>(null);

@@ -48,6 +48,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const followPath = useGraphStore((s) => s.followPath);
   const startFollowPath = useGraphStore((s) => s.startFollowPath);
   const advanceFollowPath = useGraphStore((s) => s.advanceFollowPath);
+  const retreatFollowPath = useGraphStore((s) => s.retreatFollowPath);
   const exitFollowPath = useGraphStore((s) => s.exitFollowPath);
   const adjustLayoutForToggle = useGraphStore((s) => s.adjustLayoutForToggle);
 
@@ -1480,6 +1481,33 @@ function TradeNodeComponent({ id, data }: NodeProps) {
           }}
         >
           +
+        </div>
+      )}
+
+      {/* Follow indicator — Back button (left side) */}
+      {followPath && followPath.orderedNodeIds[followPath.currentIndex] === id && (
+        <div
+          className="nopan nodrag"
+          onClick={(e) => { e.stopPropagation(); retreatFollowPath(); }}
+          style={{
+            position: 'absolute',
+            left: -8,
+            top: '50%',
+            transform: 'translate(-100%, -50%)',
+            fontSize: 9,
+            fontWeight: 600,
+            color: '#f9c74f',
+            background: 'rgba(249,199,79,0.15)',
+            border: '1px solid rgba(249,199,79,0.3)',
+            borderRadius: 4,
+            padding: '1px 8px',
+            cursor: 'pointer',
+            whiteSpace: 'nowrap',
+            zIndex: 10,
+            animation: 'pulse-gold 2s ease-in-out infinite',
+          }}
+        >
+          {'\u25C0 Back'}
         </div>
       )}
 

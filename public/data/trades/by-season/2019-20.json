@@ -265,8 +265,8 @@
     "id": "bbref-2019-07-06-515ce660",
     "date": "2019-07-06",
     "season": "2019-20",
-    "title": "Jarrett Culver, Cameron Johnson, Dario \u0160ari\u0107 Trade",
-    "description": "The Phoenix Suns traded Jarrett Culver to the Minnesota Timberwolves for Cameron Johnson and Dario \u0160ari\u0107.",
+    "title": "Jarrett Culver, Cameron Johnson, Dario Šarić Trade",
+    "description": "The Phoenix Suns traded Jarrett Culver to the Minnesota Timberwolves for Cameron Johnson and Dario Šarić.",
     "is_multi_team": false,
     "teams": [
       {
@@ -303,7 +303,7 @@
       },
       {
         "type": "player",
-        "player_name": "Dario \u0160ari\u0107",
+        "player_name": "Dario Šarić",
         "from_team_id": "MIN",
         "to_team_id": "PHX",
         "pick_year": null,
@@ -1087,7 +1087,7 @@
     "date": "2019-07-07",
     "season": "2019-20",
     "title": "Bruno Fernando, Jordan Bone Trade",
-    "description": "The Philadelphia 76ers traded Bruno Fernando to the Atlanta Hawks for Jordan Bone, a 2020 2nd round draft pick (Th\u00e9o Maledon was later selected) and a 2023 2nd round draft pick (Colby Jones was later selected). 2020 2nd-rd pick was 56-60 protected most favorable 2023 2nd-rd pick ended up as CHO own",
+    "description": "The Philadelphia 76ers traded Bruno Fernando to the Atlanta Hawks for Jordan Bone, a 2020 2nd round draft pick (Théo Maledon was later selected) and a 2023 2nd round draft pick (Colby Jones was later selected). 2020 2nd-rd pick was 56-60 protected most favorable 2023 2nd-rd pick ended up as CHO own",
     "is_multi_team": false,
     "teams": [
       {
@@ -1130,7 +1130,7 @@
         "pick_year": 2020,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Th\u00e9o Maledon",
+        "became_player_name": "Théo Maledon",
         "notes": null
       },
       {
@@ -1194,7 +1194,7 @@
         "pick_year": 2024,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Adem Bona",
         "notes": null
       }
     ]
@@ -1344,7 +1344,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Brandon Boston Jr.",
         "notes": null
       }
     ]
@@ -1406,8 +1406,8 @@
     "id": "bbref-2019-07-07-a9541ca1",
     "date": "2019-07-07",
     "season": "2019-20",
-    "title": "Tom\u00e1\u0161 Satoransk\u00fd Trade",
-    "description": "The Washington Wizards traded Tom\u00e1\u0161 Satoransk\u00fd and a 2022 2nd round draft pick (Kennedy Chandler was later selected) to the Chicago Bulls for a 2020 2nd round draft pick (Vit Krejci was later selected) and a 2022 2nd round draft pick (Christian Koloko was later selected). 2020 2nd-rd pick is more favorable of CHI and MEM 2022 2nd-rd pick is right to swap LAL pick for more favorable of CHI and DET 2022 2nd-rd pick is duty to swap",
+    "title": "Tomáš Satoranský Trade",
+    "description": "The Washington Wizards traded Tomáš Satoranský and a 2022 2nd round draft pick (Kennedy Chandler was later selected) to the Chicago Bulls for a 2020 2nd round draft pick (Vit Krejci was later selected) and a 2022 2nd round draft pick (Christian Koloko was later selected). 2020 2nd-rd pick is more favorable of CHI and MEM 2022 2nd-rd pick is right to swap LAL pick for more favorable of CHI and DET 2022 2nd-rd pick is duty to swap",
     "is_multi_team": false,
     "teams": [
       {
@@ -1422,7 +1422,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Tom\u00e1\u0161 Satoransk\u00fd",
+        "player_name": "Tomáš Satoranský",
         "from_team_id": "WAS",
         "to_team_id": "CHI",
         "pick_year": null,
@@ -2005,7 +2005,7 @@
     "date": "2019-07-16",
     "season": "2019-20",
     "title": "Russell Westbrook, Chris Paul, becomes $1MM Trade",
-    "description": "The Oklahoma City Thunder traded Russell Westbrook to the Houston Rockets for Chris Paul, a 2021 1st round draft pick, a 2024 1st round draft pick (Nikola Topi\u0107 was later selected), a 2025 1st round draft pick and a 2026 1st round draft pick. 2024 pick is top-4 protected 2026 pick is top-4 protected, becomes $1MM and 2026 second-round pick 2021 1st-rd pick is right to swap, top-4 protected, did not convey 2025 1st-rd pick is right to swap with HOU, top-20 protected; became PHO pick, did not convey and OKC got nothing",
+    "description": "The Oklahoma City Thunder traded Russell Westbrook to the Houston Rockets for Chris Paul, a 2021 1st round draft pick, a 2024 1st round draft pick (Nikola Topić was later selected), a 2025 1st round draft pick and a 2026 1st round draft pick. 2024 pick is top-4 protected 2026 pick is top-4 protected, becomes $1MM and 2026 second-round pick 2021 1st-rd pick is right to swap, top-4 protected, did not convey 2025 1st-rd pick is right to swap with HOU, top-20 protected; became PHO pick, did not convey and OKC got nothing",
     "is_multi_team": false,
     "teams": [
       {
@@ -2048,7 +2048,7 @@
         "pick_year": 2021,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Nikola Topi\u0107",
+        "became_player_name": "Nikola Topić",
         "notes": null
       },
       {
@@ -2059,7 +2059,7 @@
         "pick_year": 2024,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Nikola Topi\u0107",
+        "became_player_name": "Nikola Topić",
         "notes": null
       },
       {
@@ -2070,7 +2070,7 @@
         "pick_year": 2025,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Thomas Sorber",
         "notes": null
       },
       {
@@ -2669,7 +2669,7 @@
         "pick_year": 2022,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Moussa Diabaté",
         "notes": null
       }
     ]
@@ -2850,7 +2850,7 @@
         "pick_year": 2024,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Tyler Kolek",
         "notes": null
       }
     ]
@@ -3110,7 +3110,7 @@
         "pick_year": 2023,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "GG Jackson II",
         "notes": null
       },
       {
