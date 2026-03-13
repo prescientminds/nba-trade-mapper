@@ -45,22 +45,46 @@ export async function GET(
 
     if (scoreData) {
       const heroImages = buildHeroImages(scoreData.team_scores);
-      return new ImageResponse(
-        tradeVerdictCard({
-          date: subtitle,
-          league,
-          teamScores: scoreData.team_scores,
-          winner: scoreData.winner,
-          lopsidedness: scoreData.lopsidedness,
-          heroImages,
-          format: 'og',
-        }),
-        {
-          width: 1200,
-          height: 630,
-          headers: { 'Cache-Control': 'public, max-age=31536000, immutable' },
-        },
-      );
+      try {
+        return new ImageResponse(
+          tradeVerdictCard({
+            date: subtitle,
+            league,
+            teamScores: scoreData.team_scores,
+            winner: scoreData.winner,
+            lopsidedness: scoreData.lopsidedness,
+            heroImages,
+            format: 'og',
+          }),
+          {
+            width: 1200,
+            height: 630,
+            headers: { 'Cache-Control': 'public, max-age=86400' },
+          },
+        );
+      } catch {
+        // Satori failed (likely can't fetch NBA CDN headshots from edge).
+        // Try again without hero images.
+        try {
+          return new ImageResponse(
+            tradeVerdictCard({
+              date: subtitle,
+              league,
+              teamScores: scoreData.team_scores,
+              winner: scoreData.winner,
+              lopsidedness: scoreData.lopsidedness,
+              format: 'og',
+            }),
+            {
+              width: 1200,
+              height: 630,
+              headers: { 'Cache-Control': 'public, max-age=3600' },
+            },
+          );
+        } catch {
+          // Fall through to basic card below
+        }
+      }
     }
   }
 
@@ -184,7 +208,7 @@ export async function GET(
       width: 1200,
       height: 630,
       headers: {
-        'Cache-Control': 'public, max-age=31536000, immutable',
+        'Cache-Control': 'public, max-age=86400',
       },
     },
   );
