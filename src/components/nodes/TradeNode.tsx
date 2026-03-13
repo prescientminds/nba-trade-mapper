@@ -212,7 +212,6 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const handlePathClick = async (e: React.MouseEvent, asset: TransactionAsset) => {
     e.stopPropagation();
     const playerName = asset.player_name ?? asset.became_player_name;
-    console.log('[DEBUG Path click]', { playerName, pathLoading, tradeId: id, assetType: asset.asset_type });
     if (!playerName || pathLoading) return;
 
     // If already following this player, exit
@@ -1042,7 +1041,6 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             <div
                               className="nopan nodrag"
                               onClick={(e) => handlePathClick(e, asset)}
-                              onPointerDown={(e) => console.log('[DEBUG Path pointerdown]', playerName, e.type)}
                               style={{
                                 fontSize: 8,
                                 color: pathLoading === playerName ? 'var(--accent-orange)' : 'var(--text-muted)',

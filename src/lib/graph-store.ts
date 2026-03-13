@@ -2673,11 +2673,21 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       newExpanded.add(nodeId);
     }
 
+    // Boost z-index on expanded trade/championship nodes so their content
+    // stays above neighboring nodes that may overlap after layout
+    const nodesWithZ = state.nodes.map(n => {
+      const shouldBoost = newExpanded.has(n.id) && (n.type === 'trade' || n.type === 'championship');
+      const currentZ = n.zIndex;
+      const newZ = shouldBoost ? 100 : undefined;
+      if (currentZ === newZ) return n;
+      return { ...n, zIndex: newZ };
+    });
+
     if (state.layoutMode === 'timeline') {
-      const laid = layoutPlayerTimeline(state.nodes, state.edges, state.playerColumns, newExpanded, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections, nodeId);
+      const laid = layoutPlayerTimeline(nodesWithZ, state.edges, state.playerColumns, newExpanded, state.expandedGapIds, state.playerAnchorTrades, state.playerAnchorDirections, nodeId);
       set({ nodes: laid, expandedNodes: newExpanded });
     } else {
-      layoutGraph(state.nodes, state.edges, nodeId, newExpanded).then((laid) => {
+      layoutGraph(nodesWithZ, state.edges, nodeId, newExpanded).then((laid) => {
         set({ nodes: laid, expandedNodes: newExpanded });
       });
     }

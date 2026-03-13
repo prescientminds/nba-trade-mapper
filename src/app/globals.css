@@ -735,6 +735,13 @@ button, a, [role="button"] {
 
 /* ── End Mobile ──────────────────────────────────────────────────── */
 
+/* Ensure nodes layer renders above edges layer.
+   Without this, the 14px invisible edge hit area can capture clicks
+   on node content (Path buttons, inline toggles) when they overlap. */
+.react-flow__nodes {
+  z-index: 1;
+}
+
 /* Hide default node styling */
 .react-flow__node {
   background: transparent !important;
