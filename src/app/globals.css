@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Oswald:wght@700&family=Press+Start+2P&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -266,7 +266,7 @@ body {
 
 /* ── Inside Stuff Skin — 90s NBA Saturday Morning ──────────────── */
 
-/* Override CSS custom properties for purple-indigo palette */
+/* Purple-indigo palette + Oswald display font */
 [data-skin="insideStuff"] {
   --bg-primary: #0f0a2e;
   --bg-secondary: #150f38;
@@ -275,40 +275,43 @@ body {
   --bg-elevated: #241a52;
   --border-subtle: rgba(245, 166, 35, 0.12);
   --border-medium: rgba(245, 166, 35, 0.22);
+  --font-display: 'Oswald', 'Bebas Neue', sans-serif;
 }
 
-/* Gold border + glow on trade/stint cards */
+/* Gold chrome gradient border via double-background */
 [data-skin="insideStuff"] .trade-card,
 [data-skin="insideStuff"] .stint-card {
   position: relative;
-  border: 2px solid #f5a623 !important;
-  border-top: 2px solid #f5a623 !important;
-  border-left: 2px solid #f5a623 !important;
+  border: 2px solid transparent !important;
+  border-top: 2px solid transparent !important;
+  border-left: 2px solid transparent !important;
+  background:
+    linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+    linear-gradient(160deg, #f9c74f, #f5a623 25%, #d4941e 50%, #f5a623 75%, #f9c74f) border-box !important;
   box-shadow:
-    0 0 8px rgba(245, 166, 35, 0.15),
-    0 2px 12px rgba(0, 0, 0, 0.4) !important;
+    0 0 10px rgba(245, 166, 35, 0.2),
+    0 4px 20px rgba(0, 0, 0, 0.6) !important;
   overflow: hidden;
 }
 
-/* Diagonal stripe pattern overlay */
+/* Warm studio spotlight from top-left corner */
 [data-skin="insideStuff"] .trade-card::before,
 [data-skin="insideStuff"] .stint-card::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 8px,
-    rgba(245, 166, 35, 0.03) 8px,
-    rgba(245, 166, 35, 0.03) 9px
+  background: radial-gradient(
+    ellipse at 15% 5%,
+    rgba(249, 199, 79, 0.10) 0%,
+    rgba(245, 166, 35, 0.03) 40%,
+    transparent 70%
   );
   pointer-events: none;
   z-index: 1;
 }
 
-/* Gold sheen on hover */
+/* Gold chrome sheen sweep on hover */
 [data-skin="insideStuff"] .trade-card::after,
 [data-skin="insideStuff"] .stint-card::after {
   content: '';
@@ -317,11 +320,11 @@ body {
   border-radius: inherit;
   background: linear-gradient(
     105deg,
-    transparent 40%,
-    rgba(245, 166, 35, 0.05) 45%,
-    rgba(245, 166, 35, 0.12) 50%,
-    rgba(245, 166, 35, 0.05) 55%,
-    transparent 60%
+    transparent 32%,
+    rgba(249, 199, 79, 0.06) 40%,
+    rgba(245, 166, 35, 0.16) 50%,
+    rgba(249, 199, 79, 0.06) 60%,
+    transparent 68%
   );
   background-size: 250% 100%;
   background-position: 200% 0;
@@ -338,26 +341,28 @@ body {
 [data-skin="insideStuff"] .trade-card:hover,
 [data-skin="insideStuff"] .stint-card:hover {
   box-shadow:
-    0 0 12px rgba(245, 166, 35, 0.3),
-    0 0 24px rgba(245, 166, 35, 0.12),
-    0 4px 16px rgba(0, 0, 0, 0.5) !important;
+    0 0 14px rgba(245, 166, 35, 0.35),
+    0 0 28px rgba(245, 166, 35, 0.15),
+    0 6px 24px rgba(0, 0, 0, 0.6) !important;
 }
 
-/* Player pills + pick cards — gold border */
+/* Player pills + pick cards — gold chrome border */
 [data-skin="insideStuff"] .player-pill,
 [data-skin="insideStuff"] .pick-card {
   position: relative;
   overflow: hidden;
-  border: 2px solid #f5a623 !important;
-  border-left: 2px solid #f5a623 !important;
-  background: #1a1040 !important;
+  border: 2px solid transparent !important;
+  border-left: 2px solid transparent !important;
+  background:
+    linear-gradient(#1a1040, #1a1040) padding-box,
+    linear-gradient(160deg, #f9c74f, #f5a623 25%, #d4941e 75%, #f9c74f) border-box !important;
 }
 
 [data-skin="insideStuff"] .player-pill:hover,
 [data-skin="insideStuff"] .pick-card:hover {
   box-shadow:
-    0 0 8px rgba(245, 166, 35, 0.2),
-    0 0 16px rgba(245, 166, 35, 0.1) !important;
+    0 0 10px rgba(245, 166, 35, 0.25),
+    0 0 20px rgba(245, 166, 35, 0.1) !important;
 }
 
 [data-skin="insideStuff"] .player-pill::after,
@@ -368,11 +373,11 @@ body {
   border-radius: inherit;
   background: linear-gradient(
     105deg,
-    transparent 40%,
-    rgba(245, 166, 35, 0.06) 45%,
-    rgba(245, 166, 35, 0.14) 50%,
-    rgba(245, 166, 35, 0.06) 55%,
-    transparent 60%
+    transparent 32%,
+    rgba(249, 199, 79, 0.06) 40%,
+    rgba(245, 166, 35, 0.16) 50%,
+    rgba(249, 199, 79, 0.06) 60%,
+    transparent 68%
   );
   background-size: 250% 100%;
   background-position: 200% 0;
@@ -388,11 +393,14 @@ body {
 /* Discovery cards — Inside Stuff */
 [data-skin="insideStuff"] .discovery-card {
   position: relative;
-  border: 2px solid #f5a623 !important;
-  border-left: 2px solid #f5a623 !important;
+  border: 2px solid transparent !important;
+  border-left: 2px solid transparent !important;
+  background:
+    linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+    linear-gradient(160deg, #f9c74f, #f5a623 25%, #d4941e 50%, #f5a623 75%, #f9c74f) border-box !important;
   box-shadow:
-    0 0 8px rgba(245, 166, 35, 0.15),
-    0 2px 12px rgba(0, 0, 0, 0.4) !important;
+    0 0 10px rgba(245, 166, 35, 0.2),
+    0 4px 20px rgba(0, 0, 0, 0.6) !important;
   overflow: hidden;
 }
 
@@ -401,12 +409,11 @@ body {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 8px,
-    rgba(245, 166, 35, 0.03) 8px,
-    rgba(245, 166, 35, 0.03) 9px
+  background: radial-gradient(
+    ellipse at 15% 5%,
+    rgba(249, 199, 79, 0.10) 0%,
+    rgba(245, 166, 35, 0.03) 40%,
+    transparent 70%
   );
   pointer-events: none;
   z-index: 1;
@@ -419,11 +426,11 @@ body {
   border-radius: inherit;
   background: linear-gradient(
     105deg,
-    transparent 40%,
-    rgba(245, 166, 35, 0.05) 45%,
-    rgba(245, 166, 35, 0.12) 50%,
-    rgba(245, 166, 35, 0.05) 55%,
-    transparent 60%
+    transparent 32%,
+    rgba(249, 199, 79, 0.06) 40%,
+    rgba(245, 166, 35, 0.16) 50%,
+    rgba(249, 199, 79, 0.06) 60%,
+    transparent 68%
   );
   background-size: 250% 100%;
   background-position: 200% 0;
@@ -433,12 +440,218 @@ body {
 
 [data-skin="insideStuff"] .discovery-card:hover {
   box-shadow:
-    0 0 12px rgba(245, 166, 35, 0.3),
-    0 0 24px rgba(245, 166, 35, 0.12),
-    0 4px 16px rgba(0, 0, 0, 0.5) !important;
+    0 0 14px rgba(245, 166, 35, 0.35),
+    0 0 28px rgba(245, 166, 35, 0.15),
+    0 6px 24px rgba(0, 0, 0, 0.6) !important;
 }
 
 [data-skin="insideStuff"] .discovery-card:hover::after {
+  animation: holo-sheen 0.6s ease-out forwards;
+}
+
+/* ── NBA Jam Skin — Arcade Fire ────────────────────────────────── */
+
+@keyframes neon-pulse {
+  0%, 100% {
+    border-color: #00FFFF;
+    box-shadow: 0 0 6px #00FFFF44, 0 0 14px #00FFFF22;
+  }
+  50% {
+    border-color: #00CCCC;
+    box-shadow: 0 0 4px #00CCCC33, 0 0 8px #00CCCC11;
+  }
+}
+
+@keyframes neon-pulse-subtle {
+  0%, 100% {
+    box-shadow: 0 0 4px #00FFFF33, 0 0 10px #00FFFF18;
+  }
+  50% {
+    box-shadow: 0 0 2px #00CCCC22, 0 0 6px #00CCCC0d;
+  }
+}
+
+/* Pure black + neon cyan palette */
+[data-skin="nbaJam"] {
+  --bg-primary: #000000;
+  --bg-secondary: #060610;
+  --bg-tertiary: #0e0e1c;
+  --bg-card: #08081a;
+  --bg-elevated: #101028;
+  --border-subtle: rgba(0, 255, 255, 0.10);
+  --border-medium: rgba(0, 255, 255, 0.20);
+}
+
+/* Cyan neon border with pulse on trade/stint cards */
+[data-skin="nbaJam"] .trade-card,
+[data-skin="nbaJam"] .stint-card {
+  position: relative;
+  border: 2px solid #00FFFF !important;
+  border-top: 2px solid #00FFFF !important;
+  border-left: 2px solid #00FFFF !important;
+  box-shadow: 0 0 6px #00FFFF44, 0 0 14px #00FFFF22 !important;
+  overflow: hidden;
+  animation: neon-pulse 3s ease-in-out infinite;
+}
+
+/* CRT scanline overlay */
+[data-skin="nbaJam"] .trade-card::before,
+[data-skin="nbaJam"] .stint-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.10) 2px,
+    rgba(0, 0, 0, 0.10) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Fire sweep on hover */
+[data-skin="nbaJam"] .trade-card::after,
+[data-skin="nbaJam"] .stint-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 136, 0, 0.04) 38%,
+    rgba(255, 68, 0, 0.14) 50%,
+    rgba(255, 136, 0, 0.04) 62%,
+    transparent 70%
+  );
+  background-size: 250% 100%;
+  background-position: 200% 0;
+  transition: none;
+  pointer-events: none;
+  z-index: 2;
+}
+
+[data-skin="nbaJam"] .trade-card:hover::after,
+[data-skin="nbaJam"] .stint-card:hover::after {
+  animation: holo-sheen 0.6s ease-out forwards;
+}
+
+/* HE'S ON FIRE — border goes orange + fire glow on hover */
+[data-skin="nbaJam"] .trade-card:hover,
+[data-skin="nbaJam"] .stint-card:hover {
+  border-color: #FF8800 !important;
+  animation: none;
+  box-shadow:
+    0 0 10px #FF880066,
+    0 0 24px #FF440033,
+    0 0 48px #FF000018,
+    inset 0 0 8px #FF880011 !important;
+}
+
+/* Player pills + pick cards — neon cyan */
+[data-skin="nbaJam"] .player-pill,
+[data-skin="nbaJam"] .pick-card {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #00CCCC !important;
+  border-left: 2px solid #00CCCC !important;
+  background: #08081a !important;
+  box-shadow: 0 0 4px #00FFFF22 !important;
+}
+
+[data-skin="nbaJam"] .player-pill:hover,
+[data-skin="nbaJam"] .pick-card:hover {
+  border-color: #FF8800 !important;
+  box-shadow:
+    0 0 8px #FF880044,
+    0 0 18px #FF440022 !important;
+}
+
+[data-skin="nbaJam"] .player-pill::after,
+[data-skin="nbaJam"] .pick-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(0, 255, 255, 0.04) 40%,
+    rgba(0, 255, 255, 0.12) 50%,
+    rgba(0, 255, 255, 0.04) 60%,
+    transparent 70%
+  );
+  background-size: 250% 100%;
+  background-position: 200% 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+[data-skin="nbaJam"] .player-pill:hover::after,
+[data-skin="nbaJam"] .pick-card:hover::after {
+  animation: holo-sheen 0.6s ease-out forwards;
+}
+
+/* Discovery cards — NBA Jam */
+[data-skin="nbaJam"] .discovery-card {
+  position: relative;
+  border: 2px solid #00CCCC !important;
+  border-left: 2px solid #00CCCC !important;
+  box-shadow: 0 0 6px #00FFFF44, 0 0 14px #00FFFF22 !important;
+  overflow: hidden;
+  animation: neon-pulse-subtle 3s ease-in-out infinite;
+}
+
+/* CRT scanlines on discovery cards */
+[data-skin="nbaJam"] .discovery-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.10) 2px,
+    rgba(0, 0, 0, 0.10) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-skin="nbaJam"] .discovery-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 136, 0, 0.04) 38%,
+    rgba(255, 68, 0, 0.14) 50%,
+    rgba(255, 136, 0, 0.04) 62%,
+    transparent 70%
+  );
+  background-size: 250% 100%;
+  background-position: 200% 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Fire hover on discovery cards */
+[data-skin="nbaJam"] .discovery-card:hover {
+  border-color: #FF8800 !important;
+  animation: none;
+  box-shadow:
+    0 0 10px #FF880066,
+    0 0 24px #FF440033,
+    0 0 48px #FF000018 !important;
+}
+
+[data-skin="nbaJam"] .discovery-card:hover::after {
   animation: holo-sheen 0.6s ease-out forwards;
 }
 

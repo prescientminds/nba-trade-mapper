@@ -451,7 +451,9 @@ export default function SearchOverlay() {
                       ? 'linear-gradient(135deg, #ff6b35, #9b5de5)'
                       : skin.id === 'insideStuff'
                         ? 'linear-gradient(135deg, #f5a623, #e8742a)'
-                        : 'var(--accent-orange)')
+                        : skin.id === 'nbaJam'
+                          ? 'linear-gradient(135deg, #00CCCC, #008888)'
+                          : 'var(--accent-orange)')
                   : 'var(--bg-elevated)',
                 color: visualSkin === skin.id ? '#fff' : 'var(--text-muted)',
                 cursor: 'pointer',
@@ -610,17 +612,25 @@ export default function SearchOverlay() {
                 padding: '6px 18px',
                 borderRadius: 999,
                 border: visualSkin === skin.id
-                  ? `2px solid ${skin.id === 'insideStuff' ? '#f5a623' : 'var(--accent-purple)'}`
+                  ? `2px solid ${
+                      skin.id === 'insideStuff' ? '#f5a623'
+                      : skin.id === 'nbaJam' ? '#00CCCC'
+                      : 'var(--accent-purple)'
+                    }`
                   : '1px solid var(--border-medium)',
                 background: visualSkin === skin.id
                   ? (skin.id === 'holographic'
                       ? 'linear-gradient(135deg, rgba(255,107,53,0.1), rgba(155,93,229,0.1))'
                       : skin.id === 'insideStuff'
                         ? 'rgba(245, 166, 35, 0.1)'
-                        : 'var(--accent-purple)11')
+                        : skin.id === 'nbaJam'
+                          ? 'rgba(0, 204, 204, 0.1)'
+                          : 'var(--accent-purple)11')
                   : 'transparent',
                 color: visualSkin === skin.id
-                  ? (skin.id === 'insideStuff' ? '#f5a623' : 'var(--accent-purple)')
+                  ? (skin.id === 'insideStuff' ? '#f5a623'
+                    : skin.id === 'nbaJam' ? '#00FFFF'
+                    : 'var(--accent-purple)')
                   : 'var(--text-muted)',
                 cursor: 'pointer',
                 fontFamily: 'var(--font-display)',
