@@ -152,7 +152,7 @@ body {
   background-position: 200% 0;
   transition: none;
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
 }
 
 [data-skin="holographic"] .trade-card:hover::after,
@@ -211,7 +211,7 @@ body {
   background-size: 250% 100%;
   background-position: 200% 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
 }
 
 [data-skin="holographic"] .player-pill:hover::after,
@@ -250,7 +250,7 @@ body {
   background-size: 250% 100%;
   background-position: 200% 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
 }
 
 [data-skin="holographic"] .discovery-card:hover {
@@ -308,7 +308,7 @@ body {
     transparent 70%
   );
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
 }
 
 /* Gold chrome sheen sweep on hover */
@@ -330,7 +330,7 @@ body {
   background-position: 200% 0;
   transition: none;
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
 }
 
 [data-skin="insideStuff"] .trade-card:hover::after,
@@ -382,7 +382,7 @@ body {
   background-size: 250% 100%;
   background-position: 200% 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
 }
 
 [data-skin="insideStuff"] .player-pill:hover::after,
@@ -416,7 +416,7 @@ body {
     transparent 70%
   );
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
 }
 
 [data-skin="insideStuff"] .discovery-card::after {
@@ -435,7 +435,7 @@ body {
   background-size: 250% 100%;
   background-position: 200% 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
 }
 
 [data-skin="insideStuff"] .discovery-card:hover {
@@ -509,7 +509,7 @@ body {
     rgba(0, 0, 0, 0.10) 4px
   );
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
 }
 
 /* Fire sweep on hover */
@@ -531,7 +531,7 @@ body {
   background-position: 200% 0;
   transition: none;
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
 }
 
 [data-skin="nbaJam"] .trade-card:hover::after,
@@ -587,7 +587,7 @@ body {
   background-size: 250% 100%;
   background-position: 200% 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
 }
 
 [data-skin="nbaJam"] .player-pill:hover::after,
@@ -619,7 +619,7 @@ body {
     rgba(0, 0, 0, 0.10) 4px
   );
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
 }
 
 [data-skin="nbaJam"] .discovery-card::after {
@@ -638,7 +638,7 @@ body {
   background-size: 250% 100%;
   background-position: 200% 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
 }
 
 /* Fire hover on discovery cards */
