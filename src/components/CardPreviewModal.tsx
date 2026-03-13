@@ -81,6 +81,8 @@ export default function CardPreviewModal({ tradeId, tradeDate, initialSkin, onCl
     try {
       const res = await fetch(buildUrl(fmt, sk, spot));
       if (!res.ok) throw new Error('Failed');
+      const contentType = res.headers.get('content-type') || '';
+      if (!contentType.startsWith('image/')) throw new Error('Not an image');
       const blob = await res.blob();
       const url = URL.createObjectURL(blob);
       setImgUrl(url);
@@ -332,6 +334,10 @@ export default function CardPreviewModal({ tradeId, tradeDate, initialSkin, onCl
             <img
               src={imgUrl}
               alt="Trade card preview"
+              onError={() => {
+                setImgUrl(null);
+                setImgBlob(null);
+              }}
               style={{
                 width: '100%',
                 aspectRatio: `${aspect}`,

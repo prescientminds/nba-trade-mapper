@@ -2,6 +2,9 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://nbatrades.vercel.app",
+  ),
   title: "NBA Trade Impact Mapper",
   description: "Trace the ripple effects of NBA trades across time",
   openGraph: {

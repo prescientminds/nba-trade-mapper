@@ -521,10 +521,10 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   i
                 </span>
 
-                {/* Download card image — opens preview modal */}
+                {/* Create share card — opens preview modal */}
                 <span
                   className="nopan nodrag"
-                  title="Download shareable card"
+                  title="Create shareable card"
                   onClick={(e) => {
                     e.stopPropagation();
                     setCardPreviewOpen(true);
@@ -543,8 +543,10 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   onMouseEnter={(e) => { e.currentTarget.style.color = '#f9c74f'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; }}
                 >
-                  <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
-                    <path d="M8 1v9m0 0L4.5 6.5M8 10l3.5-3.5M2 13h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
+                    <rect x="1" y="2" width="14" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
+                    <circle cx="5" cy="6" r="1.5" fill="currentColor"/>
+                    <path d="M1 12l3.5-4 2.5 3 3-3.5L15 12" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </span>
 

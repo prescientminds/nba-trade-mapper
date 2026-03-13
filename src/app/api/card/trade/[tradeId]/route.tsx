@@ -65,21 +65,25 @@ export async function GET(
   const dims = DIMS[format] || DIMS.og;
   const heroImages = buildHeroImages(data.team_scores);
 
-  return new ImageResponse(
-    tradeVerdictCard({
-      date,
-      league,
-      teamScores: data.team_scores,
-      winner: data.winner,
-      lopsidedness: data.lopsidedness,
-      heroImages,
-      format,
-      spotlight,
-      skin,
-    }),
-    {
-      ...dims,
-      headers: { 'Cache-Control': 'public, max-age=86400' },
-    },
-  );
+  try {
+    return new ImageResponse(
+      tradeVerdictCard({
+        date,
+        league,
+        teamScores: data.team_scores,
+        winner: data.winner,
+        lopsidedness: data.lopsidedness,
+        heroImages,
+        format,
+        spotlight,
+        skin,
+      }),
+      {
+        ...dims,
+        headers: { 'Cache-Control': 'public, max-age=86400' },
+      },
+    );
+  } catch {
+    return new Response('Image generation failed', { status: 500 });
+  }
 }
