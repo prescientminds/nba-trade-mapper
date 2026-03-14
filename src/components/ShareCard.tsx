@@ -1,14 +1,15 @@
 'use client';
 
-/* eslint-disable @next/next/no-img-element */
-// ── Client-side share card — real DOM captured via html-to-image ──
-// Four skins: Classic (Panini Flawless), Holographic (Topps Chrome),
-// Inside Stuff (90s Skybox), NBA Jam (Fleer/Arcade).
-// Each skin dramatically transforms color, borders, and atmosphere.
+// ── Share card — redesigned with 4 distinct skins + headshot support ──
+// Classic (Fleer): cream/warm, team color borders, dark text
+// Prizm (Panini): chrome shimmer, holographic band, silver tones
+// Noir (BR-inspired): true black, massive white type, player photo dominant
+// Retro (Skybox): full-saturation team colors, bold geometry, neon accents
 
 import { CARD_TEAM_COLORS, CARD_TEAM_SECONDARY } from '@/lib/card-templates';
 import type { TeamScoreEntry, AssetScore, SpotlightOptions } from '@/lib/card-templates';
-import type { VisualSkin } from '@/lib/skins';
+import type { CardSkin } from '@/lib/skins';
+import { THEMES, ha, type SkinTheme } from '@/components/cards/shared/skins';
 
 // ── Team nicknames ──────────────────────────────────────────
 
@@ -37,22 +38,6 @@ function fmt(n: number): string {
   if (n === 0) return '0.0';
   if (Math.abs(n) >= 100) return Math.round(n).toString();
   return n.toFixed(1);
-}
-
-function darken(hex: string, amt: number): string {
-  const c = hex.startsWith('#') ? hex.slice(1) : hex;
-  const r = Math.round(parseInt(c.slice(0, 2), 16) * (1 - amt));
-  const g = Math.round(parseInt(c.slice(2, 4), 16) * (1 - amt));
-  const b = Math.round(parseInt(c.slice(4, 6), 16) * (1 - amt));
-  return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
-}
-
-function ha(hex: string, alpha: number): string {
-  const c = hex.startsWith('#') ? hex.slice(1) : hex;
-  const r = parseInt(c.slice(0, 2), 16);
-  const g = parseInt(c.slice(2, 4), 16);
-  const b = parseInt(c.slice(4, 6), 16);
-  return `rgba(${r},${g},${b},${alpha})`;
 }
 
 function verdictLabel(winner: string | null, lop: number): string {
@@ -90,194 +75,10 @@ function compressAccolades(accolades: string[], max = 3): string[] {
       return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
     })
     .slice(0, max)
-    .map(([label, count]) => count > 1 ? `${count}× ${label}` : label);
+    .map(([label, count]) => count > 1 ? `${count}\u00d7 ${label}` : label);
 }
 
-// ── Skin Theme System ───────────────────────────────────────
-
-interface SkinTheme {
-  cardBg: string;
-  cardBorder: string;
-  cardRadius: number;
-  cardShadow: string;
-  accentH: number;
-  sectionBg: (c: string, c2: string) => string;
-  sectionDivider: string;
-  scoreColor: string;
-  scoreShadow: (c: string) => string;
-  teamNameColor: string;
-  playerColor: string;
-  playerScoreColor: (c: string) => string;
-  pillBg: (text: string) => string;
-  pillColor: string;
-  verdictBg: string;
-  verdictText: (winnerColor: string | null) => string;
-  brandColor: string;
-  heroOp: (isW: boolean) => number;
-  heroFilter: (c: string) => string;
-  overlay?: React.CSSProperties;
-}
-
-// ── Classic — Panini Flawless: clean luxury, dark + gold border ──
-const classicTheme: SkinTheme = {
-  cardBg: '#08080e',
-  cardBorder: '2px solid rgba(249,199,79,0.25)',
-  cardRadius: 8,
-  cardShadow: '0 4px 60px rgba(0,0,0,0.8)',
-  accentH: 5,
-  sectionBg: (c, c2) =>
-    `linear-gradient(170deg, ${darken(c, 0.42)} 0%, ${darken(c, 0.62)} 55%, ${darken(c2, 0.72)} 100%)`,
-  sectionDivider: '1px solid rgba(255,255,255,0.06)',
-  scoreColor: '#ffffff',
-  scoreShadow: (c) => `0 2px 40px ${ha(c, 0.8)}, 0 0 80px ${ha(c, 0.35)}`,
-  teamNameColor: 'rgba(255,255,255,0.55)',
-  playerColor: '#ffffff',
-  playerScoreColor: (c) => ha(c, 1),
-  pillBg: (text) => {
-    const t = text.toLowerCase();
-    if (t.includes('mvp') || t.includes('champ')) return 'rgba(249,199,79,0.5)';
-    if (t.includes('dpoy') || t.includes('roy')) return 'rgba(78,205,196,0.45)';
-    if (t.includes('all-star')) return 'rgba(155,93,229,0.45)';
-    if (t.includes('all-nba')) return 'rgba(255,107,53,0.45)';
-    return 'rgba(255,255,255,0.18)';
-  },
-  pillColor: 'rgba(255,255,255,0.95)',
-  verdictBg: 'rgba(0,0,0,0.75)',
-  verdictText: (wc) => wc || 'rgba(255,255,255,0.6)',
-  brandColor: 'rgba(255,255,255,0.25)',
-  heroOp: (isW) => isW ? 0.55 : 0.28,
-  heroFilter: (c) => `drop-shadow(0 4px 24px ${ha(c, 0.6)})`,
-};
-
-// ── Holographic — Topps Chrome: prismatic borders, purple/teal glow ──
-const holoTheme: SkinTheme = {
-  cardBg: '#0a0a14',
-  cardBorder: 'none',
-  cardRadius: 10,
-  cardShadow: [
-    'inset 0 0 0 2px rgba(255,255,255,0.15)',
-    'inset 0 0 0 4px rgba(155,93,229,0.12)',
-    'inset 0 0 0 6px rgba(78,205,196,0.08)',
-    '0 0 80px rgba(155,93,229,0.25)',
-    '0 0 120px rgba(78,205,196,0.12)',
-  ].join(', '),
-  accentH: 3,
-  sectionBg: (c, c2) =>
-    `linear-gradient(155deg, ${darken(c, 0.48)} 0%, #0e0e1a 40%, ${darken(c2, 0.58)} 100%)`,
-  sectionDivider: '1px solid rgba(155,93,229,0.15)',
-  scoreColor: '#f0f0ff',
-  scoreShadow: (c) =>
-    `0 0 30px ${ha(c, 0.5)}, 0 0 60px rgba(155,93,229,0.35), 0 0 100px rgba(78,205,196,0.15)`,
-  teamNameColor: 'rgba(200,200,255,0.5)',
-  playerColor: '#e0e0ff',
-  playerScoreColor: () => 'rgba(180,130,255,1)',
-  pillBg: (text) => {
-    const t = text.toLowerCase();
-    if (t.includes('mvp') || t.includes('champ')) return 'rgba(249,199,79,0.35)';
-    if (t.includes('dpoy') || t.includes('roy')) return 'rgba(78,205,196,0.35)';
-    if (t.includes('all-star') || t.includes('all-nba')) return 'rgba(155,93,229,0.35)';
-    return 'rgba(155,93,229,0.18)';
-  },
-  pillColor: 'rgba(230,230,255,0.95)',
-  verdictBg: 'rgba(10,10,20,0.85)',
-  verdictText: (wc) => wc || 'rgba(200,200,255,0.6)',
-  brandColor: 'rgba(155,93,229,0.35)',
-  heroOp: (isW) => isW ? 0.4 : 0.2,
-  heroFilter: (c) => `drop-shadow(0 4px 30px ${ha(c, 0.4)}) brightness(1.1) saturate(0.7)`,
-  overlay: {
-    position: 'absolute' as const,
-    inset: 0,
-    backgroundImage:
-      'linear-gradient(135deg, rgba(255,0,0,0.03) 0%, rgba(255,165,0,0.03) 16%, rgba(255,255,0,0.03) 33%, rgba(0,128,255,0.03) 50%, rgba(128,0,255,0.04) 66%, rgba(255,0,128,0.03) 83%, rgba(255,0,0,0.03) 100%)',
-    pointerEvents: 'none' as const,
-  },
-};
-
-// ── Inside Stuff — 90s Skybox: gold border, deep purple, warm saturated ──
-const insideStuffTheme: SkinTheme = {
-  cardBg: '#180a2e',
-  cardBorder: '4px solid #d4a843',
-  cardRadius: 6,
-  cardShadow: '0 0 40px rgba(212,168,67,0.3), inset 0 0 0 2px rgba(212,168,67,0.12)',
-  accentH: 6,
-  sectionBg: (c, c2) =>
-    `linear-gradient(145deg, ${darken(c, 0.28)} 0%, #2a0a4e 50%, ${darken(c2, 0.38)} 100%)`,
-  sectionDivider: '2px solid rgba(212,168,67,0.25)',
-  scoreColor: '#ffd700',
-  scoreShadow: (c) => `0 2px 30px ${ha(c, 0.5)}, 0 0 50px rgba(255,215,0,0.35)`,
-  teamNameColor: '#d4a843',
-  playerColor: '#ffffff',
-  playerScoreColor: () => '#d4a843',
-  pillBg: (text) => {
-    const t = text.toLowerCase();
-    if (t.includes('mvp') || t.includes('champ')) return 'rgba(212,168,67,0.5)';
-    if (t.includes('all-star') || t.includes('all-nba')) return 'rgba(155,93,229,0.4)';
-    return 'rgba(212,168,67,0.22)';
-  },
-  pillColor: '#ffffff',
-  verdictBg: 'rgba(24,10,46,0.9)',
-  verdictText: (wc) => wc || '#d4a843',
-  brandColor: 'rgba(212,168,67,0.45)',
-  heroOp: (isW) => isW ? 0.5 : 0.22,
-  heroFilter: (c) => `drop-shadow(0 4px 24px ${ha(c, 0.5)}) saturate(1.4)`,
-  overlay: {
-    position: 'absolute' as const,
-    inset: 0,
-    backgroundImage: 'radial-gradient(ellipse at 50% 80%, rgba(212,168,67,0.08) 0%, transparent 65%)',
-    pointerEvents: 'none' as const,
-  },
-};
-
-// ── NBA Jam — Fleer/Arcade: red+blue borders, neon cyan, scanlines ──
-const nbaJamTheme: SkinTheme = {
-  cardBg: '#030303',
-  cardBorder: 'none',
-  cardRadius: 0,
-  cardShadow: [
-    'inset 0 0 0 5px #c8102e',
-    'inset 0 0 0 9px #030303',
-    'inset 0 0 0 14px #006bb6',
-    '0 0 60px rgba(0,255,255,0.15)',
-  ].join(', '),
-  accentH: 0,
-  sectionBg: (c) =>
-    `linear-gradient(180deg, ${darken(c, 0.75)} 0%, #050505 45%, ${darken(c, 0.8)} 100%)`,
-  sectionDivider: '2px solid rgba(0,255,255,0.12)',
-  scoreColor: '#00ffff',
-  scoreShadow: () =>
-    '0 0 25px rgba(0,255,255,0.7), 0 0 60px rgba(0,255,255,0.35), 0 0 100px rgba(0,255,255,0.12)',
-  teamNameColor: '#00ffff',
-  playerColor: '#ffffff',
-  playerScoreColor: () => '#00ff88',
-  pillBg: (text) => {
-    const t = text.toLowerCase();
-    if (t.includes('mvp') || t.includes('champ')) return 'rgba(0,255,255,0.22)';
-    if (t.includes('all-star')) return 'rgba(0,255,136,0.18)';
-    return 'rgba(0,255,255,0.1)';
-  },
-  pillColor: '#00ffff',
-  verdictBg: '#050505',
-  verdictText: (wc) => wc ? '#ff4500' : '#00ffff',
-  brandColor: 'rgba(0,255,255,0.35)',
-  heroOp: (isW) => isW ? 0.35 : 0.15,
-  heroFilter: (c) => `drop-shadow(0 0 30px ${ha(c, 0.6)}) contrast(1.3) brightness(0.85)`,
-  overlay: {
-    position: 'absolute' as const,
-    inset: 0,
-    backgroundImage:
-      'repeating-linear-gradient(0deg, transparent 0px, transparent 3px, rgba(0,255,255,0.025) 3px, rgba(0,255,255,0.025) 4px)',
-    pointerEvents: 'none' as const,
-  },
-};
-
-const THEMES: Record<VisualSkin, SkinTheme> = {
-  classic: classicTheme,
-  holographic: holoTheme,
-  insideStuff: insideStuffTheme,
-  nbaJam: nbaJamTheme,
-};
-
-// ── Types ─────────────────────────────────────────────────────
+// ── Types ───────────────────────────────────────────────────
 
 export interface ShareCardProps {
   teamScores: Record<string, TeamScoreEntry>;
@@ -285,14 +86,49 @@ export interface ShareCardProps {
   lopsidedness: number;
   date?: string | null;
   league?: string;
-  heroDataUrls: Record<string, string[]>;
-  playerCount: number;
+  selectedPlayers?: Record<string, string[]>;
   spotlight: SpotlightOptions;
   format: 'og' | 'square' | 'story';
-  skin?: VisualSkin;
+  skin?: CardSkin;
+  /** Pre-loaded headshot data URLs per team */
+  headshots?: Record<string, string[]>;
 }
 
-// ── Stat pills ────────────────────────────────────────────────
+function filterAssets(
+  assets: AssetScore[],
+  teamId: string,
+  selected?: Record<string, string[]>,
+): [AssetScore[], number] {
+  const sorted = [...assets].sort((a, b) => b.score - a.score);
+  if (!selected || !selected[teamId]) return [sorted, 0];
+  const sel = new Set(selected[teamId]);
+  const shown = sorted.filter(a => sel.has(a.name));
+  return [shown, sorted.length - shown.length];
+}
+
+function sizeTier(
+  teamScores: Record<string, TeamScoreEntry>,
+  selected?: Record<string, string[]>,
+): number {
+  let maxPerTeam = 0;
+  for (const [teamId, td] of Object.entries(teamScores)) {
+    if (selected && selected[teamId]) {
+      maxPerTeam = Math.max(maxPerTeam, selected[teamId].length);
+    } else {
+      maxPerTeam = Math.max(maxPerTeam, td.assets.length);
+    }
+  }
+  return Math.min(maxPerTeam, 3);
+}
+
+function sortTeams(teamScores: Record<string, TeamScoreEntry>, winner: string | null) {
+  return Object.entries(teamScores).sort((a, b) => {
+    if (winner) { if (a[0] === winner) return -1; if (b[0] === winner) return 1; }
+    return b[1].score - a[1].score;
+  }) as [string, TeamScoreEntry][];
+}
+
+// ── Stat pills ──────────────────────────────────────────────
 
 function StatPills({ asset, spotlight, fontSize, sk }: {
   asset: AssetScore;
@@ -302,7 +138,7 @@ function StatPills({ asset, spotlight, fontSize, sk }: {
 }) {
   const items: { text: string; bg: string }[] = [];
   const statCount = [spotlight.accolades, spotlight.winShares, spotlight.playoffWs, spotlight.championships, spotlight.seasons].filter(Boolean).length;
-  const accMax = statCount === 1 && spotlight.accolades ? 6 : 3;
+  const accMax = statCount === 1 && spotlight.accolades ? 5 : 3;
 
   if (spotlight.accolades && asset.accolades?.length) {
     for (const a of compressAccolades(asset.accolades, accMax)) {
@@ -314,28 +150,26 @@ function StatPills({ asset, spotlight, fontSize, sk }: {
   if (spotlight.playoffWs && asset.playoff_ws != null && asset.playoff_ws > 0)
     items.push({ text: `${fmt(asset.playoff_ws)} PWS`, bg: sk.pillBg('ws') });
   if (spotlight.championships && asset.championships != null && asset.championships > 0)
-    items.push({ text: `${asset.championships}× Champ`, bg: sk.pillBg('champ') });
+    items.push({ text: `${asset.championships}\u00d7 Champ`, bg: sk.pillBg('champ') });
   if (spotlight.seasons && asset.seasons != null && asset.seasons > 0)
     items.push({ text: `${asset.seasons} Szn`, bg: sk.pillBg('ws') });
 
   if (!items.length) return null;
 
-  const scale = statCount <= 1 ? 1.4 : statCount === 2 ? 1.15 : 1;
-  const fs = Math.round(fontSize * scale);
-
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: fs >= 16 ? 8 : 5, marginTop: fs >= 16 ? 6 : 3 }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginTop: 3 }}>
       {items.map((item, i) => (
         <span key={i} style={{
           display: 'inline-block',
-          padding: `${Math.round(fs * 0.25)}px ${Math.round(fs * 0.7)}px`,
-          borderRadius: 5,
+          padding: `${Math.round(fontSize * 0.2)}px ${Math.round(fontSize * 0.55)}px`,
+          borderRadius: 4,
           background: item.bg,
           color: sk.pillColor,
-          fontSize: fs,
+          fontSize,
           fontWeight: 700,
-          lineHeight: 1.4,
+          lineHeight: 1.3,
           letterSpacing: 0.3,
+          border: sk.pillBorder,
         }}>
           {item.text}
         </span>
@@ -344,40 +178,130 @@ function StatPills({ asset, spotlight, fontSize, sk }: {
   );
 }
 
-// ── Sorted teams helper ─────────────────────────────────────
+// ── Headshot image ──────────────────────────────────────────
 
-function sortTeams(teamScores: Record<string, TeamScoreEntry>, winner: string | null) {
-  return Object.entries(teamScores).sort((a, b) => {
-    if (winner) { if (a[0] === winner) return -1; if (b[0] === winner) return 1; }
-    return b[1].score - a[1].score;
-  }) as [string, TeamScoreEntry][];
+function HeadshotBg({ src, sk, side }: {
+  src?: string;
+  sk: SkinTheme;
+  side: 'left' | 'right';
+}) {
+  if (!src) return null;
+  return (
+    <div style={{
+      position: 'absolute',
+      bottom: 0,
+      [side]: side === 'right' ? -20 : -20,
+      width: '70%',
+      height: '100%',
+      opacity: sk.headshotOpacity,
+      filter: sk.headshotFilter,
+      pointerEvents: 'none',
+    }}>
+      <img
+        src={src}
+        alt=""
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'contain',
+          objectPosition: `${side} bottom`,
+        }}
+      />
+    </div>
+  );
+}
+
+// ── Team color accent bar (left side for Classic, etc.) ─────
+
+function TeamAccentBar({ color, skin, height }: {
+  color: string;
+  skin: CardSkin;
+  height: string | number;
+}) {
+  if (skin === 'noir') {
+    // Noir: thin team color line at top of section
+    return (
+      <div style={{
+        position: 'absolute',
+        top: 0, left: 0, right: 0,
+        height: 3,
+        background: `linear-gradient(90deg, ${color}, transparent)`,
+      }} />
+    );
+  }
+  if (skin === 'classic') {
+    // Classic: thick left border bar
+    return (
+      <div style={{
+        position: 'absolute',
+        top: 0, left: 0, bottom: 0,
+        width: 8,
+        background: color,
+      }} />
+    );
+  }
+  if (skin === 'retro') {
+    // Retro: diagonal cut accent at bottom
+    return (
+      <div style={{
+        position: 'absolute',
+        bottom: 0, right: 0,
+        width: '30%', height: typeof height === 'number' ? height * 0.15 : 60,
+        background: `linear-gradient(135deg, transparent 50%, ${ha(color, 0.3)} 50%)`,
+        pointerEvents: 'none',
+      }} />
+    );
+  }
+  return null;
+}
+
+// ── Watermark ───────────────────────────────────────────────
+
+function Watermark({ teamId, fontSize, color }: { teamId: string; fontSize: number; color: string }) {
+  return (
+    <div style={{
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -58%)',
+      fontSize,
+      fontWeight: 900,
+      color,
+      letterSpacing: fontSize > 200 ? -10 : -6,
+      lineHeight: 0.85,
+      pointerEvents: 'none',
+    }}>
+      {teamId}
+    </div>
+  );
 }
 
 // ══════════════════════════════════════════════════════════════
-// OG Card — 1200×630, side-by-side team sections
+// OG Card — 1200x630, side-by-side team sections
 // ══════════════════════════════════════════════════════════════
 
 function OGCard(props: ShareCardProps) {
-  const { teamScores, winner, lopsidedness, date, league, heroDataUrls, playerCount, spotlight, skin } = props;
-  const sk = THEMES[skin || 'classic'];
+  const { teamScores, winner, lopsidedness, date, league, selectedPlayers, spotlight, skin = 'classic', headshots } = props;
+  const sk = THEMES[skin];
   const teams = sortTeams(teamScores, winner);
   const is3 = teams.length > 2;
-  const pc = Math.min(playerCount, is3 ? 2 : 3);
+  const pc = Math.min(sizeTier(teamScores, selectedPlayers), is3 ? 2 : 3);
   const totalScore = teams.reduce((s, [, d]) => s + d.score, 0) || 1;
   const showBar = spotlight.detailedVerdict;
 
-  // Scale sizing by player count
-  const nameFs = is3 ? 20 : pc === 1 ? 42 : pc === 2 ? 30 : 23;
-  const scoreFs = is3 ? 60 : pc === 1 ? 96 : pc === 2 ? 84 : 72;
-  const indivFs = is3 ? 14 : pc === 1 ? 24 : pc === 2 ? 20 : 16;
-  const pillFs = is3 ? 12 : pc === 1 ? 18 : pc === 2 ? 14 : 12;
-  const heroH = is3 ? 200 : pc === 1 ? 300 : pc === 2 ? 260 : 220;
+  const scoreFs = is3 ? 80 : 120;
+  const nameFs = is3 ? 20 : pc === 1 ? 34 : pc === 2 ? 28 : 22;
+  const indivFs = is3 ? 15 : pc === 1 ? 24 : pc === 2 ? 20 : 16;
+  const pillFs = is3 ? 11 : pc === 1 ? 16 : pc === 2 ? 14 : 12;
+  const watermarkFs = is3 ? 180 : 280;
+  const verdictH = showBar ? 72 : 56;
+  const pad = is3 ? 28 : 40;
 
   return (
     <div style={{
       width: 1200, height: 630,
       display: 'flex', flexDirection: 'column',
-      fontFamily: 'Inter, system-ui, sans-serif',
+      fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
       background: sk.cardBg,
       border: sk.cardBorder,
       borderRadius: sk.cardRadius,
@@ -385,7 +309,7 @@ function OGCard(props: ShareCardProps) {
       position: 'relative',
       overflow: 'hidden',
     }}>
-      {/* Accent bar */}
+      {/* Top accent bar */}
       {sk.accentH > 0 && (
         <div style={{ display: 'flex', height: sk.accentH, flexShrink: 0 }}>
           {teams.map(([tid]) => (
@@ -394,107 +318,99 @@ function OGCard(props: ShareCardProps) {
         </div>
       )}
 
-      {/* Main: side-by-side team sections */}
+      {/* Main: side-by-side */}
       <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
         {teams.map(([teamId, td], idx) => {
-          const isW = teamId === winner;
           const c = CARD_TEAM_COLORS[teamId] || '#888';
           const c2 = CARD_TEAM_SECONDARY[teamId] || c;
-          const sorted = [...td.assets].sort((a, b) => b.score - a.score);
-          const shown = sorted.slice(0, pc);
-          const rest = sorted.length - shown.length;
-          const heroUrl = (heroDataUrls[teamId] || [])[0];
+          const [shown, rest] = filterAssets(td.assets, teamId, selectedPlayers);
           const isLast = idx === teams.length - 1;
-          const textAlign = isLast && !is3 ? 'right' as const : 'left' as const;
+          const align = isLast && !is3 ? 'right' as const : 'left' as const;
           const flexAlign = isLast && !is3 ? 'flex-end' as const : 'flex-start' as const;
+          const headshotUrl = headshots?.[teamId]?.[0];
+          const labelColor = skin === 'classic' ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.3)';
 
           return (
             <div key={teamId} style={{
               flex: 1,
               display: 'flex', flexDirection: 'column',
-              justifyContent: 'flex-end',
-              padding: is3 ? '16px 20px 20px' : '16px 32px 24px',
+              padding: `${is3 ? 16 : 22}px ${skin === 'classic' ? pad + 10 : pad}px`,
+              paddingLeft: skin === 'classic' && idx === 0 ? pad + 16 : undefined,
               position: 'relative',
               overflow: 'hidden',
               backgroundImage: sk.sectionBg(c, c2),
-              borderRight: idx < teams.length - 1 ? sk.sectionDivider : 'none',
+              borderRight: idx < teams.length - 1 ? sk.divider : 'none',
             }}>
-              {/* Skin overlay */}
               {sk.overlay && <div style={sk.overlay} />}
+              <TeamAccentBar color={c} skin={skin} height={630 - verdictH} />
+              <Watermark teamId={teamId} fontSize={watermarkFs} color={sk.watermarkColor(c)} />
+              <HeadshotBg src={headshotUrl} sk={sk} side={isLast && !is3 ? 'right' : 'left'} />
 
-              {/* Team name — top of section */}
+              {/* Team label — top */}
               <div style={{
-                position: 'absolute',
-                top: is3 ? 12 : 16,
-                ...(textAlign === 'right' ? { right: 32 } : { left: is3 ? 20 : 32 }),
-                fontSize: is3 ? 11 : 13,
+                fontSize: is3 ? 12 : 14,
                 fontWeight: 800,
                 letterSpacing: 5,
-                color: sk.teamNameColor,
+                color: sk.teamLabelColor(c),
                 textTransform: 'uppercase' as const,
+                textAlign: align,
+                position: 'relative',
+                flexShrink: 0,
+                marginBottom: is3 ? 10 : 14,
               }}>
                 {TEAM_NICK[teamId] || teamId}
               </div>
 
-              {/* Hero player cutout */}
-              {heroUrl && (
-                <img
-                  src={heroUrl}
-                  alt=""
-                  style={{
-                    position: 'absolute',
-                    ...(idx === 0 ? { right: -20 } : { left: -20 }),
-                    bottom: 0,
-                    height: heroH,
-                    width: 'auto',
-                    opacity: sk.heroOp(isW),
-                    filter: sk.heroFilter(c),
-                    objectFit: 'contain',
-                  }}
-                />
-              )}
-
-              {/* Score — THE dominant element */}
-              <div style={{
-                fontSize: scoreFs,
-                fontWeight: 900,
-                lineHeight: 0.85,
-                color: sk.scoreColor,
-                textShadow: sk.scoreShadow(c),
-                textAlign,
-                position: 'relative',
-                marginBottom: pc === 1 ? 14 : 8,
-              }}>
-                {fmt(td.score)}
+              {/* Score + label — immediately after team name */}
+              <div style={{ position: 'relative', flexShrink: 0, textAlign: align, marginBottom: is3 ? 12 : 18 }}>
+                <div style={{
+                  fontSize: scoreFs,
+                  fontWeight: 900,
+                  lineHeight: 0.9,
+                  color: sk.scoreColor,
+                  textShadow: sk.scoreShadow(c),
+                }}>
+                  {fmt(td.score)}
+                </div>
+                <div style={{
+                  fontSize: is3 ? 9 : 11,
+                  fontWeight: 700,
+                  letterSpacing: 3,
+                  color: labelColor,
+                  textTransform: 'uppercase' as const,
+                  marginTop: 6,
+                }}>
+                  TRADE SCORE
+                </div>
               </div>
 
-              {/* Players */}
+              {/* Players — fill remaining space */}
               <div style={{
                 display: 'flex', flexDirection: 'column',
-                gap: pc === 1 ? 10 : 4,
+                gap: pc === 1 ? 10 : 6,
                 position: 'relative',
                 alignItems: flexAlign,
+                flex: 1,
+                justifyContent: 'flex-start',
+                overflow: 'hidden',
               }}>
                 {shown.map((asset, i) => (
                   <div key={`${asset.name}-${i}`} style={{
                     display: 'flex', flexDirection: 'column',
                     alignItems: flexAlign,
+                    flexShrink: 0,
                   }}>
-                    <div style={{
-                      display: 'flex', alignItems: 'baseline', gap: 10,
-                      textAlign,
-                    }}>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
                       <span style={{
                         fontSize: nameFs, fontWeight: 800,
-                        color: sk.playerColor,
+                        color: sk.nameColor,
                         letterSpacing: -0.3,
-                        textShadow: '0 1px 8px rgba(0,0,0,0.5)',
                       }}>
                         {asset.name}
                       </span>
                       <span style={{
-                        fontSize: indivFs, fontWeight: 800,
-                        color: sk.playerScoreColor(c),
+                        fontSize: indivFs, fontWeight: 700,
+                        color: sk.indivScoreColor(c),
                       }}>
                         {fmt(asset.score)}
                       </span>
@@ -504,9 +420,9 @@ function OGCard(props: ShareCardProps) {
                 ))}
                 {rest > 0 && (
                   <span style={{
-                    fontSize: Math.max(13, nameFs - 10),
-                    color: 'rgba(255,255,255,0.35)', fontWeight: 600,
-                    textAlign,
+                    fontSize: Math.max(13, nameFs - 6), fontWeight: 600,
+                    color: labelColor,
+                    flexShrink: 0,
                   }}>
                     + {rest} more
                   </span>
@@ -519,74 +435,46 @@ function OGCard(props: ShareCardProps) {
 
       {/* Verdict band */}
       <div style={{
-        flexShrink: 0,
+        height: verdictH, flexShrink: 0,
         display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center',
-        gap: showBar ? 6 : 4,
-        padding: showBar ? '10px 32px' : '8px 32px',
+        gap: 6, padding: '0 36px',
         background: sk.verdictBg,
-        borderTop: sk.sectionDivider,
-        position: 'relative',
+        borderTop: sk.divider,
       }}>
         {showBar && (
-          <div style={{ display: 'flex', width: '100%', alignItems: 'center', gap: 12 }}>
-            <span style={{
-              fontSize: 12, fontWeight: 800, letterSpacing: 2,
-              color: CARD_TEAM_COLORS[teams[0][0]] || '#888',
-              width: 40, textAlign: 'right', flexShrink: 0,
-            }}>
+          <div style={{ display: 'flex', width: '100%', alignItems: 'center', gap: 12, maxWidth: 800 }}>
+            <span style={{ fontSize: 12, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[0][0]] || '#888', width: 40, textAlign: 'right' as const, flexShrink: 0 }}>
               {teams[0][0]}
             </span>
-            <div style={{
-              flex: 1, height: 8, borderRadius: 4,
-              display: 'flex', overflow: 'hidden',
-            }}>
+            <div style={{ flex: 1, height: 6, borderRadius: 3, display: 'flex', overflow: 'hidden' }}>
               {teams.map(([tid, td]) => (
-                <div key={tid} style={{
-                  width: `${(td.score / totalScore) * 100}%`,
-                  height: '100%',
-                  background: CARD_TEAM_COLORS[tid] || '#888',
-                }} />
+                <div key={tid} style={{ width: `${(td.score / totalScore) * 100}%`, height: '100%', background: CARD_TEAM_COLORS[tid] || '#888' }} />
               ))}
             </div>
-            <span style={{
-              fontSize: 12, fontWeight: 800, letterSpacing: 2,
-              color: CARD_TEAM_COLORS[teams[teams.length - 1][0]] || '#888',
-              width: 40, flexShrink: 0,
-            }}>
+            <span style={{ fontSize: 12, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[teams.length - 1][0]] || '#888', width: 40, flexShrink: 0 }}>
               {teams[teams.length - 1][0]}
             </span>
           </div>
         )}
-        <div style={{
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          gap: 20, width: '100%',
-        }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
           <span style={{
-            fontSize: 13, fontWeight: 700, letterSpacing: 2,
-            color: sk.verdictText(winner ? CARD_TEAM_COLORS[winner] || '#f9c74f' : null),
+            fontSize: 14, fontWeight: 700, letterSpacing: 2,
+            color: sk.verdictColor(winner ? CARD_TEAM_COLORS[winner] || '#f9c74f' : null),
             textTransform: 'uppercase' as const,
           }}>
             {verdictLabel(winner, lopsidedness)}
           </span>
-          <span style={{
-            fontSize: 10, fontWeight: 700, letterSpacing: 3,
-            color: sk.brandColor,
-            textTransform: 'uppercase' as const,
-          }}>
+          <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: 3, color: sk.brandColor, textTransform: 'uppercase' as const }}>
             {league === 'WNBA' ? 'WNBA' : 'NBA'} Trade Mapper
           </span>
-          {date && (
-            <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.18)' }}>
-              {shortDate(date)}
-            </span>
-          )}
+          {date && <span style={{ fontSize: 10, color: skin === 'classic' ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.15)' }}>{shortDate(date)}</span>}
         </div>
       </div>
 
       {/* Bottom accent */}
       {sk.accentH > 0 && (
-        <div style={{ display: 'flex', height: Math.max(3, sk.accentH - 1), flexShrink: 0 }}>
+        <div style={{ display: 'flex', height: Math.max(2, sk.accentH - 1), flexShrink: 0 }}>
           {teams.map(([tid]) => (
             <div key={tid} style={{ flex: 1, background: CARD_TEAM_COLORS[tid] || '#444' }} />
           ))}
@@ -597,22 +485,22 @@ function OGCard(props: ShareCardProps) {
 }
 
 // ══════════════════════════════════════════════════════════════
-// Square Card — 1080×1080, stacked team sections
+// Square Card — 1080x1080, stacked team sections
 // ══════════════════════════════════════════════════════════════
 
 function SquareCard(props: ShareCardProps) {
-  const { teamScores, winner, lopsidedness, date, league, heroDataUrls, playerCount, spotlight, skin } = props;
-  const sk = THEMES[skin || 'classic'];
+  const { teamScores, winner, lopsidedness, date, league, selectedPlayers, spotlight, skin = 'classic', headshots } = props;
+  const sk = THEMES[skin];
   const teams = sortTeams(teamScores, winner);
-  const pc = Math.min(playerCount, 3);
+  const pc = Math.min(sizeTier(teamScores, selectedPlayers), 3);
   const totalScore = teams.reduce((s, [, d]) => s + d.score, 0) || 1;
   const showBar = spotlight.detailedVerdict;
 
-  const nameFs = pc === 1 ? 38 : pc === 2 ? 30 : 24;
-  const scoreFs = pc === 1 ? 100 : pc === 2 ? 88 : 76;
-  const indivFs = pc === 1 ? 26 : pc === 2 ? 22 : 18;
-  const pillFs = pc === 1 ? 18 : pc === 2 ? 15 : 13;
-  const heroH = pc === 1 ? 340 : pc === 2 ? 280 : 240;
+  const scoreFs = 110;
+  const nameFs = pc === 1 ? 36 : pc === 2 ? 30 : 24;
+  const indivFs = pc === 1 ? 24 : pc === 2 ? 20 : 17;
+  const pillFs = pc === 1 ? 16 : pc === 2 ? 14 : 12;
+  const watermarkFs = 240;
   const verdictH = showBar ? 90 : 70;
   const sectionH = Math.floor((1080 - (sk.accentH * 2) - verdictH) / teams.length);
 
@@ -620,7 +508,7 @@ function SquareCard(props: ShareCardProps) {
     <div style={{
       width: 1080, height: 1080,
       display: 'flex', flexDirection: 'column',
-      fontFamily: 'Inter, system-ui, sans-serif',
+      fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
       background: sk.cardBg,
       border: sk.cardBorder,
       borderRadius: sk.cardRadius,
@@ -634,74 +522,62 @@ function SquareCard(props: ShareCardProps) {
       )}
 
       {teams.map(([teamId, td], idx) => {
-        const isW = teamId === winner;
         const c = CARD_TEAM_COLORS[teamId] || '#888';
         const c2 = CARD_TEAM_SECONDARY[teamId] || c;
-        const sorted = [...td.assets].sort((a, b) => b.score - a.score);
-        const shown = sorted.slice(0, pc);
-        const rest = sorted.length - shown.length;
-        const heroUrl = (heroDataUrls[teamId] || [])[0];
+        const [shown, rest] = filterAssets(td.assets, teamId, selectedPlayers);
+        const headshotUrl = headshots?.[teamId]?.[0];
+        const labelColor = skin === 'classic' ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.3)';
 
         return (
           <div key={teamId} style={{
             height: sectionH,
             display: 'flex', flexDirection: 'column',
-            justifyContent: 'flex-end',
-            padding: '16px 44px 20px',
+            padding: `22px ${skin === 'classic' ? 62 : 52}px`,
+            paddingLeft: skin === 'classic' ? 68 : undefined,
             position: 'relative', overflow: 'hidden',
             backgroundImage: sk.sectionBg(c, c2),
-            borderBottom: idx < teams.length - 1 ? sk.sectionDivider : 'none',
+            borderBottom: idx < teams.length - 1 ? sk.divider : 'none',
           }}>
             {sk.overlay && <div style={sk.overlay} />}
+            <TeamAccentBar color={c} skin={skin} height={sectionH} />
+            <Watermark teamId={teamId} fontSize={watermarkFs} color={sk.watermarkColor(c)} />
+            <HeadshotBg src={headshotUrl} sk={sk} side="right" />
 
+            {/* Team label */}
             <div style={{
-              position: 'absolute', top: 14, left: 44,
-              fontSize: 14, fontWeight: 800, letterSpacing: 5,
-              color: sk.teamNameColor, textTransform: 'uppercase' as const,
+              fontSize: 15, fontWeight: 800, letterSpacing: 5,
+              color: sk.teamLabelColor(c), textTransform: 'uppercase' as const,
+              position: 'relative', flexShrink: 0, marginBottom: 12,
             }}>
               {TEAM_NICK[teamId] || teamId}
             </div>
 
-            {heroUrl && (
-              <img src={heroUrl} alt="" style={{
-                position: 'absolute', right: -10, bottom: 0,
-                height: heroH, width: 'auto',
-                opacity: sk.heroOp(isW),
-                filter: sk.heroFilter(c),
-                objectFit: 'contain',
-              }} />
-            )}
-
-            <div style={{
-              fontSize: scoreFs, fontWeight: 900, lineHeight: 0.85,
-              color: sk.scoreColor, position: 'relative',
-              textShadow: sk.scoreShadow(c),
-              marginBottom: 10,
-            }}>
-              {fmt(td.score)}
+            {/* Score + label */}
+            <div style={{ position: 'relative', flexShrink: 0, marginBottom: 16 }}>
+              <div style={{
+                fontSize: scoreFs, fontWeight: 900, lineHeight: 0.9,
+                color: sk.scoreColor, textShadow: sk.scoreShadow(c),
+              }}>
+                {fmt(td.score)}
+              </div>
+              <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: 3, color: labelColor, textTransform: 'uppercase' as const, marginTop: 5 }}>
+                TRADE SCORE
+              </div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: pc === 1 ? 10 : 5, position: 'relative' }}>
+            {/* Players */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: pc === 1 ? 10 : 6, position: 'relative', flex: 1, justifyContent: 'flex-start', overflow: 'hidden' }}>
               {shown.map((asset, i) => (
-                <div key={`${asset.name}-${i}`} style={{ display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
-                    <span style={{
-                      fontSize: nameFs, fontWeight: 800, color: sk.playerColor,
-                      textShadow: '0 1px 6px rgba(0,0,0,0.5)',
-                    }}>
-                      {asset.name}
-                    </span>
-                    <span style={{ fontSize: indivFs, fontWeight: 800, color: sk.playerScoreColor(c) }}>
-                      {fmt(asset.score)}
-                    </span>
+                <div key={`${asset.name}-${i}`} style={{ display: 'flex', flexDirection: 'column', flexShrink: 0 }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
+                    <span style={{ fontSize: nameFs, fontWeight: 800, color: sk.nameColor }}>{asset.name}</span>
+                    <span style={{ fontSize: indivFs, fontWeight: 700, color: sk.indivScoreColor(c) }}>{fmt(asset.score)}</span>
                   </div>
                   <StatPills asset={asset} spotlight={spotlight} fontSize={pillFs} sk={sk} />
                 </div>
               ))}
               {rest > 0 && (
-                <span style={{ fontSize: Math.max(14, nameFs - 10), color: 'rgba(255,255,255,0.35)', fontWeight: 600 }}>
-                  + {rest} more
-                </span>
+                <span style={{ fontSize: Math.max(14, nameFs - 8), color: labelColor, fontWeight: 600, flexShrink: 0 }}>+ {rest} more</span>
               )}
             </div>
           </div>
@@ -713,28 +589,24 @@ function SquareCard(props: ShareCardProps) {
         height: verdictH, flexShrink: 0,
         display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center', gap: 6,
-        padding: '10px 32px', background: sk.verdictBg,
-        borderTop: sk.sectionDivider,
+        padding: '10px 36px', background: sk.verdictBg,
+        borderTop: sk.divider,
       }}>
         {showBar && (
           <div style={{ display: 'flex', width: '100%', alignItems: 'center', gap: 12 }}>
-            <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[0][0]] || '#888', width: 40, textAlign: 'right', flexShrink: 0 }}>
-              {teams[0][0]}
-            </span>
-            <div style={{ flex: 1, height: 10, borderRadius: 5, display: 'flex', overflow: 'hidden' }}>
+            <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[0][0]] || '#888', width: 40, textAlign: 'right' as const, flexShrink: 0 }}>{teams[0][0]}</span>
+            <div style={{ flex: 1, height: 8, borderRadius: 4, display: 'flex', overflow: 'hidden' }}>
               {teams.map(([tid, td]) => (
                 <div key={tid} style={{ width: `${(td.score / totalScore) * 100}%`, height: '100%', background: CARD_TEAM_COLORS[tid] || '#888' }} />
               ))}
             </div>
-            <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[teams.length - 1][0]] || '#888', width: 40, flexShrink: 0 }}>
-              {teams[teams.length - 1][0]}
-            </span>
+            <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[teams.length - 1][0]] || '#888', width: 40, flexShrink: 0 }}>{teams[teams.length - 1][0]}</span>
           </div>
         )}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
           <span style={{
             fontSize: 15, fontWeight: 700, letterSpacing: 2,
-            color: sk.verdictText(winner ? CARD_TEAM_COLORS[winner] || '#f9c74f' : null),
+            color: sk.verdictColor(winner ? CARD_TEAM_COLORS[winner] || '#f9c74f' : null),
             textTransform: 'uppercase' as const,
           }}>
             {verdictLabel(winner, lopsidedness)}
@@ -742,12 +614,12 @@ function SquareCard(props: ShareCardProps) {
           <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, color: sk.brandColor, textTransform: 'uppercase' as const }}>
             {league === 'WNBA' ? 'WNBA' : 'NBA'} Trade Mapper
           </span>
-          {date && <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.18)' }}>{shortDate(date)}</span>}
+          {date && <span style={{ fontSize: 11, color: skin === 'classic' ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.18)' }}>{shortDate(date)}</span>}
         </div>
       </div>
 
       {sk.accentH > 0 && (
-        <div style={{ display: 'flex', height: Math.max(3, sk.accentH - 1), flexShrink: 0 }}>
+        <div style={{ display: 'flex', height: Math.max(2, sk.accentH - 1), flexShrink: 0 }}>
           {teams.map(([tid]) => <div key={tid} style={{ flex: 1, background: CARD_TEAM_COLORS[tid] || '#444' }} />)}
         </div>
       )}
@@ -756,30 +628,30 @@ function SquareCard(props: ShareCardProps) {
 }
 
 // ══════════════════════════════════════════════════════════════
-// Story Card — 1080×1920, stacked (taller sections)
+// Story Card — 1080x1920, stacked (tall sections)
 // ══════════════════════════════════════════════════════════════
 
 function StoryCard(props: ShareCardProps) {
-  const { teamScores, winner, lopsidedness, date, league, heroDataUrls, playerCount, spotlight, skin } = props;
-  const sk = THEMES[skin || 'classic'];
+  const { teamScores, winner, lopsidedness, date, league, selectedPlayers, spotlight, skin = 'classic', headshots } = props;
+  const sk = THEMES[skin];
   const teams = sortTeams(teamScores, winner);
-  const pc = Math.min(playerCount, 3);
+  const pc = Math.min(sizeTier(teamScores, selectedPlayers), 3);
   const totalScore = teams.reduce((s, [, d]) => s + d.score, 0) || 1;
   const showBar = spotlight.detailedVerdict;
-  const bandH = showBar ? 280 : 240;
+  const bandH = showBar ? 260 : 220;
   const sectionH = Math.floor((1920 - (sk.accentH * 2) - bandH) / teams.length);
 
+  const scoreFs = 140;
   const nameFs = pc === 1 ? 44 : pc === 2 ? 36 : 28;
-  const scoreFs = 120;
-  const indivFs = pc === 1 ? 32 : pc === 2 ? 26 : 22;
-  const pillFs = pc === 1 ? 20 : pc === 2 ? 17 : 15;
-  const heroH = pc === 1 ? 440 : pc === 2 ? 380 : 320;
+  const indivFs = pc === 1 ? 30 : pc === 2 ? 24 : 20;
+  const pillFs = pc === 1 ? 19 : pc === 2 ? 16 : 14;
+  const watermarkFs = 320;
 
   return (
     <div style={{
       width: 1080, height: 1920,
       display: 'flex', flexDirection: 'column',
-      fontFamily: 'Inter, system-ui, sans-serif',
+      fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
       background: sk.cardBg,
       border: sk.cardBorder,
       borderRadius: sk.cardRadius,
@@ -793,74 +665,62 @@ function StoryCard(props: ShareCardProps) {
       )}
 
       {teams.map(([teamId, td], idx) => {
-        const isW = teamId === winner;
         const c = CARD_TEAM_COLORS[teamId] || '#888';
         const c2 = CARD_TEAM_SECONDARY[teamId] || c;
-        const sorted = [...td.assets].sort((a, b) => b.score - a.score);
-        const shown = pc < sorted.length ? sorted.slice(0, pc) : sorted;
-        const rest = sorted.length - shown.length;
-        const heroUrl = (heroDataUrls[teamId] || [])[0];
+        const [shown, rest] = filterAssets(td.assets, teamId, selectedPlayers);
+        const headshotUrl = headshots?.[teamId]?.[0];
+        const labelColor = skin === 'classic' ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.3)';
 
         return (
           <div key={teamId} style={{
             height: sectionH,
             display: 'flex', flexDirection: 'column',
-            justifyContent: 'flex-end',
-            padding: '24px 52px 32px',
+            padding: `32px ${skin === 'classic' ? 70 : 60}px`,
+            paddingLeft: skin === 'classic' ? 76 : undefined,
             position: 'relative', overflow: 'hidden',
             backgroundImage: sk.sectionBg(c, c2),
-            borderBottom: idx < teams.length - 1 ? sk.sectionDivider : 'none',
+            borderBottom: idx < teams.length - 1 ? sk.divider : 'none',
           }}>
             {sk.overlay && <div style={sk.overlay} />}
+            <TeamAccentBar color={c} skin={skin} height={sectionH} />
+            <Watermark teamId={teamId} fontSize={watermarkFs} color={sk.watermarkColor(c)} />
+            <HeadshotBg src={headshotUrl} sk={sk} side="right" />
 
+            {/* Team label */}
             <div style={{
-              position: 'absolute', top: 22, left: 52,
-              fontSize: 18, fontWeight: 800, letterSpacing: 6,
-              color: sk.teamNameColor, textTransform: 'uppercase' as const,
+              fontSize: 19, fontWeight: 800, letterSpacing: 6,
+              color: sk.teamLabelColor(c), textTransform: 'uppercase' as const,
+              position: 'relative', flexShrink: 0, marginBottom: 16,
             }}>
               {TEAM_NICK[teamId] || teamId}
             </div>
 
-            {heroUrl && (
-              <img src={heroUrl} alt="" style={{
-                position: 'absolute', right: -20, bottom: 0,
-                height: heroH, width: 'auto',
-                opacity: sk.heroOp(isW),
-                filter: sk.heroFilter(c),
-                objectFit: 'contain',
-              }} />
-            )}
-
-            <div style={{
-              fontSize: scoreFs, fontWeight: 900, lineHeight: 0.85,
-              color: sk.scoreColor, position: 'relative',
-              textShadow: sk.scoreShadow(c),
-              marginBottom: 16,
-            }}>
-              {fmt(td.score)}
+            {/* Score + label */}
+            <div style={{ position: 'relative', flexShrink: 0, marginBottom: 24 }}>
+              <div style={{
+                fontSize: scoreFs, fontWeight: 900, lineHeight: 0.9,
+                color: sk.scoreColor, textShadow: sk.scoreShadow(c),
+              }}>
+                {fmt(td.score)}
+              </div>
+              <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 3, color: labelColor, textTransform: 'uppercase' as const, marginTop: 8 }}>
+                TRADE SCORE
+              </div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: pc === 1 ? 14 : 8, position: 'relative' }}>
+            {/* Players */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: pc === 1 ? 14 : 8, position: 'relative', flex: 1, justifyContent: 'flex-start', overflow: 'hidden' }}>
               {shown.map((asset, i) => (
-                <div key={`${asset.name}-${i}`} style={{ display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 12 }}>
-                    <span style={{
-                      fontSize: nameFs, fontWeight: 800, color: sk.playerColor,
-                      textShadow: '0 1px 8px rgba(0,0,0,0.5)',
-                    }}>
-                      {asset.name}
-                    </span>
-                    <span style={{ fontSize: indivFs, fontWeight: 800, color: sk.playerScoreColor(c) }}>
-                      {fmt(asset.score)}
-                    </span>
+                <div key={`${asset.name}-${i}`} style={{ display: 'flex', flexDirection: 'column', flexShrink: 0 }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
+                    <span style={{ fontSize: nameFs, fontWeight: 800, color: sk.nameColor }}>{asset.name}</span>
+                    <span style={{ fontSize: indivFs, fontWeight: 700, color: sk.indivScoreColor(c) }}>{fmt(asset.score)}</span>
                   </div>
                   <StatPills asset={asset} spotlight={spotlight} fontSize={pillFs} sk={sk} />
                 </div>
               ))}
               {rest > 0 && (
-                <span style={{ fontSize: Math.max(16, nameFs - 12), color: 'rgba(255,255,255,0.35)', fontWeight: 600 }}>
-                  + {rest} more
-                </span>
+                <span style={{ fontSize: Math.max(16, nameFs - 10), color: labelColor, fontWeight: 600, flexShrink: 0 }}>+ {rest} more</span>
               )}
             </div>
           </div>
@@ -872,13 +732,10 @@ function StoryCard(props: ShareCardProps) {
         height: bandH, flexShrink: 0,
         display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center', gap: 14,
-        padding: '0 52px', background: sk.verdictBg,
-        borderTop: sk.sectionDivider,
+        padding: '0 56px', background: sk.verdictBg,
+        borderTop: sk.divider,
       }}>
-        <span style={{
-          fontSize: 14, fontWeight: 700, letterSpacing: 5,
-          color: sk.brandColor, textTransform: 'uppercase' as const,
-        }}>
+        <span style={{ fontSize: 14, fontWeight: 700, letterSpacing: 5, color: sk.brandColor, textTransform: 'uppercase' as const }}>
           {league === 'WNBA' ? 'WNBA' : 'NBA'} Trade Mapper
         </span>
 
@@ -887,7 +744,7 @@ function StoryCard(props: ShareCardProps) {
             <span style={{ fontSize: 16, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[0][0]] || '#888' }}>
               {teams[0][0]} {fmt(teams[0][1].score)}
             </span>
-            <div style={{ flex: 1, height: 12, borderRadius: 6, display: 'flex', overflow: 'hidden' }}>
+            <div style={{ flex: 1, height: 10, borderRadius: 5, display: 'flex', overflow: 'hidden' }}>
               {teams.map(([tid, td]) => (
                 <div key={tid} style={{ width: `${(td.score / totalScore) * 100}%`, height: '100%', background: CARD_TEAM_COLORS[tid] || '#888' }} />
               ))}
@@ -900,18 +757,18 @@ function StoryCard(props: ShareCardProps) {
 
         <span style={{
           fontSize: 24, fontWeight: 700, letterSpacing: 2,
-          color: sk.verdictText(winner ? CARD_TEAM_COLORS[winner] || '#f9c74f' : null),
-          textTransform: 'uppercase' as const, textAlign: 'center',
+          color: sk.verdictColor(winner ? CARD_TEAM_COLORS[winner] || '#f9c74f' : null),
+          textTransform: 'uppercase' as const, textAlign: 'center' as const,
         }}>
           {verdictLabel(winner, lopsidedness)}
         </span>
 
-        {date && <span style={{ fontSize: 18, color: 'rgba(255,255,255,0.22)' }}>{shortDate(date)}</span>}
-        <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.12)', marginTop: 4 }}>nbatrades.vercel.app</span>
+        {date && <span style={{ fontSize: 18, color: skin === 'classic' ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.2)' }}>{shortDate(date)}</span>}
+        <span style={{ fontSize: 14, color: skin === 'classic' ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.1)', marginTop: 4 }}>nbatrades.vercel.app</span>
       </div>
 
       {sk.accentH > 0 && (
-        <div style={{ display: 'flex', height: Math.max(3, sk.accentH - 1), flexShrink: 0 }}>
+        <div style={{ display: 'flex', height: Math.max(2, sk.accentH - 1), flexShrink: 0 }}>
           {teams.map(([tid]) => <div key={tid} style={{ flex: 1, background: CARD_TEAM_COLORS[tid] || '#444' }} />)}
         </div>
       )}

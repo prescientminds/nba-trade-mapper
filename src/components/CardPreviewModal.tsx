@@ -1,23 +1,12 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import type { TeamScoreEntry, SpotlightOptions } from '@/lib/card-templates';
-import { SKINS, type VisualSkin } from '@/lib/skins';
+import { CARD_TEAM_COLORS } from '@/lib/card-templates';
+import { CARD_SKINS, type CardSkin } from '@/lib/skins';
+import { useHeadshots } from '@/components/cards/shared/useHeadshots';
+import { captureElement, FORMAT_DIMS, FORMAT_LABELS, type Format } from '@/components/cards/shared/capture';
 import ShareCard from './ShareCard';
-
-type Format = 'og' | 'square' | 'story';
-
-const FORMAT_LABELS: Record<Format, string> = {
-  og: 'Twitter / Link Preview',
-  square: 'Instagram Post',
-  story: 'Instagram Story',
-};
-
-const FORMAT_DIMS: Record<Format, { w: number; h: number }> = {
-  og: { w: 1200, h: 630 },
-  square: { w: 1080, h: 1080 },
-  story: { w: 1080, h: 1920 },
-};
 
 const SPOTLIGHT_OPTIONS = [
   { key: 'accolades' as const, label: 'Accolades', defaultOn: true },
@@ -43,7 +32,7 @@ interface TradeData {
   teamScores: Record<string, TeamScoreEntry>;
   winner: string | null;
   lopsidedness: number;
-  heroUrls: Record<string, string[]>;
+  heroUrls?: Record<string, string[]>;
 }
 
 interface CardPreviewModalProps {
@@ -52,58 +41,46 @@ interface CardPreviewModalProps {
   onClose: () => void;
 }
 
-/** Convert a proxied image URL to a base64 data URL for html-to-image compatibility. */
-async function urlToDataUrl(url: string): Promise<string> {
-  const res = await fetch(url);
-  const blob = await res.blob();
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result as string);
-    reader.onerror = reject;
-    reader.readAsDataURL(blob);
-  });
-}
-
 export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPreviewModalProps) {
   const [format, setFormat] = useState<Format>('og');
-  const [skin, setSkin] = useState<VisualSkin>('classic');
+  const [skin, setSkin] = useState<CardSkin>('classic');
   const [spotlight, setSpotlight] = useState<Record<SpotlightKey, boolean>>({ ...DEFAULT_SPOTLIGHT });
-  const [playerCount, setPlayerCount] = useState<1 | 2 | 3>(2);
+  const [selectedPlayers, setSelectedPlayers] = useState<Record<string, string[]>>({});
   const [imgUrl, setImgUrl] = useState<string | null>(null);
   const [imgBlob, setImgBlob] = useState<Blob | null>(null);
   const [loading, setLoading] = useState(true);
   const [downloading, setDownloading] = useState(false);
   const [copied, setCopied] = useState(false);
   const [tradeData, setTradeData] = useState<TradeData | null>(null);
-  const [heroDataUrls, setHeroDataUrls] = useState<Record<string, string[]>>({});
   const cardRef = useRef<HTMLDivElement>(null);
   const captureTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // ── Step 1: Fetch trade data on mount ──────────────────────
+  // Headshot pipeline: convert proxy URLs → data URLs
+  const { headshots, headshotsLoading } = useHeadshots(tradeData?.heroUrls);
+
+  // ── Fetch trade data on mount ──────────────────────────────
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
         const res = await fetch(`/api/card-data/${tradeId}`);
         if (!res.ok) throw new Error('fetch failed');
-        const data: TradeData = await res.json();
+        const data = await res.json();
         if (cancelled) return;
-        setTradeData(data);
-
-        // Pre-fetch all hero images as data URLs
-        const dataUrls: Record<string, string[]> = {};
-        await Promise.all(
-          Object.entries(data.heroUrls).map(async ([teamId, urls]) => {
-            const resolved = await Promise.all(
-              urls.slice(0, 3).map(async (u) => {
-                try { return await urlToDataUrl(u); } catch { return ''; }
-              }),
-            );
-            dataUrls[teamId] = resolved.filter(Boolean);
-          }),
-        );
-        if (cancelled) return;
-        setHeroDataUrls(dataUrls);
+        const ts = data.teamScores as Record<string, TeamScoreEntry>;
+        setTradeData({
+          teamScores: ts,
+          winner: data.winner,
+          lopsidedness: data.lopsidedness,
+          heroUrls: data.heroUrls,
+        });
+        const allPlayers: Record<string, string[]> = {};
+        for (const [teamId, entry] of Object.entries(ts)) {
+          allPlayers[teamId] = entry.assets
+            .sort((a, b) => b.score - a.score)
+            .map(a => a.name);
+        }
+        setSelectedPlayers(allPlayers);
       } catch {
         // Trade data fetch failed
       }
@@ -111,56 +88,60 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
     return () => { cancelled = true; };
   }, [tradeId]);
 
-  // ── Step 2: Capture card whenever options change ───────────
+  // ── Capture card whenever options change ───────────────────
   const captureCard = useCallback(async () => {
     if (!cardRef.current || !tradeData) return;
     setLoading(true);
     setCopied(false);
 
-    // Wait for images to settle in the DOM
-    await new Promise((r) => setTimeout(r, 150));
-    await document.fonts.ready;
+    await new Promise((r) => setTimeout(r, 100));
 
     try {
-      // Dynamic import to avoid SSR issues
-      const { toPng } = await import('html-to-image');
-      const dims = FORMAT_DIMS[format];
-      const dataUrl = await toPng(cardRef.current, {
-        width: dims.w,
-        height: dims.h,
-        pixelRatio: 1,
-        skipAutoScale: true,
-        cacheBust: true,
-      });
-
-      // Convert data URL → blob for clipboard + download
-      const res = await fetch(dataUrl);
-      const blob = await res.blob();
-      const objectUrl = URL.createObjectURL(blob);
-
-      // Revoke previous object URL
-      setImgUrl((prev) => { if (prev) URL.revokeObjectURL(prev); return objectUrl; });
-      setImgBlob(blob);
+      const result = await captureElement(cardRef.current, format);
+      setImgUrl((prev) => { if (prev) URL.revokeObjectURL(prev); return result.url; });
+      setImgBlob(result.blob);
     } catch (e) {
       console.error('Card capture failed:', e);
       setImgUrl(null);
       setImgBlob(null);
     }
     setLoading(false);
-  }, [tradeData, format, skin]);
+  }, [tradeData, format, skin, headshots]);
 
   // Trigger capture when data or options change (debounced)
   useEffect(() => {
     if (!tradeData) return;
+    if (headshotsLoading) return; // Wait for headshots before first capture
     if (captureTimer.current) clearTimeout(captureTimer.current);
     captureTimer.current = setTimeout(captureCard, 200);
     return () => { if (captureTimer.current) clearTimeout(captureTimer.current); };
-  }, [tradeData, heroDataUrls, format, skin, playerCount, spotlight, captureCard]);
+  }, [tradeData, format, skin, selectedPlayers, spotlight, captureCard, headshotsLoading]);
 
   // ── Handlers ───────────────────────────────────────────────
   const toggleSpotlight = useCallback((key: SpotlightKey) => {
     setSpotlight((prev) => ({ ...prev, [key]: !prev[key] }));
   }, []);
+
+  const togglePlayer = useCallback((teamId: string, playerName: string) => {
+    setSelectedPlayers(prev => {
+      const current = prev[teamId] || [];
+      const isSelected = current.includes(playerName);
+      if (isSelected) {
+        if (current.length <= 1) return prev;
+        return { ...prev, [teamId]: current.filter(n => n !== playerName) };
+      }
+      return { ...prev, [teamId]: [...current, playerName] };
+    });
+  }, []);
+
+  const playersByTeam = useMemo(() => {
+    if (!tradeData) return [];
+    return Object.entries(tradeData.teamScores)
+      .map(([teamId, entry]) => ({
+        teamId,
+        players: [...entry.assets].sort((a, b) => b.score - a.score),
+      }));
+  }, [tradeData]);
 
   const handleDownload = async () => {
     if (!imgUrl || downloading) return;
@@ -186,7 +167,6 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
   const dims = FORMAT_DIMS[format];
   const aspect = dims.w / dims.h;
 
-  // Build spotlight as SpotlightOptions
   const spotlightOpts: SpotlightOptions = {
     accolades: spotlight.accolades,
     winShares: spotlight.winShares,
@@ -261,7 +241,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
             Skin
           </span>
           <div style={{ display: 'flex', gap: 6 }}>
-            {SKINS.map((s) => {
+            {CARD_SKINS.map((s) => {
               const active = skin === s.id;
               return (
                 <button key={s.id} onClick={() => setSkin(s.id)} style={{
@@ -280,33 +260,55 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
           </div>
         </div>
 
-        {/* Player count */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-          <span style={{
-            fontSize: 10, fontWeight: 700, letterSpacing: 2,
-            color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase',
-            fontFamily: 'var(--font-body)',
-          }}>
-            Players Per Team
-          </span>
-          <div style={{ display: 'flex', gap: 6 }}>
-            {([1, 2, 3] as const).map((n) => {
-              const active = playerCount === n;
-              return (
-                <button key={n} onClick={() => setPlayerCount(n)} style={{
-                  padding: '5px 16px', fontSize: 11, fontWeight: 700,
-                  fontFamily: 'var(--font-body)',
-                  color: active ? '#f9c74f' : 'rgba(255,255,255,0.35)',
-                  background: active ? 'rgba(249,199,79,0.1)' : 'transparent',
-                  border: active ? '1px solid rgba(249,199,79,0.3)' : '1px solid rgba(255,255,255,0.08)',
-                  borderRadius: 20, cursor: 'pointer', transition: 'all 0.15s',
-                }}>
-                  {n}
-                </button>
-              );
-            })}
+        {/* Player selection */}
+        {playersByTeam.length > 0 && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <span style={{
+              fontSize: 10, fontWeight: 700, letterSpacing: 2,
+              color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase',
+              fontFamily: 'var(--font-body)',
+            }}>
+              Players
+            </span>
+            <div style={{ display: 'flex', gap: 12 }}>
+              {playersByTeam.map(({ teamId, players }) => {
+                const teamColor = CARD_TEAM_COLORS[teamId] || '#888';
+                const sel = selectedPlayers[teamId] || [];
+                return (
+                  <div key={teamId} style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    <span style={{
+                      fontSize: 10, fontWeight: 800, letterSpacing: 1.5,
+                      color: teamColor, fontFamily: 'var(--font-body)',
+                    }}>
+                      {teamId}
+                    </span>
+                    {players.map((asset) => {
+                      const active = sel.includes(asset.name);
+                      return (
+                        <button
+                          key={asset.name}
+                          onClick={() => togglePlayer(teamId, asset.name)}
+                          style={{
+                            padding: '4px 10px', fontSize: 11, fontWeight: 600,
+                            fontFamily: 'var(--font-body)',
+                            textAlign: 'left',
+                            color: active ? '#fff' : 'rgba(255,255,255,0.25)',
+                            background: active ? `${teamColor}22` : 'transparent',
+                            border: active ? `1px solid ${teamColor}55` : '1px solid rgba(255,255,255,0.06)',
+                            borderRadius: 6, cursor: 'pointer', transition: 'all 0.15s',
+                            textDecoration: active ? 'none' : 'line-through',
+                          }}
+                        >
+                          {asset.name}
+                        </button>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Spotlight toggles */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
@@ -343,7 +345,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           minHeight: 200, overflow: 'hidden',
         }}>
-          {loading ? (
+          {loading || headshotsLoading ? (
             <div style={{
               display: 'flex', alignItems: 'center', gap: 8,
               padding: 40, color: 'rgba(255,255,255,0.3)',
@@ -355,7 +357,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
                 borderTopColor: '#f9c74f', borderRadius: '50%',
                 animation: 'spin 0.8s linear infinite',
               }} />
-              Generating card...
+              {headshotsLoading ? 'Loading headshots...' : 'Generating card...'}
             </div>
           ) : imgUrl ? (
             <img
@@ -434,11 +436,11 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
             winner={tradeData.winner}
             lopsidedness={tradeData.lopsidedness}
             date={tradeDate}
-            heroDataUrls={heroDataUrls}
-            playerCount={playerCount}
+            selectedPlayers={selectedPlayers}
             spotlight={spotlightOpts}
             format={format}
             skin={skin}
+            headshots={headshots}
           />
         </div>
       )}
