@@ -93,6 +93,12 @@ nba-trade-mapper/
 │       ├── End of Season Teams.csv   # All-NBA, All-Defensive
 │       ├── All-Star Selections.csv   # All-Star picks
 │       └── Team Summaries.csv        # Team W/L, playoffs
+├── kalshi/                              # Prediction market integration (exploratory, excluded from build)
+│   ├── README.md                        # What was validated, integration plan, credentials
+│   ├── test-kalshi.ts                   # Initial API connection check
+│   ├── test-kalshi-nba.ts               # NBA event discovery
+│   ├── test-kalshi-sports.ts            # Broad sports market survey
+│   └── test-kalshi-final.ts             # Comprehensive series ticker sweep
 ├── scripts/
 │   ├── lib/
 │   │   ├── supabase-admin.ts         # Shared Supabase admin client (service role key)

@@ -1551,7 +1551,6 @@ function TradeNodeComponent({ id, data }: NodeProps) {
       <CardPreviewModal
         tradeId={trade.id}
         tradeDate={trade.date || undefined}
-        initialSkin={visualSkin}
         onClose={() => setCardPreviewOpen(false)}
       />,
       document.body,

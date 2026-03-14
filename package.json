@@ -17,6 +17,8 @@
     "csv-parse": "^6.1.0",
     "dotenv": "^17.3.1",
     "elkjs": "^0.11.0",
+    "html-to-image": "^1.11.13",
+    "kalshi-typescript": "^3.9.0",
     "nanoid": "^5.1.6",
     "next": "16.1.6",
     "postgres": "^3.4.8",

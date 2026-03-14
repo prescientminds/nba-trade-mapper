@@ -45,6 +45,8 @@ export async function GET(
     detailedVerdict: parseBool(url.searchParams.get('detailedVerdict'), false),
   };
 
+  const playerCount = Math.min(3, Math.max(1, parseInt(url.searchParams.get('playerCount') || '2', 10)));
+
   const sbUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const sbKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!sbUrl || !sbKey) {
@@ -77,6 +79,7 @@ export async function GET(
         format,
         spotlight,
         skin,
+        playerCount,
       }),
       {
         ...dims,

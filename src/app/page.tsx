@@ -329,7 +329,6 @@ function GraphToolbar() {
               <CardPreviewModal
                 tradeId={seedInfo.tradeId}
                 tradeDate={tradeDate}
-                initialSkin={visualSkin}
                 onClose={() => setCardModalOpen(false)}
               />,
               document.body,
@@ -340,6 +339,12 @@ function GraphToolbar() {
 
       <Separator />
       {/* Skin picker */}
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.35)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: 3, flexShrink: 0 }}>
+        <path d="M2 6V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2" />
+        <path d="M2 6h20v4H2z" fill="rgba(255,255,255,0.15)" />
+        <path d="M4 10v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+        <path d="M16 16l4 4" />
+      </svg>
       <div style={{ display: 'flex', gap: 2 }}>
         {SKINS.map((skin) => (
           <button

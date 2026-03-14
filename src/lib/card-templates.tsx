@@ -2,14 +2,13 @@
 // ── Shareable card templates for OG image generation (Satori / next-og) ──
 //
 // Three format-specific layouts: OG (1200×630), Square (1080×1080), Story (1080×1920).
-// Each skin dramatically transforms the visual: classic (ESPN clean), holographic
-// (prismatic foil), insideStuff (gold broadcast), nbaJam (neon arcade).
-// Satori constraints: flexbox only, no grid, no pseudo-elements.
+// Each section has the team's darkened color as background — the card is FILLED,
+// not mostly black. Score is the dominant element. Content is vertically centered.
+// Satori constraints: flexbox only, no grid, no pseudo-elements, no transforms.
 
 // ── Team data (lightweight, Edge-safe) ──────────────────────────
 
 export const CARD_TEAM_COLORS: Record<string, string> = {
-  // Current NBA
   ATL: '#E03A3E', BOS: '#007A33', BKN: '#A1A1A4', CHA: '#00788C',
   CHI: '#CE1141', CLE: '#860038', DAL: '#00538C', DEN: '#0D2240',
   DET: '#C8102E', GSW: '#006BB6', HOU: '#CE1141', IND: '#002D62',
@@ -18,11 +17,9 @@ export const CARD_TEAM_COLORS: Record<string, string> = {
   OKC: '#007AC1', ORL: '#0077C0', PHI: '#006BB6', PHX: '#E56020',
   POR: '#E03A3E', SAC: '#5A2D81', SAS: '#C4CED4', TOR: '#CE1141',
   UTA: '#002B5C', WAS: '#002B5C',
-  // Historical
   SEA: '#00843D', NJN: '#002A60', VAN: '#00B2A9', NOH: '#002B5C',
   NOK: '#002B5C', WSB: '#E31837', CHH: '#1D1160', SDC: '#ED174C',
   KCK: '#C8102E', BUF: '#003DA5',
-  // WNBA
   'W-LVA': '#000000', 'W-NYL': '#6ECEB2', 'W-SEA': '#2C5234',
   'W-MIN': '#236192', 'W-CHI': '#418FDE', 'W-IND': '#002D62',
   'W-PHX': '#CB6015', 'W-LAX': '#552583', 'W-CON': '#002D62',
@@ -39,11 +36,9 @@ export const CARD_TEAM_SECONDARY: Record<string, string> = {
   OKC: '#EF3B24', ORL: '#C4CED4', PHI: '#ED174C', PHX: '#1D1160',
   POR: '#000000', SAC: '#63727A', SAS: '#000000', TOR: '#000000',
   UTA: '#F9A01B', WAS: '#E31837',
-  // Historical — fallback to primary darkened
   SEA: '#FFC200', NJN: '#000000', VAN: '#003F5C', NOH: '#002B5C',
   NOK: '#002B5C', WSB: '#002B5C', CHH: '#00788C', SDC: '#1D428A',
   KCK: '#1D428A', BUF: '#E31837',
-  // WNBA
   'W-LVA': '#C4CED4', 'W-NYL': '#000000', 'W-SEA': '#FFC200',
   'W-MIN': '#78BE20', 'W-CHI': '#FFCD00', 'W-IND': '#E03A3E',
   'W-PHX': '#1D1160', 'W-LAX': '#FDB927', 'W-CON': '#C8102E',
@@ -63,7 +58,6 @@ const TEAM_NICK: Record<string, string> = {
   SEA: 'SuperSonics', NJN: 'Nets', VAN: 'Grizzlies', NOH: 'Hornets',
   NOK: 'Hornets', WSB: 'Bullets', CHH: 'Hornets', SDC: 'Clippers',
   KCK: 'Kings', BUF: 'Braves',
-  // WNBA
   'W-LVA': 'Aces', 'W-NYL': 'Liberty', 'W-SEA': 'Storm',
   'W-MIN': 'Lynx', 'W-CHI': 'Sky', 'W-IND': 'Fever',
   'W-PHX': 'Mercury', 'W-LAX': 'Sparks', 'W-CON': 'Sun',
@@ -125,7 +119,7 @@ function darkenHex(hex: string, amount: number): string {
   return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
 }
 
-// ── Card-specific helpers ───────────────────────────────────────
+// ── Card helpers ────────────────────────────────────────────────
 
 function buildHeadline(teamScores: Record<string, TeamScoreEntry>): string {
   let bestName = '';
@@ -154,7 +148,7 @@ function verdictText(winner: string | null, lopsidedness: number): string {
   return `The ${nick} had a slight edge`;
 }
 
-function compressAccolades(accolades: string[]): string[] {
+function compressAccolades(accolades: string[], maxItems = 3): string[] {
   if (!accolades.length) return [];
   const groups: Record<string, number> = {};
   for (const a of accolades) {
@@ -170,102 +164,98 @@ function compressAccolades(accolades: string[]): string[] {
     const bi = priority.indexOf(b[0]);
     return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
   });
-  return sorted.slice(0, 3).map(([label, count]) =>
+  return sorted.slice(0, maxItems).map(([label, count]) =>
     count > 1 ? `${count}\u00d7 ${label}` : label
   );
 }
 
 function pillColor(text: string): { bg: string; fg: string } {
   const t = text.toLowerCase();
-  if (t.includes('mvp')) return { bg: 'rgba(249,199,79,0.35)', fg: '#fcd34d' };
-  if (t.includes('dpoy')) return { bg: 'rgba(78,205,196,0.35)', fg: '#5eead4' };
-  if (t.includes('all-star')) return { bg: 'rgba(155,93,229,0.35)', fg: '#c084fc' };
-  if (t.includes('all-nba')) return { bg: 'rgba(255,107,53,0.35)', fg: '#fb923c' };
-  if (t.includes('roy')) return { bg: 'rgba(6,214,160,0.35)', fg: '#34d399' };
-  if (t.includes('all-def')) return { bg: 'rgba(78,205,196,0.3)', fg: '#5eead4' };
-  return { bg: 'rgba(255,255,255,0.15)', fg: 'rgba(255,255,255,0.7)' };
+  if (t.includes('mvp')) return { bg: 'rgba(249,199,79,0.4)', fg: '#fcd34d' };
+  if (t.includes('dpoy')) return { bg: 'rgba(78,205,196,0.4)', fg: '#5eead4' };
+  if (t.includes('all-star')) return { bg: 'rgba(155,93,229,0.4)', fg: '#c084fc' };
+  if (t.includes('all-nba')) return { bg: 'rgba(255,107,53,0.4)', fg: '#fb923c' };
+  if (t.includes('roy')) return { bg: 'rgba(6,214,160,0.4)', fg: '#34d399' };
+  if (t.includes('all-def')) return { bg: 'rgba(78,205,196,0.35)', fg: '#5eead4' };
+  if (t.includes('champ')) return { bg: 'rgba(249,199,79,0.4)', fg: '#fcd34d' };
+  return { bg: 'rgba(255,255,255,0.18)', fg: 'rgba(255,255,255,0.8)' };
 }
 
 // ── Skin system ─────────────────────────────────────────────────
-// Each skin transforms the ENTIRE card visual: background, banners,
-// text colors, accent bars, overlays. Like switching napkin/script in
-// the happy hours app — dramatic, not subtle.
 
 export type CardSkin = 'classic' | 'holographic' | 'insideStuff' | 'nbaJam';
 
 interface CardSkinConfig {
   cardBg: string;
-  // Banner
-  bannerBg: (teamColor: string) => string;
-  bannerTextColor: string;
-  bannerBorder: string;
-  // Accent bars (null = team color segments)
+  sectionBg: (teamColor: string) => string;
+  sectionBorder: string;
+  teamNameColor: string;
   accentBarBg: () => string | null;
-  // Score
   scoreColor: string;
   scoreShadow: (teamColor: string) => string;
-  accentLineColor: (teamColor: string) => string;
-  // Players
+  watermarkColor: string;
+  accentLineColor: string;
   playerNameColor: string;
-  playerScoreColor: (teamColor: string) => string;
+  playerScoreColor: string;
   restColor: string;
-  // Verdict
   verdictColor: (winnerColor: string | null) => string;
+  verdictBg: string;
   verdictBorderBg: (c1: string, wc: string | null, c2: string) => string;
-  // Labels
   headlineColor: string;
   brandColor: string;
   dateColor: string;
   footerColor: string;
   detailedVerdictColor: string;
-  // Spotlight pills
   statBg: string;
   statFg: string;
 }
 
 const SKIN_CONFIGS: Record<CardSkin, CardSkinConfig> = {
-  // ── Classic: ESPN clean, dark + team colors ──
   classic: {
-    cardBg: '#08080f',
-    bannerBg: (tc) => tc,
-    bannerTextColor: '#ffffff',
-    bannerBorder: 'none',
+    cardBg: '#0a0a12',
+    sectionBg: (tc) =>
+      `linear-gradient(170deg, ${darkenHex(tc, 0.5)} 0%, ${darkenHex(tc, 0.7)} 100%)`,
+    sectionBorder: 'none',
+    teamNameColor: 'rgba(255,255,255,0.6)',
     accentBarBg: () => null,
     scoreColor: '#ffffff',
-    scoreShadow: (tc) => `0 0 40px ${hexToRgba(tc, 0.3)}, 0 0 80px ${hexToRgba(tc, 0.1)}`,
-    accentLineColor: (tc) => hexToRgba(tc, 0.6),
-    playerNameColor: 'rgba(255,255,255,0.9)',
-    playerScoreColor: (tc) => tc,
-    restColor: 'rgba(255,255,255,0.3)',
-    verdictColor: (wc) => wc || 'rgba(255,255,255,0.5)',
+    scoreShadow: (tc) => `0 2px 40px ${hexToRgba(tc, 0.5)}`,
+    watermarkColor: 'rgba(255,255,255,0.06)',
+    accentLineColor: 'rgba(255,255,255,0.25)',
+    playerNameColor: 'rgba(255,255,255,0.95)',
+    playerScoreColor: 'rgba(255,255,255,0.6)',
+    restColor: 'rgba(255,255,255,0.4)',
+    verdictColor: (wc) => wc || '#ffffff',
+    verdictBg: 'rgba(0,0,0,0.6)',
     verdictBorderBg: (c1, wc, c2) =>
-      `linear-gradient(90deg, ${c1}, ${wc || 'rgba(255,255,255,0.15)'}, ${c2})`,
+      `linear-gradient(90deg, ${c1}, ${wc || 'rgba(255,255,255,0.2)'}, ${c2})`,
     headlineColor: '#ffffff',
-    brandColor: 'rgba(255,255,255,0.3)',
-    dateColor: 'rgba(255,255,255,0.2)',
+    brandColor: 'rgba(255,255,255,0.35)',
+    dateColor: 'rgba(255,255,255,0.25)',
     footerColor: 'rgba(255,255,255,0.2)',
-    detailedVerdictColor: 'rgba(255,255,255,0.35)',
-    statBg: 'rgba(255,255,255,0.1)',
-    statFg: 'rgba(255,255,255,0.6)',
+    detailedVerdictColor: 'rgba(255,255,255,0.4)',
+    statBg: 'rgba(255,255,255,0.15)',
+    statFg: 'rgba(255,255,255,0.8)',
   },
 
-  // ── Holographic: prismatic foil, rainbow shimmer ──
   holographic: {
-    cardBg: '#08061a',
-    bannerBg: (tc) =>
-      `linear-gradient(90deg, ${tc}, ${hexToRgba(tc, 0.5)}, rgba(155,93,229,0.8))`,
-    bannerTextColor: '#ffffff',
-    bannerBorder: 'none',
+    cardBg: '#06041a',
+    sectionBg: (tc) =>
+      `linear-gradient(135deg, ${darkenHex(tc, 0.55)} 0%, ${hexToRgba(tc, 0.25)} 50%, rgba(155,93,229,0.3) 100%)`,
+    sectionBorder: 'none',
+    teamNameColor: 'rgba(220,210,255,0.6)',
     accentBarBg: () =>
       'linear-gradient(90deg, #ff6b35, #f9c74f, #06d6a0, #4ecdc4, #9b5de5, #ff6b35)',
     scoreColor: '#ffffff',
     scoreShadow: (tc) =>
-      `0 0 30px ${hexToRgba(tc, 0.4)}, 0 0 60px rgba(155,93,229,0.25), 0 0 90px rgba(78,205,196,0.15)`,
-    accentLineColor: () => 'rgba(155,93,229,0.5)',
-    playerNameColor: 'rgba(220,210,255,0.9)',
-    playerScoreColor: (tc) => tc,
+      `0 2px 30px ${hexToRgba(tc, 0.5)}, 0 0 60px rgba(155,93,229,0.3)`,
+    watermarkColor: 'rgba(155,93,229,0.06)',
+    accentLineColor: 'rgba(155,93,229,0.4)',
+    playerNameColor: 'rgba(220,210,255,0.95)',
+    playerScoreColor: 'rgba(200,180,255,0.6)',
     restColor: 'rgba(200,180,255,0.4)',
-    verdictColor: (wc) => wc || 'rgba(200,180,255,0.6)',
+    verdictColor: (wc) => wc || 'rgba(200,180,255,0.8)',
+    verdictBg: 'rgba(6,4,26,0.8)',
     verdictBorderBg: () =>
       'linear-gradient(90deg, #ff6b35, #f9c74f, #06d6a0, #4ecdc4, #9b5de5, #ff6b35)',
     headlineColor: '#ffffff',
@@ -274,62 +264,64 @@ const SKIN_CONFIGS: Record<CardSkin, CardSkinConfig> = {
     footerColor: 'rgba(200,180,255,0.25)',
     detailedVerdictColor: 'rgba(200,180,255,0.4)',
     statBg: 'rgba(155,93,229,0.25)',
-    statFg: 'rgba(200,180,255,0.8)',
+    statFg: 'rgba(220,210,255,0.85)',
   },
 
-  // ── Inside Stuff: gold broadcast, TNT prestige ──
   insideStuff: {
-    cardBg: '#12082a',
-    bannerBg: () =>
-      'linear-gradient(90deg, #8b6914, #f5d78e, #d4a548, #f5d78e, #8b6914)',
-    bannerTextColor: '#1a0a2e',
-    bannerBorder: 'none',
+    cardBg: '#0d0620',
+    sectionBg: (tc) =>
+      `linear-gradient(170deg, ${hexToRgba(tc, 0.2)} 0%, #12082a 50%, #0d0620 100%)`,
+    sectionBorder: 'none',
+    teamNameColor: 'rgba(212,165,72,0.5)',
     accentBarBg: () =>
       'linear-gradient(90deg, #8b6914, #f5d78e, #d4a548, #f5d78e, #8b6914)',
     scoreColor: '#f5d78e',
-    scoreShadow: () =>
-      '0 0 40px rgba(212,165,72,0.4), 0 0 80px rgba(212,165,72,0.15)',
-    accentLineColor: () => '#d4a548',
-    playerNameColor: 'rgba(245,215,142,0.9)',
-    playerScoreColor: () => '#f5d78e',
+    scoreShadow: () => '0 2px 40px rgba(212,165,72,0.5)',
+    watermarkColor: 'rgba(212,165,72,0.05)',
+    accentLineColor: 'rgba(212,165,72,0.4)',
+    playerNameColor: 'rgba(245,215,142,0.95)',
+    playerScoreColor: 'rgba(212,165,72,0.6)',
     restColor: 'rgba(212,165,72,0.4)',
     verdictColor: () => '#f5d78e',
+    verdictBg: 'rgba(13,6,32,0.8)',
     verdictBorderBg: () =>
       'linear-gradient(90deg, #8b6914, #f5d78e, #d4a548, #f5d78e, #8b6914)',
     headlineColor: '#f5d78e',
-    brandColor: 'rgba(212,165,72,0.5)',
-    dateColor: 'rgba(212,165,72,0.4)',
-    footerColor: 'rgba(212,165,72,0.3)',
+    brandColor: 'rgba(212,165,72,0.45)',
+    dateColor: 'rgba(212,165,72,0.35)',
+    footerColor: 'rgba(212,165,72,0.25)',
     detailedVerdictColor: 'rgba(212,165,72,0.4)',
     statBg: 'rgba(212,165,72,0.2)',
-    statFg: 'rgba(245,215,142,0.8)',
+    statFg: 'rgba(245,215,142,0.85)',
   },
 
-  // ── NBA Jam: neon arcade, pure black + cyan fire ──
   nbaJam: {
     cardBg: '#000000',
-    bannerBg: () => '#050505',
-    bannerTextColor: '#00FFFF',
-    bannerBorder: '2px solid rgba(0,255,255,0.5)',
+    sectionBg: (tc) =>
+      `linear-gradient(170deg, ${hexToRgba(tc, 0.1)} 0%, #000000 40%)`,
+    sectionBorder: '1px solid rgba(0,255,255,0.25)',
+    teamNameColor: 'rgba(0,255,255,0.5)',
     accentBarBg: () =>
-      'linear-gradient(90deg, #003333, #00CCCC, #00FFFF, #00CCCC, #003333)',
+      'linear-gradient(90deg, #002222, #00CCCC, #00FFFF, #00CCCC, #002222)',
     scoreColor: '#00FFFF',
     scoreShadow: () =>
-      '0 0 30px rgba(0,255,255,0.5), 0 0 60px rgba(0,255,255,0.25), 0 0 120px rgba(0,255,255,0.1)',
-    accentLineColor: () => '#00CCCC',
-    playerNameColor: 'rgba(0,255,255,0.85)',
-    playerScoreColor: () => '#00FFFF',
+      '0 0 30px rgba(0,255,255,0.6), 0 0 80px rgba(0,255,255,0.2)',
+    watermarkColor: 'rgba(0,255,255,0.04)',
+    accentLineColor: 'rgba(0,255,255,0.3)',
+    playerNameColor: 'rgba(0,255,255,0.9)',
+    playerScoreColor: 'rgba(0,204,204,0.6)',
     restColor: 'rgba(0,204,204,0.35)',
     verdictColor: () => '#00FFFF',
+    verdictBg: 'rgba(0,0,0,0.9)',
     verdictBorderBg: () =>
-      'linear-gradient(90deg, #003333, #00CCCC, #00FFFF, #00CCCC, #003333)',
+      'linear-gradient(90deg, #002222, #00CCCC, #00FFFF, #00CCCC, #002222)',
     headlineColor: '#00FFFF',
     brandColor: 'rgba(0,204,204,0.4)',
     dateColor: 'rgba(0,204,204,0.3)',
     footerColor: 'rgba(0,204,204,0.25)',
-    detailedVerdictColor: 'rgba(0,204,204,0.35)',
+    detailedVerdictColor: 'rgba(0,204,204,0.4)',
     statBg: 'rgba(0,204,204,0.2)',
-    statFg: 'rgba(0,255,255,0.8)',
+    statFg: 'rgba(0,255,255,0.85)',
   },
 };
 
@@ -351,17 +343,22 @@ function renderAccentBar(
   );
 }
 
-/** Skin-specific section overlay. Dramatic per-skin visual treatment. */
-function renderSectionOverlay(
-  skinId: CardSkin,
-  teamColor: string,
-): React.ReactElement | null {
+function renderSectionOverlay(skinId: CardSkin, teamColor: string): React.ReactElement | null {
+  if (skinId === 'holographic') {
+    return (
+      <div style={{
+        position: 'absolute' as const, top: 0, left: 0, right: 0, bottom: 0,
+        display: 'flex',
+        background: `radial-gradient(ellipse at 25% 20%, ${hexToRgba(teamColor, 0.12)} 0%, transparent 50%), radial-gradient(ellipse at 75% 80%, rgba(78,205,196,0.08) 0%, transparent 50%)`,
+      }} />
+    );
+  }
   if (skinId === 'insideStuff') {
     return (
       <div style={{
         position: 'absolute' as const, top: 0, left: 0, right: 0, bottom: 0,
         display: 'flex',
-        background: 'radial-gradient(ellipse at 50% 30%, rgba(212,165,72,0.15) 0%, transparent 60%)',
+        background: 'radial-gradient(ellipse at 50% 40%, rgba(212,165,72,0.12) 0%, transparent 60%)',
       }} />
     );
   }
@@ -370,16 +367,7 @@ function renderSectionOverlay(
       <div style={{
         position: 'absolute' as const, top: 0, left: 0, right: 0, bottom: 0,
         display: 'flex',
-        background: 'repeating-linear-gradient(0deg, transparent 0px, transparent 4px, rgba(0,255,255,0.07) 4px, rgba(0,255,255,0.07) 5px)',
-      }} />
-    );
-  }
-  if (skinId === 'holographic') {
-    return (
-      <div style={{
-        position: 'absolute' as const, top: 0, left: 0, right: 0, bottom: 0,
-        display: 'flex',
-        background: `radial-gradient(ellipse at 25% 20%, ${hexToRgba(teamColor, 0.15)} 0%, transparent 45%), radial-gradient(ellipse at 75% 80%, rgba(78,205,196,0.1) 0%, transparent 45%), radial-gradient(ellipse at 50% 50%, rgba(155,93,229,0.08) 0%, transparent 55%)`,
+        background: 'repeating-linear-gradient(0deg, transparent 0px, transparent 4px, rgba(0,255,255,0.05) 4px, rgba(0,255,255,0.05) 5px)',
       }} />
     );
   }
@@ -436,9 +424,10 @@ export interface TradeVerdictData {
   spotlight?: Partial<SpotlightOptions>;
   format?: 'og' | 'square' | 'story';
   skin?: CardSkin;
+  playerCount?: number;
 }
 
-// ── Shared render helpers ───────────────────────────────────────
+// ── Render helpers ──────────────────────────────────────────────
 
 function renderPlayerDetail(
   asset: AssetScore,
@@ -447,9 +436,13 @@ function renderPlayerDetail(
   sk: CardSkinConfig,
 ): React.ReactElement | null {
   const items: { text: string; bg: string; fg: string }[] = [];
+  const statCount = activeStatCount(spotlight);
+
+  // When accolades is the only stat, show more accolades at larger size
+  const accoladeMax = statCount === 1 && spotlight.accolades ? 8 : 3;
 
   if (spotlight.accolades && asset.accolades?.length) {
-    for (const a of compressAccolades(asset.accolades)) {
+    for (const a of compressAccolades(asset.accolades, accoladeMax)) {
       items.push({ text: a, ...pillColor(a) });
     }
   }
@@ -460,22 +453,24 @@ function renderPlayerDetail(
   if (spotlight.playoffWs && asset.playoff_ws != null && asset.playoff_ws > 0)
     items.push({ text: `${fmt(asset.playoff_ws)} PWS`, ...stat });
   if (spotlight.championships && asset.championships != null && asset.championships > 0)
-    items.push({ text: `${asset.championships}\u00d7 Champ`, bg: 'rgba(249,199,79,0.3)', fg: '#fcd34d' });
+    items.push({ text: `${asset.championships}\u00d7 Champ`, ...pillColor('champ') });
   if (spotlight.seasons && asset.seasons != null && asset.seasons > 0)
     items.push({ text: `${asset.seasons} Szn`, ...stat });
 
   if (items.length === 0) return null;
 
-  // Scale up: floor at 12px, add 2 from base for readability
-  const fs = Math.max(baseFontSize + 2, 12);
+  // Auto-size: fewer active spotlights → larger pills
+  const sizeScale = statCount <= 1 ? 1.5 : statCount === 2 ? 1.25 : 1;
+  const fs = Math.max(Math.round(baseFontSize * sizeScale), 12);
+  const pad = fs >= 18 ? 14 : fs >= 15 ? 12 : fs < 13 ? 8 : 10;
 
   return (
-    <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', marginTop: 3 }}>
+    <div style={{ display: 'flex', gap: fs >= 15 ? 8 : 5, flexWrap: 'wrap', marginTop: fs >= 15 ? 8 : 4 }}>
       {items.map((item, i) => (
         <div key={i} style={{
           display: 'flex',
-          padding: `3px ${fs < 13 ? 8 : 10}px`,
-          borderRadius: 4,
+          padding: `${Math.round(pad * 0.35)}px ${pad}px`,
+          borderRadius: fs >= 15 ? 6 : 4,
           backgroundColor: item.bg,
           color: item.fg,
           fontSize: fs,
@@ -489,8 +484,6 @@ function renderPlayerDetail(
   );
 }
 
-// ── Dispatcher ──────────────────────────────────────────────────
-
 export function tradeVerdictCard(data: TradeVerdictData): React.ReactElement {
   switch (data.format) {
     case 'story': return tradeCardStory(data);
@@ -498,8 +491,6 @@ export function tradeVerdictCard(data: TradeVerdictData): React.ReactElement {
     default: return tradeCardOG(data);
   }
 }
-
-// ── Shared layout helpers ───────────────────────────────────────
 
 function sortTeams(
   teamScores: Record<string, TeamScoreEntry>,
@@ -518,7 +509,76 @@ function resolveSpotlight(raw?: Partial<SpotlightOptions>): SpotlightOptions {
   return { ...DEFAULT_SPOTLIGHT, ...raw };
 }
 
-// ── OG Layout (1200×630) — Twitter / link preview ───────────────
+/** Count of active stat spotlights (excludes verdict — that's a layout toggle). */
+function activeStatCount(s: SpotlightOptions): number {
+  let n = 0;
+  if (s.accolades) n++;
+  if (s.winShares) n++;
+  if (s.championships) n++;
+  if (s.playoffWs) n++;
+  if (s.seasons) n++;
+  return n;
+}
+
+/** Render proportional team score bar for the verdict section. */
+function renderVerdictBar(
+  teams: [string, TeamScoreEntry][],
+  sk: CardSkinConfig,
+  barHeight: number,
+  fontSize: number,
+): React.ReactElement {
+  const totalScore = teams.reduce((sum, [, td]) => sum + td.score, 0) || 1;
+  return (
+    <div style={{
+      display: 'flex', flexDirection: 'column', alignItems: 'center',
+      gap: Math.max(4, barHeight / 2), width: '80%',
+    }}>
+      {/* Bar */}
+      <div style={{
+        display: 'flex', width: '100%', height: barHeight,
+        borderRadius: barHeight / 2, overflow: 'hidden',
+      }}>
+        {teams.map(([tid, td]) => (
+          <div key={tid} style={{
+            width: `${(td.score / totalScore) * 100}%`,
+            height: '100%',
+            backgroundColor: CARD_TEAM_COLORS[tid] || '#888',
+          }} />
+        ))}
+      </div>
+      {/* Labels under bar */}
+      <div style={{
+        display: 'flex', justifyContent: 'space-between', width: '100%',
+      }}>
+        {teams.map(([tid, td]) => (
+          <div key={tid} style={{
+            display: 'flex', gap: 6, alignItems: 'baseline',
+          }}>
+            <div style={{
+              display: 'flex',
+              fontSize, fontWeight: 800,
+              color: CARD_TEAM_COLORS[tid] || '#888',
+              letterSpacing: 1,
+            }}>
+              {tid}
+            </div>
+            <div style={{
+              display: 'flex',
+              fontSize: fontSize - 1, fontWeight: 600,
+              color: sk.detailedVerdictColor,
+            }}>
+              {fmt(td.score)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ── OG Layout (1200×630) ────────────────────────────────────────
+// Side-by-side team sections with team-colored backgrounds.
+// Score is the centerpiece. Content vertically centered.
 
 function tradeCardOG(data: TradeVerdictData): React.ReactElement {
   const { date, league, teamScores, winner, lopsidedness, heroImages } = data;
@@ -528,11 +588,22 @@ function tradeCardOG(data: TradeVerdictData): React.ReactElement {
   const teams = sortTeams(teamScores, winner);
   const verdict = verdictText(winner, lopsidedness);
   const is3Plus = teams.length > 2;
-  const maxShow = is3Plus ? 1 : 2;
-  const barHeight = 60;
-  const bannerHeight = 34;
-  const accentH = 5;
+  const pc = Math.min(data.playerCount || 2, is3Plus ? 2 : 3);
+  const maxShow = is3Plus ? Math.min(pc, 1) : pc;
+  const accentH = 6;
+  const showVerdictBar = spotlight.detailedVerdict;
+  const verdictH = showVerdictBar ? 80 : 56;
   const winnerColor = winner ? CARD_TEAM_COLORS[winner] || '#f9c74f' : null;
+
+  // Dynamic sizing based on playerCount
+  const nameFontSize = is3Plus ? 18 : pc === 1 ? 34 : pc === 2 ? 26 : 20;
+  const nameScoreFontSize = is3Plus ? 16 : pc === 1 ? 28 : pc === 2 ? 22 : 18;
+  const detailFontSize = is3Plus ? 12 : pc === 1 ? 16 : pc === 2 ? 14 : 12;
+  const heroW = is3Plus ? 280 : pc === 1 ? 460 : pc === 2 ? 380 : 320;
+  const heroH = Math.round(heroW * 0.73);
+  const heroOpacityW = is3Plus ? 0.2 : pc === 1 ? 0.35 : 0.28;
+  const heroOpacityL = is3Plus ? 0.1 : pc === 1 ? 0.18 : 0.14;
+  const playerGap = pc === 1 ? 10 : 6;
 
   return (
     <div style={{
@@ -540,12 +611,10 @@ function tradeCardOG(data: TradeVerdictData): React.ReactElement {
       display: 'flex', flexDirection: 'column',
       backgroundColor: sk.cardBg,
       fontFamily: 'Inter, system-ui, sans-serif',
-      color: '#ffffff',
     }}>
-      {/* Top accent bar */}
       {renderAccentBar(teams, sk, accentH)}
 
-      {/* Main split layout */}
+      {/* Side-by-side team sections */}
       <div style={{ display: 'flex', flex: 1 }}>
         {teams.map(([teamId, td], idx) => {
           const isW = teamId === winner;
@@ -556,141 +625,143 @@ function tradeCardOG(data: TradeVerdictData): React.ReactElement {
           const rest = sorted.length - shown.length;
           const heroUrls = heroImages?.[teamId] || [];
           const heroUrl = heroUrls[0];
-          const heroW = is3Plus ? 260 : 360;
-          const heroH = Math.round(heroW * 0.733);
           const isLast = idx === teams.length - 1;
+          const align = isLast && !is3Plus ? 'flex-end' : 'flex-start';
 
           return (
             <div key={teamId} style={{
               flex: 1,
-              display: 'flex',
-              flexDirection: 'column',
+              display: 'flex', flexDirection: 'column',
+              justifyContent: 'center',
+              padding: is3Plus ? '20px 20px' : '24px 36px',
+              background: sk.sectionBg(raw),
               position: 'relative' as const,
               overflow: 'hidden',
+              ...(sk.sectionBorder !== 'none' ? { border: sk.sectionBorder } : {}),
             }}>
               {renderSectionOverlay(skinId, raw)}
 
-              {/* Subtle team radial tint on dark bg */}
+              {/* Ghost watermark score */}
               <div style={{
-                position: 'absolute' as const, top: 0, left: 0, right: 0, bottom: 0,
+                position: 'absolute' as const,
+                ...(idx === 0 ? { right: -10 } : { left: -10 }),
+                top: -20,
                 display: 'flex',
-                background: `radial-gradient(ellipse at ${idx === 0 ? '75%' : '25%'} 70%, ${hexToRgba(raw, 0.1)} 0%, transparent 55%)`,
-              }} />
-
-              {/* Team color banner */}
-              <div style={{
-                height: bannerHeight, flexShrink: 0,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: isLast && !is3Plus ? 'flex-end' : 'flex-start',
-                padding: '0 28px',
-                background: sk.bannerBg(raw),
-                borderBottom: sk.bannerBorder,
+                fontSize: is3Plus ? 200 : 260,
+                fontWeight: 900,
+                lineHeight: 0.85,
+                color: sk.watermarkColor,
               }}>
-                <div style={{
-                  display: 'flex',
-                  fontSize: 14, fontWeight: 800, letterSpacing: 5,
-                  color: sk.bannerTextColor,
-                  textTransform: 'uppercase' as const,
-                }}>
-                  {nick}
-                </div>
+                {Math.round(td.score)}
               </div>
 
-              {/* Content area */}
-              <div style={{
-                flex: 1, display: 'flex', flexDirection: 'column',
-                justifyContent: 'center',
-                padding: is3Plus ? '8px 18px' : '8px 28px',
-                position: 'relative' as const,
-                alignItems: isLast && !is3Plus ? 'flex-end' : 'flex-start',
-              }}>
-                {/* Hero cutout */}
-                {heroUrl && (
-                  <div style={{
+              {/* Hero cutout behind content */}
+              {heroUrl && (
+                <img
+                  src={heroUrl}
+                  width={heroW} height={heroH}
+                  alt=""
+                  style={{
                     position: 'absolute' as const,
-                    ...(idx === 0 ? { right: -15 } : { left: -15 }),
-                    bottom: 0,
-                    display: 'flex',
+                    ...(idx === 0 ? { right: -30 } : { left: -30 }),
+                    bottom: -15,
+                    width: heroW, height: heroH,
+                    opacity: isW ? heroOpacityW : heroOpacityL,
+                  }}
+                />
+              )}
+
+              {/* Team name */}
+              <div style={{
+                display: 'flex',
+                justifyContent: align,
+                fontSize: is3Plus ? 13 : 16,
+                fontWeight: 800,
+                letterSpacing: 4,
+                color: sk.teamNameColor,
+                textTransform: 'uppercase' as const,
+                marginBottom: 4,
+                position: 'relative' as const,
+              }}>
+                {nick}
+              </div>
+
+              {/* Score */}
+              <div style={{
+                display: 'flex',
+                justifyContent: align,
+                fontSize: is3Plus ? 60 : 84,
+                fontWeight: 800,
+                lineHeight: 0.9,
+                color: sk.scoreColor,
+                textShadow: sk.scoreShadow(raw),
+                marginBottom: 8,
+                position: 'relative' as const,
+              }}>
+                {fmt(td.score)}
+              </div>
+
+              {/* Accent line */}
+              <div style={{
+                width: 40, height: 2, display: 'flex',
+                backgroundColor: sk.accentLineColor,
+                marginBottom: 10,
+                position: 'relative' as const,
+                ...(isLast && !is3Plus ? { marginLeft: 'auto' } : {}),
+              }} />
+
+              {/* Players */}
+              <div style={{
+                display: 'flex', flexDirection: 'column',
+                gap: playerGap, position: 'relative' as const,
+                alignItems: align,
+              }}>
+                {shown.map((asset, i) => (
+                  <div key={`${asset.name}-${i}`} style={{
+                    display: 'flex', flexDirection: 'column', alignItems: align,
                   }}>
                     <div style={{
-                      position: 'absolute' as const,
-                      left: 80, top: 30,
-                      width: 200, height: 200, borderRadius: 999,
-                      display: 'flex',
-                      background: `radial-gradient(circle, ${hexToRgba(raw, 0.15)} 0%, transparent 70%)`,
-                    }} />
-                    <img
-                      src={heroUrl}
-                      width={heroW} height={heroH}
-                      alt=""
-                      style={{
-                        width: heroW, height: heroH,
-                        opacity: isW ? 0.85 : 0.45,
-                      }}
-                    />
+                      display: 'flex', alignItems: 'baseline', gap: 10,
+                      lineHeight: 1.2,
+                    }}>
+                      <div style={{
+                        display: 'flex', color: sk.playerNameColor,
+                        fontWeight: 700, fontSize: nameFontSize,
+                      }}>
+                        {asset.name}
+                      </div>
+                      <div style={{
+                        display: 'flex', color: sk.playerScoreColor,
+                        fontWeight: 800, fontSize: nameScoreFontSize,
+                      }}>
+                        {fmt(asset.score)}
+                      </div>
+                    </div>
+                    {renderPlayerDetail(asset, spotlight, detailFontSize, sk)}
+                  </div>
+                ))}
+                {rest > 0 && (
+                  <div style={{
+                    display: 'flex', fontSize: Math.max(14, nameFontSize - 8),
+                    color: sk.restColor, fontWeight: 600,
+                  }}>
+                    {`+ ${rest} more`}
                   </div>
                 )}
-
-                {/* Score */}
-                <div style={{
-                  display: 'flex',
-                  fontSize: is3Plus ? 52 : 68, fontWeight: 800, lineHeight: 0.95,
-                  color: sk.scoreColor,
-                  textShadow: sk.scoreShadow(raw),
-                  marginBottom: 6,
-                  position: 'relative' as const,
-                }}>
-                  {fmt(td.score)}
-                </div>
-
-                {/* Accent line under score */}
-                <div style={{
-                  width: 48, height: 2, display: 'flex',
-                  backgroundColor: sk.accentLineColor(raw),
-                  marginBottom: 8,
-                }} />
-
-                {/* Players */}
-                <div style={{
-                  display: 'flex', flexDirection: 'column',
-                  gap: 3, position: 'relative' as const,
-                }}>
-                  {shown.map((asset, i) => (
-                    <div key={`${asset.name}-${i}`} style={{ display: 'flex', flexDirection: 'column' }}>
-                      <div style={{
-                        display: 'flex', alignItems: 'baseline', gap: 8,
-                        fontSize: is3Plus ? 13 : 16, lineHeight: 1.3,
-                      }}>
-                        <div style={{ display: 'flex', color: sk.playerNameColor, fontWeight: 600 }}>
-                          {asset.name}
-                        </div>
-                        <div style={{ display: 'flex', color: sk.playerScoreColor(raw), fontWeight: 800 }}>
-                          {fmt(asset.score)}
-                        </div>
-                      </div>
-                      {renderPlayerDetail(asset, spotlight, is3Plus ? 9 : 10, sk)}
-                    </div>
-                  ))}
-                  {rest > 0 && (
-                    <div style={{ display: 'flex', fontSize: 12, color: sk.restColor, fontWeight: 600 }}>
-                      {`+ ${rest} more`}
-                    </div>
-                  )}
-                </div>
               </div>
             </div>
           );
         })}
       </div>
 
-      {/* Bottom verdict bar */}
+      {/* Verdict band */}
       <div style={{
-        height: barHeight, flexShrink: 0,
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        gap: 24, position: 'relative' as const,
+        height: verdictH, flexShrink: 0,
+        display: 'flex', flexDirection: 'column',
+        alignItems: 'center', justifyContent: 'center',
+        gap: 6, position: 'relative' as const,
+        backgroundColor: sk.verdictBg,
       }}>
-        {/* Top border */}
         <div style={{
           position: 'absolute' as const, top: 0, left: 0, right: 0,
           height: 2, display: 'flex',
@@ -700,21 +771,26 @@ function tradeCardOG(data: TradeVerdictData): React.ReactElement {
             CARD_TEAM_COLORS[teams[teams.length - 1][0]] || '#444',
           ),
         }} />
-        <div style={{
-          display: 'flex',
-          fontSize: 14, fontWeight: 700,
-          color: sk.verdictColor(winnerColor),
-          letterSpacing: 1, textTransform: 'uppercase' as const,
-        }}>
-          {verdict}
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+        {showVerdictBar && (
+          renderVerdictBar(teams, sk, 8, 12)
+        )}
+        {!showVerdictBar && (
+          <div style={{
+            display: 'flex',
+            fontSize: 15, fontWeight: 700,
+            color: sk.verdictColor(winnerColor),
+            letterSpacing: 1, textTransform: 'uppercase' as const,
+          }}>
+            {verdict}
+          </div>
+        )}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <div style={{
             display: 'flex',
             fontSize: 10, fontWeight: 700, letterSpacing: 3,
             color: sk.brandColor, textTransform: 'uppercase' as const,
           }}>
-            {`${league === 'WNBA' ? 'WNBA' : 'NBA'} Trade Mapper`}
+            {league === 'WNBA' ? 'WNBA' : 'NBA'} Trade Mapper
           </div>
           {date && (
             <div style={{ display: 'flex', fontSize: 10, color: sk.dateColor }}>
@@ -727,13 +803,13 @@ function tradeCardOG(data: TradeVerdictData): React.ReactElement {
         </div>
       </div>
 
-      {/* Bottom accent bar */}
       {renderAccentBar(teams, sk, accentH)}
     </div>
   );
 }
 
-// ── Square Layout (1080×1080) — Instagram feed ──────────────────
+// ── Square Layout (1080×1080) ───────────────────────────────────
+// Stacked team sections with team-colored backgrounds.
 
 function tradeCardSquare(data: TradeVerdictData): React.ReactElement {
   const { date, league, teamScores, winner, lopsidedness, heroImages } = data;
@@ -743,15 +819,22 @@ function tradeCardSquare(data: TradeVerdictData): React.ReactElement {
   const teams = sortTeams(teamScores, winner);
   const headline = buildHeadline(teamScores);
   const verdict = verdictText(winner, lopsidedness);
-  const maxShow = 3;
-  const bannerHeight = 44;
-  const bandHeight = 120;
-  const footerHeight = 36;
+  const pc = data.playerCount || 2;
+  const maxShow = Math.min(pc, 3);
   const accentH = 6;
-  const sectionHeight = Math.floor(
-    (1080 - accentH * 2 - bandHeight - footerHeight) / teams.length
-  );
+  const showVerdictBar = spotlight.detailedVerdict;
+  const bandHeight = showVerdictBar ? 140 : 110;
+  const sectionHeight = Math.floor((1080 - accentH * 2 - bandHeight) / teams.length);
   const winnerColor = winner ? CARD_TEAM_COLORS[winner] || '#f9c74f' : null;
+
+  // Dynamic sizing
+  const nameFontSize = pc === 1 ? 38 : pc === 2 ? 30 : 22;
+  const nameScoreFontSize = pc === 1 ? 30 : pc === 2 ? 24 : 18;
+  const detailFontSize = pc === 1 ? 18 : pc === 2 ? 15 : 13;
+  const heroW = pc === 1 ? 520 : pc === 2 ? 460 : 420;
+  const heroH = Math.round(heroW * 0.73);
+  const heroOpacityW = pc === 1 ? 0.35 : 0.28;
+  const heroOpacityL = pc === 1 ? 0.18 : 0.14;
 
   return (
     <div style={{
@@ -759,9 +842,7 @@ function tradeCardSquare(data: TradeVerdictData): React.ReactElement {
       display: 'flex', flexDirection: 'column',
       backgroundColor: sk.cardBg,
       fontFamily: 'Inter, system-ui, sans-serif',
-      color: '#ffffff',
     }}>
-      {/* Top accent bar */}
       {renderAccentBar(teams, sk, accentH)}
 
       {teams.map(([teamId, td], idx) => {
@@ -773,8 +854,6 @@ function tradeCardSquare(data: TradeVerdictData): React.ReactElement {
         const rest = sorted.length - shown.length;
         const heroUrls = heroImages?.[teamId] || [];
         const heroUrl = heroUrls[0];
-        const heroW = 420;
-        const heroH = Math.round(heroW * 0.733);
 
         return (
           <div key={teamId} style={{ display: 'flex', flexDirection: 'column' }}>
@@ -782,118 +861,110 @@ function tradeCardSquare(data: TradeVerdictData): React.ReactElement {
             <div style={{
               height: sectionHeight,
               display: 'flex', flexDirection: 'column',
+              justifyContent: 'center',
+              padding: '20px 48px',
+              background: sk.sectionBg(raw),
               position: 'relative' as const,
               overflow: 'hidden',
+              ...(sk.sectionBorder !== 'none' ? { border: sk.sectionBorder } : {}),
             }}>
               {renderSectionOverlay(skinId, raw)}
 
-              {/* Subtle team radial tint */}
+              {/* Ghost watermark */}
               <div style={{
-                position: 'absolute' as const, top: 0, left: 0, right: 0, bottom: 0,
+                position: 'absolute' as const,
+                right: -10, top: -30,
                 display: 'flex',
-                background: `radial-gradient(ellipse at 78% 55%, ${hexToRgba(raw, 0.1)} 0%, transparent 55%)`,
-              }} />
-
-              {/* Team banner */}
-              <div style={{
-                height: bannerHeight, flexShrink: 0,
-                display: 'flex', alignItems: 'center',
-                padding: '0 48px',
-                background: sk.bannerBg(raw),
-                borderBottom: sk.bannerBorder,
+                fontSize: 320,
+                fontWeight: 900,
+                lineHeight: 0.85,
+                color: sk.watermarkColor,
               }}>
-                <div style={{
-                  display: 'flex',
-                  fontSize: 20, fontWeight: 800, letterSpacing: 6,
-                  color: sk.bannerTextColor,
-                  textTransform: 'uppercase' as const,
-                }}>
-                  {nick}
-                </div>
+                {Math.round(td.score)}
               </div>
 
-              {/* Content area */}
+              {/* Hero cutout */}
+              {heroUrl && (
+                <img
+                  src={heroUrl}
+                  width={heroW} height={heroH}
+                  alt=""
+                  style={{
+                    position: 'absolute' as const,
+                    right: -20, bottom: -15,
+                    width: heroW, height: heroH,
+                    opacity: isW ? heroOpacityW : heroOpacityL,
+                  }}
+                />
+              )}
+
+              {/* Team name */}
               <div style={{
-                flex: 1, display: 'flex',
+                display: 'flex',
+                fontSize: 17, fontWeight: 800, letterSpacing: 5,
+                color: sk.teamNameColor,
+                textTransform: 'uppercase' as const,
+                marginBottom: 4,
                 position: 'relative' as const,
               }}>
-                {/* Hero cutout */}
-                {heroUrl && (
-                  <div style={{
-                    position: 'absolute' as const,
-                    right: -10, bottom: -10,
-                    display: 'flex',
-                  }}>
+                {nick}
+              </div>
+
+              {/* Score */}
+              <div style={{
+                display: 'flex',
+                fontSize: 96, fontWeight: 800, lineHeight: 0.9,
+                color: sk.scoreColor,
+                textShadow: sk.scoreShadow(raw),
+                marginBottom: 6,
+                position: 'relative' as const,
+              }}>
+                {fmt(td.score)}
+              </div>
+
+              {/* Accent line */}
+              <div style={{
+                width: 48, height: 3, display: 'flex',
+                backgroundColor: sk.accentLineColor,
+                marginBottom: 12,
+                position: 'relative' as const,
+              }} />
+
+              {/* Players */}
+              <div style={{
+                display: 'flex', flexDirection: 'column',
+                gap: pc === 1 ? 12 : 6, position: 'relative' as const,
+              }}>
+                {shown.map((asset, i) => (
+                  <div key={`${asset.name}-${i}`} style={{ display: 'flex', flexDirection: 'column' }}>
                     <div style={{
-                      position: 'absolute' as const,
-                      left: 80, top: 20,
-                      width: 260, height: 260, borderRadius: 999,
-                      display: 'flex',
-                      background: `radial-gradient(circle, ${hexToRgba(raw, 0.15)} 0%, transparent 70%)`,
-                    }} />
-                    <img
-                      src={heroUrl}
-                      width={heroW} height={heroH}
-                      alt=""
-                      style={{
-                        width: heroW, height: heroH,
-                        opacity: isW ? 0.85 : 0.5,
-                      }}
-                    />
+                      display: 'flex', alignItems: 'baseline', gap: 10,
+                      lineHeight: 1.2,
+                    }}>
+                      <div style={{
+                        display: 'flex', color: sk.playerNameColor,
+                        fontWeight: 700, fontSize: nameFontSize,
+                      }}>
+                        {asset.name}
+                      </div>
+                      <div style={{
+                        display: 'flex', color: sk.playerScoreColor,
+                        fontWeight: 800, fontSize: nameScoreFontSize,
+                      }}>
+                        {fmt(asset.score)}
+                      </div>
+                    </div>
+                    {renderPlayerDetail(asset, spotlight, detailFontSize, sk)}
+                  </div>
+                ))}
+                {rest > 0 && (
+                  <div style={{
+                    display: 'flex', fontSize: Math.max(15, nameFontSize - 10),
+                    color: sk.restColor, fontWeight: 600,
+                  }}>
+                    {`+ ${rest} more`}
                   </div>
                 )}
-
-                {/* Text content */}
-                <div style={{
-                  display: 'flex', flexDirection: 'column',
-                  justifyContent: 'center',
-                  padding: '16px 48px',
-                  position: 'relative' as const,
-                  flex: 1,
-                }}>
-                  {/* Score */}
-                  <div style={{
-                    display: 'flex',
-                    fontSize: 96, fontWeight: 800, lineHeight: 0.9,
-                    color: sk.scoreColor,
-                    textShadow: sk.scoreShadow(raw),
-                    marginBottom: 4,
-                  }}>
-                    {fmt(td.score)}
-                  </div>
-
-                  {/* Accent line */}
-                  <div style={{
-                    width: 56, height: 3, display: 'flex',
-                    backgroundColor: sk.accentLineColor(raw),
-                    marginBottom: 12,
-                  }} />
-
-                  {/* Players */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                    {shown.map((asset, i) => (
-                      <div key={`${asset.name}-${i}`} style={{ display: 'flex', flexDirection: 'column' }}>
-                        <div style={{
-                          display: 'flex', alignItems: 'baseline', gap: 10,
-                          fontSize: 21, lineHeight: 1.3,
-                        }}>
-                          <div style={{ display: 'flex', color: sk.playerNameColor, fontWeight: 600 }}>
-                            {asset.name}
-                          </div>
-                          <div style={{ display: 'flex', color: sk.playerScoreColor(raw), fontWeight: 800 }}>
-                            {fmt(asset.score)}
-                          </div>
-                        </div>
-                        {renderPlayerDetail(asset, spotlight, 13, sk)}
-                      </div>
-                    ))}
-                    {rest > 0 && (
-                      <div style={{ display: 'flex', fontSize: 15, color: sk.restColor, fontWeight: 600 }}>
-                        {`+ ${rest} more`}
-                      </div>
-                    )}
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -904,8 +975,8 @@ function tradeCardSquare(data: TradeVerdictData): React.ReactElement {
                 display: 'flex', flexDirection: 'column',
                 alignItems: 'center', justifyContent: 'center',
                 gap: 6, position: 'relative' as const,
+                backgroundColor: sk.verdictBg,
               }}>
-                {/* Top border */}
                 <div style={{
                   position: 'absolute' as const, top: 0, left: 0, right: 0,
                   height: 2, display: 'flex',
@@ -928,7 +999,7 @@ function tradeCardSquare(data: TradeVerdictData): React.ReactElement {
                 {headline && (
                   <div style={{
                     display: 'flex',
-                    fontSize: 26, fontWeight: 800, letterSpacing: 1,
+                    fontSize: 24, fontWeight: 800, letterSpacing: 1,
                     color: sk.headlineColor,
                   }}>
                     {headline}
@@ -936,27 +1007,25 @@ function tradeCardSquare(data: TradeVerdictData): React.ReactElement {
                 )}
                 <div style={{
                   display: 'flex',
-                  fontSize: 18, fontWeight: 700,
+                  fontSize: 16, fontWeight: 700,
                   color: sk.verdictColor(winnerColor),
                   letterSpacing: 2, textTransform: 'uppercase' as const,
                 }}>
                   {verdict}
                 </div>
-                {spotlight.detailedVerdict && winner && (
-                  <div style={{ display: 'flex', fontSize: 13, color: sk.detailedVerdictColor }}>
-                    {teams.map(([tid, td]) => `${TEAM_NICK[tid] || tid} ${fmt(td.score)}`).join(' \u2013 ')}
-                  </div>
+                {showVerdictBar && (
+                  renderVerdictBar(teams, sk, 10, 14)
                 )}
-                <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                   <div style={{
                     display: 'flex',
-                    fontSize: 11, fontWeight: 700, letterSpacing: 4,
+                    fontSize: 10, fontWeight: 700, letterSpacing: 3,
                     color: sk.brandColor, textTransform: 'uppercase' as const,
                   }}>
-                    {`${league === 'WNBA' ? 'WNBA' : 'NBA'} Trade Mapper`}
+                    {league === 'WNBA' ? 'WNBA' : 'NBA'} Trade Mapper
                   </div>
                   {date && (
-                    <div style={{ display: 'flex', fontSize: 11, color: sk.dateColor }}>
+                    <div style={{ display: 'flex', fontSize: 10, color: sk.dateColor }}>
                       {formatDate(date)}
                     </div>
                   )}
@@ -967,23 +1036,13 @@ function tradeCardSquare(data: TradeVerdictData): React.ReactElement {
         );
       })}
 
-      {/* Footer */}
-      <div style={{
-        height: footerHeight, flexShrink: 0,
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-      }}>
-        <div style={{ display: 'flex', fontSize: 11, color: sk.footerColor }}>
-          nbatrades.vercel.app
-        </div>
-      </div>
-
-      {/* Bottom accent bar */}
       {renderAccentBar(teams, sk, accentH)}
     </div>
   );
 }
 
-// ── Story Layout (1080×1920) — Instagram story ──────────────────
+// ── Story Layout (1080×1920) ────────────────────────────────────
+// Tall stacked sections with team-colored backgrounds.
 
 function tradeCardStory(data: TradeVerdictData): React.ReactElement {
   const { date, league, teamScores, winner, lopsidedness, heroImages } = data;
@@ -993,11 +1052,21 @@ function tradeCardStory(data: TradeVerdictData): React.ReactElement {
   const teams = sortTeams(teamScores, winner);
   const headline = buildHeadline(teamScores);
   const verdict = verdictText(winner, lopsidedness);
-  const bannerHeight = 52;
-  const bandHeight = 320;
+  const pc = data.playerCount || 2;
   const accentH = 6;
+  const showVerdictBar = spotlight.detailedVerdict;
+  const bandHeight = showVerdictBar ? 340 : 300;
   const sectionHeight = Math.floor((1920 - accentH * 2 - bandHeight) / teams.length);
   const winnerColor = winner ? CARD_TEAM_COLORS[winner] || '#f9c74f' : null;
+
+  // Dynamic sizing
+  const nameFontSize = pc === 1 ? 44 : pc === 2 ? 36 : 28;
+  const nameScoreFontSize = pc === 1 ? 36 : pc === 2 ? 28 : 22;
+  const detailFontSize = pc === 1 ? 20 : pc === 2 ? 17 : 15;
+  const heroW = pc === 1 ? 680 : pc === 2 ? 600 : 560;
+  const heroH = Math.round(heroW * 0.73);
+  const heroOpacityW = pc === 1 ? 0.3 : 0.22;
+  const heroOpacityL = pc === 1 ? 0.15 : 0.1;
 
   return (
     <div style={{
@@ -1005,9 +1074,7 @@ function tradeCardStory(data: TradeVerdictData): React.ReactElement {
       display: 'flex', flexDirection: 'column',
       backgroundColor: sk.cardBg,
       fontFamily: 'Inter, system-ui, sans-serif',
-      color: '#ffffff',
     }}>
-      {/* Top accent bar */}
       {renderAccentBar(teams, sk, accentH)}
 
       {teams.map(([teamId, td], idx) => {
@@ -1015,124 +1082,121 @@ function tradeCardStory(data: TradeVerdictData): React.ReactElement {
         const raw = CARD_TEAM_COLORS[teamId] || '#888';
         const nick = TEAM_NICK[teamId] || teamId;
         const sorted = [...td.assets].sort((a, b) => b.score - a.score);
+        // Story shows all players (no maxShow cap) — but respect playerCount if set
+        const shown = pc < sorted.length ? sorted.slice(0, pc) : sorted;
+        const rest = sorted.length - shown.length;
         const heroUrls = heroImages?.[teamId] || [];
         const heroUrl = heroUrls[0];
-        const heroW = 580;
-        const heroH = Math.round(heroW * 0.733);
 
         return (
           <div key={teamId} style={{ display: 'flex', flexDirection: 'column' }}>
-            {/* Team section */}
             <div style={{
               height: sectionHeight,
               display: 'flex', flexDirection: 'column',
+              justifyContent: 'center',
+              padding: '30px 56px',
+              background: sk.sectionBg(raw),
               position: 'relative' as const,
               overflow: 'hidden',
+              ...(sk.sectionBorder !== 'none' ? { border: sk.sectionBorder } : {}),
             }}>
               {renderSectionOverlay(skinId, raw)}
 
-              {/* Subtle team radial tint */}
+              {/* Ghost watermark */}
               <div style={{
-                position: 'absolute' as const, top: 0, left: 0, right: 0, bottom: 0,
+                position: 'absolute' as const,
+                right: -20, top: -40,
                 display: 'flex',
-                background: `radial-gradient(ellipse at 75% 55%, ${hexToRgba(raw, 0.1)} 0%, transparent 55%)`,
-              }} />
-
-              {/* Team banner */}
-              <div style={{
-                height: bannerHeight, flexShrink: 0,
-                display: 'flex', alignItems: 'center',
-                padding: '0 56px',
-                background: sk.bannerBg(raw),
-                borderBottom: sk.bannerBorder,
+                fontSize: 400,
+                fontWeight: 900,
+                lineHeight: 0.85,
+                color: sk.watermarkColor,
               }}>
-                <div style={{
-                  display: 'flex',
-                  fontSize: 24, fontWeight: 800, letterSpacing: 7,
-                  color: sk.bannerTextColor,
-                  textTransform: 'uppercase' as const,
-                }}>
-                  {nick}
-                </div>
+                {Math.round(td.score)}
               </div>
 
-              {/* Content area */}
+              {/* Hero cutout */}
+              {heroUrl && (
+                <img
+                  src={heroUrl}
+                  width={heroW} height={heroH}
+                  alt=""
+                  style={{
+                    position: 'absolute' as const,
+                    right: -30, bottom: -20,
+                    width: heroW, height: heroH,
+                    opacity: isW ? heroOpacityW : heroOpacityL,
+                  }}
+                />
+              )}
+
+              {/* Team name */}
               <div style={{
-                flex: 1, display: 'flex',
+                display: 'flex',
+                fontSize: 20, fontWeight: 800, letterSpacing: 6,
+                color: sk.teamNameColor,
+                textTransform: 'uppercase' as const,
+                marginBottom: 6,
                 position: 'relative' as const,
               }}>
-                {/* Hero cutout */}
-                {heroUrl && (
-                  <div style={{
-                    position: 'absolute' as const,
-                    right: -20, bottom: -10,
-                    display: 'flex',
-                  }}>
+                {nick}
+              </div>
+
+              {/* Score */}
+              <div style={{
+                display: 'flex',
+                fontSize: 120, fontWeight: 800, lineHeight: 0.85,
+                color: sk.scoreColor,
+                textShadow: sk.scoreShadow(raw),
+                marginBottom: 8,
+                position: 'relative' as const,
+              }}>
+                {fmt(td.score)}
+              </div>
+
+              {/* Accent line */}
+              <div style={{
+                width: 56, height: 3, display: 'flex',
+                backgroundColor: sk.accentLineColor,
+                marginBottom: 16,
+                position: 'relative' as const,
+              }} />
+
+              {/* Players */}
+              <div style={{
+                display: 'flex', flexDirection: 'column',
+                gap: pc === 1 ? 16 : 10, position: 'relative' as const,
+              }}>
+                {shown.map((asset, i) => (
+                  <div key={`${asset.name}-${i}`} style={{ display: 'flex', flexDirection: 'column' }}>
                     <div style={{
-                      position: 'absolute' as const,
-                      left: 100, top: 30,
-                      width: 320, height: 320, borderRadius: 999,
-                      display: 'flex',
-                      background: `radial-gradient(circle, ${hexToRgba(raw, 0.15)} 0%, transparent 70%)`,
-                    }} />
-                    <img
-                      src={heroUrl}
-                      width={heroW} height={heroH}
-                      alt=""
-                      style={{
-                        width: heroW, height: heroH,
-                        opacity: isW ? 0.85 : 0.5,
-                      }}
-                    />
+                      display: 'flex', alignItems: 'baseline', gap: 12,
+                      lineHeight: 1.2,
+                    }}>
+                      <div style={{
+                        display: 'flex', color: sk.playerNameColor,
+                        fontWeight: 700, fontSize: nameFontSize,
+                      }}>
+                        {asset.name}
+                      </div>
+                      <div style={{
+                        display: 'flex', color: sk.playerScoreColor,
+                        fontWeight: 800, fontSize: nameScoreFontSize,
+                      }}>
+                        {fmt(asset.score)}
+                      </div>
+                    </div>
+                    {renderPlayerDetail(asset, spotlight, detailFontSize, sk)}
+                  </div>
+                ))}
+                {rest > 0 && (
+                  <div style={{
+                    display: 'flex', fontSize: Math.max(16, nameFontSize - 12),
+                    color: sk.restColor, fontWeight: 600,
+                  }}>
+                    {`+ ${rest} more`}
                   </div>
                 )}
-
-                {/* Text content */}
-                <div style={{
-                  display: 'flex', flexDirection: 'column',
-                  justifyContent: 'center',
-                  padding: '24px 56px',
-                  position: 'relative' as const,
-                  flex: 1,
-                }}>
-                  {/* Score */}
-                  <div style={{
-                    display: 'flex',
-                    fontSize: 110, fontWeight: 800, lineHeight: 0.85,
-                    color: sk.scoreColor,
-                    textShadow: sk.scoreShadow(raw),
-                    marginBottom: 6,
-                  }}>
-                    {fmt(td.score)}
-                  </div>
-
-                  {/* Accent line */}
-                  <div style={{
-                    width: 64, height: 3, display: 'flex',
-                    backgroundColor: sk.accentLineColor(raw),
-                    marginBottom: 16,
-                  }} />
-
-                  {/* All players */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                    {sorted.map((asset, i) => (
-                      <div key={`${asset.name}-${i}`} style={{ display: 'flex', flexDirection: 'column' }}>
-                        <div style={{
-                          display: 'flex', alignItems: 'baseline', gap: 12,
-                          fontSize: 24, lineHeight: 1.3,
-                        }}>
-                          <div style={{ display: 'flex', color: sk.playerNameColor, fontWeight: 600 }}>
-                            {asset.name}
-                          </div>
-                          <div style={{ display: 'flex', color: sk.playerScoreColor(raw), fontWeight: 800 }}>
-                            {fmt(asset.score)}
-                          </div>
-                        </div>
-                        {renderPlayerDetail(asset, spotlight, 15, sk)}
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -1144,11 +1208,11 @@ function tradeCardStory(data: TradeVerdictData): React.ReactElement {
                 alignItems: 'center', justifyContent: 'center',
                 gap: 12, padding: '0 56px',
                 position: 'relative' as const,
+                backgroundColor: sk.verdictBg,
               }}>
-                {/* Border lines */}
                 <div style={{
                   position: 'absolute' as const, top: 0, left: 0, right: 0,
-                  height: 2, display: 'flex',
+                  height: 3, display: 'flex',
                   background: sk.verdictBorderBg(
                     CARD_TEAM_COLORS[teams[0][0]] || '#444',
                     winnerColor,
@@ -1157,7 +1221,7 @@ function tradeCardStory(data: TradeVerdictData): React.ReactElement {
                 }} />
                 <div style={{
                   position: 'absolute' as const, bottom: 0, left: 0, right: 0,
-                  height: 2, display: 'flex',
+                  height: 3, display: 'flex',
                   background: sk.verdictBorderBg(
                     CARD_TEAM_COLORS[teams[0][0]] || '#444',
                     winnerColor,
@@ -1170,12 +1234,12 @@ function tradeCardStory(data: TradeVerdictData): React.ReactElement {
                   fontSize: 13, fontWeight: 700, letterSpacing: 5,
                   color: sk.brandColor, textTransform: 'uppercase' as const,
                 }}>
-                  {`${league === 'WNBA' ? 'WNBA' : 'NBA'} Trade Mapper`}
+                  {league === 'WNBA' ? 'WNBA' : 'NBA'} Trade Mapper
                 </div>
                 {headline && (
                   <div style={{
                     display: 'flex',
-                    fontSize: 40, fontWeight: 800, letterSpacing: 1,
+                    fontSize: 38, fontWeight: 800, letterSpacing: 1,
                     color: sk.headlineColor, textAlign: 'center' as const,
                   }}>
                     {headline}
@@ -1195,10 +1259,8 @@ function tradeCardStory(data: TradeVerdictData): React.ReactElement {
                 }}>
                   {verdict}
                 </div>
-                {spotlight.detailedVerdict && winner && (
-                  <div style={{ display: 'flex', fontSize: 15, color: sk.detailedVerdictColor }}>
-                    {teams.map(([tid, td]) => `${TEAM_NICK[tid] || tid} ${fmt(td.score)}`).join(' \u2013 ')}
-                  </div>
+                {showVerdictBar && (
+                  renderVerdictBar(teams, sk, 14, 18)
                 )}
                 <div style={{
                   display: 'flex',
@@ -1212,7 +1274,6 @@ function tradeCardStory(data: TradeVerdictData): React.ReactElement {
         );
       })}
 
-      {/* Bottom accent bar */}
       {renderAccentBar(teams, sk, accentH)}
     </div>
   );
