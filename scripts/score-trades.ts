@@ -59,6 +59,28 @@ const ACCOLADE_WEIGHTS: Record<string, number> = {
 // Below this score margin, no clear winner is declared.
 const DRAW_THRESHOLD = 1.5;
 
+// ── Suffix aliases ──────────────────────────────────────────────────────────
+// Trade data often has "Sr." / "Jr." suffixes that don't exist in Kaggle stats.
+// These map trade-data names to their stats-database equivalents.
+const SUFFIX_ALIASES: Record<string, string> = {
+  'Glen Rice Sr.': 'Glen Rice',
+  'Tim Hardaway Sr.': 'Tim Hardaway',
+  'Patrick Ewing Sr.': 'Patrick Ewing',
+  'Larry Nance Sr.': 'Larry Nance',
+  'Anthony Mason Sr.': 'Anthony Mason',
+  'Wes Matthews Sr.': 'Wes Matthews',
+  'John Lucas Sr.': 'John Lucas',
+  'Jim Paxson Jr.': 'Jim Paxson',
+  'Xavier Tillman Sr.': 'Xavier Tillman',
+  'Mike Dunleavy Jr.': 'Mike Dunleavy',
+};
+
+/** Resolve a trade-data player name to its stats-database name. */
+function resolveStatsName(tradeName: string): string {
+  if (SUFFIX_ALIASES[tradeName]) return SUFFIX_ALIASES[tradeName];
+  return tradeName;
+}
+
 // ── Types ─────────────────────────────────────────────────────────────────────
 
 interface TradeAsset {
@@ -237,23 +259,26 @@ function scoreTrade(
     const scored: AssetScore[] = [];
 
     for (const asset of assets) {
-      let playerName: string | null = null;
+      let displayName: string | null = null;
+      let statsName: string | null = null;
       let assetType: 'player' | 'pick' = 'player';
       let seasonCutoff = trade.season;
 
       if (asset.type === 'player' && asset.player_name) {
-        playerName = asset.player_name;
+        displayName = asset.player_name;
+        statsName = resolveStatsName(asset.player_name);
       } else if (asset.type === 'pick' && asset.became_player_name) {
-        playerName = asset.became_player_name;
+        displayName = asset.became_player_name;
+        statsName = resolveStatsName(asset.became_player_name);
         assetType = 'pick';
         // Player's first season with the team = the season after they were drafted (NBA) or same year (WNBA)
         seasonCutoff = asset.pick_year ? pickYearToSeason(asset.pick_year, league) : trade.season;
       }
 
-      if (!playerName) continue;  // Unresolved pick — no stats to score
+      if (!statsName) continue;  // Unresolved pick — no stats to score
 
       const assetScore = scorePlayer(
-        playerName,
+        statsName,
         teamId,
         seasonCutoff,
         assetType,
@@ -262,6 +287,11 @@ function scoreTrade(
         championshipSet,
         teamChampPlayoffWs,
       );
+
+      // Keep original trade-data name for display (e.g. "Glen Rice Sr." not "Glen Rice")
+      if (displayName && displayName !== statsName) {
+        assetScore.name = displayName;
+      }
 
       scored.push(assetScore);
     }

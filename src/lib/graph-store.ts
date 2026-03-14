@@ -16,6 +16,20 @@ import type { VisualSkin } from './skins';
 import { getDraftInfo } from './draft-data';
 import type { StaticTrade } from './supabase';
 
+// ── Suffix resolution ────────────────────────────────────────────────
+// Trade data uses "Glen Rice Sr." but player_seasons has "Glen Rice".
+// Strip suffixes for stats lookups when the full name has no match.
+const SUFFIX_RE = /\s+(Sr\.|Jr\.|III|IV|II|V)$/;
+
+/** Try stripping a suffix (Sr./Jr./III/IV) if the name has one. Returns [original, stripped-or-null]. */
+function statsNameVariants(name: string): string[] {
+  const variants = [name];
+  if (SUFFIX_RE.test(name)) {
+    variants.push(name.replace(SUFFIX_RE, ''));
+  }
+  return variants;
+}
+
 // ── Node data types ──────────────────────────────────────────────────
 export interface InlinePlayerData {
   playerName: string;
@@ -2095,12 +2109,16 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   seedFromPlayer: async (playerName: string) => {
     const sb = getSupabase();
 
-    // Check if we have journey data (player_seasons)
-    const { data: seasonCheck } = await sb
-      .from('player_seasons')
-      .select('player_name')
-      .ilike('player_name', playerName)
-      .limit(1) as { data: { player_name: string }[] | null };
+    // Check if we have journey data (player_seasons) — try suffix variants
+    let seasonCheck: { player_name: string }[] | null = null;
+    for (const variant of statsNameVariants(playerName)) {
+      const { data } = await sb
+        .from('player_seasons')
+        .select('player_name')
+        .ilike('player_name', variant)
+        .limit(1) as { data: { player_name: string }[] | null };
+      if (data && data.length > 0) { seasonCheck = data; break; }
+    }
 
     if (seasonCheck && seasonCheck.length > 0) {
       // Use journey view: create player node and immediately expand journey
@@ -2166,12 +2184,19 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   expandPlayerJourney: async (playerName: string, anchorNodeId?: string) => {
     const sb = getSupabase();
 
-    // Fetch all seasons to determine team boundaries for trade lookup
-    const { data: seasons } = await sb
-      .from('player_seasons')
-      .select('*')
-      .ilike('player_name', playerName)
-      .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
+    // Fetch all seasons — try exact name first, then stripped suffix (Sr./Jr./III/IV)
+    let seasons: PlayerSeason[] | null = null;
+    for (const variant of statsNameVariants(playerName)) {
+      const { data } = await sb
+        .from('player_seasons')
+        .select('*')
+        .ilike('player_name', variant)
+        .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
+      if (data && data.length > 0) {
+        seasons = data;
+        break;
+      }
+    }
 
     if (!seasons || seasons.length === 0) return;
 
