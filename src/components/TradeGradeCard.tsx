@@ -362,6 +362,16 @@ export interface TradeGradeCardProps {
   /** Pre-loaded headshot data URLs per team */
   headshots?: Record<string, string[]>;
   skin?: CardSkin;
+  caption?: string;
+  selectedPlayers?: Record<string, string[]>;
+}
+
+// ── Echo shadow helper (matches ShareCard) ──
+
+function addEchoShadow(existingShadow: string): string {
+  const echo = '2px 3px 0 rgba(255,255,255,0.6)';
+  if (!existingShadow || existingShadow === 'none') return echo;
+  return `${echo}, ${existingShadow}`;
 }
 
 // ── Grade Badge ─────────────────────────────────────────────
@@ -382,7 +392,7 @@ function GradeBadge({ grade, teamColor, theme }: {
         fontWeight: 900,
         lineHeight: 0.8,
         color: theme.gradeColor,
-        textShadow: theme.gradeShadow(teamColor),
+        textShadow: addEchoShadow(theme.gradeShadow(teamColor)),
         letterSpacing: -8,
         fontFamily: 'Inter, system-ui, sans-serif',
       }}>
@@ -394,6 +404,7 @@ function GradeBadge({ grade, teamColor, theme }: {
           fontWeight: 900,
           lineHeight: 0.8,
           color: theme.gradeModColor(teamColor),
+          textShadow: addEchoShadow('none'),
           marginLeft: -4,
           fontFamily: 'Inter, system-ui, sans-serif',
         }}>
@@ -447,26 +458,24 @@ function DramaticHeadshot({ src, teamColor, side, theme, teamId }: {
   return (
     <div style={{
       position: 'absolute',
-      bottom: -20,
-      [side]: -20,
-      width: '105%',
-      height: '110%',
+      bottom: -10,
+      [side]: -10,
+      width: '100%',
+      height: '95%',
       pointerEvents: 'none',
       zIndex: 1,
     }}>
       {/* The headshot */}
-      <img
-        src={src}
-        alt=""
-        style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'contain',
-          objectPosition: `${side} bottom`,
-          opacity: theme.headshotOpacity,
-          filter: theme.headshotFilter,
-        }}
-      />
+      <div style={{
+        width: '100%',
+        height: '100%',
+        backgroundImage: `url(${src})`,
+        backgroundSize: 'contain',
+        backgroundPosition: `${side} bottom`,
+        backgroundRepeat: 'no-repeat',
+        opacity: theme.headshotOpacity,
+        filter: theme.headshotFilter,
+      }} />
       {/* Front lighting — brightens center/face area */}
       <div style={{
         position: 'absolute',
@@ -526,23 +535,23 @@ function StatsRow({ name, ws, salary, isTop, theme }: {
         fontSize: isTop ? 18 : 16,
         fontWeight: 800,
         color: theme.statsValueColor,
-        width: 80,
+        width: 60,
         textAlign: 'right',
         fontFamily: 'var(--font-mono, monospace)',
+        whiteSpace: 'nowrap',
       }}>
         {fmtWs(ws)}
       </span>
-      {salary != null && (
-        <span style={{
-          fontSize: isTop ? 16 : 14,
-          fontWeight: 600,
-          color: theme.statsSalaryColor,
-          width: 90,
-          textAlign: 'right',
-        }}>
-          {fmtMoney(salary)}
-        </span>
-      )}
+      <span style={{
+        fontSize: isTop ? 16 : 14,
+        fontWeight: 600,
+        color: theme.statsSalaryColor,
+        width: 70,
+        textAlign: 'right',
+        whiteSpace: 'nowrap',
+      }}>
+        {salary != null ? fmtMoney(salary) : '—'}
+      </span>
     </div>
   );
 }
@@ -559,7 +568,10 @@ export default function TradeGradeCard({
   salaryDetails,
   headshots,
   skin = 'noir',
+  caption,
+  selectedPlayers,
 }: TradeGradeCardProps) {
+  const hasCaption = !!caption?.trim();
   const theme = GRADE_THEMES[skin];
 
   // Sort teams: winner first
@@ -576,16 +588,17 @@ export default function TradeGradeCard({
   const c2W = CARD_TEAM_SECONDARY[teams[0][0]] || cW;
   const c2L = teams.length > 1 ? (CARD_TEAM_SECONDARY[teams[1][0]] || cL) : '#888';
 
-  // Top players per team by score
-  const topW = [...teams[0][1].assets]
-    .filter(a => (a.ws ?? 0) > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 3);
+  // Top players per team by score, filtered by selectedPlayers if provided
+  const filterBySelected = (assets: typeof teams[0][1]['assets'], teamId: string) => {
+    const sel = selectedPlayers?.[teamId];
+    const filtered = sel
+      ? assets.filter(a => sel.includes(a.name) && (a.ws ?? 0) > 0)
+      : assets.filter(a => (a.ws ?? 0) > 0);
+    return [...filtered].sort((a, b) => b.score - a.score);
+  };
+  const topW = filterBySelected(teams[0][1].assets, teams[0][0]);
   const topL = teams.length > 1
-    ? [...teams[1][1].assets]
-        .filter(a => (a.ws ?? 0) > 0)
-        .sort((a, b) => b.score - a.score)
-        .slice(0, 2)
+    ? filterBySelected(teams[1][1].assets, teams[1][0])
     : [];
 
   // Salary lookup
@@ -664,21 +677,12 @@ export default function TradeGradeCard({
               fontWeight: 800,
               letterSpacing: 6,
               color: theme.teamLabelColor(cW),
+              textShadow: addEchoShadow('none'),
               marginBottom: 8,
             }}>
               {TEAM_NICK[teams[0][0]] || teams[0][0]}
             </div>
             <GradeBadge grade={gradeW} teamColor={cW} theme={theme} />
-            <div style={{
-              fontSize: 14,
-              fontWeight: 800,
-              letterSpacing: 4,
-              color: theme.scoreSubColor,
-              marginTop: 12,
-              textShadow: theme.isLight ? '0 1px 3px rgba(255,255,255,0.6)' : '0 1px 4px rgba(0,0,0,0.5)',
-            }}>
-              {fmtWs(teams[0][1].score)} TRADE SCORE
-            </div>
           </div>
 
           {/* Top player name at bottom */}
@@ -689,7 +693,7 @@ export default function TradeGradeCard({
                 fontWeight: 800,
                 color: theme.playerNameColor,
                 letterSpacing: -0.5,
-                textShadow: theme.playerNameShadow,
+                textShadow: addEchoShadow(theme.playerNameShadow),
               }}>
                 {topW[0].name}
               </div>
@@ -699,6 +703,7 @@ export default function TradeGradeCard({
                 fontSize: 14,
                 fontWeight: 600,
                 color: theme.playerStatColor(cW),
+                textShadow: addEchoShadow('none'),
                 marginTop: 2,
               }}>
                 {fmtWs(topW[0].ws)} WS{topW[0].seasons ? ` · ${topW[0].seasons} seasons` : ''}
@@ -758,6 +763,7 @@ export default function TradeGradeCard({
                 fontWeight: 800,
                 letterSpacing: 6,
                 color: theme.teamLabelColor(cL),
+                textShadow: addEchoShadow('none'),
                 marginBottom: 8,
               }}>
                 {TEAM_NICK[teams[1][0]] || teams[1][0]}
@@ -765,16 +771,6 @@ export default function TradeGradeCard({
               {gradeL && <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                 <GradeBadge grade={gradeL} teamColor={cL} theme={theme} />
               </div>}
-              <div style={{
-                fontSize: 14,
-                fontWeight: 800,
-                letterSpacing: 4,
-                color: theme.scoreSubColor,
-                marginTop: 12,
-                textShadow: theme.isLight ? '0 1px 3px rgba(255,255,255,0.6)' : '0 1px 4px rgba(0,0,0,0.5)',
-              }}>
-                {fmtWs(teams[1][1].score)} TRADE SCORE
-              </div>
             </div>
 
             {/* Top player name at bottom */}
@@ -795,6 +791,7 @@ export default function TradeGradeCard({
                   fontSize: 14,
                   fontWeight: 600,
                   color: theme.playerStatColor(cL),
+                  textShadow: addEchoShadow('none'),
                   marginTop: 2,
                 }}>
                   {fmtWs(topL[0].ws)} WS{topL[0].seasons ? ` · ${topL[0].seasons} seasons` : ''}
@@ -816,14 +813,13 @@ export default function TradeGradeCard({
         <div style={{ flex: 1, background: `linear-gradient(270deg, ${cL}, transparent)` }} />
       </div>
 
-      {/* ── BOTTOM: Stats zone (~35%) ── */}
+      {/* ── BOTTOM: Stats zone ── */}
       <div style={{
-        height: 380,
         flexShrink: 0,
-        padding: '24px 40px 20px',
+        padding: '20px 40px 16px',
         display: 'flex',
         flexDirection: 'column',
-        gap: 4,
+        gap: 2,
         background: theme.statsBg,
       }}>
         {/* Column headers */}
@@ -841,27 +837,29 @@ export default function TradeGradeCard({
             color: theme.statsHeaderColor,
             flex: 1,
           }}>
-            PLAYER
+            KEY PLAYERS
           </span>
           <span style={{
             fontSize: 11,
             fontWeight: 800,
             letterSpacing: 3,
             color: theme.statsHeaderColor,
-            width: 80,
+            width: 60,
             textAlign: 'right',
+            whiteSpace: 'nowrap',
           }}>
-            WIN SHARES
+            WS
           </span>
           <span style={{
             fontSize: 11,
             fontWeight: 800,
             letterSpacing: 3,
             color: theme.statsHeaderColor,
-            width: 90,
+            width: 70,
             textAlign: 'right',
+            whiteSpace: 'nowrap',
           }}>
-            CONTRACT
+            SALARY
           </span>
         </div>
 
@@ -914,6 +912,19 @@ export default function TradeGradeCard({
             theme={theme}
           />
         ))}
+
+        {/* Caption */}
+        {hasCaption && (
+          <div style={{
+            fontSize: 14,
+            fontWeight: 500,
+            lineHeight: 1.35,
+            color: theme.isLight ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.55)',
+            marginTop: 8,
+          }}>
+            {caption}
+          </div>
+        )}
 
         {/* Verdict + branding */}
         <div style={{

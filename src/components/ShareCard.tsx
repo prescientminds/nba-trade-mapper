@@ -183,10 +183,10 @@ function StatPills({ asset, spotlight, fontSize, sk }: {
   );
 }
 
-// ── Echo shadow helper (Canva-style: direction -20°, offset 20px, white) ──
+// ── Echo shadow helper (tight offset, bottom-right) ──
 
 function addEchoShadow(existingShadow: string): string {
-  const echo = '-7px -19px 0 rgba(255,255,255,0.5)';
+  const echo = '2px 3px 0 rgba(255,255,255,0.6)';
   if (!existingShadow || existingShadow === 'none') return echo;
   return `${echo}, ${existingShadow}`;
 }
@@ -240,20 +240,13 @@ function HeadshotBg({ src, sk, side, teamId, teamColor }: {
       height: `${sk.headshotSize}%`,
       pointerEvents: 'none',
       zIndex: 4,
-    }}>
-      <img
-        src={src}
-        alt=""
-        style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'contain',
-          objectPosition: `${side} bottom`,
-          opacity: sk.headshotOpacity,
-          filter: sk.headshotFilter,
-        }}
-      />
-    </div>
+      backgroundImage: `url(${src})`,
+      backgroundSize: 'contain',
+      backgroundPosition: `${side} bottom`,
+      backgroundRepeat: 'no-repeat',
+      opacity: sk.headshotOpacity,
+      filter: sk.headshotFilter,
+    }} />
   );
 }
 
@@ -465,6 +458,7 @@ function OGCard(props: ShareCardProps) {
                   fontWeight: 900,
                   letterSpacing: 4,
                   color: sk.isLight ? ha(c, 0.7) : 'rgba(255,255,255,0.5)',
+                  textShadow: addEchoShadow('none'),
                   textTransform: 'uppercase' as const,
                   marginBottom: 2,
                 }}>
@@ -476,6 +470,7 @@ function OGCard(props: ShareCardProps) {
                   fontWeight: 800,
                   letterSpacing: 4,
                   color: sk.isLight ? 'rgba(0,0,0,0.45)' : 'rgba(255,255,255,0.35)',
+                  textShadow: addEchoShadow('none'),
                   textTransform: 'uppercase' as const,
                   marginBottom: 4,
                 }}>
@@ -530,13 +525,14 @@ function OGCard(props: ShareCardProps) {
                         fontSize: playerFs, fontWeight: 800,
                         color: sk.nameColor,
                         letterSpacing: -0.3,
-                        textShadow: sk.isLight ? 'none' : '0 2px 8px rgba(0,0,0,0.6)',
+                        textShadow: addEchoShadow(sk.isLight ? 'none' : '0 2px 8px rgba(0,0,0,0.6)'),
                       }}>
                         {asset.name}
                       </span>
                       <span style={{
                         fontSize: Math.round(playerFs * 0.55), fontWeight: 700,
                         color: sk.indivScoreColor(c),
+                        textShadow: addEchoShadow('none'),
                       }}>
                         {fmt(asset.score)} WS
                       </span>
@@ -708,6 +704,7 @@ function SquareCard(props: ShareCardProps) {
                 <div style={{
                   fontSize: 20, fontWeight: 900, letterSpacing: 5,
                   color: sk.teamLabelColor(c),
+                  textShadow: addEchoShadow('none'),
                   textTransform: 'uppercase' as const,
                   marginBottom: 2,
                 }}>
@@ -716,6 +713,7 @@ function SquareCard(props: ShareCardProps) {
                 <div style={{
                   fontSize: 12, fontWeight: 800, letterSpacing: 5,
                   color: sk.isLight ? 'rgba(0,0,0,0.45)' : 'rgba(255,255,255,0.35)',
+                  textShadow: addEchoShadow('none'),
                   textTransform: 'uppercase' as const,
                   marginBottom: 4,
                 }}>
@@ -752,13 +750,14 @@ function SquareCard(props: ShareCardProps) {
                       <span style={{
                         fontSize: playerFs, fontWeight: 800,
                         color: sk.nameColor,
-                        textShadow: sk.isLight ? 'none' : '0 2px 8px rgba(0,0,0,0.5)',
+                        textShadow: addEchoShadow(sk.isLight ? 'none' : '0 2px 8px rgba(0,0,0,0.5)'),
                       }}>
                         {asset.name}
                       </span>
                       <span style={{
                         fontSize: Math.round(playerFs * 0.5), fontWeight: 700,
                         color: sk.indivScoreColor(c),
+                        textShadow: addEchoShadow('none'),
                       }}>
                         {fmt(asset.score)} WS
                       </span>
@@ -917,8 +916,8 @@ function StoryCard(props: ShareCardProps) {
                   <div key={`${asset.name}-${i}`} style={{ display: 'flex', flexDirection: 'column' }}>
                     <StatPills asset={asset} spotlight={spotlight} fontSize={pillFs} sk={sk} />
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginTop: 3 }}>
-                      <span style={{ fontSize: playerFs, fontWeight: 800, color: sk.nameColor }}>{asset.name}</span>
-                      <span style={{ fontSize: Math.round(playerFs * 0.55), fontWeight: 700, color: sk.indivScoreColor(c) }}>{fmt(asset.score)} WS</span>
+                      <span style={{ fontSize: playerFs, fontWeight: 800, color: sk.nameColor, textShadow: addEchoShadow(sk.isLight ? 'none' : '0 2px 8px rgba(0,0,0,0.5)') }}>{asset.name}</span>
+                      <span style={{ fontSize: Math.round(playerFs * 0.55), fontWeight: 700, color: sk.indivScoreColor(c), textShadow: addEchoShadow('none') }}>{fmt(asset.score)} WS</span>
                     </div>
                   </div>
                 ))}

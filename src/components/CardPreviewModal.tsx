@@ -355,8 +355,8 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
             </div>
           </div>
 
-          {/* Player selection (score card only) */}
-          {cardType === 'score' && playersByTeam.length > 0 && (
+          {/* Player selection */}
+          {playersByTeam.length > 0 && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               <span style={{
                 fontSize: 10, fontWeight: 700, letterSpacing: 2,
@@ -406,52 +406,54 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
           )}
 
           {/* Caption */}
-          {cardType === 'score' && (
+          {(
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{
-                  fontSize: 10, fontWeight: 700, letterSpacing: 2,
-                  color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase',
-                  fontFamily: 'var(--font-body)',
-                }}>
-                  Caption
-                </span>
-                {captionEditing && (
-                  <span style={{
-                    fontSize: 10, color: 'rgba(255,255,255,0.2)',
-                    fontFamily: 'var(--font-mono)',
-                  }}>
-                    {draftCaption.length}/140
-                  </span>
-                )}
-              </div>
+              <span style={{
+                fontSize: 10, fontWeight: 700, letterSpacing: 2,
+                color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase',
+                fontFamily: 'var(--font-body)',
+              }}>
+                Hot Take
+              </span>
               {captionEditing ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                   <textarea
                     value={draftCaption}
-                    onChange={(e) => setDraftCaption(e.target.value.slice(0, 140))}
+                    onChange={(e) => setDraftCaption(e.target.value)}
                     placeholder="Add a take..."
                     rows={2}
                     style={{
                       width: '100%', padding: '8px 10px', fontSize: 12,
                       fontFamily: 'var(--font-body)',
                       color: '#fff', background: 'rgba(255,255,255,0.04)',
-                      border: '1px solid rgba(255,255,255,0.08)',
+                      border: `1px solid ${draftCaption.length > 140 ? 'rgba(255,80,80,0.4)' : 'rgba(255,255,255,0.08)'}`,
                       borderRadius: 6, resize: 'none', outline: 'none',
                     }}
                   />
-                  <button
-                    onClick={() => { setSavedCaption(draftCaption); setCaptionEditing(false); }}
-                    style={{
-                      padding: '6px 0', fontSize: 11, fontWeight: 700,
-                      fontFamily: 'var(--font-body)', letterSpacing: 0.5,
-                      color: '#0f0f17', background: '#f9c74f',
-                      border: 'none', borderRadius: 6, cursor: 'pointer',
-                      transition: 'all 0.15s',
-                    }}
-                  >
-                    Save
-                  </button>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span style={{
+                      fontSize: 10, fontFamily: 'var(--font-mono)',
+                      color: draftCaption.length > 140 ? '#ff5050' : 'rgba(255,255,255,0.25)',
+                      whiteSpace: 'nowrap',
+                    }}>
+                      {draftCaption.length}/140
+                    </span>
+                    <button
+                      onClick={() => { setSavedCaption(draftCaption.slice(0, 140)); setCaptionEditing(false); }}
+                      disabled={!draftCaption.trim() || draftCaption.length > 140}
+                      style={{
+                        flex: 1, padding: '5px 0', fontSize: 10, fontWeight: 700,
+                        fontFamily: 'var(--font-body)', letterSpacing: 0.5,
+                        color: draftCaption.trim() && draftCaption.length <= 140 ? '#0f0f17' : 'rgba(255,255,255,0.2)',
+                        background: draftCaption.trim() && draftCaption.length <= 140 ? '#f9c74f' : 'rgba(255,255,255,0.06)',
+                        border: 'none', borderRadius: 6,
+                        cursor: draftCaption.trim() && draftCaption.length <= 140 ? 'pointer' : 'default',
+                        transition: 'all 0.15s',
+                      }}
+                    >
+                      Save
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
@@ -485,8 +487,8 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
             </div>
           )}
 
-          {/* Spotlight toggles (score card only) */}
-          {cardType === 'score' && (
+          {/* Spotlight toggles */}
+          {(
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               <span style={{
                 fontSize: 10, fontWeight: 700, letterSpacing: 2,
@@ -623,6 +625,8 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
                 salaryDetails={tradeData.salaryDetails}
                 headshots={headshots}
                 skin={skin}
+                caption={savedCaption}
+                selectedPlayers={selectedPlayers}
               />
             ) : (
               <ShareCard

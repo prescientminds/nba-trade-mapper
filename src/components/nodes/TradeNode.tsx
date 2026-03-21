@@ -531,25 +531,40 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   }}
                   style={{
                     marginLeft: 'auto',
-                    width: 14, height: 14,
                     display: 'inline-flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
+                    gap: 4,
+                    padding: '3px 8px',
+                    borderRadius: 6,
                     cursor: 'pointer',
                     flexShrink: 0,
-                    color: 'var(--text-muted)',
-                    transition: 'color 0.15s',
+                    color: 'rgba(249,199,79,0.7)',
+                    background: 'rgba(249,199,79,0.08)',
+                    border: '1px solid rgba(249,199,79,0.15)',
+                    transition: 'all 0.15s',
+                    fontSize: 9,
+                    fontWeight: 700,
+                    letterSpacing: 1,
                   }}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = '#f9c74f'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#f9c74f';
+                    e.currentTarget.style.background = 'rgba(249,199,79,0.15)';
+                    e.currentTarget.style.borderColor = 'rgba(249,199,79,0.35)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'rgba(249,199,79,0.7)';
+                    e.currentTarget.style.background = 'rgba(249,199,79,0.08)';
+                    e.currentTarget.style.borderColor = 'rgba(249,199,79,0.15)';
+                  }}
                 >
-                  <svg width="14" height="12" viewBox="0 0 21 17" fill="none">
-                    <rect x="1" y="4" width="14" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
+                  <svg width="12" height="10" viewBox="0 0 21 17" fill="none">
+                    <rect x="1" y="4" width="14" height="12" rx="1.5" stroke="currentColor" strokeWidth="1.5"/>
                     <circle cx="5" cy="8" r="1.3" fill="currentColor"/>
                     <path d="M1 14l3.5-4 2.5 3 3-3.5L15 14" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
                     <line x1="18" y1="1" x2="18" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
                     <line x1="15" y1="4" x2="21" y2="4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
                   </svg>
+                  SHARE
                 </span>
 
               {/* Formula explanation — absolute overlay */}
