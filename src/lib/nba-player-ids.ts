@@ -3104,6 +3104,7 @@ export const NBA_PLAYER_IDS: Record<string, number> = {
   'Larry Mikan': 77591,
   'Larry Moffett': 77621,
   'Larry Nance': 77685,
+  'Larry Nance Sr.': 77685,
   'Larry Nance Jr.': 1626204,
   'Larry Owens': 202082,
   'Larry Robinson': 1683,

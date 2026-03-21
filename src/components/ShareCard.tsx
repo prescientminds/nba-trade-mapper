@@ -10,6 +10,7 @@ import { CARD_TEAM_COLORS, CARD_TEAM_SECONDARY } from '@/lib/card-templates';
 import type { TeamScoreEntry, AssetScore, SpotlightOptions } from '@/lib/card-templates';
 import type { CardSkin } from '@/lib/skins';
 import { THEMES, ha, type SkinTheme } from '@/components/cards/shared/skins';
+import { generateNoiseUrl, GRAIN, VIGNETTE } from '@/components/cards/shared/stylize';
 
 // ── Team nicknames ──────────────────────────────────────────
 
@@ -92,6 +93,10 @@ export interface ShareCardProps {
   skin?: CardSkin;
   /** Pre-loaded headshot data URLs per team */
   headshots?: Record<string, string[]>;
+  /** Pre-tinted template background data URLs per team */
+  templates?: Record<string, string>;
+  /** Optional 140-char take / caption */
+  caption?: string;
 }
 
 function filterAssets(
@@ -178,24 +183,63 @@ function StatPills({ asset, spotlight, fontSize, sk }: {
   );
 }
 
+// ── Echo shadow helper (Canva-style: direction -20°, offset 20px, white) ──
+
+function addEchoShadow(existingShadow: string): string {
+  const echo = '-7px -19px 0 rgba(255,255,255,0.5)';
+  if (!existingShadow || existingShadow === 'none') return echo;
+  return `${echo}, ${existingShadow}`;
+}
+
 // ── Headshot image ──────────────────────────────────────────
 
-function HeadshotBg({ src, sk, side }: {
+function HeadshotBg({ src, sk, side, teamId, teamColor }: {
   src?: string;
   sk: SkinTheme;
   side: 'left' | 'right';
+  teamId?: string;
+  teamColor?: string;
 }) {
-  if (!src) return null;
+  if (!src) {
+    // Fallback: large team abbreviation when no headshot available
+    if (teamId && teamColor) {
+      return (
+        <div style={{
+          position: 'absolute',
+          bottom: 0,
+          [side]: 0,
+          width: '75%',
+          height: `${sk.headshotSize}%`,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          pointerEvents: 'none',
+          zIndex: 4,
+        }}>
+          <div style={{
+            fontSize: 200,
+            fontWeight: 900,
+            color: ha(teamColor, sk.isLight ? 0.08 : 0.12),
+            letterSpacing: -8,
+            lineHeight: 0.85,
+            textShadow: `0 0 80px ${ha(teamColor, 0.2)}`,
+          }}>
+            {teamId}
+          </div>
+        </div>
+      );
+    }
+    return null;
+  }
   return (
     <div style={{
       position: 'absolute',
       bottom: 0,
-      [side]: side === 'right' ? -20 : -20,
-      width: '70%',
-      height: '100%',
-      opacity: sk.headshotOpacity,
-      filter: sk.headshotFilter,
+      [side]: 0,
+      width: '75%',
+      height: `${sk.headshotSize}%`,
       pointerEvents: 'none',
+      zIndex: 4,
     }}>
       <img
         src={src}
@@ -205,9 +249,32 @@ function HeadshotBg({ src, sk, side }: {
           height: '100%',
           objectFit: 'contain',
           objectPosition: `${side} bottom`,
+          opacity: sk.headshotOpacity,
+          filter: sk.headshotFilter,
         }}
       />
     </div>
+  );
+}
+
+// ── Template background (tinted texture image at z-0) ───────
+
+function TemplateBg({ src }: { src?: string }) {
+  if (!src) return null;
+  return (
+    <img
+      src={src}
+      alt=""
+      style={{
+        position: 'absolute',
+        inset: 0,
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        pointerEvents: 'none',
+        zIndex: 0,
+      }}
+    />
   );
 }
 
@@ -277,25 +344,37 @@ function Watermark({ teamId, fontSize, color }: { teamId: string; fontSize: numb
 }
 
 // ══════════════════════════════════════════════════════════════
-// OG Card — 1200x630, side-by-side team sections
+// OG Card — 1200x630, full-bleed team sections (no header bar)
+// Inspired by BR/ESPN editorial graphics + Midjourney templates
 // ══════════════════════════════════════════════════════════════
 
 function OGCard(props: ShareCardProps) {
-  const { teamScores, winner, lopsidedness, date, league, selectedPlayers, spotlight, skin = 'classic', headshots } = props;
+  const { teamScores, winner, lopsidedness, date, league, selectedPlayers, spotlight, skin = 'classic', headshots, templates, caption } = props;
   const sk = THEMES[skin];
   const teams = sortTeams(teamScores, winner);
   const is3 = teams.length > 2;
-  const pc = Math.min(sizeTier(teamScores, selectedPlayers), is3 ? 2 : 3);
   const totalScore = teams.reduce((s, [, d]) => s + d.score, 0) || 1;
   const showBar = spotlight.detailedVerdict;
+  const hasCaption = !!caption?.trim();
 
-  const scoreFs = is3 ? 80 : 120;
-  const nameFs = is3 ? 20 : pc === 1 ? 34 : pc === 2 ? 28 : 22;
-  const indivFs = is3 ? 15 : pc === 1 ? 24 : pc === 2 ? 20 : 16;
-  const pillFs = is3 ? 11 : pc === 1 ? 16 : pc === 2 ? 14 : 12;
-  const watermarkFs = is3 ? 180 : 280;
-  const verdictH = showBar ? 72 : 56;
-  const pad = is3 ? 28 : 40;
+  // ── Layout: body fills card, verdict bar at bottom ──
+  const verdictH = hasCaption ? 90 : (showBar ? 70 : 56);
+
+  // ── Typography — scale with player count ──
+  const maxShown = Math.max(...teams.map(([tid, td]) => {
+    const [shown] = filterAssets(td.assets, tid, selectedPlayers);
+    return shown.length;
+  }));
+  const dense = maxShown > 3;
+  const teamNameFs = is3 ? 18 : 22;
+  const scoreFs = is3 ? 72 : (dense ? 80 : 110);
+  const playerFs = is3 ? 28 : (dense ? 28 : 39);
+  const pillFs = is3 ? 12 : (dense ? 12 : 15);
+  const maxPlayers = is3 ? 3 : 6;
+
+  // ── Grain & vignette (client-only) ──
+  const noiseUrl = typeof window !== 'undefined' ? generateNoiseUrl(GRAIN[skin]) : '';
+  const vignetteAlpha = VIGNETTE[skin];
 
   return (
     <div style={{
@@ -309,131 +388,168 @@ function OGCard(props: ShareCardProps) {
       position: 'relative',
       overflow: 'hidden',
     }}>
-      {/* Top accent bar */}
-      {sk.accentH > 0 && (
-        <div style={{ display: 'flex', height: sk.accentH, flexShrink: 0 }}>
-          {teams.map(([tid]) => (
-            <div key={tid} style={{ flex: 1, background: CARD_TEAM_COLORS[tid] || '#444' }} />
-          ))}
-        </div>
-      )}
 
-      {/* Main: side-by-side */}
+      {/* ── BODY: full-bleed team sections, no header bar ── */}
       <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
         {teams.map(([teamId, td], idx) => {
           const c = CARD_TEAM_COLORS[teamId] || '#888';
           const c2 = CARD_TEAM_SECONDARY[teamId] || c;
-          const [shown, rest] = filterAssets(td.assets, teamId, selectedPlayers);
+          const [allShown, rest] = filterAssets(td.assets, teamId, selectedPlayers);
+          const shown = allShown.slice(0, maxPlayers);
+          const moreCount = rest + Math.max(0, allShown.length - maxPlayers);
           const isLast = idx === teams.length - 1;
           const align = isLast && !is3 ? 'right' as const : 'left' as const;
           const flexAlign = isLast && !is3 ? 'flex-end' as const : 'flex-start' as const;
           const headshotUrl = headshots?.[teamId]?.[0];
-          const labelColor = skin === 'classic' ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.3)';
+          const templateUrl = templates?.[teamId];
+          const dimColor = sk.isLight ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.35)';
 
           return (
             <div key={teamId} style={{
               flex: 1,
               display: 'flex', flexDirection: 'column',
-              padding: `${is3 ? 16 : 22}px ${skin === 'classic' ? pad + 10 : pad}px`,
-              paddingLeft: skin === 'classic' && idx === 0 ? pad + 16 : undefined,
+              justifyContent: 'space-between',
+              padding: `28px ${is3 ? 28 : 40}px 16px`,
               position: 'relative',
               overflow: 'hidden',
-              backgroundImage: sk.sectionBg(c, c2),
+              background: templateUrl ? sk.cardBg : sk.sectionBg(c, c2),
               borderRight: idx < teams.length - 1 ? sk.divider : 'none',
             }}>
+              {/* Template texture at z-0 (falls back to CSS gradient above) */}
+              <TemplateBg src={templateUrl} />
+
               {sk.overlay && <div style={sk.overlay} />}
+
+              {/* Team accent bar (left stripe, top line, etc.) */}
               <TeamAccentBar color={c} skin={skin} height={630 - verdictH} />
-              <Watermark teamId={teamId} fontSize={watermarkFs} color={sk.watermarkColor(c)} />
-              <HeadshotBg src={headshotUrl} sk={sk} side={isLast && !is3 ? 'right' : 'left'} />
 
-              {/* Team label — top */}
+              {/* Headshot — large, bottom-anchored, OPPOSITE side from text */}
+              <HeadshotBg src={headshotUrl} sk={sk} side={isLast && !is3 ? 'left' : 'right'} teamId={teamId} teamColor={c} />
+
+              {/* Vignette — darkens headshot side, keeps text side clear */}
               <div style={{
-                fontSize: is3 ? 12 : 14,
-                fontWeight: 800,
-                letterSpacing: 5,
-                color: sk.teamLabelColor(c),
-                textTransform: 'uppercase' as const,
-                textAlign: align,
-                position: 'relative',
-                flexShrink: 0,
-                marginBottom: is3 ? 10 : 14,
-              }}>
-                {TEAM_NICK[teamId] || teamId}
-              </div>
+                position: 'absolute', inset: 0,
+                background: `radial-gradient(ellipse at ${align === 'left' ? '25% 50%' : '75% 50%'}, transparent 20%, rgba(0,0,0,${vignetteAlpha}) 100%)`,
+                pointerEvents: 'none', zIndex: 2,
+              }} />
 
-              {/* Score + label — immediately after team name */}
-              <div style={{ position: 'relative', flexShrink: 0, textAlign: align, marginBottom: is3 ? 12 : 18 }}>
+              {/* Film grain overlay */}
+              {noiseUrl && (
                 <div style={{
-                  fontSize: scoreFs,
+                  position: 'absolute', inset: 0,
+                  backgroundImage: `url(${noiseUrl})`,
+                  backgroundRepeat: 'repeat',
+                  opacity: 0.5,
+                  pointerEvents: 'none', zIndex: 3,
+                }} />
+              )}
+
+              {/* Score readability gradient — covers text side from top */}
+              <div style={{
+                position: 'absolute', top: 0,
+                [align]: 0,
+                width: '70%',
+                height: '60%',
+                background: `linear-gradient(180deg, ${sk.isLight ? 'rgba(245,240,232,0.9)' : 'rgba(0,0,0,0.7)'} 0%, transparent 100%)`,
+                pointerEvents: 'none', zIndex: 3,
+              }} />
+
+              {/* ── Top zone: team name + score (inside body, no header bar) ── */}
+              <div style={{
+                position: 'relative', zIndex: 5,
+                textAlign: align,
+              }}>
+                {/* Team name — subtle, inside body */}
+                <div style={{
+                  fontSize: teamNameFs,
                   fontWeight: 900,
-                  lineHeight: 0.9,
-                  color: sk.scoreColor,
-                  textShadow: sk.scoreShadow(c),
-                }}>
-                  {fmt(td.score)}
-                </div>
-                <div style={{
-                  fontSize: is3 ? 9 : 11,
-                  fontWeight: 700,
-                  letterSpacing: 3,
-                  color: labelColor,
+                  letterSpacing: 4,
+                  color: sk.isLight ? ha(c, 0.7) : 'rgba(255,255,255,0.5)',
                   textTransform: 'uppercase' as const,
-                  marginTop: 6,
+                  marginBottom: 2,
+                }}>
+                  {TEAM_NICK[teamId] || teamId}
+                </div>
+                {/* Label above score */}
+                <div style={{
+                  fontSize: 11,
+                  fontWeight: 800,
+                  letterSpacing: 4,
+                  color: sk.isLight ? 'rgba(0,0,0,0.45)' : 'rgba(255,255,255,0.35)',
+                  textTransform: 'uppercase' as const,
+                  marginBottom: 4,
                 }}>
                   TRADE SCORE
                 </div>
+                {/* Score — massive, with echo effect */}
+                <div style={{
+                  display: 'flex', alignItems: 'baseline', gap: scoreFs * 0.06,
+                }}>
+                  <span style={{
+                    fontSize: scoreFs,
+                    fontWeight: 900,
+                    lineHeight: 0.85,
+                    color: sk.scoreColor,
+                    textShadow: addEchoShadow(sk.scoreShadow(c)),
+                  }}>
+                    {fmt(td.score)}
+                  </span>
+                  <span style={{
+                    fontSize: Math.round(scoreFs * 0.28),
+                    fontWeight: 900,
+                    color: sk.scoreColor,
+                    textShadow: addEchoShadow(sk.scoreShadow(c)),
+                    letterSpacing: 3,
+                  }}>
+                    WS
+                  </span>
+                </div>
               </div>
 
-              {/* Players — fill remaining space */}
+              {/* ── Bottom zone: accolades + player names ── */}
               <div style={{
                 display: 'flex', flexDirection: 'column',
-                gap: pc === 1 ? 10 : 6,
+                gap: 4,
                 position: 'relative',
                 alignItems: flexAlign,
-                flex: 1,
-                justifyContent: 'flex-start',
-                overflow: 'hidden',
+                zIndex: 5,
               }}>
+                {moreCount > 0 && (
+                  <span style={{ fontSize: 14, fontWeight: 600, color: dimColor }}>
+                    + {moreCount} more
+                  </span>
+                )}
                 {shown.map((asset, i) => (
                   <div key={`${asset.name}-${i}`} style={{
                     display: 'flex', flexDirection: 'column',
                     alignItems: flexAlign,
-                    flexShrink: 0,
                   }}>
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
+                    <StatPills asset={asset} spotlight={spotlight} fontSize={pillFs} sk={sk} />
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginTop: 2 }}>
                       <span style={{
-                        fontSize: nameFs, fontWeight: 800,
+                        fontSize: playerFs, fontWeight: 800,
                         color: sk.nameColor,
                         letterSpacing: -0.3,
+                        textShadow: sk.isLight ? 'none' : '0 2px 8px rgba(0,0,0,0.6)',
                       }}>
                         {asset.name}
                       </span>
                       <span style={{
-                        fontSize: indivFs, fontWeight: 700,
+                        fontSize: Math.round(playerFs * 0.55), fontWeight: 700,
                         color: sk.indivScoreColor(c),
                       }}>
-                        {fmt(asset.score)}
+                        {fmt(asset.score)} WS
                       </span>
                     </div>
-                    <StatPills asset={asset} spotlight={spotlight} fontSize={pillFs} sk={sk} />
                   </div>
                 ))}
-                {rest > 0 && (
-                  <span style={{
-                    fontSize: Math.max(13, nameFs - 6), fontWeight: 600,
-                    color: labelColor,
-                    flexShrink: 0,
-                  }}>
-                    + {rest} more
-                  </span>
-                )}
               </div>
             </div>
           );
         })}
       </div>
 
-      {/* Verdict band */}
+      {/* ── VERDICT BAR ── */}
       <div style={{
         height: verdictH, flexShrink: 0,
         display: 'flex', flexDirection: 'column',
@@ -441,10 +557,21 @@ function OGCard(props: ShareCardProps) {
         gap: 6, padding: '0 36px',
         background: sk.verdictBg,
         borderTop: sk.divider,
+        position: 'relative',
       }}>
+        {/* Grain on verdict bar too */}
+        {noiseUrl && (
+          <div style={{
+            position: 'absolute', inset: 0,
+            backgroundImage: `url(${noiseUrl})`,
+            backgroundRepeat: 'repeat',
+            opacity: 0.3,
+            pointerEvents: 'none',
+          }} />
+        )}
         {showBar && (
-          <div style={{ display: 'flex', width: '100%', alignItems: 'center', gap: 12, maxWidth: 800 }}>
-            <span style={{ fontSize: 12, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[0][0]] || '#888', width: 40, textAlign: 'right' as const, flexShrink: 0 }}>
+          <div style={{ display: 'flex', width: '100%', alignItems: 'center', gap: 12, maxWidth: 800, position: 'relative', zIndex: 1 }}>
+            <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[0][0]] || '#888', width: 40, textAlign: 'right' as const, flexShrink: 0 }}>
               {teams[0][0]}
             </span>
             <div style={{ flex: 1, height: 6, borderRadius: 3, display: 'flex', overflow: 'hidden' }}>
@@ -452,34 +579,37 @@ function OGCard(props: ShareCardProps) {
                 <div key={tid} style={{ width: `${(td.score / totalScore) * 100}%`, height: '100%', background: CARD_TEAM_COLORS[tid] || '#888' }} />
               ))}
             </div>
-            <span style={{ fontSize: 12, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[teams.length - 1][0]] || '#888', width: 40, flexShrink: 0 }}>
+            <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[teams.length - 1][0]] || '#888', width: 40, flexShrink: 0 }}>
               {teams[teams.length - 1][0]}
             </span>
           </div>
         )}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', position: 'relative', zIndex: 1 }}>
           <span style={{
-            fontSize: 14, fontWeight: 700, letterSpacing: 2,
+            fontSize: 16, fontWeight: 700, letterSpacing: 2,
             color: sk.verdictColor(winner ? CARD_TEAM_COLORS[winner] || '#f9c74f' : null),
             textTransform: 'uppercase' as const,
           }}>
             {verdictLabel(winner, lopsidedness)}
           </span>
-          <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: 3, color: sk.brandColor, textTransform: 'uppercase' as const }}>
-            {league === 'WNBA' ? 'WNBA' : 'NBA'} Trade Mapper
-          </span>
-          {date && <span style={{ fontSize: 10, color: skin === 'classic' ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.15)' }}>{shortDate(date)}</span>}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+            {date && <span style={{ fontSize: 11, color: sk.isLight ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.15)' }}>{shortDate(date)}</span>}
+            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, color: sk.brandColor, textTransform: 'uppercase' as const }}>
+              {league === 'WNBA' ? 'WNBA' : 'NBA'} Trade Mapper
+            </span>
+          </div>
         </div>
+        {hasCaption && (
+          <div style={{
+            fontSize: 13, fontWeight: 500, lineHeight: 1.3,
+            color: sk.isLight ? 'rgba(0,0,0,0.55)' : 'rgba(255,255,255,0.5)',
+            position: 'relative', zIndex: 1,
+            textAlign: 'center',
+          }}>
+            {caption}
+          </div>
+        )}
       </div>
-
-      {/* Bottom accent */}
-      {sk.accentH > 0 && (
-        <div style={{ display: 'flex', height: Math.max(2, sk.accentH - 1), flexShrink: 0 }}>
-          {teams.map(([tid]) => (
-            <div key={tid} style={{ flex: 1, background: CARD_TEAM_COLORS[tid] || '#444' }} />
-          ))}
-        </div>
-      )}
     </div>
   );
 }
@@ -489,20 +619,24 @@ function OGCard(props: ShareCardProps) {
 // ══════════════════════════════════════════════════════════════
 
 function SquareCard(props: ShareCardProps) {
-  const { teamScores, winner, lopsidedness, date, league, selectedPlayers, spotlight, skin = 'classic', headshots } = props;
+  const { teamScores, winner, lopsidedness, date, league, selectedPlayers, spotlight, skin = 'classic', headshots, templates, caption } = props;
   const sk = THEMES[skin];
   const teams = sortTeams(teamScores, winner);
-  const pc = Math.min(sizeTier(teamScores, selectedPlayers), 3);
   const totalScore = teams.reduce((s, [, d]) => s + d.score, 0) || 1;
   const showBar = spotlight.detailedVerdict;
+  const noiseUrl = typeof window !== 'undefined' ? generateNoiseUrl(GRAIN[skin]) : '';
+  const vignetteAlpha = VIGNETTE[skin];
 
-  const scoreFs = 110;
-  const nameFs = pc === 1 ? 36 : pc === 2 ? 30 : 24;
-  const indivFs = pc === 1 ? 24 : pc === 2 ? 20 : 17;
-  const pillFs = pc === 1 ? 16 : pc === 2 ? 14 : 12;
-  const watermarkFs = 240;
-  const verdictH = showBar ? 90 : 70;
-  const sectionH = Math.floor((1080 - (sk.accentH * 2) - verdictH) / teams.length);
+  const maxPlayers = 3;
+
+  // Verdict bar at bottom — taller to fit caption
+  const hasCaption = !!caption?.trim();
+  const verdictH = hasCaption ? 160 : (showBar ? 120 : 100);
+  const bodyH = Math.floor((1080 - verdictH) / teams.length);
+
+  const scoreFs = 120;
+  const playerFs = 38;
+  const pillFs = 15;
 
   return (
     <div style={{
@@ -515,70 +649,123 @@ function SquareCard(props: ShareCardProps) {
       boxShadow: sk.cardShadow,
       overflow: 'hidden',
     }}>
-      {sk.accentH > 0 && (
-        <div style={{ display: 'flex', height: sk.accentH, flexShrink: 0 }}>
-          {teams.map(([tid]) => <div key={tid} style={{ flex: 1, background: CARD_TEAM_COLORS[tid] || '#444' }} />)}
-        </div>
-      )}
-
       {teams.map(([teamId, td], idx) => {
         const c = CARD_TEAM_COLORS[teamId] || '#888';
         const c2 = CARD_TEAM_SECONDARY[teamId] || c;
-        const [shown, rest] = filterAssets(td.assets, teamId, selectedPlayers);
+        const [allShown, rest] = filterAssets(td.assets, teamId, selectedPlayers);
+        const shown = allShown.slice(0, maxPlayers);
+        const moreCount = rest + Math.max(0, allShown.length - maxPlayers);
         const headshotUrl = headshots?.[teamId]?.[0];
-        const labelColor = skin === 'classic' ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.3)';
+        const templateUrl = templates?.[teamId];
+        const dimColor = sk.isLight ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.35)';
 
         return (
           <div key={teamId} style={{
-            height: sectionH,
+            height: bodyH,
             display: 'flex', flexDirection: 'column',
-            padding: `22px ${skin === 'classic' ? 62 : 52}px`,
-            paddingLeft: skin === 'classic' ? 68 : undefined,
             position: 'relative', overflow: 'hidden',
-            backgroundImage: sk.sectionBg(c, c2),
+            background: templateUrl ? sk.cardBg : sk.sectionBg(c, c2),
             borderBottom: idx < teams.length - 1 ? sk.divider : 'none',
           }}>
+            {/* Template texture at z-0 */}
+            <TemplateBg src={templateUrl} />
+
             {sk.overlay && <div style={sk.overlay} />}
-            <TeamAccentBar color={c} skin={skin} height={sectionH} />
-            <Watermark teamId={teamId} fontSize={watermarkFs} color={sk.watermarkColor(c)} />
-            <HeadshotBg src={headshotUrl} sk={sk} side="right" />
 
-            {/* Team label */}
+            {/* Team accent bar */}
+            <TeamAccentBar color={c} skin={skin} height={bodyH} />
+
+            {/* Headshot — large, anchored right */}
+            <HeadshotBg src={headshotUrl} sk={sk} side="right" teamId={teamId} teamColor={c} />
+
+            {/* Vignette — focus attention on text side */}
             <div style={{
-              fontSize: 15, fontWeight: 800, letterSpacing: 5,
-              color: sk.teamLabelColor(c), textTransform: 'uppercase' as const,
-              position: 'relative', flexShrink: 0, marginBottom: 12,
-            }}>
-              {TEAM_NICK[teamId] || teamId}
-            </div>
+              position: 'absolute', inset: 0,
+              background: `radial-gradient(ellipse at 30% 55%, transparent 20%, rgba(0,0,0,${vignetteAlpha}) 100%)`,
+              pointerEvents: 'none', zIndex: 2,
+            }} />
 
-            {/* Score + label */}
-            <div style={{ position: 'relative', flexShrink: 0, marginBottom: 16 }}>
+            {/* Film grain */}
+            {noiseUrl && (
               <div style={{
-                fontSize: scoreFs, fontWeight: 900, lineHeight: 0.9,
-                color: sk.scoreColor, textShadow: sk.scoreShadow(c),
-              }}>
-                {fmt(td.score)}
-              </div>
-              <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: 3, color: labelColor, textTransform: 'uppercase' as const, marginTop: 5 }}>
-                TRADE SCORE
-              </div>
-            </div>
+                position: 'absolute', inset: 0,
+                backgroundImage: `url(${noiseUrl})`,
+                backgroundRepeat: 'repeat',
+                opacity: 0.4,
+                pointerEvents: 'none', zIndex: 3,
+              }} />
+            )}
 
-            {/* Players */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: pc === 1 ? 10 : 6, position: 'relative', flex: 1, justifyContent: 'flex-start', overflow: 'hidden' }}>
-              {shown.map((asset, i) => (
-                <div key={`${asset.name}-${i}`} style={{ display: 'flex', flexDirection: 'column', flexShrink: 0 }}>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
-                    <span style={{ fontSize: nameFs, fontWeight: 800, color: sk.nameColor }}>{asset.name}</span>
-                    <span style={{ fontSize: indivFs, fontWeight: 700, color: sk.indivScoreColor(c) }}>{fmt(asset.score)}</span>
-                  </div>
-                  <StatPills asset={asset} spotlight={spotlight} fontSize={pillFs} sk={sk} />
+            {/* Content: team name + score at top, players at bottom */}
+            <div style={{
+              flex: 1, display: 'flex', flexDirection: 'column',
+              justifyContent: 'space-between',
+              padding: skin === 'classic' ? '28px 48px 24px 56px' : '28px 48px 24px',
+              position: 'relative', zIndex: 5,
+            }}>
+              {/* Top: team name + score */}
+              <div>
+                <div style={{
+                  fontSize: 20, fontWeight: 900, letterSpacing: 5,
+                  color: sk.teamLabelColor(c),
+                  textTransform: 'uppercase' as const,
+                  marginBottom: 2,
+                }}>
+                  {TEAM_NICK[teamId] || teamId}
                 </div>
-              ))}
-              {rest > 0 && (
-                <span style={{ fontSize: Math.max(14, nameFs - 8), color: labelColor, fontWeight: 600, flexShrink: 0 }}>+ {rest} more</span>
-              )}
+                <div style={{
+                  fontSize: 12, fontWeight: 800, letterSpacing: 5,
+                  color: sk.isLight ? 'rgba(0,0,0,0.45)' : 'rgba(255,255,255,0.35)',
+                  textTransform: 'uppercase' as const,
+                  marginBottom: 4,
+                }}>
+                  TRADE SCORE
+                </div>
+                <div style={{
+                  display: 'flex', alignItems: 'baseline', gap: scoreFs * 0.06,
+                }}>
+                  <span style={{
+                    fontSize: scoreFs, fontWeight: 900, lineHeight: 0.85,
+                    color: sk.scoreColor,
+                    textShadow: addEchoShadow(sk.scoreShadow(c)),
+                  }}>
+                    {fmt(td.score)}
+                  </span>
+                  <span style={{
+                    fontSize: Math.round(scoreFs * 0.28), fontWeight: 900,
+                    color: sk.scoreColor,
+                    textShadow: addEchoShadow(sk.scoreShadow(c)),
+                    letterSpacing: 3,
+                  }}>
+                    WS
+                  </span>
+                </div>
+              </div>
+
+              {/* Bottom: players + pills */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                {moreCount > 0 && <span style={{ fontSize: 16, fontWeight: 600, color: dimColor }}>+ {moreCount} more</span>}
+                {shown.map((asset, i) => (
+                  <div key={`${asset.name}-${i}`} style={{ display: 'flex', flexDirection: 'column' }}>
+                    <StatPills asset={asset} spotlight={spotlight} fontSize={pillFs} sk={sk} />
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginTop: 2 }}>
+                      <span style={{
+                        fontSize: playerFs, fontWeight: 800,
+                        color: sk.nameColor,
+                        textShadow: sk.isLight ? 'none' : '0 2px 8px rgba(0,0,0,0.5)',
+                      }}>
+                        {asset.name}
+                      </span>
+                      <span style={{
+                        fontSize: Math.round(playerFs * 0.5), fontWeight: 700,
+                        color: sk.indivScoreColor(c),
+                      }}>
+                        {fmt(asset.score)} WS
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         );
@@ -588,41 +775,56 @@ function SquareCard(props: ShareCardProps) {
       <div style={{
         height: verdictH, flexShrink: 0,
         display: 'flex', flexDirection: 'column',
-        alignItems: 'center', justifyContent: 'center', gap: 6,
-        padding: '10px 36px', background: sk.verdictBg,
-        borderTop: sk.divider,
+        justifyContent: 'center', gap: 10,
+        padding: '0 48px', background: sk.verdictBg, borderTop: sk.divider,
+        position: 'relative',
       }}>
+        {noiseUrl && (
+          <div style={{
+            position: 'absolute', inset: 0,
+            backgroundImage: `url(${noiseUrl})`,
+            backgroundRepeat: 'repeat',
+            opacity: 0.3,
+            pointerEvents: 'none',
+          }} />
+        )}
         {showBar && (
-          <div style={{ display: 'flex', width: '100%', alignItems: 'center', gap: 12 }}>
-            <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[0][0]] || '#888', width: 40, textAlign: 'right' as const, flexShrink: 0 }}>{teams[0][0]}</span>
+          <div style={{ display: 'flex', width: '100%', alignItems: 'center', gap: 12, maxWidth: 700, position: 'relative', zIndex: 1 }}>
+            <span style={{ fontSize: 14, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[0][0]] || '#888' }}>{teams[0][0]}</span>
             <div style={{ flex: 1, height: 8, borderRadius: 4, display: 'flex', overflow: 'hidden' }}>
               {teams.map(([tid, td]) => (
                 <div key={tid} style={{ width: `${(td.score / totalScore) * 100}%`, height: '100%', background: CARD_TEAM_COLORS[tid] || '#888' }} />
               ))}
             </div>
-            <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[teams.length - 1][0]] || '#888', width: 40, flexShrink: 0 }}>{teams[teams.length - 1][0]}</span>
+            <span style={{ fontSize: 14, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[teams.length - 1][0]] || '#888' }}>{teams[teams.length - 1][0]}</span>
           </div>
         )}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
+        <div style={{ position: 'relative', zIndex: 1 }}>
           <span style={{
-            fontSize: 15, fontWeight: 700, letterSpacing: 2,
+            fontSize: 20, fontWeight: 700, letterSpacing: 2,
             color: sk.verdictColor(winner ? CARD_TEAM_COLORS[winner] || '#f9c74f' : null),
             textTransform: 'uppercase' as const,
           }}>
             {verdictLabel(winner, lopsidedness)}
           </span>
-          <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, color: sk.brandColor, textTransform: 'uppercase' as const }}>
+        </div>
+        {hasCaption && (
+          <div style={{
+            fontSize: 16, fontWeight: 500, lineHeight: 1.35,
+            color: sk.isLight ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.55)',
+            position: 'relative', zIndex: 1,
+            maxWidth: 900,
+          }}>
+            {caption}
+          </div>
+        )}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16, position: 'relative', zIndex: 1 }}>
+          <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: 3, color: sk.brandColor, textTransform: 'uppercase' as const }}>
             {league === 'WNBA' ? 'WNBA' : 'NBA'} Trade Mapper
           </span>
-          {date && <span style={{ fontSize: 11, color: skin === 'classic' ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.18)' }}>{shortDate(date)}</span>}
+          {date && <span style={{ fontSize: 12, color: sk.isLight ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.18)' }}>{shortDate(date)}</span>}
         </div>
       </div>
-
-      {sk.accentH > 0 && (
-        <div style={{ display: 'flex', height: Math.max(2, sk.accentH - 1), flexShrink: 0 }}>
-          {teams.map(([tid]) => <div key={tid} style={{ flex: 1, background: CARD_TEAM_COLORS[tid] || '#444' }} />)}
-        </div>
-      )}
     </div>
   );
 }
@@ -632,20 +834,22 @@ function SquareCard(props: ShareCardProps) {
 // ══════════════════════════════════════════════════════════════
 
 function StoryCard(props: ShareCardProps) {
-  const { teamScores, winner, lopsidedness, date, league, selectedPlayers, spotlight, skin = 'classic', headshots } = props;
+  const { teamScores, winner, lopsidedness, date, league, selectedPlayers, spotlight, skin = 'classic', headshots, templates } = props;
   const sk = THEMES[skin];
   const teams = sortTeams(teamScores, winner);
-  const pc = Math.min(sizeTier(teamScores, selectedPlayers), 3);
   const totalScore = teams.reduce((s, [, d]) => s + d.score, 0) || 1;
   const showBar = spotlight.detailedVerdict;
-  const bandH = showBar ? 260 : 220;
-  const sectionH = Math.floor((1920 - (sk.accentH * 2) - bandH) / teams.length);
 
+  const maxPlayers = 4;
+
+  const teamHeaderH = 80;
+  const verdictH = showBar ? 260 : 220;
+  const bodyH = Math.floor((1920 - verdictH) / teams.length);
+
+  const teamNameFs = 44;
   const scoreFs = 140;
-  const nameFs = pc === 1 ? 44 : pc === 2 ? 36 : 28;
-  const indivFs = pc === 1 ? 30 : pc === 2 ? 24 : 20;
-  const pillFs = pc === 1 ? 19 : pc === 2 ? 16 : 14;
-  const watermarkFs = 320;
+  const playerFs = 47;
+  const pillFs = 17;
 
   return (
     <div style={{
@@ -658,70 +862,67 @@ function StoryCard(props: ShareCardProps) {
       boxShadow: sk.cardShadow,
       overflow: 'hidden',
     }}>
-      {sk.accentH > 0 && (
-        <div style={{ display: 'flex', height: sk.accentH, flexShrink: 0 }}>
-          {teams.map(([tid]) => <div key={tid} style={{ flex: 1, background: CARD_TEAM_COLORS[tid] || '#444' }} />)}
-        </div>
-      )}
-
       {teams.map(([teamId, td], idx) => {
         const c = CARD_TEAM_COLORS[teamId] || '#888';
         const c2 = CARD_TEAM_SECONDARY[teamId] || c;
-        const [shown, rest] = filterAssets(td.assets, teamId, selectedPlayers);
+        const [allShown, rest] = filterAssets(td.assets, teamId, selectedPlayers);
+        const shown = allShown.slice(0, maxPlayers);
+        const moreCount = rest + Math.max(0, allShown.length - maxPlayers);
         const headshotUrl = headshots?.[teamId]?.[0];
-        const labelColor = skin === 'classic' ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.3)';
+        const templateUrl = templates?.[teamId];
+        const dimColor = sk.isLight ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.35)';
 
         return (
-          <div key={teamId} style={{
-            height: sectionH,
-            display: 'flex', flexDirection: 'column',
-            padding: `32px ${skin === 'classic' ? 70 : 60}px`,
-            paddingLeft: skin === 'classic' ? 76 : undefined,
-            position: 'relative', overflow: 'hidden',
-            backgroundImage: sk.sectionBg(c, c2),
-            borderBottom: idx < teams.length - 1 ? sk.divider : 'none',
-          }}>
-            {sk.overlay && <div style={sk.overlay} />}
-            <TeamAccentBar color={c} skin={skin} height={sectionH} />
-            <Watermark teamId={teamId} fontSize={watermarkFs} color={sk.watermarkColor(c)} />
-            <HeadshotBg src={headshotUrl} sk={sk} side="right" />
-
-            {/* Team label */}
+          <div key={teamId} style={{ height: bodyH, display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden' }}>
+            {/* Team header */}
             <div style={{
-              fontSize: 19, fontWeight: 800, letterSpacing: 6,
-              color: sk.teamLabelColor(c), textTransform: 'uppercase' as const,
-              position: 'relative', flexShrink: 0, marginBottom: 16,
+              height: teamHeaderH, flexShrink: 0,
+              display: 'flex', alignItems: 'center', padding: '0 56px',
+              background: sk.headerBg(c),
             }}>
-              {TEAM_NICK[teamId] || teamId}
+              <span style={{ fontSize: teamNameFs, fontWeight: 900, letterSpacing: 2, color: '#ffffff', textTransform: 'uppercase' as const, textShadow: sk.headerTextShadow(c) }}>
+                {TEAM_NICK[teamId] || teamId}
+              </span>
             </div>
-
-            {/* Score + label */}
-            <div style={{ position: 'relative', flexShrink: 0, marginBottom: 24 }}>
-              <div style={{
-                fontSize: scoreFs, fontWeight: 900, lineHeight: 0.9,
-                color: sk.scoreColor, textShadow: sk.scoreShadow(c),
-              }}>
-                {fmt(td.score)}
-              </div>
-              <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 3, color: labelColor, textTransform: 'uppercase' as const, marginTop: 8 }}>
-                TRADE SCORE
-              </div>
-            </div>
-
-            {/* Players */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: pc === 1 ? 14 : 8, position: 'relative', flex: 1, justifyContent: 'flex-start', overflow: 'hidden' }}>
-              {shown.map((asset, i) => (
-                <div key={`${asset.name}-${i}`} style={{ display: 'flex', flexDirection: 'column', flexShrink: 0 }}>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
-                    <span style={{ fontSize: nameFs, fontWeight: 800, color: sk.nameColor }}>{asset.name}</span>
-                    <span style={{ fontSize: indivFs, fontWeight: 700, color: sk.indivScoreColor(c) }}>{fmt(asset.score)}</span>
-                  </div>
-                  <StatPills asset={asset} spotlight={spotlight} fontSize={pillFs} sk={sk} />
+            {/* Body */}
+            <div style={{
+              flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+              padding: '36px 56px 28px',
+              background: templateUrl ? sk.cardBg : sk.sectionBg(c, c2),
+              position: 'relative', overflow: 'hidden',
+              borderBottom: idx < teams.length - 1 ? sk.divider : 'none',
+            }}>
+              {/* Template texture at z-0 */}
+              <TemplateBg src={templateUrl} />
+              {sk.overlay && <div style={sk.overlay} />}
+              <HeadshotBg src={headshotUrl} sk={sk} side="right" teamId={teamId} teamColor={c} />
+              {/* Score */}
+              <div style={{ position: 'relative', flexShrink: 0, zIndex: 5, padding: '20px 0' }}>
+                <div style={{ fontSize: 15, fontWeight: 800, letterSpacing: 4, color: sk.isLight ? 'rgba(0,0,0,0.45)' : 'rgba(255,255,255,0.35)', textTransform: 'uppercase' as const, marginBottom: 6 }}>
+                  TRADE SCORE
                 </div>
-              ))}
-              {rest > 0 && (
-                <span style={{ fontSize: Math.max(16, nameFs - 10), color: labelColor, fontWeight: 600, flexShrink: 0 }}>+ {rest} more</span>
-              )}
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: scoreFs * 0.06 }}>
+                  <span style={{ fontSize: scoreFs, fontWeight: 900, lineHeight: 0.9, color: sk.scoreColor, textShadow: addEchoShadow(sk.scoreShadow(c)) }}>
+                    {fmt(td.score)}
+                  </span>
+                  <span style={{ fontSize: Math.round(scoreFs * 0.28), fontWeight: 900, color: sk.scoreColor, textShadow: addEchoShadow(sk.scoreShadow(c)), letterSpacing: 3 }}>
+                    WS
+                  </span>
+                </div>
+              </div>
+              {/* Players — pills above name for alignment */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, position: 'relative', zIndex: 5 }}>
+                {moreCount > 0 && <span style={{ fontSize: 20, fontWeight: 600, color: dimColor }}>+ {moreCount} more</span>}
+                {shown.map((asset, i) => (
+                  <div key={`${asset.name}-${i}`} style={{ display: 'flex', flexDirection: 'column' }}>
+                    <StatPills asset={asset} spotlight={spotlight} fontSize={pillFs} sk={sk} />
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginTop: 3 }}>
+                      <span style={{ fontSize: playerFs, fontWeight: 800, color: sk.nameColor }}>{asset.name}</span>
+                      <span style={{ fontSize: Math.round(playerFs * 0.55), fontWeight: 700, color: sk.indivScoreColor(c) }}>{fmt(asset.score)} WS</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         );
@@ -729,19 +930,17 @@ function StoryCard(props: ShareCardProps) {
 
       {/* Verdict band */}
       <div style={{
-        height: bandH, flexShrink: 0,
+        height: verdictH, flexShrink: 0,
         display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center', gap: 14,
-        padding: '0 56px', background: sk.verdictBg,
-        borderTop: sk.divider,
+        padding: '0 56px', background: sk.verdictBg, borderTop: sk.divider,
       }}>
-        <span style={{ fontSize: 14, fontWeight: 700, letterSpacing: 5, color: sk.brandColor, textTransform: 'uppercase' as const }}>
+        <span style={{ fontSize: 15, fontWeight: 700, letterSpacing: 5, color: sk.brandColor, textTransform: 'uppercase' as const }}>
           {league === 'WNBA' ? 'WNBA' : 'NBA'} Trade Mapper
         </span>
-
         {showBar && (
           <div style={{ display: 'flex', width: '100%', alignItems: 'center', gap: 14 }}>
-            <span style={{ fontSize: 16, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[0][0]] || '#888' }}>
+            <span style={{ fontSize: 18, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[0][0]] || '#888' }}>
               {teams[0][0]} {fmt(teams[0][1].score)}
             </span>
             <div style={{ flex: 1, height: 10, borderRadius: 5, display: 'flex', overflow: 'hidden' }}>
@@ -749,29 +948,21 @@ function StoryCard(props: ShareCardProps) {
                 <div key={tid} style={{ width: `${(td.score / totalScore) * 100}%`, height: '100%', background: CARD_TEAM_COLORS[tid] || '#888' }} />
               ))}
             </div>
-            <span style={{ fontSize: 16, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[teams.length - 1][0]] || '#888' }}>
+            <span style={{ fontSize: 18, fontWeight: 800, letterSpacing: 2, color: CARD_TEAM_COLORS[teams[teams.length - 1][0]] || '#888' }}>
               {fmt(teams[teams.length - 1][1].score)} {teams[teams.length - 1][0]}
             </span>
           </div>
         )}
-
         <span style={{
-          fontSize: 24, fontWeight: 700, letterSpacing: 2,
+          fontSize: 28, fontWeight: 700, letterSpacing: 2,
           color: sk.verdictColor(winner ? CARD_TEAM_COLORS[winner] || '#f9c74f' : null),
           textTransform: 'uppercase' as const, textAlign: 'center' as const,
         }}>
           {verdictLabel(winner, lopsidedness)}
         </span>
-
-        {date && <span style={{ fontSize: 18, color: skin === 'classic' ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.2)' }}>{shortDate(date)}</span>}
-        <span style={{ fontSize: 14, color: skin === 'classic' ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.1)', marginTop: 4 }}>nbatrades.vercel.app</span>
+        {date && <span style={{ fontSize: 18, color: sk.isLight ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.2)' }}>{shortDate(date)}</span>}
+        <span style={{ fontSize: 14, color: sk.isLight ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.1)', marginTop: 4 }}>nbatrades.vercel.app</span>
       </div>
-
-      {sk.accentH > 0 && (
-        <div style={{ display: 'flex', height: Math.max(2, sk.accentH - 1), flexShrink: 0 }}>
-          {teams.map(([tid]) => <div key={tid} style={{ flex: 1, background: CARD_TEAM_COLORS[tid] || '#444' }} />)}
-        </div>
-      )}
     </div>
   );
 }

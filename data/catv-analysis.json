@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "totalRows": 2880,
+    "totalTrades": 1313,
+    "salaryCoverage": 2135,
+    "dateRange": [
+      "1976-77",
+      "2025-26"
+    ],
+    "generatedAt": "2026-03-13T08:33:22.132Z"
+  },
+  "h1": {
+    "testable": 276,
+    "correct": 176,
+    "wrong": 100,
+    "rate": 63.8
+  },
+  "archetypes": {
+    "Role (no $)": {
+      "count": 295,
+      "wins": 115,
+      "avgWSPerSeason": 1.6842711864406783,
+      "avgPlayoffWS": 0.18847457627118647,
+      "winRate": 0.3898305084745763
+    },
+    "Moderate": {
+      "count": 1388,
+      "wins": 537,
+      "avgWSPerSeason": 1.5137908261287178,
+      "avgPlayoffWS": 0.2788904899135448,
+      "winRate": 0.3868876080691643
+    },
+    "Star (no $)": {
+      "count": 88,
+      "wins": 38,
+      "avgWSPerSeason": 3.734545454545454,
+      "avgPlayoffWS": 0.7261363636363637,
+      "winRate": 0.4318181818181818
+    },
+    "Peak Window": {
+      "count": 74,
+      "wins": 40,
+      "avgWSPerSeason": 5.07689189189189,
+      "avgPlayoffWS": 1.655405405405405,
+      "winRate": 0.5405405405405406
+    },
+    "Gold Mine": {
+      "count": 181,
+      "wins": 103,
+      "avgWSPerSeason": 3.413941068139963,
+      "avgPlayoffWS": 0.7801104972375689,
+      "winRate": 0.569060773480663
+    },
+    "Cheap Depth": {
+      "count": 803,
+      "wins": 372,
+      "avgWSPerSeason": 1.7144997924449985,
+      "avgPlayoffWS": 0.23785803237858047,
+      "winRate": 0.46326276463262767
+    },
+    "Rental": {
+      "count": 17,
+      "wins": 6,
+      "avgWSPerSeason": 2.858333333333333,
+      "avgPlayoffWS": 0.31176470588235294,
+      "winRate": 0.35294117647058826
+    },
+    "Trap": {
+      "count": 32,
+      "wins": 15,
+      "avgWSPerSeason": 2.904583333333334,
+      "avgPlayoffWS": 0.721875,
+      "winRate": 0.46875
+    },
+    "Salary Dump": {
+      "count": 2,
+      "wins": 0,
+      "avgWSPerSeason": 0.2,
+      "avgPlayoffWS": 0,
+      "winRate": 0
+    }
+  }
+}

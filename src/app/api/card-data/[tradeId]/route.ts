@@ -18,7 +18,7 @@ export async function GET(
   const sb = createClient(sbUrl, sbKey);
   const { data, error } = await sb
     .from('trade_scores')
-    .select('team_scores, winner, lopsidedness')
+    .select('team_scores, winner, lopsidedness, salary_details')
     .eq('trade_id', tradeId)
     .single();
 
@@ -37,6 +37,7 @@ export async function GET(
     teamScores: data.team_scores,
     winner: data.winner,
     lopsidedness: data.lopsidedness,
+    salaryDetails: data.salary_details,
     heroUrls,
   }, {
     headers: { 'Cache-Control': 'public, max-age=3600' },
