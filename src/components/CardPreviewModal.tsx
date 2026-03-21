@@ -218,7 +218,6 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
   };
 
   const dims = FORMAT_DIMS[effectiveFormat];
-  const aspect = dims.w / dims.h;
 
   const spotlightOpts: SpotlightOptions = {
     accolades: spotlight.accolades,
@@ -229,6 +228,445 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
     detailedVerdict: spotlight.detailedVerdict,
   };
 
+  // ── Section label (shared style) ──────────────────────────
+  const sectionLabel = (text: string) => (
+    <span style={{
+      fontSize: 10, fontWeight: 700, letterSpacing: 2,
+      color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase' as const,
+      fontFamily: 'var(--font-body)',
+    }}>
+      {text}
+    </span>
+  );
+
+  // ── Pill button style (format, skin, spotlight) ────────────
+  const pillBtn = (active: boolean, gold = false) => ({
+    flex: 1 as const,
+    padding: isMobile ? '8px 0' : '5px 0',
+    fontSize: isMobile ? 11 : 10,
+    fontWeight: 700 as const,
+    fontFamily: 'var(--font-body)',
+    color: active ? (gold ? '#f9c74f' : '#fff') : 'rgba(255,255,255,0.5)',
+    background: active ? (gold ? 'rgba(249,199,79,0.1)' : 'rgba(255,255,255,0.1)') : 'transparent',
+    border: active
+      ? `1px solid ${gold ? 'rgba(249,199,79,0.3)' : 'rgba(255,255,255,0.2)'}`
+      : '1px solid rgba(255,255,255,0.08)',
+    borderRadius: 6,
+    cursor: 'pointer' as const,
+    transition: 'all 0.15s',
+    letterSpacing: gold ? 1 : 0.5,
+    WebkitTapHighlightColor: 'transparent' as const,
+  });
+
+  // ── Preview image ──────────────────────────────────────────
+  const previewContent = (
+    <div style={{
+      width: '100%',
+      background: '#0f0f17', borderRadius: 8,
+      border: '1px solid rgba(255,255,255,0.06)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      overflow: 'hidden',
+      // On mobile: fixed aspect ratio box. On desktop: flex-fill.
+      ...(isMobile
+        ? { aspectRatio: `${dims.w} / ${dims.h}`, maxHeight: '40vh' }
+        : { flex: 1, minHeight: 0 }),
+    }}>
+      {loading || headshotsLoading || templatesLoading ? (
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 8,
+          padding: 40, color: 'rgba(255,255,255,0.3)',
+          fontSize: 12, fontFamily: 'var(--font-body)',
+        }}>
+          <div style={{
+            width: 14, height: 14,
+            border: '2px solid rgba(255,255,255,0.15)',
+            borderTopColor: '#f9c74f', borderRadius: '50%',
+            animation: 'spin 0.8s linear infinite',
+          }} />
+          {headshotsLoading ? 'Loading headshots...' : templatesLoading ? 'Tinting templates...' : 'Generating card...'}
+        </div>
+      ) : imgUrl ? (
+        <img
+          src={imgUrl}
+          alt="Trade card preview"
+          onError={() => { setImgUrl(null); setImgBlob(null); }}
+          style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block' }}
+        />
+      ) : (
+        <div style={{
+          padding: 40, color: 'rgba(255,255,255,0.3)',
+          fontSize: 12, fontFamily: 'var(--font-body)',
+        }}>
+          {tradeData ? 'Failed to generate card' : 'Loading trade data...'}
+        </div>
+      )}
+    </div>
+  );
+
+  // ── Controls panel (shared between layouts) ────────────────
+  const controls = (
+    <>
+      {/* Card type toggle */}
+      <div style={{ display: 'flex', gap: 4 }}>
+        {([['score', 'Score Card'], ['grade', 'Grade Card']] as [CardType, string][]).map(([type, label]) => (
+          <button key={type} onClick={() => setCardType(type)} style={pillBtn(cardType === type)}>
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {/* Format + Skin — side by side on mobile to save vertical space */}
+      {isMobile ? (
+        <div style={{ display: 'flex', gap: 12 }}>
+          {/* Format (score card only) */}
+          {cardType === 'score' && (
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 4 }}>
+              {sectionLabel('Format')}
+              <div style={{ display: 'flex', gap: 3 }}>
+                {(['square', 'og', 'story'] as Format[]).map((f) => (
+                  <button key={f} onClick={() => setFormat(f)} style={pillBtn(format === f, true)}>
+                    {f === 'square' ? 'Square' : f === 'og' ? 'OG' : 'Story'}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+          {/* Skin */}
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 4 }}>
+            {sectionLabel('Skin')}
+            <div style={{ display: 'flex', gap: 3 }}>
+              {CARD_SKINS.map((s) => (
+                <button key={s.id} onClick={() => setSkin(s.id)} style={pillBtn(skin === s.id, true)}>
+                  {s.shortLabel}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <>
+          {/* Format picker (score card only) — desktop stacked */}
+          {cardType === 'score' && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              {sectionLabel('Format')}
+              <div style={{ display: 'flex', gap: 4 }}>
+                {(['square', 'og', 'story'] as Format[]).map((f) => (
+                  <button key={f} onClick={() => setFormat(f)} style={pillBtn(format === f, true)}>
+                    {FORMAT_LABELS[f]}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+          {/* Skin picker — desktop stacked */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+            {sectionLabel('Skin')}
+            <div style={{ display: 'flex', gap: 4 }}>
+              {CARD_SKINS.map((s) => (
+                <button key={s.id} onClick={() => setSkin(s.id)} style={pillBtn(skin === s.id, true)}>
+                  {s.shortLabel}
+                </button>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* Player selection */}
+      {playersByTeam.length > 0 && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+          {sectionLabel('Players')}
+          <div style={{ display: 'flex', gap: 8 }}>
+            {playersByTeam.map(({ teamId, players }) => {
+              const teamColor = CARD_TEAM_COLORS[teamId] || '#888';
+              const sel = selectedPlayers[teamId] || [];
+              return (
+                <div key={teamId} style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 3 }}>
+                  <span style={{
+                    fontSize: 10, fontWeight: 800, letterSpacing: 1.5,
+                    color: teamColor, fontFamily: 'var(--font-body)',
+                  }}>
+                    {teamId}
+                  </span>
+                  {players.map((asset) => {
+                    const active = sel.includes(asset.name);
+                    return (
+                      <button
+                        key={asset.name}
+                        onClick={() => togglePlayer(teamId, asset.name)}
+                        style={{
+                          padding: isMobile ? '6px 8px' : '3px 8px',
+                          fontSize: isMobile ? 11 : 10, fontWeight: 600,
+                          fontFamily: 'var(--font-body)',
+                          textAlign: 'left' as const,
+                          color: active ? '#fff' : 'rgba(255,255,255,0.45)',
+                          background: active ? `${teamColor}22` : 'transparent',
+                          border: active ? `1px solid ${teamColor}55` : '1px solid rgba(255,255,255,0.06)',
+                          borderRadius: 5, cursor: 'pointer', transition: 'all 0.15s',
+                          textDecoration: active ? 'none' : 'line-through',
+                          WebkitTapHighlightColor: 'transparent',
+                        }}
+                      >
+                        {asset.name}
+                      </button>
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Caption */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+        {sectionLabel('Hot Take')}
+        {captionEditing ? (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <textarea
+              value={draftCaption}
+              onChange={(e) => setDraftCaption(e.target.value)}
+              placeholder="Add a take..."
+              rows={2}
+              style={{
+                width: '100%', padding: '8px 10px', fontSize: 12,
+                fontFamily: 'var(--font-body)',
+                color: '#fff', background: 'rgba(255,255,255,0.04)',
+                border: `1px solid ${draftCaption.length > 140 ? 'rgba(255,80,80,0.4)' : 'rgba(255,255,255,0.08)'}`,
+                borderRadius: 6, resize: 'none', outline: 'none',
+              }}
+            />
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{
+                fontSize: 10, fontFamily: 'var(--font-mono)',
+                color: draftCaption.length > 140 ? '#ff5050' : 'rgba(255,255,255,0.25)',
+                whiteSpace: 'nowrap',
+              }}>
+                {draftCaption.length}/140
+              </span>
+              <button
+                onClick={() => { setSavedCaption(draftCaption.slice(0, 140)); setCaptionEditing(false); }}
+                disabled={!draftCaption.trim() || draftCaption.length > 140}
+                style={{
+                  flex: 1, padding: '5px 0', fontSize: 10, fontWeight: 700,
+                  fontFamily: 'var(--font-body)', letterSpacing: 0.5,
+                  color: draftCaption.trim() && draftCaption.length <= 140 ? '#0f0f17' : 'rgba(255,255,255,0.2)',
+                  background: draftCaption.trim() && draftCaption.length <= 140 ? '#f9c74f' : 'rgba(255,255,255,0.06)',
+                  border: 'none', borderRadius: 6,
+                  cursor: draftCaption.trim() && draftCaption.length <= 140 ? 'pointer' : 'default',
+                  transition: 'all 0.15s',
+                }}
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            {savedCaption && (
+              <div style={{
+                padding: '8px 10px', fontSize: 12,
+                fontFamily: 'var(--font-body)',
+                color: 'rgba(255,255,255,0.7)',
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: 6, lineHeight: 1.4,
+              }}>
+                {savedCaption}
+              </div>
+            )}
+            <button
+              onClick={() => setCaptionEditing(true)}
+              style={{
+                padding: '6px 0', fontSize: 11, fontWeight: 700,
+                fontFamily: 'var(--font-body)', letterSpacing: 0.5,
+                color: '#fff', background: 'rgba(255,255,255,0.08)',
+                border: '1px solid rgba(255,255,255,0.15)',
+                borderRadius: 6, cursor: 'pointer',
+                transition: 'all 0.15s',
+              }}
+            >
+              Edit
+            </button>
+          </div>
+        )}
+      </div>
+
+      {/* Spotlight toggles */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+        {sectionLabel('Spotlight')}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
+          {SPOTLIGHT_OPTIONS.map((opt) => {
+            const active = spotlight[opt.key];
+            return (
+              <button key={opt.key} onClick={() => toggleSpotlight(opt.key)} style={{
+                padding: isMobile ? '6px 10px' : '4px 10px',
+                fontSize: isMobile ? 11 : 10, fontWeight: 600,
+                fontFamily: 'var(--font-body)',
+                color: active ? '#f9c74f' : 'rgba(255,255,255,0.5)',
+                background: active ? 'rgba(249,199,79,0.1)' : 'transparent',
+                border: active ? '1px solid rgba(249,199,79,0.3)' : '1px solid rgba(255,255,255,0.08)',
+                borderRadius: 20, cursor: 'pointer', transition: 'all 0.15s',
+                WebkitTapHighlightColor: 'transparent',
+              }}>
+                {active ? '\u2713 ' : ''}{opt.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </>
+  );
+
+  // ── Action buttons ─────────────────────────────────────────
+  const actionButtons = (
+    <div style={{ display: 'flex', gap: 8 }}>
+      <button
+        onClick={handleDownload}
+        disabled={!imgUrl || downloading}
+        style={{
+          flex: 2, padding: isMobile ? '14px 0' : '12px 0',
+          fontSize: isMobile ? 14 : 13, fontWeight: 700,
+          fontFamily: 'var(--font-body)',
+          color: imgUrl ? '#0f0f17' : 'rgba(255,255,255,0.2)',
+          background: imgUrl ? '#f9c74f' : 'rgba(255,255,255,0.06)',
+          border: 'none', borderRadius: 8,
+          cursor: imgUrl ? 'pointer' : 'default', transition: 'all 0.15s',
+          WebkitTapHighlightColor: 'transparent',
+        }}
+      >
+        {downloading ? 'Downloading...' : 'Download'}
+      </button>
+      <button
+        onClick={handleCopy}
+        disabled={!imgBlob}
+        style={{
+          flex: 1, padding: isMobile ? '14px 0' : '12px 0',
+          fontSize: isMobile ? 13 : 12, fontWeight: 700,
+          fontFamily: 'var(--font-body)',
+          color: imgBlob ? '#ffffff' : 'rgba(255,255,255,0.2)',
+          background: imgBlob ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.03)',
+          border: imgBlob ? '1px solid rgba(255,255,255,0.15)' : '1px solid rgba(255,255,255,0.06)',
+          borderRadius: 8, cursor: imgBlob ? 'pointer' : 'default', transition: 'all 0.15s',
+          WebkitTapHighlightColor: 'transparent',
+        }}
+      >
+        {copied ? 'Copied!' : 'Copy'}
+      </button>
+    </div>
+  );
+
+  // ══════════════════════════════════════════════════════════════
+  // MOBILE LAYOUT — full-screen takeover, preview hero, scrollable controls, pinned buttons
+  // ══════════════════════════════════════════════════════════════
+  if (isMobile) {
+    return (
+      <>
+        <div
+          onClick={onClose}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 1000,
+            background: '#1a1a24',
+            display: 'flex', flexDirection: 'column',
+          }}
+        >
+          {/* ── Header bar ── */}
+          <div style={{
+            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+            padding: '12px 16px', flexShrink: 0,
+            borderBottom: '1px solid rgba(255,255,255,0.06)',
+          }}>
+            <span style={{ fontSize: 15, fontWeight: 700, color: '#fff', fontFamily: 'var(--font-body)' }}>
+              Share Card
+            </span>
+            <button
+              onClick={onClose}
+              style={{
+                background: 'none', border: 'none', color: 'rgba(255,255,255,0.5)',
+                cursor: 'pointer', fontSize: 20, lineHeight: 1, padding: '4px 8px',
+              }}
+            >
+              &times;
+            </button>
+          </div>
+
+          {/* ── Scrollable body ── */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              flex: 1, minHeight: 0,
+              overflowY: 'auto', WebkitOverflowScrolling: 'touch',
+              padding: '12px 16px',
+              display: 'flex', flexDirection: 'column', gap: 12,
+            }}
+          >
+            {/* Preview — hero position */}
+            {previewContent}
+
+            {/* Dimension label */}
+            <div style={{
+              fontSize: 10, color: 'rgba(255,255,255,0.25)',
+              fontFamily: 'var(--font-mono)', textAlign: 'center',
+              marginTop: -8,
+            }}>
+              {dims.w} &times; {dims.h}px &middot; PNG
+            </div>
+
+            {/* Controls */}
+            {controls}
+          </div>
+
+          {/* ── Pinned action buttons ── */}
+          <div style={{
+            padding: '12px 16px', flexShrink: 0,
+            borderTop: '1px solid rgba(255,255,255,0.06)',
+            background: '#1a1a24',
+          }}>
+            {actionButtons}
+          </div>
+        </div>
+
+        {/* ── Hidden card renderer ── */}
+        {tradeData && (
+          <div style={{ position: 'fixed', left: -9999, top: 0, pointerEvents: 'none', zIndex: -1 }}>
+            <div ref={cardRef}>
+              {cardType === 'grade' ? (
+                <TradeGradeCard
+                  teamScores={tradeData.teamScores}
+                  winner={tradeData.winner}
+                  lopsidedness={tradeData.lopsidedness}
+                  date={tradeDate}
+                  salaryDetails={tradeData.salaryDetails}
+                  headshots={headshots}
+                  skin={skin}
+                  caption={savedCaption}
+                  selectedPlayers={selectedPlayers}
+                />
+              ) : (
+                <ShareCard
+                  teamScores={tradeData.teamScores}
+                  winner={tradeData.winner}
+                  lopsidedness={tradeData.lopsidedness}
+                  date={tradeDate}
+                  selectedPlayers={selectedPlayers}
+                  spotlight={spotlightOpts}
+                  format={format}
+                  skin={skin}
+                  headshots={headshots}
+                  templates={templates}
+                  caption={savedCaption}
+                />
+              )}
+            </div>
+          </div>
+        )}
+      </>
+    );
+  }
+
+  // ══════════════════════════════════════════════════════════════
+  // DESKTOP LAYOUT — side-by-side modal (unchanged)
+  // ══════════════════════════════════════════════════════════════
   return (
     <div
       onClick={onClose}
@@ -243,22 +681,15 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
         style={{
           background: '#1a1a24', borderRadius: 12,
           border: '1px solid rgba(255,255,255,0.08)',
-          padding: isMobile ? 16 : 24,
-          maxWidth: isMobile ? 500 : 1200,
-          width: isMobile ? '95vw' : '95vw',
-          maxHeight: '90vh',
-          display: 'flex',
-          flexDirection: isMobile ? 'column' : 'row',
-          gap: isMobile ? 16 : 20,
-          overflow: isMobile ? 'auto' : undefined,
+          padding: 24, maxWidth: 1200, width: '95vw', maxHeight: '90vh',
+          display: 'flex', gap: 20,
         }}
       >
-        {/* ── LEFT (desktop) / TOP (mobile): Controls ── */}
+        {/* ── LEFT: Controls ── */}
         <div style={{
-          width: isMobile ? '100%' : 280,
-          flexShrink: 0,
+          width: 280, flexShrink: 0,
           display: 'flex', flexDirection: 'column', gap: 12,
-          overflowY: isMobile ? undefined : 'auto',
+          overflowY: 'auto',
         }}>
           {/* Header */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -276,327 +707,22 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
             </button>
           </div>
 
-          {/* Card type toggle */}
-          <div style={{ display: 'flex', gap: 4 }}>
-            {([['score', 'Score Card'], ['grade', 'Grade Card']] as [CardType, string][]).map(([type, label]) => {
-              const active = cardType === type;
-              return (
-                <button key={type} onClick={() => setCardType(type)} style={{
-                  flex: 1, padding: '7px 0', fontSize: 11, fontWeight: 700,
-                  fontFamily: 'var(--font-body)', letterSpacing: 0.5,
-                  color: active ? '#fff' : 'rgba(255,255,255,0.5)',
-                  background: active ? 'rgba(255,255,255,0.1)' : 'transparent',
-                  border: active ? '1px solid rgba(255,255,255,0.2)' : '1px solid rgba(255,255,255,0.06)',
-                  borderRadius: 6, cursor: 'pointer', transition: 'all 0.15s',
-                }}>
-                  {label}
-                </button>
-              );
-            })}
-          </div>
+          {controls}
 
-          {/* Format picker (score card only) */}
-          {cardType === 'score' && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <span style={{
-                fontSize: 10, fontWeight: 700, letterSpacing: 2,
-                color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase',
-                fontFamily: 'var(--font-body)',
-              }}>
-                Format
-              </span>
-              <div style={{ display: 'flex', gap: 4 }}>
-                {(['square', 'og', 'story'] as Format[]).map((f) => {
-                  const active = format === f;
-                  return (
-                    <button key={f} onClick={() => setFormat(f)} style={{
-                      flex: 1, padding: '5px 0', fontSize: 10, fontWeight: 700,
-                      fontFamily: 'var(--font-body)',
-                      color: active ? '#f9c74f' : 'rgba(255,255,255,0.5)',
-                      background: active ? 'rgba(249,199,79,0.1)' : 'transparent',
-                      border: active ? '1px solid rgba(249,199,79,0.3)' : '1px solid rgba(255,255,255,0.08)',
-                      borderRadius: 6, cursor: 'pointer', transition: 'all 0.15s',
-                      letterSpacing: 1,
-                    }}>
-                      {FORMAT_LABELS[f]}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
+          {/* Spacer pushes buttons to bottom */}
+          <div style={{ flex: 1 }} />
 
-          {/* Skin picker */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-            <span style={{
-              fontSize: 10, fontWeight: 700, letterSpacing: 2,
-              color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase',
-              fontFamily: 'var(--font-body)',
-            }}>
-              Skin
-            </span>
-            <div style={{ display: 'flex', gap: 4 }}>
-              {CARD_SKINS.map((s) => {
-                const active = skin === s.id;
-                return (
-                  <button key={s.id} onClick={() => setSkin(s.id)} style={{
-                    flex: 1, padding: '5px 0', fontSize: 10, fontWeight: 700,
-                    fontFamily: 'var(--font-body)',
-                    color: active ? '#f9c74f' : 'rgba(255,255,255,0.5)',
-                    background: active ? 'rgba(249,199,79,0.1)' : 'transparent',
-                    border: active ? '1px solid rgba(249,199,79,0.3)' : '1px solid rgba(255,255,255,0.08)',
-                    borderRadius: 6, cursor: 'pointer', transition: 'all 0.15s',
-                    letterSpacing: 1,
-                  }}>
-                    {s.shortLabel}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Player selection */}
-          {playersByTeam.length > 0 && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <span style={{
-                fontSize: 10, fontWeight: 700, letterSpacing: 2,
-                color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase',
-                fontFamily: 'var(--font-body)',
-              }}>
-                Players
-              </span>
-              <div style={{ display: 'flex', gap: 8 }}>
-                {playersByTeam.map(({ teamId, players }) => {
-                  const teamColor = CARD_TEAM_COLORS[teamId] || '#888';
-                  const sel = selectedPlayers[teamId] || [];
-                  return (
-                    <div key={teamId} style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 3 }}>
-                      <span style={{
-                        fontSize: 10, fontWeight: 800, letterSpacing: 1.5,
-                        color: teamColor, fontFamily: 'var(--font-body)',
-                      }}>
-                        {teamId}
-                      </span>
-                      {players.map((asset) => {
-                        const active = sel.includes(asset.name);
-                        return (
-                          <button
-                            key={asset.name}
-                            onClick={() => togglePlayer(teamId, asset.name)}
-                            style={{
-                              padding: '3px 8px', fontSize: 10, fontWeight: 600,
-                              fontFamily: 'var(--font-body)',
-                              textAlign: 'left',
-                              color: active ? '#fff' : 'rgba(255,255,255,0.45)',
-                              background: active ? `${teamColor}22` : 'transparent',
-                              border: active ? `1px solid ${teamColor}55` : '1px solid rgba(255,255,255,0.06)',
-                              borderRadius: 5, cursor: 'pointer', transition: 'all 0.15s',
-                              textDecoration: active ? 'none' : 'line-through',
-                            }}
-                          >
-                            {asset.name}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* Caption */}
-          {(
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <span style={{
-                fontSize: 10, fontWeight: 700, letterSpacing: 2,
-                color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase',
-                fontFamily: 'var(--font-body)',
-              }}>
-                Hot Take
-              </span>
-              {captionEditing ? (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                  <textarea
-                    value={draftCaption}
-                    onChange={(e) => setDraftCaption(e.target.value)}
-                    placeholder="Add a take..."
-                    rows={2}
-                    style={{
-                      width: '100%', padding: '8px 10px', fontSize: 12,
-                      fontFamily: 'var(--font-body)',
-                      color: '#fff', background: 'rgba(255,255,255,0.04)',
-                      border: `1px solid ${draftCaption.length > 140 ? 'rgba(255,80,80,0.4)' : 'rgba(255,255,255,0.08)'}`,
-                      borderRadius: 6, resize: 'none', outline: 'none',
-                    }}
-                  />
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <span style={{
-                      fontSize: 10, fontFamily: 'var(--font-mono)',
-                      color: draftCaption.length > 140 ? '#ff5050' : 'rgba(255,255,255,0.25)',
-                      whiteSpace: 'nowrap',
-                    }}>
-                      {draftCaption.length}/140
-                    </span>
-                    <button
-                      onClick={() => { setSavedCaption(draftCaption.slice(0, 140)); setCaptionEditing(false); }}
-                      disabled={!draftCaption.trim() || draftCaption.length > 140}
-                      style={{
-                        flex: 1, padding: '5px 0', fontSize: 10, fontWeight: 700,
-                        fontFamily: 'var(--font-body)', letterSpacing: 0.5,
-                        color: draftCaption.trim() && draftCaption.length <= 140 ? '#0f0f17' : 'rgba(255,255,255,0.2)',
-                        background: draftCaption.trim() && draftCaption.length <= 140 ? '#f9c74f' : 'rgba(255,255,255,0.06)',
-                        border: 'none', borderRadius: 6,
-                        cursor: draftCaption.trim() && draftCaption.length <= 140 ? 'pointer' : 'default',
-                        transition: 'all 0.15s',
-                      }}
-                    >
-                      Save
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                  {savedCaption && (
-                    <div style={{
-                      padding: '8px 10px', fontSize: 12,
-                      fontFamily: 'var(--font-body)',
-                      color: 'rgba(255,255,255,0.7)',
-                      background: 'rgba(255,255,255,0.04)',
-                      border: '1px solid rgba(255,255,255,0.08)',
-                      borderRadius: 6, lineHeight: 1.4,
-                    }}>
-                      {savedCaption}
-                    </div>
-                  )}
-                  <button
-                    onClick={() => setCaptionEditing(true)}
-                    style={{
-                      padding: '6px 0', fontSize: 11, fontWeight: 700,
-                      fontFamily: 'var(--font-body)', letterSpacing: 0.5,
-                      color: '#fff', background: 'rgba(255,255,255,0.08)',
-                      border: '1px solid rgba(255,255,255,0.15)',
-                      borderRadius: 6, cursor: 'pointer',
-                      transition: 'all 0.15s',
-                    }}
-                  >
-                    Edit
-                  </button>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* Spotlight toggles */}
-          {(
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <span style={{
-                fontSize: 10, fontWeight: 700, letterSpacing: 2,
-                color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase',
-                fontFamily: 'var(--font-body)',
-              }}>
-                Spotlight
-              </span>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
-                {SPOTLIGHT_OPTIONS.map((opt) => {
-                  const active = spotlight[opt.key];
-                  return (
-                    <button key={opt.key} onClick={() => toggleSpotlight(opt.key)} style={{
-                      padding: '4px 10px', fontSize: 10, fontWeight: 600,
-                      fontFamily: 'var(--font-body)',
-                      color: active ? '#f9c74f' : 'rgba(255,255,255,0.5)',
-                      background: active ? 'rgba(249,199,79,0.1)' : 'transparent',
-                      border: active ? '1px solid rgba(249,199,79,0.3)' : '1px solid rgba(255,255,255,0.08)',
-                      borderRadius: 20, cursor: 'pointer', transition: 'all 0.15s',
-                    }}>
-                      {active ? '\u2713 ' : ''}{opt.label}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* Spacer pushes buttons to bottom (desktop only) */}
-          {!isMobile && <div style={{ flex: 1 }} />}
-
-          {/* Action buttons */}
-          <div style={{ display: 'flex', gap: 8 }}>
-            <button
-              onClick={handleDownload}
-              disabled={!imgUrl || downloading}
-              style={{
-                flex: 2, padding: '12px 0', fontSize: 13, fontWeight: 700,
-                fontFamily: 'var(--font-body)',
-                color: imgUrl ? '#0f0f17' : 'rgba(255,255,255,0.2)',
-                background: imgUrl ? '#f9c74f' : 'rgba(255,255,255,0.06)',
-                border: 'none', borderRadius: 8,
-                cursor: imgUrl ? 'pointer' : 'default', transition: 'all 0.15s',
-              }}
-            >
-              {downloading ? 'Downloading...' : 'Download'}
-            </button>
-            <button
-              onClick={handleCopy}
-              disabled={!imgBlob}
-              style={{
-                flex: 1, padding: '12px 0', fontSize: 12, fontWeight: 700,
-                fontFamily: 'var(--font-body)',
-                color: imgBlob ? '#ffffff' : 'rgba(255,255,255,0.2)',
-                background: imgBlob ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.03)',
-                border: imgBlob ? '1px solid rgba(255,255,255,0.15)' : '1px solid rgba(255,255,255,0.06)',
-                borderRadius: 8, cursor: imgBlob ? 'pointer' : 'default', transition: 'all 0.15s',
-              }}
-            >
-              {copied ? 'Copied!' : 'Copy'}
-            </button>
-          </div>
+          {actionButtons}
         </div>
 
-        {/* ── RIGHT (desktop) / BOTTOM (mobile): Preview ── */}
+        {/* ── RIGHT: Preview ── */}
         <div style={{
           flex: 1, minWidth: 0,
           display: 'flex', flexDirection: 'column',
           alignItems: 'center', justifyContent: 'center',
           gap: 8,
         }}>
-          <div style={{
-            width: '100%', flex: isMobile ? undefined : 1, minHeight: isMobile ? 200 : 0,
-            background: '#0f0f17', borderRadius: 8,
-            border: '1px solid rgba(255,255,255,0.06)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            overflow: 'hidden',
-          }}>
-            {loading || headshotsLoading || templatesLoading ? (
-              <div style={{
-                display: 'flex', alignItems: 'center', gap: 8,
-                padding: 40, color: 'rgba(255,255,255,0.3)',
-                fontSize: 12, fontFamily: 'var(--font-body)',
-              }}>
-                <div style={{
-                  width: 14, height: 14,
-                  border: '2px solid rgba(255,255,255,0.15)',
-                  borderTopColor: '#f9c74f', borderRadius: '50%',
-                  animation: 'spin 0.8s linear infinite',
-                }} />
-                {headshotsLoading ? 'Loading headshots...' : templatesLoading ? 'Tinting templates...' : 'Generating card...'}
-              </div>
-            ) : imgUrl ? (
-              <img
-                src={imgUrl}
-                alt="Trade card preview"
-                onError={() => { setImgUrl(null); setImgBlob(null); }}
-                style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', display: 'block' }}
-              />
-            ) : (
-              <div style={{
-                padding: 40, color: 'rgba(255,255,255,0.3)',
-                fontSize: 12, fontFamily: 'var(--font-body)',
-              }}>
-                {tradeData ? 'Failed to generate card' : 'Loading trade data...'}
-              </div>
-            )}
-          </div>
+          {previewContent}
           <div style={{
             fontSize: 10, color: 'rgba(255,255,255,0.25)',
             fontFamily: 'var(--font-mono)',
