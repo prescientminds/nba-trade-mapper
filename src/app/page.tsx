@@ -221,7 +221,7 @@ function GraphToolbar() {
       }}
     >
       {/* Home — far left, always visible */}
-      <ToolbarButton icon={<IconHome />} label={isMobile ? undefined : "Home"} title="Clear graph and start a new search" onClick={clearGraph} isMobile={isMobile} />
+      <ToolbarButton icon={<IconHome />} label={isMobile ? undefined : "Home"} title="Clear graph and start a new search" onClick={clearGraph} isMobile={isMobile} accent="rgba(255,255,255,0.85)" />
 
       <Separator />
 
