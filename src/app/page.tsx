@@ -220,6 +220,11 @@ function GraphToolbar() {
         boxShadow: '0 4px 16px rgba(0,0,0,0.4)',
       }}
     >
+      {/* Home — far left, always visible */}
+      <ToolbarButton icon={<IconHome />} label={isMobile ? undefined : "Home"} title="Clear graph and start a new search" onClick={clearGraph} isMobile={isMobile} />
+
+      <Separator />
+
       {/* Zoom group */}
       <ToolbarButton icon={<IconZoomOut />} title="Zoom Out" onClick={() => zoomOut({ duration: 200 })} isMobile={isMobile} />
       <ToolbarButton icon={<IconZoomIn />} title="Zoom In" onClick={() => zoomIn({ duration: 200 })} isMobile={isMobile} />
@@ -282,9 +287,8 @@ function GraphToolbar() {
 
       <Separator />
 
-      {/* Reset / Home group */}
+      {/* Reset */}
       <ToolbarButton icon={<IconReset />} label={isMobile ? undefined : "Reset"} title="Collapse all expansions back to initial view" onClick={collapseAll} isMobile={isMobile} />
-      <ToolbarButton icon={<IconHome />} label={isMobile ? undefined : "Home"} title="Clear graph and start a new search" onClick={clearGraph} isMobile={isMobile} />
 
       <Separator />
       <ShareButton />

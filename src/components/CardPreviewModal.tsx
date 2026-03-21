@@ -55,6 +55,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
   const [savedCaption, setSavedCaption] = useState('');
   const [captionEditing, setCaptionEditing] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [sharing, setSharing] = useState(false);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -216,6 +217,29 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
       setTimeout(() => setCopied(false), 2000);
     } catch { /* clipboard not supported */ }
   };
+
+  const handleShare = async () => {
+    if (!imgBlob || sharing) return;
+    setSharing(true);
+    try {
+      const file = new File(
+        [imgBlob],
+        `trade-${tradeId.slice(0, 8)}-${cardType}-${skin}.png`,
+        { type: 'image/png' },
+      );
+      if (navigator.canShare?.({ files: [file] })) {
+        await navigator.share({ files: [file] });
+      } else {
+        await navigator.share({ text: 'NBA Trade Mapper' });
+      }
+    } catch {
+      // User cancelled share sheet
+    } finally {
+      setSharing(false);
+    }
+  };
+
+  const canNativeShare = typeof navigator !== 'undefined' && !!navigator.share;
 
   const dims = FORMAT_DIMS[effectiveFormat];
 
@@ -520,39 +544,61 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
 
   // ── Action buttons ─────────────────────────────────────────
   const actionButtons = (
-    <div style={{ display: 'flex', gap: 8 }}>
-      <button
-        onClick={handleDownload}
-        disabled={!imgUrl || downloading}
-        style={{
-          flex: 2, padding: isMobile ? '14px 0' : '12px 0',
-          fontSize: isMobile ? 14 : 13, fontWeight: 700,
-          fontFamily: 'var(--font-body)',
-          color: imgUrl ? '#0f0f17' : 'rgba(255,255,255,0.2)',
-          background: imgUrl ? '#f9c74f' : 'rgba(255,255,255,0.06)',
-          border: 'none', borderRadius: 8,
-          cursor: imgUrl ? 'pointer' : 'default', transition: 'all 0.15s',
-          WebkitTapHighlightColor: 'transparent',
-        }}
-      >
-        {downloading ? 'Downloading...' : 'Download'}
-      </button>
-      <button
-        onClick={handleCopy}
-        disabled={!imgBlob}
-        style={{
-          flex: 1, padding: isMobile ? '14px 0' : '12px 0',
-          fontSize: isMobile ? 13 : 12, fontWeight: 700,
-          fontFamily: 'var(--font-body)',
-          color: imgBlob ? '#ffffff' : 'rgba(255,255,255,0.2)',
-          background: imgBlob ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.03)',
-          border: imgBlob ? '1px solid rgba(255,255,255,0.15)' : '1px solid rgba(255,255,255,0.06)',
-          borderRadius: 8, cursor: imgBlob ? 'pointer' : 'default', transition: 'all 0.15s',
-          WebkitTapHighlightColor: 'transparent',
-        }}
-      >
-        {copied ? 'Copied!' : 'Copy'}
-      </button>
+    <div style={{ display: 'flex', gap: 8, flexDirection: isMobile && canNativeShare ? 'column' : 'row' }}>
+      {/* Native share — primary on mobile */}
+      {isMobile && canNativeShare && (
+        <button
+          onClick={handleShare}
+          disabled={!imgBlob || sharing}
+          style={{
+            padding: '14px 0', fontSize: 14, fontWeight: 700,
+            fontFamily: 'var(--font-body)',
+            color: imgBlob ? '#0f0f17' : 'rgba(255,255,255,0.2)',
+            background: imgBlob ? '#f9c74f' : 'rgba(255,255,255,0.06)',
+            border: 'none', borderRadius: 8,
+            cursor: imgBlob ? 'pointer' : 'default', transition: 'all 0.15s',
+            WebkitTapHighlightColor: 'transparent',
+          }}
+        >
+          {sharing ? 'Sharing...' : 'Share'}
+        </button>
+      )}
+      <div style={{ display: 'flex', gap: 8 }}>
+        <button
+          onClick={handleDownload}
+          disabled={!imgUrl || downloading}
+          style={{
+            flex: isMobile && canNativeShare ? 1 : 2,
+            padding: isMobile ? '14px 0' : '12px 0',
+            fontSize: isMobile ? 13 : 13, fontWeight: 700,
+            fontFamily: 'var(--font-body)',
+            color: imgUrl ? (isMobile && canNativeShare ? '#fff' : '#0f0f17') : 'rgba(255,255,255,0.2)',
+            background: imgUrl ? (isMobile && canNativeShare ? 'rgba(255,255,255,0.08)' : '#f9c74f') : 'rgba(255,255,255,0.06)',
+            border: imgUrl && isMobile && canNativeShare ? '1px solid rgba(255,255,255,0.15)' : 'none',
+            borderRadius: 8,
+            cursor: imgUrl ? 'pointer' : 'default', transition: 'all 0.15s',
+            WebkitTapHighlightColor: 'transparent',
+          }}
+        >
+          {downloading ? 'Downloading...' : 'Download'}
+        </button>
+        <button
+          onClick={handleCopy}
+          disabled={!imgBlob}
+          style={{
+            flex: 1, padding: isMobile ? '14px 0' : '12px 0',
+            fontSize: isMobile ? 13 : 12, fontWeight: 700,
+            fontFamily: 'var(--font-body)',
+            color: imgBlob ? '#ffffff' : 'rgba(255,255,255,0.2)',
+            background: imgBlob ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.03)',
+            border: imgBlob ? '1px solid rgba(255,255,255,0.15)' : '1px solid rgba(255,255,255,0.06)',
+            borderRadius: 8, cursor: imgBlob ? 'pointer' : 'default', transition: 'all 0.15s',
+            WebkitTapHighlightColor: 'transparent',
+          }}
+        >
+          {copied ? 'Copied!' : 'Copy'}
+        </button>
+      </div>
     </div>
   );
 
