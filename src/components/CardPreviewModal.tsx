@@ -568,13 +568,13 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
           onClick={handleDownload}
           disabled={!imgUrl || downloading}
           style={{
-            flex: isMobile && canNativeShare ? 1 : 2,
+            flex: 1,
             padding: isMobile ? '14px 0' : '12px 0',
-            fontSize: isMobile ? 13 : 13, fontWeight: 700,
+            fontSize: 13, fontWeight: 700,
             fontFamily: 'var(--font-body)',
-            color: imgUrl ? (isMobile && canNativeShare ? '#fff' : '#0f0f17') : 'rgba(255,255,255,0.2)',
-            background: imgUrl ? (isMobile && canNativeShare ? 'rgba(255,255,255,0.08)' : '#f9c74f') : 'rgba(255,255,255,0.06)',
-            border: imgUrl && isMobile && canNativeShare ? '1px solid rgba(255,255,255,0.15)' : 'none',
+            color: imgUrl ? '#0f0f17' : 'rgba(255,255,255,0.2)',
+            background: imgUrl ? '#f9c74f' : 'rgba(255,255,255,0.06)',
+            border: imgUrl ? '1px solid rgba(249,199,79,0.5)' : '1px solid rgba(255,255,255,0.06)',
             borderRadius: 8,
             cursor: imgUrl ? 'pointer' : 'default', transition: 'all 0.15s',
             WebkitTapHighlightColor: 'transparent',
@@ -587,7 +587,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
           disabled={!imgBlob}
           style={{
             flex: 1, padding: isMobile ? '14px 0' : '12px 0',
-            fontSize: isMobile ? 13 : 12, fontWeight: 700,
+            fontSize: 13, fontWeight: 700,
             fontFamily: 'var(--font-body)',
             color: imgBlob ? '#ffffff' : 'rgba(255,255,255,0.2)',
             background: imgBlob ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.03)',
@@ -596,7 +596,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
             WebkitTapHighlightColor: 'transparent',
           }}
         >
-          {copied ? 'Copied!' : 'Copy'}
+          {copied ? 'Copied!' : 'Copy Image'}
         </button>
       </div>
     </div>
