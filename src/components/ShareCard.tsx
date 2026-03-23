@@ -11,6 +11,7 @@ import type { TeamScoreEntry, AssetScore, SpotlightOptions } from '@/lib/card-te
 import type { CardSkin } from '@/lib/skins';
 import { THEMES, ha, type SkinTheme } from '@/components/cards/shared/skins';
 import { generateNoiseUrl, GRAIN, VIGNETTE } from '@/components/cards/shared/stylize';
+import { getVerdict } from '@/lib/verdicts';
 
 // ── Team nicknames ──────────────────────────────────────────
 
@@ -42,12 +43,7 @@ function fmt(n: number): string {
 }
 
 function verdictLabel(winner: string | null, lop: number): string {
-  if (!winner) return 'TOO CLOSE TO CALL';
-  const nick = (TEAM_NICK[winner] || winner).toUpperCase();
-  if (lop >= 50) return `THE ${nick} COMMITTED ROBBERY`;
-  if (lop >= 20) return `THE ${nick} DOMINATED`;
-  if (lop >= 5) return `THE ${nick} WON CLEARLY`;
-  return `THE ${nick} HAD A SLIGHT EDGE`;
+  return getVerdict(winner, lop);
 }
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

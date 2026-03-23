@@ -6,6 +6,8 @@
 // not mostly black. Score is the dominant element. Content is vertically centered.
 // Satori constraints: flexbox only, no grid, no pseudo-elements, no transforms.
 
+import { getVerdict } from '@/lib/verdicts';
+
 // ── Team data (lightweight, Edge-safe) ──────────────────────────
 
 export const CARD_TEAM_COLORS: Record<string, string> = {
@@ -140,12 +142,7 @@ function buildHeadline(teamScores: Record<string, TeamScoreEntry>): string {
 }
 
 function verdictText(winner: string | null, lopsidedness: number): string {
-  if (!winner) return 'Too close to call';
-  const nick = TEAM_NICK[winner] || winner;
-  if (lopsidedness >= 50) return `The ${nick} committed robbery`;
-  if (lopsidedness >= 20) return `The ${nick} dominated`;
-  if (lopsidedness >= 5) return `The ${nick} won clearly`;
-  return `The ${nick} had a slight edge`;
+  return getVerdict(winner, lopsidedness);
 }
 
 function compressAccolades(accolades: string[], maxItems = 3): string[] {

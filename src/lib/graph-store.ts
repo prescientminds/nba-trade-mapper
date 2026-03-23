@@ -2757,12 +2757,21 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     const sb = getSupabase();
 
-    // Fetch all seasons to find the right stint
-    const { data: allSeasons } = await sb
-      .from('player_seasons')
-      .select('*')
-      .ilike('player_name', playerName)
-      .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
+    // Fetch all seasons to find the right stint (try suffix-stripped variant if needed)
+    let allSeasons: PlayerSeason[] | null = null;
+    let resolvedName = playerName;
+    for (const variant of statsNameVariants(playerName)) {
+      const { data } = await sb
+        .from('player_seasons')
+        .select('*')
+        .ilike('player_name', variant)
+        .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
+      if (data && data.length > 0) {
+        allSeasons = data;
+        resolvedName = variant;
+        break;
+      }
+    }
 
     const clearLoading = () => {
       const cs = get();
@@ -2814,9 +2823,9 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     // Fetch accolades, team seasons, and contracts in parallel
     const [accoladesResult, teamSeasonsResult, contractsResult] = await Promise.all([
-      sb.from('player_accolades').select('*').ilike('player_name', playerName).in('season', stintSeasons),
+      sb.from('player_accolades').select('*').ilike('player_name', resolvedName).in('season', stintSeasons),
       sb.from('team_seasons').select('*').eq('team_id', toTeamId).in('season', stintSeasons),
-      sb.from('player_contracts').select('*').ilike('player_name', playerName).eq('team_id', toTeamId).in('season', stintSeasons),
+      sb.from('player_contracts').select('*').ilike('player_name', resolvedName).eq('team_id', toTeamId).in('season', stintSeasons),
     ]);
 
     const accolades = accoladesResult.data as PlayerAccolade[] | null;
@@ -2930,12 +2939,21 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
       const sb = getSupabase();
 
-      // Fetch all seasons to determine stints
-      const { data: allSeasons } = await sb
-        .from('player_seasons')
-        .select('*')
-        .ilike('player_name', playerName)
-        .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
+      // Fetch all seasons to determine stints (try suffix-stripped variant if needed)
+      let allSeasons: PlayerSeason[] | null = null;
+      let resolvedName = playerName;
+      for (const variant of statsNameVariants(playerName)) {
+        const { data } = await sb
+          .from('player_seasons')
+          .select('*')
+          .ilike('player_name', variant)
+          .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
+        if (data && data.length > 0) {
+          allSeasons = data;
+          resolvedName = variant;
+          break;
+        }
+      }
 
       if (!allSeasons || allSeasons.length === 0) return;
 
@@ -2968,7 +2986,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         sb
           .from('player_accolades')
           .select('*')
-          .ilike('player_name', playerName)
+          .ilike('player_name', resolvedName)
           .in('season', allForwardSeasons)
       ).then(r => r.data as PlayerAccolade[] | null).catch(() => null);
 

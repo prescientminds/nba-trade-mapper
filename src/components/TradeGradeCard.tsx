@@ -20,6 +20,7 @@ import { CARD_TEAM_COLORS, CARD_TEAM_SECONDARY } from '@/lib/card-templates';
 import { getTradeGrade, fmtMoney, fmtWs, type GradeInfo } from '@/lib/trade-grades';
 import type { TeamScoreEntry } from '@/lib/card-templates';
 import type { CardSkin } from '@/lib/skins';
+import { getVerdict } from '@/lib/verdicts';
 
 // ── Team nicknames ──────────────────────────────────────────
 
@@ -72,12 +73,7 @@ function shortDate(s?: string | null): string {
 }
 
 function verdictText(winner: string | null, lop: number): string {
-  if (!winner) return 'TOO CLOSE TO CALL';
-  const nick = TEAM_NICK[winner] || winner;
-  if (lop >= 50) return `THE ${nick} COMMITTED ROBBERY`;
-  if (lop >= 20) return `THE ${nick} DOMINATED`;
-  if (lop >= 5) return `THE ${nick} WON CLEARLY`;
-  return `SLIGHT EDGE: ${nick}`;
+  return getVerdict(winner, lop);
 }
 
 // ── Skin theme config ───────────────────────────────────────

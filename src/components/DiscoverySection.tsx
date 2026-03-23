@@ -1335,34 +1335,34 @@ const FORMULA_BASE =
 
 const METRIC_DEFS: Record<string, { metricLabel: string; metricExplanation: string }> = {
   heist: {
-    metricLabel: 'Edge Score',
+    metricLabel: 'WS',
     metricExplanation:
       `The margin of advantage — how much more one team received than the other. Calculated as winner\'s total minus loser\'s total. ${FORMULA_BASE}`,
   },
   'champ-dna': {
-    metricLabel: 'Edge Score',
+    metricLabel: 'WS',
     metricExplanation:
-      `Same as Heist Index: winner\'s total minus loser\'s total, filtered to trades where the winning team won a championship within 4 seasons. ${FORMULA_BASE}`,
+      `Winner\'s total minus loser\'s total, filtered to trades where the winning team won a championship within 4 seasons. ${FORMULA_BASE}`,
   },
   blockbusters: {
-    metricLabel: 'Floor Score',
+    metricLabel: 'WS',
     metricExplanation:
       `The value received by the team that got the least — the floor of the deal. Only trades where every team scored above 15 qualify. This surfaces trades where nobody gave up scraps: both sides moved real assets. ${FORMULA_BASE}`,
   },
   alchemists: {
-    metricLabel: 'Assets Generated',
+    metricLabel: 'Assets',
     metricExplanation:
       `The number of distinct downstream assets a team accumulated through multiple rounds of trading — excluding trades where one star drives more than 30% of the chain value. High breadth with no single outlier signals organizational skill, not a lucky pick.`,
   },
   'trade-tree': {
-    metricLabel: 'Tree Score',
+    metricLabel: 'WS',
     metricExplanation:
-      `Team-centric value generated through multiple rounds of trading — what one team accumulated by flipping assets. Only counts production while on that team. Requires depth ≥ 2 and chain adding 20%+ beyond direct value. Fractional attribution prevents double-counting. ${FORMULA_BASE}`,
+      `Total Win Shares generated through multiple rounds of trading — what one team accumulated by flipping assets. Only counts production while on that team. Requires depth ≥ 2 and chain adding 20%+ beyond direct value. Fractional attribution prevents double-counting. ${FORMULA_BASE}`,
   },
   'league-impact': {
-    metricLabel: 'Impact Score',
+    metricLabel: 'WS',
     metricExplanation:
-      `Total career value produced by ALL players set in motion by this trade cascade, regardless of which team they played for. Measures the trade's ripple across the league — not GM skill, but historical significance. ${FORMULA_BASE}`,
+      `Total career Win Shares produced by ALL players set in motion by this trade cascade, regardless of which team they played for. Measures the trade's ripple across the league — not GM skill, but historical significance. ${FORMULA_BASE}`,
   },
 };
 
