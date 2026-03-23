@@ -996,27 +996,29 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             >
                               {playerName}
                             </span>
-                            {/* WS v Salary inline link */}
+                            {/* WS v Salary chart icon */}
                             <span
                               className="nopan nodrag"
                               onClick={(e) => { e.stopPropagation(); handleWsClick(e, asset); }}
                               style={{
-                                fontSize: 7,
-                                fontFamily: 'var(--font-mono)',
                                 color: '#5b9bd5',
                                 cursor: 'pointer',
                                 flexShrink: 0,
-                                whiteSpace: 'nowrap',
-                                borderBottom: '1px dotted #5b9bd5',
                                 lineHeight: 1,
-                                opacity: 0.85,
+                                opacity: 0.7,
                                 transition: 'opacity 0.15s',
+                                display: 'flex',
+                                alignItems: 'center',
                               }}
                               onMouseEnter={(e) => { e.currentTarget.style.opacity = '1'; }}
-                              onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.85'; }}
-                              title="Toggle WS vs Salary chart"
+                              onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.7'; }}
+                              title="WS vs Salary chart"
                             >
-                              WS v Salary
+                              <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                                <rect x="1" y="9" width="3" height="6" fill="currentColor" stroke="none" opacity="0.5" />
+                                <rect x="6.5" y="5" width="3" height="10" fill="currentColor" stroke="none" opacity="0.7" />
+                                <rect x="12" y="1" width="3" height="14" fill="currentColor" stroke="none" />
+                              </svg>
                             </span>
                           </div>
 
