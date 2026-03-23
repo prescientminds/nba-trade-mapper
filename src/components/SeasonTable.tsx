@@ -318,7 +318,7 @@ export function SeasonTable({ rows, onHeightChange, chartSignal = 0 }: { rows: S
               <td style={compactTd}>{r.ppg !== null ? r.ppg.toFixed(1) : '--'}</td>
               <td style={compactTd}>{r.rpg !== null ? r.rpg.toFixed(1) : '--'}</td>
               <td style={compactTd}>{r.apg !== null ? r.apg.toFixed(1) : '--'}</td>
-              <td style={compactTd}>{r.winShares !== null ? r.winShares.toFixed(1) : '--'}</td>
+              <td style={{ ...compactTd, fontWeight: 700, color: '#fff' }}>{r.winShares !== null ? r.winShares.toFixed(1) : '--'}</td>
               <td style={{ ...compactTd, textAlign: 'left', paddingLeft: 3, overflow: 'hidden' }}>
                 <span style={{ display: 'inline-flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
                   {r.accolades.map((a, i) => (

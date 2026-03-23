@@ -756,7 +756,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             return next;
                           });
                         }}
-                        style={{ cursor: 'pointer', borderBottom: '1px dotted var(--text-muted)' }}
+                        style={{ cursor: 'pointer', borderBottom: '1px dotted var(--text-muted)', color: '#fff', fontWeight: 700 }}
                       >
                         {fmtSalary(acquiredTotal)}
                       </span>
@@ -995,6 +995,28 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                               }}
                             >
                               {playerName}
+                            </span>
+                            {/* WS v Salary inline link */}
+                            <span
+                              className="nopan nodrag"
+                              onClick={(e) => { e.stopPropagation(); handleWsClick(e, asset); }}
+                              style={{
+                                fontSize: 7,
+                                fontFamily: 'var(--font-mono)',
+                                color: '#5b9bd5',
+                                cursor: 'pointer',
+                                flexShrink: 0,
+                                whiteSpace: 'nowrap',
+                                borderBottom: '1px dotted #5b9bd5',
+                                lineHeight: 1,
+                                opacity: 0.85,
+                                transition: 'opacity 0.15s',
+                              }}
+                              onMouseEnter={(e) => { e.currentTarget.style.opacity = '1'; }}
+                              onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.85'; }}
+                              title="Toggle WS vs Salary chart"
+                            >
+                              WS v Salary
                             </span>
                           </div>
 
