@@ -10,8 +10,19 @@ import { useTemplates } from '@/components/cards/shared/useTemplates';
 import { captureElement, FORMAT_DIMS, FORMAT_LABELS, type Format } from '@/components/cards/shared/capture';
 import ShareCard from './ShareCard';
 import TradeGradeCard from './TradeGradeCard';
+import Tour from '@/components/tour/Tour';
+import type { TourStep } from '@/components/tour/Tour';
 
 type CardType = 'score' | 'grade';
+
+const SHARE_STEPS: TourStep[] = [
+  { target: 'share-card-type', title: 'CARD TYPE', content: 'Choose Score Card or Grade Card.', placement: 'bottom' },
+  { target: 'share-skin', title: 'SKIN', content: 'Select a card skin.', placement: 'bottom' },
+  { target: 'share-players', title: 'PLAYERS', content: 'Choose which players appear on the card.', placement: 'bottom' },
+  { target: 'share-caption', title: 'HOT TAKE', content: 'Add your take on the trade.', placement: 'bottom' },
+  { target: 'share-spotlight', title: 'SPOTLIGHT', content: 'Toggle which stats to highlight.', placement: 'bottom' },
+  { target: 'share-actions', title: 'SHARE', content: 'Download, copy to clipboard, or share directly.', placement: 'top' },
+];
 
 const SPOTLIGHT_OPTIONS = [
   { key: 'accolades' as const, label: 'Accolades', defaultOn: true },
@@ -336,7 +347,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
   const controls = (
     <>
       {/* Card type toggle */}
-      <div style={{ display: 'flex', gap: 4 }}>
+      <div data-tour="share-card-type" style={{ display: 'flex', gap: 4 }}>
         {([['score', 'Score Card'], ['grade', 'Grade Card']] as [CardType, string][]).map(([type, label]) => (
           <button key={type} onClick={() => setCardType(type)} style={pillBtn(cardType === type)}>
             {label}
@@ -388,7 +399,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
             </div>
           )}
           {/* Skin picker — desktop stacked */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <div data-tour="share-skin" style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
             {sectionLabel('Skin')}
             <div style={{ display: 'flex', gap: 4 }}>
               {CARD_SKINS.map((s) => (
@@ -403,7 +414,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
 
       {/* Player selection */}
       {playersByTeam.length > 0 && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+        <div data-tour="share-players" style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
           {sectionLabel('Players')}
           <div style={{ display: 'flex', gap: 8 }}>
             {playersByTeam.map(({ teamId, players }) => {
@@ -448,7 +459,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
       )}
 
       {/* Caption */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+      <div data-tour="share-caption" style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
         {sectionLabel('Hot Take')}
         {captionEditing ? (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
@@ -522,7 +533,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
       </div>
 
       {/* Spotlight toggles */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+      <div data-tour="share-spotlight" style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
         {sectionLabel('Spotlight')}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
           {SPOTLIGHT_OPTIONS.map((opt) => {
@@ -549,7 +560,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
 
   // ── Action buttons ─────────────────────────────────────────
   const actionButtons = (
-    <div style={{ display: 'flex', gap: 8, flexDirection: isMobile && canNativeShare ? 'column' : 'row' }}>
+    <div data-tour="share-actions" style={{ display: 'flex', gap: 8, flexDirection: isMobile && canNativeShare ? 'column' : 'row' }}>
       {/* Native share — primary on mobile */}
       {isMobile && canNativeShare && (
         <button
@@ -719,6 +730,8 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
   // DESKTOP LAYOUT — side-by-side modal (unchanged)
   // ══════════════════════════════════════════════════════════════
   return (
+    <>
+    <Tour tourId="share" steps={SHARE_STEPS} delay={1000} />
     <div
       onClick={onClose}
       style={{
@@ -824,5 +837,6 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
         </div>
       )}
     </div>
+    </>
   );
 }

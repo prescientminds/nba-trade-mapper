@@ -6,7 +6,22 @@ import { getAnyTeam } from '@/lib/teams';
 import { contrastText } from '@/lib/colors';
 import { useGraphStore } from '@/lib/graph-store';
 import DiscoverySection from '@/components/DiscoverySection';
-import HomeTour from '@/components/HomeTour';
+import Tour from '@/components/tour/Tour';
+import type { TourStep } from '@/components/tour/Tour';
+
+const HOME_STEPS: TourStep[] = [
+  { target: 'league-toggle', title: 'NBA & WNBA', content: 'Select NBA or WNBA.', placement: 'bottom' },
+  { target: 'search-bar', title: 'SEARCH', content: 'Search for any player or trade since 1976. Make a selection to view the player or trade on the trade map visualizer.', placement: 'bottom' },
+  { target: 'skin-picker', title: 'VISUAL SKINS', content: 'Choose a skin to customize your experience: Classic, Holographic, Inside Stuff, or NBA Jam.', placement: 'top' },
+  { target: 'discovery-heading', title: 'EXPLORE', content: 'In the Explore tab, you can view our curated collections of trades.', placement: 'bottom' },
+  { target: 'discovery-first-score-trade-tree', title: 'TRADE SCORING', content: 'Every trade is graded by total Win Shares — a stat for measuring how a player impacted winning, totaled over all seasons spent with the new team.', placement: 'top' },
+  { target: 'discovery-trade-tree', title: 'VALUE CREATION', content: 'Follow how front offices generate value over multiple trades.', placement: 'top' },
+  { target: 'discovery-league-impact', title: 'LEAGUE IMPACT', content: 'Total career value produced by every player set in motion by a single trade, regardless of which team they ended up on.', placement: 'top' },
+  { target: 'discovery-heist', title: 'HEIST INDEX', content: 'The most lopsided trades in history, ranked by how much more one team received than the other.', placement: 'top' },
+  { target: 'discovery-champ-dna', title: 'CHAMPIONSHIP DNA', content: 'Lopsided trades where the winning team won a championship within four seasons.', placement: 'top' },
+  { target: 'discovery-blockbusters', title: 'BLOCKBUSTERS', content: 'Trades where both teams received significant value.', placement: 'top' },
+  { target: 'discovery-championship-road', title: 'ROAD TO A CHAMPIONSHIP', content: 'Pick any title team and trace how every player on the roster arrived — draft, trade, or free agency. Playoff stats inline.', placement: 'top' },
+];
 import { useHints } from '@/lib/use-hints';
 import { HintLabel } from '@/components/HintLabel';
 import type { League } from '@/lib/league';
@@ -643,7 +658,12 @@ export default function SearchOverlay() {
         <DiscoverySection league={selectedLeague} onSelectTrade={selectTrade} onSelectPlayer={selectPlayer} onSelectChain={selectChain} onSelectChampionship={selectChampionship} />
       </div>
 
-      <HomeTour />
+      <Tour
+        tourId="home"
+        steps={HOME_STEPS}
+        welcome={{ title: 'NBA TRADE MAPPER', subtitle: 'Every NBA and WNBA trade since 1976, mapped as a visual graph. Want a quick tour?' }}
+        onComplete={() => localStorage.setItem('nba-tm-hints', '7')}
+      />
     </div>
   );
 }

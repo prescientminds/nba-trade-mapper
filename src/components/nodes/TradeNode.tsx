@@ -338,6 +338,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
           {/* Expand (+) — first press expands card, subsequent presses expand web */}
           <div
             className="nopan nodrag"
+            data-tour="trade-plus"
             onClick={(e) => {
               e.stopPropagation();
               if (expandLoading) return;
@@ -488,7 +489,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
 
           {/* Trade value — compact key at top */}
           {scoreEntries && (
-            <div style={{ marginBottom: 4 }}>
+            <div data-tour="trade-score" style={{ marginBottom: 4 }}>
               {/* Section label + info icon */}
               <div style={{ display: 'flex', alignItems: 'center', gap: 3, marginBottom: 3, position: 'relative' }}>
                 <span style={{
@@ -720,6 +721,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   <span>{teamName} receive</span>
                   {acquiredTotal != null && acquiredTotal > 0 && (
                     <span
+                      data-tour="trade-salary"
                       style={{
                         fontSize: 7,
                         fontWeight: 400,
@@ -887,7 +889,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                 )}
 
                 {/* Assets */}
-                {hasRenderableAssets && assets.map((asset) => {
+                {hasRenderableAssets && assets.map((asset, assetIdx) => {
                   const inGraph = isInGraph(asset);
                   const isCash = asset.asset_type === 'cash' || asset.asset_type === 'exception';
                   const isPlayer = asset.asset_type === 'player' && asset.player_name;
@@ -934,6 +936,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                           {/* Clickable player name → inline stats toggle */}
                           <div
                             className="nopan nodrag"
+                            data-tour={assetIdx === 0 ? 'trade-player' : undefined}
                             onClick={(e) => handleInlineClick(e, asset)}
                             style={{
                               fontSize: 10,
@@ -1065,6 +1068,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                           {followPath?.playerName === playerName ? (
                             <div
                               className="nopan nodrag"
+                              data-tour={assetIdx === 0 ? 'trade-path' : undefined}
                               onClick={(e) => handlePathClick(e, asset)}
                               style={{
                                 fontSize: 8,

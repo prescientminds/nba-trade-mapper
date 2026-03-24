@@ -25,6 +25,32 @@ import ShareButton from '@/components/ShareButton';
 import CardPreviewModal from '@/components/CardPreviewModal';
 import { SKINS } from '@/lib/skins';
 import { createPortal } from 'react-dom';
+import Tour from '@/components/tour/Tour';
+import type { TourStep } from '@/components/tour/Tour';
+
+const TOOLBAR_STEPS: TourStep[] = [
+  { target: 'toolbar-home', title: 'HOME', content: 'Return to search.', placement: 'bottom' },
+  { target: 'toolbar-zoom', title: 'ZOOM & FIT', content: 'Zoom in, out, and fit all nodes into view.', placement: 'bottom' },
+  { target: 'toolbar-expand', title: 'EXPAND', content: 'Add the next layer of connected trades.', placement: 'bottom' },
+  { target: 'toolbar-reduce', title: 'REDUCE', content: 'Remove the outermost layer of nodes.', placement: 'bottom' },
+  { target: 'toolbar-reset', title: 'RESET', content: 'Collapse back to the original node.', placement: 'bottom' },
+  { target: 'toolbar-share', title: 'SHARE', content: 'Copy a shareable link to this graph.', placement: 'bottom' },
+  { target: 'toolbar-skins', title: 'SKINS', content: 'Switch visual themes.', placement: 'bottom' },
+];
+
+const TRADE_STEPS: TourStep[] = [
+  { target: 'trade-score', title: 'TRADE SCORE', content: 'Total Win Shares for each side. The winning team is highlighted.', placement: 'bottom' },
+  { target: 'trade-salary', title: 'SALARY COMMITTED', content: 'Future salary each team took on. Click for a per-player breakdown.', placement: 'bottom' },
+  { target: 'trade-player', title: 'INLINE STATS', content: 'Click a player name to see their stats without leaving the trade card.', placement: 'bottom' },
+  { target: 'trade-path', title: 'FOLLOW THE PATH', content: 'See where this player went before and after this trade.', placement: 'bottom' },
+  { target: 'trade-plus', title: 'GO DEEPER', content: 'Press + to expand to connected trades.', placement: 'bottom' },
+];
+
+const PLAYER_STEPS: TourStep[] = [
+  { target: 'stint-card', title: 'TEAM STINT', content: 'Each card is one team stint with averaged stats.', placement: 'bottom' },
+  { target: 'stint-ws', title: 'WIN SHARES', content: 'Total Win Shares for this stint. Click the chart icon for WS vs. salary.', placement: 'bottom' },
+  { target: 'stint-seasons', title: 'SEASON DETAIL', content: 'Expand for season-by-season stats, accolades, and playoff results.', placement: 'bottom' },
+];
 
 const nodeTypes = {
   trade: TradeNode,
@@ -221,34 +247,42 @@ function GraphToolbar() {
       }}
     >
       {/* Home — far left, always visible */}
-      <ToolbarButton icon={<IconHome />} label={isMobile ? undefined : "Home"} title="Clear graph and start a new search" onClick={clearGraph} isMobile={isMobile} accent="rgba(255,255,255,0.85)" />
+      <span data-tour="toolbar-home">
+        <ToolbarButton icon={<IconHome />} label={isMobile ? undefined : "Home"} title="Clear graph and start a new search" onClick={clearGraph} isMobile={isMobile} accent="rgba(255,255,255,0.85)" />
+      </span>
 
       <Separator />
 
       {/* Zoom group */}
-      <ToolbarButton icon={<IconZoomOut />} title="Zoom Out" onClick={() => zoomOut({ duration: 200 })} isMobile={isMobile} />
-      <ToolbarButton icon={<IconZoomIn />} title="Zoom In" onClick={() => zoomIn({ duration: 200 })} isMobile={isMobile} />
-      <ToolbarButton icon={<IconFitView />} label={isMobile ? undefined : "Fit"} title="Fit all nodes in view" onClick={handleFit} isMobile={isMobile} />
+      <span data-tour="toolbar-zoom" style={{ display: 'flex', alignItems: 'center' }}>
+        <ToolbarButton icon={<IconZoomOut />} title="Zoom Out" onClick={() => zoomOut({ duration: 200 })} isMobile={isMobile} />
+        <ToolbarButton icon={<IconZoomIn />} title="Zoom In" onClick={() => zoomIn({ duration: 200 })} isMobile={isMobile} />
+        <ToolbarButton icon={<IconFitView />} label={isMobile ? undefined : "Fit"} title="Fit all nodes in view" onClick={handleFit} isMobile={isMobile} />
+      </span>
 
       <Separator />
 
       {/* Expand / Reduce group */}
-      <ToolbarButton
-        icon={<IconExpand />}
-        label={isMobile ? undefined : "Expand"}
-        title="Expand trade web one layer deeper"
-        onClick={handleExpand}
-        disabled={!hasTradeNodes || expanding}
-        isMobile={isMobile}
-      />
-      <ToolbarButton
-        icon={<IconReduce />}
-        label={isMobile ? undefined : "Reduce"}
-        title="Collapse outermost layer of nodes"
-        onClick={championshipContext ? collapseChampionshipStaged : collapseOneDegree}
-        disabled={!hasNonCoreNodes}
-        isMobile={isMobile}
-      />
+      <span data-tour="toolbar-expand">
+        <ToolbarButton
+          icon={<IconExpand />}
+          label={isMobile ? undefined : "Expand"}
+          title="Expand trade web one layer deeper"
+          onClick={handleExpand}
+          disabled={!hasTradeNodes || expanding}
+          isMobile={isMobile}
+        />
+      </span>
+      <span data-tour="toolbar-reduce">
+        <ToolbarButton
+          icon={<IconReduce />}
+          label={isMobile ? undefined : "Reduce"}
+          title="Collapse outermost layer of nodes"
+          onClick={championshipContext ? collapseChampionshipStaged : collapseOneDegree}
+          disabled={!hasNonCoreNodes}
+          isMobile={isMobile}
+        />
+      </span>
 
       {/* Championship buttons (conditional) */}
       {(hasUnexpandedPlayers || hasRoadPhasePlayers) && (
@@ -288,10 +322,14 @@ function GraphToolbar() {
       <Separator />
 
       {/* Reset */}
-      <ToolbarButton icon={<IconReset />} label={isMobile ? undefined : "Reset"} title="Collapse all expansions back to initial view" onClick={collapseAll} isMobile={isMobile} />
+      <span data-tour="toolbar-reset">
+        <ToolbarButton icon={<IconReset />} label={isMobile ? undefined : "Reset"} title="Collapse all expansions back to initial view" onClick={collapseAll} isMobile={isMobile} />
+      </span>
 
       <Separator />
-      <ShareButton />
+      <span data-tour="toolbar-share">
+        <ShareButton />
+      </span>
 
       {/* Card creator button — only for trade seeds */}
       {seedInfo?.type === 'trade' && (() => {
@@ -349,7 +387,7 @@ function GraphToolbar() {
         <path d="M4 10v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
         <path d="M16 16l4 4" />
       </svg>
-      <div style={{ display: 'flex', gap: 2 }}>
+      <div data-tour="toolbar-skins" style={{ display: 'flex', gap: 2 }}>
         {SKINS.map((skin) => (
           <button
             key={skin.id}
@@ -445,6 +483,9 @@ function GraphCanvas() {
     <div data-skin={visualSkin} style={{ width: '100vw', height: '100vh', position: 'relative' }}>
       <SearchOverlay />
       <GraphToolbar />
+      <Tour tourId="toolbar" steps={TOOLBAR_STEPS} delay={1200} />
+      <Tour tourId="trade" steps={TRADE_STEPS} delay={800} />
+      <Tour tourId="player" steps={PLAYER_STEPS} delay={800} />
       <div
         style={{
           position: 'absolute',

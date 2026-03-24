@@ -68,6 +68,7 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
   return (
     <div
       className="stint-card"
+      data-tour="stint-card"
       style={{
         width: isExpanded ? 230 : 180,
         overflow: (isExpanded || canExpandBackward || isFollowTarget) ? 'visible' : 'hidden',
@@ -265,6 +266,7 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
           {totalWinShares !== null && (
             <div
               className="nopan nodrag"
+              data-tour="stint-ws"
               style={{ textAlign: 'center', cursor: 'pointer', position: 'relative' }}
               onClick={(e) => {
                 e.stopPropagation();
@@ -317,6 +319,7 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
       {/* Expand/Collapse stats button — distinct clickable bar */}
       <div
         className="nopan nodrag"
+        data-tour="stint-seasons"
         onClick={(e) => {
           e.stopPropagation();
           if (!isLoading) expandStintDetails(id);
