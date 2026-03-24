@@ -18,16 +18,87 @@ import type { StaticTrade } from './supabase';
 
 // ── Suffix resolution ────────────────────────────────────────────────
 // Trade data uses "Glen Rice Sr." but player_seasons has "Glen Rice".
-// Strip suffixes for stats lookups when the full name has no match.
+// Conversely, BBRef scraper sometimes drops "Jr." that Kaggle data keeps.
+// Try exact → stripped → with-Jr to cover both directions.
 const SUFFIX_RE = /\s+(Sr\.|Jr\.|III|IV|II|V)$/;
 
-/** Try stripping a suffix (Sr./Jr./III/IV) if the name has one. Returns [original, stripped-or-null]. */
+/** Name variants for stats lookups: exact, suffix-stripped, and suffix-added ("Jr."). */
 function statsNameVariants(name: string): string[] {
   const variants = [name];
   if (SUFFIX_RE.test(name)) {
     variants.push(name.replace(SUFFIX_RE, ''));
+  } else {
+    // Name has no suffix — also try "Name Jr." (e.g. "Jaren Jackson" → "Jaren Jackson Jr.")
+    variants.push(`${name} Jr.`);
   }
   return variants;
+}
+
+/** Strip diacritics: "Šarić" → "Saric" */
+function stripDiacritics(s: string): string {
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+/**
+ * Fetch player_seasons trying all name variants. When a teamId is provided,
+ * prefer the variant whose seasons include that team (handles Jr/Sr mismatches
+ * where trade data says "Jaren Jackson" but DB has "Jaren Jackson Jr.").
+ * Falls back to fuzzy last-name search when exact variants fail (diacritics).
+ */
+async function fetchSeasonsWithVariants(
+  sb: ReturnType<typeof getSupabase>,
+  playerName: string,
+  teamId?: string,
+): Promise<{ seasons: PlayerSeason[] | null; resolvedName: string }> {
+  let fallbackSeasons: PlayerSeason[] | null = null;
+  let fallbackName = playerName;
+
+  for (const variant of statsNameVariants(playerName)) {
+    const { data } = await sb
+      .from('player_seasons')
+      .select('*')
+      .ilike('player_name', variant)
+      .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
+    if (data && data.length > 0) {
+      if (!teamId || data.some(s => s.team_id === teamId)) {
+        return { seasons: data, resolvedName: variant };
+      }
+      if (!fallbackSeasons) {
+        fallbackSeasons = data;
+        fallbackName = variant;
+      }
+    }
+  }
+
+  // Diacritics fallback: "Dario Saric" won't ilike-match "Dario Šarić".
+  // Try fuzzy search by first + last name parts, then filter client-side.
+  if (!fallbackSeasons) {
+    const parts = playerName.replace(SUFFIX_RE, '').trim().split(/\s+/);
+    const firstName = parts[0];
+    const lastName = parts[parts.length - 1];
+    if (firstName && lastName && firstName !== lastName) {
+      const { data } = await sb
+        .from('player_seasons')
+        .select('*')
+        .ilike('player_name', `${firstName}%${lastName}%`)
+        .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
+      if (data && data.length > 0) {
+        // Verify the ASCII-normalized name matches to avoid false positives
+        const normalized = stripDiacritics(data[0].player_name).toLowerCase();
+        const target = stripDiacritics(playerName).toLowerCase();
+        if (normalized === target || normalized.startsWith(target.replace(SUFFIX_RE, '').trim())) {
+          const resolved = data[0].player_name;
+          if (!teamId || data.some(s => s.team_id === teamId)) {
+            return { seasons: data, resolvedName: resolved };
+          }
+          fallbackSeasons = data;
+          fallbackName = resolved;
+        }
+      }
+    }
+  }
+
+  return { seasons: fallbackSeasons, resolvedName: fallbackName };
 }
 
 // ── Node data types ──────────────────────────────────────────────────
@@ -2757,21 +2828,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     const sb = getSupabase();
 
-    // Fetch all seasons to find the right stint (try suffix-stripped variant if needed)
-    let allSeasons: PlayerSeason[] | null = null;
-    let resolvedName = playerName;
-    for (const variant of statsNameVariants(playerName)) {
-      const { data } = await sb
-        .from('player_seasons')
-        .select('*')
-        .ilike('player_name', variant)
-        .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
-      if (data && data.length > 0) {
-        allSeasons = data;
-        resolvedName = variant;
-        break;
-      }
-    }
+    const { seasons: allSeasons, resolvedName } = await fetchSeasonsWithVariants(sb, playerName, toTeamId);
 
     const clearLoading = () => {
       const cs = get();
@@ -2816,21 +2873,30 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       if (stints[i].teamId === toTeamId) { matchedIdx = i; break; }
     }
 
-    if (matchedIdx === -1) { await storeNeverPlayed(); return; }
+    // Pick was re-traded before being used — show their actual stint instead of "No Games Played"
+    if (matchedIdx === -1) {
+      if (stints.length > 0) {
+        matchedIdx = 0;
+      } else {
+        await storeNeverPlayed(); return;
+      }
+    }
 
     const stint = stints[matchedIdx];
     const stintSeasons = stint.seasons.map(s => s.season);
 
-    // Fetch accolades, team seasons, and contracts in parallel
-    const [accoladesResult, teamSeasonsResult, contractsResult] = await Promise.all([
+    // Fetch accolades, team seasons, contracts, and playoff game logs in parallel
+    const [accoladesResult, teamSeasonsResult, contractsResult, playoffGamesResult] = await Promise.all([
       sb.from('player_accolades').select('*').ilike('player_name', resolvedName).in('season', stintSeasons),
       sb.from('team_seasons').select('*').eq('team_id', toTeamId).in('season', stintSeasons),
       sb.from('player_contracts').select('*').ilike('player_name', resolvedName).eq('team_id', toTeamId).in('season', stintSeasons),
+      sb.from('playoff_game_logs').select('season,game_date,game_score,game_margin,pts,trb,ast,opponent_id,result').ilike('player_name', resolvedName).eq('team_id', toTeamId).in('season', stintSeasons).not('game_score', 'is', null).order('game_score', { ascending: false }),
     ]);
 
     const accolades = accoladesResult.data as PlayerAccolade[] | null;
     const teamSeasons = teamSeasonsResult.data as TeamSeason[] | null;
     const contracts = contractsResult.data as PlayerContract[] | null;
+    const playoffGames = playoffGamesResult.data as { season: string; game_date: string; game_score: number; game_margin: number | null; pts: number; trb: number; ast: number; opponent_id: string; result: string | null }[] | null;
 
     const contractMap = new Map<string, PlayerContract>();
     if (contracts) {
@@ -2849,6 +2915,53 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const teamSeasonMap = new Map<string, TeamSeason>();
     if (teamSeasons) for (const ts of teamSeasons) teamSeasonMap.set(ts.season, ts);
 
+    // Build playoff peak games and series data (same logic as expandStintDetails)
+    const peakGamesBySeason = new Map<string, PlayoffPeakGame[]>();
+    const seriesBySeason = new Map<string, PlayoffSeries[]>();
+    if (playoffGames) {
+      const chronological = [...playoffGames].sort((a, b) => a.game_date.localeCompare(b.game_date));
+      const seriesMap = new Map<string, { opponentId: string; games: PlayoffSeriesGame[] }>();
+      for (const g of chronological) {
+        const key = `${g.season}|${g.opponent_id}`;
+        if (!seriesMap.has(key)) seriesMap.set(key, { opponentId: g.opponent_id, games: [] });
+        const series = seriesMap.get(key)!;
+        series.games.push({ gameNumber: series.games.length + 1, gameDate: g.game_date, gameScore: g.game_score, pts: g.pts, trb: g.trb, ast: g.ast, result: g.result, gameMargin: g.game_margin });
+      }
+      const seriesBySeasonRaw = new Map<string, { key: string; opponentId: string; firstDate: string; games: PlayoffSeriesGame[] }[]>();
+      for (const [key, series] of seriesMap) {
+        const season = key.split('|')[0];
+        const arr = seriesBySeasonRaw.get(season) || [];
+        arr.push({ key, opponentId: series.opponentId, firstDate: series.games[0]?.gameDate ?? '', games: series.games });
+        seriesBySeasonRaw.set(season, arr);
+      }
+      const roundLookup = new Map<string, number>();
+      for (const [season, seriesList] of seriesBySeasonRaw) {
+        seriesList.sort((a, b) => a.firstDate.localeCompare(b.firstDate));
+        const builtSeries: PlayoffSeries[] = [];
+        seriesList.forEach((s, i) => {
+          const round = i + 1;
+          roundLookup.set(`${season}|${s.opponentId}`, round);
+          builtSeries.push({ opponentId: s.opponentId, round, games: s.games });
+        });
+        seriesBySeason.set(season, builtSeries);
+      }
+      const gameLookup = new Map<string, { gameNumber: number; round: number }>();
+      for (const [key, series] of seriesMap) {
+        const season = key.split('|')[0];
+        const round = roundLookup.get(`${season}|${series.opponentId}`) ?? 1;
+        for (const g of series.games) gameLookup.set(`${g.gameDate}|${series.opponentId}`, { gameNumber: g.gameNumber, round });
+      }
+      for (const g of playoffGames) {
+        if (g.game_score < 20) continue;
+        const arr = peakGamesBySeason.get(g.season) || [];
+        if (arr.length < 1) {
+          const info = gameLookup.get(`${g.game_date}|${g.opponent_id}`);
+          arr.push({ gameScore: g.game_score, pts: g.pts, trb: g.trb, ast: g.ast, opponentId: g.opponent_id, gameDate: g.game_date, result: g.result, gameMargin: g.game_margin, gameNumber: info?.gameNumber ?? 0, round: info?.round ?? 1 });
+          peakGamesBySeason.set(g.season, arr);
+        }
+      }
+    }
+
     const allAccoladesList: string[] = [];
     for (const accs of accoladesByS.values()) allAccoladesList.push(...accs);
 
@@ -2864,6 +2977,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       playoffResult: teamSeasonMap.get(ss.season)?.playoff_result ?? null,
       accolades: accoladesByS.get(ss.season) ?? [],
       salary: contractMap.get(ss.season)?.salary ?? null,
+      playoffPeakGames: peakGamesBySeason.get(ss.season),
+      playoffSeries: seriesBySeason.get(ss.season),
     }));
 
     const inlineData: InlinePlayerData = {
@@ -2939,21 +3054,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
       const sb = getSupabase();
 
-      // Fetch all seasons to determine stints (try suffix-stripped variant if needed)
-      let allSeasons: PlayerSeason[] | null = null;
-      let resolvedName = playerName;
-      for (const variant of statsNameVariants(playerName)) {
-        const { data } = await sb
-          .from('player_seasons')
-          .select('*')
-          .ilike('player_name', variant)
-          .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
-        if (data && data.length > 0) {
-          allSeasons = data;
-          resolvedName = variant;
-          break;
-        }
-      }
+      const { seasons: allSeasons, resolvedName } = await fetchSeasonsWithVariants(sb, playerName, toTeamId);
 
       if (!allSeasons || allSeasons.length === 0) return;
 
@@ -2975,6 +3076,10 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         if (fromIdx >= 0 && fromIdx + 1 < stints.length) {
           startIdx = fromIdx + 1;
         }
+      }
+      // Pick was re-traded — player never played for from/to team. Show from first stint.
+      if (startIdx === -1 && stints.length > 0) {
+        startIdx = 0;
       }
       if (startIdx === -1) return;
 
@@ -3145,21 +3250,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
       const sb = getSupabase();
 
-      // Fetch all seasons to determine stints (try suffix-stripped variant if needed)
-      let allSeasons: PlayerSeason[] | null = null;
-      let resolvedName = playerName;
-      for (const variant of statsNameVariants(playerName)) {
-        const { data } = await sb
-          .from('player_seasons')
-          .select('*')
-          .ilike('player_name', variant)
-          .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
-        if (data && data.length > 0) {
-          allSeasons = data;
-          resolvedName = variant;
-          break;
-        }
-      }
+      const { seasons: allSeasons, resolvedName } = await fetchSeasonsWithVariants(sb, playerName, fromTeamId);
 
       if (!allSeasons || allSeasons.length === 0) return;
 
@@ -3354,21 +3445,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     const sb = getSupabase();
 
-    // Fetch all seasons ONCE (try suffix-stripped variant if needed)
-    let allSeasons: PlayerSeason[] | null = null;
-    let resolvedName = playerName;
-    for (const variant of statsNameVariants(playerName)) {
-      const { data } = await sb
-        .from('player_seasons')
-        .select('*')
-        .ilike('player_name', variant)
-        .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
-      if (data && data.length > 0) {
-        allSeasons = data;
-        resolvedName = variant;
-        break;
-      }
-    }
+    const { seasons: allSeasons, resolvedName } = await fetchSeasonsWithVariants(sb, playerName, toTeamId);
 
     if (!allSeasons || allSeasons.length === 0) return;
 
@@ -3415,6 +3492,10 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       for (let i = 0; i < stints.length; i++) {
         if (stints[i].teamId === toTeamId) { startIdx = i; break; }
       }
+    }
+    // Pick was re-traded — player never played for from/to team. Show from first stint.
+    if (startIdx === -1 && stints.length > 0) {
+      startIdx = 0;
     }
     if (startIdx === -1) return;
 
@@ -4238,13 +4319,15 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const stintSeasons = champStint.seasons.map(s => s.season);
 
     const sb = getSupabase();
-    const [accoladesResult, teamSeasonsResult] = await Promise.all([
+    const [accoladesResult, teamSeasonsResult, playoffGamesResult] = await Promise.all([
       sb.from('player_accolades').select('*').ilike('player_name', playerName).in('season', stintSeasons),
       sb.from('team_seasons').select('*').eq('team_id', ctx.teamId).in('season', stintSeasons),
+      sb.from('playoff_game_logs').select('season,game_date,game_score,game_margin,pts,trb,ast,opponent_id,result').ilike('player_name', playerName).eq('team_id', ctx.teamId).in('season', stintSeasons).not('game_score', 'is', null).order('game_score', { ascending: false }),
     ]);
 
     const accolades = accoladesResult.data as PlayerAccolade[] | null;
     const teamSeasons = teamSeasonsResult.data as TeamSeason[] | null;
+    const playoffGames = playoffGamesResult.data as { season: string; game_date: string; game_score: number; game_margin: number | null; pts: number; trb: number; ast: number; opponent_id: string; result: string | null }[] | null;
 
     const accoladesByS = new Map<string, string[]>();
     if (accolades) {
@@ -4257,6 +4340,53 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     const teamSeasonMap = new Map<string, TeamSeason>();
     if (teamSeasons) for (const ts of teamSeasons) teamSeasonMap.set(ts.season, ts);
+
+    // Build playoff peak games and series data
+    const peakGamesBySeason = new Map<string, PlayoffPeakGame[]>();
+    const seriesBySeason = new Map<string, PlayoffSeries[]>();
+    if (playoffGames) {
+      const chronological = [...playoffGames].sort((a, b) => a.game_date.localeCompare(b.game_date));
+      const seriesMap = new Map<string, { opponentId: string; games: PlayoffSeriesGame[] }>();
+      for (const g of chronological) {
+        const key = `${g.season}|${g.opponent_id}`;
+        if (!seriesMap.has(key)) seriesMap.set(key, { opponentId: g.opponent_id, games: [] });
+        const series = seriesMap.get(key)!;
+        series.games.push({ gameNumber: series.games.length + 1, gameDate: g.game_date, gameScore: g.game_score, pts: g.pts, trb: g.trb, ast: g.ast, result: g.result, gameMargin: g.game_margin });
+      }
+      const seriesBySeasonRaw = new Map<string, { key: string; opponentId: string; firstDate: string; games: PlayoffSeriesGame[] }[]>();
+      for (const [key, series] of seriesMap) {
+        const season = key.split('|')[0];
+        const arr = seriesBySeasonRaw.get(season) || [];
+        arr.push({ key, opponentId: series.opponentId, firstDate: series.games[0]?.gameDate ?? '', games: series.games });
+        seriesBySeasonRaw.set(season, arr);
+      }
+      const roundLookup = new Map<string, number>();
+      for (const [season, seriesList] of seriesBySeasonRaw) {
+        seriesList.sort((a, b) => a.firstDate.localeCompare(b.firstDate));
+        const builtSeries: PlayoffSeries[] = [];
+        seriesList.forEach((s, i) => {
+          const round = i + 1;
+          roundLookup.set(`${season}|${s.opponentId}`, round);
+          builtSeries.push({ opponentId: s.opponentId, round, games: s.games });
+        });
+        seriesBySeason.set(season, builtSeries);
+      }
+      const gameLookup = new Map<string, { gameNumber: number; round: number }>();
+      for (const [key, series] of seriesMap) {
+        const season = key.split('|')[0];
+        const round = roundLookup.get(`${season}|${series.opponentId}`) ?? 1;
+        for (const g of series.games) gameLookup.set(`${g.gameDate}|${series.opponentId}`, { gameNumber: g.gameNumber, round });
+      }
+      for (const g of playoffGames) {
+        if (g.game_score < 20) continue;
+        const arr = peakGamesBySeason.get(g.season) || [];
+        if (arr.length < 1) {
+          const info = gameLookup.get(`${g.game_date}|${g.opponent_id}`);
+          arr.push({ gameScore: g.game_score, pts: g.pts, trb: g.trb, ast: g.ast, opponentId: g.opponent_id, gameDate: g.game_date, result: g.result, gameMargin: g.game_margin, gameNumber: info?.gameNumber ?? 0, round: info?.round ?? 1 });
+          peakGamesBySeason.set(g.season, arr);
+        }
+      }
+    }
 
     const allAccoladesList: string[] = [];
     for (const accs of accoladesByS.values()) allAccoladesList.push(...accs);
@@ -4273,6 +4403,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       playoffResult: teamSeasonMap.get(ss.season)?.playoff_result ?? null,
       accolades: accoladesByS.get(ss.season) ?? [],
       salary: null,
+      playoffPeakGames: peakGamesBySeason.get(ss.season),
+      playoffSeries: seriesBySeason.get(ss.season),
     }));
 
     const inlineData: InlinePlayerData = {

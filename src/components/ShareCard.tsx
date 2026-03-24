@@ -100,11 +100,17 @@ function filterAssets(
   teamId: string,
   selected?: Record<string, string[]>,
 ): [AssetScore[], number] {
-  const sorted = [...assets].sort((a, b) => b.score - a.score);
-  if (!selected || !selected[teamId]) return [sorted, 0];
+  // Deduplicate by player name, keeping highest score
+  const seen = new Set<string>();
+  const deduped = [...assets].sort((a, b) => b.score - a.score).filter(a => {
+    if (seen.has(a.name)) return false;
+    seen.add(a.name);
+    return true;
+  });
+  if (!selected || !selected[teamId]) return [deduped, 0];
   const sel = new Set(selected[teamId]);
-  const shown = sorted.filter(a => sel.has(a.name));
-  return [shown, sorted.length - shown.length];
+  const shown = deduped.filter(a => sel.has(a.name));
+  return [shown, deduped.length - shown.length];
 }
 
 function sizeTier(
@@ -619,16 +625,17 @@ function SquareCard(props: ShareCardProps) {
   const noiseUrl = typeof window !== 'undefined' ? generateNoiseUrl(GRAIN[skin]) : '';
   const vignetteAlpha = VIGNETTE[skin];
 
-  const maxPlayers = 3;
+  const is3Plus = teams.length >= 3;
+  const maxPlayers = is3Plus ? 2 : 3;
 
   // Verdict bar at bottom — taller to fit caption
   const hasCaption = !!caption?.trim();
   const verdictH = hasCaption ? 160 : (showBar ? 120 : 100);
   const bodyH = Math.floor((1080 - verdictH) / teams.length);
 
-  const scoreFs = 120;
-  const playerFs = 38;
-  const pillFs = 15;
+  const scoreFs = is3Plus ? 80 : 120;
+  const playerFs = is3Plus ? 28 : 38;
+  const pillFs = is3Plus ? 12 : 15;
 
   return (
     <div style={{
@@ -692,13 +699,15 @@ function SquareCard(props: ShareCardProps) {
             <div style={{
               flex: 1, display: 'flex', flexDirection: 'column',
               justifyContent: 'space-between',
-              padding: skin === 'classic' ? '28px 48px 24px 56px' : '28px 48px 24px',
+              padding: is3Plus
+                ? (skin === 'classic' ? '16px 40px 14px 48px' : '16px 40px 14px')
+                : (skin === 'classic' ? '28px 48px 24px 56px' : '28px 48px 24px'),
               position: 'relative', zIndex: 5,
             }}>
               {/* Top: team name + score */}
               <div>
                 <div style={{
-                  fontSize: 20, fontWeight: 900, letterSpacing: 5,
+                  fontSize: is3Plus ? 16 : 20, fontWeight: 900, letterSpacing: 5,
                   color: sk.teamLabelColor(c),
                   textShadow: addEchoShadow('none'),
                   textTransform: 'uppercase' as const,
@@ -707,11 +716,11 @@ function SquareCard(props: ShareCardProps) {
                   {TEAM_NICK[teamId] || teamId}
                 </div>
                 <div style={{
-                  fontSize: 12, fontWeight: 800, letterSpacing: 5,
+                  fontSize: is3Plus ? 10 : 12, fontWeight: 800, letterSpacing: 5,
                   color: sk.isLight ? 'rgba(0,0,0,0.45)' : 'rgba(255,255,255,0.35)',
                   textShadow: addEchoShadow('none'),
                   textTransform: 'uppercase' as const,
-                  marginBottom: 4,
+                  marginBottom: is3Plus ? 2 : 4,
                 }}>
                   TRADE SCORE
                 </div>
@@ -834,17 +843,18 @@ function StoryCard(props: ShareCardProps) {
   const teams = sortTeams(teamScores, winner);
   const totalScore = teams.reduce((s, [, d]) => s + d.score, 0) || 1;
   const showBar = spotlight.detailedVerdict;
+  const is3Plus = teams.length >= 3;
 
-  const maxPlayers = 4;
+  const maxPlayers = is3Plus ? 2 : 4;
 
   const teamHeaderH = 80;
   const verdictH = showBar ? 260 : 220;
   const bodyH = Math.floor((1920 - verdictH) / teams.length);
 
-  const teamNameFs = 44;
-  const scoreFs = 140;
-  const playerFs = 47;
-  const pillFs = 17;
+  const teamNameFs = is3Plus ? 32 : 44;
+  const scoreFs = is3Plus ? 100 : 140;
+  const playerFs = is3Plus ? 34 : 47;
+  const pillFs = is3Plus ? 14 : 17;
 
   return (
     <div style={{

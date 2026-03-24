@@ -51,7 +51,7 @@ function expandedTradeDimensions(node: Node): { width: number; height: number } 
   }
 
   const hasInlinePlayers = data.inlinePlayers && Object.keys(data.inlinePlayers).length > 0;
-  const width = hasInlinePlayers ? 320 : 180;
+  const width = hasInlinePlayers ? 360 : 180;
   return { width, height: Math.max(height, 60) };
 }
 

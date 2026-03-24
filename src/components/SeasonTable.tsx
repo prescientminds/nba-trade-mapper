@@ -40,9 +40,9 @@ function PeakBadge({ game, onClick }: { game: PlayoffPeakGame; onClick: () => vo
         whiteSpace: 'nowrap',
         cursor: 'pointer',
       }}
-      title="Game Score — click to see series"
+      title="Peak Game Score — click to see series"
     >
-      {'\uD83D\uDD26'} {game.gameScore.toFixed(1)} R{game.round}G{game.gameNumber}
+      ★ {game.gameScore.toFixed(1)} vs {game.opponentId}
     </span>
   );
 }
@@ -131,11 +131,7 @@ export function ValueChart({ rows }: { rows: SeasonDetailRow[] }) {
     .map(r => ({ season: r.season, ws: r.winShares, salary: r.salary }))
     .filter(d => d.ws !== null || d.salary !== null);
 
-  if (data.length < 2) return (
-    <div style={{ padding: '4px 0 2px', fontSize: 7, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', opacity: 0.6 }}>
-      Not enough seasons to chart
-    </div>
-  );
+  if (data.length === 0) return null;
 
   const W = 180;
   const H = 56;
@@ -151,14 +147,16 @@ export function ValueChart({ rows }: { rows: SeasonDetailRow[] }) {
   const wsMax = Math.max(...wsVals, 1);
   const salMax = Math.max(...salVals, 1);
 
+  const single = data.length === 1;
   const xStep = data.length > 1 ? plotW / (data.length - 1) : 0;
+  const xOffset = single ? padL + plotW / 2 : padL;
 
   const wsPoints = data.map((d, i) => ({
-    x: padL + i * xStep,
+    x: xOffset + i * xStep,
     y: padT + plotH - ((d.ws ?? 0) / wsMax) * plotH,
   }));
   const salPoints = data.map((d, i) => ({
-    x: padL + i * xStep,
+    x: xOffset + i * xStep,
     y: padT + plotH - ((d.salary ?? 0) / salMax) * plotH,
   }));
 
@@ -177,17 +175,17 @@ export function ValueChart({ rows }: { rows: SeasonDetailRow[] }) {
         {/* Salary line (behind) */}
         {hasSalary && (
           <>
-            <path d={toPath(salPoints)} fill="none" stroke="#4ecdc4" strokeWidth={1.2} opacity={0.5} />
+            {!single && <path d={toPath(salPoints)} fill="none" stroke="#4ecdc4" strokeWidth={1.2} opacity={0.5} />}
             {salPoints.map((p, i) => (
-              <circle key={`s${i}`} cx={p.x} cy={p.y} r={1.5} fill="#4ecdc4" opacity={0.6} />
+              <circle key={`s${i}`} cx={p.x} cy={p.y} r={single ? 3 : 1.5} fill="#4ecdc4" opacity={0.6} />
             ))}
           </>
         )}
 
         {/* WS line (front) */}
-        <path d={toPath(wsPoints)} fill="none" stroke="#ff6b35" strokeWidth={1.5} opacity={0.9} />
+        {!single && <path d={toPath(wsPoints)} fill="none" stroke="#ff6b35" strokeWidth={1.5} opacity={0.9} />}
         {wsPoints.map((p, i) => (
-          <circle key={`w${i}`} cx={p.x} cy={p.y} r={1.5} fill="#ff6b35" />
+          <circle key={`w${i}`} cx={p.x} cy={p.y} r={single ? 3 : 1.5} fill="#ff6b35" />
         ))}
 
         {/* Y-axis labels */}
@@ -342,9 +340,28 @@ export function SeasonTable({ rows, onHeightChange, chartSignal = 0 }: { rows: S
                   {(() => {
                     const pb = playoffBadge(r.playoffResult);
                     if (!pb) return null;
+                    const hasSeriesData = r.playoffSeries && r.playoffSeries.length > 0;
+                    const deepestSeries = hasSeriesData ? r.playoffSeries![r.playoffSeries!.length - 1] : null;
                     return (
                       <span
-                        title={`Playoff result: ${r.playoffResult}`}
+                        className={hasSeriesData ? 'nopan nodrag' : undefined}
+                        title={hasSeriesData ? `Playoff result: ${r.playoffResult} — click to see series` : `Playoff result: ${r.playoffResult}`}
+                        onClick={hasSeriesData ? (e) => {
+                          e.stopPropagation();
+                          const isClosing = expandedSeries?.season === r.season && expandedSeries?.opponentId === deepestSeries!.opponentId;
+                          if (isClosing) {
+                            onHeightChange?.(-(28 + deepestSeries!.games.length * 12));
+                            setExpandedSeries(null);
+                          } else {
+                            if (expandedSeries) {
+                              const prevRow = rows.find(rr => rr.season === expandedSeries.season);
+                              const prevSeries = prevRow?.playoffSeries?.find(s => s.opponentId === expandedSeries.opponentId);
+                              if (prevSeries) onHeightChange?.(-(28 + prevSeries.games.length * 12));
+                            }
+                            onHeightChange?.(28 + deepestSeries!.games.length * 12);
+                            setExpandedSeries({ season: r.season, opponentId: deepestSeries!.opponentId });
+                          }
+                        } : undefined}
                         style={{
                           fontSize: 7,
                           fontFamily: 'var(--font-body)',
@@ -354,6 +371,7 @@ export function SeasonTable({ rows, onHeightChange, chartSignal = 0 }: { rows: S
                           background: pb.bg,
                           color: pb.color,
                           whiteSpace: 'nowrap',
+                          cursor: hasSeriesData ? 'pointer' : undefined,
                         }}
                       >
                         {pb.label}

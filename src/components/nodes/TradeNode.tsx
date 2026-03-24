@@ -91,7 +91,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
     return () => clearTimeout(timer);
   }, [hintStep, tradeScore, dismissHint]);
   const hasInlineData = inlinePlayers && Object.keys(inlinePlayers).length > 0;
-  const cardWidth = hasInlineData ? 320 : 180;
+  const cardWidth = hasInlineData ? 360 : 180;
 
   const dateStr = trade.date
     ? new Date(trade.date).toLocaleDateString('en-US', {

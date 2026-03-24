@@ -6,6 +6,7 @@ import { getAnyTeam } from '@/lib/teams';
 import { contrastText } from '@/lib/colors';
 import { useGraphStore } from '@/lib/graph-store';
 import DiscoverySection from '@/components/DiscoverySection';
+import HomeTour from '@/components/HomeTour';
 import { useHints } from '@/lib/use-hints';
 import { HintLabel } from '@/components/HintLabel';
 import type { League } from '@/lib/league';
@@ -492,6 +493,7 @@ export default function SearchOverlay() {
             {selectedLeague} TRADE MAPPER
           </h1>
           <div
+            data-tour="league-toggle"
             style={{
               display: 'flex',
               gap: 6,
@@ -527,6 +529,7 @@ export default function SearchOverlay() {
 
         {/* Search bar + dropdown */}
         <div
+          data-tour="search-bar"
           style={{
             width: 'min(88vw, 680px)',
             position: 'relative',
@@ -549,6 +552,7 @@ export default function SearchOverlay() {
         </p>
         <Link
           href="/methodology"
+          data-tour="methodology-link"
           style={{
             display: 'inline-block',
             marginTop: 10,
@@ -570,6 +574,7 @@ export default function SearchOverlay() {
           How we score trades &rarr;
         </Link>
         <div
+          data-tour="skin-picker"
           style={{
             display: 'flex',
             gap: 6,
@@ -637,6 +642,8 @@ export default function SearchOverlay() {
         )}
         <DiscoverySection league={selectedLeague} onSelectTrade={selectTrade} onSelectPlayer={selectPlayer} onSelectChain={selectChain} onSelectChampionship={selectChampionship} />
       </div>
+
+      <HomeTour />
     </div>
   );
 }

@@ -335,12 +335,14 @@ function TradeCardItem({
   metricLabel,
   metricExplanation,
   onClick,
+  tourTag,
 }: {
   card: TradeCard;
   accentColor: string;
   metricLabel: string;
   metricExplanation: string;
   onClick: () => void;
+  tourTag?: string;
 }) {
   const [hovered, setHovered] = useState(false);
   const winnerInfo = card.winner ? getAnyTeamDisplayInfo(card.winner, card.date) : null;
@@ -376,7 +378,7 @@ function TradeCardItem({
         }}
       >
         {/* Metric number + label + info */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <div data-tour={tourTag} style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           <span
             style={{
               fontSize: 22,
@@ -1174,7 +1176,7 @@ function CategoryRow({
   const hasMore = category.cards.length > maxVisible;
 
   return (
-    <div style={{ marginTop: 20 }}>
+    <div data-tour={`discovery-${category.id}`} style={{ marginTop: 20 }}>
       {/* Row header */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
         <div style={{ flex: 1, height: 1, background: 'var(--border-subtle)' }} />
@@ -1235,7 +1237,7 @@ function CategoryRow({
               msOverflowStyle: 'none',
             }}
           >
-            {category.cards.map((card) =>
+            {category.cards.map((card, cardIdx) =>
               card.type === 'trade' ? (
                 <TradeCardItem
                   key={card.tradeId}
@@ -1244,6 +1246,7 @@ function CategoryRow({
                   metricLabel={category.metricLabel}
                   metricExplanation={category.metricExplanation}
                   onClick={() => handleTradeClick(card)}
+                  tourTag={cardIdx === 0 ? `discovery-first-score-${category.id}` : undefined}
                 />
               ) : card.type === 'championship' ? (
                 <ChampionshipCardItem
@@ -1803,7 +1806,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
 
   return (
     <div style={{ marginTop: 20 }}>
-      <h2 style={{
+      <h2 data-tour="discovery-heading" style={{
         fontSize: 11,
         fontWeight: 700,
         letterSpacing: 2.4,

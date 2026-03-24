@@ -191,10 +191,15 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
   const playersByTeam = useMemo(() => {
     if (!tradeData) return [];
     return Object.entries(tradeData.teamScores)
-      .map(([teamId, entry]) => ({
-        teamId,
-        players: [...entry.assets].sort((a, b) => b.score - a.score),
-      }));
+      .map(([teamId, entry]) => {
+        const seen = new Set<string>();
+        const deduped = [...entry.assets].sort((a, b) => b.score - a.score).filter(a => {
+          if (seen.has(a.name)) return false;
+          seen.add(a.name);
+          return true;
+        });
+        return { teamId, players: deduped };
+      });
   }, [tradeData]);
 
   const handleDownload = async () => {
