@@ -12,6 +12,7 @@ import { useHints } from '@/lib/use-hints';
 import { HintLabel } from '@/components/HintLabel';
 import { createPortal } from 'react-dom';
 import CardPreviewModal from '@/components/CardPreviewModal';
+import { useTourStore } from '@/lib/tour-store';
 
 function fmtSalary(n: number): string {
   if (n >= 1_000_000_000) return `$${(n / 1_000_000_000).toFixed(1)}B`;
@@ -231,11 +232,13 @@ function TradeNodeComponent({ id, data }: NodeProps) {
 
     // Auto-start follow (centers on first stint, enables ▼ Next)
     startFollowPath(playerName, id);
+    useTourStore.getState().advanceIfWaiting('path-started');
   };
 
   const handleInlineClick = (e: React.MouseEvent, asset: TransactionAsset) => {
     e.stopPropagation();
     expandInlineTradePlayer(id, asset);
+    useTourStore.getState().advanceIfWaiting('inline-stats-opened');
   };
 
   const handleWsClick = (e: React.MouseEvent, asset: TransactionAsset) => {
@@ -254,7 +257,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
     <>
     <div
       className="trade-card"
-      onClick={() => { dismissHint(2); expandTradeNode(id); }}
+      onClick={() => { dismissHint(2); expandTradeNode(id); useTourStore.getState().advanceIfWaiting('trade-expanded'); }}
       style={{
         width: cardWidth,
         minHeight: isExpanded ? 60 : 44,
@@ -345,6 +348,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
               if (!isExpanded) {
                 dismissHint(2);
                 expandTradeNode(id);
+                useTourStore.getState().advanceIfWaiting('trade-expanded');
               } else {
                 dismissHint(5);
                 setExpandLoading(true);
@@ -1564,7 +1568,8 @@ function TradeNodeComponent({ id, data }: NodeProps) {
       {followPath && followPath.orderedNodeIds[followPath.currentIndex] === id && (
         <div
           className="nopan nodrag"
-          onClick={(e) => { e.stopPropagation(); advanceFollowPath(); }}
+          data-tour="follow-next"
+          onClick={(e) => { e.stopPropagation(); advanceFollowPath(); useTourStore.getState().advanceIfWaiting('follow-advanced'); }}
           onPointerDown={(e) => e.stopPropagation()}
           style={{
             position: 'absolute',

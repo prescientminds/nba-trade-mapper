@@ -292,6 +292,8 @@ interface GraphState {
   onEdgesChange: OnEdgesChange;
 
   seedFromTrade: (trade: TradeWithDetails) => void;
+  /** Like seedFromTrade but skips auto-expand — used by the guided tour */
+  seedFromTradeCollapsed: (trade: TradeWithDetails) => void;
   seedFromChain: (tradeId: string, chainScores?: Record<string, ChainTeamData>) => Promise<void>;
   seedFromPlayer: (playerName: string) => Promise<void>;
   expandWeb: (sourceTradeNodeId: string) => Promise<void>;
@@ -1377,6 +1379,19 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     });
     // Auto-expand after a tick
     setTimeout(() => get().expandTradeNode(node.id), 50);
+  },
+
+  seedFromTradeCollapsed: (trade: TradeWithDetails) => {
+    const node = makeTradeNode(trade, { x: 400, y: 100 });
+    set({
+      nodes: [node],
+      edges: [],
+      expandedNodes: new Set(),
+      loadingNodes: new Set(),
+      coreNodes: new Set([node.id]),
+      pendingFitTarget: node.id,
+      seedInfo: { type: 'trade', tradeId: trade.id },
+    });
   },
 
   // ── Seed from chain ───────────────────────────────────────────────

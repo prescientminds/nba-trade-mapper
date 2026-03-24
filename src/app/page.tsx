@@ -25,32 +25,7 @@ import ShareButton from '@/components/ShareButton';
 import CardPreviewModal from '@/components/CardPreviewModal';
 import { SKINS } from '@/lib/skins';
 import { createPortal } from 'react-dom';
-import Tour from '@/components/tour/Tour';
-import type { TourStep } from '@/components/tour/Tour';
-
-const TOOLBAR_STEPS: TourStep[] = [
-  { target: 'toolbar-home', title: 'HOME', content: 'Return to search.', placement: 'bottom' },
-  { target: 'toolbar-zoom', title: 'ZOOM & FIT', content: 'Zoom in, out, and fit all nodes into view.', placement: 'bottom' },
-  { target: 'toolbar-expand', title: 'EXPAND', content: 'Add the next layer of connected trades.', placement: 'bottom' },
-  { target: 'toolbar-reduce', title: 'REDUCE', content: 'Remove the outermost layer of nodes.', placement: 'bottom' },
-  { target: 'toolbar-reset', title: 'RESET', content: 'Collapse back to the original node.', placement: 'bottom' },
-  { target: 'toolbar-share', title: 'SHARE', content: 'Copy a shareable link to this graph.', placement: 'bottom' },
-  { target: 'toolbar-skins', title: 'SKINS', content: 'Switch visual themes.', placement: 'bottom' },
-];
-
-const TRADE_STEPS: TourStep[] = [
-  { target: 'trade-score', title: 'TRADE SCORE', content: 'Total Win Shares for each side. The winning team is highlighted.', placement: 'bottom' },
-  { target: 'trade-salary', title: 'SALARY COMMITTED', content: 'Future salary each team took on. Click for a per-player breakdown.', placement: 'bottom' },
-  { target: 'trade-player', title: 'INLINE STATS', content: 'Click a player name to see their stats without leaving the trade card.', placement: 'bottom' },
-  { target: 'trade-path', title: 'FOLLOW THE PATH', content: 'See where this player went before and after this trade.', placement: 'bottom' },
-  { target: 'trade-plus', title: 'GO DEEPER', content: 'Press + to expand to connected trades.', placement: 'bottom' },
-];
-
-const PLAYER_STEPS: TourStep[] = [
-  { target: 'stint-card', title: 'TEAM STINT', content: 'Each card is one team stint with averaged stats.', placement: 'bottom' },
-  { target: 'stint-ws', title: 'WIN SHARES', content: 'Total Win Shares for this stint. Click the chart icon for WS vs. salary.', placement: 'bottom' },
-  { target: 'stint-seasons', title: 'SEASON DETAIL', content: 'Expand for season-by-season stats, accolades, and playoff results.', placement: 'bottom' },
-];
+import GuidedTour from '@/components/tour/Tour';
 
 const nodeTypes = {
   trade: TradeNode,
@@ -483,9 +458,7 @@ function GraphCanvas() {
     <div data-skin={visualSkin} style={{ width: '100vw', height: '100vh', position: 'relative' }}>
       <SearchOverlay />
       <GraphToolbar />
-      <Tour tourId="toolbar" steps={TOOLBAR_STEPS} delay={1200} />
-      <Tour tourId="trade" steps={TRADE_STEPS} delay={800} />
-      <Tour tourId="player" steps={PLAYER_STEPS} delay={800} />
+      <GuidedTour />
       <div
         style={{
           position: 'absolute',

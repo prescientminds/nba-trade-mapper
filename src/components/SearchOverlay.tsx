@@ -6,22 +6,9 @@ import { getAnyTeam } from '@/lib/teams';
 import { contrastText } from '@/lib/colors';
 import { useGraphStore } from '@/lib/graph-store';
 import DiscoverySection from '@/components/DiscoverySection';
-import Tour from '@/components/tour/Tour';
-import type { TourStep } from '@/components/tour/Tour';
-
-const HOME_STEPS: TourStep[] = [
-  { target: 'league-toggle', title: 'NBA & WNBA', content: 'Select NBA or WNBA.', placement: 'bottom' },
-  { target: 'search-bar', title: 'SEARCH', content: 'Search for any player or trade since 1976. Make a selection to view the player or trade on the trade map visualizer.', placement: 'bottom' },
-  { target: 'skin-picker', title: 'VISUAL SKINS', content: 'Choose a skin to customize your experience: Classic, Holographic, Inside Stuff, or NBA Jam.', placement: 'top' },
-  { target: 'discovery-heading', title: 'EXPLORE', content: 'In the Explore tab, you can view our curated collections of trades.', placement: 'bottom' },
-  { target: 'discovery-first-score-trade-tree', title: 'TRADE SCORING', content: 'Every trade is graded by total Win Shares — a stat for measuring how a player impacted winning, totaled over all seasons spent with the new team.', placement: 'top' },
-  { target: 'discovery-trade-tree', title: 'VALUE CREATION', content: 'Follow how front offices generate value over multiple trades.', placement: 'top' },
-  { target: 'discovery-league-impact', title: 'LEAGUE IMPACT', content: 'Total career value produced by every player set in motion by a single trade, regardless of which team they ended up on.', placement: 'top' },
-  { target: 'discovery-heist', title: 'HEIST INDEX', content: 'The most lopsided trades in history, ranked by how much more one team received than the other.', placement: 'top' },
-  { target: 'discovery-champ-dna', title: 'CHAMPIONSHIP DNA', content: 'Lopsided trades where the winning team won a championship within four seasons.', placement: 'top' },
-  { target: 'discovery-blockbusters', title: 'BLOCKBUSTERS', content: 'Trades where both teams received significant value.', placement: 'top' },
-  { target: 'discovery-championship-road', title: 'ROAD TO A CHAMPIONSHIP', content: 'Pick any title team and trace how every player on the roster arrived — draft, trade, or free agency. Playoff stats inline.', placement: 'top' },
-];
+import { useTourStore } from '@/lib/tour-store';
+import { GUIDED_TOUR_STEPS, HARDEN_TRADE_ID } from '@/lib/guided-tour-steps';
+import { loadTrade, staticTradeToTradeWithDetails } from '@/lib/trade-data';
 import { useHints } from '@/lib/use-hints';
 import { HintLabel } from '@/components/HintLabel';
 import type { League } from '@/lib/league';
@@ -44,6 +31,7 @@ export default function SearchOverlay() {
 
   const search = useGraphStore((s) => s.search);
   const seedFromTrade = useGraphStore((s) => s.seedFromTrade);
+  const seedFromTradeCollapsed = useGraphStore((s) => s.seedFromTradeCollapsed);
   const seedFromChain = useGraphStore((s) => s.seedFromChain);
   const seedFromPlayer = useGraphStore((s) => s.seedFromPlayer);
   const seedChampionshipRoster = useGraphStore((s) => s.seedChampionshipRoster);
@@ -55,6 +43,19 @@ export default function SearchOverlay() {
   const setVisualSkin = useGraphStore((s) => s.setVisualSkin);
   const hintStep = useHints((s) => s.step);
   const dismissHint = useHints((s) => s.dismiss);
+  const startTour = useTourStore((s) => s.startTour);
+  const tourCompleted = useTourStore((s) => s.hasCompleted)('guided');
+
+  const startGuidedTour = useCallback(async () => {
+    const st = await loadTrade(HARDEN_TRADE_ID, 'NBA');
+    if (!st) return;
+    const trade = staticTradeToTradeWithDetails(st);
+    seedFromTradeCollapsed(trade);
+    // Small delay to let the graph render the collapsed trade node
+    setTimeout(() => {
+      startTour('guided', GUIDED_TOUR_STEPS);
+    }, 600);
+  }, [seedFromTradeCollapsed, startTour]);
 
   useEffect(() => {
     setHasGraph(nodes.length > 0);
@@ -658,12 +659,45 @@ export default function SearchOverlay() {
         <DiscoverySection league={selectedLeague} onSelectTrade={selectTrade} onSelectPlayer={selectPlayer} onSelectChain={selectChain} onSelectChampionship={selectChampionship} />
       </div>
 
-      <Tour
-        tourId="home"
-        steps={HOME_STEPS}
-        welcome={{ title: 'NBA TRADE MAPPER', subtitle: 'Every NBA and WNBA trade since 1976, mapped as a visual graph. Want a quick tour?' }}
-        onComplete={() => localStorage.setItem('nba-tm-hints', '7')}
-      />
+      {/* "Try It" CTA — shown if user hasn't completed the guided tour */}
+      {!tourCompleted && (
+        <div style={{
+          position: 'fixed', bottom: 0, left: 0, right: 0,
+          display: 'flex', justifyContent: 'center',
+          padding: '20px 24px calc(20px + env(safe-area-inset-bottom, 0px))',
+          background: 'linear-gradient(transparent, rgba(10,10,15,0.95) 40%)',
+          zIndex: 15, pointerEvents: 'none',
+        }}>
+          <button
+            onClick={startGuidedTour}
+            style={{
+              pointerEvents: 'auto',
+              display: 'flex', alignItems: 'center', gap: 10,
+              padding: '14px 28px',
+              background: 'var(--accent-orange)',
+              border: 'none', borderRadius: 10,
+              color: '#fff', fontSize: 14, fontWeight: 700,
+              fontFamily: 'var(--font-display)', letterSpacing: 0.8,
+              cursor: 'pointer',
+              boxShadow: '0 4px 24px rgba(255,107,53,0.4)',
+              transition: 'transform 0.15s, box-shadow 0.15s',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 6px 32px rgba(255,107,53,0.5)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 24px rgba(255,107,53,0.4)';
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5,3 19,12 5,21" />
+            </svg>
+            Try It: Map the OKC–HOU James Harden Trade
+          </button>
+        </div>
+      )}
     </div>
   );
 }

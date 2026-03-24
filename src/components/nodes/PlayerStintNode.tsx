@@ -6,6 +6,7 @@ import { getAnyTeamDisplayInfo } from '@/lib/teams';
 import { useGraphStore, PlayerStintNodeData } from '@/lib/graph-store';
 import { SeasonTable, ValueChart } from '@/components/SeasonTable';
 import { ensureReadable } from '@/lib/colors';
+import { useTourStore } from '@/lib/tour-store';
 
 function PlayerStintNodeComponent({ id, data }: NodeProps) {
   const {
@@ -322,7 +323,7 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
         data-tour="stint-seasons"
         onClick={(e) => {
           e.stopPropagation();
-          if (!isLoading) expandStintDetails(id);
+          if (!isLoading) { expandStintDetails(id); useTourStore.getState().advanceIfWaiting('stint-expanded'); }
         }}
         style={{
           marginTop: 2,
@@ -418,7 +419,8 @@ function PlayerStintNodeComponent({ id, data }: NodeProps) {
       {followPath && followPath.orderedNodeIds[followPath.currentIndex] === id && (
         <div
           className="nopan nodrag"
-          onClick={(e) => { e.stopPropagation(); advanceFollowPath(); }}
+          data-tour="follow-next"
+          onClick={(e) => { e.stopPropagation(); advanceFollowPath(); useTourStore.getState().advanceIfWaiting('follow-advanced'); }}
           onPointerDown={(e) => e.stopPropagation()}
           style={{
             position: 'absolute',

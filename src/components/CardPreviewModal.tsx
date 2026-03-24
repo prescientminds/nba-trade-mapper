@@ -10,19 +10,10 @@ import { useTemplates } from '@/components/cards/shared/useTemplates';
 import { captureElement, FORMAT_DIMS, FORMAT_LABELS, type Format } from '@/components/cards/shared/capture';
 import ShareCard from './ShareCard';
 import TradeGradeCard from './TradeGradeCard';
-import Tour from '@/components/tour/Tour';
-import type { TourStep } from '@/components/tour/Tour';
+import { useTourStore } from '@/lib/tour-store';
+import { SHARE_TOUR_STEPS } from '@/lib/guided-tour-steps';
 
 type CardType = 'score' | 'grade';
-
-const SHARE_STEPS: TourStep[] = [
-  { target: 'share-card-type', title: 'CARD TYPE', content: 'Choose Score Card or Grade Card.', placement: 'bottom' },
-  { target: 'share-skin', title: 'SKIN', content: 'Select a card skin.', placement: 'bottom' },
-  { target: 'share-players', title: 'PLAYERS', content: 'Choose which players appear on the card.', placement: 'bottom' },
-  { target: 'share-caption', title: 'HOT TAKE', content: 'Add your take on the trade.', placement: 'bottom' },
-  { target: 'share-spotlight', title: 'SPOTLIGHT', content: 'Toggle which stats to highlight.', placement: 'bottom' },
-  { target: 'share-actions', title: 'SHARE', content: 'Download, copy to clipboard, or share directly.', placement: 'top' },
-];
 
 const SPOTLIGHT_OPTIONS = [
   { key: 'accolades' as const, label: 'Accolades', defaultOn: true },
@@ -729,9 +720,18 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
   // ══════════════════════════════════════════════════════════════
   // DESKTOP LAYOUT — side-by-side modal (unchanged)
   // ══════════════════════════════════════════════════════════════
+  // Auto-start share tour on first open
+  const startTour = useTourStore((s) => s.startTour);
+  const hasCompletedShareTour = useTourStore((s) => s.hasCompleted)('share');
+  const activeTour = useTourStore((s) => s.activeTour);
+  useEffect(() => {
+    if (!hasCompletedShareTour && !activeTour) {
+      const t = setTimeout(() => startTour('share', SHARE_TOUR_STEPS), 800);
+      return () => clearTimeout(t);
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
-    <>
-    <Tour tourId="share" steps={SHARE_STEPS} delay={1000} />
     <div
       onClick={onClose}
       style={{
@@ -837,6 +837,5 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
         </div>
       )}
     </div>
-    </>
   );
 }
