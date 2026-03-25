@@ -62,7 +62,7 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     title: 'VALUE OVER TIME',
     content: 'When the lines diverge — production up, salary flat — that\'s where a trade paid off. When salary outpaces Win Shares, the contract hurt.',
     placement: 'top',
-    zoom: 1.8,
+    zoom: 1.2,
   },
   // 7. Accolades + playoffs explanation — zoom into the richest season row
   {
