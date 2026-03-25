@@ -65,7 +65,7 @@ export async function GET(
   }
 
   const dims = DIMS[format] || DIMS.og;
-  const heroImages = buildHeroImages(data.team_scores);
+  const { primary: heroImages } = buildHeroImages(data.team_scores);
 
   try {
     return new ImageResponse(

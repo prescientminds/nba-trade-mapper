@@ -44,7 +44,7 @@ export async function GET(
       .single();
 
     if (scoreData) {
-      const heroImages = buildHeroImages(scoreData.team_scores);
+      const { primary: heroImages } = buildHeroImages(scoreData.team_scores);
       try {
         return new ImageResponse(
           tradeVerdictCard({
