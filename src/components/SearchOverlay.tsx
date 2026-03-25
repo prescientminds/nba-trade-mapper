@@ -5,6 +5,7 @@ import { TradeWithDetails } from '@/lib/supabase';
 import { getAnyTeam } from '@/lib/teams';
 import { contrastText } from '@/lib/colors';
 import { useGraphStore } from '@/lib/graph-store';
+import { useMobile } from '@/lib/use-mobile';
 import DiscoverySection from '@/components/DiscoverySection';
 import { useTourStore } from '@/lib/tour-store';
 import { GUIDED_TOUR_STEPS, HARDEN_TRADE_ID } from '@/lib/guided-tour-steps';
@@ -41,6 +42,7 @@ export default function SearchOverlay() {
   const setSelectedLeague = useGraphStore((s) => s.setSelectedLeague);
   const visualSkin = useGraphStore((s) => s.visualSkin);
   const setVisualSkin = useGraphStore((s) => s.setVisualSkin);
+  const isMobile = useMobile();
   const hintStep = useHints((s) => s.step);
   const dismissHint = useHints((s) => s.dismiss);
   const startTour = useTourStore((s) => s.startTour);
@@ -643,6 +645,44 @@ export default function SearchOverlay() {
           <HintLabel text="Search a player or team" style={{ marginTop: 12 }} />
         )}
 
+        {/* "Try It" CTA — between skins and explore */}
+        {!tourCompleted && (
+          <button
+            onClick={startGuidedTour}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              gap: isMobile ? 8 : 10,
+              width: '100%',
+              maxWidth: isMobile ? 320 : 420,
+              margin: '24px auto 0',
+              padding: isMobile ? '12px 16px' : '14px 28px',
+              background: 'transparent',
+              border: '1px solid var(--accent-orange)',
+              borderRadius: 10,
+              color: 'var(--accent-orange)',
+              fontSize: isMobile ? 12 : 14,
+              fontWeight: 700,
+              fontFamily: 'var(--font-display)',
+              letterSpacing: 0.8,
+              cursor: 'pointer',
+              transition: 'background 0.15s, color 0.15s',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'var(--accent-orange)';
+              e.currentTarget.style.color = '#fff';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.color = 'var(--accent-orange)';
+            }}
+          >
+            <svg width={isMobile ? 14 : 16} height={isMobile ? 14 : 16} viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5,3 19,12 5,21" />
+            </svg>
+            {isMobile ? 'Try It: OKC–HOU Harden Trade' : 'Try It: Map the OKC–HOU James Harden Trade'}
+          </button>
+        )}
+
       </div>
 
       {/* ── Discovery section: scrolls in below the fold ── */}
@@ -658,46 +698,6 @@ export default function SearchOverlay() {
         )}
         <DiscoverySection league={selectedLeague} onSelectTrade={selectTrade} onSelectPlayer={selectPlayer} onSelectChain={selectChain} onSelectChampionship={selectChampionship} />
       </div>
-
-      {/* "Try It" CTA — shown if user hasn't completed the guided tour */}
-      {!tourCompleted && (
-        <div style={{
-          position: 'fixed', bottom: 0, left: 0, right: 0,
-          display: 'flex', justifyContent: 'center',
-          padding: '20px 24px calc(20px + env(safe-area-inset-bottom, 0px))',
-          background: 'linear-gradient(transparent, rgba(10,10,15,0.95) 40%)',
-          zIndex: 15, pointerEvents: 'none',
-        }}>
-          <button
-            onClick={startGuidedTour}
-            style={{
-              pointerEvents: 'auto',
-              display: 'flex', alignItems: 'center', gap: 10,
-              padding: '14px 28px',
-              background: 'var(--accent-orange)',
-              border: 'none', borderRadius: 10,
-              color: '#fff', fontSize: 14, fontWeight: 700,
-              fontFamily: 'var(--font-display)', letterSpacing: 0.8,
-              cursor: 'pointer',
-              boxShadow: '0 4px 24px rgba(255,107,53,0.4)',
-              transition: 'transform 0.15s, box-shadow 0.15s',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 6px 32px rgba(255,107,53,0.5)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 24px rgba(255,107,53,0.4)';
-            }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="5,3 19,12 5,21" />
-            </svg>
-            Try It: Map the OKC–HOU James Harden Trade
-          </button>
-        </div>
-      )}
     </div>
   );
 }
