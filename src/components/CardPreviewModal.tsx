@@ -301,7 +301,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
       overflow: 'hidden',
       // On mobile: fixed aspect ratio box. On desktop: flex-fill.
       ...(isMobile
-        ? { aspectRatio: `${dims.w} / ${dims.h}`, maxHeight: '40vh' }
+        ? { aspectRatio: `${dims.w} / ${dims.h}`, maxHeight: '40vh', minHeight: 200 }
         : { flex: 1, minHeight: 0 }),
     }}>
       {loading || headshotsLoading || templatesLoading ? (
