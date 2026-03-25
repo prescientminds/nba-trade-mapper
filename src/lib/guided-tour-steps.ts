@@ -98,7 +98,14 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     waitFor: 'follow-advanced',
     waitLabel: 'Click ▼ Next',
   },
-  // 9. Share — target the SHARE button on the trade node
+  // 9. Skins
+  {
+    target: 'toolbar-skins',
+    title: 'VISUAL SKINS',
+    content: 'Switch between Classic, Holographic, Inside Stuff, and NBA Jam.',
+    placement: 'top',
+  },
+  // 10. Share — target the SHARE button on the trade node
   {
     target: 'trade-share',
     title: 'CREATE A SHARE CARD',
