@@ -11,7 +11,12 @@ function isInViewport(r: DOMRect) {
 /**
  * Single guided tour component — reads from the global tour store.
  * Mount once at the app root. Supports passive (Next/Back) and
- * interactive (waitFor) steps with click-through on spotlight targets.
+ * interactive (waitFor) steps.
+ *
+ * Interactive steps: overlay is purely visual (pointer-events: none).
+ * Clicks pass through to the actual elements underneath.
+ *
+ * Passive steps: a full-screen click guard absorbs clicks (skip on click).
  */
 export default function GuidedTour() {
   const activeTour = useTourStore((s) => s.activeTour);
@@ -26,44 +31,16 @@ export default function GuidedTour() {
 
   const [rect, setRect] = useState<DOMRect | null>(null);
   const scrolledRef = useRef(false);
-  const elevatedRef = useRef<HTMLElement | null>(null);
 
-  // Elevate a React Flow node above the overlay so interactive clicks reach it
-  const elevate = (el: Element | null) => {
-    // Clean up previous elevation
-    if (elevatedRef.current) {
-      elevatedRef.current.style.removeProperty('z-index');
-      elevatedRef.current.style.removeProperty('position');
-      elevatedRef.current = null;
-    }
-    if (!el) return;
-    // Walk up to the .react-flow__node wrapper (or any positioned ancestor)
-    const node = el.closest('.react-flow__node') as HTMLElement | null;
-    if (node) {
-      node.style.zIndex = '10001';
-      node.style.position = 'relative';
-      elevatedRef.current = node;
-    }
-  };
-
-  // Track target element position + elevate for interactive steps
+  // Track target element position
   useEffect(() => {
-    if (!activeTour || showingWelcome) {
-      setRect(null);
-      elevate(null);
-      return;
-    }
-    const currentStep = steps[stepIndex];
-    if (!currentStep?.target) {
-      setRect(null);
-      elevate(null);
-      return;
-    }
+    if (!activeTour || showingWelcome || revealing) { setRect(null); return; }
+    const current = steps[stepIndex];
+    if (!current?.target) { setRect(null); return; }
     scrolledRef.current = false;
-    const isWaiting = !!currentStep.waitFor;
 
     const interval = setInterval(() => {
-      const el = document.querySelector(`[data-tour="${currentStep.target}"]`);
+      const el = document.querySelector(`[data-tour="${current.target}"]`);
       if (!el) { setRect(null); return; }
       const r = el.getBoundingClientRect();
       if (!scrolledRef.current) {
@@ -72,17 +49,10 @@ export default function GuidedTour() {
         }
         scrolledRef.current = true;
       }
-      // Elevate the node on interactive steps so it sits above the overlay
-      if (isWaiting && !elevatedRef.current) {
-        elevate(el);
-      }
       setRect(r);
     }, 80);
-    return () => {
-      clearInterval(interval);
-      elevate(null);
-    };
-  }, [activeTour, stepIndex, showingWelcome, steps]);
+    return () => clearInterval(interval);
+  }, [activeTour, stepIndex, showingWelcome, revealing, steps]);
 
   if (!activeTour) return null;
 
@@ -145,7 +115,6 @@ export default function GuidedTour() {
     const cx = Math.max(16, Math.min(rect.left + rect.width / 2 - W / 2, window.innerWidth - W - 16));
     if (current.placement === 'bottom') {
       const top = rect.bottom + PAD;
-      // If tooltip would overflow bottom, flip to top
       if (top + 180 > window.innerHeight) {
         pos = { position: 'fixed', bottom: window.innerHeight - rect.top + PAD, left: cx, width: W };
       } else {
@@ -164,21 +133,21 @@ export default function GuidedTour() {
   }
 
   // ── Render ──────────────────────────────────────────────────────────
+  //
+  // Interactive steps: entire overlay is pointer-events:none so clicks
+  // pass through to the underlying React Flow nodes. Only the tooltip
+  // captures pointer events (for Skip/Back buttons).
+  //
+  // Passive steps: a full-screen click guard absorbs clicks (skip tour).
+
   return createPortal(
     <>
-      {/* Click guard — interactive steps leave a hole for the spotlight target */}
-      {isInteractive && rect ? (
-        <>
-          <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: Math.max(0, rect.top - 6), zIndex: 9998 }} />
-          <div style={{ position: 'fixed', top: Math.max(0, rect.bottom + 6), left: 0, right: 0, bottom: 0, zIndex: 9998 }} />
-          <div style={{ position: 'fixed', top: rect.top - 6, left: 0, width: Math.max(0, rect.left - 6), height: rect.height + 12, zIndex: 9998 }} />
-          <div style={{ position: 'fixed', top: rect.top - 6, left: rect.right + 6, right: 0, height: rect.height + 12, zIndex: 9998 }} />
-        </>
-      ) : (
+      {/* Click guard — only on passive steps */}
+      {!isInteractive && (
         <div onClick={skip} style={{ position: 'fixed', inset: 0, zIndex: 9998 }} />
       )}
 
-      {/* Spotlight overlay */}
+      {/* Spotlight overlay — always pointer-events:none */}
       {rect ? (
         <div style={{
           position: 'fixed', top: rect.top - 6, left: rect.left - 6,
