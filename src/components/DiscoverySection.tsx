@@ -97,10 +97,36 @@ type ChainScoreRow = {
   season: string;
   max_chain_score: number;
   chain_scores: Record<string, ChainTeamData>;
-  league_impact: number | null;
-  league_impact_players: number | null;
-  league_impact_depth: number | null;
-  league_impact_top: { name: string; score: number }[] | null;
+};
+
+type InflectionRow = {
+  trade_id: string;
+  inflection_swing: number;
+  inflection_teams: Record<string, { before: number; after: number; delta: number }>;
+  winner: string | null;
+  team_scores: Record<string, { score: number }>;
+};
+
+type VerdictFlipRow = {
+  trade_id: string;
+  winner: string | null;
+  winner_1yr: string | null;
+  winner_3yr: string | null;
+  winner_5yr: string | null;
+  verdict_flipped: boolean;
+  lopsidedness: number;
+  team_scores: Record<string, { score: number }>;
+};
+
+type DynastyRow = {
+  team_id: string;
+  season: string;
+  trade_pct: number;
+  draft_pct: number;
+  fa_pct: number;
+  top_trade_id: string | null;
+  top_trade_pws: number;
+  roster: { name: string; playoff_ws: number; acquisition: string; trade_id?: string }[];
 };
 
 /** Recursively walk the chain asset tree and collect all players with their chain score. */
@@ -1362,10 +1388,20 @@ const METRIC_DEFS: Record<string, { metricLabel: string; metricExplanation: stri
     metricExplanation:
       `Total Win Shares generated through multiple rounds of trading — what one team accumulated by flipping assets. Only counts production while on that team. Requires depth ≥ 2 and chain adding 20%+ beyond direct value. Fractional attribution prevents double-counting. ${FORMULA_BASE}`,
   },
-  'league-impact': {
+  'inflection': {
+    metricLabel: 'Win Swing',
+    metricExplanation:
+      'The total divergence in team win trajectories. For each team, average wins in the 3 seasons before vs. 3 seasons after the trade. The swing is the gap between the team that improved most and the team that declined most.',
+  },
+  'dynasty-ingredients': {
+    metricLabel: '% Trade-Built',
+    metricExplanation:
+      'Percentage of the championship playoff run (by Playoff Win Shares) produced by trade-acquired players. Drafted players and free agent signings account for the rest. Shows how each ring was assembled.',
+  },
+  'verdict-flips': {
     metricLabel: 'WS',
     metricExplanation:
-      `Total career Win Shares produced by ALL players set in motion by this trade cascade, regardless of which team they played for. Measures the trade's ripple across the league — not GM skill, but historical significance. ${FORMULA_BASE}`,
+      `Trades where the winner at year 1 is different from the winner at year 5. Scored at each horizon using the same formula, capped to seasons within the time window. ${FORMULA_BASE}`,
   },
 };
 
@@ -1386,8 +1422,11 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
         let scores: ScoreRow[] = [];
         let champs: ChampRow[] = [];
         let chainRows: ChainScoreRow[] = [];
+        let inflectionRows: InflectionRow[] = [];
+        let verdictRows: VerdictFlipRow[] = [];
+        let dynastyRows: DynastyRow[] = [];
         try {
-          const [scoresRes, champsRes, chainRes, impactRes] = await Promise.all([
+          const [scoresRes, champsRes, chainRes, inflectionRes, verdictRes, dynastyRes] = await Promise.all([
             getSupabase()
               .from('trade_scores')
               .select('trade_id, lopsidedness, winner, team_scores')
@@ -1402,28 +1441,37 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
               .eq('championship', true) as unknown as Promise<{ data: ChampRow[] | null }>,
             getSupabase()
               .from('trade_chain_scores')
-              .select('trade_id, season, max_chain_score, chain_scores, league_impact, league_impact_players, league_impact_depth, league_impact_top')
+              .select('trade_id, season, max_chain_score, chain_scores')
               .eq('league', league)
               .gt('max_chain_score', 20)
               .order('max_chain_score', { ascending: false })
               .limit(150) as unknown as Promise<{ data: ChainScoreRow[] | null }>,
             getSupabase()
-              .from('trade_chain_scores')
-              .select('trade_id, season, max_chain_score, chain_scores, league_impact, league_impact_players, league_impact_depth, league_impact_top')
+              .from('trade_scores')
+              .select('trade_id, inflection_swing, inflection_teams, winner, team_scores')
               .eq('league', league)
-              .gt('league_impact', 50)
-              .order('league_impact', { ascending: false })
-              .limit(50) as unknown as Promise<{ data: ChainScoreRow[] | null }>,
+              .gt('inflection_swing', 15)
+              .order('inflection_swing', { ascending: false })
+              .limit(100) as unknown as Promise<{ data: InflectionRow[] | null }>,
+            getSupabase()
+              .from('trade_scores')
+              .select('trade_id, winner, winner_1yr, winner_3yr, winner_5yr, verdict_flipped, lopsidedness, team_scores')
+              .eq('league', league)
+              .eq('verdict_flipped', true)
+              .order('lopsidedness', { ascending: false })
+              .limit(100) as unknown as Promise<{ data: VerdictFlipRow[] | null }>,
+            getSupabase()
+              .from('championship_ingredients')
+              .select('team_id, season, trade_pct, draft_pct, fa_pct, top_trade_id, top_trade_pws, roster')
+              .eq('league', league)
+              .order('trade_pct', { ascending: false }) as unknown as Promise<{ data: DynastyRow[] | null }>,
           ]);
           scores = scoresRes.data ?? [];
           champs = champsRes.data ?? [];
-          // Merge chain rows with league impact rows, deduplicate by trade_id
-          const chainMap = new Map<string, ChainScoreRow>();
-          for (const row of (chainRes.data ?? [])) chainMap.set(row.trade_id, row);
-          for (const row of (impactRes.data ?? [])) {
-            if (!chainMap.has(row.trade_id)) chainMap.set(row.trade_id, row);
-          }
-          chainRows = [...chainMap.values()];
+          chainRows = chainRes.data ?? [];
+          inflectionRows = inflectionRes.data ?? [];
+          verdictRows = verdictRes.data ?? [];
+          dynastyRows = dynastyRes.data ?? [];
         } catch (supabaseErr) {
           console.warn('[DiscoverySection] Supabase unavailable, showing static data only:', supabaseErr);
         }
@@ -1527,29 +1575,84 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
           .filter((c): c is TradeCard => c !== null)
           .slice(0, 200);
 
-        // 0a-b. League Impact — total career value across the league from trade cascades
-        const leagueImpactCards: TradeCard[] = [...chainRows]
-          .filter((row) => (row.league_impact ?? 0) > 50)
-          .sort((a, b) => (b.league_impact ?? 0) - (a.league_impact ?? 0))
+        // 0a. Inflection Trades — team trajectory before/after
+        const inflectionCards: TradeCard[] = inflectionRows
           .map((row): TradeCard | null => {
             const entry = indexMap.get(row.trade_id);
             if (!entry) return null;
-            const topPlayers = row.league_impact_top ?? [];
-            const playerLabels = topPlayers.length > 0
-              ? topPlayers.slice(0, 3).map((p) => `${p.name} (${p.score.toFixed(1)})`)
-              : entry.players;
+            const teams = row.inflection_teams ?? {};
+            const teamEntries = Object.entries(teams).sort((a, b) => b[1].delta - a[1].delta);
+            // Build player labels showing team deltas
+            const deltaLabels = teamEntries.slice(0, 3).map(([tid, inf]) => {
+              const info = getAnyTeamDisplayInfo(tid, entry.date);
+              const nickname = info.name.split(' ').pop() || tid;
+              const arrow = inf.delta >= 0 ? '+' : '';
+              return `${nickname} ${arrow}${inf.delta.toFixed(0)}W`;
+            });
             return {
               type: 'trade',
               tradeId: row.trade_id,
               heading: tradeHeading(entry.topAssets, entry.teams, entry.date),
-              players: playerLabels,
+              players: deltaLabels,
               season: entry.season,
               teams: entry.teams,
-              winner: null,
-              metric: row.league_impact ?? 0,
-              badge: `${row.league_impact_players ?? 0} players`,
-              chainScores: row.chain_scores,
+              winner: row.winner,
+              metric: row.inflection_swing ?? 0,
+              badge: `${(row.inflection_swing ?? 0).toFixed(0)}W swing`,
               date: entry.date,
+            };
+          })
+          .filter((c): c is TradeCard => c !== null)
+          .slice(0, 200);
+
+        // 0b. Verdict Flips — trades where the winner changed between year 1 and year 5
+        const verdictCards: TradeCard[] = verdictRows
+          .map((row): TradeCard | null => {
+            const entry = indexMap.get(row.trade_id);
+            if (!entry) return null;
+            const yr1Info = row.winner_1yr ? getAnyTeamDisplayInfo(row.winner_1yr, entry.date) : null;
+            const yr5Info = row.winner_5yr ? getAnyTeamDisplayInfo(row.winner_5yr, entry.date) : null;
+            const yr1Name = yr1Info ? yr1Info.name.split(' ').pop() : '?';
+            const yr5Name = yr5Info ? yr5Info.name.split(' ').pop() : '?';
+            return {
+              type: 'trade',
+              tradeId: row.trade_id,
+              heading: tradeHeading(entry.topAssets, entry.teams, entry.date),
+              players: entry.players,
+              season: entry.season,
+              teams: entry.teams,
+              winner: row.winner_5yr,
+              metric: row.lopsidedness,
+              badge: `${yr1Name} → ${yr5Name}`,
+              date: entry.date,
+            };
+          })
+          .filter((c): c is TradeCard => c !== null)
+          .slice(0, 200);
+
+        // 0c. Dynasty Ingredients — how championship rosters were assembled
+        const dynastyCards: TradeCard[] = dynastyRows
+          .map((row): TradeCard | null => {
+            // Find the top trade in the search index
+            const topTradeEntry = row.top_trade_id ? indexMap.get(row.top_trade_id) : null;
+            const info = getAnyTeamDisplayInfo(row.team_id, `${row.season.split('-')[0]}-06-15`);
+            const teamName = info.name;
+            // Top 3 trade-acquired players by playoff WS
+            const tradeAcquired = (row.roster || [])
+              .filter((r: { acquisition: string }) => r.acquisition === 'trade')
+              .slice(0, 3)
+              .map((r: { name: string; playoff_ws: number }) => r.name);
+            return {
+              type: 'trade',
+              tradeId: row.top_trade_id || `dynasty-${row.team_id}-${row.season}`,
+              heading: `${row.season.split('-')[0]} ${teamName}`,
+              players: tradeAcquired.length > 0 ? tradeAcquired : [`${row.draft_pct.toFixed(0)}% drafted`],
+              season: row.season,
+              teams: [row.team_id],
+              winner: row.team_id,
+              metric: row.trade_pct,
+              badge: `${row.trade_pct.toFixed(0)}% trade-built`,
+              date: topTradeEntry?.date,
             };
           })
           .filter((c): c is TradeCard => c !== null)
@@ -1701,12 +1804,28 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             cards: chainCards,
           },
           {
-            id: 'league-impact',
-            label: 'League Impact',
-            description: 'Total career value produced by all players set in motion by a trade cascade, regardless of which team they ended up on.',
+            id: 'inflection',
+            label: 'Inflection Trades',
+            description: 'Trades where team trajectories diverged the most — one team rose while the other fell.',
             accentColor: 'var(--accent-red)',
-            ...METRIC_DEFS['league-impact'],
-            cards: leagueImpactCards,
+            ...METRIC_DEFS['inflection'],
+            cards: inflectionCards,
+          },
+          {
+            id: 'dynasty-ingredients',
+            label: 'Dynasty Ingredients',
+            description: 'How each championship was assembled — the percentage of playoff production from trade-acquired players.',
+            accentColor: 'var(--accent-gold)',
+            ...METRIC_DEFS['dynasty-ingredients'],
+            cards: dynastyCards,
+          },
+          {
+            id: 'verdict-flips',
+            label: 'Verdict Flips',
+            description: 'Trades where the consensus winner reversed — one team looked smart at first, but the other won by year five.',
+            accentColor: 'var(--accent-green)',
+            ...METRIC_DEFS['verdict-flips'],
+            cards: verdictCards,
           },
           {
             id: 'alchemists',

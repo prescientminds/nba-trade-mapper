@@ -143,7 +143,9 @@ A game score of 20+ is a strong performance. 40+ is historic.
 | Category | What it shows |
 |----------|---------------|
 | Value Creation | Trades where downstream re-trades created more value than the original deal |
-| League Impact | Trades with total chain impact score above 50 |
+| Inflection Trades | Trades where team win trajectories diverged the most — one team rose while the other fell |
+| Dynasty Ingredients | How each championship was assembled — % of playoff production from trade-acquired players |
+| Verdict Flips | Trades where the winner at year 1 reversed by year 5 |
 | The Alchemists | Teams that turned one trade into 4+ branches of value |
 | Heist Index | Most lopsided trades by score margin |
 | Championship DNA | Trades where the winner won a championship within 4 seasons |
