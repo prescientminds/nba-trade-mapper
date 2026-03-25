@@ -206,7 +206,7 @@ function GraphToolbar() {
       style={{
         position: 'absolute',
         top: isMobile ? 'auto' : 62,
-        bottom: isMobile ? 'calc(12px + env(safe-area-inset-bottom, 16px))' : 'auto',
+        bottom: isMobile ? 'calc(20px + env(safe-area-inset-bottom, 16px))' : 'auto',
         left: '50%',
         transform: 'translateX(-50%)',
         zIndex: 8,

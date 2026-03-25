@@ -84,18 +84,11 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     waitLabel: 'Click Path →',
     zoom: 2,
   },
-  // 7. Career journey — stint cards appear
-  {
-    target: 'stint-card',
-    title: 'CAREER JOURNEY',
-    content: 'Each card is one team stint with averaged stats and total Win Shares. Follow the chain to see every stop.',
-    placement: 'bottom',
-  },
-  // 8. Follow arrows
+  // 7. Career journey — follow the arrows to hop between stints
   {
     target: 'follow-next',
-    title: 'FOLLOW THE ARROWS',
-    content: 'Click the yellow arrows to hop between stops on the player\'s journey. The map scrolls to follow.',
+    title: 'CAREER JOURNEY',
+    content: 'Each card is a team stint. Click the arrow to follow the career — the map scrolls with you.',
     placement: 'top',
     waitFor: 'follow-advanced',
     waitLabel: 'Click ▼ Next',
