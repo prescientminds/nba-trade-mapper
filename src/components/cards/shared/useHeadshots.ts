@@ -4,11 +4,15 @@ import { useState, useEffect, useRef } from 'react';
 import type { CardSkin } from '@/lib/skins';
 import { stylizeHeadshot } from './stylize';
 
+// NBA CDN placeholder images are ~12–13KB. Real headshots are 50KB+.
+const PLACEHOLDER_MAX_BYTES = 15_000;
+
 /**
  * Fetches headshot proxy URLs → data URLs → stylized data URLs.
  *
  * Two-stage pipeline:
- * 1. Fetch proxy URLs and convert to raw data URLs (runs once per trade)
+ * 1. Fetch proxy URLs and convert to raw data URLs (runs once per trade).
+ *    If the NBA CDN returns a placeholder (<15KB), tries the BBRef fallback.
  * 2. Apply per-skin color grading on canvas (re-runs when skin changes)
  *
  * Returns stylized data URLs ready for html2canvas/html-to-image capture.
@@ -16,6 +20,7 @@ import { stylizeHeadshot } from './stylize';
 export function useHeadshots(
   heroUrls: Record<string, string[]> | undefined,
   skin: CardSkin = 'classic',
+  fallbackUrls?: Record<string, string[]>,
 ) {
   const [rawUrls, setRawUrls] = useState<Record<string, string[]>>({});
   const [headshots, setHeadshots] = useState<Record<string, string[]>>({});
@@ -42,13 +47,34 @@ export function useHeadshots(
       await Promise.all(
         Object.entries(heroUrls).map(async ([teamId, urls]) => {
           const teamDataUrls: string[] = [];
-          for (const url of urls) {
+          const teamFallbacks = fallbackUrls?.[teamId] ?? [];
+          for (let i = 0; i < urls.length; i++) {
             try {
-              const dataUrl = await toDataUrl(url);
+              const { dataUrl, byteSize } = await toDataUrlWithSize(urls[i]);
               if (cancelled) return;
+              // If NBA CDN returned a placeholder, try BBRef fallback
+              if (byteSize <= PLACEHOLDER_MAX_BYTES && teamFallbacks[i]) {
+                try {
+                  const fb = await toDataUrlWithSize(teamFallbacks[i]);
+                  if (cancelled) return;
+                  teamDataUrls.push(fb.dataUrl);
+                  continue;
+                } catch {
+                  // BBRef also failed — use the placeholder anyway
+                }
+              }
               teamDataUrls.push(dataUrl);
             } catch {
-              // Skip failed headshots — card renders fine without them
+              // Primary failed entirely — try fallback
+              if (teamFallbacks[i]) {
+                try {
+                  const fb = await toDataUrlWithSize(teamFallbacks[i]);
+                  if (cancelled) return;
+                  teamDataUrls.push(fb.dataUrl);
+                } catch {
+                  // Both failed — skip this headshot
+                }
+              }
             }
           }
           result[teamId] = teamDataUrls;
@@ -100,14 +126,16 @@ export function useHeadshots(
 
 // ── Helpers ──────────────────────────────────────────────────
 
-async function toDataUrl(proxyUrl: string): Promise<string> {
+async function toDataUrlWithSize(proxyUrl: string): Promise<{ dataUrl: string; byteSize: number }> {
   const res = await fetch(proxyUrl);
   if (!res.ok) throw new Error(`Headshot fetch failed: ${res.status}`);
   const blob = await res.blob();
-  return new Promise((resolve, reject) => {
+  const byteSize = blob.size;
+  const dataUrl = await new Promise<string>((resolve, reject) => {
     const reader = new FileReader();
     reader.onloadend = () => resolve(reader.result as string);
     reader.onerror = reject;
     reader.readAsDataURL(blob);
   });
+  return { dataUrl, byteSize };
 }
