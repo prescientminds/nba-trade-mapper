@@ -11,7 +11,7 @@ import { captureElement, FORMAT_DIMS, FORMAT_LABELS, type Format } from '@/compo
 import ShareCard from './ShareCard';
 import TradeGradeCard from './TradeGradeCard';
 import { useTourStore } from '@/lib/tour-store';
-import { SHARE_TOUR_STEPS } from '@/lib/guided-tour-steps';
+// Share tour is now merged into the main guided tour
 
 type CardType = 'score' | 'grade';
 
@@ -293,7 +293,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
 
   // ── Preview image ──────────────────────────────────────────
   const previewContent = (
-    <div style={{
+    <div data-tour="share-preview" style={{
       width: '100%',
       background: '#0f0f17', borderRadius: 8,
       border: '1px solid rgba(255,255,255,0.06)',
@@ -722,16 +722,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
   // ══════════════════════════════════════════════════════════════
   // DESKTOP LAYOUT — side-by-side modal (unchanged)
   // ══════════════════════════════════════════════════════════════
-  // Auto-start share tour on first open
-  const startTour = useTourStore((s) => s.startTour);
-  const hasCompletedShareTour = useTourStore((s) => s.hasCompleted)('share');
-  const activeTour = useTourStore((s) => s.activeTour);
-  useEffect(() => {
-    if (!hasCompletedShareTour && !activeTour) {
-      const t = setTimeout(() => startTour('share', SHARE_TOUR_STEPS), 800);
-      return () => clearTimeout(t);
-    }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  // Share tour is now part of the main guided tour — no separate auto-start
 
   return (
     <div

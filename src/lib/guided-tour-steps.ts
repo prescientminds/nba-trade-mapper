@@ -98,30 +98,20 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     waitFor: 'follow-advanced',
     waitLabel: 'Click ▼ Next',
   },
-  // 9. Skins
+  // 9. Share — target the SHARE button on the trade node
   {
-    target: 'toolbar-skins',
-    title: 'VISUAL SKINS',
-    content: 'Switch between Classic, Holographic, Inside Stuff, and NBA Jam.',
+    target: 'trade-share',
+    title: 'CREATE A SHARE CARD',
+    content: 'Click SHARE to build a custom trade card you can send to anyone.',
     placement: 'bottom',
+    waitFor: 'share-opened',
+    waitLabel: 'Click SHARE',
   },
-  // 10. Share — highlight the share button in the toolbar
-  {
-    target: 'toolbar-share',
-    title: 'SHARE',
-    content: 'Tap this button to copy a shareable link or create a custom trade card.',
-    placement: 'top',
-  },
-];
-
-/**
- * Share modal tour — auto-starts the first time the card creator opens.
- */
-export const SHARE_TOUR_STEPS: TourStep[] = [
+  // ── Share card creation flow ──
   {
     target: 'share-card-type',
     title: 'CARD TYPE',
-    content: 'Choose Score Card (stats comparison) or Grade Card (letter grade).',
+    content: 'Score Card compares stats side by side. Grade Card gives a letter grade.',
     placement: 'bottom',
   },
   {
@@ -147,6 +137,12 @@ export const SHARE_TOUR_STEPS: TourStep[] = [
     title: 'SPOTLIGHT',
     content: 'Toggle which stats to highlight on the card.',
     placement: 'bottom',
+  },
+  {
+    target: 'share-preview',
+    title: 'THE CIPOLLONE STANDARD',
+    content: 'Every trade gets a verdict — from balanced to catastrophic. The worst trades don\'t meet the Cipollone Standard.',
+    placement: 'top',
   },
   {
     target: 'share-actions',

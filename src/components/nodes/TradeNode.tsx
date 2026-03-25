@@ -530,10 +530,12 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                 {/* Create share card — opens preview modal */}
                 <span
                   className="nopan nodrag"
+                  data-tour="trade-share"
                   title="Create shareable card"
                   onClick={(e) => {
                     e.stopPropagation();
                     setCardPreviewOpen(true);
+                    useTourStore.getState().advanceIfWaiting('share-opened');
                   }}
                   style={{
                     marginLeft: 'auto',
