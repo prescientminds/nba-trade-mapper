@@ -25,16 +25,44 @@ export default function GuidedTour() {
 
   const [rect, setRect] = useState<DOMRect | null>(null);
   const scrolledRef = useRef(false);
+  const elevatedRef = useRef<HTMLElement | null>(null);
 
-  // Track target element position
+  // Elevate a React Flow node above the overlay so interactive clicks reach it
+  const elevate = (el: Element | null) => {
+    // Clean up previous elevation
+    if (elevatedRef.current) {
+      elevatedRef.current.style.removeProperty('z-index');
+      elevatedRef.current.style.removeProperty('position');
+      elevatedRef.current = null;
+    }
+    if (!el) return;
+    // Walk up to the .react-flow__node wrapper (or any positioned ancestor)
+    const node = el.closest('.react-flow__node') as HTMLElement | null;
+    if (node) {
+      node.style.zIndex = '10001';
+      node.style.position = 'relative';
+      elevatedRef.current = node;
+    }
+  };
+
+  // Track target element position + elevate for interactive steps
   useEffect(() => {
-    if (!activeTour || showingWelcome) { setRect(null); return; }
-    const current = steps[stepIndex];
-    if (!current?.target) { setRect(null); return; }
+    if (!activeTour || showingWelcome) {
+      setRect(null);
+      elevate(null);
+      return;
+    }
+    const currentStep = steps[stepIndex];
+    if (!currentStep?.target) {
+      setRect(null);
+      elevate(null);
+      return;
+    }
     scrolledRef.current = false;
+    const isWaiting = !!currentStep.waitFor;
 
     const interval = setInterval(() => {
-      const el = document.querySelector(`[data-tour="${current.target}"]`);
+      const el = document.querySelector(`[data-tour="${currentStep.target}"]`);
       if (!el) { setRect(null); return; }
       const r = el.getBoundingClientRect();
       if (!scrolledRef.current) {
@@ -43,9 +71,16 @@ export default function GuidedTour() {
         }
         scrolledRef.current = true;
       }
+      // Elevate the node on interactive steps so it sits above the overlay
+      if (isWaiting && !elevatedRef.current) {
+        elevate(el);
+      }
       setRect(r);
     }, 80);
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      elevate(null);
+    };
   }, [activeTour, stepIndex, showingWelcome, steps]);
 
   if (!activeTour) return null;
