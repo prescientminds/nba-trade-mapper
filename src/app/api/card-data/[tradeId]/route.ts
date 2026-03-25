@@ -29,8 +29,13 @@ export async function GET(
   // Build hero URLs as proxy paths (client will fetch these to get data URLs)
   const rawHeroes = buildHeroImages(data.team_scores, 3);
   const heroUrls: Record<string, string[]> = {};
-  for (const [teamId, urls] of Object.entries(rawHeroes)) {
+  const fallbackHeroUrls: Record<string, string[]> = {};
+  for (const [teamId, urls] of Object.entries(rawHeroes.primary)) {
     heroUrls[teamId] = urls.map(u => `/api/img?url=${encodeURIComponent(u)}`);
+  }
+  for (const [teamId, urls] of Object.entries(rawHeroes.fallback)) {
+    fallbackHeroUrls[teamId] = urls
+      .map(u => u ? `/api/img?url=${encodeURIComponent(u)}` : '');
   }
 
   return Response.json({
@@ -39,6 +44,7 @@ export async function GET(
     lopsidedness: data.lopsidedness,
     salaryDetails: data.salary_details,
     heroUrls,
+    fallbackHeroUrls,
   }, {
     headers: { 'Cache-Control': 'public, max-age=3600' },
   });

@@ -40,6 +40,7 @@ interface TradeData {
   winner: string | null;
   lopsidedness: number;
   heroUrls?: Record<string, string[]>;
+  fallbackHeroUrls?: Record<string, string[]>;
   salaryDetails?: Record<string, { total_acquired: number; players: { name: string; acquired_value: number; acquired_seasons: number }[] }>;
 }
 
@@ -76,8 +77,8 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
   const cardRef = useRef<HTMLDivElement>(null);
   const captureTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Headshot pipeline: fetch → data URL → per-skin color grading
-  const { headshots, headshotsLoading } = useHeadshots(tradeData?.heroUrls, skin);
+  // Headshot pipeline: fetch → data URL → per-skin color grading (BBRef fallback for retired players)
+  const { headshots, headshotsLoading } = useHeadshots(tradeData?.heroUrls, skin, tradeData?.fallbackHeroUrls);
 
   // Template pipeline: load grayscale texture → tint per team
   const teamColors = useMemo(() => {
@@ -108,6 +109,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
           winner: data.winner,
           lopsidedness: data.lopsidedness,
           heroUrls: data.heroUrls,
+          fallbackHeroUrls: data.fallbackHeroUrls,
           salaryDetails: data.salaryDetails,
         });
         const allPlayers: Record<string, string[]> = {};

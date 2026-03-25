@@ -1,11 +1,16 @@
 // Shared hero image builder for card image routes.
-// Returns top player headshot URLs per team from the NBA CDN.
+// Returns top player headshot URLs per team from the NBA CDN,
+// with BBRef fallbacks for retired players whose CDN image is a placeholder.
 
 import { NBA_PLAYER_IDS } from '@/lib/nba-player-ids';
+import { BBREF_PLAYER_IDS } from '@/lib/bbref-player-ids';
 import type { TeamScoreEntry } from '@/lib/card-templates';
 
 const NBA_HEADSHOT = (id: number) =>
   `https://cdn.nba.com/headshots/nba/latest/1040x760/${id}.png`;
+
+const BBREF_HEADSHOT = (id: string) =>
+  `https://www.basketball-reference.com/req/202106291/images/headshots/${id}.jpg`;
 
 // ── Name resolution ─────────────────────────────────────────
 // Trade data names don't always match the NBA player ID dictionary.
@@ -67,6 +72,22 @@ function stripPeriods(s: string): string {
   return s.replace(/\.(\s?)/g, '$1').trim();
 }
 
+/** Resolve a trade-data player name to a BBRef player ID (e.g. "lewisra02"). */
+function resolveBbrefId(name: string): string | undefined {
+  if (BBREF_PLAYER_IDS[name]) return BBREF_PLAYER_IDS[name];
+  const alias = NAME_ALIASES[name];
+  if (alias && BBREF_PLAYER_IDS[alias]) return BBREF_PLAYER_IDS[alias];
+  const stripped = name.replace(/\s+(Sr\.|Jr\.|III|II|IV)$/i, '');
+  if (stripped !== name && BBREF_PLAYER_IDS[stripped]) return BBREF_PLAYER_IDS[stripped];
+  const ascii = stripDiacritics(name);
+  if (ascii !== name && BBREF_PLAYER_IDS[ascii]) return BBREF_PLAYER_IDS[ascii];
+  const noPeriods = stripPeriods(name);
+  if (noPeriods !== name && BBREF_PLAYER_IDS[noPeriods]) return BBREF_PLAYER_IDS[noPeriods];
+  const both = stripPeriods(stripDiacritics(name));
+  if (both !== name && BBREF_PLAYER_IDS[both]) return BBREF_PLAYER_IDS[both];
+  return undefined;
+}
+
 /** Resolve a trade-data player name to an NBA player ID. */
 function resolvePlayerId(name: string): number | undefined {
   // 1. Exact match
@@ -92,27 +113,33 @@ function resolvePlayerId(name: string): number | undefined {
   return undefined;
 }
 
-/** Return up to `max` headshot URLs per team, ordered by score descending. */
+/** Return up to `max` headshot URLs per team, ordered by score descending.
+ *  Also returns BBRef fallback URLs for each position (same indices). */
 export function buildHeroImages(
   teamScores: Record<string, TeamScoreEntry>,
   max = 3,
-): Record<string, string[]> {
-  const result: Record<string, string[]> = {};
+): { primary: Record<string, string[]>; fallback: Record<string, string[]> } {
+  const primary: Record<string, string[]> = {};
+  const fallback: Record<string, string[]> = {};
   for (const [teamId, ts] of Object.entries(teamScores)) {
     if (!ts.assets.length) continue;
     const sorted = [...ts.assets]
       .sort((a, b) => b.score - a.score);
     const urls: string[] = [];
+    const fbUrls: string[] = [];
     for (const asset of sorted) {
       const nbaId = resolvePlayerId(asset.name);
       if (nbaId) {
         urls.push(NBA_HEADSHOT(nbaId));
+        const bbrefId = resolveBbrefId(asset.name);
+        fbUrls.push(bbrefId ? BBREF_HEADSHOT(bbrefId) : '');
         if (urls.length >= max) break;
       }
     }
     if (urls.length > 0) {
-      result[teamId] = urls;
+      primary[teamId] = urls;
+      fallback[teamId] = fbUrls;
     }
   }
-  return result;
+  return { primary, fallback };
 }

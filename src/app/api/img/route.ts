@@ -1,7 +1,7 @@
 // Image proxy — serves external images with CORS headers so html-to-image can inline them.
 export const runtime = 'edge';
 
-const ALLOWED_HOSTS = ['cdn.nba.com', 'cdn.wnba.com'];
+const ALLOWED_HOSTS = ['cdn.nba.com', 'cdn.wnba.com', 'www.basketball-reference.com'];
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
