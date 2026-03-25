@@ -143,6 +143,9 @@ export default function GuidedTour() {
     if (rect && rect.top > window.innerHeight * 0.65) {
       // Target is near bottom (toolbar) — position tooltip above it
       pos = { position: 'fixed', bottom: window.innerHeight - rect.top + PAD, left: 12, right: 12, width: 'auto' };
+    } else if (current.placement === 'top') {
+      // Step wants tooltip above target — pin to top so it doesn't cover the content below
+      pos = { position: 'fixed', top: 12, left: 12, right: 12, width: 'auto' };
     } else {
       // Target is in graph area — pin to bottom
       pos = { position: 'fixed', bottom: 12, left: 12, right: 12, width: 'auto' };
