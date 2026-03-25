@@ -26,6 +26,8 @@ export interface TourStep {
   waitFor?: string;
   /** Label shown instead of "Next" when waitFor is set */
   waitLabel?: string;
+  /** Max zoom level for fitView when centering on this step's target node */
+  zoom?: number;
 }
 
 interface TourState {

@@ -46,14 +46,15 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     waitFor: 'inline-stats-opened',
     waitLabel: 'Click a player name',
   },
-  // 5. Accolades + playoffs explanation — halo the richest season row
+  // 5. Accolades + playoffs explanation — zoom into the richest season row
   {
     target: 'tour-accolades-row',
     title: 'ACCOLADES & PLAYOFFS',
     content: 'Gold badges are accolades (MVP, All-Star, All-NBA). Playoff badges show series results. Click any playoff badge to see full series stats.',
     placement: 'bottom',
+    zoom: 1.8,
   },
-  // 6. Follow the path — target the Path button
+  // 6. Follow the path — zoom into the Path button
   {
     target: 'trade-path',
     title: 'FOLLOW THE PATH',
@@ -61,6 +62,7 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     placement: 'bottom',
     waitFor: 'path-started',
     waitLabel: 'Click Path →',
+    zoom: 1.8,
   },
   // 7. Career journey — stint cards appear
   {
@@ -85,12 +87,12 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     content: 'Switch between Classic, Holographic, Inside Stuff, and NBA Jam.',
     placement: 'bottom',
   },
-  // 10. Share
+  // 10. Share — highlight the share button in the toolbar
   {
     target: 'toolbar-share',
     title: 'SHARE',
-    content: 'Copy a shareable link or create a custom trade card to share on social media.',
-    placement: 'bottom',
+    content: 'Tap this button to copy a shareable link or create a custom trade card.',
+    placement: 'top',
   },
 ];
 

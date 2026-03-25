@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { useReactFlow } from '@xyflow/react';
 import { useTourStore } from '@/lib/tour-store';
-import { useGraphStore } from '@/lib/graph-store';
 
 function isInViewport(r: DOMRect) {
   return r.top >= -50 && r.bottom <= window.innerHeight + 50;
@@ -44,6 +44,7 @@ export default function GuidedTour() {
 
   const [rect, setRect] = useState<DOMRect | null>(null);
   const centeredRef = useRef(false);
+  const { fitView } = useReactFlow();
 
   // Track target element position + center React Flow viewport on it
   useEffect(() => {
@@ -57,10 +58,17 @@ export default function GuidedTour() {
       if (!el) { setRect(null); return; }
       const r = el.getBoundingClientRect();
       if (!centeredRef.current) {
-        // Use React Flow's fitView to center the containing node
         const nodeId = findContainingNodeId(el);
         if (nodeId) {
-          useGraphStore.getState().setPendingFitTarget(nodeId);
+          // Use fitView directly with per-step zoom control
+          setTimeout(() => {
+            fitView({
+              nodes: [{ id: nodeId }],
+              padding: current.zoom ? 0.15 : 0.5,
+              duration: 500,
+              maxZoom: current.zoom ?? 1.2,
+            });
+          }, 150);
         } else if (!isInViewport(r)) {
           // Fallback for toolbar/non-graph elements
           el.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -70,7 +78,7 @@ export default function GuidedTour() {
       setRect(r);
     }, 80);
     return () => clearInterval(interval);
-  }, [activeTour, stepIndex, showingWelcome, revealing, steps]);
+  }, [activeTour, stepIndex, showingWelcome, revealing, steps, fitView]);
 
   if (!activeTour) return null;
 
@@ -132,8 +140,13 @@ export default function GuidedTour() {
   let pos: React.CSSProperties;
 
   if (isMobile) {
-    // Pin to bottom on mobile — always visible regardless of target position
-    pos = { position: 'fixed', bottom: 12, left: 12, right: 12, width: 'auto' };
+    if (rect && rect.top > window.innerHeight * 0.65) {
+      // Target is near bottom (toolbar) — position tooltip above it
+      pos = { position: 'fixed', bottom: window.innerHeight - rect.top + PAD, left: 12, right: 12, width: 'auto' };
+    } else {
+      // Target is in graph area — pin to bottom
+      pos = { position: 'fixed', bottom: 12, left: 12, right: 12, width: 'auto' };
+    }
   } else if (rect) {
     const cx = Math.max(16, Math.min(rect.left + rect.width / 2 - W / 2, vw - W - 16));
     if (current.placement === 'bottom') {
