@@ -142,10 +142,8 @@ export default function GuidedTour() {
 
   return createPortal(
     <>
-      {/* Click guard — only on passive steps */}
-      {!isInteractive && (
-        <div onClick={skip} style={{ position: 'fixed', inset: 0, zIndex: 9998 }} />
-      )}
+      {/* No click guard — users skip via the explicit "Skip tour" button.
+          This lets clicks pass through to React Flow nodes on all steps. */}
 
       {/* Spotlight overlay — always pointer-events:none */}
       {rect ? (

@@ -50,7 +50,7 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
   {
     target: 'trade-card',
     title: 'ACCOLADES & PLAYOFFS',
-    content: 'Gold badges are accolades (MVP, All-Star, All-NBA). Colored pills show playoff depth — click any to see series and game data.',
+    content: 'Gold badges are accolades (MVP, All-Star, All-NBA). If a player had a standout playoff game, it\'s highlighted with a peak Game Score. Click any playoff badge to see full series stats.',
     placement: 'bottom',
   },
   // 6. Follow the path — whole card visible so Path → button is accessible
