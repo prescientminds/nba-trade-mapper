@@ -1,33 +1,6 @@
 import type { TourStep } from '@/lib/tour-store';
-import { getSupabase } from '@/lib/supabase';
 
 export const HARDEN_TRADE_ID = 'f696d8e9-4d51-4130-908e-4d028dc820ae';
-
-/** Fetch trade scores and return steps with real data injected. */
-export async function buildGuidedTourSteps(): Promise<TourStep[]> {
-  let scoreLine = '';
-  try {
-    const sb = getSupabase();
-    const { data } = await sb
-      .from('trade_scores')
-      .select('team_scores,winner')
-      .eq('trade_id', HARDEN_TRADE_ID)
-      .single<{ team_scores: Record<string, { score: number }>; winner: string | null }>();
-    if (data?.team_scores) {
-      const entries = Object.entries(data.team_scores)
-        .sort((a, b) => b[1].score - a[1].score);
-      scoreLine = entries
-        .map(([team, { score }]) => `${team} received ${Math.round(score)} WS`)
-        .join('. ') + '.';
-    }
-  } catch { /* fall through to default */ }
-  if (!scoreLine) scoreLine = 'The winning side is highlighted.';
-
-  return GUIDED_TOUR_STEPS.map((step) => ({
-    ...step,
-    content: step.content.replace('{tradeScoreLine}', scoreLine),
-  }));
-}
 
 /**
  * Main guided tour — walks through the Harden-to-Houston trade.
@@ -52,7 +25,7 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
   {
     target: 'trade-score',
     title: 'TRADE SCORE',
-    content: 'Each side is scored by Win Shares — total impact on winning across every season with the new team. {tradeScoreLine}',
+    content: 'Each side is scored by Win Shares — total impact on winning across every season with the new team. Houston received 153 WS. OKC received 67.',
     placement: 'bottom',
   },
   // 3. Salary — interactive, click to see per-player breakdown

@@ -8,7 +8,7 @@ import { useGraphStore } from '@/lib/graph-store';
 import { useMobile } from '@/lib/use-mobile';
 import DiscoverySection from '@/components/DiscoverySection';
 import { useTourStore } from '@/lib/tour-store';
-import { buildGuidedTourSteps, HARDEN_TRADE_ID } from '@/lib/guided-tour-steps';
+import { GUIDED_TOUR_STEPS, HARDEN_TRADE_ID } from '@/lib/guided-tour-steps';
 import { loadTrade, staticTradeToTradeWithDetails } from '@/lib/trade-data';
 import { useHints } from '@/lib/use-hints';
 import { HintLabel } from '@/components/HintLabel';
@@ -49,16 +49,12 @@ export default function SearchOverlay() {
   const tourCompleted = useTourStore((s) => s.hasCompleted)('guided');
 
   const startGuidedTour = useCallback(async () => {
-    const [st, steps] = await Promise.all([
-      loadTrade(HARDEN_TRADE_ID, 'NBA'),
-      buildGuidedTourSteps(),
-    ]);
+    const st = await loadTrade(HARDEN_TRADE_ID, 'NBA');
     if (!st) return;
     const trade = staticTradeToTradeWithDetails(st);
     seedFromTradeCollapsed(trade);
-    // Small delay to let the graph render the collapsed trade node
     setTimeout(() => {
-      startTour('guided', steps);
+      startTour('guided', GUIDED_TOUR_STEPS);
     }, 600);
   }, [seedFromTradeCollapsed, startTour]);
 
