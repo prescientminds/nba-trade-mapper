@@ -143,6 +143,15 @@ export default function GuidedTour() {
     if (rect && rect.top > window.innerHeight * 0.65) {
       // Target is near bottom (toolbar) — position tooltip above it
       pos = { position: 'fixed', bottom: window.innerHeight - rect.top + PAD, left: 12, right: 12, width: 'auto' };
+    } else if (rect && current.target?.startsWith('share-')) {
+      // Share modal elements — position relative to the target, not pinned to edges
+      if (current.placement === 'top') {
+        const bottom = window.innerHeight - rect.top + PAD;
+        pos = { position: 'fixed', bottom: Math.max(12, bottom), left: 12, right: 12, width: 'auto' };
+      } else {
+        const top = rect.bottom + PAD;
+        pos = { position: 'fixed', top: Math.min(top, window.innerHeight - 160), left: 12, right: 12, width: 'auto' };
+      }
     } else if (current.placement === 'top') {
       // Step wants tooltip above target — pin to top so it doesn't cover the content below
       pos = { position: 'fixed', top: 12, left: 12, right: 12, width: 'auto' };

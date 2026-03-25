@@ -669,15 +669,11 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
 
             {/* Controls */}
             {controls}
-          </div>
 
-          {/* ── Pinned action buttons ── */}
-          <div style={{
-            padding: '12px 16px', flexShrink: 0,
-            borderTop: '1px solid rgba(255,255,255,0.06)',
-            background: '#1a1a24',
-          }}>
-            {actionButtons}
+            {/* Action buttons — inline at bottom of scroll area */}
+            <div style={{ marginTop: 8 }}>
+              {actionButtons}
+            </div>
           </div>
         </div>
 
