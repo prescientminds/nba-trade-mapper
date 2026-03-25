@@ -20,13 +20,15 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     placement: 'bottom',
     waitFor: 'trade-expanded',
     waitLabel: 'Click + to expand',
+    zoom: 2,
   },
   // 2. Trade score — spotlight the score section
   {
     target: 'trade-score',
     title: 'TRADE SCORE',
     content: 'Each side is scored by Win Shares — total impact on winning across every season with the new team. Houston received 153 WS. OKC received 67.',
-    placement: 'bottom',
+    placement: 'top',
+    zoom: 3,
   },
   // 3. Salary — target the salary number
   {
@@ -36,7 +38,7 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     placement: 'top',
     waitFor: 'salary-expanded',
     waitLabel: 'Click a salary amount',
-    zoom: 2,
+    zoom: 4,
   },
   // 4. Click player name for inline stats
   {
@@ -46,7 +48,7 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     placement: 'top',
     waitFor: 'inline-stats-opened',
     waitLabel: 'Click a player name',
-    zoom: 2,
+    zoom: 4,
   },
   // 5. WS vs Salary chart — click the WS column header to toggle
   {
@@ -56,7 +58,7 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     placement: 'top',
     waitFor: 'ws-chart-opened',
     waitLabel: 'Click WS',
-    zoom: 3,
+    zoom: 4,
   },
   // 6. Show the chart — zoom into the left 2/3 where the graph lives
   {
@@ -64,7 +66,7 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     title: 'VALUE OVER TIME',
     content: 'When the lines diverge — production up, salary flat — that\'s where a trade paid off. When salary outpaces Win Shares, the contract hurt.',
     placement: 'top',
-    zoom: 2.5,
+    zoom: 3,
   },
   // 7. Accolades + playoffs — zoom into the right half (badges area)
   {
@@ -72,7 +74,7 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     title: 'ACCOLADES & PLAYOFFS',
     content: 'Gold badges are accolades (MVP, All-Star, All-NBA). Playoff badges show series results. Click any playoff badge to see full series stats.',
     placement: 'top',
-    zoom: 3,
+    zoom: 4,
   },
   // 8. Follow the path — zoom in tight on the Path button
   {
