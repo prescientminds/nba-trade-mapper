@@ -257,6 +257,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
     <>
     <div
       className="trade-card"
+      data-tour="trade-card"
       onClick={() => { dismissHint(2); expandTradeNode(id); useTourStore.getState().advanceIfWaiting('trade-expanded'); }}
       style={{
         width: cardWidth,
@@ -758,6 +759,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             } else {
                               next.add(teamId);
                               adjustLayoutForToggle(id, salaryPanelH);
+                              useTourStore.getState().advanceIfWaiting('salary-expanded');
                             }
                             return next;
                           });

@@ -18,6 +18,7 @@ export default function GuidedTour() {
   const steps = useTourStore((s) => s.steps);
   const stepIndex = useTourStore((s) => s.stepIndex);
   const showingWelcome = useTourStore((s) => s.showingWelcome);
+  const revealing = useTourStore((s) => s.revealing);
   const acceptWelcome = useTourStore((s) => s.acceptWelcome);
   const next = useTourStore((s) => s.next);
   const back = useTourStore((s) => s.back);
@@ -85,6 +86,9 @@ export default function GuidedTour() {
 
   if (!activeTour) return null;
 
+  // Reveal phase — overlay hidden so user sees the result of their action
+  if (revealing) return null;
+
   const current = steps[stepIndex];
   if (!current) return null;
   const isFirst = stepIndex === 0;
@@ -97,7 +101,7 @@ export default function GuidedTour() {
       <div style={{
         position: 'fixed', inset: 0, zIndex: 9999,
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(4px)',
+        background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)',
       }}>
         <div style={{
           background: '#1a1a24', border: '1px solid rgba(255,255,255,0.1)',
@@ -179,13 +183,13 @@ export default function GuidedTour() {
         <div style={{
           position: 'fixed', top: rect.top - 6, left: rect.left - 6,
           width: rect.width + 12, height: rect.height + 12, borderRadius: 10,
-          boxShadow: '0 0 0 9999px rgba(0, 0, 0, 0.75)',
+          boxShadow: '0 0 0 9999px rgba(0, 0, 0, 0.6)',
           border: '1px solid rgba(255,107,53,0.25)',
           zIndex: 9999, pointerEvents: 'none', transition: 'all 0.35s ease-out',
         }} />
       ) : (
         <div style={{
-          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)',
+          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)',
           zIndex: 9999, pointerEvents: 'none',
         }} />
       )}

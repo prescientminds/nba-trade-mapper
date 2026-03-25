@@ -270,8 +270,8 @@ export function SeasonTable({ rows, onHeightChange, chartSignal = 0 }: { rows: S
         <col style={{ width: 19 }} />{/* GP  */}
         <col style={{ width: 25 }} />{/* PPG */}
         <col style={{ width: 25 }} />{/* RPG */}
-        <col style={{ width: 20 }} />{/* APG */}
-        <col style={{ width: 23 }} />{/* WS  */}
+        <col style={{ width: 26 }} />{/* APG */}
+        <col style={{ width: 28 }} />{/* WS  */}
         <col />                       {/* Accolades — all remaining width */}
       </colgroup>
       <thead>

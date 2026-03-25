@@ -39,6 +39,8 @@ interface TourState {
   showingWelcome: boolean;
   /** Has the user completed (or skipped) the main guided tour? */
   completed: boolean;
+  /** Brief reveal phase — overlay hides so user can see the result of their action */
+  revealing: boolean;
 
   /** Start a tour */
   startTour: (tourId: string, steps: TourStep[], showWelcome?: boolean) => void;
@@ -67,6 +69,7 @@ export const useTourStore = create<TourState>((set, get) => ({
   stepIndex: 0,
   showingWelcome: false,
   completed: false,
+  revealing: false,
 
   startTour: (tourId, steps, showWelcome = false) => {
     set({
@@ -111,8 +114,12 @@ export const useTourStore = create<TourState>((set, get) => ({
     if (!activeTour || showingWelcome) return;
     const current = steps[stepIndex];
     if (current?.waitFor === tag) {
-      // Small delay so the UI action completes first
-      setTimeout(() => get().next(), 400);
+      // Reveal phase: hide overlay so user sees the result of their action
+      set({ revealing: true });
+      setTimeout(() => {
+        set({ revealing: false });
+        get().next();
+      }, 1200);
     }
   },
 
