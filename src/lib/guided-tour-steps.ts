@@ -117,6 +117,13 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     waitLabel: 'Click SHARE',
   },
   // ── Share card creation flow ──
+  // First: show the card preview so user sees what they're building
+  {
+    target: 'share-preview',
+    title: 'YOUR TRADE CARD',
+    content: 'This is what gets shared. Every control below changes the card in real time.',
+    placement: 'bottom',
+  },
   {
     target: 'share-card-type',
     title: 'CARD TYPE',
@@ -126,7 +133,7 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
   {
     target: 'share-skin',
     title: 'SKIN',
-    content: 'Pick a visual style for the card.',
+    content: 'Classic, Prizm, Noir, or Retro — pick a look for the card.',
     placement: 'bottom',
   },
   {
@@ -151,7 +158,7 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     target: 'share-preview',
     title: 'THE CIPOLLONE STANDARD',
     content: 'Every trade gets a verdict — from balanced to catastrophic. The worst trades don\'t meet the Cipollone Standard.',
-    placement: 'top',
+    placement: 'bottom',
   },
   {
     target: 'share-actions',
