@@ -107,12 +107,17 @@ export default function GuidedTour() {
   }
 
   // ── Tooltip position ────────────────────────────────────────────────
-  const W = 320;
+  const vw = typeof window !== 'undefined' ? window.innerWidth : 400;
+  const isMobile = vw < 480;
+  const W = isMobile ? vw - 24 : Math.min(320, vw - 32);
   const PAD = 14;
   let pos: React.CSSProperties;
 
-  if (rect) {
-    const cx = Math.max(16, Math.min(rect.left + rect.width / 2 - W / 2, window.innerWidth - W - 16));
+  if (isMobile) {
+    // Pin to bottom on mobile — always visible regardless of target position
+    pos = { position: 'fixed', bottom: 12, left: 12, right: 12, width: 'auto' };
+  } else if (rect) {
+    const cx = Math.max(16, Math.min(rect.left + rect.width / 2 - W / 2, vw - W - 16));
     if (current.placement === 'bottom') {
       const top = rect.bottom + PAD;
       if (top + 180 > window.innerHeight) {
@@ -145,14 +150,13 @@ export default function GuidedTour() {
       {/* No click guard — users skip via the explicit "Skip tour" button.
           This lets clicks pass through to React Flow nodes on all steps. */}
 
-      {/* Spotlight overlay — always pointer-events:none */}
+      {/* Spotlight overlay with gold halo — always pointer-events:none */}
       {rect ? (
-        <div style={{
+        <div className="tour-spotlight" style={{
           position: 'fixed', top: rect.top - 6, left: rect.left - 6,
           width: rect.width + 12, height: rect.height + 12, borderRadius: 10,
-          boxShadow: '0 0 0 9999px rgba(0, 0, 0, 0.6)',
-          border: '1px solid rgba(255,107,53,0.25)',
-          zIndex: 9999, pointerEvents: 'none', transition: 'all 0.35s ease-out',
+          zIndex: 9999, pointerEvents: 'none',
+          transition: 'top 0.35s ease-out, left 0.35s ease-out, width 0.35s ease-out, height 0.35s ease-out',
         }} />
       ) : (
         <div style={{
@@ -225,8 +229,30 @@ export default function GuidedTour() {
         </div>
       </div>
 
-      {/* Pulse animation for interactive hint */}
+      {/* Tour animations */}
       <style>{`
+        .tour-spotlight {
+          border: 2px solid rgba(249, 199, 79, 0.6);
+          box-shadow:
+            0 0 0 9999px rgba(0, 0, 0, 0.6),
+            0 0 15px 3px rgba(249, 199, 79, 0.5),
+            0 0 30px 6px rgba(249, 199, 79, 0.2);
+          animation: tour-halo 2s ease-in-out infinite;
+        }
+        @keyframes tour-halo {
+          0%, 100% {
+            box-shadow:
+              0 0 0 9999px rgba(0, 0, 0, 0.6),
+              0 0 15px 3px rgba(249, 199, 79, 0.5),
+              0 0 30px 6px rgba(249, 199, 79, 0.2);
+          }
+          50% {
+            box-shadow:
+              0 0 0 9999px rgba(0, 0, 0, 0.6),
+              0 0 25px 8px rgba(249, 199, 79, 0.7),
+              0 0 50px 14px rgba(249, 199, 79, 0.3);
+          }
+        }
         @keyframes tour-pulse {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.6; }

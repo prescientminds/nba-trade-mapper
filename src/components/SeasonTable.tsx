@@ -342,6 +342,14 @@ export function SeasonTable({ rows, onHeightChange, chartSignal = 0 }: { rows: S
                     if (!pb) return null;
                     const hasSeriesData = r.playoffSeries && r.playoffSeries.length > 0;
                     const deepestSeries = hasSeriesData ? r.playoffSeries![r.playoffSeries!.length - 1] : null;
+                    // Build series label: "Finals W4-2 vs BOS"
+                    let seriesLabel = pb.label;
+                    if (deepestSeries) {
+                      const sw = deepestSeries.games.filter(g => g.result === 'W').length;
+                      const sl = deepestSeries.games.filter(g => g.result !== 'W').length;
+                      const wl = sw > sl ? `W${sw}-${sl}` : `L${sw}-${sl}`;
+                      seriesLabel = `${pb.label} ${wl} vs ${deepestSeries.opponentId}`;
+                    }
                     return (
                       <span
                         className={hasSeriesData ? 'nopan nodrag' : undefined}
@@ -374,7 +382,7 @@ export function SeasonTable({ rows, onHeightChange, chartSignal = 0 }: { rows: S
                           cursor: hasSeriesData ? 'pointer' : undefined,
                         }}
                       >
-                        {pb.label}
+                        {seriesLabel}
                       </span>
                     );
                   })()}
