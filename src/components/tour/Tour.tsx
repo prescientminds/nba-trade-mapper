@@ -238,13 +238,21 @@ export default function GuidedTour() {
               }}>Back</button>
             )}
             {isInteractive ? (
-              <div style={{
-                padding: '7px 18px', background: 'rgba(255,107,53,0.15)',
-                border: '1px solid rgba(255,107,53,0.3)', borderRadius: 6,
-                color: 'var(--accent-orange)', fontSize: 11, fontWeight: 700,
+              <button onClick={() => {
+                // Programmatically click the target element to trigger its action
+                const el = document.querySelector(`[data-tour="${current.target}"]`);
+                if (el instanceof HTMLElement) {
+                  el.click();
+                } else {
+                  next();
+                }
+              }} style={{
+                padding: '7px 18px', background: 'var(--accent-orange)',
+                border: 'none', borderRadius: 6,
+                color: '#fff', fontSize: 11, fontWeight: 700,
                 fontFamily: 'var(--font-body)', letterSpacing: 0.3,
-                animation: 'tour-pulse 2s ease-in-out infinite',
-              }}>{current.waitLabel || 'Interact to continue'}</div>
+                cursor: 'pointer',
+              }}>{current.waitLabel || 'Next'}</button>
             ) : (
               <button onClick={isLast ? skip : next} style={{
                 padding: '7px 18px', background: 'var(--accent-orange)', border: 'none',

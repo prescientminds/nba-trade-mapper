@@ -46,7 +46,25 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     waitFor: 'inline-stats-opened',
     waitLabel: 'Click a player name',
   },
-  // 5. Accolades + playoffs explanation — zoom into the richest season row
+  // 5. WS vs Salary chart — click the WS header or chart icon to toggle
+  {
+    target: 'tour-ws-icon',
+    title: 'WIN SHARES vs SALARY',
+    content: 'Click the chart icon to see Win Shares plotted against salary across every season. Orange line is production, teal is cost.',
+    placement: 'bottom',
+    waitFor: 'ws-chart-opened',
+    waitLabel: 'Click the chart icon',
+    zoom: 1.8,
+  },
+  // 6. Show the chart — passive, just center on it
+  {
+    target: 'tour-ws-chart',
+    title: 'VALUE OVER TIME',
+    content: 'When the lines diverge — production up, salary flat — that\'s where a trade paid off. When salary outpaces Win Shares, the contract hurt.',
+    placement: 'top',
+    zoom: 1.8,
+  },
+  // 7. Accolades + playoffs explanation — zoom into the richest season row
   {
     target: 'tour-accolades-row',
     title: 'ACCOLADES & PLAYOFFS',

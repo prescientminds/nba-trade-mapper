@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import type { SeasonDetailRow, PlayoffPeakGame, PlayoffSeries } from '@/lib/graph-store';
+import { useTourStore } from '@/lib/tour-store';
 
 function playoffBadge(result: string | null): { label: string; color: string; bg: string } | null {
   if (result === 'CHAMP')  return { label: '🏆 Champ',  color: '#f9c74f', bg: 'rgba(249,199,79,0.18)' };
@@ -283,11 +284,13 @@ export function SeasonTable({ rows, onHeightChange, chartSignal = 0 }: { rows: S
           <th style={thStyle}>APG</th>
           <th
             className="nopan nodrag"
+            data-tour="tour-ws-header"
             onClick={(e) => {
               e.stopPropagation();
               const VALUE_CHART_H = 70;
               onHeightChange?.(showValueChart ? -VALUE_CHART_H : VALUE_CHART_H);
               setShowValueChart(!showValueChart);
+              useTourStore.getState().advanceIfWaiting('ws-chart-opened');
             }}
             style={{
               ...thStyle,
@@ -463,7 +466,7 @@ export function SeasonTable({ rows, onHeightChange, chartSignal = 0 }: { rows: S
         </tfoot>
       )}
     </table>
-    {showValueChart && <ValueChart rows={rows} />}
+    {showValueChart && <div data-tour="tour-ws-chart"><ValueChart rows={rows} /></div>}
     </>
   );
 }

@@ -1008,7 +1008,8 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             {/* WS v Salary chart icon */}
                             <span
                               className="nopan nodrag"
-                              onClick={(e) => { e.stopPropagation(); handleWsClick(e, asset); }}
+                              data-tour={assetIdx === 0 ? 'tour-ws-icon' : undefined}
+                              onClick={(e) => { e.stopPropagation(); handleWsClick(e, asset); useTourStore.getState().advanceIfWaiting('ws-chart-opened'); }}
                               style={{
                                 color: '#5b9bd5',
                                 cursor: 'pointer',
