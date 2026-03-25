@@ -25,7 +25,7 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
   {
     target: 'trade-score',
     title: 'TRADE SCORE',
-    content: 'Each side is scored by Win Shares — total impact on winning across every season with the new team. Houston received 153 WS. OKC received 14.',
+    content: 'Each side is scored by Win Shares — total impact on winning across every season with the new team. Houston received 153 WS. OKC received 67.',
     placement: 'bottom',
   },
   // 3. Salary — interactive, click to see per-player breakdown
