@@ -21,9 +21,9 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     waitFor: 'trade-expanded',
     waitLabel: 'Click + to expand',
   },
-  // 2. Trade score — whole card visible so user sees both sides
+  // 2. Trade score — spotlight the score section
   {
-    target: 'trade-card',
+    target: 'trade-score',
     title: 'TRADE SCORE',
     content: 'Each side is scored by Win Shares — total impact on winning across every season with the new team. Houston received 153 WS. OKC received 14.',
     placement: 'bottom',
