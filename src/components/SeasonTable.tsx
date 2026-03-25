@@ -319,7 +319,7 @@ export function SeasonTable({ rows, onHeightChange, chartSignal = 0 }: { rows: S
           const compactTd: React.CSSProperties = { ...tdStyle, padding: '1px 2px' };
           return (
             <React.Fragment key={r.season}>
-            <tr data-tour={r.season === richestSeason ? 'tour-accolades-row' : undefined}>
+            <tr>
               <td style={{ ...compactTd, textAlign: 'left', fontSize: 9, color: 'var(--text-tertiary)', padding: '1px 2px 1px 0' }}>
                 {shortSeason}
               </td>
@@ -329,7 +329,7 @@ export function SeasonTable({ rows, onHeightChange, chartSignal = 0 }: { rows: S
               <td style={compactTd}>{r.apg !== null ? r.apg.toFixed(1) : '--'}</td>
               <td style={{ ...compactTd, fontWeight: 700, color: '#fff' }}>{r.winShares !== null ? r.winShares.toFixed(1) : '--'}</td>
               <td style={{ ...compactTd, textAlign: 'left', paddingLeft: 3, overflow: 'hidden' }}>
-                <span style={{ display: 'inline-flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
+                <span data-tour={r.season === richestSeason ? 'tour-accolades-row' : undefined} style={{ display: 'inline-flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
                   {r.accolades.map((a, i) => (
                     <span
                       key={i}

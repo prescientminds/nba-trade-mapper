@@ -148,8 +148,19 @@ async function main() {
       .upsert(batch, { onConflict: 'player_name,team_id,season' });
 
     if (error) {
-      console.error(`Batch error at ${i}: ${error.message}`);
-      errors++;
+      console.error(`Batch error at ${i}: ${error.message} — retrying row-by-row...`);
+      // Retry row-by-row to isolate failures (likely encoding issues)
+      for (const row of batch) {
+        const { error: rowErr } = await supabase
+          .from('player_seasons')
+          .upsert([row], { onConflict: 'player_name,team_id,season' });
+        if (rowErr) {
+          console.error(`  Row error: ${row.player_name} ${row.season} ${row.team_id}: ${rowErr.message}`);
+          errors++;
+        } else {
+          inserted++;
+        }
+      }
     } else {
       inserted += batch.length;
     }

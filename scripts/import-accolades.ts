@@ -93,8 +93,9 @@ async function main() {
         // CSV stores ordinal strings: '1st', '2nd', '3rd' — use directly
         const ordinal = teamNum === '1st' ? '1st' : teamNum === '2nd' ? '2nd' : '3rd';
         addAccolade(player, `All-NBA ${ordinal} Team`, season);
-      } else if (type.includes('all-defensive')) {
-        addAccolade(player, 'All-Defensive Team', season);
+      } else if (type.includes('all-defense')) {
+        const ordinal = teamNum === '1st' ? '1st' : '2nd';
+        addAccolade(player, `All-Defensive ${ordinal} Team`, season);
       } else if (type.includes('all-rookie')) {
         addAccolade(player, 'All-Rookie Team', season);
       }
@@ -123,7 +124,7 @@ async function main() {
 
   console.log(`\nTotal accolades to upsert: ${accolades.length}`);
 
-  // Upsert in batches
+  // Insert in batches (wipe table before re-running to avoid duplicates)
   const BATCH = 500;
   let inserted = 0;
   let errors = 0;
@@ -135,8 +136,17 @@ async function main() {
       .insert(batch);
 
     if (error) {
-      console.error(`Batch error at ${i}: ${error.message}`);
-      errors++;
+      console.error(`Batch error at ${i}: ${error.message} — retrying row-by-row...`);
+      for (const row of batch) {
+        const { error: rowErr } = await supabase
+          .from('player_accolades')
+          .insert([row]);
+        if (rowErr) {
+          console.error(`  Row error: ${row.player_name} ${row.season} ${row.accolade}: ${rowErr.message}`);
+        } else {
+          inserted++;
+        }
+      }
     } else {
       inserted += batch.length;
     }

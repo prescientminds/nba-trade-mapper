@@ -33,8 +33,8 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
   // 3. Salary — target the salary number
   {
     target: 'trade-salary',
-    title: 'SALARY BREAKDOWN',
-    content: 'Click the salary amount to see what each player was paid.',
+    title: 'TOTAL SALARY PAID',
+    content: 'See the total future salary each team paid to the players they received in the trade. Click the salary to see the breakdown by player.',
     placement: 'top',
     waitFor: 'salary-expanded',
     waitLabel: 'Click a salary amount',

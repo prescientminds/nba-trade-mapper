@@ -802,6 +802,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "PHI",
+        "pick_year": 1994,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Sharone Wright",
+        "notes": null
       }
     ]
   },

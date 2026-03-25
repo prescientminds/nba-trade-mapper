@@ -86,11 +86,9 @@ export async function loadSharedGraph(id: string): Promise<SharedGraph | null> {
 
   if (error || !data) return null;
 
-  // Fire-and-forget view count increment
-  (sb.from('shared_graphs') as any)
-    .update({ view_count: (data.view_count || 0) + 1 })
-    .eq('id', id)
-    .then(() => {});
+  // Fire-and-forget atomic view count increment
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (sb.rpc as any)('increment_view_count', { share_id: id }).then(() => {});
 
   return data;
 }
