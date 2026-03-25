@@ -50,20 +50,20 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     waitLabel: 'Click a player name',
     zoom: 4,
   },
-  // 5. WS vs Salary chart — click the WS column header to toggle
+  // 5. Win Shares — zoom in tight on the WS column header + top seasons
   {
     target: 'tour-ws-header',
-    title: 'WIN SHARES vs SALARY',
-    content: 'Click the WS column header to chart Win Shares against salary across every season. Orange is production, teal is cost.',
+    title: 'WIN SHARES',
+    content: 'Win Shares measure total impact on winning. Click WS to chart it against salary.',
     placement: 'top',
     waitFor: 'ws-chart-opened',
     waitLabel: 'Click WS',
     zoom: 4,
   },
-  // 6. Show the chart — zoom into the left 2/3 where the graph lives
+  // 6. Show the chart
   {
     target: 'tour-ws-chart',
-    title: 'VALUE OVER TIME',
+    title: 'WIN SHARES vs SALARY',
     content: 'When the lines diverge — production up, salary flat — that\'s where a trade paid off. When salary outpaces Win Shares, the contract hurt.',
     placement: 'top',
     zoom: 3,
