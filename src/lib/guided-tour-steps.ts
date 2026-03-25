@@ -56,25 +56,25 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     placement: 'top',
     waitFor: 'ws-chart-opened',
     waitLabel: 'Click WS',
-    zoom: 2,
+    zoom: 3,
   },
-  // 6. Show the chart — passive, just center on it
+  // 6. Show the chart — zoom into the left 2/3 where the graph lives
   {
     target: 'tour-ws-chart',
     title: 'VALUE OVER TIME',
     content: 'When the lines diverge — production up, salary flat — that\'s where a trade paid off. When salary outpaces Win Shares, the contract hurt.',
     placement: 'top',
-    zoom: 1.5,
+    zoom: 2.5,
   },
-  // 7. Accolades + playoffs explanation — zoom into the richest season row
+  // 7. Accolades + playoffs — zoom into the right half (badges area)
   {
     target: 'tour-accolades-row',
     title: 'ACCOLADES & PLAYOFFS',
     content: 'Gold badges are accolades (MVP, All-Star, All-NBA). Playoff badges show series results. Click any playoff badge to see full series stats.',
     placement: 'top',
-    zoom: 2,
+    zoom: 3,
   },
-  // 8. Follow the path — zoom into the Path button
+  // 8. Follow the path — zoom in tight on the Path button
   {
     target: 'trade-path',
     title: 'FOLLOW THE PATH',
@@ -82,7 +82,7 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     placement: 'top',
     waitFor: 'path-started',
     waitLabel: 'Click Path →',
-    zoom: 2,
+    zoom: 4,
   },
   // 7. Career journey — follow the arrows to hop between stints
   {

@@ -477,7 +477,7 @@ function GraphCanvas() {
           edgeTypes={edgeTypes}
           onPaneClick={() => { clearHighlightedEdges(); exitFollowPath(); }}
           minZoom={0.1}
-          maxZoom={2}
+          maxZoom={4}
           panOnDrag={true}
           zoomOnPinch={true}
           zoomOnScroll={!isMobile}
