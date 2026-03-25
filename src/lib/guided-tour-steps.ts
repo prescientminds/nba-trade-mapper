@@ -33,28 +33,30 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     target: 'trade-salary',
     title: 'SALARY BREAKDOWN',
     content: 'Click the salary amount to see what each player was paid.',
-    placement: 'bottom',
+    placement: 'top',
     waitFor: 'salary-expanded',
     waitLabel: 'Click a salary amount',
+    zoom: 2,
   },
   // 4. Click player name for inline stats
   {
     target: 'trade-player',
     title: 'PLAYER STATS',
     content: 'Click any player name to see their season-by-season stats, accolades, and playoff results.',
-    placement: 'bottom',
+    placement: 'top',
     waitFor: 'inline-stats-opened',
     waitLabel: 'Click a player name',
+    zoom: 2,
   },
   // 5. WS vs Salary chart — click the WS column header to toggle
   {
     target: 'tour-ws-header',
     title: 'WIN SHARES vs SALARY',
     content: 'Click the WS column header to chart Win Shares against salary across every season. Orange is production, teal is cost.',
-    placement: 'bottom',
+    placement: 'top',
     waitFor: 'ws-chart-opened',
     waitLabel: 'Click WS',
-    zoom: 1.8,
+    zoom: 2,
   },
   // 6. Show the chart — passive, just center on it
   {
@@ -62,25 +64,25 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     title: 'VALUE OVER TIME',
     content: 'When the lines diverge — production up, salary flat — that\'s where a trade paid off. When salary outpaces Win Shares, the contract hurt.',
     placement: 'top',
-    zoom: 1.2,
+    zoom: 1.5,
   },
   // 7. Accolades + playoffs explanation — zoom into the richest season row
   {
     target: 'tour-accolades-row',
     title: 'ACCOLADES & PLAYOFFS',
     content: 'Gold badges are accolades (MVP, All-Star, All-NBA). Playoff badges show series results. Click any playoff badge to see full series stats.',
-    placement: 'bottom',
-    zoom: 1.8,
+    placement: 'top',
+    zoom: 2,
   },
-  // 6. Follow the path — zoom into the Path button
+  // 8. Follow the path — zoom into the Path button
   {
     target: 'trade-path',
     title: 'FOLLOW THE PATH',
     content: 'Click Path to trace their full career journey — every team, every trade.',
-    placement: 'bottom',
+    placement: 'top',
     waitFor: 'path-started',
     waitLabel: 'Click Path →',
-    zoom: 1.8,
+    zoom: 2,
   },
   // 7. Career journey — stint cards appear
   {
