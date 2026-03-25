@@ -38,6 +38,17 @@
         "original_team_id": null,
         "became_player_name": "Joe Wylie",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Joe Wylie",
+        "from_team_id": "LAC",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -442,6 +453,17 @@
         "original_team_id": null,
         "became_player_name": "Jeff Nordgaard",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sedale Threatt",
+        "from_team_id": "OKC",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -490,8 +512,8 @@
         "player_name": null,
         "from_team_id": "GSW",
         "to_team_id": "SAC",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 1995,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Tyus Edny",
         "notes": null
@@ -554,6 +576,17 @@
         "player_name": "Dennis Hopson",
         "from_team_id": "CHI",
         "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bob Hansen",
+        "from_team_id": "SAC",
+        "to_team_id": "CHI",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -854,6 +887,17 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Loren Meyer",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rolando Blackman",
+        "from_team_id": "DAL",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]

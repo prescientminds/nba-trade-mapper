@@ -244,6 +244,17 @@
         "original_team_id": null,
         "became_player_name": "Jerry Reynolds (a)",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jerry Reynolds",
+        "from_team_id": "MIL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -392,6 +403,17 @@
         "original_team_id": null,
         "became_player_name": "Mike McGee",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mike McGee",
+        "from_team_id": "SAC",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -418,8 +440,8 @@
         "player_name": null,
         "from_team_id": "SAS",
         "to_team_id": "LAL",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 1990,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Tony Smith (b)",
         "notes": null
@@ -433,6 +455,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Mike Smrek",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mike Smrek",
+        "from_team_id": "LAL",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -679,6 +712,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dave Greenwood",
+        "from_team_id": "SAS",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -890,6 +934,17 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Kiki Vandeweghe",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kiki Vandeweghe",
+        "from_team_id": "POR",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1166,6 +1221,17 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Brad Sellers",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brad Sellers",
+        "from_team_id": "CHI",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]

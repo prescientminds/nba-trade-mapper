@@ -80,6 +80,17 @@
         "original_team_id": null,
         "became_player_name": "Mario Elie",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mario Elie",
+        "from_team_id": "POR",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -260,6 +271,17 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Carlos Rogers",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Eddie Johnson",
+        "from_team_id": "OKC",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -486,6 +508,17 @@
         "original_team_id": null,
         "became_player_name": "William Njoku",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sean Green",
+        "from_team_id": "IND",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -580,6 +613,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Antonio Lang",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Negele Knight",
+        "from_team_id": "PHX",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -909,6 +953,17 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "CHI",
+        "pick_year": 1995,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Dragan Tarlać",
         "notes": null
       }
     ]
@@ -1265,8 +1320,8 @@
         "player_name": null,
         "from_team_id": "MIN",
         "to_team_id": "OKC",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 1996,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Joe Blair",
         "notes": null
@@ -1280,6 +1335,17 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": "Zeljko Rebraca",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Željko Rebrača",
+        "from_team_id": "OKC",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]

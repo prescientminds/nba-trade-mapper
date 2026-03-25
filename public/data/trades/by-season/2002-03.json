@@ -161,8 +161,8 @@
         "player_name": null,
         "from_team_id": "DEN",
         "to_team_id": "ORL",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 2004,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Sergei Lishchuk",
         "notes": null
@@ -185,6 +185,28 @@
         "to_team_id": "DEN",
         "pick_year": 2007,
         "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Marcus Williams",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Don Reid",
+        "from_team_id": "ORL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "DEN",
+        "pick_year": 2006,
+        "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Marcus Williams",
         "notes": null
@@ -322,8 +344,8 @@
         "player_name": null,
         "from_team_id": "ATL",
         "to_team_id": "MIL",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 2003,
+        "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "T.J.Ford",
         "notes": null
@@ -519,6 +541,17 @@
         "original_team_id": null,
         "became_player_name": "Malik Hairston",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Milt Palacio",
+        "from_team_id": "PHX",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -673,8 +706,8 @@
         "player_name": null,
         "from_team_id": "SAS",
         "to_team_id": "DET",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 2003,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Andreas Gliniadakis",
         "notes": null
@@ -688,6 +721,17 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": "Mengke Bateer",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mengke Bateer",
+        "from_team_id": "DET",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -810,6 +854,28 @@
         "original_team_id": null,
         "became_player_name": "Joey Graham",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "James Posey",
+        "from_team_id": "DEN",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "DEN",
+        "pick_year": 2004,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Vassilis Spanoulis",
+        "notes": null
       }
     ]
   },
@@ -869,8 +935,8 @@
         "player_name": null,
         "from_team_id": "ORL",
         "to_team_id": "MEM",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 2004,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Sergei Lishchuk",
         "notes": null
@@ -966,8 +1032,8 @@
         "player_name": null,
         "from_team_id": "BOS",
         "to_team_id": "DEN",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 2003,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Sani Becirovic",
         "notes": null
@@ -1258,6 +1324,17 @@
         "original_team_id": null,
         "became_player_name": "Matt Bonner",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Matt Bonner",
+        "from_team_id": "CHI",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1447,6 +1524,17 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Leandro Barbosa",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Leandro Barbosa",
+        "from_team_id": "SAS",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]

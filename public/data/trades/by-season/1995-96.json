@@ -272,6 +272,17 @@
         "original_team_id": null,
         "became_player_name": "Vitaly Potapenko",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mark Price",
+        "from_team_id": "CLE",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -371,6 +382,17 @@
       {
         "type": "player",
         "player_name": "John Williams",
+        "from_team_id": "CLE",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Hot Rod Williams",
         "from_team_id": "CLE",
         "to_team_id": "PHX",
         "pick_year": null,
@@ -623,6 +645,17 @@
         "original_team_id": null,
         "became_player_name": "Tony Delk",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Glen Rice",
+        "from_team_id": "MIA",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -857,6 +890,17 @@
         "original_team_id": null,
         "became_player_name": "Darrick Martin",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Darrick Martin",
+        "from_team_id": "MEM",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -989,6 +1033,17 @@
       {
         "type": "player",
         "player_name": "Charles Smith (Daniel)",
+        "from_team_id": "NYK",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Charles Smith",
         "from_team_id": "NYK",
         "to_team_id": "SAS",
         "pick_year": null,
@@ -1135,6 +1190,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "PHI",
+        "pick_year": 1997,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "James Collins",
+        "notes": null
+      },
+      {
+        "type": "swap",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "TOR",
+        "pick_year": 1996,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Sharone Wright. Philadelphia had the option to swap 1st round draft picks with Toronto in either 1996 or 1997 but did not do so"
       }
     ]
   },
@@ -1263,6 +1340,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tim Hardaway",
+        "from_team_id": "GSW",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1300,6 +1388,17 @@
         "player_name": "Terrence Rencher",
         "from_team_id": "MIA",
         "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tony Smith",
+        "from_team_id": "PHX",
+        "to_team_id": "MIA",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1534,8 +1633,8 @@
         "player_name": null,
         "from_team_id": "IND",
         "to_team_id": "DEN",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 1996,
+        "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Efthimis Retzias",
         "notes": null
@@ -1609,8 +1708,8 @@
         "player_name": null,
         "from_team_id": "HOU",
         "to_team_id": "MEM",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 1996,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Tim Breaux",
         "notes": null
@@ -1668,6 +1767,28 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Serge Zwikker",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tim Breaux",
+        "from_team_id": "HOU",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Pete Chilcutt",
+        "from_team_id": "HOU",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1732,6 +1853,17 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Samaki Walker",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Eric Montross",
+        "from_team_id": "BOS",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1828,6 +1960,17 @@
         "original_team_id": null,
         "became_player_name": "DeShawn Stevenson",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Martin Müürsepp",
+        "from_team_id": "UTA",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1881,6 +2024,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "MIL",
+        "pick_year": 1998,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Rasho Nesterović",
+        "notes": null
       }
     ]
   },
@@ -1922,6 +2076,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Eddie Elisma",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ron Riley",
+        "from_team_id": "OKC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]

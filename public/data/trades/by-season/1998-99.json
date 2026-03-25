@@ -38,6 +38,17 @@
         "original_team_id": null,
         "became_player_name": "Carlos Delfino",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mirsad Türkcan",
+        "from_team_id": "HOU",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -250,6 +261,28 @@
         "original_team_id": null,
         "became_player_name": "Keon Clark",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Keon Clark",
+        "from_team_id": "ORL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Johnny Taylor",
+        "from_team_id": "ORL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -382,6 +415,39 @@
         "original_team_id": null,
         "became_player_name": "Jonathan Bender",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Željko Rebrača",
+        "from_team_id": "MIN",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Micheal Williams",
+        "from_team_id": "MIN",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "TOR",
+        "pick_year": 2000,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Morris Peterson",
+        "notes": null
       }
     ]
   },
@@ -472,8 +538,8 @@
         "player_name": null,
         "from_team_id": "SAS",
         "to_team_id": "CHI",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 2000,
+        "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Dalibor Bagaric",
         "notes": null
@@ -529,6 +595,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Andrew Lang",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Andrew Lang",
+        "from_team_id": "MIL",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -700,6 +777,17 @@
         "original_team_id": null,
         "became_player_name": "Chris Porter",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Todd Fuller",
+        "from_team_id": "GSW",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -768,6 +856,17 @@
       {
         "type": "player",
         "player_name": "B.J. Armstrong",
+        "from_team_id": "CHA",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Glen Rice",
         "from_team_id": "CHA",
         "to_team_id": "LAL",
         "pick_year": null,
@@ -912,6 +1011,39 @@
         "type": "player",
         "player_name": "Elliot Perry",
         "from_team_id": "MIL",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chris Carr",
+        "from_team_id": "MIN",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bill Curley",
+        "from_team_id": "MIN",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Stephon Marbury",
+        "from_team_id": "MIN",
         "to_team_id": "BKN",
         "pick_year": null,
         "pick_round": null,
@@ -1277,6 +1409,17 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Quentin Richardson",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jumaine Jones",
+        "from_team_id": "ATL",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]

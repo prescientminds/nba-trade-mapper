@@ -188,6 +188,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Larry Drew",
+        "from_team_id": "SAC",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -358,6 +369,17 @@
         "original_team_id": null,
         "became_player_name": "Willie Burton",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jay Vincent",
+        "from_team_id": "DAL",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -411,6 +433,17 @@
         "original_team_id": null,
         "became_player_name": "Kyle Macy",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kyle Macy",
+        "from_team_id": "CHI",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -452,6 +485,28 @@
         "pick_round": 3,
         "original_team_id": null,
         "became_player_name": "Billy Donovan",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Fred Roberts",
+        "from_team_id": "UTA",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Billy Donovan",
+        "from_team_id": "BOS",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -543,8 +598,8 @@
         "player_name": null,
         "from_team_id": "OKC",
         "to_team_id": "DET",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 1987,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Fred Banks",
         "notes": null
@@ -569,6 +624,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "John Long",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "John Long",
+        "from_team_id": "DET",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -611,6 +677,17 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Darrell Walker",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Darrell Walker",
+        "from_team_id": "NYK",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -718,6 +795,17 @@
         "original_team_id": null,
         "became_player_name": "Chucky Brown",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Granville Waiters",
+        "from_team_id": "HOU",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -759,6 +847,28 @@
         "pick_round": 7,
         "original_team_id": null,
         "became_player_name": "Curtis Hunter",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Pete Williams",
+        "from_team_id": "DEN",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Curtis Hunter",
+        "from_team_id": "MIL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -844,6 +954,28 @@
         "original_team_id": null,
         "became_player_name": "Jawann Oldham",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jawann Oldham",
+        "from_team_id": "CHI",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "CHI",
+        "pick_year": 1988,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Sylvester Gray",
+        "notes": null
       }
     ]
   },
@@ -885,6 +1017,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Winston Garland",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chris Engler",
+        "from_team_id": "MIL",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1129,6 +1272,28 @@
         "original_team_id": null,
         "became_player_name": "Cedric Maxwell",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cedric Maxwell",
+        "from_team_id": "LAC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "LAC",
+        "pick_year": 1989,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Chucky Brown",
+        "notes": null
       }
     ]
   },
@@ -1181,6 +1346,17 @@
         "pick_round": 3,
         "original_team_id": null,
         "became_player_name": "Kurt Nimphius",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kurt Nimphius",
+        "from_team_id": "LAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1268,6 +1444,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Pétur Guðmundsson",
+        "from_team_id": "LAL",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1309,6 +1496,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Chucky Brown",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ben Poquette",
+        "from_team_id": "CLE",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1447,6 +1645,17 @@
         "original_team_id": null,
         "became_player_name": "Scott Skiles",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Scott Skiles",
+        "from_team_id": "MIL",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1500,6 +1709,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Eddie Johnson",
+        "from_team_id": "SAC",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1541,6 +1761,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Shelton Jones",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Artis Gilmore",
+        "from_team_id": "SAS",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1601,10 +1832,10 @@
         "player_name": null,
         "from_team_id": "CHI",
         "to_team_id": "OKC",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 1989,
+        "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Dana Barros",
         "notes": "1989 pick swap right — SEA exercised swap (#20→#18) then traded #18 back to CHI for Brad Sellers; CHI used #18 to draft B.J. Armstrong"
       },
       {

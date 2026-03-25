@@ -102,6 +102,17 @@
         "original_team_id": null,
         "became_player_name": "Darren Tillis",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Darren Tillis",
+        "from_team_id": "CLE",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -144,6 +155,17 @@
         "original_team_id": null,
         "became_player_name": "Granville Waiters",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Granville Waiters",
+        "from_team_id": "POR",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -185,6 +207,28 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": "Petur Gudmundsson",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Pétur Guðmundsson",
+        "from_team_id": "POR",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tim Kearney",
+        "from_team_id": "DET",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -289,8 +333,8 @@
         "player_name": null,
         "from_team_id": "LAC",
         "to_team_id": "OKC",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 1987,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Fred Banks",
         "notes": null
@@ -304,6 +348,17 @@
         "pick_round": 5,
         "original_team_id": null,
         "became_player_name": "Terry Williams",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Terry Williams",
+        "from_team_id": "LAC",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -346,6 +401,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Linton Townes",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Linton Townes",
+        "from_team_id": "POR",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -558,10 +624,21 @@
         "player_name": null,
         "from_team_id": "MIL",
         "to_team_id": "WAS",
+        "pick_year": 1984,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Fred Raynolds",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kevin Grevey",
+        "from_team_id": "WAS",
+        "to_team_id": "MIL",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Fred Raynolds",
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -658,6 +735,39 @@
         "original_team_id": null,
         "became_player_name": "Cedric Henderson",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kevin Figaro",
+        "from_team_id": "ATL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Wes Matthews",
+        "from_team_id": "ATL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "ATL",
+        "pick_year": 1986,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Cedric Henderson",
+        "notes": null
       }
     ]
   },
@@ -699,6 +809,28 @@
         "pick_round": 5,
         "original_team_id": null,
         "became_player_name": "Hank McDowell",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Hank McDowell",
+        "from_team_id": "POR",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Juden Smith",
+        "from_team_id": "IND",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -881,6 +1013,17 @@
         "original_team_id": null,
         "became_player_name": "Bruce Dalrymple",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ricky Pierce",
+        "from_team_id": "DET",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -975,6 +1118,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Bruce Dalrymple",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "David Thirdkill",
+        "from_team_id": "PHX",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1082,6 +1236,28 @@
         "original_team_id": null,
         "became_player_name": "Michael Anderson",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Hank McDowell",
+        "from_team_id": "IND",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Michael Anderson",
+        "from_team_id": "LAC",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1124,6 +1300,28 @@
         "original_team_id": null,
         "became_player_name": "Reggie King",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Reggie King",
+        "from_team_id": "SAC",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "SAC",
+        "pick_year": 1985,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Ken Johnson",
+        "notes": null
       }
     ]
   },
@@ -1165,6 +1363,17 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Mark McNamara",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mark McNamara",
+        "from_team_id": "PHI",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1219,6 +1428,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Sam Williams",
+        "from_team_id": "GSW",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1313,6 +1533,28 @@
         "pick_round": 3,
         "original_team_id": null,
         "became_player_name": "Joe Binion",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Keith Edmonson",
+        "from_team_id": "SAS",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Joe Binion",
+        "from_team_id": "DEN",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1534,8 +1776,8 @@
         "player_name": null,
         "from_team_id": "DET",
         "to_team_id": "ATL",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 1987,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Terence Bailey",
         "notes": null
@@ -1618,6 +1860,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tim McCormick",
+        "from_team_id": "WAS",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1659,6 +1912,17 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Tom Sewell",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tom Sewell",
+        "from_team_id": "PHI",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]

@@ -93,6 +93,39 @@
         "original_team_id": null,
         "became_player_name": "De'Aaron Fox",
         "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "PHI",
+        "pick_year": 2019,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Romeo Langford",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "taking #3 overall pick",
+        "from_team_id": "PHI",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "sending back #5 overall pick)",
+        "from_team_id": "PHI",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -135,6 +168,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Georgios Printezis",
+        "from_team_id": "ATL",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "SAS",
+        "pick_year": 2017,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Jaron Blossomgame",
+        "notes": null
       }
     ]
   },
@@ -176,6 +231,17 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": "Ray McCallum Jr.",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ray McCallum",
+        "from_team_id": "SAC",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -287,8 +353,8 @@
         "player_name": null,
         "from_team_id": "OKC",
         "to_team_id": "BOS",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 2019,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Perry Jones III",
         "notes": null
@@ -313,6 +379,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Kevin Hervey",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Perry Jones",
+        "from_team_id": "OKC",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -384,8 +461,8 @@
         "player_name": null,
         "from_team_id": "HOU",
         "to_team_id": "DEN",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 2016,
+        "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Juan Hernangomez",
         "notes": null
@@ -506,6 +583,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "swap",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "PHI",
+        "pick_year": 2016,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Gerald Wallace. (PHI also gets rights to swap MIA or OKC 2016 1st Rd Pick for GSW 2016 1st Rd pick)"
       }
     ]
   },
@@ -618,10 +706,21 @@
         "player_name": null,
         "from_team_id": "PHI",
         "to_team_id": "NOP",
+        "pick_year": 2017,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Frank Mason",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ish Smith",
+        "from_team_id": "NOP",
+        "to_team_id": "PHI",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Frank Mason",
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -676,6 +775,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sergei Lishouk",
+        "from_team_id": "LAC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
       }
     ]
   },
@@ -830,6 +951,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "MEM",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Talen Horton-Tucker",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brian Roberts",
+        "from_team_id": "CHA",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -925,6 +1068,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Anderson Varejão",
+        "from_team_id": "CLE",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "POR",
+        "pick_year": 2018,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Moritz Wagner",
+        "notes": null
       }
     ]
   },
@@ -976,6 +1141,17 @@
         "type": "player",
         "player_name": "Kirk Hinrich",
         "from_team_id": "CHI",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Shelvin Mack",
+        "from_team_id": "ATL",
         "to_team_id": "UTA",
         "pick_year": null,
         "pick_round": null,
@@ -1068,6 +1244,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "D.J. Augustin",
+        "from_team_id": "OKC",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "bottom-5 protected CHO pick)",
+        "from_team_id": "OKC",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1103,6 +1301,28 @@
       {
         "type": "player",
         "player_name": "Lance Stephenson",
+        "from_team_id": "LAC",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "MEM",
+        "pick_year": 2019,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Matisse Thybulle",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "is lottery protected)",
         "from_team_id": "LAC",
         "to_team_id": "MEM",
         "pick_year": null,
@@ -1333,6 +1553,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
       }
     ]
   },
@@ -1396,6 +1627,17 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "SAC",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Xavier Tillman Sr.",
         "notes": null
       }
     ]

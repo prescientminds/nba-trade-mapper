@@ -506,6 +506,17 @@
         "original_team_id": null,
         "became_player_name": "Derrick Brown",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mikki Moore",
+        "from_team_id": "OKC",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -771,6 +782,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Luke Jackson",
+        "from_team_id": "CLE",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
       }
     ]
   },
@@ -1272,6 +1305,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
       }
     ]
   },
@@ -1313,6 +1357,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Nick Fazekas",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Anthony Johnson",
+        "from_team_id": "DAL",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1419,6 +1474,17 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Carlos Delfino",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Carlos Delfino",
+        "from_team_id": "DET",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -2031,8 +2097,8 @@
         "player_name": null,
         "from_team_id": "IND",
         "to_team_id": "MIA",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 2009,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Marcus Thornton",
         "notes": null
@@ -2046,6 +2112,17 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": "Stanko Barac",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Stanko Barać",
+        "from_team_id": "MIA",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -2084,10 +2161,21 @@
         "player_name": null,
         "from_team_id": "TOR",
         "to_team_id": "SAS",
+        "pick_year": 2008,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Goran Dragic",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Georgios Printezis",
+        "from_team_id": "SAS",
+        "to_team_id": "TOR",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Goran Dragic",
+        "became_player_name": null,
         "notes": null
       }
     ]

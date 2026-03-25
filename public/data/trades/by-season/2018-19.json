@@ -91,6 +91,39 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "PHI",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Aaron Wiggins",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "PHI",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Matteo Spagnolo",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "000",
+        "from_team_id": "PHI",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -128,6 +161,28 @@
         "player_name": "Hamidou Diallo",
         "from_team_id": "CHA",
         "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "CHA",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Jalen McDaniels",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "000",
+        "from_team_id": "OKC",
+        "to_team_id": "CHA",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -174,6 +229,17 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "PHI",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Bruno Fernando",
         "notes": null
       }
     ]
@@ -238,6 +304,17 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "CHA",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Balša Koprivica",
         "notes": null
       }
     ]
@@ -327,6 +404,61 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "BKN",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Adou Thiero",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "ATL",
+        "pick_year": 2023,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Adou Thiero",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "ATL",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Adou Thiero",
+        "notes": null
+      },
+      {
+        "type": "swap",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "ATL",
+        "pick_year": 2023,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "did not convey 2023 2nd-rd pick was a right to swap"
+      },
+      {
+        "type": "player",
+        "player_name": "did not convey 2025 2nd-rd pick is BRK own",
+        "from_team_id": "BKN",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -379,6 +511,28 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "BKN",
+        "pick_year": 2019,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Mfiondu Kabengele",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "BKN",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Jay Scrubb",
         "notes": null
       }
     ]
@@ -444,6 +598,39 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "SAC",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Dalano Banton",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "544",
+        "from_team_id": "MEM",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "951",
+        "from_team_id": "MEM",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -530,6 +717,17 @@
         "original_team_id": null,
         "became_player_name": "Keldon Johnson",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jakob Pöltl",
+        "from_team_id": "TOR",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -583,6 +781,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "978",
+        "from_team_id": "OKC",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "242",
+        "from_team_id": "OKC",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -624,6 +844,17 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "BKN",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "RaiQuan Gray",
         "notes": null
       }
     ]
@@ -726,6 +957,28 @@
         "player_name": "Abdel Nader",
         "from_team_id": "BOS",
         "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "000",
+        "from_team_id": "OKC",
+        "to_team_id": "BOS",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -852,6 +1105,61 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Dennis Schröder",
+        "from_team_id": "ATL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Carmelo Anthony",
+        "from_team_id": "OKC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "ATL",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Ulrich Chomche",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "ATL",
+        "pick_year": 2024,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Ulrich Chomche",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "ATL",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Jahmai Mashack",
+        "notes": null
       }
     ]
   },
@@ -887,6 +1195,61 @@
       {
         "type": "player",
         "player_name": "Maarty Leunen",
+        "from_team_id": "DAL",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "DAL",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Tyrell Terry",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "544",
+        "from_team_id": "DAL",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "swap",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "HOU",
+        "pick_year": 2020,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "951 2020 2nd-rd pick is right to swap GSW's pick for HOU's pick"
+      },
+      {
+        "type": "player",
+        "player_name": "did not convey",
         "from_team_id": "DAL",
         "to_team_id": "HOU",
         "pick_year": null,
@@ -953,6 +1316,28 @@
         "player_name": "Vladimir Veremeenko",
         "from_team_id": "CLE",
         "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "247",
+        "from_team_id": "LAC",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "494",
+        "from_team_id": "LAC",
+        "to_team_id": "CLE",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1064,6 +1449,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Alexis Ajinça",
+        "from_team_id": "NOP",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1139,6 +1535,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "MIN",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Matteo Spagnolo",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "DEN",
+        "from_team_id": "PHI",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1180,6 +1598,28 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "CLE",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Justinian Jessup",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "CLE",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Greg Brown III",
         "notes": null
       }
     ]
@@ -1259,6 +1699,61 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "MIL",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Greg Brown III",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sam Dekker",
+        "from_team_id": "CLE",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "CLE",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Sandro Mamukelashvili",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "CLE",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "MarJon Beauchamp",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "CLE",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Bryce McGowens",
         "notes": null
       }
     ]
@@ -1365,6 +1860,39 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Wayne Selden",
+        "from_team_id": "MEM",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "CHI",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Daniel Gafford",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "CHI",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Marko Simonovic",
         "notes": null
       }
     ]
@@ -1527,6 +2055,39 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "NYK",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Keon Johnson",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "NYK",
+        "pick_year": 2024,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Kyshawn George",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "became 2024 1st-rd pick",
+        "from_team_id": "DAL",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1579,6 +2140,39 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Wade Baldwin",
+        "from_team_id": "POR",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "CLE",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Brandon Boston Jr.",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "CLE",
+        "pick_year": 2023,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Julian Phillips",
         "notes": null
       }
     ]
@@ -1663,6 +2257,28 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sviatoslav Mykhailiuk",
+        "from_team_id": "LAL",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "DET",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Luka Garza",
         "notes": null
       }
     ]
@@ -1770,6 +2386,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
       }
     ]
   },
@@ -1902,6 +2529,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Otto Porter",
+        "from_team_id": "WAS",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "WAS",
+        "pick_year": 2023,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Tristan Vukcevic",
+        "notes": null
       }
     ]
   },
@@ -1987,6 +2636,50 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "LAC",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Saddiq Bey",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "LAC",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Tre Mann",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "LAC",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Jeremiah Robinson-Earl",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "LAC",
+        "pick_year": 2023,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "James Nnaji",
         "notes": null
       }
     ]
@@ -2147,6 +2840,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "MEM",
+        "pick_year": 2024,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Juan Nunez",
+        "notes": null
       }
     ]
   },
@@ -2257,6 +2961,50 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Stanley Johnson",
+        "from_team_id": "DET",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "NOP",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Jordan Bone",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "NOP",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Elijah Hughes",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "NOP",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Greg Brown III",
+        "notes": null
       }
     ]
   },
@@ -2321,6 +3069,72 @@
         "player_name": "Markelle Fultz",
         "from_team_id": "PHI",
         "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jonathon Simmons",
+        "from_team_id": "ORL",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "PHI",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Carsen Edwards",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "PHI",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Tyrese Maxey",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "ORL",
+        "from_team_id": "ORL",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "HOU or POR pick",
+        "from_team_id": "ORL",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "but expected to be CLE's 2019 pick.)",
+        "from_team_id": "ORL",
+        "to_team_id": "PHI",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,

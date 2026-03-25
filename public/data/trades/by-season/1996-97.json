@@ -38,6 +38,39 @@
         "original_team_id": null,
         "became_player_name": "William Avery",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Andrew Lang",
+        "from_team_id": "MIN",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "MIN",
+        "pick_year": 1998,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Rasho Nesterović",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "1996.",
+        "from_team_id": "MIL",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -128,6 +161,28 @@
         "player_name": "Larry Johnson (Demetric)",
         "from_team_id": "CHA",
         "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Larry Johnson",
+        "from_team_id": "CHA",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Anthony Mason",
+        "from_team_id": "NYK",
+        "to_team_id": "CHA",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -245,8 +300,8 @@
         "player_name": null,
         "from_team_id": "DET",
         "to_team_id": "ATL",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 1997,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Alain Digbeau",
         "notes": null
@@ -282,6 +337,28 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Grant Long",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Stacey Augmon",
+        "from_team_id": "ATL",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Grant Long",
+        "from_team_id": "ATL",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -368,6 +445,28 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "John Celestand",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "George Lynch",
+        "from_team_id": "LAL",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Anthony Peeler",
+        "from_team_id": "LAL",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -512,8 +611,8 @@
         "player_name": null,
         "from_team_id": "TOR",
         "to_team_id": "DAL",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 1999,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Gordan Giricek",
         "notes": null
@@ -580,6 +679,17 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Hubert Davis",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Hubert Davis",
+        "from_team_id": "NYK",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -965,6 +1075,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "PHX",
+        "pick_year": 1997,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Stephen Jackson",
+        "notes": null
       }
     ]
   },
@@ -1563,6 +1684,17 @@
         "original_team_id": null,
         "became_player_name": "Anthony Parker",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "was not exercised.",
+        "from_team_id": "LAL",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1671,6 +1803,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Eddie Johnson",
+        "from_team_id": "IND",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1708,10 +1851,21 @@
         "player_name": null,
         "from_team_id": "BOS",
         "to_team_id": "MIA",
+        "pick_year": 1997,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "GM Chris Wallace",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chris Wallace",
+        "from_team_id": "BOS",
+        "to_team_id": "MIA",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "GM Chris Wallace",
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1807,6 +1961,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "James Collins",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "James Collins",
+        "from_team_id": "PHI",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]

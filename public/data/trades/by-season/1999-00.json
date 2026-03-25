@@ -102,6 +102,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Steve Smith",
+        "from_team_id": "ATL",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -432,6 +443,17 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Lorenzen Wright",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Lorenzen Wright",
+        "from_team_id": "LAC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -834,6 +856,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Don MacLean",
+        "from_team_id": "ORL",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ORL",
+        "to_team_id": "HOU",
+        "pick_year": 2001,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jason Collins",
+        "notes": null
       }
     ]
   },
@@ -1054,6 +1098,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Dan Langhi",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chris Anstey",
+        "from_team_id": "DAL",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1366,6 +1421,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "2001 in lieu of the future 1st round draft pick.",
+        "from_team_id": "DEN",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1434,6 +1500,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "John Starks",
+        "from_team_id": "GSW",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "GSW",
+        "to_team_id": "CHI",
+        "pick_year": 2000,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Chris Mihm",
+        "notes": null
       }
     ]
   },
@@ -1475,6 +1563,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Anthony Johnson",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Anthony Johnson",
+        "from_team_id": "ATL",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1591,6 +1690,17 @@
         "type": "player",
         "player_name": "Vinny Del Negro",
         "from_team_id": "MIL",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bob Sura",
+        "from_team_id": "CLE",
         "to_team_id": "GSW",
         "pick_year": null,
         "pick_round": null,
@@ -1820,6 +1930,17 @@
         "original_team_id": null,
         "became_player_name": "Earl Watson",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Josip Sesar",
+        "from_team_id": "OKC",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1872,6 +1993,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Randy Holcomb",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cory Hightower",
+        "from_team_id": "SAS",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -2020,6 +2152,50 @@
         "to_team_id": "ORL",
         "pick_year": 2007,
         "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Marcus Williams",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Keyon Dooling",
+        "from_team_id": "ORL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Corey Maggette",
+        "from_team_id": "ORL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Derek Strong",
+        "from_team_id": "ORL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "ORL",
+        "pick_year": 2006,
+        "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Marcus Williams",
         "notes": null

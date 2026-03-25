@@ -210,6 +210,17 @@
         "original_team_id": null,
         "became_player_name": "Andy Rautins",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Marcus Camby",
+        "from_team_id": "DEN",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -316,6 +327,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Bobby Jones",
+        "from_team_id": "DEN",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -369,6 +402,17 @@
         "original_team_id": null,
         "became_player_name": "Chandler Parsons",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Steve Novak",
+        "from_team_id": "HOU",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -410,6 +454,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Kyle Weaver",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kyle Weaver",
+        "from_team_id": "CHA",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -484,6 +539,17 @@
         "type": "player",
         "player_name": "Desmond Mason",
         "from_team_id": "MIL",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Joe Smith",
+        "from_team_id": "CLE",
         "to_team_id": "OKC",
         "pick_year": null,
         "pick_round": null,
@@ -587,6 +653,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Patrick Ewing",
+        "from_team_id": "SAC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -666,6 +743,17 @@
         "player_name": "Frederic Weis",
         "from_team_id": "NYK",
         "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Patrick Ewing",
+        "from_team_id": "HOU",
+        "to_team_id": "NYK",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1059,6 +1147,39 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "NOP",
+        "pick_year": 2015,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Xavier Henry",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Javaris Crittenton",
+        "from_team_id": "MEM",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mike James",
+        "from_team_id": "NOP",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1107,11 +1228,33 @@
         "player_name": null,
         "from_team_id": "LAC",
         "to_team_id": "DEN",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 2015,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Nikola Radicevic",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cheikh Samb",
+        "from_team_id": "DEN",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
       }
     ]
   },
@@ -1432,6 +1575,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "MIA",
+        "pick_year": 2011,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Jonas Valančiūnas",
+        "notes": null
       }
     ]
   },
@@ -1484,6 +1649,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Peyton Siva",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Alex Acker",
+        "from_team_id": "DET",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1666,6 +1842,17 @@
         "original_team_id": null,
         "became_player_name": "Thabo Sefolosha",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Thabo Sefolosha",
+        "from_team_id": "CHI",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1809,6 +1996,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rafer Alston",
+        "from_team_id": "HOU",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brian Cook",
+        "from_team_id": "ORL",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1916,6 +2125,17 @@
         "to_team_id": "SAC",
         "pick_year": null,
         "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "TOR",
+        "to_team_id": "BOS",
+        "pick_year": 2014,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
@@ -2557,6 +2777,28 @@
         "original_team_id": null,
         "became_player_name": "Andrew Goudelock",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Toney Douglas",
+        "from_team_id": "LAL",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
       }
     ]
   },
@@ -2599,6 +2841,28 @@
         "original_team_id": null,
         "became_player_name": "Chase Budinger",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chase Budinger",
+        "from_team_id": "DET",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
       }
     ]
   },
@@ -2652,6 +2916,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
       }
     ]
   },
@@ -2705,6 +2980,17 @@
         "original_team_id": null,
         "became_player_name": "Marcus Thornton (T.)",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Marcus Thornton",
+        "from_team_id": "MIA",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -2747,6 +3033,28 @@
         "original_team_id": null,
         "became_player_name": "Ater Majok",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Patrick Beverley",
+        "from_team_id": "LAL",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
       }
     ]
   },
@@ -2895,6 +3203,17 @@
         "original_team_id": null,
         "became_player_name": "Luke Babbitt",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ty Lawson",
+        "from_team_id": "MIN",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -2937,6 +3256,50 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Shaquille O'Neal",
+        "from_team_id": "PHX",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sasha Pavlović",
+        "from_team_id": "CLE",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ben Wallace",
+        "from_team_id": "CLE",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "PHX",
+        "pick_year": 2010,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Dwayne Collins",
+        "notes": null
       }
     ]
   }

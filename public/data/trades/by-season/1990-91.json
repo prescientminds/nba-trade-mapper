@@ -38,6 +38,17 @@
         "original_team_id": null,
         "became_player_name": "Chris Gatling",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Manute Bol",
+        "from_team_id": "GSW",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -239,6 +250,17 @@
         "original_team_id": null,
         "became_player_name": "Shaun Vandiver",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Terry Teagle",
+        "from_team_id": "GSW",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -292,6 +314,50 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "John Lucas",
+        "from_team_id": "HOU",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tim McCormick",
+        "from_team_id": "HOU",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "ATL",
+        "pick_year": 1994,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Charlie Ward",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Roy Marble",
+        "from_team_id": "ATL",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -334,6 +400,28 @@
         "original_team_id": null,
         "became_player_name": "Anthony Pelle",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Anthony Cook",
+        "from_team_id": "DET",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "DET",
+        "pick_year": 1992,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -375,6 +463,17 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Sharone Wright",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jayson Williams",
+        "from_team_id": "PHX",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -513,6 +612,17 @@
         "original_team_id": null,
         "became_player_name": "Bob Thornton",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bob Thornton",
+        "from_team_id": "PHI",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -572,6 +682,17 @@
         "player_name": "Xavier McDaniel",
         "from_team_id": "OKC",
         "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Eddie Johnson",
+        "from_team_id": "PHX",
+        "to_team_id": "OKC",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -740,6 +861,50 @@
         "original_team_id": null,
         "became_player_name": "Kevin Thompson",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Terry Mills",
+        "from_team_id": "DEN",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Walter Davis",
+        "from_team_id": "DEN",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Greg Anderson",
+        "from_team_id": "BKN",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BKN",
+        "to_team_id": "DEN",
+        "pick_year": 1992,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Bryant Stith",
+        "notes": null
       }
     ]
   },
@@ -792,6 +957,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Dejan Bodiroga",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Eric Leckner",
+        "from_team_id": "SAC",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -952,6 +1128,28 @@
         "original_team_id": null,
         "became_player_name": "Mark Macon",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Michael Adams",
+        "from_team_id": "DEN",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "WAS",
+        "pick_year": 1993,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "John Best",
+        "notes": null
       }
     ]
   },
@@ -1089,6 +1287,17 @@
         "original_team_id": null,
         "became_player_name": "Winston Garland",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Winston Garland",
+        "from_team_id": "LAC",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1137,8 +1346,8 @@
         "player_name": null,
         "from_team_id": "LAC",
         "to_team_id": "ATL",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 1993,
+        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Richard Manning",
         "notes": null
@@ -1152,6 +1361,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Gaylon Nickerson",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Doc Rivers",
+        "from_team_id": "ATL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1248,6 +1468,17 @@
         "original_team_id": null,
         "became_player_name": "Tim Young",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Lamont Strothers",
+        "from_team_id": "GSW",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1335,6 +1566,39 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Rodney Dent",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "DEN",
+        "pick_year": 1993,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Josh Grant",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Anthony Avent",
+        "from_team_id": "ATL",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Blair Rasmussen",
+        "from_team_id": "DEN",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]

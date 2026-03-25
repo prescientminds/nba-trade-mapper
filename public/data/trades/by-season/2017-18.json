@@ -128,6 +128,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "DEN",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Cody Martin",
+        "notes": null
       }
     ]
   },
@@ -212,6 +223,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "BOS",
+        "to_team_id": "DET",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Isaiah Roby",
+        "notes": null
       }
     ]
   },
@@ -265,6 +287,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "DAL",
+        "pick_year": 2023,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Keyontae Johnson",
+        "notes": null
       }
     ]
   },
@@ -302,8 +335,8 @@
         "player_name": null,
         "from_team_id": "TOR",
         "to_team_id": "BKN",
-        "pick_year": null,
-        "pick_round": null,
+        "pick_year": 2018,
+        "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Dzanan Musa",
         "notes": null
@@ -322,6 +355,17 @@
       {
         "type": "player",
         "player_name": "Justin Hamilton (b)",
+        "from_team_id": "BKN",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Justin Hamilton",
         "from_team_id": "BKN",
         "to_team_id": "TOR",
         "pick_year": null,
@@ -691,6 +735,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "ATL",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Eric Paschall",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sergiy Gladyr",
+        "from_team_id": "ATL",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -726,6 +792,39 @@
       {
         "type": "player",
         "player_name": "Greg Monroe",
+        "from_team_id": "MIL",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "PHX",
+        "pick_year": 2018,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Desmond Bane",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "PHX",
+        "pick_year": 2020,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Desmond Bane",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "conveyed in 2020 2018 2nd-rd pick did not convey",
         "from_team_id": "MIL",
         "to_team_id": "PHX",
         "pick_year": null,
@@ -785,6 +884,17 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "BKN",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Nicolas Claxton",
         "notes": null
       }
     ]
@@ -883,6 +993,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "LAC",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Jaylen Hands",
+        "notes": null
       }
     ]
   },
@@ -968,6 +1089,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Tony Carr",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ömer Aşık",
+        "from_team_id": "NOP",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1064,6 +1196,39 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Johnny O'Bryant",
+        "from_team_id": "CHA",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "NYK",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Saben Lee",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "NYK",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Isaiah Livers",
+        "notes": null
       }
     ]
   },
@@ -1106,6 +1271,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
       }
     ]
   },
@@ -1223,6 +1399,17 @@
         "original_team_id": null,
         "became_player_name": "Elfrid Payton",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Elfrid Payton",
+        "from_team_id": "ORL",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1306,6 +1493,28 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "DET",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Isaiah Mobley",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "CHI",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Christian Koloko",
         "notes": null
       }
     ]
@@ -1419,6 +1628,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "SAC",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Skylar Mays",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "UTA",
+        "pick_year": 2024,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Kyle Filipowski",
+        "notes": null
       }
     ]
   },
@@ -1456,6 +1687,28 @@
         "player_name": "James Ennis",
         "from_team_id": "MEM",
         "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "MEM",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Isaiah Mobley",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "DET",
+        "from_team_id": "DET",
+        "to_team_id": "MEM",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1602,6 +1855,17 @@
         "original_team_id": null,
         "became_player_name": "Justin Jackson",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Devin Harris",
+        "from_team_id": "DAL",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1697,6 +1961,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "PHI",
+        "pick_year": 2021,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Tre Mann",
+        "notes": null
       }
     ]
   },
@@ -1739,6 +2014,39 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "SAC",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Justin James",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "SAC",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Sharife Cooper",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "whichever is more favorable.) 2021 2nd-rd pick is MIA own $1.5MM",
+        "from_team_id": "POR",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -1781,6 +2089,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "CHA",
+        "pick_year": 2020,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Vernon Carey Jr.",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "CHA",
+        "pick_year": 2021,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Scottie Lewis",
+        "notes": null
       }
     ]
   },
@@ -1822,6 +2152,17 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "ATL",
+        "pick_year": 2019,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Cam Reddish",
         "notes": null
       }
     ]
@@ -1902,6 +2243,28 @@
         "player_name": "Jarred Vanderbilt",
         "from_team_id": "ORL",
         "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DEN",
+        "to_team_id": "ORL",
+        "pick_year": 2019,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Cody Martin",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "in which case ORL would receive WAS 2nd-rd pick.)",
+        "from_team_id": "DEN",
+        "to_team_id": "ORL",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,

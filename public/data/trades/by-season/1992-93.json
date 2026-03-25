@@ -38,6 +38,17 @@
         "original_team_id": null,
         "became_player_name": "Litterial Green",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Litterial Green",
+        "from_team_id": "CHI",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -307,6 +318,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "DAL",
+        "pick_year": 1996,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Darnell Robinson",
+        "notes": null
       }
     ]
   },
@@ -348,6 +370,39 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Tony Dumas",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHI",
+        "to_team_id": "DAL",
+        "pick_year": 1996,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Darnell Robinson",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Byron Houston",
+        "from_team_id": "CHI",
+        "to_team_id": "GSW",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rodney McCray",
+        "from_team_id": "DAL",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -450,6 +505,28 @@
         "original_team_id": null,
         "became_player_name": "Brooks Thompson",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Charles Smith",
+        "from_team_id": "LAC",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "NYK",
+        "to_team_id": "ORL",
+        "pick_year": 1993,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": "Geert Hammink",
+        "notes": null
       }
     ]
   },
@@ -492,6 +569,17 @@
         "original_team_id": null,
         "became_player_name": "Jerome Allen",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Scott Brooks",
+        "from_team_id": "MIN",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -533,6 +621,17 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": "David Wood",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "David Wood",
+        "from_team_id": "HOU",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -587,6 +686,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "John Williams",
+        "from_team_id": "WAS",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -628,6 +738,17 @@
         "pick_round": null,
         "original_team_id": null,
         "became_player_name": "Robert Pack",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Robert Pack",
+        "from_team_id": "POR",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -746,6 +867,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "MIN",
+        "pick_year": 2000,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Igor Rakočević",
+        "notes": null
       }
     ]
   },
@@ -788,6 +920,17 @@
         "original_team_id": null,
         "became_player_name": "Vincent Askew",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Vincent Askew",
+        "from_team_id": "SAC",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ]
   },
@@ -829,6 +972,17 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Steve Kerr",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Steve Kerr",
+        "from_team_id": "CLE",
+        "to_team_id": "ORL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ]
@@ -1214,6 +1368,17 @@
       {
         "type": "player",
         "player_name": "Mike Brown (b)",
+        "from_team_id": "UTA",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mike Brown",
         "from_team_id": "UTA",
         "to_team_id": "MIN",
         "pick_year": null,
