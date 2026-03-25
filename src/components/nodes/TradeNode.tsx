@@ -726,7 +726,6 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   <span>{teamName} receive</span>
                   {acquiredTotal != null && acquiredTotal > 0 && (
                     <span
-                      data-tour="trade-salary"
                       style={{
                         fontSize: 7,
                         fontWeight: 400,
@@ -745,6 +744,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                       </span>
                       <span
                         className="nopan nodrag"
+                        data-tour="trade-salary"
                         onClick={(e) => {
                           e.stopPropagation();
                           const playerCount = teamSalary?.players?.length ?? 0;
