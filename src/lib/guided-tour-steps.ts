@@ -46,14 +46,14 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     waitFor: 'inline-stats-opened',
     waitLabel: 'Click a player name',
   },
-  // 5. WS vs Salary chart — click the WS header or chart icon to toggle
+  // 5. WS vs Salary chart — click the WS column header to toggle
   {
-    target: 'tour-ws-icon',
+    target: 'tour-ws-header',
     title: 'WIN SHARES vs SALARY',
-    content: 'Click the chart icon to see Win Shares plotted against salary across every season. Orange line is production, teal is cost.',
+    content: 'Click the WS column header to chart Win Shares against salary across every season. Orange is production, teal is cost.',
     placement: 'bottom',
     waitFor: 'ws-chart-opened',
-    waitLabel: 'Click the chart icon',
+    waitLabel: 'Click WS',
     zoom: 1.8,
   },
   // 6. Show the chart — passive, just center on it
