@@ -557,6 +557,75 @@ body {
 
 /* ── Full-Page Skin Atmosphere ─────────────────────────────────── */
 
+/* Holographic — prismatic light show */
+@keyframes holo-bg-drift {
+  0%   { --holo-angle: 0deg; }
+  100% { --holo-angle: 360deg; }
+}
+
+[data-skin="holographic"] .welcome-overlay {
+  background:
+    radial-gradient(ellipse at 30% 15%, rgba(155, 93, 229, 0.06), transparent 50%),
+    radial-gradient(ellipse at 70% 20%, rgba(78, 205, 196, 0.05), transparent 45%),
+    radial-gradient(ellipse at 50% 60%, rgba(255, 107, 53, 0.04), transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(249, 199, 79, 0.03), transparent 40%),
+    radial-gradient(ellipse at 80% 70%, rgba(6, 214, 160, 0.04), transparent 45%),
+    var(--bg-primary) !important;
+}
+
+/* Scattered prismatic light flares */
+[data-skin="holographic"] .welcome-overlay::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(2px 2px at 10% 8%, rgba(155, 93, 229, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 25% 18%, rgba(78, 205, 196, 0.5), transparent),
+    radial-gradient(2px 2px at 55% 5%, rgba(255, 107, 53, 0.6), transparent),
+    radial-gradient(1px 1px at 78% 22%, rgba(249, 199, 79, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 90% 12%, rgba(6, 214, 160, 0.6), transparent),
+    radial-gradient(1px 1px at 15% 42%, rgba(239, 71, 111, 0.4), transparent),
+    radial-gradient(2px 2px at 42% 35%, rgba(155, 93, 229, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 68% 48%, rgba(78, 205, 196, 0.5), transparent),
+    radial-gradient(1px 1px at 88% 55%, rgba(255, 107, 53, 0.4), transparent),
+    radial-gradient(1.5px 1.5px at 32% 62%, rgba(249, 199, 79, 0.5), transparent),
+    radial-gradient(2px 2px at 60% 72%, rgba(6, 214, 160, 0.6), transparent),
+    radial-gradient(1px 1px at 8% 78%, rgba(155, 93, 229, 0.4), transparent),
+    radial-gradient(1.5px 1.5px at 48% 85%, rgba(239, 71, 111, 0.5), transparent),
+    radial-gradient(1px 1px at 75% 82%, rgba(78, 205, 196, 0.4), transparent),
+    radial-gradient(2px 2px at 92% 90%, rgba(249, 199, 79, 0.5), transparent);
+}
+
+/* Holographic — animated rainbow gradient title */
+[data-skin="holographic"] h1 {
+  background: linear-gradient(
+    90deg,
+    #ff6b35, #f9c74f, #06d6a0, #4ecdc4, #9b5de5, #ef476f, #ff6b35, #f9c74f, #06d6a0
+  ) !important;
+  background-size: 200% 100% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: holo-title-shift 6s linear infinite;
+  filter: drop-shadow(0 2px 12px rgba(155, 93, 229, 0.3));
+}
+
+@keyframes holo-title-shift {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Holographic — prismatic search bar */
+[data-skin="holographic"] .search-box {
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(var(--bg-elevated), var(--bg-elevated)) padding-box,
+    conic-gradient(from var(--holo-angle), #ff6b3566, #f9c74f66, #06d6a066, #4ecdc466, #9b5de566, #ef476f66, #ff6b3566) border-box !important;
+  animation: holo-rotate 4s linear infinite;
+  box-shadow: 0 0 12px rgba(155, 93, 229, 0.12), 0 0 24px rgba(78, 205, 196, 0.06);
+}
+
 /* Inside Stuff — purple atmosphere + gold spotlights + star sparkles */
 [data-skin="insideStuff"] .welcome-overlay {
   background:

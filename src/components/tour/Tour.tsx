@@ -139,26 +139,23 @@ export default function GuidedTour() {
   const PAD = 14;
   let pos: React.CSSProperties;
 
-  if (isMobile) {
-    if (rect && rect.top > window.innerHeight * 0.65) {
-      // Target is near bottom (toolbar) — position tooltip above it
-      pos = { position: 'fixed', bottom: window.innerHeight - rect.top + PAD, left: 12, right: 12, width: 'auto' };
-    } else if (rect && current.target?.startsWith('share-')) {
-      // Share modal elements — position relative to the target, not pinned to edges
-      if (current.placement === 'top') {
-        const bottom = window.innerHeight - rect.top + PAD;
-        pos = { position: 'fixed', bottom: Math.max(12, bottom), left: 12, right: 12, width: 'auto' };
-      } else {
-        const top = rect.bottom + PAD;
-        pos = { position: 'fixed', top: Math.min(top, window.innerHeight - 160), left: 12, right: 12, width: 'auto' };
-      }
-    } else if (current.placement === 'top') {
-      // Step wants tooltip above target — pin to top so it doesn't cover the content below
-      pos = { position: 'fixed', top: 12, left: 12, right: 12, width: 'auto' };
+  if (isMobile && rect) {
+    // Core rule: never cover the highlighted element.
+    // Place tooltip on whichever side (above/below) has more room.
+    const spaceAbove = rect.top;
+    const spaceBelow = window.innerHeight - rect.bottom;
+    if (spaceBelow >= spaceAbove) {
+      // More room below — put tooltip below the target
+      const top = rect.bottom + PAD;
+      pos = { position: 'fixed', top: Math.min(top, window.innerHeight - 120), left: 12, right: 12, width: 'auto' };
     } else {
-      // Target is in graph area — pin to bottom
-      pos = { position: 'fixed', bottom: 12, left: 12, right: 12, width: 'auto' };
+      // More room above — put tooltip above the target
+      const bottom = window.innerHeight - rect.top + PAD;
+      pos = { position: 'fixed', bottom: Math.max(bottom, 12), left: 12, right: 12, width: 'auto' };
     }
+  } else if (isMobile) {
+    // No rect yet — center
+    pos = { position: 'fixed', top: '50%', left: 12, right: 12, width: 'auto', transform: 'translateY(-50%)' };
   } else if (rect) {
     const cx = Math.max(16, Math.min(rect.left + rect.width / 2 - W / 2, vw - W - 16));
     if (current.placement === 'bottom') {

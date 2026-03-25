@@ -590,13 +590,55 @@ export default function SearchOverlay() {
         >
           How we score trades &rarr;
         </Link>
+        {hintStep === 1 && (
+          <HintLabel text="Search a player or team" style={{ marginTop: 12 }} />
+        )}
+
+        {/* "Try It" CTA — above skins so it's visible on mobile */}
+        {!tourCompleted && (
+          <button
+            onClick={startGuidedTour}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              gap: isMobile ? 8 : 10,
+              width: '100%',
+              maxWidth: isMobile ? 320 : 420,
+              margin: '20px auto 0',
+              padding: isMobile ? '12px 16px' : '14px 28px',
+              background: 'transparent',
+              border: '1px solid var(--accent-orange)',
+              borderRadius: 10,
+              color: 'var(--accent-orange)',
+              fontSize: isMobile ? 12 : 14,
+              fontWeight: 700,
+              fontFamily: 'var(--font-display)',
+              letterSpacing: 0.8,
+              cursor: 'pointer',
+              transition: 'background 0.15s, color 0.15s',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'var(--accent-orange)';
+              e.currentTarget.style.color = '#fff';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.color = 'var(--accent-orange)';
+            }}
+          >
+            <svg width={isMobile ? 14 : 16} height={isMobile ? 14 : 16} viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5,3 19,12 5,21" />
+            </svg>
+            {isMobile ? 'Try It: OKC–HOU Harden Trade' : 'Try It: Map the OKC–HOU James Harden Trade'}
+          </button>
+        )}
+
         <div
           data-tour="skin-picker"
           style={{
             display: 'flex',
             gap: 6,
             justifyContent: 'center',
-            marginTop: 12,
+            marginTop: 16,
           }}
         >
           {SKINS.map((skin) => (
@@ -639,48 +681,6 @@ export default function SearchOverlay() {
             </button>
           ))}
         </div>
-
-        {hintStep === 1 && (
-          <HintLabel text="Search a player or team" style={{ marginTop: 12 }} />
-        )}
-
-        {/* "Try It" CTA — between skins and explore */}
-        {!tourCompleted && (
-          <button
-            onClick={startGuidedTour}
-            style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              gap: isMobile ? 8 : 10,
-              width: '100%',
-              maxWidth: isMobile ? 320 : 420,
-              margin: '24px auto 0',
-              padding: isMobile ? '12px 16px' : '14px 28px',
-              background: 'transparent',
-              border: '1px solid var(--accent-orange)',
-              borderRadius: 10,
-              color: 'var(--accent-orange)',
-              fontSize: isMobile ? 12 : 14,
-              fontWeight: 700,
-              fontFamily: 'var(--font-display)',
-              letterSpacing: 0.8,
-              cursor: 'pointer',
-              transition: 'background 0.15s, color 0.15s',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'var(--accent-orange)';
-              e.currentTarget.style.color = '#fff';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.color = 'var(--accent-orange)';
-            }}
-          >
-            <svg width={isMobile ? 14 : 16} height={isMobile ? 14 : 16} viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="5,3 19,12 5,21" />
-            </svg>
-            {isMobile ? 'Try It: OKC–HOU Harden Trade' : 'Try It: Map the OKC–HOU James Harden Trade'}
-          </button>
-        )}
 
       </div>
 
