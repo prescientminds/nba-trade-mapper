@@ -46,11 +46,11 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     waitFor: 'inline-stats-opened',
     waitLabel: 'Click a player name',
   },
-  // 5. Accolades + playoffs explanation (passive — user sees the inline stats)
+  // 5. Accolades + playoffs explanation — halo the richest season row
   {
-    target: 'trade-player',
+    target: 'tour-accolades-row',
     title: 'ACCOLADES & PLAYOFFS',
-    content: 'Gold badges are accolades (MVP, All-Star, All-NBA). If a player had a standout playoff game, it\'s highlighted with a peak Game Score. Click any playoff badge to see full series stats.',
+    content: 'Gold badges are accolades (MVP, All-Star, All-NBA). Playoff badges show series results. Click any playoff badge to see full series stats.',
     placement: 'bottom',
   },
   // 6. Follow the path — target the Path button

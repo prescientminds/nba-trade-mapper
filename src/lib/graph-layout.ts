@@ -528,6 +528,8 @@ export function layoutPlayerTimeline(
   // ── Pass 5.5: enforce chronological Y order per column ──
   // After anchor alignment (Pass 4), some nodes may violate chronological order
   // across columns (e.g., a 2010 node above a 2005 node). Fix per-column.
+  // Edge constraints take precedence over year ordering to handle mid-season
+  // trades (stint year < trade year but topologically trade → stint).
   for (const [, items] of byIntCol.entries()) {
     // Re-collect with final Y positions
     const colNodes = items.map(item => ({
@@ -536,7 +538,21 @@ export function layoutPlayerTimeline(
       y: compressedY.get(item.id) ?? 0,
       height: item.height,
     }));
-    colNodes.sort((a, b) => a.year - b.year || a.y - b.y);
+    // Build directed edge lookup within this column
+    const colNodeIds = new Set(colNodes.map(n => n.id));
+    const colEdges = new Map<string, Set<string>>();
+    for (const e of edges) {
+      if (colNodeIds.has(e.source) && colNodeIds.has(e.target)) {
+        if (!colEdges.has(e.source)) colEdges.set(e.source, new Set());
+        colEdges.get(e.source)!.add(e.target);
+      }
+    }
+    colNodes.sort((a, b) => {
+      // Direct edge constraints override year ordering
+      if (colEdges.get(a.id)?.has(b.id)) return -1;
+      if (colEdges.get(b.id)?.has(a.id)) return 1;
+      return a.year - b.year || a.y - b.y;
+    });
     let cursor = -Infinity;
     for (const cn of colNodes) {
       if (cn.y < cursor) {

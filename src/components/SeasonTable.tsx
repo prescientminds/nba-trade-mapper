@@ -303,12 +303,20 @@ export function SeasonTable({ rows, onHeightChange, chartSignal = 0 }: { rows: S
         </tr>
       </thead>
       <tbody>
-        {rows.map((r) => {
+        {(() => {
+          // Find the richest row (most accolades + playoff badges) for tour targeting
+          let richestSeason: string | null = null;
+          let richestScore = 0;
+          for (const r of rows) {
+            const score = r.accolades.length + (r.playoffResult ? 1 : 0) + (r.playoffPeakGames?.length ? 1 : 0);
+            if (score > richestScore) { richestScore = score; richestSeason = r.season; }
+          }
+          return rows.map((r) => {
           const shortSeason = r.season.length > 5 ? r.season.slice(2) : r.season;
           const compactTd: React.CSSProperties = { ...tdStyle, padding: '1px 2px' };
           return (
             <React.Fragment key={r.season}>
-            <tr>
+            <tr data-tour={r.season === richestSeason ? 'tour-accolades-row' : undefined}>
               <td style={{ ...compactTd, textAlign: 'left', fontSize: 9, color: 'var(--text-tertiary)', padding: '1px 2px 1px 0' }}>
                 {shortSeason}
               </td>
@@ -428,7 +436,8 @@ export function SeasonTable({ rows, onHeightChange, chartSignal = 0 }: { rows: S
             })()}
           </React.Fragment>
           );
-        })}
+        });
+        })()}
       </tbody>
       {rows.some(r => r.teamWins !== null) && (
         <tfoot>
