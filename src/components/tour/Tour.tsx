@@ -3,9 +3,22 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useTourStore } from '@/lib/tour-store';
+import { useGraphStore } from '@/lib/graph-store';
 
 function isInViewport(r: DOMRect) {
   return r.top >= -50 && r.bottom <= window.innerHeight + 50;
+}
+
+/** Walk up the DOM from el to find the React Flow node ID that contains it. */
+function findContainingNodeId(el: Element): string | null {
+  let node: Element | null = el;
+  while (node) {
+    if (node.classList?.contains('react-flow__node') && node.getAttribute('data-id')) {
+      return node.getAttribute('data-id');
+    }
+    node = node.parentElement;
+  }
+  return null;
 }
 
 /**
@@ -30,24 +43,29 @@ export default function GuidedTour() {
   const skip = useTourStore((s) => s.skip);
 
   const [rect, setRect] = useState<DOMRect | null>(null);
-  const scrolledRef = useRef(false);
+  const centeredRef = useRef(false);
 
-  // Track target element position
+  // Track target element position + center React Flow viewport on it
   useEffect(() => {
     if (!activeTour || showingWelcome || revealing) { setRect(null); return; }
     const current = steps[stepIndex];
     if (!current?.target) { setRect(null); return; }
-    scrolledRef.current = false;
+    centeredRef.current = false;
 
     const interval = setInterval(() => {
       const el = document.querySelector(`[data-tour="${current.target}"]`);
       if (!el) { setRect(null); return; }
       const r = el.getBoundingClientRect();
-      if (!scrolledRef.current) {
-        if (!isInViewport(r)) {
+      if (!centeredRef.current) {
+        // Use React Flow's fitView to center the containing node
+        const nodeId = findContainingNodeId(el);
+        if (nodeId) {
+          useGraphStore.getState().setPendingFitTarget(nodeId);
+        } else if (!isInViewport(r)) {
+          // Fallback for toolbar/non-graph elements
           el.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-        scrolledRef.current = true;
+        centeredRef.current = true;
       }
       setRect(r);
     }, 80);
@@ -158,18 +176,14 @@ export default function GuidedTour() {
           zIndex: 9999, pointerEvents: 'none',
           transition: 'top 0.35s ease-out, left 0.35s ease-out, width 0.35s ease-out, height 0.35s ease-out',
         }} />
-      ) : (
-        <div style={{
-          position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)',
-          zIndex: 9999, pointerEvents: 'none',
-        }} />
-      )}
+      ) : null}
 
       {/* Tooltip */}
       <div style={{
         ...pos, zIndex: 10000, background: '#1e1e2a',
         border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10,
-        padding: '16px 20px', boxShadow: '0 12px 40px rgba(0,0,0,0.5)',
+        padding: isMobile ? '12px 16px' : '16px 20px', boxShadow: '0 12px 40px rgba(0,0,0,0.5)',
+        ...(isMobile ? { maxHeight: '40vh', overflowY: 'auto' as const } : {}),
       }}>
         {/* Progress dots */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 3, marginBottom: 10 }}>
@@ -232,25 +246,22 @@ export default function GuidedTour() {
       {/* Tour animations */}
       <style>{`
         .tour-spotlight {
-          border: 2px solid rgba(249, 199, 79, 0.6);
+          border: 2px solid rgba(249, 199, 79, 0.7);
           box-shadow:
-            0 0 0 9999px rgba(0, 0, 0, 0.6),
             0 0 15px 3px rgba(249, 199, 79, 0.5),
-            0 0 30px 6px rgba(249, 199, 79, 0.2);
+            0 0 30px 6px rgba(249, 199, 79, 0.25);
           animation: tour-halo 2s ease-in-out infinite;
         }
         @keyframes tour-halo {
           0%, 100% {
             box-shadow:
-              0 0 0 9999px rgba(0, 0, 0, 0.6),
               0 0 15px 3px rgba(249, 199, 79, 0.5),
-              0 0 30px 6px rgba(249, 199, 79, 0.2);
+              0 0 30px 6px rgba(249, 199, 79, 0.25);
           }
           50% {
             box-shadow:
-              0 0 0 9999px rgba(0, 0, 0, 0.6),
               0 0 25px 8px rgba(249, 199, 79, 0.7),
-              0 0 50px 14px rgba(249, 199, 79, 0.3);
+              0 0 50px 14px rgba(249, 199, 79, 0.35);
           }
         }
         @keyframes tour-pulse {

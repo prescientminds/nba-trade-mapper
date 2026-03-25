@@ -12,11 +12,11 @@ export const HARDEN_TRADE_ID = 'f696d8e9-4d51-4130-908e-4d028dc820ae';
  * so the user sees the result of their action.
  */
 export const GUIDED_TOUR_STEPS: TourStep[] = [
-  // 1. Expand the collapsed trade — whole card visible
+  // 1. Expand the collapsed trade — target the + button specifically
   {
-    target: 'trade-card',
+    target: 'trade-plus',
     title: 'EXPAND THE TRADE',
-    content: 'Click the + button in the top right to open the 2012 James Harden trade.',
+    content: 'Click the + button to open the 2012 James Harden trade.',
     placement: 'bottom',
     waitFor: 'trade-expanded',
     waitLabel: 'Click + to expand',
@@ -28,18 +28,18 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     content: 'Each side is scored by Win Shares — total impact on winning across every season with the new team. Houston received 153 WS. OKC received 67.',
     placement: 'bottom',
   },
-  // 3. Salary — interactive, click to see per-player breakdown
+  // 3. Salary — target the salary number
   {
-    target: 'trade-card',
+    target: 'trade-salary',
     title: 'SALARY BREAKDOWN',
-    content: 'Click the salary amount next to either team name to see what each player was paid.',
+    content: 'Click the salary amount to see what each player was paid.',
     placement: 'bottom',
     waitFor: 'salary-expanded',
     waitLabel: 'Click a salary amount',
   },
   // 4. Click player name for inline stats
   {
-    target: 'trade-card',
+    target: 'trade-player',
     title: 'PLAYER STATS',
     content: 'Click any player name to see their season-by-season stats, accolades, and playoff results.',
     placement: 'bottom',
@@ -48,16 +48,16 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
   },
   // 5. Accolades + playoffs explanation (passive — user sees the inline stats)
   {
-    target: 'trade-card',
+    target: 'trade-player',
     title: 'ACCOLADES & PLAYOFFS',
     content: 'Gold badges are accolades (MVP, All-Star, All-NBA). If a player had a standout playoff game, it\'s highlighted with a peak Game Score. Click any playoff badge to see full series stats.',
     placement: 'bottom',
   },
-  // 6. Follow the path — whole card visible so Path → button is accessible
+  // 6. Follow the path — target the Path button
   {
-    target: 'trade-card',
+    target: 'trade-path',
     title: 'FOLLOW THE PATH',
-    content: 'Click Path → next to a player name to trace their full career journey — every team, every trade.',
+    content: 'Click Path to trace their full career journey — every team, every trade.',
     placement: 'bottom',
     waitFor: 'path-started',
     waitLabel: 'Click Path →',

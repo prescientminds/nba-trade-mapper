@@ -1095,6 +1095,7 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                           ) : (
                             <div
                               className="nopan nodrag"
+                              data-tour={assetIdx === 0 ? 'trade-path' : undefined}
                               onClick={(e) => handlePathClick(e, asset)}
                               style={{
                                 fontSize: 8,
