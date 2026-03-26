@@ -27,7 +27,8 @@ interface TradeCard {
   verdictFlip?: { winner1yr: string | null; winner5yr: string | null };
 }
 
-/** Build heading from marquee players: "Paul Sikma for Bobby Jackson", or fallback to team names */
+/** Build heading from marquee players: "Gary Payton for Alton Lister", or fallback to team names.
+ *  topAssets are pre-sorted by WS (highest first) via enrich-top-assets.ts. */
 function tradeHeading(
   topAssets: string[] | undefined,
   teams: string[],
@@ -1922,6 +1923,23 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
           onClose={() => setVerdictTimeline(null)}
         />
       )}
+
+      <div style={{ textAlign: 'center', marginTop: 32, paddingBottom: 8 }}>
+        <a
+          href="/team"
+          style={{
+            fontSize: 10,
+            color: 'var(--text-muted)',
+            opacity: 0.4,
+            textDecoration: 'none',
+            fontFamily: 'var(--font-body)',
+            letterSpacing: 1,
+            textTransform: 'uppercase',
+          }}
+        >
+          Our Team
+        </a>
+      </div>
     </div>
   );
 }
