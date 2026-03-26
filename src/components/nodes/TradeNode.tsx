@@ -13,6 +13,7 @@ import { HintLabel } from '@/components/HintLabel';
 import { createPortal } from 'react-dom';
 import CardPreviewModal from '@/components/CardPreviewModal';
 import { useTourStore } from '@/lib/tour-store';
+import VerdictFlipTimeline from '@/components/VerdictFlipTimeline';
 
 function fmtSalary(n: number): string {
   if (n >= 1_000_000_000) return `$${(n / 1_000_000_000).toFixed(1)}B`;
@@ -71,6 +72,8 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const [salaryExpandedTeams, setSalaryExpandedTeams] = useState<Set<string>>(new Set());
   const [pathLoading, setPathLoading] = useState<string | null>(null);
   const [cardPreviewOpen, setCardPreviewOpen] = useState(false);
+  const [timelineOpen, setTimelineOpen] = useState(false);
+  const selectedLeague = useGraphStore((s) => s.selectedLeague);
   const visualSkin = useGraphStore((s) => s.visualSkin);
   const [wsChartSignals, setWsChartSignals] = useState<Record<string, number>>({});
   useEffect(() => {
@@ -112,6 +115,13 @@ function TradeNodeComponent({ id, data }: NodeProps) {
     if (teamIds.length >= 3) return `${teamIds.length}-Team Trade`;
     return trade.title;
   }, [teamIds, trade.title, trade.date]);
+
+  // Can show timeline: trade is 3+ years old and has exactly 2 teams
+  const canVisualize = useMemo(() => {
+    if (teamIds.length !== 2) return false;
+    const tradeYear = trade.season ? parseInt(trade.season.split('-')[0], 10) : 0;
+    return tradeYear > 0 && (new Date().getFullYear() - tradeYear) >= 3;
+  }, [teamIds, trade.season]);
 
   // Subtitle: unique player names involved, max 3 + overflow count
   const playerSubtitle = useMemo(() => {
@@ -681,6 +691,42 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   );
                 })}
               </div>
+
+              {/* Visualize button — opens timeline */}
+              {canVisualize && (
+                <button
+                  className="nopan nodrag"
+                  onClick={(e) => { e.stopPropagation(); setTimelineOpen(true); }}
+                  style={{
+                    display: 'block',
+                    width: '100%',
+                    marginTop: 4,
+                    padding: '3px 0',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontSize: 7,
+                    fontWeight: 600,
+                    fontFamily: 'var(--font-body)',
+                    color: 'var(--text-muted)',
+                    letterSpacing: 0.6,
+                    textTransform: 'uppercase',
+                    textAlign: 'center',
+                    borderRadius: 3,
+                    transition: 'color 0.15s, background 0.15s',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = 'var(--text-primary)';
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'var(--text-muted)';
+                    e.currentTarget.style.background = 'none';
+                  }}
+                >
+                  Visualize →
+                </button>
+              )}
 
             </div>
           )}
@@ -1606,6 +1652,14 @@ function TradeNodeComponent({ id, data }: NodeProps) {
         tradeId={trade.id}
         tradeDate={trade.date || undefined}
         onClose={() => setCardPreviewOpen(false)}
+      />,
+      document.body,
+    )}
+    {timelineOpen && createPortal(
+      <VerdictFlipTimeline
+        tradeId={trade.id}
+        league={selectedLeague}
+        onClose={() => setTimelineOpen(false)}
       />,
       document.body,
     )}

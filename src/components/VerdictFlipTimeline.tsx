@@ -48,8 +48,8 @@ interface TeamSide {
 interface Props {
   tradeId: string;
   league: League;
-  winner1yr: string | null;
-  winner5yr: string | null;
+  winner1yr?: string | null;
+  winner5yr?: string | null;
   onClose: () => void;
 }
 
@@ -425,8 +425,8 @@ export default function VerdictFlipTimeline({ tradeId, league, winner1yr, winner
 
         {/* Team labels */}
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6, padding: '0 4px' }}>
-          <TeamLabel side={topSide} subtitle="Won year 1" />
-          <TeamLabel side={bottomSide} subtitle="Won year 5" />
+          <TeamLabel side={topSide} subtitle={winner1yr && winner5yr ? 'Won year 1' : undefined} />
+          <TeamLabel side={bottomSide} subtitle={winner1yr && winner5yr ? 'Won year 5' : undefined} />
         </div>
 
         {/* SVG Chart */}
@@ -708,7 +708,7 @@ export default function VerdictFlipTimeline({ tradeId, league, winner1yr, winner
 
 // ── Sub-components ────────────────────────────────────────────────────
 
-function TeamLabel({ side, subtitle }: { side: TeamSide; subtitle: string }) {
+function TeamLabel({ side, subtitle }: { side: TeamSide; subtitle?: string }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
       <div style={{
@@ -722,13 +722,15 @@ function TeamLabel({ side, subtitle }: { side: TeamSide; subtitle: string }) {
         }}>
           {side.teamName}
         </div>
-        <div style={{
-          fontSize: 8, color: 'var(--text-muted)',
-          fontFamily: 'var(--font-body)', textTransform: 'uppercase',
-          letterSpacing: 0.8,
-        }}>
-          {subtitle}
-        </div>
+        {subtitle && (
+          <div style={{
+            fontSize: 8, color: 'var(--text-muted)',
+            fontFamily: 'var(--font-body)', textTransform: 'uppercase',
+            letterSpacing: 0.8,
+          }}>
+            {subtitle}
+          </div>
+        )}
       </div>
     </div>
   );
