@@ -48,6 +48,15 @@ Run these scripts in order if rebuilding trade data from scratch:
 
 Daily updates: `scripts/scrape-today.ts` (used by `.github/workflows/update-trades.yml`)
 
+### Non-Trade Transaction Pipeline
+Covers signings, waivers, extensions, two-way, exhibit 10, 10-day, waiver claims, conversions, retirements, suspensions.
+- **Source:** BBRef season transaction pages (`/leagues/NBA_{YYYY}_transactions.html`)
+- **Script:** `npx tsx scripts/scrape-bbref-transactions.ts` — one HTTP request per season, cached in `data/bbref-cache/transactions/`
+- **Output:** `public/data/transactions/by-season/{season}.json` + `public/data/transactions/index.json`
+- **Coverage:** 1999-00 through 2025-26 (27 seasons, 14,331 transactions)
+- **DB table:** `player_transactions` (migration: `017-player-transactions.sql` — needs manual run in SQL Editor)
+- **Options:** `--season 2025-26` (single season), `--from 2020` (range), `--dry-run`, `--no-db`
+
 ### Trade Data Quality Fix (reference — ✅ COMPLETE)
 
 **Root cause:** `import-trades.ts` misread the bipartite CSV format. All 1,552 CSV-imported trades (1976-2019) had inverted directions.
@@ -262,6 +271,11 @@ npx tsx scripts/import-player-stats.ts         # Import player stats from Kaggle
 npx tsx scripts/import-accolades.ts            # Import awards/accolades (wipe table first — uses INSERT not upsert)
 npx tsx scripts/import-team-seasons.ts         # Import team W/L from Kaggle
 SUPABASE_ACCESS_TOKEN=xxx npx tsx scripts/run-migrations-api.ts  # Run SQL migrations via API
+
+# Non-trade transactions (signings, waivers, extensions, etc.)
+npx tsx scripts/scrape-bbref-transactions.ts             # All seasons (2000-present, cached)
+npx tsx scripts/scrape-bbref-transactions.ts --season 2025-26  # Single season
+npx tsx scripts/scrape-bbref-transactions.ts --no-db     # JSON only, skip Supabase
 
 # Mid-season Kaggle stats refresh (downloads latest CSVs + re-imports)
 KAGGLE_API_TOKEN=xxx ./scripts/update-kaggle-stats.sh   # One command: download, compare, swap, import

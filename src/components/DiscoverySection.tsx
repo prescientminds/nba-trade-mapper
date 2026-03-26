@@ -8,6 +8,7 @@ import { loadTrade, loadSearchIndex, staticTradeToTradeWithDetails } from '@/lib
 import type { TradeWithDetails, TradeSearchIndexEntry } from '@/lib/supabase';
 import type { ChainAsset, ChainTeamData } from '@/lib/graph-store';
 import type { League } from '@/lib/league';
+import VerdictFlipTimeline from '@/components/VerdictFlipTimeline';
 
 // ── Types ─────────────────────────────────────────────────────────────
 
@@ -23,6 +24,7 @@ interface TradeCard {
   badge?: string;
   chainScores?: Record<string, ChainTeamData>;
   date?: string;      // ISO date for historical team name lookup
+  verdictFlip?: { winner1yr: string | null; winner5yr: string | null };
 }
 
 /** Build heading from marquee players: "Paul Sikma for Bobby Jackson", or fallback to team names */
@@ -97,14 +99,6 @@ type ChainScoreRow = {
   season: string;
   max_chain_score: number;
   chain_scores: Record<string, ChainTeamData>;
-};
-
-type InflectionRow = {
-  trade_id: string;
-  inflection_swing: number;
-  inflection_teams: Record<string, { before: number; after: number; delta: number }>;
-  winner: string | null;
-  team_scores: Record<string, { score: number }>;
 };
 
 type VerdictFlipRow = {
@@ -1149,6 +1143,7 @@ function CategoryRow({
   onSelectPlayer,
   onSelectChain,
   onSelectChampionship,
+  onVerdictFlipClick,
 }: {
   category: Category;
   league: League;
@@ -1156,6 +1151,7 @@ function CategoryRow({
   onSelectPlayer: (name: string) => void;
   onSelectChain?: (tradeId: string, chainScores?: Record<string, ChainTeamData>) => void;
   onSelectChampionship?: (teamId: string, season: string) => void;
+  onVerdictFlipClick?: (card: TradeCard) => void;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [viewMode, setViewMode] = useState<'cards' | 'list'>('cards');
@@ -1188,6 +1184,11 @@ function CategoryRow({
   };
 
   const handleTradeClick = async (card: TradeCard) => {
+    // Verdict flips open the timeline visualization
+    if (card.verdictFlip && onVerdictFlipClick) {
+      onVerdictFlipClick(card);
+      return;
+    }
     if (onSelectChain) {
       onSelectChain(card.tradeId, card.chainScores);
       return;
@@ -1388,11 +1389,6 @@ const METRIC_DEFS: Record<string, { metricLabel: string; metricExplanation: stri
     metricExplanation:
       `Total Win Shares generated through multiple rounds of trading — what one team accumulated by flipping assets. Only counts production while on that team. Requires depth ≥ 2 and chain adding 20%+ beyond direct value. Fractional attribution prevents double-counting. ${FORMULA_BASE}`,
   },
-  'inflection': {
-    metricLabel: 'Win Swing',
-    metricExplanation:
-      'The total divergence in team win trajectories. For each team, average wins in the 3 seasons before vs. 3 seasons after the trade. The swing is the gap between the team that improved most and the team that declined most.',
-  },
   'dynasty-ingredients': {
     metricLabel: '% Trade-Built',
     metricExplanation:
@@ -1411,6 +1407,11 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [verdictTimeline, setVerdictTimeline] = useState<{
+    tradeId: string;
+    winner1yr: string | null;
+    winner5yr: string | null;
+  } | null>(null);
 
   useEffect(() => {
     async function load() {
@@ -1422,11 +1423,10 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
         let scores: ScoreRow[] = [];
         let champs: ChampRow[] = [];
         let chainRows: ChainScoreRow[] = [];
-        let inflectionRows: InflectionRow[] = [];
         let verdictRows: VerdictFlipRow[] = [];
         let dynastyRows: DynastyRow[] = [];
         try {
-          const [scoresRes, champsRes, chainRes, inflectionRes, verdictRes, dynastyRes] = await Promise.all([
+          const [scoresRes, champsRes, chainRes, verdictRes, dynastyRes] = await Promise.all([
             getSupabase()
               .from('trade_scores')
               .select('trade_id, lopsidedness, winner, team_scores')
@@ -1448,13 +1448,6 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
               .limit(150) as unknown as Promise<{ data: ChainScoreRow[] | null }>,
             getSupabase()
               .from('trade_scores')
-              .select('trade_id, inflection_swing, inflection_teams, winner, team_scores')
-              .eq('league', league)
-              .gt('inflection_swing', 15)
-              .order('inflection_swing', { ascending: false })
-              .limit(100) as unknown as Promise<{ data: InflectionRow[] | null }>,
-            getSupabase()
-              .from('trade_scores')
               .select('trade_id, winner, winner_1yr, winner_3yr, winner_5yr, verdict_flipped, lopsidedness, team_scores')
               .eq('league', league)
               .eq('verdict_flipped', true)
@@ -1469,7 +1462,6 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
           scores = scoresRes.data ?? [];
           champs = champsRes.data ?? [];
           chainRows = chainRes.data ?? [];
-          inflectionRows = inflectionRes.data ?? [];
           verdictRows = verdictRes.data ?? [];
           dynastyRows = dynastyRes.data ?? [];
         } catch (supabaseErr) {
@@ -1575,37 +1567,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
           .filter((c): c is TradeCard => c !== null)
           .slice(0, 200);
 
-        // 0a. Inflection Trades — team trajectory before/after
-        const inflectionCards: TradeCard[] = inflectionRows
-          .map((row): TradeCard | null => {
-            const entry = indexMap.get(row.trade_id);
-            if (!entry) return null;
-            const teams = row.inflection_teams ?? {};
-            const teamEntries = Object.entries(teams).sort((a, b) => b[1].delta - a[1].delta);
-            // Build player labels showing team deltas
-            const deltaLabels = teamEntries.slice(0, 3).map(([tid, inf]) => {
-              const info = getAnyTeamDisplayInfo(tid, entry.date);
-              const nickname = info.name.split(' ').pop() || tid;
-              const arrow = inf.delta >= 0 ? '+' : '';
-              return `${nickname} ${arrow}${inf.delta.toFixed(0)}W`;
-            });
-            return {
-              type: 'trade',
-              tradeId: row.trade_id,
-              heading: tradeHeading(entry.topAssets, entry.teams, entry.date),
-              players: deltaLabels,
-              season: entry.season,
-              teams: entry.teams,
-              winner: row.winner,
-              metric: row.inflection_swing ?? 0,
-              badge: `${(row.inflection_swing ?? 0).toFixed(0)}W swing`,
-              date: entry.date,
-            };
-          })
-          .filter((c): c is TradeCard => c !== null)
-          .slice(0, 200);
-
-        // 0b. Verdict Flips — trades where the winner changed between year 1 and year 5
+        // Verdict Flips — trades where the winner changed between year 1 and year 5
         const verdictCards: TradeCard[] = verdictRows
           .map((row): TradeCard | null => {
             const entry = indexMap.get(row.trade_id);
@@ -1625,6 +1587,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
               metric: row.lopsidedness,
               badge: `${yr1Name} → ${yr5Name}`,
               date: entry.date,
+              verdictFlip: { winner1yr: row.winner_1yr, winner5yr: row.winner_5yr },
             };
           })
           .filter((c): c is TradeCard => c !== null)
@@ -1804,14 +1767,6 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             cards: chainCards,
           },
           {
-            id: 'inflection',
-            label: 'Inflection Trades',
-            description: 'Trades where team trajectories diverged the most — one team rose while the other fell.',
-            accentColor: 'var(--accent-red)',
-            ...METRIC_DEFS['inflection'],
-            cards: inflectionCards,
-          },
-          {
             id: 'dynasty-ingredients',
             label: 'Dynasty Ingredients',
             description: 'How each championship was assembled — the percentage of playoff production from trade-acquired players.',
@@ -1946,8 +1901,27 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
           onSelectPlayer={onSelectPlayer}
           onSelectChain={onSelectChain}
           onSelectChampionship={onSelectChampionship}
+          onVerdictFlipClick={(card) => {
+            if (card.verdictFlip) {
+              setVerdictTimeline({
+                tradeId: card.tradeId,
+                winner1yr: card.verdictFlip.winner1yr,
+                winner5yr: card.verdictFlip.winner5yr,
+              });
+            }
+          }}
         />
       ))}
+
+      {verdictTimeline && (
+        <VerdictFlipTimeline
+          tradeId={verdictTimeline.tradeId}
+          league={league}
+          winner1yr={verdictTimeline.winner1yr}
+          winner5yr={verdictTimeline.winner5yr}
+          onClose={() => setVerdictTimeline(null)}
+        />
+      )}
     </div>
   );
 }
