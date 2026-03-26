@@ -71,6 +71,22 @@ body {
 ::-webkit-scrollbar-thumb { background: var(--bg-tertiary); border-radius: 999px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
+/* Our Team link */
+.our-team-link {
+  font-size: 10px;
+  color: var(--text-muted);
+  opacity: 0.4;
+  text-decoration: none;
+  font-family: var(--font-body);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.2s, opacity 0.2s;
+}
+.our-team-link:hover {
+  color: var(--accent-gold);
+  opacity: 0.8;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }

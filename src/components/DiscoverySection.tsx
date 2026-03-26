@@ -1927,15 +1927,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
       <div style={{ textAlign: 'center', marginTop: 32, paddingBottom: 8 }}>
         <a
           href="/team"
-          style={{
-            fontSize: 10,
-            color: 'var(--text-muted)',
-            opacity: 0.4,
-            textDecoration: 'none',
-            fontFamily: 'var(--font-body)',
-            letterSpacing: 1,
-            textTransform: 'uppercase',
-          }}
+          className="our-team-link"
         >
           Our Team
         </a>

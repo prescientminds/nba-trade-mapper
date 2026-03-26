@@ -112,14 +112,36 @@ function TeamMember({
   title,
   bio,
   stats,
+  image,
 }: {
   name: string;
   title: string;
   bio: string;
   stats?: string;
+  image?: string;
 }) {
   return (
     <section style={{ marginBottom: 8 }}>
+      {image && (
+        <div
+          style={{
+            marginBottom: 24,
+            borderRadius: 'var(--radius-md)',
+            overflow: 'hidden',
+            border: '1px solid var(--border-subtle)',
+          }}
+        >
+          <img
+            src={image}
+            alt={name}
+            style={{
+              width: '100%',
+              display: 'block',
+              objectFit: 'cover',
+            }}
+          />
+        </div>
+      )}
       <h2
         style={{
           fontFamily: 'var(--font-display)',
@@ -181,10 +203,12 @@ const team: {
   title: string;
   bio: string;
   stats?: string;
+  image?: string;
 }[] = [
   {
     name: 'DARIUS CLEMONS',
     title: 'Player Personnel Consultant',
+    image: '/images/team/darius-clemons.png',
     bio: `6\u20198\u2033 power forward out of Southeastern Louisiana. Undrafted, 2002. Signed with Golden State on the last day of training camp after their third-string power forward tore his meniscus in a preseason game against Seattle. Appeared in 14 games, shot 29% from the field. Waived in January. Spent two seasons in Atlanta as the 14th man on one of the worst rosters in modern NBA history \u2014 the 2004-05 Hawks went 13-69. His best year was 2003-04: 2.7 points, 0.8 rebounds, 3.0 minutes per game across 28 appearances. Career high of 8 points against Toronto, all in the fourth quarter, after Toronto\u2019s starters were already in street clothes. Hawks lost by 31. Finished with 9 games in Charlotte before his expiring minimum contract was included as salary ballast in a multi-team deadline deal that routed a starting-caliber wing to the Lakers. His name appeared between two semicolons on the ESPN transaction wire. He was assigned to a Western Conference team, never reported, and was waived four days later.`,
     stats: '51 G \u00b7 41 PTS \u00b7 18 REB \u00b7 4.2 PER \u00b7 Career earnings: ~$1.6M (4 league-minimum contracts)',
   },
