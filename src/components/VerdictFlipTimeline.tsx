@@ -24,6 +24,13 @@ interface PlayerSeasonRow {
   win_shares: number | null;
 }
 
+interface TeamSeasonRow {
+  team_id: string;
+  season: string;
+  wins: number;
+  losses: number;
+}
+
 /** Per-player per-season WS for one team's side of the trade */
 interface TeamSide {
   teamId: string;
@@ -35,6 +42,7 @@ interface TeamSide {
     totalWs: number;
   }[];
   seasonTotals: number[]; // indexed by year offset (0–4)
+  teamWins: (number | null)[]; // team wins per season (0–4), null if no data
 }
 
 interface Props {
@@ -117,14 +125,24 @@ export default function VerdictFlipTimeline({ tradeId, league, winner1yr, winner
         }
 
         const supabase = getSupabase();
-        const { data: rows, error: fetchErr } = await supabase
-          .from('player_seasons')
-          .select('player_name, team_id, season, win_shares')
-          .in('player_name', allPlayers)
-          .in('season', seasonRange);
+        const allTeamIds = [...teamPlayers.keys()];
 
-        if (fetchErr) { setError(fetchErr.message); return; }
-        const playerRows = (rows || []) as PlayerSeasonRow[];
+        const [playerRes, teamRes] = await Promise.all([
+          supabase
+            .from('player_seasons')
+            .select('player_name, team_id, season, win_shares')
+            .in('player_name', allPlayers)
+            .in('season', seasonRange),
+          supabase
+            .from('team_seasons')
+            .select('team_id, season, wins, losses')
+            .in('team_id', allTeamIds)
+            .in('season', seasonRange),
+        ]);
+
+        if (playerRes.error) { setError(playerRes.error.message); return; }
+        const playerRows = (playerRes.data || []) as PlayerSeasonRow[];
+        const teamSeasonRows = (teamRes.data || []) as TeamSeasonRow[];
 
         // Build sides
         const teams = [...teamPlayers.keys()];
@@ -166,12 +184,21 @@ export default function VerdictFlipTimeline({ tradeId, league, winner1yr, winner
             });
           }
 
+          // Team wins per season
+          const teamWins: (number | null)[] = [];
+          for (let y = tradeYear + 1; y <= tradeYear + 5; y++) {
+            const s = yearToSeason(y);
+            const row = teamSeasonRows.find(r => r.team_id === teamId && r.season === s);
+            teamWins.push(row ? row.wins : null);
+          }
+
           return {
             teamId,
             teamName: info.name,
             teamColor: info.color || '#666',
             players,
             seasonTotals,
+            teamWins,
           };
         });
 
@@ -202,19 +229,30 @@ export default function VerdictFlipTimeline({ tradeId, league, winner1yr, winner
   // ── Chart dimensions ──
 
   const W = 560;
-  const H = 400;
+  const WINS_H = 70;    // height of the wins strip at top
+  const WINS_GAP = 12;  // gap between wins strip and WS chart
+  const WS_H = 340;     // height of the mirrored WS stacked area
+  const H = WINS_H + WINS_GAP + WS_H + 20; // total SVG height
   const PAD_LEFT = 50;
-  const PAD_RIGHT = 20;
-  const PAD_TOP = 16;
+  const PAD_RIGHT = 36;  // room for right-side wins axis
+  const PAD_TOP = 14;
   const PAD_BOTTOM = 16;
   const chartW = W - PAD_LEFT - PAD_RIGHT;
-  const halfH = (H - PAD_TOP - PAD_BOTTOM) / 2;
-  const midY = PAD_TOP + halfH;
+
+  // WS chart zone
+  const wsTop = WINS_H + WINS_GAP;
+  const wsAreaH = WS_H - PAD_BOTTOM;
+  const halfH = wsAreaH / 2;
+  const midY = wsTop + halfH;
+
+  // Wins strip zone
+  const winsTop = PAD_TOP;
+  const winsBottom = WINS_H;
 
   // ── Build SVG paths ──
 
-  const { topPaths, bottomPaths, maxVal, seasonLabels } = useMemo(() => {
-    if (!topSide || !bottomSide) return { topPaths: [], bottomPaths: [], maxVal: 1, seasonLabels: [] };
+  const { topPaths, bottomPaths, maxVal, seasonLabels, topWinsPoints, bottomWinsPoints, winsScaleMin, winsScaleMax } = useMemo(() => {
+    if (!topSide || !bottomSide) return { topPaths: [], bottomPaths: [], maxVal: 1, seasonLabels: [], topWinsPoints: [] as { x: number; y: number; wins: number }[], bottomWinsPoints: [] as { x: number; y: number; wins: number }[], winsScaleMin: 0, winsScaleMax: 82 };
 
     const maxTop = Math.max(...topSide.seasonTotals, 0.1);
     const maxBottom = Math.max(...bottomSide.seasonTotals, 0.1);
@@ -279,8 +317,31 @@ export default function VerdictFlipTimeline({ tradeId, league, winner1yr, winner
     const topPaths = buildStackedPaths(topSide, 'up');
     const bottomPaths = buildStackedPaths(bottomSide, 'down');
 
-    return { topPaths, bottomPaths, maxVal, seasonLabels };
-  }, [topSide, bottomSide, tradeSeason, chartW, halfH, midY]);
+    // Wins line data
+    const allWins = [...topSide.teamWins, ...bottomSide.teamWins].filter((w): w is number => w !== null);
+    const winsMax = allWins.length > 0 ? Math.max(...allWins) : 82;
+    const winsMin = allWins.length > 0 ? Math.min(...allWins) : 0;
+    // Scale with padding: floor to nearest 10 below min, ceil to nearest 10 above max
+    const winsScaleMin = Math.max(0, Math.floor(winsMin / 10) * 10 - 5);
+    const winsScaleMax = Math.min(82, Math.ceil(winsMax / 10) * 10 + 5);
+    const winsRange = winsScaleMax - winsScaleMin || 1;
+
+    function winsToPoints(wins: (number | null)[]): { x: number; y: number; wins: number }[] {
+      return wins
+        .map((w, i) => {
+          if (w === null) return null;
+          const x = PAD_LEFT + (i / 4) * chartW;
+          const y = winsBottom - ((w - winsScaleMin) / winsRange) * (winsBottom - winsTop);
+          return { x, y, wins: w };
+        })
+        .filter((p): p is { x: number; y: number; wins: number } => p !== null);
+    }
+
+    const topWinsPoints = winsToPoints(topSide.teamWins);
+    const bottomWinsPoints = winsToPoints(bottomSide.teamWins);
+
+    return { topPaths, bottomPaths, maxVal, seasonLabels, winsMax: winsScaleMax, topWinsPoints, bottomWinsPoints, winsScaleMin, winsScaleMax };
+  }, [topSide, bottomSide, tradeSeason, chartW, halfH, midY, winsTop, winsBottom]);
 
   // ── Cumulative running totals for crossover annotation ──
 
@@ -374,6 +435,103 @@ export default function VerdictFlipTimeline({ tradeId, league, winner1yr, winner
           width="100%"
           style={{ display: 'block', maxWidth: W }}
         >
+          {/* ── Wins strip ── */}
+          {/* Wins background */}
+          <rect
+            x={PAD_LEFT} y={winsTop} width={chartW} height={winsBottom - winsTop}
+            fill="rgba(255,255,255,0.02)" rx={4}
+          />
+
+          {/* Wins grid lines */}
+          {(() => {
+            const range = winsScaleMax - winsScaleMin;
+            const step = range > 30 ? 20 : 10;
+            const lines: number[] = [];
+            for (let w = Math.ceil(winsScaleMin / step) * step; w <= winsScaleMax; w += step) {
+              lines.push(w);
+            }
+            return lines.map(w => {
+              const y = winsBottom - ((w - winsScaleMin) / (winsScaleMax - winsScaleMin || 1)) * (winsBottom - winsTop);
+              return (
+                <g key={`wgrid-${w}`}>
+                  <line x1={PAD_LEFT} x2={PAD_LEFT + chartW} y1={y} y2={y}
+                    stroke="rgba(255,255,255,0.06)" strokeWidth={0.5} />
+                  <text x={W - PAD_RIGHT + 5} y={y + 3} textAnchor="start"
+                    fill="var(--text-muted)" fontSize={7} fontFamily="var(--font-mono)">
+                    {w}W
+                  </text>
+                </g>
+              );
+            });
+          })()}
+
+          {/* "WINS" label */}
+          <text x={W - PAD_RIGHT + 5} y={winsTop + 4} textAnchor="start"
+            fill="var(--text-muted)" fontSize={7} fontFamily="var(--font-body)"
+            fontWeight={600} letterSpacing={0.6}>
+            WINS
+          </text>
+
+          {/* Top team wins line */}
+          {topWinsPoints.length > 1 && (
+            <polyline
+              points={topWinsPoints.map(p => `${p.x},${p.y}`).join(' ')}
+              fill="none"
+              stroke={topSide.teamColor}
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              opacity={0.9}
+            />
+          )}
+          {topWinsPoints.map((p, i) => (
+            <g key={`tw-${i}`}>
+              <circle cx={p.x} cy={p.y} r={3.5}
+                fill={topSide.teamColor} stroke="var(--bg-card)" strokeWidth={1.5} />
+              <text x={p.x} y={p.y - 7} textAnchor="middle"
+                fill={topSide.teamColor} fontSize={7} fontFamily="var(--font-mono)"
+                fontWeight={600}>
+                {p.wins}
+              </text>
+            </g>
+          ))}
+
+          {/* Bottom team wins line */}
+          {bottomWinsPoints.length > 1 && (
+            <polyline
+              points={bottomWinsPoints.map(p => `${p.x},${p.y}`).join(' ')}
+              fill="none"
+              stroke={bottomSide.teamColor}
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              opacity={0.9}
+            />
+          )}
+          {bottomWinsPoints.map((p, i) => {
+            // If close to a top point at same x, put label below dot instead of above
+            const topPoint = topWinsPoints[i];
+            const tooClose = topPoint && Math.abs(topPoint.y - p.y) < 14;
+            return (
+              <g key={`bw-${i}`}>
+                <circle cx={p.x} cy={p.y} r={3.5}
+                  fill={bottomSide.teamColor} stroke="var(--bg-card)" strokeWidth={1.5} />
+                <text x={p.x} y={tooClose ? p.y + 12 : p.y - 7} textAnchor="middle"
+                  fill={bottomSide.teamColor} fontSize={7} fontFamily="var(--font-mono)"
+                  fontWeight={600}>
+                  {p.wins}
+                </text>
+              </g>
+            );
+          })}
+
+          {/* Separator between wins strip and WS chart */}
+          <line x1={PAD_LEFT} x2={PAD_LEFT + chartW}
+            y1={WINS_H + WINS_GAP / 2} y2={WINS_H + WINS_GAP / 2}
+            stroke="rgba(255,255,255,0.1)" strokeWidth={0.5} />
+
+          {/* ── WS stacked area chart ── */}
+
           {/* Grid lines */}
           {[0.25, 0.5, 0.75, 1].map(frac => {
             const yUp = midY - frac * halfH;
@@ -483,13 +641,13 @@ export default function VerdictFlipTimeline({ tradeId, league, winner1yr, winner
               <line
                 x1={PAD_LEFT + (crossoverSeason / 4) * chartW}
                 x2={PAD_LEFT + (crossoverSeason / 4) * chartW}
-                y1={PAD_TOP} y2={H - PAD_BOTTOM}
+                y1={winsTop} y2={H - PAD_BOTTOM}
                 stroke="var(--accent-gold)" strokeWidth={1} strokeDasharray="4 3"
                 opacity={0.6}
               />
               <text
                 x={PAD_LEFT + (crossoverSeason / 4) * chartW}
-                y={PAD_TOP - 2}
+                y={winsTop - 2}
                 textAnchor="middle"
                 fill="var(--accent-gold)" fontSize={8} fontFamily="var(--font-body)"
                 fontWeight={600}
