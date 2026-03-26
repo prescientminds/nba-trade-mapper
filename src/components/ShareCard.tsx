@@ -449,13 +449,15 @@ function OGCard(props: ShareCardProps) {
                 pointerEvents: 'none', zIndex: 3,
               }} />
 
-              {/* White readability overlay behind player names */}
+              {/* Readability overlay behind player names — skin-aware */}
               <div style={{
                 position: 'absolute',
                 bottom: 0, left: 0, right: 0,
                 height: '50%',
-                background: 'linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.5))',
-                pointerEvents: 'none', zIndex: 4,
+                background: sk.isLight
+                  ? 'linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.5))'
+                  : 'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.55))',
+                pointerEvents: 'none', zIndex: 3,
               }} />
 
               {/* ── Top zone: team name + score (inside body, no header bar) ── */}
@@ -520,57 +522,36 @@ function OGCard(props: ShareCardProps) {
                 alignItems: flexAlign,
                 zIndex: 5,
               }}>
-                {shown.length > 3 ? (
-                  shown.map((asset, i) => (
-                    <div key={`${asset.name}-${i}`} style={{
-                      display: 'flex', alignItems: 'baseline', gap: 8,
-                    }}>
+                {moreCount > 0 && (
+                  <span style={{ fontSize: shown.length > 3 ? 12 : 14, fontWeight: 600, color: dimColor }}>
+                    + {moreCount} more
+                  </span>
+                )}
+                {shown.map((asset, i) => (
+                  <div key={`${asset.name}-${i}`} style={{
+                    display: 'flex', flexDirection: 'column',
+                    alignItems: flexAlign,
+                  }}>
+                    <StatPills asset={asset} spotlight={spotlight} fontSize={shown.length > 3 ? (is3 ? 9 : 11) : pillFs} sk={sk} />
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: shown.length > 3 ? 6 : 10, marginTop: 2 }}>
                       <span style={{
-                        fontSize: is3 ? 18 : 22, fontWeight: 700,
+                        fontSize: shown.length > 3 ? (is3 ? 18 : 22) : playerFs,
+                        fontWeight: shown.length > 3 ? 700 : 800,
                         color: sk.nameColor,
+                        letterSpacing: -0.3,
                       }}>
                         {asset.name}
                       </span>
                       <span style={{
-                        fontSize: is3 ? 11 : 13, fontWeight: 600,
+                        fontSize: shown.length > 3 ? (is3 ? 11 : 13) : Math.round(playerFs * 0.55),
+                        fontWeight: shown.length > 3 ? 600 : 700,
                         color: sk.indivScoreColor(c),
                       }}>
                         {fmt(asset.score)} WS
                       </span>
                     </div>
-                  ))
-                ) : (
-                  <>
-                    {moreCount > 0 && (
-                      <span style={{ fontSize: 14, fontWeight: 600, color: dimColor }}>
-                        + {moreCount} more
-                      </span>
-                    )}
-                    {shown.map((asset, i) => (
-                      <div key={`${asset.name}-${i}`} style={{
-                        display: 'flex', flexDirection: 'column',
-                        alignItems: flexAlign,
-                      }}>
-                        <StatPills asset={asset} spotlight={spotlight} fontSize={pillFs} sk={sk} />
-                        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginTop: 2 }}>
-                          <span style={{
-                            fontSize: playerFs, fontWeight: 800,
-                            color: sk.nameColor,
-                            letterSpacing: -0.3,
-                          }}>
-                            {asset.name}
-                          </span>
-                          <span style={{
-                            fontSize: Math.round(playerFs * 0.55), fontWeight: 700,
-                            color: sk.indivScoreColor(c),
-                          }}>
-                            {fmt(asset.score)} WS
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </>
-                )}
+                  </div>
+                ))}
               </div>
             </div>
           );
@@ -725,13 +706,15 @@ function SquareCard(props: ShareCardProps) {
               }} />
             )}
 
-            {/* White readability overlay behind player names */}
+            {/* Readability overlay behind player names — skin-aware */}
             <div style={{
               position: 'absolute',
               bottom: 0, left: 0, right: 0,
               height: '50%',
-              background: 'linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.5))',
-              pointerEvents: 'none', zIndex: 4,
+              background: sk.isLight
+                ? 'linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.5))'
+                : 'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.55))',
+              pointerEvents: 'none', zIndex: 3,
             }} />
 
             {/* Content: team name + score at top, players at bottom */}
@@ -786,49 +769,28 @@ function SquareCard(props: ShareCardProps) {
 
               {/* Bottom: players + pills */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: shown.length > 3 ? 3 : 6 }}>
-                {shown.length > 3 ? (
-                  shown.map((asset, i) => (
-                    <div key={`${asset.name}-${i}`} style={{
-                      display: 'flex', alignItems: 'baseline', gap: 8,
-                    }}>
+                {moreCount > 0 && <span style={{ fontSize: shown.length > 3 ? 13 : 16, fontWeight: 600, color: dimColor }}>+ {moreCount} more</span>}
+                {shown.map((asset, i) => (
+                  <div key={`${asset.name}-${i}`} style={{ display: 'flex', flexDirection: 'column' }}>
+                    <StatPills asset={asset} spotlight={spotlight} fontSize={shown.length > 3 ? (is3Plus ? 10 : 12) : pillFs} sk={sk} />
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: shown.length > 3 ? 6 : 10, marginTop: 2 }}>
                       <span style={{
-                        fontSize: is3Plus ? 20 : 24, fontWeight: 700,
+                        fontSize: shown.length > 3 ? (is3Plus ? 20 : 24) : playerFs,
+                        fontWeight: shown.length > 3 ? 700 : 800,
                         color: sk.nameColor,
                       }}>
                         {asset.name}
                       </span>
                       <span style={{
-                        fontSize: is3Plus ? 12 : 14, fontWeight: 600,
+                        fontSize: shown.length > 3 ? (is3Plus ? 12 : 14) : Math.round(playerFs * 0.5),
+                        fontWeight: shown.length > 3 ? 600 : 700,
                         color: sk.indivScoreColor(c),
                       }}>
                         {fmt(asset.score)} WS
                       </span>
                     </div>
-                  ))
-                ) : (
-                  <>
-                    {moreCount > 0 && <span style={{ fontSize: 16, fontWeight: 600, color: dimColor }}>+ {moreCount} more</span>}
-                    {shown.map((asset, i) => (
-                      <div key={`${asset.name}-${i}`} style={{ display: 'flex', flexDirection: 'column' }}>
-                        <StatPills asset={asset} spotlight={spotlight} fontSize={pillFs} sk={sk} />
-                        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginTop: 2 }}>
-                          <span style={{
-                            fontSize: playerFs, fontWeight: 800,
-                            color: sk.nameColor,
-                          }}>
-                            {asset.name}
-                          </span>
-                          <span style={{
-                            fontSize: Math.round(playerFs * 0.5), fontWeight: 700,
-                            color: sk.indivScoreColor(c),
-                          }}>
-                            {fmt(asset.score)} WS
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </>
-                )}
+                  </div>
+                ))}
               </div>
             </div>
           </div>

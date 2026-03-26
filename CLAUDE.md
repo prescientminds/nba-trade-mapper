@@ -263,6 +263,9 @@ npx tsx scripts/import-accolades.ts            # Import awards/accolades (wipe t
 npx tsx scripts/import-team-seasons.ts         # Import team W/L from Kaggle
 SUPABASE_ACCESS_TOKEN=xxx npx tsx scripts/run-migrations-api.ts  # Run SQL migrations via API
 
+# Mid-season Kaggle stats refresh (downloads latest CSVs + re-imports)
+KAGGLE_API_TOKEN=xxx ./scripts/update-kaggle-stats.sh   # One command: download, compare, swap, import
+
 # Seasonal refresh (run each offseason after playoffs end)
 npx tsx scripts/scrape-playoff-results.ts --year 2026   # Bracket results → team_seasons
 npx tsx scripts/scrape-playoff-stats.ts --year 2026     # Playoff WS/PPG → player_seasons

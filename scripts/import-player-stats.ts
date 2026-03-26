@@ -119,18 +119,24 @@ async function main() {
     const advKey = `${playerName}|${row.season}|${row.team}`;
     const adv = advancedMap.get(advKey);
 
+    const num = (v: string | undefined): number | null => {
+      if (v === undefined || v === '' || v === 'NA') return null;
+      const n = parseFloat(v);
+      return isNaN(n) ? null : n;
+    };
+
     upsertRows.push({
       player_name: playerName,
       team_id: teamId,
       season,
-      gp: parseFloat(row.g) || null,
-      ppg: parseFloat(row.pts_per_game) || null,
-      rpg: parseFloat(row.trb_per_game) || null,
-      apg: parseFloat(row.ast_per_game) || null,
-      fg_pct: parseFloat(row.fg_percent) || null,
-      win_shares: adv ? (parseFloat(adv.ws) || null) : null,
-      per: adv ? (parseFloat(adv.per) || null) : null,
-      vorp: adv ? (parseFloat(adv.vorp) || null) : null,
+      gp: num(row.g),
+      ppg: num(row.pts_per_game),
+      rpg: num(row.trb_per_game),
+      apg: num(row.ast_per_game),
+      fg_pct: num(row.fg_percent),
+      win_shares: adv ? num(adv.ws) : null,
+      per: adv ? num(adv.per) : null,
+      vorp: adv ? num(adv.vorp) : null,
     });
   }
 

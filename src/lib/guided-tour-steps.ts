@@ -68,15 +68,7 @@ export const GUIDED_TOUR_STEPS: TourStep[] = [
     placement: 'top',
     zoom: 3,
   },
-  // 7. Accolades + playoffs — zoom into the right half (badges area)
-  {
-    target: 'tour-accolades-row',
-    title: 'ACCOLADES & PLAYOFFS',
-    content: 'Gold badges are accolades (MVP, All-Star, All-NBA). Playoff badges show series results. Click any playoff badge to see full series stats.',
-    placement: 'top',
-    zoom: 4,
-  },
-  // 8. Follow the path — zoom in tight on the Path button
+  // 7. Follow the path — zoom in tight on the Path button
   {
     target: 'trade-path',
     title: 'FOLLOW THE PATH',

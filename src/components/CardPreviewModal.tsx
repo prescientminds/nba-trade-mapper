@@ -578,7 +578,8 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
           disabled={!imgUrl || downloading}
           style={{
             flex: 1,
-            padding: isMobile ? '14px 0' : '12px 0',
+            minWidth: 120,
+            padding: isMobile ? '14px 24px' : '12px 24px',
             fontSize: 13, fontWeight: 700,
             fontFamily: 'var(--font-body)',
             color: imgUrl ? '#0f0f17' : 'rgba(255,255,255,0.2)',
@@ -595,7 +596,9 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
           onClick={handleCopy}
           disabled={!imgBlob}
           style={{
-            flex: 1, padding: isMobile ? '14px 0' : '12px 0',
+            flex: 1,
+            minWidth: 120,
+            padding: isMobile ? '14px 24px' : '12px 24px',
             fontSize: 13, fontWeight: 700,
             fontFamily: 'var(--font-body)',
             color: imgBlob ? '#ffffff' : 'rgba(255,255,255,0.2)',
