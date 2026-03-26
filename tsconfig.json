@@ -30,5 +30,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules", "scripts/analyze-catv.ts", "kalshi"]
+  "exclude": ["node_modules", "scripts/analyze-catv.ts", "scripts/scrape-bbref-transactions.ts", "scripts/score-transactions.ts", "kalshi"]
 }
