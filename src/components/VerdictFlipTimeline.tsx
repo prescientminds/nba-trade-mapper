@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { getSupabase } from '@/lib/supabase';
 import { getAnyTeamDisplayInfo } from '@/lib/teams';
 import { loadTrade } from '@/lib/trade-data';
@@ -81,6 +81,8 @@ export default function VerdictFlipTimeline({ tradeId, league, winner1yr, winner
   const [error, setError] = useState<string | null>(null);
   const [topSide, setTopSide] = useState<TeamSide | null>(null);
   const [bottomSide, setBottomSide] = useState<TeamSide | null>(null);
+  const [sharing, setSharing] = useState(false);
+  const captureRef = useRef<HTMLDivElement>(null);
   const [tradeTitle, setTradeTitle] = useState('');
   const [tradeSeason, setTradeSeason] = useState('');
   const [hoveredPlayer, setHoveredPlayer] = useState<{ name: string; season: string; ws: number; teamId: string } | null>(null);
@@ -359,6 +361,52 @@ export default function VerdictFlipTimeline({ tradeId, league, winner1yr, winner
     return { crossoverSeason };
   }, [topSide, bottomSide]);
 
+  // ── Share / Download ──
+
+  const handleShare = useCallback(async () => {
+    if (!captureRef.current || sharing) return;
+    setSharing(true);
+    try {
+      // Hide the close and share buttons during capture
+      const buttons = captureRef.current.querySelectorAll('[data-capture-hide]');
+      buttons.forEach(b => (b as HTMLElement).style.display = 'none');
+
+      const html2canvas = (await import('html2canvas')).default;
+      const canvas = await html2canvas(captureRef.current, {
+        scale: 2,
+        useCORS: true,
+        logging: false,
+        backgroundColor: '#16161f',
+        scrollX: 0,
+        scrollY: 0,
+      });
+
+      buttons.forEach(b => (b as HTMLElement).style.display = '');
+
+      const blob = await new Promise<Blob>((resolve, reject) => {
+        canvas.toBlob(b => b ? resolve(b) : reject(new Error('toBlob failed')), 'image/png');
+      });
+
+      // Try native share on mobile, fall back to download
+      if (navigator.share && navigator.canShare?.({ files: [new File([blob], 'trade-timeline.png', { type: 'image/png' })] })) {
+        await navigator.share({
+          files: [new File([blob], 'trade-timeline.png', { type: 'image/png' })],
+        });
+      } else {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `trade-timeline-${tradeId.slice(0, 8)}.png`;
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+    } catch (err) {
+      console.error('Share failed:', err);
+    } finally {
+      setSharing(false);
+    }
+  }, [sharing, tradeId]);
+
   // ── Render ──
 
   if (loading) {
@@ -390,12 +438,14 @@ export default function VerdictFlipTimeline({ tradeId, league, winner1yr, winner
   return (
     <div style={overlayStyle} onClick={onClose}>
       <div
+        ref={captureRef}
         style={modalStyle}
         onClick={e => e.stopPropagation()}
         onMouseMove={e => setMousePos({ x: e.clientX, y: e.clientY })}
       >
         {/* Close button */}
         <button
+          data-capture-hide
           onClick={onClose}
           style={{
             position: 'absolute', top: 10, right: 12,
@@ -675,6 +725,45 @@ export default function VerdictFlipTimeline({ tradeId, league, winner1yr, winner
         }}>
           <PlayerLegend side={topSide} />
           <PlayerLegend side={bottomSide} />
+        </div>
+
+        {/* Share / Download button */}
+        <div data-capture-hide style={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
+          <button
+            onClick={handleShare}
+            disabled={sharing}
+            style={{
+              display: 'flex', alignItems: 'center', gap: 5,
+              padding: '5px 14px',
+              background: 'rgba(255,255,255,0.06)',
+              border: '1px solid var(--border-subtle)',
+              borderRadius: 6,
+              color: sharing ? 'var(--text-muted)' : 'var(--text-secondary)',
+              fontSize: 10,
+              fontWeight: 600,
+              fontFamily: 'var(--font-body)',
+              cursor: sharing ? 'wait' : 'pointer',
+              letterSpacing: 0.4,
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={(e) => {
+              if (!sharing) {
+                e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+                e.currentTarget.style.color = 'var(--text-primary)';
+              }
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+              e.currentTarget.style.color = 'var(--text-secondary)';
+            }}
+          >
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 8v5a1 1 0 001 1h6a1 1 0 001-1V8" />
+              <polyline points="8 2 8 10" />
+              <polyline points="5 5 8 2 11 5" />
+            </svg>
+            {sharing ? 'Saving...' : 'Save Image'}
+          </button>
         </div>
 
         {/* Hover tooltip */}
