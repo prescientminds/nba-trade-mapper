@@ -748,12 +748,14 @@ export default function VerdictFlipTimeline({ tradeId, league, winner1yr, winner
             }}
             onMouseEnter={(e) => {
               if (!sharing) {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                e.currentTarget.style.color = 'var(--text-primary)';
+                e.currentTarget.style.background = 'rgba(249,199,79,0.15)';
+                e.currentTarget.style.borderColor = 'var(--accent-gold)';
+                e.currentTarget.style.color = 'var(--accent-gold)';
               }
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+              e.currentTarget.style.borderColor = 'var(--border-subtle)';
               e.currentTarget.style.color = 'var(--text-secondary)';
             }}
           >
@@ -762,7 +764,7 @@ export default function VerdictFlipTimeline({ tradeId, league, winner1yr, winner
               <polyline points="8 2 8 10" />
               <polyline points="5 5 8 2 11 5" />
             </svg>
-            {sharing ? 'Saving...' : 'Save Image'}
+            {sharing ? 'Sharing...' : 'Share Image'}
           </button>
         </div>
 
