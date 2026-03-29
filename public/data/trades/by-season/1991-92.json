@@ -3,7 +3,7 @@
     "id": "4c1904a9-a899-4b5f-a377-da7e1faea4b9",
     "date": "1991-07-03",
     "season": "1991-92",
-    "title": "Clippers / Knicks Trade",
+    "title": "Leonard White, Joe Wylie Trade",
     "description": "On 1991-07-03:  Knicks acquire rights to Joe Wylie  Clippers acquire 1993 second round pick (#53-Leonard White)",
     "is_multi_team": false,
     "teams": [
@@ -60,7 +60,7 @@
     "id": "0747d7fa-3747-451b-b4f9-6d3ac163f448",
     "date": "1991-08-13",
     "season": "1991-92",
-    "title": "James Edwards Trade",
+    "title": "James Edwards, Lou Roe, Jeff Martin Trade",
     "description": "On 1991-08-13:  Pistons acquire Jeff Martin  Clippers acquire James Edwards",
     "is_multi_team": false,
     "teams": [
@@ -117,7 +117,7 @@
     "id": "7fa864d4-d81e-4b0c-9a4c-f9b1de3fe396",
     "date": "1991-08-13",
     "season": "1991-92",
-    "title": "Scott Hastings Trade",
+    "title": "Orlando Woolridge, Scott Hastings, Robert Werdann Trade",
     "description": "On 1991-08-13:  Pistons acquire Orlando Woolridge  Nuggets acquire Scott Hastings",
     "is_multi_team": false,
     "teams": [
@@ -174,7 +174,7 @@
     "id": "0ce3ffb8-90c8-4638-a174-a576d4f8f4bb",
     "date": "1991-09-06",
     "season": "1991-92",
-    "title": "Bullets / Pistons Trade",
+    "title": "Darrell Walker, Conrad McRae, Frankie King Trade",
     "description": "On 1991-09-06:  Pistons acquire Darrell Walker  Bullets acquire 1993 second round pick (#38-Conrad McRae)",
     "is_multi_team": false,
     "teams": [
@@ -231,7 +231,7 @@
     "id": "45df7451-faa5-452c-a69a-6e1e98c97617",
     "date": "1991-09-23",
     "season": "1991-92",
-    "title": "Dwayne Schintzius Trade",
+    "title": "Antoine Carr, Dwayne Schintzius, Jevon Crudup Trade",
     "description": "On 1991-09-23:  Spurs acquire Antoine Carr  Kings acquire Dwayne Schintzius",
     "is_multi_team": false,
     "teams": [
@@ -367,7 +367,7 @@
     "id": "5ae300a6-3a48-49f1-83fb-bf7c2f01ec6f",
     "date": "1991-10-02",
     "season": "1991-92",
-    "title": "Maurice Cheeks Trade",
+    "title": "Charlie Ward, Maurice Cheeks, Tim McCormick Trade",
     "description": "On 1991-10-02:  Knicks acquire Tim McCormick  Hawks acquire Maurice Cheeks",
     "is_multi_team": false,
     "teams": [
@@ -424,7 +424,7 @@
     "id": "24590e1b-6a62-448f-a24e-c24df676debf",
     "date": "1991-10-02",
     "season": "1991-92",
-    "title": "Lakers / Sonics Trade",
+    "title": "Sedale Threatt, Dontonio Wingfield, Martin Lewis Trade",
     "description": "On 1991-10-02:  Sonics acquire 1994 second round pick (#37-Dontonio Wingfield)  Lakers acquire Sedale Threatt",
     "is_multi_team": false,
     "teams": [
@@ -503,7 +503,7 @@
     "id": "dc2a0645-be00-495c-8a0b-fdbc0f52c184",
     "date": "1991-11-01",
     "season": "1991-92",
-    "title": "Kings / Warriors Trade",
+    "title": "Mitch Richmond, Billy Owens, Les Jepsen Trade",
     "description": "On 1991-11-01:  Warriors acquire rights to Billy Owens  Kings acquire Mitch Richmond",
     "is_multi_team": false,
     "teams": [
@@ -571,7 +571,7 @@
     "id": "301c1207-15b8-4ed5-8672-5eabfd62276d",
     "date": "1991-11-04",
     "season": "1991-92",
-    "title": "Bobby Hansen Trade",
+    "title": "Dennis Hopson, Corey Williams, Bobby Hansen Trade",
     "description": "On 1991-11-04:  Kings acquire Dennis Hopson  Bulls acquire Bobby Hansen",
     "is_multi_team": false,
     "teams": [
@@ -639,7 +639,7 @@
     "id": "c8801450-b3f3-427a-9050-b2a4b3712ebc",
     "date": "1991-11-25",
     "season": "1991-92",
-    "title": "Tyrone Corbin Trade",
+    "title": "Tyrone Corbin, Thurl Bailey, Tim Burroughs Trade",
     "description": "On 1991-11-25:  Timberwolves acquire Thurl Bailey  Jazz acquire Tyrone Corbin",
     "is_multi_team": false,
     "teams": [
@@ -696,7 +696,7 @@
     "id": "e1261740-a853-4bb8-ac8d-b761c18c5343",
     "date": "1992-01-10",
     "season": "1991-92",
-    "title": "Sherman Douglas Trade",
+    "title": "Sherman Douglas, Brian Shaw Trade",
     "description": "On 1992-01-10:  Heat acquire Brian Shaw  Celtics acquire Sherman Douglas",
     "is_multi_team": false,
     "teams": [
@@ -742,7 +742,7 @@
     "id": "4c8d56b4-51a5-4666-9569-fda205dbac45",
     "date": "1992-02-19",
     "season": "1991-92",
-    "title": "Rex Chapman Trade",
+    "title": "Rex Chapman, Tom Hammonds Trade",
     "description": "On 1992-02-19:  Hornets acquire Tom Hammonds  Bullets acquire Rex Chapman",
     "is_multi_team": false,
     "teams": [
@@ -788,7 +788,7 @@
     "id": "5d8ac6d2-8512-4e6b-bf9b-2e197258cb3d",
     "date": "1992-02-20",
     "season": "1991-92",
-    "title": "James Donaldson Trade",
+    "title": "James Donaldson, Brian Quinnett Trade",
     "description": "On 1992-02-20:  Mavericks acquire Brian Quinnett  Knicks acquire James Donaldson",
     "is_multi_team": false,
     "teams": [
@@ -834,7 +834,7 @@
     "id": "b3020727-7107-4214-9298-a1cb576020e0",
     "date": "1992-06-17",
     "season": "1991-92",
-    "title": "Jeff Hornacek, Andrew Lang, Tim Perry Trade",
+    "title": "Charles Barkley, Jeff Hornacek, Tim Perry Trade",
     "description": "On 1992-06-17:  Suns acquire Charles Barkley  76ers acquire Jeff Hornacek",
     "is_multi_team": false,
     "teams": [
@@ -913,7 +913,7 @@
     "id": "0ce2fe56-39fb-402e-99fb-b0150e1dee3d",
     "date": "1992-06-24",
     "season": "1991-92",
-    "title": "Knicks / Mavericks Trade",
+    "title": "Rolando Blackman, Loren Meyer Trade",
     "description": "On 1992-06-24:  Mavericks acquire 1995 first round pick (#24-Loren Meyer)  Knicks acquire Rolando Blackman",
     "is_multi_team": false,
     "teams": [
@@ -970,7 +970,7 @@
     "id": "e300ac2c-d074-4986-b337-37a16e5a955d",
     "date": "1992-06-24",
     "season": "1991-92",
-    "title": "Blue Edwards, Eric Murdock, Jay Humphries Trade",
+    "title": "Eric Murdock, Blue Edwards, Lee Mayberry Trade",
     "description": "On 1992-06-24:  Jazz acquire Jay Humphries  Bucks acquire Blue Edwards",
     "is_multi_team": false,
     "teams": [
@@ -1049,7 +1049,7 @@
     "id": "eccbc618-9c03-4b14-ac30-1e6b83c7f66b",
     "date": "1992-06-24",
     "season": "1991-92",
-    "title": "Bucks / Spurs (date 07-01 per NBA Register) Trade",
+    "title": "Dale Ellis, Tracy Murray Trade",
     "description": "On 1992-06-24:  Spurs (date 07-01 per NBA Register) acquire Dale Ellis  Bucks acquire rights to Tracy Murray",
     "is_multi_team": false,
     "teams": [
@@ -1095,7 +1095,7 @@
     "id": "ce011c09-4af1-4c2b-a6e8-72fcd3e130f5",
     "date": "1992-06-24",
     "season": "1991-92",
-    "title": "William Bedford Trade",
+    "title": "Olden Polynice, Russ Millard, Eddie Elisma Trade",
     "description": "On 1992-06-24:  Pistons acquire Olden Polynice  Clippers acquire William Bedford",
     "is_multi_team": false,
     "teams": [
@@ -1174,7 +1174,7 @@
     "id": "257d21fa-9d95-4385-905c-e1402a768c67",
     "date": "1992-06-24",
     "season": "1991-92",
-    "title": "Blazers / Bucks Trade",
+    "title": "Tracy Murray, Alaa Abdelnaby Trade",
     "description": "On 1992-06-24:  Bucks acquire Alaa Abdelnaby  Blazers acquire rights to Tracy Murray",
     "is_multi_team": false,
     "teams": [

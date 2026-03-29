@@ -3,7 +3,7 @@
     "id": "bbref-2018-06-21-8e1ae4c5",
     "date": "2018-06-21",
     "season": "2018-19",
-    "title": "Luka/Trae Draft Swap",
+    "title": "Luka Dončić, Trae Young, Cam Reddish Trade",
     "description": "On draft night, Hawks trade #3 pick (Luka Dončić) to Mavericks for #5 pick (Trae Young) and a future first. Both stars have now been traded to new teams.",
     "is_multi_team": false,
     "teams": [
@@ -60,7 +60,7 @@
     "id": "b5df1e81-df9d-4975-8e39-69d9813c6fab",
     "date": "2018-07-06",
     "season": "2018-19",
-    "title": "76ers / Nuggets Trade",
+    "title": "Wilson Chandler Trade",
     "description": "On 2018-07-06:  Nuggets acquire cash  76ers acquire Wilson Chandler",
     "is_multi_team": false,
     "teams": [
@@ -139,7 +139,7 @@
     "id": "1480e252-a8ba-4342-9817-8e3deb14995f",
     "date": "2018-07-06",
     "season": "2018-19",
-    "title": "Hornets / Thunder Trade",
+    "title": "Hamidou Diallo Trade",
     "description": "On 2018-07-06:  Thunder acquire rights to Hamidou Diallo  Hornets acquire cash",
     "is_multi_team": false,
     "teams": [
@@ -207,7 +207,7 @@
     "id": "9c8af9b7-378e-4aec-b82c-13551de8abfb",
     "date": "2018-07-06",
     "season": "2018-19",
-    "title": "76ers / Lakers Trade",
+    "title": "Isaac Bonga Trade",
     "description": "On 2018-07-06:  Lakers acquire rights to Isaac Bonga  76ers acquire cash",
     "is_multi_team": false,
     "teams": [
@@ -264,7 +264,7 @@
     "id": "f2634244-c2fa-42d2-b8fa-c8c0f76a8a71",
     "date": "2018-07-06",
     "season": "2018-19",
-    "title": "Timofey Mozgov Trade",
+    "title": "Dwight Howard, Timofey Mozgov, Hamidou Diallo Trade",
     "description": "On 2018-07-06:  Nets acquire Dwight Howard  Hornets acquire Timofey Mozgov",
     "is_multi_team": false,
     "teams": [
@@ -343,7 +343,7 @@
     "id": "467bb412-ae8d-479f-8c13-a68e06b1188e",
     "date": "2018-07-07",
     "season": "2018-19",
-    "title": "Julyan Stone, Jerian Grant Trade",
+    "title": "Jerian Grant, Julyan Stone Trade",
     "description": "On 2018-07-07:  Magic acquire Timofey Mozgov  Hornets acquire Bismack Biyombo Other Team(s) Involved in Trade: Bulls",
     "is_multi_team": true,
     "teams": [
@@ -394,7 +394,7 @@
     "id": "a43dd6aa-b46a-4d0f-9c80-e578c6b677a2",
     "date": "2018-07-13",
     "season": "2018-19",
-    "title": "Nets / Hawks Trade",
+    "title": "Jeremy Lin, Isaia Cordinier Trade",
     "description": "On 2018-07-13:  Hawks acquire Jeremy Lin  Nets acquire rights to Isaia Cordinier",
     "is_multi_team": false,
     "teams": [
@@ -495,7 +495,7 @@
     "id": "80521d87-81e4-4415-a405-5649f18e417b",
     "date": "2018-07-13",
     "season": "2018-19",
-    "title": "Darrell Arthur, Kenneth Faried Trade",
+    "title": "Kenneth Faried, Darrell Arthur, Isaiah Whitehead Trade",
     "description": "On 2018-07-13:  Nuggets acquire Isaiah Whitehead  Nets acquire Darrell Arthur",
     "is_multi_team": false,
     "teams": [
@@ -675,7 +675,7 @@
     "id": "acc913b3-7113-44bb-9045-0dbc98a07972",
     "date": "2018-07-18",
     "season": "2018-19",
-    "title": "Kawhi Leonard to Raptors",
+    "title": "Jakob Poeltl, DeMar DeRozan, Kawhi Leonard Trade",
     "description": "On 2018-07-18:  Spurs acquire DeMar DeRozan  Raptors acquire Kawhi Leonard",
     "is_multi_team": false,
     "teams": [
@@ -776,7 +776,7 @@
     "id": "dee14194-bdc0-491b-aa9e-52fde0f36818",
     "date": "2018-07-20",
     "season": "2018-19",
-    "title": "Dakari Johnson Trade",
+    "title": "Rodney Purvis, Dakari Johnson Trade",
     "description": "On 2018-07-20:  Thunder acquire Rodney Purvis  Magic acquire Dakari Johnson",
     "is_multi_team": false,
     "teams": [
@@ -855,7 +855,7 @@
     "id": "d08d8751-871d-488e-84ea-bcc1f0fd33c7",
     "date": "2018-07-20",
     "season": "2018-19",
-    "title": "Jared Dudley Trade",
+    "title": "Jared Dudley, Darrell Arthur Trade",
     "description": "On 2018-07-20:  Suns acquire Darrell Arthur  Nets acquire Jared Dudley",
     "is_multi_team": false,
     "teams": [
@@ -912,7 +912,7 @@
     "id": "185d9a73-ff40-4236-80f9-33a263e8bef5",
     "date": "2018-07-22",
     "season": "2018-19",
-    "title": "Clippers / Mavericks Trade",
+    "title": "Johnathan Motley, Maarty Leunen, Renaldas Seibutis Trade",
     "description": "On 2018-07-22:  Mavericks acquire rights to Maarty Leunen  Clippers acquire Johnathan Motley",
     "is_multi_team": false,
     "teams": [
@@ -980,7 +980,7 @@
     "id": "c5358578-0e4a-4226-858d-69e2de01fea0",
     "date": "2018-07-23",
     "season": "2018-19",
-    "title": "Rodney Purvis Trade",
+    "title": "Abdel Nader, Rodney Purvis Trade",
     "description": "On 2018-07-23:  Thunder acquire Abdel Nader  Celtics acquire Rodney Purvis",
     "is_multi_team": false,
     "teams": [
@@ -1048,7 +1048,7 @@
     "id": "c3f5202f-7208-4ae3-8239-e81e17991d69",
     "date": "2018-07-23",
     "season": "2018-19",
-    "title": "Dakari Johnson Trade",
+    "title": "Jarell Martin, Dakari Johnson, Tyler Harvey Trade",
     "description": "On 2018-07-23:  Magic acquire Jarell Martin  Grizzlies acquire Dakari Johnson",
     "is_multi_team": false,
     "teams": [
@@ -1233,7 +1233,7 @@
     "id": "fbe28ad7-c12c-4440-a206-0a6af447c2ba",
     "date": "2018-08-02",
     "season": "2018-19",
-    "title": "Mavericks / Rockets Trade",
+    "title": "Chinanu Onuaku, Maarty Leunen Trade",
     "description": "On 2018-08-02:  Rockets acquire rights to Maarty Leunen  Mavericks acquire Chinanu Onuaku",
     "is_multi_team": false,
     "teams": [
@@ -1334,7 +1334,7 @@
     "id": "73623d52-b9b9-4cf9-928f-b446cffea2a0",
     "date": "2018-08-07",
     "season": "2018-19",
-    "title": "Cavaliers / Clippers Trade",
+    "title": "Sam Dekker, Renaldas Seibutis, Vladimir Veremeenko Trade",
     "description": "On 2018-08-07:  Clippers acquire rights to Vladimir Veremeenko  Cavaliers acquire Sam Dekker",
     "is_multi_team": false,
     "teams": [
@@ -1424,7 +1424,7 @@
     "id": "99ed8d68-bc66-4888-9c06-5de5b3392a99",
     "date": "2018-08-31",
     "season": "2018-19",
-    "title": "Marquese Chriss, Brandon Knight Trade",
+    "title": "De'Anthony Melton, Marquese Chriss, Ryan Anderson Trade",
     "description": "On 2018-08-31:  Suns acquire Ryan Anderson  Rockets acquire Marquese Chriss",
     "is_multi_team": false,
     "teams": [
@@ -1492,7 +1492,7 @@
     "id": "e297c650-564f-4616-ac13-a1581c4f333a",
     "date": "2018-10-15",
     "season": "2018-19",
-    "title": "Alex Ajinca Trade",
+    "title": "Wesley Johnson, Alex Ajinca Trade",
     "description": "On 2018-10-15:  Pelicans acquire Wesley Johnson  Clippers acquire Alex Ajinca",
     "is_multi_team": false,
     "teams": [
@@ -1549,7 +1549,7 @@
     "id": "ab35d092-4019-4f60-8e96-3afeb849f36d",
     "date": "2018-11-12",
     "season": "2018-19",
-    "title": "Jimmy Butler, Justin Patton, Robert Covington Trade",
+    "title": "Jimmy Butler, Robert Covington, Dario Šarić Trade",
     "description": "On 2018-11-12:  Timberwolves acquire Robert Covington  76ers acquire Jimmy Butler",
     "is_multi_team": false,
     "teams": [
@@ -1650,7 +1650,7 @@
     "id": "6449e87f-a6b2-464e-84b8-a0db6279bc7b",
     "date": "2018-11-29",
     "season": "2018-19",
-    "title": "Alec Burks Trade",
+    "title": "Kyle Korver, Alec Burks Trade",
     "description": "On 2018-11-29:  Jazz acquire Kyle Korver  Cavaliers acquire Alec Burks",
     "is_multi_team": false,
     "teams": [
@@ -1857,7 +1857,7 @@
     "id": "51514c8f-263b-4267-be09-ca89226851d9",
     "date": "2018-12-17",
     "season": "2018-19",
-    "title": "Kelly Oubre Jr., Austin Rivers Trade",
+    "title": "Kelly Oubre Jr., Trevor Ariza, Austin Rivers Trade",
     "description": "On 2018-12-17:  Wizards acquire Trevor Ariza  Suns acquire Kelly Oubre Jr.",
     "is_multi_team": false,
     "teams": [
@@ -1914,7 +1914,7 @@
     "id": "f33db6c8-5b7b-4ef1-9955-8cb289eed8a2",
     "date": "2019-01-03",
     "season": "2018-19",
-    "title": "MarShon Brooks, Wayne Selden Jr. Trade",
+    "title": "Justin Holiday, MarShon Brooks, Wayne Selden Jr. Trade",
     "description": "On 2019-01-03:  Grizzlies acquire Justin Holiday  Bulls acquire MarShon Brooks",
     "is_multi_team": false,
     "teams": [
@@ -2004,7 +2004,7 @@
     "id": "062c032b-074d-49f5-93cd-d046f739dcc1",
     "date": "2019-01-22",
     "season": "2018-19",
-    "title": "Bulls / Rockets Trade",
+    "title": "Carmelo Anthony, Jon Diebler, Tadija Dragicevic Trade",
     "description": "On 2019-01-22:  Rockets acquire rights to Tadija Dragicevic  Bulls acquire Carmelo Anthony",
     "is_multi_team": false,
     "teams": [
@@ -2072,7 +2072,7 @@
     "id": "eac532b3-71dd-49ed-b3d1-4baff67308ff",
     "date": "2019-01-31",
     "season": "2018-19",
-    "title": "Dennis Smith Jr., DeAndre Jordan, Wesley Matthews Trade",
+    "title": "Tim Hardaway Jr., Trey Burke, DeAndre Jordan Trade",
     "description": "On 2019-01-31:  Mavericks acquire Kristaps Porzingis  Knicks acquire Dennis Smith Jr.",
     "is_multi_team": false,
     "teams": [
@@ -2296,7 +2296,7 @@
     "id": "9ba8b069-e4bf-4fb6-9f7c-c0481de942a3",
     "date": "2019-02-06",
     "season": "2018-19",
-    "title": "Markieff Morris Trade",
+    "title": "Markieff Morris, Wesley Johnson Trade",
     "description": "On 2019-02-06:  Wizards acquire Wesley Johnson  Pelicans acquire Markieff Morris",
     "is_multi_team": false,
     "teams": [
@@ -2342,7 +2342,7 @@
     "id": "a0b9317d-4e33-49be-827d-9db416e6cf0a",
     "date": "2019-02-06",
     "season": "2018-19",
-    "title": "Reggie Bullock Trade",
+    "title": "Svi Mykhailiuk, Reggie Bullock Trade",
     "description": "On 2019-02-06:  Pistons acquire Svi Mykhailiuk  Lakers acquire Reggie Bullock",
     "is_multi_team": false,
     "teams": [
@@ -2467,7 +2467,7 @@
     "id": "5a84935e-9363-4ff0-81e0-14e3f4c41e88",
     "date": "2019-02-06",
     "season": "2018-19",
-    "title": "Ryan Anderson, Tyler Johnson, Wayne Ellington Trade",
+    "title": "Tyler Johnson, Ryan Anderson, Wayne Ellington Trade",
     "description": "On 2019-02-06:  Suns acquire Tyler Johnson  Heat acquire Ryan Anderson",
     "is_multi_team": false,
     "teams": [
@@ -2535,7 +2535,7 @@
     "id": "944485e9-8727-4f64-b068-e437f49a7ee4",
     "date": "2019-02-06",
     "season": "2018-19",
-    "title": "Brandon Knight, Marquese Chriss, Alec Burks Trade",
+    "title": "Alec Burks, Marquese Chriss, Nik Stauskas Trade",
     "description": "On 2019-02-06:  Cavaliers acquire Brandon Knight  Rockets acquire Iman Shumpert Other Team(s) Involved in Trade:Kings",
     "is_multi_team": true,
     "teams": [
@@ -2698,7 +2698,7 @@
     "id": "3741cd97-5dd5-4b5d-8e78-3cd2b9c64eba",
     "date": "2019-02-06",
     "season": "2018-19",
-    "title": "Tobias Harris, Boban Marjanovic, Mike Scott Trade",
+    "title": "Tobias Harris, Mike Scott, Landry Shamet Trade",
     "description": "On 2019-02-06:  Clippers acquire Landry Shamet  76ers acquire Tobias Harris",
     "is_multi_team": false,
     "teams": [
@@ -2832,7 +2832,7 @@
     "id": "d2721c44-c9a0-4479-adb6-3b24c68f930b",
     "date": "2019-02-07",
     "season": "2018-19",
-    "title": "Garrett Temple, JaMychal Green Trade",
+    "title": "JaMychal Green, Avery Bradley, Garrett Temple Trade",
     "description": "On 2019-02-07:  Grizzlies acquire Avery Bradley  Clippers acquire Garrett Temple",
     "is_multi_team": false,
     "teams": [
@@ -2889,7 +2889,7 @@
     "id": "3e66e6f7-e15d-4c0d-836c-8eeac57e637b",
     "date": "2019-02-07",
     "season": "2018-19",
-    "title": "Tyler Dorsey Trade",
+    "title": "Tyler Dorsey, Shelvin Mack Trade",
     "description": "On 2019-02-07:  Hawks acquire Shelvin Mack  Grizzlies acquire Tyler Dorsey",
     "is_multi_team": false,
     "teams": [
@@ -2935,7 +2935,7 @@
     "id": "abeb8e36-3912-43a7-8de9-04fdc345ab99",
     "date": "2019-02-07",
     "season": "2018-19",
-    "title": "Jonas Valančiūnas, Delon Wright, C.J. Miles Trade",
+    "title": "Jonas Valančiūnas, Marc Gasol, Delon Wright Trade",
     "description": "On 2019-02-07:  Raptors acquire Marc Gasol  Grizzlies acquire Jonas Valančiūnas",
     "is_multi_team": false,
     "teams": [
@@ -3014,7 +3014,7 @@
     "id": "eb3ec98b-91d3-4977-a048-19c210f8b30a",
     "date": "2019-02-07",
     "season": "2018-19",
-    "title": "Michael Beasley, Ivica Zubac Trade",
+    "title": "Ivica Zubac, Mike Muscala, Michael Beasley Trade",
     "description": "On 2019-02-07:  Lakers acquire Mike Muscala  Clippers acquire Michael Beasley",
     "is_multi_team": false,
     "teams": [
@@ -3207,7 +3207,7 @@
     "id": "a2e6bde9-d142-448c-9aa5-9b044cee0986",
     "date": "2019-02-07",
     "season": "2018-19",
-    "title": "Jonathan Simmons Trade",
+    "title": "Markelle Fultz, Jonathan Simmons Trade",
     "description": "On 2019-02-07:  Magic acquire Markelle Fultz  76ers acquire Jonathan Simmons",
     "is_multi_team": false,
     "teams": [
@@ -3319,7 +3319,7 @@
     "id": "bbref-2019-06-19-d3422c39",
     "date": "2019-06-19",
     "season": "2018-19",
-    "title": "did not convey) $1.88MM Trade",
+    "title": "Bol Bol Trade",
     "description": "The Atlanta Hawks traded a 2019 2nd round draft pick (Bol Bol was later selected) to the Miami Heat for cash and a 2024 2nd round draft pick. (Pick would have conveyed if it landed in the 51-55 range, did not convey) $1.88MM",
     "is_multi_team": false,
     "teams": [
@@ -3387,7 +3387,7 @@
     "id": "bbref-2019-06-20-66a2329e",
     "date": "2019-06-20",
     "season": "2018-19",
-    "title": "ATL / GSW Trade",
+    "title": "Eric Paschall, Pelle Larsson Trade",
     "description": "The Atlanta Hawks traded a 2019 2nd round draft pick (Eric Paschall was later selected) to the Golden State Warriors for cash and a 2024 2nd round draft pick (Pelle Larsson was later selected). $1.3MM",
     "is_multi_team": false,
     "teams": [
@@ -3444,7 +3444,7 @@
     "id": "bbref-2019-06-20-b6d96f3d",
     "date": "2019-06-20",
     "season": "2018-19",
-    "title": "Kevin Porter Jr., Tony Snell, Jon Leuer Trade",
+    "title": "Tony Snell, Kevin Porter Jr., Jon Leuer Trade",
     "description": "The Milwaukee Bucks traded Kevin Porter Jr. and Tony Snell to the Detroit Pistons for Jon Leuer.",
     "is_multi_team": false,
     "teams": [
@@ -3501,7 +3501,7 @@
     "id": "bbref-2019-06-20-fb96c9b5",
     "date": "2019-06-20",
     "season": "2018-19",
-    "title": "Alen Smailagić Trade",
+    "title": "Alen Smailagić, David Johnson, Emoni Bates Trade",
     "description": "The New Orleans Pelicans traded Alen Smailagić to the Golden State Warriors for cash, a 2021 2nd round draft pick (David Johnson was later selected) and a 2023 2nd round draft pick (Emoni Bates was later selected). $1MM",
     "is_multi_team": false,
     "teams": [
@@ -3569,7 +3569,7 @@
     "id": "bbref-2019-06-20-61a5084b",
     "date": "2019-06-20",
     "season": "2018-19",
-    "title": "Talen Horton-Tucker Trade",
+    "title": "Talen Horton-Tucker, Paul Reed Trade",
     "description": "The Orlando Magic traded Talen Horton-Tucker to the Los Angeles Lakers for cash and a 2020 2nd round draft pick (Paul Reed was later selected). $2.2MM",
     "is_multi_team": false,
     "teams": [
@@ -3762,7 +3762,7 @@
     "id": "bbref-2019-06-21-2f2400ea",
     "date": "2019-06-21",
     "season": "2018-19",
-    "title": "Mfiondu Kabengele, Jaylen Hands Trade",
+    "title": "Mfiondu Kabengele, Jaylen Hands, Saddiq Bey Trade",
     "description": "The Brooklyn Nets traded Mfiondu Kabengele to the Los Angeles Clippers for Jaylen Hands and a 2020 1st round draft pick (Saddiq Bey was later selected).",
     "is_multi_team": false,
     "teams": [
@@ -3819,7 +3819,7 @@
     "id": "bbref-2019-06-21-02397730",
     "date": "2019-06-21",
     "season": "2018-19",
-    "title": "Jarrell Brantley Trade",
+    "title": "Jarrell Brantley, Georgios Kalaitzakis Trade",
     "description": "The Indiana Pacers traded Jarrell Brantley to the Utah Jazz for cash and a 2021 2nd round draft pick (Georgios Kalaitzakis was later selected). $1MM",
     "is_multi_team": false,
     "teams": [
@@ -4082,7 +4082,7 @@
     "id": "bbref-2019-06-26-9f6ca369",
     "date": "2019-06-26",
     "season": "2018-19",
-    "title": "Kevin Porter Jr., top-55 protected. Did not convey) $5MM Trade",
+    "title": "Kevin Porter Jr., Justinian Jessup, Brandon Boston Jr. Trade",
     "description": "The Detroit Pistons traded Kevin Porter Jr. to the Cleveland Cavaliers for cash, a 2020 2nd round draft pick (Justinian Jessup was later selected), a 2021 2nd round draft pick (Brandon Boston Jr. was later selected), a 2023 2nd round draft pick (Julian Phillips was later selected) and a 2024 2nd round draft pick. (Pick is UTA's 2020 second-round pick) 2021 2nd-rd pick is POR own 2023 2nd-rd pick was POR own (Pick was MIA 2024 second-round pick, top-55 protected. Did not convey) $5MM",
     "is_multi_team": false,
     "teams": [
@@ -4183,7 +4183,7 @@
     "id": "bbref-2019-06-26-eb4eeae6",
     "date": "2019-06-26",
     "season": "2018-19",
-    "title": "Deividas Sirvydis, Isaiah Roby Trade",
+    "title": "Isaiah Roby, Justinian Jessup, Brandon Boston Jr. Trade",
     "description": "The Dallas Mavericks traded Deividas Sirvydis to the Detroit Pistons for Isaiah Roby, a 2020 2nd round draft pick (Justinian Jessup was later selected) and a 2021 2nd round draft pick (Brandon Boston Jr. was later selected). (Pick is UTA's 2020 second-round pick) 2021 2nd-rd pick is POR own",
     "is_multi_team": false,
     "teams": [

@@ -3,7 +3,7 @@
     "id": "3c798828-96d0-4ba1-beec-b7ceac30da2a",
     "date": "2016-07-07",
     "season": "2016-17",
-    "title": "Bulls / Lakers Trade",
+    "title": "Ater Majok, Jose Calderon, Svi Mykhailiuk Trade",
     "description": "On 2016-07-07:  Lakers acquire Jose Calderon  Bulls acquire rights to Ater Majok",
     "is_multi_team": false,
     "teams": [
@@ -71,7 +71,7 @@
     "id": "317a683c-4103-43d4-8789-da08a182b38e",
     "date": "2016-07-07",
     "season": "2016-17",
-    "title": "trade exception, Jeff Teague Trade",
+    "title": "Taurean Prince, Jeff Teague Trade",
     "description": "On 2016-07-07:  Pacers acquire Jeff Teague  Hawks acquire rights to Taurean Prince Other Team(s) Involved in Trade: Jazz",
     "is_multi_team": true,
     "teams": [
@@ -144,7 +144,7 @@
     "id": "0245f6ee-9242-4471-85dd-2ce51d366763",
     "date": "2016-07-07",
     "season": "2016-17",
-    "title": "Hornets / Kings Trade",
+    "title": "Marco Belinelli, Malachi Richardson Trade",
     "description": "On 2016-07-07:  Kings acquire rights to Malachi Richardson  Hornets acquire Marco Belinelli",
     "is_multi_team": false,
     "teams": [
@@ -190,7 +190,7 @@
     "id": "e847d218-bfc4-48f2-8d97-5ef9bbf144bf",
     "date": "2016-07-07",
     "season": "2016-17",
-    "title": "Boris Diaw Trade",
+    "title": "Boris Diaw, Olivier Hanlan Trade",
     "description": "On 2016-07-07:  Spurs acquire rights to Olivier Hanlan  Jazz acquire Boris Diaw",
     "is_multi_team": false,
     "teams": [
@@ -337,7 +337,7 @@
     "id": "4892ace1-ecc1-43ac-ac0b-31564f653714",
     "date": "2016-07-07",
     "season": "2016-17",
-    "title": "Mavericks / Pacers Trade",
+    "title": "Stanko Barac, Jeremy Evans, Emir Preldžic Trade",
     "description": "On 2016-07-07:  Pacers acquire Jeremy Evans  Mavericks acquire rights to Stanko Barac",
     "is_multi_team": false,
     "teams": [
@@ -405,7 +405,7 @@
     "id": "56270741-718c-48d3-a591-c127a4c7c497",
     "date": "2016-07-07",
     "season": "2016-17",
-    "title": "Nets / Pacers Trade",
+    "title": "Thaddeus Young, Caris LeVert Trade",
     "description": "On 2016-07-07:  Pacers acquire Thaddeus Young  Nets acquire rights to Caris LeVert",
     "is_multi_team": false,
     "teams": [
@@ -473,7 +473,7 @@
     "id": "eaf9fb34-1738-4310-83bc-f438f4cafdb4",
     "date": "2016-07-07",
     "season": "2016-17",
-    "title": "Bucks / Cavaliers Trade",
+    "title": "Matthew Dellavedova, Albert Miralles Trade",
     "description": "On 2016-07-07:  Cavaliers acquire rights to Albert Miralles  Bucks acquire Matthew Dellavedova",
     "is_multi_team": false,
     "teams": [
@@ -530,7 +530,7 @@
     "id": "66bec3b9-e9eb-4d3d-acb9-1c757de85dd8",
     "date": "2016-07-07",
     "season": "2016-17",
-    "title": "Bulls / Cavaliers Trade",
+    "title": "Mike Dunleavy Jr., Albert Miralles, Vladimir Veremeenko Trade",
     "description": "On 2016-07-07:  Cavaliers acquire Mike Dunleavy Jr.  Bulls acquire rights to Albert Miralles",
     "is_multi_team": false,
     "teams": [
@@ -598,7 +598,7 @@
     "id": "2a71507f-ba49-4daf-806b-4c79431047db",
     "date": "2016-07-10",
     "season": "2016-17",
-    "title": "Heat / Pelicans Trade",
+    "title": "Luke Babbitt, Tony Carr Trade",
     "description": "On 2016-07-10:  Pelicans acquire 2018 second round pick (#51-Tony Carr)  Heat acquire Luke Babbitt",
     "is_multi_team": false,
     "teams": [
@@ -712,7 +712,7 @@
     "id": "604624d5-6ad3-461c-a5b7-9de5c9253ede",
     "date": "2016-07-15",
     "season": "2016-17",
-    "title": "76ers / Cavaliers Trade",
+    "title": "Chu Chu Maduabum, Sasha Kaun Trade",
     "description": "On 2016-07-15:  Cavaliers acquire rights to Chu Chu Maduabum  76ers acquire Sasha Kaun",
     "is_multi_team": false,
     "teams": [
@@ -780,7 +780,7 @@
     "id": "abc8ed54-6977-4941-892a-2b1fc392ddcc",
     "date": "2016-07-15",
     "season": "2016-17",
-    "title": "Devyn Marble Trade",
+    "title": "Devyn Marble, C.J. Wilcox Trade",
     "description": "On 2016-07-15:  Magic acquire C.J. Wilcox  Clippers acquire Devyn Marble",
     "is_multi_team": false,
     "teams": [
@@ -848,7 +848,7 @@
     "id": "5d044ca9-e30d-49c8-b26a-f8ec1a5114a2",
     "date": "2016-08-26",
     "season": "2016-17",
-    "title": "Tibor Pleiss Trade",
+    "title": "Jonah Bolden, Tibor Pleiss, Alpha Kaba Trade",
     "description": "On 2016-08-26:  Jazz acquire Kendall Marshall  76ers acquire Tibor Pleiss",
     "is_multi_team": false,
     "teams": [
@@ -927,7 +927,7 @@
     "id": "bac071cc-bb5a-460d-b9fb-f5ee513ae227",
     "date": "2016-08-30",
     "season": "2016-17",
-    "title": "Nuggets / Thunder Trade",
+    "title": "Monte Morris, Joffrey Lauvergne, Vlatko Cancar Trade",
     "description": "On 2016-08-30:  Thunder acquire Joffrey Lauvergne  Nuggets acquire second round pick (protected top 35 in 2017, unprotected in 2018) (2017 #49-Vlatko Cancar)",
     "is_multi_team": false,
     "teams": [
@@ -995,7 +995,7 @@
     "id": "d16aa5d0-f3b3-4bcd-af08-52457faad494",
     "date": "2016-09-22",
     "season": "2016-17",
-    "title": "Michael Beasley Trade",
+    "title": "Michael Beasley, Tyler Ennis Trade",
     "description": "On 2016-09-22:  Rockets acquire Tyler Ennis  Bucks acquire Michael Beasley",
     "is_multi_team": false,
     "teams": [
@@ -1041,7 +1041,7 @@
     "id": "f13d121f-0cf1-42f6-9bea-097da5f3ce9b",
     "date": "2016-10-17",
     "season": "2016-17",
-    "title": "Tony Snell Trade",
+    "title": "Tony Snell, Michael Carter-Williams Trade",
     "description": "On 2016-10-17:  Bulls acquire Michael Carter-Williams  Bucks acquire Tony Snell",
     "is_multi_team": false,
     "teams": [
@@ -1087,7 +1087,7 @@
     "id": "cbb63217-c242-4cec-a088-4b04a987f885",
     "date": "2016-11-01",
     "season": "2016-17",
-    "title": "Ersan Ilyasova Trade",
+    "title": "Jerami Grant, Ersan Ilyasova Trade",
     "description": "On 2016-11-01:  Thunder acquire Jerami Grant  76ers acquire Ersan Ilyasova",
     "is_multi_team": false,
     "teams": [
@@ -1144,7 +1144,7 @@
     "id": "197890fa-bf65-417b-a08f-68844edde2b5",
     "date": "2017-01-06",
     "season": "2016-17",
-    "title": "Blazers / Cavaliers Trade",
+    "title": "Moritz Wagner, Caleb Swanigan Trade",
     "description": "On 2017-01-06:  Cavaliers acquire 2018 first round pick (#25-Moritz Wagner)  Blazers acquire 2017 first round pick (#26-Caleb Swanigan)",
     "is_multi_team": false,
     "teams": [
@@ -1291,7 +1291,7 @@
     "id": "db2c272b-7a76-4f06-b40c-ed8c268528ae",
     "date": "2017-01-18",
     "season": "2016-17",
-    "title": "trade exception Trade",
+    "title": "Cenk Akyol, Mo Williams Trade",
     "description": "On 2017-01-18:  Nuggets acquire Mo Williams  Hawks acquire rights to Cenk Akyol",
     "is_multi_team": false,
     "teams": [
@@ -1370,7 +1370,7 @@
     "id": "806a1813-a96a-4459-a6a6-e29e92e3d263",
     "date": "2017-02-02",
     "season": "2016-17",
-    "title": "Roy Hibbert, Spencer Hawes Trade",
+    "title": "Spencer Hawes, Miles Plumlee, Roy Hibbert Trade",
     "description": "On 2017-02-02:  Hornets acquire Miles Plumlee  Bucks acquire Roy Hibbert",
     "is_multi_team": false,
     "teams": [
@@ -1438,7 +1438,7 @@
     "id": "818ac218-7c76-447d-a89d-587e588fc9f3",
     "date": "2017-02-12",
     "season": "2016-17",
-    "title": "Jusuf Nurkić Trade",
+    "title": "Jusuf Nurkić, Mason Plumlee, Harry Giles Trade",
     "description": "On 2017-02-12:  Nuggets acquire Mason Plumlee  Blazers acquire Jusuf Nurkić",
     "is_multi_team": false,
     "teams": [
@@ -1517,7 +1517,7 @@
     "id": "a6f1c894-bef5-461c-b07f-8a1477d0e980",
     "date": "2017-02-14",
     "season": "2016-17",
-    "title": "Terrence Ross Trade",
+    "title": "Serge Ibaka, Terrence Ross, Anzejs Pasecniks Trade",
     "description": "On 2017-02-14:  Raptors acquire Serge Ibaka  Magic acquire Terrence Ross",
     "is_multi_team": false,
     "teams": [
@@ -1574,7 +1574,7 @@
     "id": "2a9f05df-d4a9-4536-a361-9cf5a691f8cd",
     "date": "2017-02-19",
     "season": "2016-17",
-    "title": "Buddy Hield, Tyreke Evans, Langston Galloway Trade",
+    "title": "Buddy Hield, DeMarcus Cousins, Tyreke Evans Trade",
     "description": "On 2017-02-19:  Pelicans acquire DeMarcus Cousins  Kings acquire Buddy Hield",
     "is_multi_team": false,
     "teams": [
@@ -1675,7 +1675,7 @@
     "id": "8f560ac6-bcea-4fc8-beee-185b74571cd8",
     "date": "2017-02-22",
     "season": "2016-17",
-    "title": "Tiago Splitter Trade",
+    "title": "Tiago Splitter, Ersan Ilyasova, Alpha Kaba Trade",
     "description": "On 2017-02-22:  Hawks acquire Ersan Ilyasova  76ers acquire Tiago Splitter",
     "is_multi_team": false,
     "teams": [
@@ -1754,7 +1754,7 @@
     "id": "61afc5df-48bf-4136-9753-8b5559ffb1ac",
     "date": "2017-02-22",
     "season": "2016-17",
-    "title": "Andrew Nicholson, Marcus Thornton (T.), Bojan Bogdanović Trade",
+    "title": "Jarrett Allen, Bojan Bogdanović, Chris McCullough Trade",
     "description": "On 2017-02-22:  Wizards acquire Bojan Bogdanović  Nets acquire Andrew Nicholson",
     "is_multi_team": false,
     "teams": [
@@ -1844,7 +1844,7 @@
     "id": "38bfb2ad-c39f-40b2-8ad7-dc64371ccd8e",
     "date": "2017-02-23",
     "season": "2016-17",
-    "title": "Andrew Bogut, Justin Anderson Trade",
+    "title": "Nerlens Noel, Justin Anderson, Andrew Bogut Trade",
     "description": "On 2017-02-23:  Mavericks acquire Nerlens Noel  76ers acquire Andrew Bogut",
     "is_multi_team": false,
     "teams": [
@@ -1934,7 +1934,7 @@
     "id": "6e5ef8ae-11ba-4332-883d-ba6e67c0dfff",
     "date": "2017-02-23",
     "season": "2016-17",
-    "title": "Cameron Payne, Joffrey Lauvergne, Anthony Morrow Trade",
+    "title": "Taj Gibson, Cameron Payne, Doug McDermott Trade",
     "description": "On 2017-02-23:  Thunder acquire Taj Gibson  Bulls acquire Cameron Payne",
     "is_multi_team": false,
     "teams": [
@@ -2024,7 +2024,7 @@
     "id": "574c6f4e-eba3-4666-9f4b-d8913a22d9a8",
     "date": "2017-02-23",
     "season": "2016-17",
-    "title": "Corey Brewer, Tyler Ennis Trade",
+    "title": "Tyler Ennis, Lou Williams, Corey Brewer Trade",
     "description": "On 2017-02-23:  Rockets acquire Lou Williams  Lakers acquire Corey Brewer",
     "is_multi_team": false,
     "teams": [
@@ -2114,7 +2114,7 @@
     "id": "a3c2b1d1-1ef0-49cf-a27e-405b9b019eaa",
     "date": "2017-02-23",
     "season": "2016-17",
-    "title": "P.J. Tucker Trade",
+    "title": "P.J. Tucker, Alec Peters, Jared Sullinger Trade",
     "description": "On 2017-02-23:  Suns acquire Jared Sullinger  Raptors acquire P.J. Tucker",
     "is_multi_team": false,
     "teams": [
@@ -2182,7 +2182,7 @@
     "id": "d7e95476-6a30-42bc-b1dd-9776a00c4236",
     "date": "2017-06-19",
     "season": "2016-17",
-    "title": "76ers / Celtics Trade",
+    "title": "Jayson Tatum, Markelle Fultz Trade",
     "description": "On 2017-06-19:  Celtics acquire 2017 first round pick (#3-Jayson Tatum)  76ers acquire 2017 first round pick (#1-Markelle Fultz)",
     "is_multi_team": false,
     "teams": [
@@ -2261,7 +2261,7 @@
     "id": "8f6fb161-1fb6-4767-8ff9-25c20e603fbd",
     "date": "2017-06-20",
     "season": "2016-17",
-    "title": "Marco Belinelli, Miles Plumlee Trade",
+    "title": "Dwight Howard, Marco Belinelli, Miles Plumlee Trade",
     "description": "On 2017-06-20:  Hornets acquire Dwight Howard  Hawks acquire Marco Belinelli",
     "is_multi_team": false,
     "teams": [
@@ -2340,7 +2340,7 @@
     "id": "188ec463-9f43-4fc1-bca6-439437c3c83a",
     "date": "2017-06-21",
     "season": "2016-17",
-    "title": "Pelicans / Wizards Trade",
+    "title": "Tim Frazier, Edmond Sumner Trade",
     "description": "On 2017-06-21:  Wizards acquire Tim Frazier  Pelicans acquire 2017 second round pick (#52-Edmond Sumner)",
     "is_multi_team": false,
     "teams": [
@@ -2397,7 +2397,7 @@
     "id": "8deb3ec3-b1a5-4c18-808b-637b12d6eb31",
     "date": "2017-06-22",
     "season": "2016-17",
-    "title": "Blazers / Kings Trade",
+    "title": "Zach Collins, Justin Jackson, Harry Giles Trade",
     "description": "On 2017-06-22:  Kings acquire rights to Justin Jackson  Blazers acquire rights to Zach Collins",
     "is_multi_team": false,
     "teams": [
@@ -2454,7 +2454,7 @@
     "id": "1eee9f84-0d43-4860-9caa-c7c8e8c7f48b",
     "date": "2017-06-22",
     "season": "2016-17",
-    "title": "Bucks / Clippers Trade",
+    "title": "Sindarius Thornwell Trade",
     "description": "On 2017-06-22:  Clippers acquire rights to Sindarius Thornwell  Bucks acquire $2M cash",
     "is_multi_team": false,
     "teams": [
@@ -2500,7 +2500,7 @@
     "id": "5526758e-9135-4a80-a803-7e9e16c6647e",
     "date": "2017-06-22",
     "season": "2016-17",
-    "title": "Bulls / Warriors Trade",
+    "title": "Jordan Bell Trade",
     "description": "On 2017-06-22:  Warriors acquire rights to Jordan Bell  Bulls acquire $3.5M cash",
     "is_multi_team": false,
     "teams": [
@@ -2546,7 +2546,7 @@
     "id": "1002225d-2497-4243-b28b-34b507e4fae2",
     "date": "2017-06-22",
     "season": "2016-17",
-    "title": "Zach LaVine, Kris Dunn Trade",
+    "title": "Zach LaVine, Lauri Markkanen, Jimmy Butler Trade",
     "description": "On 2017-06-22:  Timberwolves acquire Jimmy Butler  Bulls acquire Zach LaVine",
     "is_multi_team": false,
     "teams": [
@@ -2625,7 +2625,7 @@
     "id": "12b51495-484b-4270-a7a5-aa909e024185",
     "date": "2017-06-22",
     "season": "2016-17",
-    "title": "Grizzlies / Rockets Trade",
+    "title": "Dillon Brooks, De'Anthony Melton Trade",
     "description": "On 2017-06-22:  Rockets acquire 2018 second round pick (least favorable of Grizzlies, Heat, Hornets picks) (#46-De'Anthony Melton)  Grizzlies acquire rights to Dillon Brooks",
     "is_multi_team": false,
     "teams": [
@@ -2682,7 +2682,7 @@
     "id": "60d0e923-9e6d-4354-b165-4f027739df6e",
     "date": "2017-06-22",
     "season": "2016-17",
-    "title": "Hornets / Pelicans Trade",
+    "title": "Frank Jackson, Dwayne Bacon Trade",
     "description": "On 2017-06-22:  Pelicans acquire rights to Frank Jackson  Hornets acquire rights to Dwayne Bacon",
     "is_multi_team": false,
     "teams": [
@@ -2739,7 +2739,7 @@
     "id": "61bdf5ee-925d-4d98-8365-0ad87a507d78",
     "date": "2017-06-22",
     "season": "2016-17",
-    "title": "Jazz / Nuggets Trade",
+    "title": "Donovan Mitchell, Trey Lyles, Tyler Lydon Trade",
     "description": "On 2017-06-22:  Nuggets acquire Trey Lyles  Jazz acquire rights to Donovan Mitchell",
     "is_multi_team": false,
     "teams": [
@@ -2796,7 +2796,7 @@
     "id": "ebc281e8-ce3c-4840-96d2-e40ea4a7acff",
     "date": "2017-06-22",
     "season": "2016-17",
-    "title": "Jazz / Lakers Trade",
+    "title": "Josh Hart, Thomas Bryant, Tony Bradley Trade",
     "description": "On 2017-06-22:  Lakers acquire rights to Josh Hart  Jazz acquire rights to Tony Bradley",
     "is_multi_team": false,
     "teams": [
@@ -2853,7 +2853,7 @@
     "id": "930a19d4-7946-4161-9d64-625a98d6f9cc",
     "date": "2017-06-22",
     "season": "2016-17",
-    "title": "Brook Lopez, Kyle Kuzma, D'Angelo Russell Trade",
+    "title": "Kyle Kuzma, D'Angelo Russell, Brook Lopez Trade",
     "description": "On 2017-06-22:  Nets acquire D'Angelo Russell  Lakers acquire Brook Lopez",
     "is_multi_team": false,
     "teams": [
@@ -2921,7 +2921,7 @@
     "id": "0f4b138f-e696-4793-b39f-7fdd5ebcfcec",
     "date": "2017-06-22",
     "season": "2016-17",
-    "title": "Pacers / Pelicans Trade",
+    "title": "Edmond Sumner Trade",
     "description": "On 2017-06-22:  Pelicans acquire $1M cash  Pacers acquire rights to Edmond Sumner",
     "is_multi_team": false,
     "teams": [
@@ -2967,7 +2967,7 @@
     "id": "de267c67-b705-480d-89a6-459201d0d0fd",
     "date": "2017-06-28",
     "season": "2016-17",
-    "title": "76ers / Rockets Trade",
+    "title": "Shawn Long, Kostas Antetokounmpo Trade",
     "description": "On 2017-06-28:  Rockets acquire Shawn Long  76ers acquire 2018 second round pick (#60-Kostas Antetokounmpo)",
     "is_multi_team": false,
     "teams": [
@@ -3035,7 +3035,7 @@
     "id": "150fe13e-2a96-409e-8faf-83686ddb270f",
     "date": "2017-06-28",
     "season": "2016-17",
-    "title": "Patrick Beverley, Sam Dekker, Montrezl Harrell Trade",
+    "title": "Montrezl Harrell, Lou Williams, Chris Paul Trade",
     "description": "On 2017-06-28:  Rockets acquire Chris Paul  Clippers acquire Patrick Beverley",
     "is_multi_team": false,
     "teams": [
@@ -3169,7 +3169,7 @@
     "id": "94044fd5-3e76-41ab-8447-713fcc1dcf20",
     "date": "2017-06-29",
     "season": "2016-17",
-    "title": "Mavericks / Rockets Trade",
+    "title": "Jarrod Uthoff Trade",
     "description": "On 2017-06-29:  Rockets acquire Jarrod Uthoff  Mavericks acquire cash",
     "is_multi_team": false,
     "teams": [
@@ -3215,7 +3215,7 @@
     "id": "8d1c1fbb-a608-4cc6-a68b-3f23e89f54e5",
     "date": "2017-06-30",
     "season": "2016-17",
-    "title": "Jazz / Timberwolves Trade",
+    "title": "Ricky Rubio, Josh Okogie Trade",
     "description": "On 2017-06-30:  Timberwolves acquire draft pick(s) (first round pick protected top 14 in 2018-20, else 2020 second round pick and 2021 second round pick) (2018 #20-Josh Okogie)  Jazz acquire Ricky Rubio",
     "is_multi_team": false,
     "teams": [

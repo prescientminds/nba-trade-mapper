@@ -3,7 +3,7 @@
     "id": "0beff259-fa8f-4700-b1c8-7caab716517f",
     "date": "2003-07-23",
     "season": "2003-04",
-    "title": "Glenn Robinson, Marc Jackson, Terrell Brandon Trade",
+    "title": "Marc Jackson, Keith Van Horn, Glenn Robinson Trade",
     "description": "On 2003-07-23:  Timberwolves acquire Latrell Sprewell  Knicks acquire Keith Van Horn Other Team(s) Involved in Trade: 76ers, Hawks",
     "is_multi_team": true,
     "teams": [
@@ -209,7 +209,7 @@
     "id": "f37b85a4-576a-4214-821e-9a2bbc0ba315",
     "date": "2003-07-29",
     "season": "2003-04",
-    "title": "J.R. Bremer, Bruno Sundov Trade",
+    "title": "Jumaine Jones, Bruno Sundov, Ryan Gomes Trade",
     "description": "On 2003-07-29:  Celtics acquire Jumaine Jones  Cavaliers acquire J.R. Bremer",
     "is_multi_team": false,
     "teams": [
@@ -277,7 +277,7 @@
     "id": "2dfa39d2-c178-48b6-a937-a797b1ad8456",
     "date": "2003-08-05",
     "season": "2003-04",
-    "title": "Jazz / Kings Trade",
+    "title": "Ricky Minard, Keon Clark, Luis Flores Trade",
     "description": "On 2003-08-05:  Jazz acquire Tom Gugliotta  Kings acquire 2004 second round pick (#48-Ricky Minard)",
     "is_multi_team": false,
     "teams": [
@@ -356,7 +356,7 @@
     "id": "516e04b7-190a-4a0d-93e3-9fda56bcd7b7",
     "date": "2003-08-18",
     "season": "2003-04",
-    "title": "Antawn Jamison, Danny Forston, Chris Mills Trade",
+    "title": "Antawn Jamison, Nick Van Exel, Avery Johnson Trade",
     "description": "On 2003-08-18:  Warriors acquire Nick Van Exel  Mavericks acquire Antawn Jamison",
     "is_multi_team": false,
     "teams": [
@@ -558,7 +558,7 @@
     "id": "b5150c3a-3442-445c-9019-f58f6ea27217",
     "date": "2003-08-28",
     "season": "2003-04",
-    "title": "Lindsey Hunter Trade",
+    "title": "Lindsey Hunter, Michael Curry Trade",
     "description": "On 2003-08-28:  Raptors acquire Michael Curry  Pistons acquire Lindsey Hunter",
     "is_multi_team": false,
     "teams": [
@@ -604,7 +604,7 @@
     "id": "a5da4be8-7651-49b9-8067-d00b0d84f9b3",
     "date": "2003-09-28",
     "season": "2003-04",
-    "title": "Clippers / Sonics Trade",
+    "title": "Predrag Drobnjak, Andre Emmett Trade",
     "description": "On 2003-09-28:  Sonics acquire second round pick (2004 #35-Andre Emmett )  Clippers acquire Predrag Drobnjak",
     "is_multi_team": false,
     "teams": [
@@ -661,7 +661,7 @@
     "id": "77fa1f83-046f-41fb-b4a9-ceafa4f4f660",
     "date": "2003-09-30",
     "season": "2003-04",
-    "title": "Bo Outlaw, Jake Tsakalidis, Brevin Knight Trade",
+    "title": "Jake Tsakalidis, Bo Outlaw, Brevin Knight Trade",
     "description": "On 2003-09-30:  Suns acquire Brevin Knight  Grizzlies acquire Bo Outlaw",
     "is_multi_team": false,
     "teams": [
@@ -740,7 +740,7 @@
     "id": "260df126-c15d-4532-9cbf-2d27fc154cd1",
     "date": "2003-09-30",
     "season": "2003-04",
-    "title": "Glen Rice Sr. Trade",
+    "title": "Dee Brown, John Amaechi, Luis Flores Trade",
     "description": "On 2003-09-30:  Rockets acquire John Amaechi  Jazz acquire Glen Rice Sr.",
     "is_multi_team": false,
     "teams": [
@@ -852,7 +852,7 @@
     "id": "2617d00f-b4d8-4e93-9f92-6960614a5afd",
     "date": "2003-10-20",
     "season": "2003-04",
-    "title": "Raef LaFrentz, Jiri Welsch, Chris Mills Trade",
+    "title": "Raef LaFrentz, Delonte West, Antoine Walker Trade",
     "description": "On 2003-10-20:  Mavericks acquire Antoine Walker  Celtics acquire Raef LaFrentz",
     "is_multi_team": false,
     "teams": [
@@ -942,7 +942,7 @@
     "id": "afd7cb15-6196-4549-b489-202d984de1d8",
     "date": "2003-11-05",
     "season": "2003-04",
-    "title": "Jahidi White Trade",
+    "title": "Jahidi White, Brevin Knight Trade",
     "description": "On 2003-11-05:  Wizards acquire Brevin Knight  Suns acquire Jahidi White",
     "is_multi_team": false,
     "teams": [
@@ -988,7 +988,7 @@
     "id": "cd3f3c92-b4ec-4ff3-bdb7-d2734fd83bd0",
     "date": "2003-12-01",
     "season": "2003-04",
-    "title": "Antonio Davis, Jerome Williams, Chris Jefferies Trade",
+    "title": "Donyell Marshall, Jalen Rose, Antonio Davis Trade",
     "description": "On 2003-12-01:  Raptors acquire Jalen Rose  Bulls acquire Antonio Davis",
     "is_multi_team": false,
     "teams": [
@@ -1078,7 +1078,7 @@
     "id": "c76d1661-383c-4a6c-9e85-ef56caf2bc69",
     "date": "2003-12-03",
     "season": "2003-04",
-    "title": "Wesley Person Trade",
+    "title": "Bonzi Wells, Wesley Person, Sergei Monia Trade",
     "description": "On 2003-12-03:  Grizzlies acquire Bonzi Wells  Blazers acquire Wesley Person",
     "is_multi_team": false,
     "teams": [
@@ -1146,7 +1146,7 @@
     "id": "e8a407ee-bb6d-43c2-b06b-7bcec7b4382c",
     "date": "2003-12-15",
     "season": "2003-04",
-    "title": "Rick Brunson Trade",
+    "title": "Rick Brunson, Roger Mason Jr. Trade",
     "description": "On 2003-12-15:  Raptors acquire Roger Mason Jr.  Bulls acquire Rick Brunson",
     "is_multi_team": false,
     "teams": [
@@ -1192,7 +1192,7 @@
     "id": "63fbc1b1-e2a7-4e97-a845-079d25936fcd",
     "date": "2003-12-15",
     "season": "2003-04",
-    "title": "Eric Williams, Tony Battie, Kedrick Brown Trade",
+    "title": "Ricky Davis, Ryan Gomes, Chris Mihm Trade",
     "description": "On 2003-12-15:  Celtics acquire Ricky Davis  Cavaliers acquire Eric Williams",
     "is_multi_team": false,
     "teams": [
@@ -1293,7 +1293,7 @@
     "id": "7c6c3a26-00db-42d8-8c5d-c7491242ca30",
     "date": "2003-12-23",
     "season": "2003-04",
-    "title": "trade exception Trade",
+    "title": "Monty Williams, Viktor Sanikidze Trade",
     "description": "On 2003-12-23:  Magic acquire Monty Williams  76ers acquire $1M trade exception",
     "is_multi_team": false,
     "teams": [
@@ -1361,7 +1361,7 @@
     "id": "f9898404-fcc7-4fb2-8d04-64881b48e909",
     "date": "2003-12-23",
     "season": "2003-04",
-    "title": "Magic / Suns Trade",
+    "title": "Donnell Harvey, Antonio Burks Trade",
     "description": "On 2003-12-23:  Suns acquire Donnell Harvey  Magic acquire 2004 second round pick (#36-Antonio Burks)",
     "is_multi_team": false,
     "teams": [
@@ -1418,7 +1418,7 @@
     "id": "598ad600-737d-4e80-8bec-eaba4a7c7939",
     "date": "2003-12-30",
     "season": "2003-04",
-    "title": "Moochie Norris, John Amaechi Trade",
+    "title": "Clarence Weatherspoon, Moochie Norris, John Amaechi Trade",
     "description": "On 2003-12-30:  Rockets acquire Clarence Weatherspoon  Knicks acquire Moochie Norris",
     "is_multi_team": false,
     "teams": [
@@ -1475,7 +1475,7 @@
     "id": "d72d69bc-1350-4bea-9680-514aa3461308",
     "date": "2004-01-02",
     "season": "2003-04",
-    "title": "Mengke Bateer Trade",
+    "title": "Travis Diener, Robert Archibald, Mengke Bateer Trade",
     "description": "On 2004-01-02:  Raptors acquire Robert Archibald  Magic acquire Mengke Bateer",
     "is_multi_team": false,
     "teams": [
@@ -1565,7 +1565,7 @@
     "id": "0606d69d-a511-40e7-9996-f98c339efb9c",
     "date": "2004-01-05",
     "season": "2003-04",
-    "title": "Stephon Marbury, Anfernee Hardaway, Cezary Trybanski Trade",
+    "title": "Stephon Marbury, Anfernee Hardaway, Antonio McDyess Trade",
     "description": "On 2004-01-05:  Suns acquire Antonio McDyess  Knicks acquire Stephon Marbury",
     "is_multi_team": false,
     "teams": [
@@ -1710,7 +1710,7 @@
     "id": "43918ebc-770d-4888-bdf6-57bd48893459",
     "date": "2004-01-21",
     "season": "2003-04",
-    "title": "Darius Miles, Jeff McInnis, Ruben Boumtje Boumtje Trade",
+    "title": "Jeff McInnis, Darius Miles, Ruben Boumtje Boumtje Trade",
     "description": "On 2004-01-21:  Cavaliers acquire Jeff McInnis  Blazers acquire Darius Miles",
     "is_multi_team": false,
     "teams": [
@@ -1778,7 +1778,7 @@
     "id": "87456427-4477-428e-b414-5665eeaaf7a6",
     "date": "2004-02-09",
     "season": "2003-04",
-    "title": "Shareef Abdur-Rahim, Theo Ratliff, Dan Dickau Trade",
+    "title": "Theo Ratliff, Shareef Abdur-Rahim, Dan Dickau Trade",
     "description": "On 2004-02-09:  Hawks acquire Rasheed Wallace  Blazers acquire Shareef Abdur-Rahim",
     "is_multi_team": false,
     "teams": [
@@ -1857,7 +1857,7 @@
     "id": "74b6bf79-3753-4422-bdca-e0ef44bd698d",
     "date": "2004-02-15",
     "season": "2003-04",
-    "title": "Michael Doleac, Joel Przybilla, Tim Thomas Trade",
+    "title": "Michael Doleac, Joel Przybilla, Ronny Turiaf Trade",
     "description": "On 2004-02-15:  Knicks acquire Nazr Mohammed  Hawks acquire Michael Doleac Other Team(s) Involved in Trade: Bucks",
     "is_multi_team": true,
     "teams": [
@@ -1941,7 +1941,7 @@
     "id": "22737723-c2e5-4eb6-9bcf-259cc4c00c93",
     "date": "2004-02-19",
     "season": "2003-04",
-    "title": "Lindsey Hunter, Chucky Atkins, Chris Mills Trade",
+    "title": "Tony Allen, Chucky Atkins, Lindsey Hunter Trade",
     "description": "On 2004-02-19:  Celtics acquire Lindsey Hunter  Pistons acquire Rasheed Wallace Other Team(s) Involved in Trade:Hawks",
     "is_multi_team": true,
     "teams": [
@@ -2080,7 +2080,7 @@
     "id": "38ab42db-b1da-4acf-9d19-81a97593324f",
     "date": "2004-02-19",
     "season": "2003-04",
-    "title": "Shammond Williams Trade",
+    "title": "Sean Rooks, Shammond Williams Trade",
     "description": "On 2004-02-19:  Magic acquire Sean Rooks  Hornets acquire Shammond Williams",
     "is_multi_team": false,
     "teams": [
@@ -2126,7 +2126,7 @@
     "id": "022a1302-5608-493d-86ab-4642d4f84333",
     "date": "2004-02-19",
     "season": "2003-04",
-    "title": "Gordan Giricek Trade",
+    "title": "DeShawn Stevenson, Stanko Barac, Gordan Giricek Trade",
     "description": "On 2004-02-19:  Magic acquire DeShawn Stevenson  Jazz acquire Gordan Giricek",
     "is_multi_team": false,
     "teams": [
@@ -2183,7 +2183,7 @@
     "id": "1660092a-548b-46a8-9a18-c8d47cb85603",
     "date": "2004-02-19",
     "season": "2003-04",
-    "title": "Tom Gugliotta, Keon Clark, Ben Handlogten Trade",
+    "title": "Gordon Hayward, Tom Gugliotta, Keon Clark Trade",
     "description": "On 2004-02-19:  Suns acquire Keon Clark  Jazz acquire Tom Gugliotta",
     "is_multi_team": false,
     "teams": [
@@ -2284,7 +2284,7 @@
     "id": "805cf588-ef82-4b13-87ba-e808c87a7bba",
     "date": "2004-06-21",
     "season": "2003-04",
-    "title": "Bobcats / Clippers Trade",
+    "title": "Emeka Okafor, Predrag Drobnjak (Peja Drobnjak) Trade",
     "description": "On 2004-06-21:  Clippers acquire Predrag Drobnjak (Peja Drobnjak)  Bobcats acquire 2004 first round pick (#2-Emeka Okafor)",
     "is_multi_team": false,
     "teams": [
@@ -2330,7 +2330,7 @@
     "id": "2629aedb-2a91-413f-b57e-a7f9487738b1",
     "date": "2004-06-22",
     "season": "2003-04",
-    "title": "Bobcats / Suns Trade",
+    "title": "Jahidi White, Sean May Trade",
     "description": "On 2004-06-22:  Suns acquire Jahidi White  Bobcats acquire 2005 first round pick (#13-Sean May)",
     "is_multi_team": false,
     "teams": [
@@ -2387,7 +2387,7 @@
     "id": "b69099b3-9970-4ae4-affd-f2577c42ed53",
     "date": "2004-06-23",
     "season": "2003-04",
-    "title": "Bobcats / Bucks Trade",
+    "title": "Zaza Pachulia, Bernard Robinson Trade",
     "description": "On 2004-06-23:  Bucks acquire Zaza Pachulia  Bobcats acquire 2004 second round pick (#45-Bernard Robinson)",
     "is_multi_team": false,
     "teams": [
@@ -2433,7 +2433,7 @@
     "id": "f08e75af-7e3c-42e6-b84f-dbb0af063015",
     "date": "2004-06-23",
     "season": "2003-04",
-    "title": "Bobcats / Cavaliers Trade",
+    "title": "Sasha Pavlovic, Jared Dudley Trade",
     "description": "On 2004-06-23:  Cavaliers acquire Sasha Pavlovic  Bobcats acquire first round pick (protected top 17 in 2005, top 16 in 2006, top 15 in 2007, top 14 in 2008) (2007 #22-Jared Dudley)",
     "is_multi_team": false,
     "teams": [
@@ -2479,7 +2479,7 @@
     "id": "42106d2a-b6a8-43ad-8f7d-2f1ea54dcb9d",
     "date": "2004-06-24",
     "season": "2003-04",
-    "title": "Blazers / Nets Trade",
+    "title": "Viktor Khryapa, Eddie Gill Trade",
     "description": "On 2004-06-24:  Nets acquire Eddie Gill  Blazers acquire rights to Viktor Khryapa",
     "is_multi_team": false,
     "teams": [
@@ -2536,7 +2536,7 @@
     "id": "918476a5-f52b-4a93-9f68-97f928d6ed3b",
     "date": "2004-06-24",
     "season": "2003-04",
-    "title": "Grizzlies / Sonics Trade",
+    "title": "Andre Emmett, Mickael Gelabale Trade",
     "description": "On 2004-06-24:  Sonics acquire 2005 second round pick (#48-Mickael Gelabale)  Grizzlies acquire Andre Emmett",
     "is_multi_team": false,
     "teams": [
@@ -2593,7 +2593,7 @@
     "id": "aff79c8f-8710-4815-abfc-f8f2e134b910",
     "date": "2004-06-24",
     "season": "2003-04",
-    "title": "Hawks / Spurs Trade",
+    "title": "Cenk Akyol, Viktor Sanikidze Trade",
     "description": "On 2004-06-24:  Spurs acquire rights to Viktor Sanikidze  Hawks acquire 2005 second round pick (#59-Cenk Akyol)",
     "is_multi_team": false,
     "teams": [
@@ -2661,7 +2661,7 @@
     "id": "7b0684db-83f1-4f0b-9d20-5e39f0df6820",
     "date": "2004-06-24",
     "season": "2003-04",
-    "title": "Heat / Raptors Trade",
+    "title": "Pape Sow, Albert Miralles, Uros Slokar Trade",
     "description": "On 2004-06-24:  Raptors acquire rights to Pape Sow  Heat acquire rights to Albert Miralles",
     "is_multi_team": false,
     "teams": [
@@ -2718,7 +2718,7 @@
     "id": "e43820dc-1ced-408b-ba71-d6d9a0554409",
     "date": "2004-06-24",
     "season": "2003-04",
-    "title": "Jazz / Mavericks Trade",
+    "title": "Pavel Podkolzine, Linas Kleiza Trade",
     "description": "On 2004-06-24:  Mavericks acquire rights to Pavel Podkolzine  Jazz acquire 2005 first round pick (#27-Linas Kleiza)",
     "is_multi_team": false,
     "teams": [
@@ -2775,7 +2775,7 @@
     "id": "3a5ebd3d-2d78-4eaa-a237-4d0b751c41cf",
     "date": "2004-06-24",
     "season": "2003-04",
-    "title": "Magic / Nuggets Trade",
+    "title": "Jameer Nelson, Julius Hodge Trade",
     "description": "On 2004-06-24:  Nuggets acquire 2004-07 first round pick (protected unknown in 2004, top 13 in 2005, top 3 in 2006) (2005 #20-Julius Hodge)  Magic acquire rights to Jameer Nelson",
     "is_multi_team": false,
     "teams": [
@@ -2832,7 +2832,7 @@
     "id": "e1152264-b221-48a0-97a8-e0329d699dad",
     "date": "2004-06-24",
     "season": "2003-04",
-    "title": "Jerry Stackhouse, Christian Laettner Trade",
+    "title": "Antawn Jamison, Devin Harris, Jerry Stackhouse Trade",
     "description": "On 2004-06-24:  Wizards acquire Antawn Jamison  Mavericks acquire Jerry Stackhouse",
     "is_multi_team": false,
     "teams": [
@@ -2911,7 +2911,7 @@
     "id": "aaac3424-3e06-4166-9770-4e2312dc5e67",
     "date": "2004-06-24",
     "season": "2003-04",
-    "title": "Mavericks / Rockets Trade",
+    "title": "Luis Flores, Vassilis Spanoulis Trade",
     "description": "On 2004-06-24:  Rockets acquire rights to Vassilis Spanoulis  Mavericks acquire rights to Luis Flores",
     "is_multi_team": false,
     "teams": [
@@ -2968,7 +2968,7 @@
     "id": "99d69e1a-79b9-47a7-82c7-7d7d708c0d39",
     "date": "2004-06-24",
     "season": "2003-04",
-    "title": "Bulls / Suns Trade",
+    "title": "Luol Deng, Jackson Vroman, Nate Robinson Trade",
     "description": "On 2004-06-24:  Suns acquire rights to Jackson Vroman  Bulls acquire rights to Luol Deng",
     "is_multi_team": false,
     "teams": [
@@ -3036,7 +3036,7 @@
     "id": "f3f51546-20c4-49e1-a1d0-bd9ef2348e32",
     "date": "2004-06-28",
     "season": "2003-04",
-    "title": "Steve Francis, Cuttino Mobley, Kelvin Cato Trade",
+    "title": "Tracy McGrady, Juwan Howard, Steve Francis Trade",
     "description": "On 2004-06-28:  Rockets acquire Tracy McGrady  Magic acquire Steve Francis",
     "is_multi_team": false,
     "teams": [

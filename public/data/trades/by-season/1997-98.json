@@ -3,7 +3,7 @@
     "id": "68ba4caa-5a7f-4dc6-97f9-5cf2ada57110",
     "date": "1997-08-07",
     "season": "1997-98",
-    "title": "Grizzlies / Pistons Trade",
+    "title": "Otis Thorpe, Darko Milicic Trade",
     "description": "On 1997-08-07:  Pistons acquire conditional first round pick (#2-#18) between 1998 and 2003 (Grizzlies choice) (2003 #2-Darko Milicic)  Grizzlies acquire Otis Thorpe",
     "is_multi_team": false,
     "teams": [
@@ -150,7 +150,7 @@
     "id": "74e178a1-db7c-4033-928a-c55643b28f05",
     "date": "1997-08-12",
     "season": "1997-98",
-    "title": "Chris Mullin, Erick Dampier, Duane Ferrell Trade",
+    "title": "Erick Dampier, Chris Mullin, Duane Ferrell Trade",
     "description": "On 1997-08-12:  Warriors acquire Erick Dampier  Pacers acquire Chris Mullin",
     "is_multi_team": false,
     "teams": [
@@ -207,7 +207,7 @@
     "id": "5fea63b7-8658-4548-8291-cd44fbe9b5c1",
     "date": "1997-08-21",
     "season": "1997-98",
-    "title": "Celtics / Nuggets Trade",
+    "title": "Eric Williams, Kris Clack, Earl Watson Trade",
     "description": "On 1997-08-21:  Nuggets acquire Eric Williams  Celtics acquire 1999 second round pick (#55-Kris Clack)",
     "is_multi_team": false,
     "teams": [
@@ -275,7 +275,7 @@
     "id": "d02a12b9-b62c-4c15-9b51-1593ea5e51ee",
     "date": "1997-09-22",
     "season": "1997-98",
-    "title": "Scott Burrell Trade",
+    "title": "Scott Burrell, Dickey Simpkins Trade",
     "description": "On 1997-09-22:  Warriors acquire Dickey Simpkins  Bulls acquire Scott Burrell",
     "is_multi_team": false,
     "teams": [
@@ -321,7 +321,7 @@
     "id": "620c29d5-45a5-4c95-abf6-27fd3a65105e",
     "date": "1997-09-24",
     "season": "1997-98",
-    "title": "Derek Harper, Ed O'Bannon Trade",
+    "title": "Derek Harper, Dennis Scott, Ed O'Bannon Trade",
     "description": "On 1997-09-24:  Mavericks acquire Dennis Scott  Magic acquire Derek Harper",
     "is_multi_team": false,
     "teams": [
@@ -400,7 +400,7 @@
     "id": "f06e8660-ae37-45fa-abca-d165ec3f2354",
     "date": "1997-09-25",
     "season": "1997-98",
-    "title": "Tyrone Hill, Terrell Brandon, Vin Baker Trade",
+    "title": "Vin Baker, Terrell Brandon, Tyrone Hill Trade",
     "description": "On 1997-09-25:  Sonics acquire Vin Baker  Bucks acquire Tyrone Hill Other Team(s) Involved in Trade: Cavaliers",
     "is_multi_team": true,
     "teams": [
@@ -484,7 +484,7 @@
     "id": "df093472-c0cf-484d-ba1e-3699c6ddbdcd",
     "date": "1997-09-29",
     "season": "1997-98",
-    "title": "Hawks / Nuggets Trade",
+    "title": "Efthimios Rentzias, Hanno Mottola, Priest Lauderdale Trade",
     "description": "On 1997-09-29:  Nuggets acquire Priest Lauderdale  Hawks acquire rights to Efthimios Rentzias",
     "is_multi_team": false,
     "teams": [
@@ -552,7 +552,7 @@
     "id": "5ff31203-99a3-4f98-a871-a98d1cca4d0c",
     "date": "1997-10-01",
     "season": "1997-98",
-    "title": "Cavaliers / Nuggets / Suns Trade",
+    "title": "Wesley Person, Tony Dumas, Sean May Trade",
     "description": "On 1997-10-01:  Nuggets acquire 1998 first round pick (#23-Tyronn Lue)  Suns acquire Cavaliers 2000 or later first round pick (originally lottery protected, removed in a subsequent trade) (2005 #13-Sean May) Other Team(s) Involved in Trade: Cavaliers",
     "is_multi_team": true,
     "teams": [
@@ -647,7 +647,7 @@
     "id": "21d82320-dbdf-488c-ae11-77192690d358",
     "date": "1997-10-02",
     "season": "1997-98",
-    "title": "Greg Graham, Steve Scheffler Trade",
+    "title": "Ryan Bowen, Dale Ellis, Francisco Elson Trade",
     "description": "On 1997-10-02:  Sonics acquire Dale Ellis  Nuggets acquire Greg Graham",
     "is_multi_team": false,
     "teams": [
@@ -726,7 +726,7 @@
     "id": "562960be-3382-4222-bc65-1a0697b0b666",
     "date": "1997-10-09",
     "season": "1997-98",
-    "title": "Chris Dudley Trade",
+    "title": "Chris Dudley, Bryce Drew, Taurean Green Trade",
     "description": "On 1997-10-09:  Knicks acquire Chris Dudley  Blazers acquire 1998 first round pick (from Knicks) (#16-Bryce Drew) Other Team(s) Involved in Trade:Raptors",
     "is_multi_team": true,
     "teams": [
@@ -788,7 +788,7 @@
     "id": "2536e438-ab1c-4ba0-a8a8-f6f0b0b137de",
     "date": "1997-10-20",
     "season": "1997-98",
-    "title": "Greg Graham Trade",
+    "title": "Sherman Douglas, Eddie House, Greg Graham Trade",
     "description": "On 1997-10-20:  Nuggets acquire Sherman Douglas  Cavaliers acquire Greg Graham",
     "is_multi_team": false,
     "teams": [
@@ -845,7 +845,7 @@
     "id": "9e4b651f-ea4f-49a0-abaa-4f345327d9c5",
     "date": "1997-10-22",
     "season": "1997-98",
-    "title": "Dontae' Jones, Walter McCarty, John Thomas Trade",
+    "title": "Walter McCarty, Chris Mills, John Thomas Trade",
     "description": "On 1997-10-22:  Knicks acquire Chris Mills  Celtics acquire Dontae' Jones",
     "is_multi_team": false,
     "teams": [
@@ -946,7 +946,7 @@
     "id": "302959e6-d026-4cf5-83aa-f5a97c2908ed",
     "date": "1997-10-27",
     "season": "1997-98",
-    "title": "Mark Price, Brian Shaw, David Vaughn (III) Trade",
+    "title": "Mark Price, David Vaughn (III), Brian Shaw Trade",
     "description": "On 1997-10-27:  Warriors (date 10-12 per Stats) acquire Brian Shaw  Magic acquire Mark Price",
     "is_multi_team": false,
     "teams": [
@@ -1003,7 +1003,7 @@
     "id": "0e060a3e-6c58-4456-943c-60818a5b41fa",
     "date": "1997-10-28",
     "season": "1997-98",
-    "title": "Roy Rogers Trade",
+    "title": "Tony Massenburg, Obinna Ekezie, Roy Rogers Trade",
     "description": "On 1997-10-28:  Grizzlies acquire Tony Massenburg  Celtics acquire Roy Rogers",
     "is_multi_team": false,
     "teams": [
@@ -1060,7 +1060,7 @@
     "id": "65074b42-d701-4f8b-b3b6-3dd415fc7508",
     "date": "1997-10-28",
     "season": "1997-98",
-    "title": "Grizzlies / Rockets Trade",
+    "title": "Sam Mack, Jake Voskuhl Trade",
     "description": "On 1997-10-28:  Rockets acquire 1999 or 2000 second round pick (2000 #33-Jake Voskuhl)  Grizzlies acquire Sam Mack",
     "is_multi_team": false,
     "teams": [
@@ -1117,7 +1117,7 @@
     "id": "8708eef8-d484-4fe8-8a41-54852c5cdea8",
     "date": "1997-11-07",
     "season": "1997-98",
-    "title": "B.J. Armstrong, Muggsy Bogues, Tony Delk Trade",
+    "title": "Muggsy Bogues, B.J. Armstrong, Tony Delk Trade",
     "description": "On 1997-11-07:  Warriors acquire Muggsy Bogues  Hornets acquire B.J. Armstrong",
     "is_multi_team": false,
     "teams": [
@@ -1174,7 +1174,7 @@
     "id": "db9a3bd7-6e3f-4b7d-8f4c-fa432e008da1",
     "date": "1997-11-21",
     "season": "1997-98",
-    "title": "Tom Chambers Trade",
+    "title": "Tom Chambers, Marko Milic Trade",
     "description": "On 1997-11-21:  Suns acquire Marko Milic  76ers acquire Tom Chambers",
     "is_multi_team": false,
     "teams": [
@@ -1220,7 +1220,7 @@
     "id": "fd60a53c-e887-4c08-95f2-39d9797b7a7c",
     "date": "1997-12-18",
     "season": "1997-98",
-    "title": "Theo Ratliff, Aaron McKie, Jerry Stackhouse Trade",
+    "title": "Aaron McKie, Jerry Stackhouse, Theo Ratliff Trade",
     "description": "On 1997-12-18:  Pistons acquire Jerry Stackhouse  76ers acquire Theo Ratliff",
     "is_multi_team": false,
     "teams": [
@@ -1321,7 +1321,7 @@
     "id": "499c3452-990c-4757-973a-b5503348cf59",
     "date": "1998-01-18",
     "season": "1997-98",
-    "title": "76ers / Sonics Trade",
+    "title": "Eric Snow Trade",
     "description": "On 1998-01-18:  Sonics acquire 1998 (or 1999 per P, Sonics media guide) conditional second round pick (1998 #33-Jelani McCoy)  76ers acquire Eric Snow",
     "is_multi_team": false,
     "teams": [
@@ -1378,7 +1378,7 @@
     "id": "39327c30-a396-464a-9ba5-2142465a8813",
     "date": "1998-02-13",
     "season": "1997-98",
-    "title": "Damon Stoudamire, Walt Williams, Carlos Rogers Trade",
+    "title": "Damon Stoudamire, Alvin Williams, Walt Williams Trade",
     "description": "On 1998-02-13:  Raptors acquire Kenny Anderson  Blazers acquire Damon Stoudamire",
     "is_multi_team": false,
     "teams": [
@@ -1512,7 +1512,7 @@
     "id": "057c0629-4b33-4fe6-9930-6cd5e6819496",
     "date": "1998-02-16",
     "season": "1997-98",
-    "title": "Rony Seikaly, Greg Foster, Chris Morris Trade",
+    "title": "Greg Foster, Chris Morris, Rony Seikaly Trade",
     "description": "On 1998-02-16:  Magic (trade nullified on 1998-02-18 when Seikaly failed to report) acquire Greg Foster  Jazz acquire Rony Seikaly",
     "is_multi_team": false,
     "teams": [
@@ -1569,7 +1569,7 @@
     "id": "a31557ec-5e88-4580-96dd-bdcf921de0c7",
     "date": "1998-02-17",
     "season": "1997-98",
-    "title": "Joe Smith, Brian Shaw, Clarence Weatherspoon Trade",
+    "title": "Joe Smith, Clarence Weatherspoon, Brian Shaw Trade",
     "description": "On 1998-02-17:  Warriors acquire Clarence Weatherspoon  76ers acquire Joe Smith",
     "is_multi_team": false,
     "teams": [
@@ -1637,7 +1637,7 @@
     "id": "844f53fd-ac08-4c09-b31b-cae691d8bf7e",
     "date": "1998-02-18",
     "season": "1997-98",
-    "title": "Kenny Anderson, Popeye Jones, Zan Tabak Trade",
+    "title": "Kenny Anderson, John Thomas, Popeye Jones Trade",
     "description": "On 1998-02-18:  Raptors acquire Chauncey Billups  Celtics acquire Kenny Anderson",
     "is_multi_team": false,
     "teams": [
@@ -1749,7 +1749,7 @@
     "id": "29a71183-2182-4ce8-a2ba-bcda4ff0e6b0",
     "date": "1998-02-18",
     "season": "1997-98",
-    "title": "Bobby Hurley, Michael Smith (John) (Providence), Otis Thorpe Trade",
+    "title": "Otis Thorpe, Chris Robinson, Michael Smith (John) (Providence) Trade",
     "description": "On 1998-02-18:  Kings acquire Otis Thorpe  Grizzlies acquire Bobby Hurley",
     "is_multi_team": false,
     "teams": [
@@ -1828,7 +1828,7 @@
     "id": "f4fe61d4-e8ef-413f-91fe-1957c886b486",
     "date": "1998-02-18",
     "season": "1997-98",
-    "title": "Doug West Trade",
+    "title": "Anthony Peeler, Doug West Trade",
     "description": "On 1998-02-18:  Timberwolves acquire Anthony Peeler  Grizzlies acquire Doug West",
     "is_multi_team": false,
     "teams": [
@@ -1874,7 +1874,7 @@
     "id": "92b223f2-e8e8-456d-a14f-87a796e2e757",
     "date": "1998-02-18",
     "season": "1997-98",
-    "title": "Cedric Ceballos Trade",
+    "title": "Cedric Ceballos, Dennis Scott Trade",
     "description": "On 1998-02-18:  Suns acquire Dennis Scott  Mavericks acquire Cedric Ceballos",
     "is_multi_team": false,
     "teams": [
@@ -1920,7 +1920,7 @@
     "id": "67fc6507-70c7-40bd-aa9b-49808c0fd990",
     "date": "1998-02-19",
     "season": "1997-98",
-    "title": "Herb Williams, Ronnie Grandison Trade",
+    "title": "Terry Cummings, Herb Williams, Ronnie Grandison Trade",
     "description": "On 1998-02-19:  Knicks acquire Terry Cummings  76ers acquire Herb Williams",
     "is_multi_team": false,
     "teams": [
@@ -1988,7 +1988,7 @@
     "id": "739aeff7-24d9-4bc7-9cdd-4b09b085d33d",
     "date": "1998-02-19",
     "season": "1997-98",
-    "title": "David Vaughn (III) Trade",
+    "title": "Jason Caffey, A.J. Guyton, David Vaughn (III) Trade",
     "description": "On 1998-02-19:  Warriors acquire Jason Caffey  Bulls acquire David Vaughn (III)",
     "is_multi_team": false,
     "teams": [
@@ -2067,7 +2067,7 @@
     "id": "512c4797-052a-45fd-96cf-d455903f119a",
     "date": "1998-02-19",
     "season": "1997-98",
-    "title": "Isaac Austin, Charles Smith (Cornelius) Trade",
+    "title": "Brian Skinner, Brent Barry, Isaac Austin Trade",
     "description": "On 1998-02-19:  Heat acquire Brent Barry  Clippers acquire Isaac Austin",
     "is_multi_team": false,
     "teams": [
@@ -2146,7 +2146,7 @@
     "id": "d3824efd-35e7-4665-9e13-6cb359e32851",
     "date": "1998-02-19",
     "season": "1997-98",
-    "title": "Kevin Edwards, Yinka Dare, David Benoit Trade",
+    "title": "Matt Harpring, Brian Evans, David Benoit Trade",
     "description": "On 1998-02-19:  Nets acquire Rony Seikaly  Magic acquire Kevin Edwards",
     "is_multi_team": false,
     "teams": [
@@ -2293,7 +2293,7 @@
     "id": "2cf6052f-e33e-422e-aed0-2695faf60a61",
     "date": "1998-06-09",
     "season": "1997-98",
-    "title": "Kevin Willis Trade",
+    "title": "Kevin Willis, Bryce Drew, Roy Rogers Trade",
     "description": "On 1998-06-09:  Rockets acquire Roy Rogers  Raptors acquire Kevin Willis",
     "is_multi_team": false,
     "teams": [
@@ -2361,7 +2361,7 @@
     "id": "cd4a618b-ff9e-4064-8755-e22307a17cf1",
     "date": "1998-06-24",
     "season": "1997-98",
-    "title": "76ers / Jazz Trade",
+    "title": "Quincy Lewis, Nazr Mohammed Trade",
     "description": "On 1998-06-24:  Jazz acquire first round pick (protected top 15 in 1999, top 14 in 2000, top 13 in 2001, top 2 in 2002 and beyond) (1999 #19-Quincy Lewis)  76ers acquire rights to Nazr Mohammed",
     "is_multi_team": false,
     "teams": [
@@ -2418,7 +2418,7 @@
     "id": "1780d79f-c3a6-4922-9a8b-65a33c97a477",
     "date": "1998-06-24",
     "season": "1997-98",
-    "title": "Bulls / Hawks Trade",
+    "title": "Shammond Williams, Lari Ketner, Amin Trade",
     "description": "On 1998-06-24:  Hawks acquire rights to Shammond Williams  Bulls acquire rights to Cory Carr",
     "is_multi_team": false,
     "teams": [
@@ -2486,7 +2486,7 @@
     "id": "838dff7a-7071-4ce4-a9a5-451312008548",
     "date": "1998-06-24",
     "season": "1997-98",
-    "title": "Bucks / Mavericks Trade",
+    "title": "Dirk Nowitzki, Robert Traylor, Pat Garrity Trade",
     "description": "On 1998-06-24:  Mavericks acquire rights to Dirk Nowitzki  Bucks acquire rights to Robert Traylor",
     "is_multi_team": false,
     "teams": [
@@ -2543,7 +2543,7 @@
     "id": "a58d3c9c-3101-4ea2-8d07-3de31cbf9d3c",
     "date": "1998-06-24",
     "season": "1997-98",
-    "title": "Steve Nash, Bubba Wells, Martin Muursepp Trade",
+    "title": "Shawn Marion, Steve Nash, Pat Garrity Trade",
     "description": "On 1998-06-24:  Suns acquire Bubba Wells  Mavericks acquire Steve Nash",
     "is_multi_team": false,
     "teams": [
@@ -2622,7 +2622,7 @@
     "id": "b8fcc428-c5ee-45a5-bd55-12e59952a182",
     "date": "1998-06-24",
     "season": "1997-98",
-    "title": "Carl Herrera Trade",
+    "title": "Antonio Daniels, Felipe Lopez, Carl Herrera Trade",
     "description": "On 1998-06-24:  Spurs acquire Antonio Daniels  Grizzlies acquire Carl Herrera",
     "is_multi_team": false,
     "teams": [
@@ -2679,7 +2679,7 @@
     "id": "aed69e13-3d1f-46ca-88f2-aeca555736ea",
     "date": "1998-06-24",
     "season": "1997-98",
-    "title": "Tony Battie Trade",
+    "title": "Nick Van Exel, Tyronn Lue, Tony Battie Trade",
     "description": "On 1998-06-24:  Nuggets acquire Nick Van Exel  Lakers acquire Tony Battie",
     "is_multi_team": false,
     "teams": [
@@ -2736,7 +2736,7 @@
     "id": "1b8636cd-3238-4d64-80a7-5ea0c55c73af",
     "date": "1998-06-24",
     "season": "1997-98",
-    "title": "Raptors / Warriors Trade",
+    "title": "Vince Carter, Antawn Jamison Trade",
     "description": "On 1998-06-24:  Warriors acquire rights to Antawn Jamison  Raptors acquire rights to Vince Carter",
     "is_multi_team": false,
     "teams": [
@@ -2793,7 +2793,7 @@
     "id": "a64ca519-aa5d-4b17-a605-d573f2bcb385",
     "date": "1998-06-25",
     "season": "1997-98",
-    "title": "Marcus Camby Trade",
+    "title": "Marcus Camby, Charles Oakley, Sean Marks Trade",
     "description": "On 1998-06-25:  Raptors acquire Charles Oakley  Knicks acquire Marcus Camby",
     "is_multi_team": false,
     "teams": [

@@ -3,7 +3,7 @@
     "id": "42e014f6-7f5f-4d1f-936a-bf9541b2e83c",
     "date": "1990-08-01",
     "season": "1990-91",
-    "title": "76ers / Warriors Trade",
+    "title": "Chris Gatling, Manute Bol Trade",
     "description": "On 1990-08-01:  Warriors acquire 1991 first round pick (#16-Chris Gatling)  76ers acquire Manute Bol",
     "is_multi_team": false,
     "teams": [
@@ -60,7 +60,7 @@
     "id": "b3a0906a-2243-40de-a37a-1d3d3a639911",
     "date": "1990-08-01",
     "season": "1990-91",
-    "title": "Danny Ainge Trade",
+    "title": "Danny Ainge, Pete Chilcutt, Byron Irvin Trade",
     "description": "On 1990-08-01:  Kings acquire Byron Irvin  Blazers acquire Danny Ainge",
     "is_multi_team": false,
     "teams": [
@@ -139,7 +139,7 @@
     "id": "7a50edba-9140-4117-9430-8ccff453c762",
     "date": "1990-08-01",
     "season": "1990-91",
-    "title": "Bucks / Nuggets Trade",
+    "title": "Danny Schayes, Terry Mills Trade",
     "description": "On 1990-08-01:  Nuggets acquire rights to Terry Mills  Bucks acquire Danny Schayes",
     "is_multi_team": false,
     "teams": [
@@ -185,7 +185,7 @@
     "id": "46aaf06b-8389-45c4-9431-f4ba4b237ff6",
     "date": "1990-08-01",
     "season": "1990-91",
-    "title": "Frank Brickowski Trade",
+    "title": "Frank Brickowski, Paul Pressey Trade",
     "description": "On 1990-08-01:  Spurs acquire Paul Pressey  Bucks acquire Frank Brickowski",
     "is_multi_team": false,
     "teams": [
@@ -231,7 +231,7 @@
     "id": "06bbaa77-f7a2-4c0c-892e-4954573f996c",
     "date": "1990-09-25",
     "season": "1990-91",
-    "title": "Lakers / Warriors Trade",
+    "title": "Terry Teagle, Shaun Vandiver Trade",
     "description": "On 1990-09-25:  Warriors acquire 1991 first round pick (#25-Shaun Vandiver)  Lakers acquire Terry Teagle",
     "is_multi_team": false,
     "teams": [
@@ -288,7 +288,7 @@
     "id": "21805731-4ff3-4af7-8008-4f06aeb1d7d1",
     "date": "1990-09-27",
     "season": "1990-91",
-    "title": "Kenny Smith, Roy Marble (a) Trade",
+    "title": "Kenny Smith, John Lucas Sr.,Tim McCormick, Roy Marble (a) Trade",
     "description": "On 1990-09-27:  Hawks (date per NBA Register) acquire John Lucas Sr.,Tim McCormick  Rockets acquire Kenny Smith",
     "is_multi_team": false,
     "teams": [
@@ -389,7 +389,7 @@
     "id": "f66d4496-c7bc-4b28-9352-f2c1968eb4c0",
     "date": "1990-09-28",
     "season": "1990-91",
-    "title": "Nuggets / Pistons Trade",
+    "title": "Anthony Cook, Anthony Pelle Trade",
     "description": "On 1990-09-28:  Pistons acquire second round pick (1995 #44-Anthony Pelle)  Nuggets acquire Anthony Cook",
     "is_multi_team": false,
     "teams": [
@@ -457,7 +457,7 @@
     "id": "6fb9cf1b-6db0-4d6f-ba43-f068235a0d6c",
     "date": "1990-10-28",
     "season": "1990-91",
-    "title": "76ers / Suns Trade",
+    "title": "Sharone Wright, Jayson Williams Trade",
     "description": "On 1990-10-28:  Suns acquire first round pick (lottery protected in 1993) (1994 #6-Sharone Wright)  76ers acquire rights to Jayson Williams",
     "is_multi_team": false,
     "teams": [
@@ -514,7 +514,7 @@
     "id": "429aeee0-7a44-4f25-abe9-f1a8700e1605",
     "date": "1990-10-30",
     "season": "1990-91",
-    "title": "Byron Irvin Trade",
+    "title": "Byron Irvin, Steve Colter Trade",
     "description": "On 1990-10-30:  Kings acquire Steve Colter  Bullets acquire Byron Irvin",
     "is_multi_team": false,
     "teams": [
@@ -560,7 +560,7 @@
     "id": "e55ce982-8603-4056-a29b-2b5434a4e342",
     "date": "1990-10-30",
     "season": "1990-91",
-    "title": "Mark McNamara Trade",
+    "title": "Sidney Green, Stanley Roberts, Mark McNamara Trade",
     "description": "On 1990-10-30:  Spurs acquire Sidney Green  Magic acquire Mark McNamara",
     "is_multi_team": false,
     "teams": [
@@ -617,7 +617,7 @@
     "id": "a1d6b2c4-4a36-4a8c-9eef-67e533cafdf7",
     "date": "1990-11-10",
     "season": "1990-91",
-    "title": "76ers / Timberwolves Trade",
+    "title": "Alvaro Teheran, Bob Thornton Trade",
     "description": "On 1990-11-10:  Timberwolves acquire Bob Thornton  76ers acquire 1991 second round pick (#44-Alvaro Teheran)",
     "is_multi_team": false,
     "teams": [
@@ -674,7 +674,7 @@
     "id": "66c267de-c0f1-46f6-92d8-81ee46c1642a",
     "date": "1990-12-07",
     "season": "1990-91",
-    "title": "Eddie Johnson (a) Trade",
+    "title": "Xavier McDaniel, Eddie Johnson (a), LeRon Ellis Trade",
     "description": "On 1990-12-07:  Suns acquire Xavier McDaniel  Sonics acquire Eddie Johnson (a)",
     "is_multi_team": false,
     "teams": [
@@ -753,7 +753,7 @@
     "id": "48cbecb1-9b8d-4f89-8d94-5296414c842a",
     "date": "1991-01-04",
     "season": "1990-91",
-    "title": "Armen Gilliam, Dave Hoppen Trade",
+    "title": "Armen Gilliam, Mike Gminski, Dave Hoppen Trade",
     "description": "On 1991-01-04:  Hornets acquire Mike Gminski  76ers acquire Armen Gilliam",
     "is_multi_team": false,
     "teams": [
@@ -810,7 +810,7 @@
     "id": "2a3b21e7-c334-4366-b314-1ed50654838b",
     "date": "1991-01-11",
     "season": "1990-91",
-    "title": "Lester Conner Trade",
+    "title": "Lester Conner, Greg Anderson Trade",
     "description": "On 1991-01-11:  Nets acquire Greg Anderson  Bucks acquire Lester Conner",
     "is_multi_team": false,
     "teams": [
@@ -856,7 +856,7 @@
     "id": "99e9adf2-fea0-4a40-8888-9a4631def64a",
     "date": "1991-01-23",
     "season": "1990-91",
-    "title": "Walter Davis (P.), Terry Mills, Drazen Petrovic Trade",
+    "title": "Reggie Smith, Drazen Petrovic, Kevin Thompson Trade",
     "description": "On 1991-01-23:  Blazers acquire Walter Davis (P.)  Nuggets acquire Greg Anderson Other Team(s) Involved in Trade:Nets",
     "is_multi_team": true,
     "teams": [
@@ -973,7 +973,7 @@
     "id": "3e381e24-ad7a-411c-b580-437df89d1742",
     "date": "1991-01-29",
     "season": "1990-91",
-    "title": "Hornets / Kings Trade",
+    "title": "Eric Leckner, Alex Holcombe, Dejan Bodiroga Trade",
     "description": "On 1991-01-29:  Kings acquire 1993 second round pick (#44-Alex Holcombe)  Hornets acquire Eric Leckner",
     "is_multi_team": false,
     "teams": [
@@ -1041,7 +1041,7 @@
     "id": "a63f020c-3706-4ed0-8f8a-2d4d406bbfcc",
     "date": "1991-02-15",
     "season": "1990-91",
-    "title": "Dale Ellis Trade",
+    "title": "Ricky Pierce, Dale Ellis Trade",
     "description": "On 1991-02-15:  Sonics acquire Ricky Pierce  Bucks acquire Dale Ellis",
     "is_multi_team": false,
     "teams": [
@@ -1087,7 +1087,7 @@
     "id": "815cebca-f205-44a4-b6cd-8f4fc8a876bb",
     "date": "1991-02-20",
     "season": "1990-91",
-    "title": "Olden Polynice Trade",
+    "title": "Olden Polynice, Benoit Benjamin, Brooks Thompson Trade",
     "description": "On 1991-02-20:  Sonics acquire Benoit Benjamin  Clippers acquire Olden Polynice",
     "is_multi_team": false,
     "teams": [
@@ -1155,7 +1155,7 @@
     "id": "85645ae3-4e91-47dc-8f85-849104213a62",
     "date": "1991-06-11",
     "season": "1990-91",
-    "title": "Bullets / Nuggets Trade",
+    "title": "Michael Adams, LaBradford Smith, Mark Macon Trade",
     "description": "On 1991-06-11:  Nuggets acquire 1991 first round pick (#8-Mark Macon)  Bullets acquire Michael Adams",
     "is_multi_team": false,
     "teams": [
@@ -1234,7 +1234,7 @@
     "id": "299f80eb-d568-4a40-bc45-14a8769cd192",
     "date": "1991-06-26",
     "season": "1990-91",
-    "title": "Anthony Avent Trade",
+    "title": "Anthony Avent, Kevin Brooks Trade",
     "description": "On 1991-06-26:  Nuggets acquire Kevin Brooks  Bucks acquire Anthony Avent",
     "is_multi_team": false,
     "teams": [
@@ -1280,7 +1280,7 @@
     "id": "47bad6ca-c5d7-4482-becc-8977a0e0e535",
     "date": "1991-06-26",
     "season": "1990-91",
-    "title": "Cavaliers / Rockets (date may not be exact) Trade",
+    "title": "Keith Hughes, Terrell Bell Trade",
     "description": "On 1991-06-26:  Rockets (date may not be exact) acquire 1996 second round pick (#50-Terrell Bell)  Cavaliers acquire rights to Keith Hughes",
     "is_multi_team": false,
     "teams": [
@@ -1337,7 +1337,7 @@
     "id": "62ab38bc-b15e-408b-b844-4d181a23d9f5",
     "date": "1991-06-26",
     "season": "1990-91",
-    "title": "Clippers / Nuggets Trade",
+    "title": "Winston Garland, Russ Millard Trade",
     "description": "On 1991-06-26:  Nuggets acquire Winston Garland  Clippers acquire 1996 or 1997 second round pick (1996 #39-Russ Millard)",
     "is_multi_team": false,
     "teams": [
@@ -1394,7 +1394,7 @@
     "id": "fe572e15-37d8-460d-9298-4749bd6f26ed",
     "date": "1991-06-26",
     "season": "1990-91",
-    "title": "Clippers / Hawks Trade",
+    "title": "Stacey Augmon, Doc Rivers, Richard Manning Trade",
     "description": "On 1991-06-26:  Hawks acquire 1991 first round pick (#9-Stacey Augmon)  Clippers acquire Doc Rivers",
     "is_multi_team": false,
     "teams": [
@@ -1473,7 +1473,7 @@
     "id": "0f77c6ad-d9ed-4d52-bc6e-c2cf68c70ce7",
     "date": "1991-06-26",
     "season": "1990-91",
-    "title": "Blair Rasmussen Trade",
+    "title": "Blair Rasmussen, Anthony Avent Trade",
     "description": "On 1991-06-26:  Nuggets acquire Anthony Avent  Hawks acquire Blair Rasmussen",
     "is_multi_team": false,
     "teams": [
@@ -1519,7 +1519,7 @@
     "id": "1a1814a1-86a8-4e0d-8ac5-f4c31df8e01f",
     "date": "1991-06-26",
     "season": "1990-91",
-    "title": "Blazers / Warriors Trade",
+    "title": "Tim Young, Tyus Edney, Lamont Strothers Trade",
     "description": "On 1991-06-26:  Warriors acquire 1995 second round pick (#47-Tyus Edney)  Blazers acquire rights to Lamont Strothers",
     "is_multi_team": false,
     "teams": [
@@ -1587,7 +1587,7 @@
     "id": "ac708b9c-73fa-4ea3-bf9f-3524a272c64c",
     "date": "1991-06-27",
     "season": "1990-91",
-    "title": "Cavaliers / Suns Trade",
+    "title": "Milos Babic, Stefano Rusconi Trade",
     "description": "On 1991-06-27:  Suns acquire rights to Stefano Rusconi  Cavaliers acquire rights to Milos Babic",
     "is_multi_team": false,
     "teams": [
@@ -1633,7 +1633,7 @@
     "id": "91017682-676b-4373-ba48-b893bc9724f1",
     "date": "1991-07-01",
     "season": "1990-91",
-    "title": "Bucks / Hawks / Nuggets Trade",
+    "title": "Anthony Avent, Rodney Dent Trade",
     "description": "On 1991-07-01:  Nuggets acquire 1994 second round pick (#31-Rodney Dent)  Bucks acquire rights to Anthony Avent Other Team(s) Involved in Trade: Hawks",
     "is_multi_team": true,
     "teams": [
@@ -1717,7 +1717,7 @@
     "id": "c8ecef58-0203-43fa-aa19-790055a384d7",
     "date": "1991-07-01",
     "season": "1990-91",
-    "title": "Travis Mays Trade",
+    "title": "Spud Webb, Lawrence Funderburke, Travis Mays Trade",
     "description": "On 1991-07-01:  Kings acquire Spud Webb  Hawks acquire Travis Mays",
     "is_multi_team": false,
     "teams": [

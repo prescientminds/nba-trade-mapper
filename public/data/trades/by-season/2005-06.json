@@ -3,7 +3,7 @@
     "id": "41d81f77-1c1b-4e66-b4b2-15c072f7afe4",
     "date": "2005-08-02",
     "season": "2005-06",
-    "title": "Bobcats / Kings Trade",
+    "title": "Ryan Hollins, Jason Hart Trade",
     "description": "On 2005-08-02:  Kings acquire Jason Hart  Bobcats acquire 2006 second round pick (#50-Ryan Hollins)",
     "is_multi_team": false,
     "teams": [
@@ -60,7 +60,7 @@
     "id": "6fde20e4-62bb-4320-a00f-3bbe4a554750",
     "date": "2005-08-02",
     "season": "2005-06",
-    "title": "Kwame Brown, Laron Profit, Caron Butler Trade",
+    "title": "Caron Butler, Kwame Brown, Chucky Atkins Trade",
     "description": "On 2005-08-02:  Wizards acquire Caron Butler  Lakers acquire Kwame Brown",
     "is_multi_team": false,
     "teams": [
@@ -128,7 +128,7 @@
     "id": "3d17e157-d492-4390-81c3-98747aaa90a6",
     "date": "2005-08-02",
     "season": "2005-06",
-    "title": "Bobby Jackson, Greg Ostertag Trade",
+    "title": "Bobby Jackson, Bonzi Wells, Greg Ostertag Trade",
     "description": "On 2005-08-02:  Kings acquire Bonzi Wells  Grizzlies acquire Bobby Jackson",
     "is_multi_team": false,
     "teams": [
@@ -185,7 +185,7 @@
     "id": "475c349e-6974-440d-935e-97bbff42aba0",
     "date": "2005-08-02",
     "season": "2005-06",
-    "title": "Qyntel Woods, Curtis Borchardt, Eddie Jones Trade",
+    "title": "Qyntel Woods, Curtis Borchardt, Albert Miralles Trade",
     "description": "On 2005-08-02:  Heat acquire Antoine Walker  Celtics acquire Qyntel Woods Other Team(s) Involved in Trade: Grizzlies,Hornets, Jazz",
     "is_multi_team": true,
     "teams": [
@@ -378,7 +378,7 @@
     "id": "bafce2ee-ce1c-4e5b-a526-baa245c39660",
     "date": "2005-08-02",
     "season": "2005-06",
-    "title": "Hornets / Celtics / Grizzlies / Heat / & Jazz Trade",
+    "title": "Qyntel Woods, Curtis Borchardt, Albert Miralles Trade",
     "description": "On 2005-08-02:  Heat acquire rights to Roberto Duenas  Hornets acquire Rasual Butler Other Team(s) Involved in Trade: Celtics, Grizzlies,& Jazz",
     "is_multi_team": true,
     "teams": [
@@ -764,7 +764,7 @@
     "id": "e49657b1-21e6-447a-9fb8-c78e98354dfd",
     "date": "2005-08-12",
     "season": "2005-06",
-    "title": "Sam Cassell, Marko Jaric, Lionel Chalmers Trade",
+    "title": "Sam Cassell, Austin Rivers, Marko Jaric Trade",
     "description": "On 2005-08-12:  Timberwolves acquire Marko Jaric  Clippers acquire Sam Cassell",
     "is_multi_team": false,
     "teams": [
@@ -832,7 +832,7 @@
     "id": "2cbe39c8-574f-4ece-b552-b4eb09a7c228",
     "date": "2005-08-19",
     "season": "2005-06",
-    "title": "Joe Johnson Trade",
+    "title": "Joe Johnson, Boris Diaw, Robin Lopez Trade",
     "description": "On 2005-08-19:  Suns acquire Boris Diaw  Hawks acquire Joe Johnson",
     "is_multi_team": false,
     "teams": [
@@ -900,7 +900,7 @@
     "id": "88456a56-c1af-40df-8462-b8821d3dd538",
     "date": "2005-08-25",
     "season": "2005-06",
-    "title": "Pacers / Suns Trade",
+    "title": "Mike Taylor, James Jones (b) Trade",
     "description": "On 2005-08-25:  Suns acquire James Jones (b)  Pacers acquire 2008 second round pick (#55-Mike Taylor)",
     "is_multi_team": false,
     "teams": [
@@ -957,7 +957,7 @@
     "id": "73e1284b-6061-43cd-acfe-2db1d081dcca",
     "date": "2005-09-30",
     "season": "2005-06",
-    "title": "Celtics / Hornets Trade",
+    "title": "Dan Dickau, Edin Bavcic Trade",
     "description": "On 2005-09-30:  Hornets acquire 2006 second round pick (#56-Edin Bavcic)  Celtics acquire Dan Dickau",
     "is_multi_team": false,
     "teams": [
@@ -1014,7 +1014,7 @@
     "id": "c86fa4c1-d8da-4078-bdea-0b97197206d4",
     "date": "2005-10-04",
     "season": "2005-06",
-    "title": "Tim Thomas, Mike Sweetney, Jermaine Jackson Trade",
+    "title": "Joakim Noah, Eddy Curry, Mike Sweetney Trade",
     "description": "On 2005-10-04:  Knicks acquire Eddy Curry  Bulls acquire Tim Thomas",
     "is_multi_team": false,
     "teams": [
@@ -1137,7 +1137,7 @@
     "id": "e18146c5-3b54-4c7d-95ee-6dc86802c134",
     "date": "2005-10-04",
     "season": "2005-06",
-    "title": "Mike James (Lamont) Trade",
+    "title": "Rafer Alston, Mike James (Lamont) Trade",
     "description": "On 2005-10-04:  Rockets acquire Rafer Alston  Raptors acquire Mike James (Lamont)",
     "is_multi_team": false,
     "teams": [
@@ -1194,7 +1194,7 @@
     "id": "7a390f1e-70c2-48b5-a852-c802ee293fe2",
     "date": "2005-10-26",
     "season": "2005-06",
-    "title": "Bobcats / Lakers Trade",
+    "title": "Jumaine Jones, Sun Yue Trade",
     "description": "On 2005-10-26:  Lakers acquire second round pick (protected top 55 in 2007, unprotected in 2008) (2007 #40-Sun Yue)  Bobcats acquire Jumaine Jones",
     "is_multi_team": false,
     "teams": [
@@ -1251,7 +1251,7 @@
     "id": "2eeadaff-6f55-40cd-951d-08294ab0394d",
     "date": "2005-10-26",
     "season": "2005-06",
-    "title": "Jamaal Magloire Trade",
+    "title": "Jamaal Magloire, Desmond Mason, Cedric Simmons Trade",
     "description": "On 2005-10-26:  Hornets acquire Desmond Mason  Bucks acquire Jamaal Magloire",
     "is_multi_team": false,
     "teams": [
@@ -1319,7 +1319,7 @@
     "id": "75847482-6c2f-483b-8054-ef0a7fb398a4",
     "date": "2005-10-31",
     "season": "2005-06",
-    "title": "Pistons / Timberwolves Trade",
+    "title": "Ronald Dupree, DaJuan Summers Trade",
     "description": "On 2005-10-31:  Timberwolves acquire Ronald Dupree  Pistons acquire 2006-09 (Timberwolves choice) second round pick (2009 #35-DaJuan Summers)",
     "is_multi_team": false,
     "teams": [
@@ -1376,7 +1376,7 @@
     "id": "c6e1be2e-e7ed-4c9c-ad0f-2c419c1559d8",
     "date": "2006-01-25",
     "season": "2005-06",
-    "title": "Metta World Peace Trade",
+    "title": "Metta World Peace, Peja Stojakovic Trade",
     "description": "On 2006-01-25:  Pacers acquire Peja Stojakovic  Kings acquire Metta World Peace",
     "is_multi_team": false,
     "teams": [
@@ -1422,7 +1422,7 @@
     "id": "ebab9e33-795a-488e-976c-3f2473aca12e",
     "date": "2006-01-26",
     "season": "2005-06",
-    "title": "Wally Szczerbiak, Michael Olowokandi, Dwayne Jones Trade",
+    "title": "Craig Smith, Ricky Davis, Wally Szczerbiak Trade",
     "description": "On 2006-01-26:  Timberwolves acquire Ricky Davis  Celtics acquire Wally Szczerbiak",
     "is_multi_team": false,
     "teams": [
@@ -1556,7 +1556,7 @@
     "id": "ab4bfebc-0da4-4c7d-adbb-7ef1fb447f89",
     "date": "2006-01-26",
     "season": "2005-06",
-    "title": "Suns / Timberwolves Trade",
+    "title": "Loukas Mavrokefalidis, Nikoloz Tskitishvili Trade",
     "description": "On 2006-01-26:  Timberwolves acquire 2006 second round pick (#57-Loukas Mavrokefalidis)  Suns acquire Nikoloz Tskitishvili",
     "is_multi_team": false,
     "teams": [
@@ -1613,7 +1613,7 @@
     "id": "63e73a20-a4ca-4476-a734-ba68d539cbee",
     "date": "2006-01-31",
     "season": "2005-06",
-    "title": "Hornets / Raptors Trade",
+    "title": "Aaron Williams, Edin Bavcic, Jack McClinton Trade",
     "description": "On 2006-01-31:  Raptors acquire 2006 second round pick (#56-Edin Bavcic)  Hornets acquire Aaron Williams",
     "is_multi_team": false,
     "teams": [
@@ -1681,7 +1681,7 @@
     "id": "e1030077-62d9-4118-bfff-75506ac80470",
     "date": "2006-02-03",
     "season": "2005-06",
-    "title": "Knicks / Raptors Trade",
+    "title": "Renaldo Balkman, Antonio Davis Trade",
     "description": "On 2006-02-03:  Raptors acquire Antonio Davis  Knicks acquire 2006 first round pick (#20-Renaldo Balkman)",
     "is_multi_team": false,
     "teams": [
@@ -1749,7 +1749,7 @@
     "id": "4f604b7d-bca3-400e-ae8a-3b1f0fec4756",
     "date": "2006-02-09",
     "season": "2005-06",
-    "title": "Lonny Baxter Trade",
+    "title": "Keith Bogans, Lonny Baxter Trade",
     "description": "On 2006-02-09:  Rockets acquire Keith Bogans  Bobcats acquire Lonny Baxter",
     "is_multi_team": false,
     "teams": [
@@ -1795,7 +1795,7 @@
     "id": "e66a56dd-68dd-4c5e-8809-312c197ba580",
     "date": "2006-02-13",
     "season": "2005-06",
-    "title": "Moochie Norris Trade",
+    "title": "Moochie Norris, Maciej Lampe Trade",
     "description": "On 2006-02-13:  Rockets acquire Maciej Lampe  Hornets acquire Moochie Norris",
     "is_multi_team": false,
     "teams": [
@@ -1841,7 +1841,7 @@
     "id": "67b7a666-a768-4d88-a069-6f6207d02a72",
     "date": "2006-02-14",
     "season": "2005-06",
-    "title": "Vladimir Radmanovic Trade",
+    "title": "Chris Wilcox, Vladimir Radmanovic Trade",
     "description": "On 2006-02-14:  Sonics acquire Chris Wilcox  Clippers acquire Vladimir Radmanovic",
     "is_multi_team": false,
     "teams": [
@@ -1887,7 +1887,7 @@
     "id": "cdc418ef-0dbc-45d6-b5ff-36428f5680db",
     "date": "2006-02-15",
     "season": "2005-06",
-    "title": "Darko Milicic, Carlos Arroyo Trade",
+    "title": "Rodney Stuckey, Carlos Arroyo, Kelvin Cato Trade",
     "description": "On 2006-02-15:  Pistons acquire Kelvin Cato  Magic acquire Darko Milicic",
     "is_multi_team": false,
     "teams": [
@@ -1955,7 +1955,7 @@
     "id": "9d4dedd5-ac54-42a6-a558-b1ae560100d8",
     "date": "2006-02-22",
     "season": "2005-06",
-    "title": "Steve Francis, Trevor Ariza, Anfernee Hardaway Trade",
+    "title": "Trevor Ariza, Steve Francis, Anfernee Hardaway Trade",
     "description": "On 2006-02-22:  Magic acquire Trevor Ariza  Knicks acquire Steve Francis",
     "is_multi_team": false,
     "teams": [
@@ -2012,7 +2012,7 @@
     "id": "db019f74-c276-40f2-b38f-d55f3c9658a7",
     "date": "2006-02-23",
     "season": "2005-06",
-    "title": "Voshon Lenard, Brian Skinner, Ruben Patterson Trade",
+    "title": "Brian Skinner, Ruben Patterson, Sergei Monia Trade",
     "description": "On 2006-02-23:  Blazers acquire Brian Skinner  Kings acquire Vitaly Potapenko Other Team(s) Involved in Trade:Nuggets, Sonics",
     "is_multi_team": true,
     "teams": [
@@ -2156,7 +2156,7 @@
     "id": "e2274386-6275-47e5-977a-00be37165dd9",
     "date": "2006-02-23",
     "season": "2005-06",
-    "title": "Ronald Murray Trade",
+    "title": "Ronald Murray, Mike Wilks Trade",
     "description": "On 2006-02-23:  Sonics acquire Mike Wilks  Cavaliers acquire Ronald Murray",
     "is_multi_team": false,
     "teams": [
@@ -2213,7 +2213,7 @@
     "id": "47826619-29ad-4a9b-9fa1-9a13483293f9",
     "date": "2006-02-23",
     "season": "2005-06",
-    "title": "Derek Anderson, Gerald Fitch, trade exception Trade",
+    "title": "Derek Anderson, Gerald Fitch Trade",
     "description": "On 2006-02-23:  Rockets acquire Gerald Fitch  Heat acquire Derek Anderson",
     "is_multi_team": false,
     "teams": [
@@ -2270,7 +2270,7 @@
     "id": "0df31ac2-cf53-4653-a49f-e1537ce60b9c",
     "date": "2006-02-23",
     "season": "2005-06",
-    "title": "Marc Jackson, Linton Johnson III Trade",
+    "title": "Marc Jackson, Bostjan Nachbar, Linton Johnson III Trade",
     "description": "On 2006-02-23:  Nets acquire Bostjan Nachbar  Hornets acquire Marc Jackson",
     "is_multi_team": false,
     "teams": [
@@ -2349,7 +2349,7 @@
     "id": "90a03825-feb4-4752-888e-656a50e57f47",
     "date": "2006-06-08",
     "season": "2005-06",
-    "title": "Rafael Araujo, Kris Humphries, Robert Whaley Trade",
+    "title": "Kris Humphries, Robert Whaley, Rafael Araujo Trade",
     "description": "On 2006-06-08:  Raptors acquire Kris Humphries  Jazz acquire Rafael Araujo",
     "is_multi_team": false,
     "teams": [
@@ -2406,7 +2406,7 @@
     "id": "9e691551-eae5-40b5-89c6-706d2c493e6b",
     "date": "2006-06-21",
     "season": "2005-06",
-    "title": "Rasho Nesterovic, Matt Bonner, Eric Williams Trade",
+    "title": "Matt Bonner, Eric Williams, Jack McClinton Trade",
     "description": "On 2006-06-21:  Spurs acquire Matt Bonner  Raptors acquire Rasho Nesterovic",
     "is_multi_team": false,
     "teams": [
@@ -2474,7 +2474,7 @@
     "id": "023093d3-d288-45a4-8ddf-725c8817d4f8",
     "date": "2006-06-28",
     "season": "2005-06",
-    "title": "76ers / Timberwolves Trade",
+    "title": "Chris Richard, Bobby Jones (R.) Trade",
     "description": "On 2006-06-28:  Timberwolves acquire 2007 second round pick (#41-Chris Richard)  76ers acquire rights to Bobby Jones (R.)",
     "is_multi_team": false,
     "teams": [
@@ -2542,7 +2542,7 @@
     "id": "43e04283-c060-4460-9cbc-b4bc2a9d53d9",
     "date": "2006-06-28",
     "season": "2005-06",
-    "title": "76ers / Bulls Trade",
+    "title": "Rodney Carney, Thabo Sefolosha, Kyrylo Fesenko Trade",
     "description": "On 2006-06-28:  Bulls acquire rights to Thabo Sefolosha  76ers acquire rights to Rodney Carney",
     "is_multi_team": false,
     "teams": [
@@ -2610,7 +2610,7 @@
     "id": "2ee1888f-4a4f-4472-a944-7c3e8e69c315",
     "date": "2006-06-28",
     "season": "2005-06",
-    "title": "Blazers / Grizzlies Trade",
+    "title": "Alexander Johnson, Joey Dorsey Trade",
     "description": "On 2006-06-28:  Grizzlies acquire rights to Alexander Johnson  Blazers acquire 2008 second round pick (#33-Joey Dorsey)",
     "is_multi_team": false,
     "teams": [
@@ -2667,7 +2667,7 @@
     "id": "cb525ca4-c6a4-412f-a214-ea6e5ecc28ed",
     "date": "2006-06-28",
     "season": "2005-06",
-    "title": "Blazers / Pacers Trade",
+    "title": "James White, Alexander Johnson, Derrick Byars Trade",
     "description": "On 2006-06-28:  Pacers acquire rights to James White  Blazers acquire rights to Alexander Johnson",
     "is_multi_team": false,
     "teams": [
@@ -2735,7 +2735,7 @@
     "id": "d223dbfb-1b58-4ab3-8c11-6e4cd97786fb",
     "date": "2006-06-28",
     "season": "2005-06",
-    "title": "Blazers / Suns Trade",
+    "title": "Sergio Rodriguez Trade",
     "description": "On 2006-06-28:  Suns acquire $3M cash  Blazers acquire rights to Sergio Rodriguez",
     "is_multi_team": false,
     "teams": [
@@ -2781,7 +2781,7 @@
     "id": "93a81ff5-027a-45c0-bb53-5adaf3a43add",
     "date": "2006-06-28",
     "season": "2005-06",
-    "title": "Celtics / Suns Trade",
+    "title": "Rajon Rondo, Brian Grant, Rudy Fernandez Trade",
     "description": "On 2006-06-28:  Suns acquire first round pick (protected top 10 in 2007-10) (2007 #24-Rudy Fernandez)  Celtics acquire Brian Grant",
     "is_multi_team": false,
     "teams": [
@@ -2860,7 +2860,7 @@
     "id": "84ed5726-7296-47b3-bb7c-841afd61cb8f",
     "date": "2006-06-28",
     "season": "2005-06",
-    "title": "Lakers / Pistons Trade",
+    "title": "Maurice Evans, Cheikh Samb Trade",
     "description": "On 2006-06-28:  Pistons acquire rights to Cheikh Samb  Lakers acquire Maurice Evans",
     "is_multi_team": false,
     "teams": [
@@ -2906,7 +2906,7 @@
     "id": "31fd0eb5-7145-4868-ae89-8d33799c0eed",
     "date": "2006-06-28",
     "season": "2005-06",
-    "title": "Lakers / Mavericks Trade",
+    "title": "Renaldas Seibutis, J.R. Pinnock Trade",
     "description": "On 2006-06-28:  Mavericks acquire 2007 second round pick (#50-Renaldas Seibutis)  Lakers acquire rights to J.R. Pinnock",
     "is_multi_team": false,
     "teams": [
@@ -2963,7 +2963,7 @@
     "id": "583c748d-6def-4484-9add-dedb40bdd44b",
     "date": "2006-06-28",
     "season": "2005-06",
-    "title": "Bucks / Spurs Trade",
+    "title": "Marcus Williams, Damir Markota Trade",
     "description": "On 2006-06-28:  Spurs acquire 2007 second round pick (more favorable of Bucks, Rockets) (#33-Marcus Williams)  Bucks acquire rights to Damir Markota",
     "is_multi_team": false,
     "teams": [
@@ -3020,7 +3020,7 @@
     "id": "38b18a52-3446-46a2-a8c3-1eb8809bc891",
     "date": "2006-06-28",
     "season": "2005-06",
-    "title": "Celtics / Nuggets Trade",
+    "title": "Leon Powe, Aaron Gray Trade",
     "description": "On 2006-06-28:  Nuggets acquire 2007 second round pick (#49-Aaron Gray)  Celtics acquire rights to Leon Powe",
     "is_multi_team": false,
     "teams": [
@@ -3077,7 +3077,7 @@
     "id": "d2a0095f-0bd4-406c-9248-31ddb29b171b",
     "date": "2006-06-28",
     "season": "2005-06",
-    "title": "Dan Dickau, Raef LaFrentz, Randy Foye Trade",
+    "title": "Raef LaFrentz, Sebastian Telfair, Dan Dickau Trade",
     "description": "On 2006-06-28:  Celtics acquire Sebastian Telfair  Blazers acquire Dan Dickau",
     "is_multi_team": false,
     "teams": [
@@ -3167,7 +3167,7 @@
     "id": "52104d11-d6a3-43cc-80d0-f2888e6b965f",
     "date": "2006-06-28",
     "season": "2005-06",
-    "title": "Blazers / Timberwolves Trade",
+    "title": "Brandon Roy, Randy Foye Trade",
     "description": "On 2006-06-28:  Timberwolves acquire rights to Randy Foye  Blazers acquire rights to Brandon Roy",
     "is_multi_team": false,
     "teams": [
@@ -3224,7 +3224,7 @@
     "id": "83bdc81e-de5b-4293-ae80-f9b055c7d868",
     "date": "2006-06-28",
     "season": "2005-06",
-    "title": "Blazers / Bulls Trade",
+    "title": "LaMarcus Aldridge, Tyrus Thomas, Viktor Khryapa Trade",
     "description": "On 2006-06-28:  Bulls acquire Viktor Khryapa  Blazers acquire rights to LaMarcus Aldridge",
     "is_multi_team": false,
     "teams": [
@@ -3292,7 +3292,7 @@
     "id": "10e6f03b-7845-485e-812e-996a9d4d228e",
     "date": "2006-06-30",
     "season": "2005-06",
-    "title": "Charlie Villanueva Trade",
+    "title": "Charlie Villanueva, T.J. Ford Trade",
     "description": "On 2006-06-30:  Raptors acquire T.J. Ford  Bucks acquire Charlie Villanueva",
     "is_multi_team": false,
     "teams": [

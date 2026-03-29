@@ -3,7 +3,7 @@
     "id": "46fdd434-bc16-40b6-8439-7a5340a72335",
     "date": "2014-07-10",
     "season": "2014-15",
-    "title": "Jarrett Jack, Sergey Karasev Trade",
+    "title": "Jarrett Jack, Tyler Zeller, Sergey Karasev Trade",
     "description": "On 2014-07-10:  Unknown Team acquire Marcus Thornton (T.)  Nets acquire Jarrett Jack Other Team(s) Involved in Trade: Cavaliers, Celtics",
     "is_multi_team": true,
     "teams": [
@@ -109,7 +109,7 @@
     "id": "749ab63f-a989-4956-b6a9-0ac21479d98c",
     "date": "2014-07-10",
     "season": "2014-15",
-    "title": "Steve Novak Trade",
+    "title": "Steve Novak, Diante Garrett, Jonah Bolden Trade",
     "description": "On 2014-07-10:  Raptors acquire Diante Garrett  Jazz acquire Steve Novak",
     "is_multi_team": false,
     "teams": [
@@ -166,7 +166,7 @@
     "id": "2f5024e2-2a46-43ad-8e3f-10ce1bf56431",
     "date": "2014-07-12",
     "season": "2014-15",
-    "title": "Brendan Haywood Trade",
+    "title": "Scotty Hopson, Brendan Haywood, Dwight Powell Trade",
     "description": "On 2014-07-12:  Hornets acquire Scotty Hopson  Cavaliers acquire Brendan Haywood",
     "is_multi_team": false,
     "teams": [
@@ -234,7 +234,7 @@
     "id": "f1a1bece-32c0-41f9-bb0f-068bc8284a20",
     "date": "2014-07-12",
     "season": "2014-15",
-    "title": "trade exception Trade",
+    "title": "Isaiah Thomas, Alex Oriakhi Trade",
     "description": "On 2014-07-12:  Suns acquire Isaiah Thomas  Kings acquire rights to Alex Oriakhi",
     "is_multi_team": false,
     "teams": [
@@ -291,7 +291,7 @@
     "id": "7dcc46e6-99d5-4fdc-bbcb-36e806c09309",
     "date": "2014-07-13",
     "season": "2014-15",
-    "title": "Hornets / Pelicans Trade",
+    "title": "Scotty Hopson Trade",
     "description": "On 2014-07-13:  Pelicans acquire Scotty Hopson  Hornets acquire cash",
     "is_multi_team": false,
     "teams": [
@@ -337,7 +337,7 @@
     "id": "361b457a-22a5-46ad-ba62-554061f758f2",
     "date": "2014-07-13",
     "season": "2014-15",
-    "title": "Lakers / Rockets Trade",
+    "title": "Larry Nance Jr., Jeremy Lin, Sergei Lishchuk Trade",
     "description": "On 2014-07-13:  Rockets acquire rights to Sergei Lishchuk  Lakers acquire Jeremy Lin",
     "is_multi_team": false,
     "teams": [
@@ -394,7 +394,7 @@
     "id": "19c2185a-6e51-4e31-a547-601d9d4b81ff",
     "date": "2014-07-14",
     "season": "2014-15",
-    "title": "Bulls / Magic Trade",
+    "title": "Milovan Rakovic, Anthony Randolph, Tyler Harvey Trade",
     "description": "On 2014-07-14:  Magic acquire Anthony Randolph  Bulls acquire rights to Milovan Rakovic",
     "is_multi_team": false,
     "teams": [
@@ -473,7 +473,7 @@
     "id": "d4b7d0c1-2bf1-4e8f-b915-ead0af3ca7dc",
     "date": "2014-07-14",
     "season": "2014-15",
-    "title": "Bulls / Mavericks Trade",
+    "title": "Tadija Dragicevic, Greg Smith (a) Trade",
     "description": "On 2014-07-14:  Mavericks acquire Greg Smith (a)  Bulls acquire rights to Tadija Dragicevic",
     "is_multi_team": false,
     "teams": [
@@ -530,7 +530,7 @@
     "id": "c1a3a57c-349d-42e4-8648-5988eabb3c74",
     "date": "2014-07-14",
     "season": "2014-15",
-    "title": "Omer Asik, Omri Casspi, Alonzo Gee Trade",
+    "title": "Sam Dekker, Omer Asik, Omri Casspi Trade",
     "description": "On 2014-07-14:  Rockets acquire Trevor Ariza  Wizards acquire Melvin Ely Other Team(s) Involved in Trade: Pelicans",
     "is_multi_team": true,
     "teams": [
@@ -614,7 +614,7 @@
     "id": "b3b767db-0496-4c64-b674-b8489df153bc",
     "date": "2014-07-15",
     "season": "2014-15",
-    "title": "Hawks / Thunder Trade",
+    "title": "Thabo Sefolosha, Giorgos Printezis, Sofoklis Schortsanitis Trade",
     "description": "On 2014-07-15:  Thunder acquire rights to Sofoklis Schortsanitis  Hawks acquire Thabo Sefolosha",
     "is_multi_team": false,
     "teams": [
@@ -693,7 +693,7 @@
     "id": "21c4bad7-4226-4759-98ec-42561a775af9",
     "date": "2014-07-16",
     "season": "2014-15",
-    "title": "Mavericks / Wizards Trade",
+    "title": "Emir Preldžic, DeJuan Blair Trade",
     "description": "On 2014-07-16:  Wizards acquire DeJuan Blair  Mavericks acquire rights to Emir Preldžic",
     "is_multi_team": false,
     "teams": [
@@ -739,7 +739,7 @@
     "id": "d6d6c191-15b8-400f-abb8-a047772cbea5",
     "date": "2014-07-19",
     "season": "2014-15",
-    "title": "trade exception Trade",
+    "title": "Kris Humphries Trade",
     "description": "On 2014-07-19:  Wizards acquire Kris Humphries  Celtics acquire trade exception",
     "is_multi_team": false,
     "teams": [
@@ -897,7 +897,7 @@
     "id": "868e547a-06e7-4030-b88d-5acf650dd39b",
     "date": "2014-08-06",
     "season": "2014-15",
-    "title": "Wayne Ellington, Jeremy Tyler, Quincy Acy Trade",
+    "title": "Quincy Acy, Travis Outlaw, Wayne Ellington Trade",
     "description": "On 2014-08-06:  Knicks acquire Quincy Acy  Kings acquire Wayne Ellington",
     "is_multi_team": false,
     "teams": [
@@ -965,7 +965,7 @@
     "id": "bf1cd7c2-d008-4137-9930-2cf91aa6f8ba",
     "date": "2014-08-23",
     "season": "2014-15",
-    "title": "Luc Mbah a Moute, Alexey Shved, Kevin Love Trade",
+    "title": "Luc Mbah a Moute, Alexey Shved, Thaddeus Young Trade",
     "description": "On 2014-08-23:  Timberwolves acquire Thaddeus Young  76ers acquire Luc Mbah a Moute Other Team(s) Involved in Trade: Cavaliers",
     "is_multi_team": true,
     "teams": [
@@ -1218,7 +1218,7 @@
     "id": "3c59afd7-1bcf-463e-959e-e1327a978c07",
     "date": "2014-09-17",
     "season": "2014-15",
-    "title": "Alonzo Gee, Scotty Hopson, trade exception Trade",
+    "title": "Jason Terry, Rakeem Christmas, Chinanu Onuaku Trade",
     "description": "On 2014-09-17:  Rockets acquire Jason Terry  Kings acquire Alonzo Gee",
     "is_multi_team": false,
     "teams": [
@@ -1308,7 +1308,7 @@
     "id": "6013a769-cae2-4ade-98c8-240ef7c55f31",
     "date": "2014-09-25",
     "season": "2014-15",
-    "title": "Keith Bogans, Dwight Powell, Erik Murphy Trade",
+    "title": "Dwight Powell, Erik Murphy, Malcolm Thomas (b) Trade",
     "description": "On 2014-09-25:  Celtics acquire Dwight Powell  Cavaliers acquire Keith Bogans",
     "is_multi_team": false,
     "teams": [
@@ -1442,7 +1442,7 @@
     "id": "b49fb56a-bbb2-44a2-8b4d-a017f5ff2960",
     "date": "2014-10-17",
     "season": "2014-15",
-    "title": "Will Bynum Trade",
+    "title": "Joel Anthony, Will Bynum Trade",
     "description": "On 2014-10-17:  Pistons acquire Joel Anthony  Celtics acquire Will Bynum",
     "is_multi_team": false,
     "teams": [
@@ -1488,7 +1488,7 @@
     "id": "a8a6a42f-2849-4843-828b-cf3594ed9e7f",
     "date": "2014-10-24",
     "season": "2014-15",
-    "title": "Marquis Teague Trade",
+    "title": "Casper Ware, Marquis Teague Trade",
     "description": "On 2014-10-24:  Nets acquire Casper Ware  76ers acquire Marquis Teague",
     "is_multi_team": false,
     "teams": [
@@ -1545,7 +1545,7 @@
     "id": "a2be4b60-870c-4324-a868-187439ba72a7",
     "date": "2014-10-27",
     "season": "2014-15",
-    "title": "Travis Outlaw Trade",
+    "title": "Arnett Moultrie, Justin Jackson, Travis Outlaw Trade",
     "description": "On 2014-10-27:  Knicks acquire Arnett Moultrie  76ers acquire Travis Outlaw",
     "is_multi_team": false,
     "teams": [
@@ -1624,7 +1624,7 @@
     "id": "2ac4365d-f82d-4e10-ab55-5c825485ddf7",
     "date": "2014-12-11",
     "season": "2014-15",
-    "title": "Andrei Kirilenko, Jorge Gutierrez Trade",
+    "title": "Arnoldas Kulboka, Andrei Kirilenko, Jorge Gutierrez Trade",
     "description": "On 2014-12-11:  Nets acquire Brandon Davies  76ers acquire Andrei Kirilenko",
     "is_multi_team": false,
     "teams": [
@@ -1714,7 +1714,7 @@
     "id": "00d46730-8aa4-4a9e-9543-9c0b3b01d232",
     "date": "2014-12-18",
     "season": "2014-15",
-    "title": "Brandan Wright, Jae Crowder, Jameer Nelson Trade",
+    "title": "Dwight Powell, Jae Crowder, Guerschon Yabusele Trade",
     "description": "On 2014-12-18:  Mavericks acquire Rajon Rondo  Celtics acquire Brandan Wright",
     "is_multi_team": false,
     "teams": [
@@ -1826,7 +1826,7 @@
     "id": "8bda3c61-e14f-4743-868f-78ee74521ebd",
     "date": "2014-12-19",
     "season": "2014-15",
-    "title": "Ronny Turiaf, Corey Brewer, Alexey Shved Trade",
+    "title": "Alexey Shved, Ronny Turiaf, Sergei Lishchuk Trade",
     "description": "On 2014-12-19:  Timberwolves acquire Troy Daniels  Rockets acquire Corey Brewer Other Team(s) Involved in Trade: 76ers",
     "is_multi_team": true,
     "teams": [
@@ -1954,7 +1954,7 @@
     "id": "a7078054-11fa-40c0-a7c1-3d89e3107ed0",
     "date": "2014-12-24",
     "season": "2014-15",
-    "title": "Anthony Tolliver Trade",
+    "title": "Anthony Tolliver, Tony Mitchell (b) Trade",
     "description": "On 2014-12-24:  Suns acquire Tony Mitchell (b)  Pistons acquire Anthony Tolliver",
     "is_multi_team": false,
     "teams": [
@@ -2117,7 +2117,7 @@
     "id": "c252767a-618b-4342-a220-7c10208e67a0",
     "date": "2015-01-07",
     "season": "2014-15",
-    "title": "Cavaliers / Nuggets Trade",
+    "title": "Timofey Mozgov, Sir'Dominic Pointer, Furkan Korkmaz Trade",
     "description": "On 2015-01-07:  Nuggets acquire first round pick (from Cavaliers, protected top 18 in 2015, top 15 in 2016-17, else 2018 second round pick and 2019 second round pick) (2016 #26-Furkan Korkmaz)  Cavaliers acquire Timofey Mozgov",
     "is_multi_team": false,
     "teams": [
@@ -2218,7 +2218,7 @@
     "id": "75e17021-e5fc-4961-9e44-5c0e899bf186",
     "date": "2015-01-07",
     "season": "2014-15",
-    "title": "76ers / Clippers Trade",
+    "title": "Sergei Lishchuk, Jared Cunningham, Cenk Akyol Trade",
     "description": "On 2015-01-07:  Clippers acquire rights to Sergei Lishchuk  76ers acquire Jared Cunningham",
     "is_multi_team": false,
     "teams": [
@@ -2286,7 +2286,7 @@
     "id": "64c5d4e4-4a42-4057-a5a1-f5318df64acd",
     "date": "2015-01-09",
     "season": "2014-15",
-    "title": "Celtics / Suns Trade",
+    "title": "Semi Ojeleye, Brandan Wright Trade",
     "description": "On 2015-01-09:  Suns acquire Brandan Wright  Celtics acquire draft pick(s) (first round pick (protected top 12 in 2015-16, else 2016 second round pick and 2017 second round pick)) (2016 #35-Rade Zagorac) (2017 #37-Semi Ojeleye)",
     "is_multi_team": false,
     "teams": [
@@ -2460,7 +2460,7 @@
     "id": "a94a6f08-ba70-46a5-a075-fe4b0a623499",
     "date": "2015-01-13",
     "season": "2014-15",
-    "title": "Nate Robinson Trade",
+    "title": "Jameer Nelson, Nate Robinson Trade",
     "description": "On 2015-01-13:  Nuggets acquire Jameer Nelson  Celtics acquire Nate Robinson",
     "is_multi_team": false,
     "teams": [
@@ -2506,7 +2506,7 @@
     "id": "7fd67012-bda1-4769-8204-c3ae35b81f14",
     "date": "2015-01-15",
     "season": "2014-15",
-    "title": "Chris Douglas-Roberts, Shavlik Randolph, Austin Rivers Trade",
+    "title": "Austin Rivers, Jabari Bird, Chris Douglas-Roberts Trade",
     "description": "On 2015-01-15:  Clippers acquire Austin Rivers  Celtics acquire Chris Douglas-Roberts Other Team(s) Involved in Trade:Suns",
     "is_multi_team": true,
     "teams": [
@@ -2590,7 +2590,7 @@
     "id": "93f19737-ba93-4247-baaf-c86667bbef0c",
     "date": "2015-02-10",
     "season": "2014-15",
-    "title": "Hawks / Timberwolves Trade",
+    "title": "Kevin Huerter, Adreian Payne Trade",
     "description": "On 2015-02-10:  Timberwolves acquire Adreian Payne  Hawks acquire first round pick (protected top 14 and conditional in 2017 if Timberwolves convey 2015 first round pick to Celtics from previous trade, protected top 14 in 2018-20, else 2020 second round pick, 2021 second round pick) (2018 #19-Kevin Huerter)",
     "is_multi_team": false,
     "teams": [
@@ -2647,7 +2647,7 @@
     "id": "f446f28c-8fc9-4b94-9f27-83d9770e947f",
     "date": "2015-02-10",
     "season": "2014-15",
-    "title": "Mo Williams, Troy Daniels Trade",
+    "title": "Mo Williams, Troy Daniels, Gary Neal Trade",
     "description": "On 2015-02-10:  Timberwolves acquire Gary Neal  Hornets acquire Mo Williams",
     "is_multi_team": false,
     "teams": [
@@ -2726,7 +2726,7 @@
     "id": "07a1f98b-498b-4ee2-bbfb-07fb644591ea",
     "date": "2015-02-19",
     "season": "2014-15",
-    "title": "Isaiah Canaan Trade",
+    "title": "Richaun Holmes, Isaiah Canaan, K.J. McDaniels Trade",
     "description": "On 2015-02-19:  Rockets acquire K.J. McDaniels  76ers acquire Isaiah Canaan",
     "is_multi_team": false,
     "teams": [
@@ -2783,7 +2783,7 @@
     "id": "76454f51-ebe5-4ddc-a034-d27d25d3506a",
     "date": "2015-02-19",
     "season": "2014-15",
-    "title": "76ers / Nuggets Trade",
+    "title": "Furkan Korkmaz, Cenk Akyol, Chu Chu Maduabum Trade",
     "description": "On 2015-02-19:  Nuggets acquire rights to Cenk Akyol  76ers acquire JaVale McGee",
     "is_multi_team": false,
     "teams": [
@@ -2873,7 +2873,7 @@
     "id": "5114be67-f9ea-4f2f-87b7-8f82ce2ffb22",
     "date": "2015-02-19",
     "season": "2014-15",
-    "title": "Arron Afflalo, Alonzo Gee, Will Barton Trade",
+    "title": "Will Barton, Malik Beasley, Arron Afflalo Trade",
     "description": "On 2015-02-19:  Nuggets acquire Will Barton  Blazers acquire Arron Afflalo",
     "is_multi_team": false,
     "teams": [
@@ -2963,7 +2963,7 @@
     "id": "a62bdad3-70e8-45ad-88a9-0b053549f134",
     "date": "2015-02-19",
     "season": "2014-15",
-    "title": "Isaiah Thomas Trade",
+    "title": "Isaiah Thomas, Marcus Thornton (T.) Trade",
     "description": "On 2015-02-19:  Celtics acquire Isaiah Thomas  Suns acquire first round pick (protected top 10 in 2016-18, unprotected in 2019) (2016 #28-Skal Labissiere)",
     "is_multi_team": false,
     "teams": [
@@ -3064,7 +3064,7 @@
     "id": "414b4abd-5eb4-48be-ad51-a7bab24c14a6",
     "date": "2015-02-19",
     "season": "2014-15",
-    "title": "Gigi Datome, Jonas Jerebko Trade",
+    "title": "Jonas Jerebko, Tayshaun Prince, Gigi Datome Trade",
     "description": "On 2015-02-19:  Pistons acquire Tayshaun Prince  Celtics acquire Gigi Datome",
     "is_multi_team": false,
     "teams": [
@@ -3143,7 +3143,7 @@
     "id": "df172e94-5669-4aac-a05e-3bdcceb27b7f",
     "date": "2015-02-19",
     "season": "2014-15",
-    "title": "Andre Miller Trade",
+    "title": "Ramon Sessions, Andre Miller Trade",
     "description": "On 2015-02-19:  Wizards acquire Ramon Sessions  Kings acquire Andre Miller",
     "is_multi_team": false,
     "teams": [
@@ -3189,7 +3189,7 @@
     "id": "7ef9db0b-8d18-438b-a64a-07e0c1d2e3ec",
     "date": "2015-02-19",
     "season": "2014-15",
-    "title": "Alexey Shved Trade",
+    "title": "Alexey Shved, Pablo Prigioni, Ognjen Jaramaz Trade",
     "description": "On 2015-02-19:  Rockets acquire Pablo Prigioni  Knicks acquire Alexey Shved",
     "is_multi_team": false,
     "teams": [
@@ -3257,7 +3257,7 @@
     "id": "19da8045-8980-4117-b2cb-0373b8ffb848",
     "date": "2015-02-19",
     "season": "2014-15",
-    "title": "Thaddeus Young Trade",
+    "title": "Thaddeus Young, Kevin Garnett Trade",
     "description": "On 2015-02-19:  Timberwolves acquire Kevin Garnett  Nets acquire Thaddeus Young",
     "is_multi_team": false,
     "teams": [
@@ -3303,7 +3303,7 @@
     "id": "d93fc2e2-7a61-44f6-888e-fc18ad822684",
     "date": "2015-02-19",
     "season": "2014-15",
-    "title": "Michael Carter-Williams, Michael Carter-Williams, Tyler Ennis Trade",
+    "title": "Michael Carter-Williams, Mikal Bridges Trade",
     "description": "On 2015-02-19:  Bucks acquire Michael Carter-Williams  76ers acquire first round pick (protected top 5 in 2015, top 3 in 2016-17, unprotected in 2018) (from Suns) (2018 #10-Mikal Bridges) Other Team(s) Involved in Trade:Suns",
     "is_multi_team": true,
     "teams": [
@@ -3570,7 +3570,7 @@
     "id": "490871c9-f210-405c-96d4-58e5211cdb7e",
     "date": "2015-02-19",
     "season": "2014-15",
-    "title": "Grant Jerrett, Kendrick Perkins, Tibor Pleiss Trade",
+    "title": "Grant Jerrett, Enes Kanter, Steve Novak Trade",
     "description": "On 2015-02-19:  Thunder acquire D.J. Augustin  Pistons acquire Reggie Jackson (b) Other Team(s) Involved in Trade: Jazz",
     "is_multi_team": true,
     "teams": [
@@ -3731,7 +3731,7 @@
     "id": "e5c258dc-b615-43da-973e-b9a767011de7",
     "date": "2015-06-11",
     "season": "2014-15",
-    "title": "Caron Butler, Shawne Williams Trade",
+    "title": "Ersan Ilyasova, Caron Butler, Shawne Williams Trade",
     "description": "On 2015-06-11:  Pistons acquire Ersan Ilyasova  Bucks acquire Caron Butler",
     "is_multi_team": false,
     "teams": [
@@ -3788,7 +3788,7 @@
     "id": "cb1772ed-c142-4ef0-93e8-4fdab82dec55",
     "date": "2015-06-15",
     "season": "2014-15",
-    "title": "Lance Stephenson, Spencer Hawes, Matt Barnes Trade",
+    "title": "Spencer Hawes, Lance Stephenson, Matt Barnes Trade",
     "description": "On 2015-06-15:  Hornets acquire Spencer Hawes  Clippers acquire Lance Stephenson",
     "is_multi_team": false,
     "teams": [
@@ -3845,7 +3845,7 @@
     "id": "7a31d196-e00e-412c-b5ee-4ba3615af0b7",
     "date": "2015-06-24",
     "season": "2014-15",
-    "title": "Gerald Henderson (b), Noah Vonleh Trade",
+    "title": "Nicolas Batum, Noah Vonleh, Gerald Henderson (b) Trade",
     "description": "On 2015-06-24:  Hornets acquire Nicolas Batum  Blazers acquire Gerald Henderson (b)",
     "is_multi_team": false,
     "teams": [
@@ -3913,7 +3913,7 @@
     "id": "db7392e0-5d03-4687-8b98-941d0607d861",
     "date": "2015-06-24",
     "season": "2014-15",
-    "title": "Grizzlies / Magic Trade",
+    "title": "Luke Ridnour, Janis Timma Trade",
     "description": "On 2015-06-24:  Magic acquire rights to Janis Timma  Grizzlies acquire Luke Ridnour",
     "is_multi_team": false,
     "teams": [
@@ -3959,7 +3959,7 @@
     "id": "b2ff6e6c-057a-4ab8-b9d9-64ff7387f9bc",
     "date": "2015-06-25",
     "season": "2014-15",
-    "title": "76ers / Knicks Trade",
+    "title": "Willy Hernangomez Trade",
     "description": "On 2015-06-25:  Knicks acquire rights to Willy Hernangomez  76ers acquire cash",
     "is_multi_team": false,
     "teams": [
@@ -4038,7 +4038,7 @@
     "id": "96bd3fe1-a6d2-4867-9efb-d333a69cfd40",
     "date": "2015-06-25",
     "season": "2014-15",
-    "title": "Matt Barnes Trade",
+    "title": "Matt Barnes, Luke Ridnour Trade",
     "description": "On 2015-06-25:  Hornets acquire Luke Ridnour  Grizzlies acquire Matt Barnes",
     "is_multi_team": false,
     "teams": [
@@ -4084,7 +4084,7 @@
     "id": "12d63896-c3a4-4d7b-b289-d9de1ea2d58a",
     "date": "2015-06-25",
     "season": "2014-15",
-    "title": "Jeremy Lamb Trade",
+    "title": "Jeremy Lamb, Luke Ridnour, Petr Cornelie Trade",
     "description": "On 2015-06-25:  Thunder acquire Luke Ridnour  Hornets acquire Jeremy Lamb",
     "is_multi_team": false,
     "teams": [
@@ -4141,7 +4141,7 @@
     "id": "53e53b55-04a5-42f2-ab04-9152fc4e52c2",
     "date": "2015-06-25",
     "season": "2014-15",
-    "title": "Mason Plumlee Trade",
+    "title": "Mason Plumlee, Rondae Hollis-Jefferson, Pat Connaughton Trade",
     "description": "On 2015-06-25:  Nets acquire Steve Blake  Blazers acquire Mason Plumlee",
     "is_multi_team": false,
     "teams": [
@@ -4209,7 +4209,7 @@
     "id": "cf504f41-6de2-4cf0-a3b7-6591d3380992",
     "date": "2015-06-25",
     "season": "2014-15",
-    "title": "Bucks / Raptors Trade",
+    "title": "Norman Powell, Greivis Vasquez, O.G. Anunoby Trade",
     "description": "On 2015-06-25:  Raptors acquire rights to Norman Powell  Bucks acquire Greivis Vasquez",
     "is_multi_team": false,
     "teams": [
@@ -4266,7 +4266,7 @@
     "id": "304094de-17ad-427a-9def-860f0ffcda94",
     "date": "2015-06-25",
     "season": "2014-15",
-    "title": "Cavaliers / Timberwolves Trade",
+    "title": "Cedi Osman, Tyus Jones, Rakeem Christmas Trade",
     "description": "On 2015-06-25:  Timberwolves acquire rights to Tyus Jones  Cavaliers acquire rights to Cedi Osman",
     "is_multi_team": false,
     "teams": [
@@ -4345,7 +4345,7 @@
     "id": "ca1ccf5a-4be8-40de-8332-fcaf2eb85b4f",
     "date": "2015-06-25",
     "season": "2014-15",
-    "title": "Grizzlies / Suns Trade",
+    "title": "Andrew Harrison, Jon Leuer Trade",
     "description": "On 2015-06-25:  Suns acquire Jon Leuer  Grizzlies acquire rights to Andrew Harrison",
     "is_multi_team": false,
     "teams": [
@@ -4391,7 +4391,7 @@
     "id": "68c2ebf9-19ef-466e-b52c-4cc41c247297",
     "date": "2015-06-25",
     "season": "2014-15",
-    "title": "Hawks / Knicks / Wizards Trade",
+    "title": "Kelly Oubre Jr., Tim Hardaway Jr., Isaia Cordinier Trade",
     "description": "On 2015-06-25:  Knicks acquire rights to Jerian Grant  Wizards acquire rights to Kelly Oubre Jr. Other Team(s) Involved in Trade: Hawks",
     "is_multi_team": true,
     "teams": [
@@ -4464,7 +4464,7 @@
     "id": "4167c803-1f7c-4174-b925-184596820c1e",
     "date": "2015-06-25",
     "season": "2014-15",
-    "title": "Hornets / Nets Trade",
+    "title": "Juan Pablo Vaulet, Arnoldas Kulboka Trade",
     "description": "On 2015-06-25:  Nets acquire rights to Juan Pablo Vaulet  Hornets acquire 2018 second round pick (less favorable of Cavaliers, Nets) (#55-Arnoldas Kulboka)",
     "is_multi_team": false,
     "teams": [
@@ -4554,7 +4554,7 @@
     "id": "26947608-dbbc-4f40-b7c9-2864c1ec9599",
     "date": "2015-06-30",
     "season": "2014-15",
-    "title": "Luke Ridnour Trade",
+    "title": "Tomislav Zubcic, Luke Ridnour Trade",
     "description": "On 2015-06-30:  Thunder acquire rights to Tomislav Zubcic  Raptors acquire Luke Ridnour",
     "is_multi_team": false,
     "teams": [

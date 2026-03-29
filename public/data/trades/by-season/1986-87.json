@@ -3,7 +3,7 @@
     "id": "5def6e36-90ea-4508-a0d2-c56d132ea417",
     "date": "1986-07-23",
     "season": "1986-87",
-    "title": "Al Wood Trade",
+    "title": "Dale Ellis, Al Wood Trade",
     "description": "On 1986-07-23:  Sonics acquire Dale Ellis  Mavericks acquire Al Wood",
     "is_multi_team": false,
     "teams": [
@@ -49,7 +49,7 @@
     "id": "a64651ce-ced5-4752-97c4-05a1f1938714",
     "date": "1986-08-08",
     "season": "1986-87",
-    "title": "Bullets / Nets Trade",
+    "title": "Darwin Cook Trade",
     "description": "On 1986-08-08:  Nets acquire cash  Bullets acquire Darwin Cook",
     "is_multi_team": false,
     "teams": [
@@ -95,7 +95,7 @@
     "id": "f561ba03-25cb-4abd-a892-36dc919001c6",
     "date": "1986-08-19",
     "season": "1986-87",
-    "title": "Larry Drew I, Mike Woodson, Junior Bridgeman Trade",
+    "title": "Mike Woodson, Derek Smith, Larry Drew I Trade",
     "description": "On 1986-08-19:  Kings acquire Junior Bridgeman  Clippers acquire Larry Drew I",
     "is_multi_team": false,
     "teams": [
@@ -218,7 +218,7 @@
     "id": "f3280d76-99ee-4e6f-8873-05b3c3d47df7",
     "date": "1986-08-21",
     "season": "1986-87",
-    "title": "Earl Cureton Trade",
+    "title": "Sidney Green, Earl Cureton, Rickie Winslow Trade",
     "description": "On 1986-08-21:  Pistons acquire Sidney Green  Bulls acquire Earl Cureton",
     "is_multi_team": false,
     "teams": [
@@ -275,7 +275,7 @@
     "id": "b1b52def-d527-418c-8f48-cd3986b5e750",
     "date": "1986-08-21",
     "season": "1986-87",
-    "title": "Kent Benson, Kelly Tripucka Trade",
+    "title": "Adrian Dantley, Kelly Tripucka, Kent Benson Trade",
     "description": "On 1986-08-21:  Pistons acquire Adrian Dantley  Jazz acquire Kent Benson",
     "is_multi_team": false,
     "teams": [
@@ -354,7 +354,7 @@
     "id": "8d786ce7-01e5-4fb8-8d1a-40d2b04181a0",
     "date": "1986-09-03",
     "season": "1986-87",
-    "title": "Bullets / Mavericks Trade",
+    "title": "Jay Vincent, Willie Burton Trade",
     "description": "On 1986-09-03:  Mavericks acquire 1990 first round pick (#9-Willie Burton)  Bullets acquire Jay Vincent",
     "is_multi_team": false,
     "teams": [
@@ -411,7 +411,7 @@
     "id": "90859546-618e-460b-a06f-3efdf03997ad",
     "date": "1986-09-18",
     "season": "1986-87",
-    "title": "Bulls / Pacers Trade",
+    "title": "Kyle Macy, Greg Butler, Litterial Green Trade",
     "description": "On 1986-09-18:  Pacers acquire Kyle Macy  Bulls acquire 1988 second round pick (#37-Greg Butler)",
     "is_multi_team": false,
     "teams": [
@@ -479,7 +479,7 @@
     "id": "f84adca5-2152-4d7e-94e5-e492d8795397",
     "date": "1986-09-25",
     "season": "1986-87",
-    "title": "Celtics / Jazz Trade",
+    "title": "Fred Roberts, Billy Donovan Trade",
     "description": "On 1986-09-25:  Jazz acquire 1987 third round pick (#68-Billy Donovan)  Celtics acquire Fred Roberts",
     "is_multi_team": false,
     "teams": [
@@ -547,7 +547,7 @@
     "id": "333b650d-cf08-4cf6-87e4-a6d3b78b17af",
     "date": "1986-09-29",
     "season": "1986-87",
-    "title": "Tim McCormick, Danny Vranes Trade",
+    "title": "Shawn Kemp, Tim McCormick, Clemon Johnson Trade",
     "description": "On 1986-09-29:  Sonics acquire Clemon Johnson  76ers acquire Tim McCormick",
     "is_multi_team": false,
     "teams": [
@@ -615,7 +615,7 @@
     "id": "67bee242-2463-4316-8279-c73d03639818",
     "date": "1986-09-30",
     "season": "1986-87",
-    "title": "Pistons / Sonics Trade",
+    "title": "Fred Banks, Doug Overton, John Long Trade",
     "description": "On 1986-09-30:  Sonics acquire John Long  Pistons acquire 1987 second round pick (#24-Fred Banks)",
     "is_multi_team": false,
     "teams": [
@@ -683,7 +683,7 @@
     "id": "cf5a27de-76a0-4099-a5cd-09ddbb7229d7",
     "date": "1986-10-02",
     "season": "1986-87",
-    "title": "Knicks / Nuggets Trade",
+    "title": "Darrell Walker, Olden Polynice Trade",
     "description": "On 1986-10-02:  Nuggets acquire Darrell Walker  Knicks acquire 1987 first round pick (#8-Olden Polynice)",
     "is_multi_team": false,
     "teams": [
@@ -808,7 +808,7 @@
     "id": "30c2cd07-883c-44ee-befa-5601efbf16b6",
     "date": "1986-10-23",
     "season": "1986-87",
-    "title": "Bulls / Rockets (per Rockets MG) Trade",
+    "title": "Chucky Brown, Granville Waiters Trade",
     "description": "On 1986-10-23:  Rockets (per Rockets MG) acquire 1989 second round pick (possibly #43-Chucky Brown)  Bulls acquire Granville Waiters",
     "is_multi_team": false,
     "teams": [
@@ -865,7 +865,7 @@
     "id": "9e810ca3-0faf-46ea-8455-f979e7ccc0f8",
     "date": "1986-10-24",
     "season": "1986-87",
-    "title": "Bucks / Nuggets Trade",
+    "title": "Curtis Hunter, Pete Williams Trade",
     "description": "On 1986-10-24:  Nuggets acquire 1987 seventh round pick (#156-Curtis Hunter)  Bucks acquire Pete Williams",
     "is_multi_team": false,
     "teams": [
@@ -933,7 +933,7 @@
     "id": "a72fdd48-ad17-44b9-b6b5-39dc361dbba0",
     "date": "1986-10-30",
     "season": "1986-87",
-    "title": "Mike O'Koren Trade",
+    "title": "Leon Wood, Mike O'Koren Trade",
     "description": "On 1986-10-30:  Nets acquire Leon Wood  Bullets acquire Mike O'Koren",
     "is_multi_team": false,
     "teams": [
@@ -979,7 +979,7 @@
     "id": "734eb419-56c1-404d-ab33-40fb044a167e",
     "date": "1986-10-30",
     "season": "1986-87",
-    "title": "Bulls / Knicks Trade",
+    "title": "Olden Polynice, Jawann Oldham Trade",
     "description": "On 1986-10-30:  Knicks acquire Jawann Oldham  Bulls acquire 1987 first round pick (#8-Olden Polynice)",
     "is_multi_team": false,
     "teams": [
@@ -1047,7 +1047,7 @@
     "id": "f51ae68f-91bd-47d4-a451-2b9f397fb6c5",
     "date": "1986-11-11",
     "season": "1986-87",
-    "title": "Blazers / Bucks Trade",
+    "title": "Chris Engler, Winston Garland Trade",
     "description": "On 1986-11-11:  Bucks acquire 1987 second round pick (#40-Winston Garland)  Blazers acquire Chris Engler",
     "is_multi_team": false,
     "teams": [
@@ -1104,7 +1104,7 @@
     "id": "18ea5898-8d1e-4cf4-87ac-baf1ad113362",
     "date": "1986-11-11",
     "season": "1986-87",
-    "title": "Knicks / Sonics Trade",
+    "title": "Mark Jackson, Gerald Henderson (a), Scottie Pippen Trade",
     "description": "On 1986-11-11:  Sonics acquire Sonics option to swap 1987 or 1989 first round picks (1987 #5-Scottie Pippen)  Knicks acquire Gerald Henderson (a)",
     "is_multi_team": false,
     "teams": [
@@ -1172,7 +1172,7 @@
     "id": "94a99426-bd9a-4690-abbd-2fc7b7cd218f",
     "date": "1986-12-08",
     "season": "1986-87",
-    "title": "Cavaliers / Rockets Trade",
+    "title": "Chucky Brown, Dirk Minniefield Trade",
     "description": "On 1986-12-08:  Rockets acquire Dirk Minniefield  Cavaliers acquire 1989 second or third round pick (#43-Chucky Brown)",
     "is_multi_team": false,
     "teams": [
@@ -1218,7 +1218,7 @@
     "id": "69689e45-a62b-4a8b-800a-760c8e7d7bf0",
     "date": "1986-12-18",
     "season": "1986-87",
-    "title": "Kevin Duckworth Trade",
+    "title": "Kevin Duckworth, Walter Berry Trade",
     "description": "On 1986-12-18:  Spurs acquire Walter Berry  Blazers acquire Kevin Duckworth",
     "is_multi_team": false,
     "teams": [
@@ -1264,7 +1264,7 @@
     "id": "8b6d8533-01b0-4a78-8b58-01d02c790614",
     "date": "1986-12-31",
     "season": "1986-87",
-    "title": "Steve Colter Trade",
+    "title": "Sedale Threatt, Steve Colter, Stanley Brundy Trade",
     "description": "On 1986-12-31:  Bulls acquire Sedale Threatt  76ers acquire Steve Colter",
     "is_multi_team": false,
     "teams": [
@@ -1321,7 +1321,7 @@
     "id": "ed6ce2dd-a209-43fb-8cf7-43d5d0618691",
     "date": "1987-01-16",
     "season": "1986-87",
-    "title": "Clippers / Rockets Trade",
+    "title": "Cedric Maxwell, Joe Wolf Trade",
     "description": "On 1987-01-16:  Rockets acquire Cedric Maxwell  Clippers acquire 1987 first round pick (#13-Joe Wolf)",
     "is_multi_team": false,
     "teams": [
@@ -1389,7 +1389,7 @@
     "id": "26b2b54c-1b30-4247-af07-0942baf23e69",
     "date": "1987-01-29",
     "season": "1986-87",
-    "title": "Clippers / Pistons Trade",
+    "title": "Ken Norman, Kurt Nimphius, Norris Coleman Trade",
     "description": "On 1987-01-29:  Pistons acquire Kurt Nimphius  Clippers acquire 1987 first round pick (#19-Ken Norman)",
     "is_multi_team": false,
     "teams": [
@@ -1457,7 +1457,7 @@
     "id": "a7278fcd-7b1e-4ecb-9ed7-3096a1a7720c",
     "date": "1987-02-13",
     "season": "1986-87",
-    "title": "Mychal Thompson, Frank Brickowski, Petur Gudmundsson Trade",
+    "title": "Mychal Thompson, Frank Brickowski, Greg Anderson Trade",
     "description": "On 1987-02-13:  Spurs acquire Frank Brickowski  Lakers acquire Mychal Thompson",
     "is_multi_team": false,
     "teams": [
@@ -1558,7 +1558,7 @@
     "id": "b91485e8-4355-4302-b6e4-d5f762addd2d",
     "date": "1987-02-15",
     "season": "1986-87",
-    "title": "Bulls / Cavaliers Trade",
+    "title": "Chucky Brown, Ben Poquette Trade",
     "description": "On 1987-02-15:  Cavaliers acquire 1989 second round pick (possibly #43-Chucky Brown)  Bulls acquire Ben Poquette",
     "is_multi_team": false,
     "teams": [
@@ -1615,7 +1615,7 @@
     "id": "186faadb-8978-4cef-a457-002135901e59",
     "date": "1987-06-19",
     "season": "1986-87",
-    "title": "Ed Pinkney Trade",
+    "title": "Eddie Johnson (Arnet), Ed Pinkney, Fennis Dembo Trade",
     "description": "On 1987-06-19:  Suns acquire Eddie Johnson (Arnet)  Kings acquire Ed Pinkney",
     "is_multi_team": false,
     "teams": [
@@ -1672,7 +1672,7 @@
     "id": "a7ef0c0c-55c0-4634-8bdf-8a8d9d631acc",
     "date": "1987-06-19",
     "season": "1986-87",
-    "title": "Pistons / Suns Trade",
+    "title": "William Bedford, Randolph Keys Trade",
     "description": "On 1987-06-19:  Suns acquire 1988 first round pick (#22-Randolph Keys)  Pistons acquire William Bedford",
     "is_multi_team": false,
     "teams": [
@@ -1718,7 +1718,7 @@
     "id": "810cd9e0-1ffa-4e29-9b90-a11fc3d07b2f",
     "date": "1987-06-21",
     "season": "1986-87",
-    "title": "Bucks / Pacers Trade",
+    "title": "Scott Skiles, Gary Leonard Trade",
     "description": "On 1987-06-21:  Pacers acquire Scott Skiles  Bucks acquire second round pick (1989 #34-Gary Leonard)",
     "is_multi_team": false,
     "teams": [
@@ -1775,7 +1775,7 @@
     "id": "1394b60d-c4a6-49d5-85c2-c49fdfb22d94",
     "date": "1987-06-21",
     "season": "1986-87",
-    "title": "Ed Pinckney Trade",
+    "title": "Ed Pinckney, Eddie Johnson (a), Fennis Dembo Trade",
     "description": "On 1987-06-21:  Suns acquire Eddie Johnson (a)  Kings acquire Ed Pinckney",
     "is_multi_team": false,
     "teams": [
@@ -1843,7 +1843,7 @@
     "id": "fdb3c506-1f42-412a-b1a9-8b7a7d349ab4",
     "date": "1987-06-22",
     "season": "1986-87",
-    "title": "Bulls / Spurs Trade",
+    "title": "Artis Gilmore, Shelton Jones Trade",
     "description": "On 1987-06-22:  Spurs acquire 1988 second round pick (#27-Shelton Jones)  Bulls acquire Artis Gilmore",
     "is_multi_team": false,
     "teams": [
@@ -1900,7 +1900,7 @@
     "id": "fec16875-dbef-42bf-886c-d3bc1edf37cb",
     "date": "1987-06-22",
     "season": "1986-87",
-    "title": "Bulls / Sonics Trade",
+    "title": "Scottie Pippen, Olden Polynice, Jeff Sanders Trade",
     "description": "On 1987-06-22:  Sonics acquire rights to Olden Polynice  Bulls acquire rights to Scottie Pippen",
     "is_multi_team": false,
     "teams": [

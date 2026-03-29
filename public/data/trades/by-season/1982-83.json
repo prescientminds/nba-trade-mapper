@@ -3,7 +3,7 @@
     "id": "62286caa-720f-44b7-bcec-a7306558ea05",
     "date": "1982-07-07",
     "season": "1982-83",
-    "title": "Truck Robinson Trade",
+    "title": "Maurice Lucas, Truck Robinson Trade",
     "description": "On 1982-07-07:  Suns acquire Maurice Lucas  Knicks acquire Truck Robinson",
     "is_multi_team": false,
     "teams": [
@@ -49,7 +49,7 @@
     "id": "f7f869df-57ba-43c2-bac4-e19cd7a7e9d8",
     "date": "1982-07-20",
     "season": "1982-83",
-    "title": "Nuggets / Sonics (to replace Wally Walker in the 1982-06-16 David Thompson trade) Trade",
+    "title": "Bill Hanzlik, Wally Walker Trade",
     "description": "On 1982-07-20:  Sonics (to replace Wally Walker in the 1982-06-16 David Thompson trade) acquire rights to Wally Walker  Nuggets acquire Bill Hanzlik",
     "is_multi_team": false,
     "teams": [
@@ -95,7 +95,7 @@
     "id": "1e05c496-ce9d-4374-bb56-520b241b0bef",
     "date": "1982-07-22",
     "season": "1982-83",
-    "title": "Dave Corzine, Mark Olberding Trade",
+    "title": "Artis Gilmore, Dave Corzine, Mark Olberding Trade",
     "description": "On 1982-07-22:  Spurs acquire Artis Gilmore  Bulls acquire Dave Corzine",
     "is_multi_team": false,
     "teams": [
@@ -163,7 +163,7 @@
     "id": "c1d03a80-b167-4698-a8e3-af48b3c25007",
     "date": "1982-08-27",
     "season": "1982-83",
-    "title": "76ers / Nets Trade",
+    "title": "Darryl Dawkins, Leo Rautins Trade",
     "description": "On 1982-08-27:  Nets acquire Darryl Dawkins  76ers acquire 1983 first round pick (#17-Leo Rautins)",
     "is_multi_team": false,
     "teams": [
@@ -220,7 +220,7 @@
     "id": "c7c4095a-69e4-4ddb-8347-37949a342bdb",
     "date": "1982-09-02",
     "season": "1982-83",
-    "title": "Hawks / Jazz Trade",
+    "title": "Dominique Wilkins, John Drew, Freeman Williams Trade",
     "description": "On 1982-09-02:  Jazz acquire John Drew  Hawks acquire rights to Dominique Wilkins",
     "is_multi_team": false,
     "teams": [
@@ -288,7 +288,7 @@
     "id": "ce5d232a-bffe-4289-92ef-44ba55e46a6e",
     "date": "1982-09-02",
     "season": "1982-83",
-    "title": "Pacers / Pistons (date 09-22 per NBA Register / 09-27 per Pacers media guide) Trade",
+    "title": "Tom Owens, Greg Wiltjer Trade",
     "description": "On 1982-09-02:  Pistons (date 09-22 per NBA Register, 09-27 per Pacers media guide) acquire Tom Owens  Pacers acquire 1984 second round pick (#43-Greg Wiltjer)",
     "is_multi_team": true,
     "teams": [
@@ -334,7 +334,7 @@
     "id": "89a0cc3f-9727-4d03-90c5-d521f705930b",
     "date": "1982-09-09",
     "season": "1982-83",
-    "title": "Dave Cowens Trade",
+    "title": "Quinn Buckner, Dave Cowens Trade",
     "description": "On 1982-09-09:  Celtics acquire Quinn Buckner  Bucks acquire Dave Cowens",
     "is_multi_team": false,
     "teams": [
@@ -380,7 +380,7 @@
     "id": "e22ccc02-2fba-4973-9cad-c338afcde420",
     "date": "1982-09-15",
     "season": "1982-83",
-    "title": "Moses Malone Trade",
+    "title": "Moses Malone, Rodney McCray, Caldwell Jones Trade",
     "description": "On 1982-09-15:  Rockets acquire Caldwell Jones  76ers acquire Moses Malone",
     "is_multi_team": false,
     "teams": [
@@ -437,7 +437,7 @@
     "id": "aaf174b1-13f4-4ef6-84a0-e0c35726da75",
     "date": "1982-09-27",
     "season": "1982-83",
-    "title": "George Johnson (Thomas) Trade",
+    "title": "George Johnson (Thomas), Darrell Lockhart, Manute Bol Trade",
     "description": "On 1982-09-27:  Spurs acquire Jim Johnstone  Hawks acquire George Johnson (Thomas)",
     "is_multi_team": false,
     "teams": [
@@ -516,7 +516,7 @@
     "id": "aab2a2a0-1245-4bfc-8144-eeca556c547c",
     "date": "1982-09-30",
     "season": "1982-83",
-    "title": "Knicks / Nets Trade",
+    "title": "Ed Sherod, Bruce Kuczenski Trade",
     "description": "On 1982-09-30:  Nets acquire 1983 third round pick (#59-Bruce Kuczenski)  Knicks acquire Ed Sherod",
     "is_multi_team": false,
     "teams": [
@@ -584,7 +584,7 @@
     "id": "60c82403-3a10-4183-8148-c5b601de7859",
     "date": "1982-10-05",
     "season": "1982-83",
-    "title": "Rockets / Sonics Trade",
+    "title": "Wally Walker, Cory Blackwell Trade",
     "description": "On 1982-10-05:  Sonics acquire 1984 second round pick (#28-Cory Blackwell)  Rockets acquire Wally Walker",
     "is_multi_team": false,
     "teams": [
@@ -641,7 +641,7 @@
     "id": "d833bc09-a672-41f6-a722-c10685d41920",
     "date": "1982-10-07",
     "season": "1982-83",
-    "title": "Cavaliers / Pistons Trade",
+    "title": "Dennis Rodman, Steve Hayes Trade",
     "description": "On 1982-10-07:  Pistons acquire 1986 second round pick (#27-Dennis Rodman)  Cavaliers acquire Steve Hayes",
     "is_multi_team": false,
     "teams": [
@@ -698,7 +698,7 @@
     "id": "20d404bf-1164-4fc3-94f1-e00941ea2b94",
     "date": "1982-10-15",
     "season": "1982-83",
-    "title": "Bucks / Clippers Trade",
+    "title": "Robert Smith (L.), Russell Todd Trade",
     "description": "On 1982-10-15:  Clippers acquire Robert Smith (L.)  Bucks acquire 1983 sixth round pick (#120-Russell Todd)",
     "is_multi_team": false,
     "teams": [
@@ -766,7 +766,7 @@
     "id": "5ad3585a-52a6-4704-a76a-57dd10156727",
     "date": "1982-10-22",
     "season": "1982-83",
-    "title": "Bernard King Trade",
+    "title": "Bernard King, Micheal Ray Richardson Trade",
     "description": "On 1982-10-22:  Warriors acquire Micheal Ray Richardson  Knicks acquire Bernard King",
     "is_multi_team": false,
     "teams": [
@@ -823,7 +823,7 @@
     "id": "a76e569d-045f-4fb9-843a-b3fd86b11ab4",
     "date": "1982-10-25",
     "season": "1982-83",
-    "title": "Cavaliers / Pacers Trade",
+    "title": "Brad Branson, Scooter McCray Trade",
     "description": "On 1982-10-25:  Pacers acquire Brad Branson  Cavaliers acquire 1983 second round pick (#36-Scooter McCray)",
     "is_multi_team": false,
     "teams": [
@@ -880,7 +880,7 @@
     "id": "06f9890f-eddf-442e-bd2a-c521124eb4a3",
     "date": "1982-10-27",
     "season": "1982-83",
-    "title": "76ers / Clippers Trade",
+    "title": "Lionel Hollins, Kalpatrick Wells, Stuart Gray Trade",
     "description": "On 1982-10-27:  Clippers acquire Lionel Hollins  76ers acquire 1983 fourth round pick (#74-Kalpatrick Wells)",
     "is_multi_team": false,
     "teams": [
@@ -959,7 +959,7 @@
     "id": "a18a02cd-baf0-47cd-b2be-9d25687c561d",
     "date": "1982-11-10",
     "season": "1982-83",
-    "title": "Phil Ford Trade",
+    "title": "Mickey Johnson, Phil Ford, Fred Roberts Trade",
     "description": "On 1982-11-10:  Nets acquire Mickey Johnson  Bucks acquire Phil Ford",
     "is_multi_team": false,
     "teams": [
@@ -1027,7 +1027,7 @@
     "id": "25a99a72-b358-47c4-8939-f7c8a22b2d52",
     "date": "1982-11-10",
     "season": "1982-83",
-    "title": "Nets / Rockets Trade",
+    "title": "James Bailey, Horace Owens, Yvon Joseph Trade",
     "description": "On 1982-11-10:  Rockets acquire James Bailey  Nets acquire 1983 second round pick (#44-Horace Owens)",
     "is_multi_team": false,
     "teams": [
@@ -1095,7 +1095,7 @@
     "id": "f7c2a9d2-705c-44b1-b89c-d69b61cc14ec",
     "date": "1982-12-15",
     "season": "1982-83",
-    "title": "World B. Free Trade",
+    "title": "World B. Free, Ron Brewer Trade",
     "description": "On 1982-12-15:  Warriors acquire Ron Brewer  Cavaliers acquire World B. Free",
     "is_multi_team": false,
     "teams": [
@@ -1141,7 +1141,7 @@
     "id": "60911a76-51ed-42de-9a4f-40f313739519",
     "date": "1982-12-31",
     "season": "1982-83",
-    "title": "Hawks / Pacers Trade",
+    "title": "Johnny Davis, Jim Thomas Trade",
     "description": "On 1982-12-31:  Pacers acquire 1983 second round pick (#40-Jim Thomas)  Hawks acquire Johnny Davis",
     "is_multi_team": false,
     "teams": [
@@ -1198,7 +1198,7 @@
     "id": "53ba1f0e-67cf-4444-91d9-4ff4342632f8",
     "date": "1983-01-08",
     "season": "1982-83",
-    "title": "Cavaliers / Warriors Trade",
+    "title": "Larry Kenon Trade",
     "description": "On 1983-01-08:  Warriors acquire cash  Cavaliers acquire Larry Kenon",
     "is_multi_team": false,
     "teams": [
@@ -1244,7 +1244,7 @@
     "id": "25630dc2-b4d8-4436-b0d0-8c127c167d6e",
     "date": "1983-01-14",
     "season": "1982-83",
-    "title": "Darren Tillis Trade",
+    "title": "Scott Wedman, Darren Tillis, Greg Kite Trade",
     "description": "On 1983-01-14:  Celtics acquire Scott Wedman  Cavaliers acquire Darren Tillis",
     "is_multi_team": false,
     "teams": [
@@ -1312,7 +1312,7 @@
     "id": "34975f93-215d-4d29-997d-ccdf86bfd44f",
     "date": "1983-01-18",
     "season": "1982-83",
-    "title": "Bulls / Spurs Trade",
+    "title": "Brant Weidner, Coby Dietrick Trade",
     "description": "On 1983-01-18:  Spurs acquire rights to restricted free agent Coby Dietrick  Bulls acquire 1983 fourth round pick (#90-Brant Weidner)",
     "is_multi_team": false,
     "teams": [
@@ -1380,7 +1380,7 @@
     "id": "2e736277-ddce-48e1-91ed-afa0d4b06e41",
     "date": "1983-02-06",
     "season": "1982-83",
-    "title": "Micheal Ray Richardson, Sleepy Floyd, Mickey Johnson Trade",
+    "title": "Sleepy Floyd, Mickey Johnson, Micheal Ray Richardson Trade",
     "description": "On 1983-02-06:  Warriors acquire Sleepy Floyd  Nets acquire Micheal Ray Richardson",
     "is_multi_team": false,
     "teams": [
@@ -1437,7 +1437,7 @@
     "id": "4f7eb0ec-b88a-4f06-91f7-e1cc09fd5a15",
     "date": "1983-02-07",
     "season": "1982-83",
-    "title": "Jeff Cook Trade",
+    "title": "Roy Hinson, James Edwards, Jeff Cook Trade",
     "description": "On 1983-02-07:  Suns acquire James Edwards  Cavaliers acquire Jeff Cook",
     "is_multi_team": false,
     "teams": [
@@ -1538,7 +1538,7 @@
     "id": "816cb722-c88c-4124-9c0b-5391a3d34cc8",
     "date": "1983-02-07",
     "season": "1982-83",
-    "title": "Rich Kelley Trade",
+    "title": "Danny Schayes, Rich Kelley Trade",
     "description": "On 1983-02-07:  Nuggets acquire Danny Schayes  Jazz acquire Rich Kelley",
     "is_multi_team": false,
     "teams": [
@@ -1606,7 +1606,7 @@
     "id": "e3324a62-9721-40d7-9c86-3c5e011633be",
     "date": "1983-02-10",
     "season": "1982-83",
-    "title": "Pistons / Spurs Trade",
+    "title": "Edgar Jones, Eric Turner, Andre Goode Trade",
     "description": "On 1983-02-10:  Spurs acquire Edgar Jones  Pistons acquire 1984 second round pick (#32-Eric Turner)",
     "is_multi_team": false,
     "teams": [
@@ -1685,7 +1685,7 @@
     "id": "3c3945f5-9025-4b5e-a7c1-34d2de4b5f38",
     "date": "1983-02-12",
     "season": "1982-83",
-    "title": "Steve Hawes Trade",
+    "title": "Lorenzo Charles, Tony Costner, Steve Hawes Trade",
     "description": "On 1983-02-12:  Sonics acquire Steve Hawes  Hawks acquire 1984 second round pick (from Pistons) (#34-Tony Costner) Other Team(s) Involved in Trade: Pistons",
     "is_multi_team": true,
     "teams": [
@@ -1747,7 +1747,7 @@
     "id": "d86c6f5a-cf95-4b5d-95e6-edfce89c6f70",
     "date": "1983-02-12",
     "season": "1982-83",
-    "title": "Scott Hastings Trade",
+    "title": "Rory Sparrow, Scott Hastings Trade",
     "description": "On 1983-02-12:  Knicks acquire Rory Sparrow  Hawks acquire Scott Hastings",
     "is_multi_team": false,
     "teams": [
@@ -1804,7 +1804,7 @@
     "id": "ca328b2e-24fe-4b73-8ab7-fc642c6f0ee1",
     "date": "1983-02-15",
     "season": "1982-83",
-    "title": "Clemon Johnson Trade",
+    "title": "Clemon Johnson, Stuart Gray, Russ Schoene Trade",
     "description": "On 1983-02-15:  Pacers acquire Russ Schoene  76ers acquire Clemon Johnson",
     "is_multi_team": false,
     "teams": [
@@ -1894,7 +1894,7 @@
     "id": "012bc370-a5c9-4bb9-824b-fe3cba1c6c13",
     "date": "1983-02-15",
     "season": "1982-83",
-    "title": "76ers / Kings Trade",
+    "title": "Reggie Johnson Trade",
     "description": "On 1983-02-15:  Kings acquire cash  76ers acquire Reggie Johnson",
     "is_multi_team": false,
     "teams": [
@@ -1940,7 +1940,7 @@
     "id": "45a820f8-ee36-4941-aff0-18f6889a9bf9",
     "date": "1983-02-15",
     "season": "1982-83",
-    "title": "Bulls / Lakers Trade",
+    "title": "Adrian Branch, Dwight Jones (E.) Trade",
     "description": "On 1983-02-15:  Lakers acquire Dwight Jones (E.)  Bulls acquire 1985 second round pick (#46-Adrian Branch)",
     "is_multi_team": false,
     "teams": [
@@ -2008,7 +2008,7 @@
     "id": "e2441440-2b35-4109-8bae-e80c7527cb92",
     "date": "1983-02-15",
     "season": "1982-83",
-    "title": "Hawks / Warriors Trade",
+    "title": "Rickey Brown, Othell Wilson Trade",
     "description": "On 1983-02-15:  Warriors acquire 1984 second round pick (#35-Othell Wilson)  Hawks acquire Rickey Brown",
     "is_multi_team": false,
     "teams": [
@@ -2065,7 +2065,7 @@
     "id": "249b8f19-ce18-4fff-815f-a0ebc92efe51",
     "date": "1983-03-08",
     "season": "1982-83",
-    "title": "Bulls / Spurs Trade",
+    "title": "Brant Weidner, Mike Bratz Trade",
     "description": "On 1983-03-08:  Spurs acquire 1983 fourth round pick (#90-Brant Weidner)  Bulls acquire rights to restricted free agent Mike Bratz",
     "is_multi_team": false,
     "teams": [
@@ -2133,7 +2133,7 @@
     "id": "d49a53f3-316e-4965-b179-112deb385ec7",
     "date": "1983-06-22",
     "season": "1982-83",
-    "title": "Knicks / Nets Trade",
+    "title": "Len Elmore, Tom Sluby Trade",
     "description": "On 1983-06-22:  Nets acquire 1984 second round pick (#41-Tom Sluby)  Knicks acquire Len Elmore",
     "is_multi_team": false,
     "teams": [
@@ -2190,7 +2190,7 @@
     "id": "0d010089-82f8-4e60-846c-c279c7511908",
     "date": "1983-06-27",
     "season": "1982-83",
-    "title": "Cavaliers / Sonics Trade",
+    "title": "Lonnie Shelton, Scooter McCray Trade",
     "description": "On 1983-06-27:  Sonics acquire 1983 second round pick (#36-Scooter McCray)  Cavaliers acquire Lonnie Shelton",
     "is_multi_team": false,
     "teams": [
@@ -2247,7 +2247,7 @@
     "id": "a1f27dc4-7b81-467e-8c02-ffb0e392a039",
     "date": "1983-06-27",
     "season": "1982-83",
-    "title": "Dennis Johnson Trade",
+    "title": "Dennis Johnson, Rod Foster, Greg Kite Trade",
     "description": "On 1983-06-27:  Suns acquire Rick Robey  Celtics acquire Dennis Johnson",
     "is_multi_team": false,
     "teams": [
@@ -2348,7 +2348,7 @@
     "id": "9be63bea-8fd1-4585-a5c5-8b3dc510a6d3",
     "date": "1983-06-28",
     "season": "1982-83",
-    "title": "Bulls / Pacers Trade",
+    "title": "Mitchell Wiggins, Sidney Lowe, Victor Fleming Trade",
     "description": "On 1983-06-28:  Pacers acquire rights to Sidney Lowe  Bulls acquire rights to Mitchell Wiggins",
     "is_multi_team": false,
     "teams": [
@@ -2405,7 +2405,7 @@
     "id": "c45f54c6-962a-451a-af7d-7398295ff3e1",
     "date": "1983-06-28",
     "season": "1982-83",
-    "title": "Bulls / Kings Trade",
+    "title": "Mark Olberding, Ennis Whatley, Larry Micheaux Trade",
     "description": "On 1983-06-28:  Kings acquire Mark Olberding  Bulls acquire rights to Ennis Whatley",
     "is_multi_team": false,
     "teams": [
@@ -2484,7 +2484,7 @@
     "id": "85e039e0-342e-41cf-a7e5-8cad8df4e90a",
     "date": "1983-06-28",
     "season": "1982-83",
-    "title": "Cavaliers / Clippers Trade",
+    "title": "Calvin Duncan, Les Craft, Larry Anderson Trade",
     "description": "On 1983-06-28:  Clippers acquire rights to Les Craft  Cavaliers acquire 1985 second round round pick (#30-Calvin Duncan)",
     "is_multi_team": false,
     "teams": [
@@ -2563,7 +2563,7 @@
     "id": "dd121812-1d18-49a2-890f-f04e3c1c92d8",
     "date": "1983-06-29",
     "season": "1982-83",
-    "title": "Bullets / Hawks Trade",
+    "title": "Randy Wittman, Tom McMillen, Tony Costner Trade",
     "description": "On 1983-06-29:  Hawks acquire rights to Randy Wittman  Bullets acquire Tom McMillen",
     "is_multi_team": false,
     "teams": [
@@ -2620,7 +2620,7 @@
     "id": "90e792d9-96da-4481-bef3-3681ade91173",
     "date": "1983-06-29",
     "season": "1982-83",
-    "title": "Hawks / Knicks Trade",
+    "title": "Sly Williams Trade",
     "description": "On 1983-06-29:  Knicks acquire cash  Hawks acquire Sly Williams",
     "is_multi_team": false,
     "teams": [
@@ -2756,7 +2756,7 @@
     "id": "9cfc7095-f568-466a-ba32-fbe0c49236d0",
     "date": "1983-06-29",
     "season": "1982-83",
-    "title": "Mavericks / Nets Trade",
+    "title": "Steve Alford, Dirk Minniefield, Andrew Kennedy Trade",
     "description": "On 1983-06-29:  Nets acquire rights to Dirk Minniefield  Mavericks acquire 1986 second round pick (#35-Milt Wagner)",
     "is_multi_team": false,
     "teams": [

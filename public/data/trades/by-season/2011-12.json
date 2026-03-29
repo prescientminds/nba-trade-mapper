@@ -3,7 +3,7 @@
     "id": "218666f5-8fed-4602-831d-9404008e69d0",
     "date": "2011-12-09",
     "season": "2011-12",
-    "title": "Bucks / Celtics Trade",
+    "title": "Keyon Dooling, Albert Miralles Trade",
     "description": "On 2011-12-09:  Celtics acquire Keyon Dooling  Bucks acquire rights to Albert Miralles",
     "is_multi_team": false,
     "teams": [
@@ -60,7 +60,7 @@
     "id": "50b44937-7677-41dc-8adc-adeaf3d04135",
     "date": "2011-12-10",
     "season": "2011-12",
-    "title": "Tyson Chandler, Ahmad Nivins, Giorgos Printezis Trade",
+    "title": "Tyson Chandler, Ronny Turiaf, Ahmad Nivins Trade",
     "description": "On 2011-12-10:  Unknown Team acquire 2012 second round pick (#46-Darius Miller)  Mavericks acquire Andy Rautins Other Team(s) Involved in Trade: Knicks, Wizards",
     "is_multi_team": true,
     "teams": [
@@ -210,7 +210,7 @@
     "id": "b53ade34-5384-477b-9240-c2fad4b32a56",
     "date": "2011-12-11",
     "season": "2011-12",
-    "title": "trade exception Trade",
+    "title": "Lamar Odom, Odom, Mitch McGary Trade",
     "description": "On 2011-12-11:  Mavericks acquire Lamar Odom  Lakers acquire first round pick (protected top 20 in 2012-17, unprotected in 2018) (2014 #21-Mitch McGary)",
     "is_multi_team": false,
     "teams": [
@@ -335,7 +335,7 @@
     "id": "a93b1377-24f5-4223-a851-db612e5fd201",
     "date": "2011-12-13",
     "season": "2011-12",
-    "title": "Lazar Hayward Trade",
+    "title": "Robbie Hummel, Robert Vaden, Bojan Dubljevic Trade",
     "description": "On 2011-12-13:  Timberwolves acquire Robert Vaden  Thunder acquire Lazar Hayward",
     "is_multi_team": false,
     "teams": [
@@ -403,7 +403,7 @@
     "id": "16d7f3e8-2d30-4d74-9c86-763982de365f",
     "date": "2011-12-14",
     "season": "2011-12",
-    "title": "Chris Paul, Eric Gordon, Chris Kaman Trade",
+    "title": "Chris Paul, Eric Gordon, Al-Farouq Aminu Trade",
     "description": "On 2011-12-14:  Hornets acquire Eric Gordon  Clippers acquire Chris Paul",
     "is_multi_team": false,
     "teams": [
@@ -504,7 +504,7 @@
     "id": "f58c7b72-631f-494e-bd24-e12c43352201",
     "date": "2011-12-18",
     "season": "2011-12",
-    "title": "Lou Amundson Trade",
+    "title": "Brandon Rush, Lou Amundson, Luka Mitrovic Trade",
     "description": "On 2011-12-18:  Warriors acquire Brandon Rush  Pacers acquire Lou Amundson",
     "is_multi_team": false,
     "teams": [
@@ -561,7 +561,7 @@
     "id": "f67863b7-59a0-4bfe-9c0c-ad4c5659481a",
     "date": "2011-12-19",
     "season": "2011-12",
-    "title": "Bobcats / Thunder Trade",
+    "title": "Byron Mullens, Alex Abrines Trade",
     "description": "On 2011-12-19:  Thunder acquire 2013 second round pick (#32-Alex Abrines)  Bobcats acquire Byron Mullens",
     "is_multi_team": false,
     "teams": [
@@ -618,7 +618,7 @@
     "id": "c991124b-6f52-44c7-ae2d-28564555ec3d",
     "date": "2011-12-22",
     "season": "2011-12",
-    "title": "trade exception Trade",
+    "title": "Mehmet Okur, Pat Connaughton Trade",
     "description": "On 2011-12-22:  Nets acquire Mehmet Okur  Jazz acquire 2015 second round pick (#41-Pat Connaughton)",
     "is_multi_team": false,
     "teams": [
@@ -675,7 +675,7 @@
     "id": "7a414019-d4db-46f2-9e9e-819746787bdd",
     "date": "2011-12-24",
     "season": "2011-12",
-    "title": "Quincy Pondexter Trade",
+    "title": "Quincy Pondexter, Greivis Vasquez Trade",
     "description": "On 2011-12-24:  Hornets acquire Greivis Vasquez  Grizzlies acquire Quincy Pondexter",
     "is_multi_team": false,
     "teams": [
@@ -721,7 +721,7 @@
     "id": "2f2493b1-d169-4686-83f4-5fe59bfd7136",
     "date": "2012-01-04",
     "season": "2011-12",
-    "title": "76ers / Grizzlines / Hornets Trade",
+    "title": "Marreese Speights, Tornike Shengelia, Glen Rice Jr. Trade",
     "description": "On 2012-01-04:  Grizzlies acquire Marreese Speights  76ers acquire 2012 conditional second round pick (from Grizzlies) (if pick is between #31-#55) (#54-Tornike Shengelia) Other Team(s) Involved in Trade: Grizzlines, Hornets",
     "is_multi_team": false,
     "teams": [
@@ -789,7 +789,7 @@
     "id": "ab53852f-7dfb-473a-9441-5e4734e14996",
     "date": "2012-01-04",
     "season": "2011-12",
-    "title": "Marreese Speights Trade",
+    "title": "Marreese Speights, Xavier Henry Trade",
     "description": "On 2012-01-04:  76ers acquire 2013 second round pick (#35-Glen Rice Jr.)  Hornets acquire Xavier Henry Other Team(s) Involved in Trade:Grizzlies",
     "is_multi_team": true,
     "teams": [
@@ -862,7 +862,7 @@
     "id": "6610922e-f13d-42ca-b407-ffbccb14b8dc",
     "date": "2012-03-13",
     "season": "2011-12",
-    "title": "Monta Ellis, Kwame Brown, Ekpe Udoh Trade",
+    "title": "Andrew Bogut, Monta Ellis, Ekpe Udoh Trade",
     "description": "On 2012-03-13:  Warriors acquire Andrew Bogut  Bucks acquire Monta Ellis",
     "is_multi_team": false,
     "teams": [
@@ -941,7 +941,7 @@
     "id": "a0791993-bd1c-42c9-a2bd-e7d4eff830b0",
     "date": "2012-03-15",
     "season": "2011-12",
-    "title": "76ers / Grizzlies Trade",
+    "title": "Ricky Sanchez, Sam Young Trade",
     "description": "On 2012-03-15:  Grizzlies acquire rights to Ricky Sanchez  76ers acquire Sam Young",
     "is_multi_team": false,
     "teams": [
@@ -987,7 +987,7 @@
     "id": "ac11ad96-a7b7-4540-81bb-8830f6264901",
     "date": "2012-03-15",
     "season": "2011-12",
-    "title": "Hasheem Thabeet, Jonny Flynn Trade",
+    "title": "Marcus Camby, Hasheem Thabeet, Jonny Flynn Trade",
     "description": "On 2012-03-15:  Rockets acquire Marcus Camby  Blazers acquire Hasheem Thabeet",
     "is_multi_team": false,
     "teams": [
@@ -1055,7 +1055,7 @@
     "id": "a18295cd-21f8-4aac-88ec-181055c80659",
     "date": "2012-03-15",
     "season": "2011-12",
-    "title": "Mehmet Okur, Shawne Williams Trade",
+    "title": "Damian Lillard, Gerald Wallace, Mehmet Okur Trade",
     "description": "On 2012-03-15:  Nets acquire Gerald Wallace  Blazers acquire Mehmet Okur",
     "is_multi_team": false,
     "teams": [
@@ -1123,7 +1123,7 @@
     "id": "c718de60-f6cc-4d41-8a16-dcc24e9a9c3f",
     "date": "2012-03-15",
     "season": "2011-12",
-    "title": "Jordan Hill Trade",
+    "title": "Jordan Hill, Derek Fisher, Mitch McGary Trade",
     "description": "On 2012-03-15:  Rockets acquire Derek Fisher  Lakers acquire Jordan Hill",
     "is_multi_team": false,
     "teams": [
@@ -1180,7 +1180,7 @@
     "id": "9c666a43-ee29-4fda-b014-0b48837d92cd",
     "date": "2012-03-15",
     "season": "2011-12",
-    "title": "Pacers / Raptors Trade",
+    "title": "Leandro Barbosa, Tomislav Zubcic Trade",
     "description": "On 2012-03-15:  Raptors acquire 2012 second round pick (#56-Tomislav Zubcic)  Pacers acquire Leandro Barbosa",
     "is_multi_team": false,
     "teams": [
@@ -1248,7 +1248,7 @@
     "id": "54360467-c114-47de-a3bd-6941b21e5cd7",
     "date": "2012-03-15",
     "season": "2011-12",
-    "title": "Stephen Jackson, Richard Jefferson, T.J. Ford Trade",
+    "title": "Festus Ezeli, Richard Jefferson, Stephen Jackson Trade",
     "description": "On 2012-03-15:  Warriors acquire Richard Jefferson  Spurs acquire Stephen Jackson",
     "is_multi_team": false,
     "teams": [
@@ -1316,7 +1316,7 @@
     "id": "7b659f33-6d9d-469a-a00f-c35831109cbd",
     "date": "2012-03-15",
     "season": "2011-12",
-    "title": "Nick Young, JaVale McGee, Ronny Turiaf Trade",
+    "title": "Nick Young, Brian Cook, Arturas Gudaitis Trade",
     "description": "On 2012-03-15:  Wizards acquire Nene Hilario  Nuggets acquire JaVale McGee Other Team(s) Involved in Trade: Clippers",
     "is_multi_team": true,
     "teams": [
@@ -1422,7 +1422,7 @@
     "id": "6bb78ba6-c7d9-4bce-9682-a41924429873",
     "date": "2012-03-15",
     "season": "2011-12",
-    "title": "Luke Walton, Jason Kapono, Ramon Sessions Trade",
+    "title": "Ramon Sessions, Luke Walton, Jared Cunningham Trade",
     "description": "On 2012-03-15:  Lakers acquire Ramon Sessions  Cavaliers acquire Luke Walton",
     "is_multi_team": false,
     "teams": [
@@ -1545,7 +1545,7 @@
     "id": "40fabd71-3cc8-45cc-9eef-2f0b76928a50",
     "date": "2012-06-20",
     "season": "2011-12",
-    "title": "Rashard Lewis, Emeka Okafor, Trevor Ariza Trade",
+    "title": "Trevor Ariza, Darius Miller, Emeka Okafor Trade",
     "description": "On 2012-06-20:  Wizards acquire Emeka Okafor  Hornets acquire Rashard Lewis",
     "is_multi_team": false,
     "teams": [
@@ -1613,7 +1613,7 @@
     "id": "64d8d0ae-3625-4cf1-9b0c-2c7115c1a3c6",
     "date": "2012-06-26",
     "season": "2011-12",
-    "title": "Ben Gordon Trade",
+    "title": "Noah Vonleh, Corey Maggette, Ben Gordon Trade",
     "description": "On 2012-06-26:  Pistons acquire Corey Maggette  Bobcats acquire Ben Gordon",
     "is_multi_team": false,
     "teams": [
@@ -1670,7 +1670,7 @@
     "id": "5d530de3-0fba-457a-9770-eb269dd5436c",
     "date": "2012-06-26",
     "season": "2011-12",
-    "title": "Rockets / Timberwolves Trade",
+    "title": "Terrence Jones, Chase Budinger, Lior Eliyahu Trade",
     "description": "On 2012-06-26:  Timberwolves acquire Chase Budinger  Rockets acquire 2012 first round pick (#18-Terrence Jones)",
     "is_multi_team": false,
     "teams": [
@@ -1749,7 +1749,7 @@
     "id": "c3840622-6ab5-4b2a-89a0-67b6d46930ef",
     "date": "2012-06-27",
     "season": "2011-12",
-    "title": "Samuel Dalembert, Jon Brockman, Shaun Livingston Trade",
+    "title": "John Henson, Samuel Dalembert, Jon Brockman Trade",
     "description": "On 2012-06-27:  Rockets acquire Jon Brockman  Bucks acquire Samuel Dalembert",
     "is_multi_team": false,
     "teams": [
@@ -1861,7 +1861,7 @@
     "id": "ad246d57-339a-44c3-a89a-69611b0c8c5b",
     "date": "2012-06-28",
     "season": "2011-12",
-    "title": "76ers / Heat Trade",
+    "title": "Arnett Moultrie, Justin Hamilton (b), Deyonta Davis Trade",
     "description": "On 2012-06-28:  Heat acquire rights to Justin Hamilton (b)  76ers acquire rights to Arnett Moultrie",
     "is_multi_team": false,
     "teams": [
@@ -1918,7 +1918,7 @@
     "id": "c9a2759b-e50e-4359-ad23-546a55d017fe",
     "date": "2012-06-28",
     "season": "2011-12",
-    "title": "Kelenna Azubuike, Tyler Zeller, Jared Cunningham Trade",
+    "title": "Tyler Zeller, Jae Crowder, Bernard James Trade",
     "description": "On 2012-06-28:  Mavericks acquire Jared Cunningham  Cavaliers acquire Kelenna Azubuike",
     "is_multi_team": false,
     "teams": [
@@ -1997,7 +1997,7 @@
     "id": "ac1c6dc1-fd38-4cf9-b7d4-5940ce9b099b",
     "date": "2012-06-29",
     "season": "2011-12",
-    "title": "Lamar Odom Trade",
+    "title": "Lamar Odom, Mo Williams, Furkan Aldemir Trade",
     "description": "On 2012-06-29:  Mavericks acquire rights to Tadija Dragicevic  Jazz acquire Mo Williams Other Team(s) Involved in Trade: Clippers,Rockets",
     "is_multi_team": true,
     "teams": [

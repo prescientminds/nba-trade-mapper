@@ -3,7 +3,7 @@
     "id": "565dba7b-89e6-41de-b5fe-6a24c0d5de41",
     "date": "2017-07-06",
     "season": "2017-18",
-    "title": "Victor Oladipo, Domantas Sabonis Trade",
+    "title": "Domantas Sabonis, Paul George, Victor Oladipo Trade",
     "description": "On 2017-07-06:  Thunder acquire Paul George  Pacers acquire Victor Oladipo",
     "is_multi_team": false,
     "teams": [
@@ -155,7 +155,7 @@
     "id": "a4648b48-2784-4168-975c-364a297e2d0d",
     "date": "2017-07-06",
     "season": "2017-18",
-    "title": "76ers / Clippers Trade",
+    "title": "Jawun Evans Trade",
     "description": "On 2017-07-06:  Clippers acquire rights to Jawun Evans  76ers acquire cash",
     "is_multi_team": false,
     "teams": [
@@ -201,7 +201,7 @@
     "id": "dcd8cc41-73a6-403d-a04c-45509bb4b640",
     "date": "2017-07-07",
     "season": "2017-18",
-    "title": "Marcus Morris Trade",
+    "title": "Marcus Morris, Avery Bradley Trade",
     "description": "On 2017-07-07:  Pistons acquire Avery Bradley  Celtics acquire Marcus Morris",
     "is_multi_team": false,
     "teams": [
@@ -258,7 +258,7 @@
     "id": "c0c663ce-57b8-4519-9ff6-5fc0b66aeb9d",
     "date": "2017-07-07",
     "season": "2017-18",
-    "title": "A.J. Hammons Trade",
+    "title": "Josh McRoberts, A.J. Hammons Trade",
     "description": "On 2017-07-07:  Mavericks acquire Josh McRoberts  Heat acquire A.J. Hammons",
     "is_multi_team": false,
     "teams": [
@@ -326,7 +326,7 @@
     "id": "0bfd2f7d-f234-4c54-a7d8-69e01f55ad60",
     "date": "2017-07-13",
     "season": "2017-18",
-    "title": "DeMarre Carroll Trade",
+    "title": "DeMarre Carroll, Rodions Kurucs, Dzanan Musa Trade",
     "description": "On 2017-07-13:  Raptors acquire Justin Hamilton (b)  Nets acquire DeMarre Carroll",
     "is_multi_team": false,
     "teams": [
@@ -405,7 +405,7 @@
     "id": "9d47da95-9fd3-4bad-97a7-259f9418dcdc",
     "date": "2017-07-14",
     "season": "2017-18",
-    "title": "Pacers / Raptors Trade",
+    "title": "Cory Joseph, Emir Preldžic Trade",
     "description": "On 2017-07-14:  Raptors acquire rights to Emir Preldžic  Pacers acquire Cory Joseph",
     "is_multi_team": false,
     "teams": [
@@ -451,7 +451,7 @@
     "id": "38b8690c-10c7-41b4-ba91-04cd6c1efe52",
     "date": "2017-07-25",
     "season": "2017-18",
-    "title": "Andrew Nicholson Trade",
+    "title": "Allen Crabbe, Andrew Nicholson Trade",
     "description": "On 2017-07-25:  Nets acquire Allen Crabbe  Blazers acquire Andrew Nicholson",
     "is_multi_team": false,
     "teams": [
@@ -497,7 +497,7 @@
     "id": "9df0911f-d097-41cb-8680-252c69e67499",
     "date": "2017-08-22",
     "season": "2017-18",
-    "title": "Isaiah Thomas, Jae Crowder, Ante Zizic Trade",
+    "title": "Kyrie Irving, Collin Sexton, Jae Crowder Trade",
     "description": "On 2017-08-22:  Celtics acquire Kyrie Irving  Cavaliers acquire Isaiah Thomas",
     "is_multi_team": false,
     "teams": [
@@ -576,7 +576,7 @@
     "id": "7e015cfb-8c5a-4ff2-8a13-1d47dd3b125e",
     "date": "2017-09-01",
     "season": "2017-18",
-    "title": "Bulls / Pelicans Trade",
+    "title": "Tony Carr, Ater Majok, Quincy Pondexter Trade",
     "description": "On 2017-09-01:  Pelicans acquire rights to Ater Majok  Bulls acquire Quincy Pondexter",
     "is_multi_team": false,
     "teams": [
@@ -644,7 +644,7 @@
     "id": "fb043b27-ac7d-4a2e-b6c3-51ece8e752dc",
     "date": "2017-09-25",
     "season": "2017-18",
-    "title": "Doug McDermott, Enes Kanter Trade",
+    "title": "Mitchell Robinson, Carmelo Anthony, Doug McDermott Trade",
     "description": "On 2017-09-25:  Thunder acquire Carmelo Anthony  Knicks acquire Doug McDermott",
     "is_multi_team": false,
     "teams": [
@@ -712,7 +712,7 @@
     "id": "31a6e8b2-6c63-479f-acd8-9e6e5a73d5ea",
     "date": "2017-10-14",
     "season": "2017-18",
-    "title": "Cavaliers / Hawks Trade",
+    "title": "Richard Jefferson, Kay Felder, Sergey Gladyr Trade",
     "description": "On 2017-10-14:  Hawks acquire Richard Jefferson  Cavaliers acquire rights to Sergey Gladyr",
     "is_multi_team": false,
     "teams": [
@@ -813,7 +813,7 @@
     "id": "44f5b099-b2b9-48be-b0c7-eca398072029",
     "date": "2017-11-07",
     "season": "2017-18",
-    "title": "Eric Bledsoe Trade",
+    "title": "Eric Bledsoe, Greg Monroe Trade",
     "description": "On 2017-11-07:  Suns acquire Greg Monroe  Bucks acquire Eric Bledsoe",
     "is_multi_team": false,
     "teams": [
@@ -960,7 +960,7 @@
     "id": "8fd9c323-fbb1-4f4a-b778-4ce50696b068",
     "date": "2018-01-29",
     "season": "2017-18",
-    "title": "Tobias Harris, Avery Bradley, Boban Marjanovic Trade",
+    "title": "Blake Griffin, Tobias Harris, Brice Johnson Trade",
     "description": "On 2018-01-29:  Pistons acquire Blake Griffin  Clippers acquire Tobias Harris",
     "is_multi_team": false,
     "teams": [
@@ -1072,7 +1072,7 @@
     "id": "12373790-b9bf-4681-b400-61855b618b82",
     "date": "2018-02-01",
     "season": "2017-18",
-    "title": "Omer Asik, Tony Allen, Jameer Nelson Trade",
+    "title": "Chandler Hutchison, Omer Asik, Tony Allen Trade",
     "description": "On 2018-02-01:  Pelicans acquire Nikola Mirotic  Bulls acquire Omer Asik",
     "is_multi_team": false,
     "teams": [
@@ -1173,7 +1173,7 @@
     "id": "4d305fb7-c750-4f5a-9b30-8c3721b7bfdd",
     "date": "2018-02-05",
     "season": "2017-18",
-    "title": "Tyler Zeller Trade",
+    "title": "Tyler Zeller, Rashad Vaughn, Hamidou Diallo Trade",
     "description": "On 2018-02-05:  Nets acquire Rashad Vaughn  Bucks acquire Tyler Zeller",
     "is_multi_team": false,
     "teams": [
@@ -1230,7 +1230,7 @@
     "id": "27b26f8b-7c12-4111-9466-7a056465d206",
     "date": "2018-02-07",
     "season": "2017-18",
-    "title": "Willy Hernangomez Trade",
+    "title": "Willy Hernangomez, Johnny O'Bryant III Trade",
     "description": "On 2018-02-07:  Knicks acquire Johnny O'Bryant III  Hornets acquire Willy Hernangomez",
     "is_multi_team": false,
     "teams": [
@@ -1309,7 +1309,7 @@
     "id": "44da6e3a-24f1-45c6-b562-4a13061bab6f",
     "date": "2018-02-08",
     "season": "2017-18",
-    "title": "Blazers / Bulls Trade",
+    "title": "Noah Vonleh, Milovan Rakovic Trade",
     "description": "On 2018-02-08:  Bulls acquire Noah Vonleh  Blazers acquire rights to Milovan Rakovic",
     "is_multi_team": false,
     "teams": [
@@ -1366,7 +1366,7 @@
     "id": "9599b407-5f9a-4597-9e3a-bfbd66d84b12",
     "date": "2018-02-08",
     "season": "2017-18",
-    "title": "Jordan Clarkson, Larry Nance Jr., Isaiah Thomas Trade",
+    "title": "Larry Nance Jr., Jordan Clarkson, Channing Frye Trade",
     "description": "On 2018-02-08:  Lakers acquire Isaiah Thomas  Cavaliers acquire Jordan Clarkson",
     "is_multi_team": false,
     "teams": [
@@ -1445,7 +1445,7 @@
     "id": "be370fe9-419a-4f18-968b-b69d3ad97160",
     "date": "2018-02-08",
     "season": "2017-18",
-    "title": "Magic / Suns Trade",
+    "title": "Jarred Vanderbilt, Elfrid Payton Trade",
     "description": "On 2018-02-08:  Suns acquire Elfrid Payton  Magic acquire 2018 second round pick (second least favorable of Grizzlies, Heat, Hornets picks) (#41-Jarred Vanderbilt)",
     "is_multi_team": false,
     "teams": [
@@ -1502,7 +1502,7 @@
     "id": "de8d6389-9e17-4cec-a02b-4ec5d4d5585e",
     "date": "2018-02-08",
     "season": "2017-18",
-    "title": "Dante Cunningham Trade",
+    "title": "Dante Cunningham, Rashad Vaughn Trade",
     "description": "On 2018-02-08:  Pelicans acquire Rashad Vaughn  Nets acquire Dante Cunningham",
     "is_multi_team": false,
     "teams": [
@@ -1548,7 +1548,7 @@
     "id": "b8f0d9d0-9927-460d-8642-6310c6483880",
     "date": "2018-02-08",
     "season": "2017-18",
-    "title": "Willie Reed Trade",
+    "title": "Willie Reed, Jameer Nelson Trade",
     "description": "On 2018-02-08:  Pistons acquire Jameer Nelson  Bulls acquire Willie Reed",
     "is_multi_team": false,
     "teams": [
@@ -1616,7 +1616,7 @@
     "id": "262cb75d-9806-4952-945b-b2d9b2c93741",
     "date": "2018-02-08",
     "season": "2017-18",
-    "title": "George Hill, Rodney Hood, Arturas Gudaitis Trade",
+    "title": "Rodney Hood, George Hill, Iman Shumpert Trade",
     "description": "On 2018-02-08:  Kings acquire Joe Johnson  Jazz acquire Derrick Rose Other Team(s) Involved in Trade: Cavaliers",
     "is_multi_team": true,
     "teams": [
@@ -1755,7 +1755,7 @@
     "id": "4e9e30c5-56c2-4c8a-8b7a-84eebd275ecd",
     "date": "2018-02-08",
     "season": "2017-18",
-    "title": "Brice Johnson Trade",
+    "title": "James Ennis, Brice Johnson Trade",
     "description": "On 2018-02-08:  Pistons acquire James Ennis  Grizzlies acquire Brice Johnson",
     "is_multi_team": false,
     "teams": [
@@ -1823,7 +1823,7 @@
     "id": "b89ae9c7-2c16-46a9-87b4-602fdb39d8cc",
     "date": "2018-02-08",
     "season": "2017-18",
-    "title": "Okaro White Trade",
+    "title": "Okaro White, Luke Babbitt Trade",
     "description": "On 2018-02-08:  Heat acquire Luke Babbitt  Hawks acquire Okaro White",
     "is_multi_team": false,
     "teams": [
@@ -1869,7 +1869,7 @@
     "id": "58f1ccc7-0011-44b9-94d5-c72915a4e824",
     "date": "2018-02-08",
     "season": "2017-18",
-    "title": "Bruno Caboclo Trade",
+    "title": "Bruno Caboclo, Malachi Richardson Trade",
     "description": "On 2018-02-08:  Raptors acquire Malachi Richardson  Kings acquire Bruno Caboclo",
     "is_multi_team": false,
     "teams": [
@@ -1915,7 +1915,7 @@
     "id": "18fd0ebe-5da8-429e-81bd-58c5ff0b75f1",
     "date": "2018-02-08",
     "season": "2017-18",
-    "title": "Emmanuel Mudiay, Doug McDermott, Devin Harris Trade",
+    "title": "Justin Jackson, Doug McDermott, Emmanuel Mudiay Trade",
     "description": "On 2018-02-08:  Mavericks acquire Doug McDermott  Knicks acquire Emmanuel Mudiay Other Team(s) Involved in Trade:Nuggets",
     "is_multi_team": true,
     "teams": [
@@ -1988,7 +1988,7 @@
     "id": "b6eb3fc0-30b8-4042-ab9f-8f11aa0dc51b",
     "date": "2018-06-21",
     "season": "2017-18",
-    "title": "76ers / Mavericks Trade",
+    "title": "Shake Milton, Ray Spalding, Kostas Antetokounmpo Trade",
     "description": "On 2018-06-21:  Mavericks acquire rights to Ray Spalding  76ers acquire rights to Shake Milton",
     "is_multi_team": false,
     "teams": [
@@ -2045,7 +2045,7 @@
     "id": "840dc3b0-cd90-42d6-b0c5-c37655153205",
     "date": "2018-06-21",
     "season": "2017-18",
-    "title": "76ers / Suns Trade",
+    "title": "Mikal Bridges, Zhaire Smith Trade",
     "description": "On 2018-06-21:  Suns acquire rights to Mikal Bridges  76ers acquire rights to Zhaire Smith",
     "is_multi_team": false,
     "teams": [
@@ -2102,7 +2102,7 @@
     "id": "110824e7-104e-44f7-b3ef-fed76f6c186f",
     "date": "2018-06-21",
     "season": "2017-18",
-    "title": "Blazers / Kings Trade",
+    "title": "Gary Trent Jr. Trade",
     "description": "On 2018-06-21:  Kings acquire cash  Blazers acquire rights to Gary Trent Jr.",
     "is_multi_team": false,
     "teams": [
@@ -2181,7 +2181,7 @@
     "id": "773f52f8-2ca6-48f9-9aa8-8c863f44fe86",
     "date": "2018-06-21",
     "season": "2017-18",
-    "title": "Clippers / Hornets Trade",
+    "title": "Miles Bridges, Shai Gilgeous-Alexander Trade",
     "description": "On 2018-06-21:  Hornets acquire rights to Miles Bridges  Clippers acquire rights to Shai Gilgeous-Alexander",
     "is_multi_team": false,
     "teams": [
@@ -2249,7 +2249,7 @@
     "id": "d4ed6706-31dd-45f5-b5ad-c0899fd4df19",
     "date": "2018-06-21",
     "season": "2017-18",
-    "title": "Hawks / Mavericks Trade",
+    "title": "Luka Dončić, Trae Young Trade",
     "description": "On 2018-06-21:  Mavericks acquire rights to Luka Dončić  Hawks acquire rights to Trae Young",
     "is_multi_team": false,
     "teams": [
@@ -2306,7 +2306,7 @@
     "id": "35a93fae-88d3-4128-9730-dd02fbc0b1b8",
     "date": "2018-06-21",
     "season": "2017-18",
-    "title": "Jazz / Rockets Trade",
+    "title": "Vince Edwards Trade",
     "description": "On 2018-06-21:  Rockets acquire rights to Vince Edwards  Jazz acquire cash",
     "is_multi_team": false,
     "teams": [
@@ -2352,7 +2352,7 @@
     "id": "1e8742ee-c1b7-42d5-a9f9-e189af4537b3",
     "date": "2018-06-21",
     "season": "2017-18",
-    "title": "Magic / Nuggets Trade",
+    "title": "Jarred Vanderbilt, Justin Jackson Trade",
     "description": "On 2018-06-21:  Nuggets acquire rights to Jarred Vanderbilt  Magic acquire rights to Justin Jackson",
     "is_multi_team": false,
     "teams": [
@@ -2420,7 +2420,7 @@
     "id": "34df0072-090a-4176-b0a7-10216515f6f4",
     "date": "2018-06-26",
     "season": "2017-18",
-    "title": "Marcin Gortat Trade",
+    "title": "Marcin Gortat, Austin Rivers Trade",
     "description": "On 2018-06-26:  Wizards acquire Austin Rivers  Clippers acquire Marcin Gortat",
     "is_multi_team": false,
     "teams": [

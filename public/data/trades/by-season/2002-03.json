@@ -3,7 +3,7 @@
     "id": "e6248cad-1e87-45eb-b613-5d4100f82177",
     "date": "2002-07-22",
     "season": "2002-03",
-    "title": "Vin Baker, Shammond Williams, Kenny Anderson Trade",
+    "title": "Vin Baker, Vitaly Potapenko, Shammond Williams Trade",
     "description": "On 2002-07-22:  Sonics acquire Kenny Anderson  Celtics acquire Vin Baker",
     "is_multi_team": false,
     "teams": [
@@ -82,7 +82,7 @@
     "id": "23ba55fb-1422-4374-b2e9-17b4d6ce906c",
     "date": "2002-07-29",
     "season": "2002-03",
-    "title": "Darius Miles, Harold Jamison, Andre Miller Trade",
+    "title": "Andre Miller, Harold Jamison, Bryant Stith Trade",
     "description": "On 2002-07-29:  Clippers acquire Andre Miller  Cavaliers acquire Darius Miles",
     "is_multi_team": false,
     "teams": [
@@ -150,7 +150,7 @@
     "id": "5e6ce8ae-ff82-4962-89b4-406a19801e90",
     "date": "2002-08-01",
     "season": "2002-03",
-    "title": "Magic / Nuggets Trade",
+    "title": "Don Reid, Marcus Williams, Sergei Lishchuk Trade",
     "description": "On 2002-08-01:  Nuggets acquire Don Reid  Magic acquire 2004 second round pick (#49-Sergei Lishchuk)",
     "is_multi_team": false,
     "teams": [
@@ -229,7 +229,7 @@
     "id": "03070179-abb3-4992-a0bd-e4ecaca062f6",
     "date": "2002-08-02",
     "season": "2002-03",
-    "title": "Antonio Daniels, Charles Smith (Cornelius), Amal McCaskill Trade",
+    "title": "Antonio Daniels, Steve Kerr, Charles Smith (Cornelius) Trade",
     "description": "On 2002-08-02:  Spurs acquire Steve Kerr  Blazers acquire Antonio Daniels",
     "is_multi_team": false,
     "teams": [
@@ -319,7 +319,7 @@
     "id": "dd25d545-05e9-4df2-b290-ecb8158e52eb",
     "date": "2002-08-02",
     "season": "2002-03",
-    "title": "Toni Kukoc, Leon Smith Trade",
+    "title": "Glenn Robinson, Toni Kukoc, Leon Smith Trade",
     "description": "On 2002-08-02:  Hawks acquire Glenn Robinson  Bucks acquire Toni Kukoc",
     "is_multi_team": false,
     "teams": [
@@ -387,7 +387,7 @@
     "id": "9f3bdbb1-6308-4937-a10e-6cca619b6891",
     "date": "2002-08-06",
     "season": "2002-03",
-    "title": "Keith Van Horn, Todd MacCulloch Trade",
+    "title": "Keith Van Horn, Todd MacCulloch, Dikembe Mutombo Trade",
     "description": "On 2002-08-06:  Nets acquire Dikembe Mutombo  76ers acquire Keith Van Horn",
     "is_multi_team": false,
     "teams": [
@@ -444,7 +444,7 @@
     "id": "9db7c066-58ea-4ade-9aec-91ac9428bfd5",
     "date": "2002-09-11",
     "season": "2002-03",
-    "title": "Richard Hamilton, Hubert Davis, Bobby Simmons Trade",
+    "title": "Richard Hamilton, Jerry Stackhouse, Hubert Davis Trade",
     "description": "On 2002-09-11:  Wizards acquire Jerry Stackhouse  Pistons acquire Richard Hamilton",
     "is_multi_team": false,
     "teams": [
@@ -534,7 +534,7 @@
     "id": "50bfa0bb-e5b0-4a36-81df-1c421f129bd4",
     "date": "2002-09-17",
     "season": "2002-03",
-    "title": "Cavaliers / Suns Trade",
+    "title": "Milt Palacio, Malik Hairston Trade",
     "description": "On 2002-09-17:  Suns acquire 2008 second round pick (#48-Malik Hairston)  Cavaliers acquire Milt Palacio",
     "is_multi_team": false,
     "teams": [
@@ -591,7 +591,7 @@
     "id": "3fd5ad2a-5345-4e3f-bd94-daad66ed6370",
     "date": "2002-09-25",
     "season": "2002-03",
-    "title": "Michael Stewart Trade",
+    "title": "Lamond Murray, Michael Stewart, Jared Dudley Trade",
     "description": "On 2002-09-25:  Raptors acquire Lamond Murray  Cavaliers acquire Michael Stewart",
     "is_multi_team": false,
     "teams": [
@@ -659,7 +659,7 @@
     "id": "3e6105bd-b0d5-415c-bb1a-39b7ebc45831",
     "date": "2002-10-01",
     "season": "2002-03",
-    "title": "Rodney White, Don Reid, Mengke Bateer Trade",
+    "title": "Rodney White, Josh Smith, Mengke Bateer Trade",
     "description": "On 2002-10-01:  Pistons acquire Don Reid  Nuggets acquire Rodney White",
     "is_multi_team": false,
     "teams": [
@@ -727,7 +727,7 @@
     "id": "28f169a2-5050-45b5-aaed-7cfb0cf3fba1",
     "date": "2002-10-03",
     "season": "2002-03",
-    "title": "Pistons / Spurs Trade",
+    "title": "Andreas Gliniadakis, Mengke Bateer Trade",
     "description": "On 2002-10-03:  Spurs acquire Mengke Bateer  Pistons acquire 2003 second round pick (#58-Andreas Gliniadakis)",
     "is_multi_team": false,
     "teams": [
@@ -784,7 +784,7 @@
     "id": "ecb2e985-575b-432e-b245-f829faed1756",
     "date": "2002-10-24",
     "season": "2002-03",
-    "title": "Chris Whitney Trade",
+    "title": "Chris Whitney, George McCloud Trade",
     "description": "On 2002-10-24:  Wizards acquire George McCloud  Nuggets acquire Chris Whitney",
     "is_multi_team": false,
     "teams": [
@@ -936,7 +936,7 @@
     "id": "653a1afe-f254-48bb-918b-8c291713daef",
     "date": "2003-02-19",
     "season": "2002-03",
-    "title": "Mike Miller, Ryan Humphrey, Drew Gooden Trade",
+    "title": "Mike Miller, Drew Gooden, Ryan Humphrey Trade",
     "description": "On 2003-02-19:  Magic acquire Drew Gooden  Grizzlies acquire Mike Miller",
     "is_multi_team": false,
     "teams": [
@@ -1037,7 +1037,7 @@
     "id": "a573a607-5968-4595-a832-0afc6df5035f",
     "date": "2003-02-20",
     "season": "2002-03",
-    "title": "Mark Blount, Mark Bryant Trade",
+    "title": "Mark Blount, Shammond Williams, Mark Bryant Trade",
     "description": "On 2003-02-20:  Nuggets acquire Shammond Williams  Celtics acquire Mark Blount",
     "is_multi_team": false,
     "teams": [
@@ -1116,7 +1116,7 @@
     "id": "87b489d6-1199-47df-b914-9bd18449038f",
     "date": "2003-02-20",
     "season": "2002-03",
-    "title": "Kenny Anderson Trade",
+    "title": "Elden Campbell, Kenny Anderson Trade",
     "description": "On 2003-02-20:  Sonics acquire Elden Campbell  Hornets acquire Kenny Anderson",
     "is_multi_team": false,
     "teams": [
@@ -1162,7 +1162,7 @@
     "id": "306cd392-fee9-49ef-9acf-9b1c2bca5ccc",
     "date": "2003-02-20",
     "season": "2002-03",
-    "title": "Gary Payton, Desmond Mason, Ray Allen Trade",
+    "title": "Ray Allen, Luke Ridnour, Desmond Mason Trade",
     "description": "On 2003-02-20:  Sonics acquire Ray Allen  Bucks acquire Gary Payton",
     "is_multi_team": false,
     "teams": [
@@ -1252,7 +1252,7 @@
     "id": "7151385e-9ea1-4634-83f7-28aa586cd2aa",
     "date": "2003-06-23",
     "season": "2002-03",
-    "title": "Celtics / Kings Trade",
+    "title": "Darius Songaila, Brandon Hunter, Orien Greene Trade",
     "description": "On 2003-06-23:  Kings acquire rights to Darius Songaila  Celtics acquire 2003 second round pick (#56-Brandon Hunter)",
     "is_multi_team": false,
     "teams": [
@@ -1309,7 +1309,7 @@
     "id": "2ddb4980-b32c-4269-8b6b-de6d7e44b145",
     "date": "2003-06-26",
     "season": "2002-03",
-    "title": "76ers / Sonics Trade",
+    "title": "Willie Green, Paccelis Morlende Trade",
     "description": "On 2003-06-26:  Sonics acquire rights to Paccelis Morlende  76ers acquire rights to Willie Green",
     "is_multi_team": false,
     "teams": [
@@ -1366,7 +1366,7 @@
     "id": "a96548ca-1013-4140-8d6c-ef7a3741e771",
     "date": "2003-06-26",
     "season": "2002-03",
-    "title": "Bulls / Raptors Trade",
+    "title": "Chris Duhon, Matt Bonner Trade",
     "description": "On 2003-06-26:  Raptors acquire rights to Matt Bonner  Bulls acquire second round pick (2004 #38-Chris Duhon)",
     "is_multi_team": false,
     "teams": [
@@ -1423,7 +1423,7 @@
     "id": "bd8cab16-9ee9-4212-afc9-f975491c8514",
     "date": "2003-06-26",
     "season": "2002-03",
-    "title": "Celtics / Grizzlies Trade",
+    "title": "Kendrick Perkins, Marcus Banks, Dahntay Jones Trade",
     "description": "On 2003-06-26:  Grizzlies acquire rights to Troy Bell  Celtics acquire rights to Marcus Banks",
     "is_multi_team": false,
     "teams": [
@@ -1491,7 +1491,7 @@
     "id": "b7b89ace-28b7-4807-834b-c29e12714297",
     "date": "2003-06-26",
     "season": "2002-03",
-    "title": "Mavericks / Nuggets Trade",
+    "title": "Vassilis Spanoulis, Yuyang Xue Trade",
     "description": "On 2003-06-26:  Nuggets acquire rights to Yuyang Xue  Mavericks acquire 2004 second round pick (#50-Vassilis Spanoulis)",
     "is_multi_team": false,
     "teams": [
@@ -1537,7 +1537,7 @@
     "id": "1e34162b-c538-4366-95cf-618211a40789",
     "date": "2003-06-26",
     "season": "2002-03",
-    "title": "Nets / 76ers Trade",
+    "title": "Kyle Korver Trade",
     "description": "On 2003-06-26:  76ers acquire rights to Kyle Korver  Nets acquire cash",
     "is_multi_team": false,
     "teams": [
@@ -1583,7 +1583,7 @@
     "id": "ee4f2c3a-9a69-4efd-8bfe-0118957aaac2",
     "date": "2003-06-26",
     "season": "2002-03",
-    "title": "Spurs / Suns Trade",
+    "title": "Leandro Barbosa, David Lee Trade",
     "description": "On 2003-06-26:  Suns acquire rights to Leandro Barbosa  Spurs acquire 2004 first round pick (top 25 protected in 2004, top 21 protected in 2005-2009) (2005 #30-David Lee)",
     "is_multi_team": false,
     "teams": [
@@ -1640,7 +1640,7 @@
     "id": "6657a30e-e084-4ee1-b891-cccfbd44c92b",
     "date": "2003-06-27",
     "season": "2002-03",
-    "title": "Joe Smith, Anthony Peeler, Sam Cassell Trade",
+    "title": "Sam Cassell, Joe Smith, Ervin Johnson Trade",
     "description": "On 2003-06-27:  Timberwolves acquire Sam Cassell  Bucks acquire Joe Smith",
     "is_multi_team": false,
     "teams": [

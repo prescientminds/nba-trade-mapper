@@ -3,7 +3,7 @@
     "id": "5b0e3d33-3e43-422b-9325-ac685a12d4a7",
     "date": "2001-07-13",
     "season": "2001-02",
-    "title": "Charles Oakley Trade",
+    "title": "Jason Jennings, Brian Skinner, Charles Oakley Trade",
     "description": "On 2001-07-13:  Raptors (effective 07-18) acquire Brian Skinner  Bulls acquire Charles Oakley",
     "is_multi_team": false,
     "teams": [
@@ -60,7 +60,7 @@
     "id": "1c8c9516-f1ba-4a52-92b3-83a3bf0ebd3a",
     "date": "2001-07-13",
     "season": "2001-02",
-    "title": "Pistons / Raptors (trade made official on 07-18) Trade",
+    "title": "Zeljko Rebraca, Rasual Butler Trade",
     "description": "On 2001-07-13:  Raptors (trade made official on 07-18) acquire 2002 second round pick (#52-Rasual Butler)  Pistons acquire rights to Zeljko Rebraca",
     "is_multi_team": false,
     "teams": [
@@ -106,7 +106,7 @@
     "id": "9dc42314-eb49-462e-b19a-5f237f6cc43d",
     "date": "2001-07-18",
     "season": "2001-02",
-    "title": "Jason Kidd, Chris Dudley, Stephon Marbury Trade",
+    "title": "Jason Kidd, Stephon Marbury, Chris Dudley Trade",
     "description": "On 2001-07-18:  Suns acquire Stephon Marbury  Nets acquire Jason Kidd",
     "is_multi_team": false,
     "teams": [
@@ -264,7 +264,7 @@
     "id": "779dbaa1-0fae-4f04-88a0-1c16d862f9e9",
     "date": "2001-07-19",
     "season": "2001-02",
-    "title": "Blazers / Bulls Trade",
+    "title": "Greg Anthony, Jason Jennings Trade",
     "description": "On 2001-07-19:  Bulls acquire Greg Anthony  Blazers acquire second round pick (protected #51-57 in 2002, unprotected in 2003) (2002 #42-Jason Jennings)",
     "is_multi_team": false,
     "teams": [
@@ -310,7 +310,7 @@
     "id": "638c53f8-32a7-44bd-aff3-8eaaa345b863",
     "date": "2001-07-19",
     "season": "2001-02",
-    "title": "Lorenzen Wright, Brevin Knight Trade",
+    "title": "Pau Gasol, Shareef Abdur-Rahim, Lorenzen Wright Trade",
     "description": "On 2001-07-19:  Hawks acquire Shareef Abdur-Rahim  Grizzlies acquire Lorenzen Wright",
     "is_multi_team": false,
     "teams": [
@@ -389,7 +389,7 @@
     "id": "e78fdaa3-302d-41ae-806d-842e6dc65b5a",
     "date": "2001-07-24",
     "season": "2001-02",
-    "title": "Derek Anderson, Steve Kerr Trade",
+    "title": "Derek Anderson, Steve Kerr, Andreas Glyniadakis Trade",
     "description": "On 2001-07-24:  Spurs acquire Steve Smith (Delano)  Blazers acquire Derek Anderson",
     "is_multi_team": false,
     "teams": [
@@ -457,7 +457,7 @@
     "id": "59eb4b19-210e-4712-95a2-343723484bae",
     "date": "2001-08-01",
     "season": "2001-02",
-    "title": "Magic / Wizards Trade",
+    "title": "Brendan Haywood, Laron Profit Trade",
     "description": "On 2001-08-01:  Wizards acquire rights to Brendan Haywood  Magic acquire Laron Profit",
     "is_multi_team": false,
     "teams": [
@@ -514,7 +514,7 @@
     "id": "e15bb0e2-c779-48eb-89b2-c75ebd420bbd",
     "date": "2001-08-02",
     "season": "2001-02",
-    "title": "Raptors / Rockets Trade",
+    "title": "Hakeem Olajuwon, Bostjan Nachbar, Rasual Butler Trade",
     "description": "On 2001-08-02:  Rockets acquire first round pick (lottery protected 2000-08) (2002 #15-Bostjan Nachbar)  Raptors acquire Hakeem Olajuwon",
     "is_multi_team": false,
     "teams": [
@@ -582,7 +582,7 @@
     "id": "9be7a8bd-a12e-4da1-bb63-fcc21fbc3d3c",
     "date": "2001-08-03",
     "season": "2001-02",
-    "title": "Jerome Moiso Trade",
+    "title": "Roshown McLeod, Dahntay Jones, Jerome Moiso Trade",
     "description": "On 2001-08-03:  Celtics acquire Roshown McLeod  76ers acquire Jerome Moiso",
     "is_multi_team": false,
     "teams": [
@@ -639,7 +639,7 @@
     "id": "e3d49cba-ef1c-4fa9-8c60-bb4eb093811d",
     "date": "2001-08-03",
     "season": "2001-02",
-    "title": "Matt Harpring, Robert Traylor, Cedric Henderson (E.) Trade",
+    "title": "Jumaine Jones, Matt Harpring, Tyrone Hill Trade",
     "description": "On 2001-08-03:  Cavaliers acquire Tyrone Hill  76ers acquire Matt Harpring",
     "is_multi_team": false,
     "teams": [
@@ -729,7 +729,7 @@
     "id": "bed0d647-b179-46bc-92b7-45bc350c93b9",
     "date": "2001-08-10",
     "season": "2001-02",
-    "title": "Shandon Anderson, Howard Eisley, Glen Rice Sr. Trade",
+    "title": "Howard Eisley, Shandon Anderson, Glen Rice Sr. Trade",
     "description": "On 2001-08-10:  Rockets acquire rights to Kyle Hill  Mavericks acquire Muggsy Bogues Other Team(s) Involved in Trade: Knicks",
     "is_multi_team": true,
     "teams": [
@@ -813,7 +813,7 @@
     "id": "6f8b725f-8562-4151-ad7c-ce0d16f3bf26",
     "date": "2001-08-22",
     "season": "2001-02",
-    "title": "trade exception Trade",
+    "title": "Tim Hardaway Sr., Matt Freije Trade",
     "description": "On 2001-08-22:  Mavericks acquire Tim Hardaway Sr.  Heat acquire 2003 or 2004 second round pick (Mavericks option) (2004 #53-Matt Freije)",
     "is_multi_team": false,
     "teams": [
@@ -881,7 +881,7 @@
     "id": "b38cab8b-7e98-4ca2-a2c2-ec52bd9ab6fc",
     "date": "2001-09-07",
     "season": "2001-02",
-    "title": "Mateen Cleaves Trade",
+    "title": "Jon Barry, Carlos Delfino, Mateen Cleaves Trade",
     "description": "On 2001-09-07:  Pistons acquire Jon Barry  Kings acquire Mateen Cleaves",
     "is_multi_team": false,
     "teams": [
@@ -949,7 +949,7 @@
     "id": "75393be7-af28-4ec4-92cb-af19b6ba3073",
     "date": "2001-10-01",
     "season": "2001-02",
-    "title": "Bulls / Heat Trade",
+    "title": "Sean Lampley, Tommy Smith Trade",
     "description": "On 2001-10-01:  Heat acquire rights to Sean Lampley  Bulls acquire 2003 conditional second round pick (#53-Tommy Smith)",
     "is_multi_team": false,
     "teams": [
@@ -1006,7 +1006,7 @@
     "id": "f63b800d-97ad-4545-8e38-d97f7012440d",
     "date": "2001-10-22",
     "season": "2001-02",
-    "title": "Aleksandar Radojevic, Scott Williams Trade",
+    "title": "Dan Gadzuric, Scott Williams, Josh Smith Trade",
     "description": "On 2001-10-22:  Bucks acquire 2002 second round pick (#33-Dan Gadzuric)  Rockets acquire Kevin Willis Other Team(s) Involved in Trade:Nuggets",
     "is_multi_team": true,
     "teams": [
@@ -1313,7 +1313,7 @@
     "id": "27d0d261-946d-4818-8961-661324803d99",
     "date": "2001-10-29",
     "season": "2001-02",
-    "title": "Blazers / Clippers Trade",
+    "title": "Will Perdue, Doron Sheffer Trade",
     "description": "On 2001-10-29:  Clippers acquire Will Perdue  Blazers acquire rights to Doron Sheffer",
     "is_multi_team": false,
     "teams": [
@@ -1359,7 +1359,7 @@
     "id": "f6751c39-109d-4f27-9362-0f99057ddd51",
     "date": "2001-10-29",
     "season": "2001-02",
-    "title": "Soumalia Samake Trade",
+    "title": "Jake Voskuhl, Soumalia Samake, Matt Bonner Trade",
     "description": "On 2001-10-29:  Suns acquire Jake Voskuhl  Bulls acquire Soumalia Samake",
     "is_multi_team": false,
     "teams": [
@@ -1427,7 +1427,7 @@
     "id": "28952181-9a67-401a-a4a8-4dec7ea541b1",
     "date": "2001-11-15",
     "season": "2001-02",
-    "title": "Jud Buechler, Bo Outlaw Trade",
+    "title": "Jud Buechler, Bo Outlaw, Amar'e Stoudemire Trade",
     "description": "On 2001-11-15:  Unknown Team acquire Vinny Del Negro  Suns acquire Bo Outlaw Other Team(s) Involved in Trade: Clippers, Magic",
     "is_multi_team": true,
     "teams": [
@@ -1500,7 +1500,7 @@
     "id": "8bed2cb2-5910-4a01-8591-efadc6e032bb",
     "date": "2002-02-19",
     "season": "2001-02",
-    "title": "Jalen Rose, Travis Best, Norm Richardson Trade",
+    "title": "Metta World Peace, Brad Miller, Jalen Rose Trade",
     "description": "On 2002-02-19:  Pacers acquire Metta World Peace  Bulls acquire Jalen Rose",
     "is_multi_team": false,
     "teams": [
@@ -1612,7 +1612,7 @@
     "id": "8305826e-993f-46af-9be6-f27b7e30a68d",
     "date": "2002-02-20",
     "season": "2001-02",
-    "title": "Tony Delk, Rodney Rogers, Joe Johnson Trade",
+    "title": "Joe Johnson, Tony Delk, Casey Jacobsen Trade",
     "description": "On 2002-02-20:  Suns acquire Joe Johnson  Celtics acquire Tony Delk",
     "is_multi_team": false,
     "teams": [
@@ -1702,7 +1702,7 @@
     "id": "c408cb22-3012-42f8-bc17-ecc424e31068",
     "date": "2002-02-21",
     "season": "2001-02",
-    "title": "Nick Van Exel, Raef LaFrentz, Avery Johnson Trade",
+    "title": "Raef LaFrentz, Juwan Howard, Nick Van Exel Trade",
     "description": "On 2002-02-21:  Nuggets acquire Juwan Howard  Mavericks acquire Nick Van Exel",
     "is_multi_team": false,
     "teams": [
@@ -1836,7 +1836,7 @@
     "id": "3dba5634-8c11-4779-a0b0-4b15b42c5cb6",
     "date": "2002-02-21",
     "season": "2001-02",
-    "title": "Marc Jackson Trade",
+    "title": "Marc Jackson, Jermareo Davidson, Dean Garrett Trade",
     "description": "On 2002-02-21:  Warriors acquire Dean Garrett  Timberwolves acquire Marc Jackson",
     "is_multi_team": false,
     "teams": [
@@ -1893,7 +1893,7 @@
     "id": "eff90902-b065-4cbd-acc8-92887f077436",
     "date": "2002-06-25",
     "season": "2001-02",
-    "title": "Hornets / Wizards Trade",
+    "title": "Juan Dixon, Courtney Alexander Trade",
     "description": "On 2002-06-25:  Wizards acquire 2002 first round pick (#17-Juan Dixon)  Hornets acquire Courtney Alexander",
     "is_multi_team": false,
     "teams": [
@@ -1950,7 +1950,7 @@
     "id": "180fdcd5-01e9-4b5f-9fc8-32dd6ff35dee",
     "date": "2002-06-26",
     "season": "2001-02",
-    "title": "76ers / Warriors Trade",
+    "title": "Jiri Welsch, Viktor Sanikidze, Joey Graham Trade",
     "description": "On 2002-06-26:  Warriors acquire rights to Jiri Welsch  76ers acquire 2004 draft pick (first round if Warriors have one of top 3 records in league next season, else second round pick) (#42-Viktor Sanikidze)",
     "is_multi_team": false,
     "teams": [
@@ -2018,7 +2018,7 @@
     "id": "c49e4512-b834-4008-8c12-c7325fb4e01a",
     "date": "2002-06-26",
     "season": "2001-02",
-    "title": "Mark Bryant Trade",
+    "title": "John Salmons, Speedy Claxton, Randy Holcomb Trade",
     "description": "On 2002-06-26:  Spurs acquire Speedy Claxton  76ers acquire Mark Bryant",
     "is_multi_team": false,
     "teams": [
@@ -2086,7 +2086,7 @@
     "id": "bfb92be1-f219-44eb-9598-64eb8b6db7fc",
     "date": "2002-06-26",
     "season": "2001-02",
-    "title": "76ers / Hawks Trade",
+    "title": "Royal Ivey, Efthimios Rentzias, Daniel Gibson Trade",
     "description": "On 2002-06-26:  Hawks acquire 2004 second round pick (#37-Royal Ivey)  76ers acquire rights to Efthimios Rentzias",
     "is_multi_team": false,
     "teams": [
@@ -2154,7 +2154,7 @@
     "id": "92faa797-a639-43d8-99a8-a95bac68931a",
     "date": "2002-06-26",
     "season": "2001-02",
-    "title": "Bucks / Magic Trade",
+    "title": "Jamal Sampson, Rashard Griffith Trade",
     "description": "On 2002-06-26:  Magic acquire rights to Rashard Griffith  Bucks acquire rights to Jamal Sampson",
     "is_multi_team": false,
     "teams": [
@@ -2200,7 +2200,7 @@
     "id": "ba087f7f-a91f-4671-acfb-55e9740f3450",
     "date": "2002-06-26",
     "season": "2001-02",
-    "title": "Jazz / Magic Trade",
+    "title": "Curtis Borchardt, Jamal Sampson, Ryan Humphrey Trade",
     "description": "On 2002-06-26:  Magic acquire rights to Ryan Humphrey  Jazz acquire rights to Curtis Borchardt",
     "is_multi_team": false,
     "teams": [
@@ -2257,7 +2257,7 @@
     "id": "6bad3cf4-fb1d-41df-a1b4-e871d5f426b7",
     "date": "2002-06-26",
     "season": "2001-02",
-    "title": "Nick Anderson Trade",
+    "title": "Wesley Person, Nick Anderson, Matt Barnes Trade",
     "description": "On 2002-06-26:  Grizzlies acquire Wesley Person  Cavaliers acquire Nick Anderson",
     "is_multi_team": false,
     "teams": [
@@ -2314,7 +2314,7 @@
     "id": "afca51c7-c7bc-453f-9937-fb567c55be0b",
     "date": "2002-06-26",
     "season": "2001-02",
-    "title": "Tracy Murray, Kareem Rush Trade",
+    "title": "Luke Walton, Kareem Rush, Remon Van de Hare Trade",
     "description": "On 2002-06-26:  Raptors acquire Lindsey Hunter  Lakers acquire Tracy Murray",
     "is_multi_team": false,
     "teams": [
@@ -2404,7 +2404,7 @@
     "id": "0d24ed3d-f91b-41ae-bcae-e85596b36363",
     "date": "2002-06-26",
     "season": "2001-02",
-    "title": "Bucks / Grizzlies Trade",
+    "title": "Chris Owens, Szymon Szewczyk Trade",
     "description": "On 2002-06-26:  Grizzlies acquire rights to Chris Owens  Bucks acquire 2003 second round pick (#35-Szymon Szewczyk)",
     "is_multi_team": false,
     "teams": [
@@ -2461,7 +2461,7 @@
     "id": "3c608964-dd7e-422b-87b5-9e3bbf4d8e0c",
     "date": "2002-06-26",
     "season": "2001-02",
-    "title": "Hawks / Kings Trade",
+    "title": "Dan Dickau, Carlos Delfino Trade",
     "description": "On 2002-06-26:  Kings acquire first round pick (2003 #25-Carlos Delfino)  Hawks acquire rights to Dan Dickau",
     "is_multi_team": false,
     "teams": [
@@ -2518,7 +2518,7 @@
     "id": "3b678ac7-5e9f-4c51-aaf8-d1a2df5aee99",
     "date": "2002-06-26",
     "season": "2001-02",
-    "title": "Antonio McDyess, Frank Williams, Marcus Camby Trade",
+    "title": "Marcus Camby, Antonio McDyess, Frank Williams Trade",
     "description": "On 2002-06-26:  Nuggets acquire Marcus Camby  Knicks acquire Antonio McDyess",
     "is_multi_team": false,
     "teams": [
@@ -2619,7 +2619,7 @@
     "id": "59791e20-6f51-49a8-836c-b07fefe9e5d6",
     "date": "2002-06-28",
     "season": "2001-02",
-    "title": "Grizzlies / Spurs Trade",
+    "title": "Gordan Giricek, Romain Sato Trade",
     "description": "On 2002-06-28:  Spurs acquire 2004 second round pick (#52-Romain Sato)  Grizzlies acquire rights to Gordan Giricek",
     "is_multi_team": false,
     "teams": [

@@ -3,7 +3,7 @@
     "id": "8b004352-9dc1-42e3-9ab4-fb48c033d142",
     "date": "1999-08-01",
     "season": "1999-00",
-    "title": "Pacers / Raptors (date 06-30 per Stats / 08-05 per Pacers media guide) Trade",
+    "title": "Antonio Davis, Jonathan Bender Trade",
     "description": "On 1999-08-01:  Raptors (date 06-30 per Stats, 08-05 per Pacers media guide) acquire Antonio Davis  Pacers acquire rights to Jonathan Bender",
     "is_multi_team": true,
     "teams": [
@@ -49,7 +49,7 @@
     "id": "b0216301-4e22-484f-b112-b6daf820b516",
     "date": "1999-08-02",
     "season": "1999-00",
-    "title": "Steve Smith (Delano), Ed Gray, Isaiah Rider Trade",
+    "title": "Jim Jackson, Isaiah Rider, Steve Smith (Delano) Trade",
     "description": "On 1999-08-02:  Hawks acquire Isaiah Rider  Blazers acquire Steve Smith (Delano)",
     "is_multi_team": false,
     "teams": [
@@ -128,7 +128,7 @@
     "id": "787987ea-1f4d-4081-93b3-331658a42f66",
     "date": "1999-08-03",
     "season": "1999-00",
-    "title": "Danny Fortson, Eric Williams, Eric Washington Trade",
+    "title": "Eric Williams, Danny Fortson, Kedrick Brown Trade",
     "description": "On 1999-08-03:  Nuggets acquire Ron Mercer  Celtics acquire Danny Fortson",
     "is_multi_team": false,
     "teams": [
@@ -229,7 +229,7 @@
     "id": "14d2baca-1e06-49b4-8fcd-1284a06fdfeb",
     "date": "1999-08-03",
     "season": "1999-00",
-    "title": "Nick Anderson Trade",
+    "title": "Nick Anderson, Tariq Abdul-Wahad, Kendrick Perkins Trade",
     "description": "On 1999-08-03:  Magic acquire Tariq Abdul-Wahad  Kings acquire Nick Anderson",
     "is_multi_team": false,
     "teams": [
@@ -343,7 +343,7 @@
     "id": "099b6c11-c3aa-416d-955d-edc781bec3f7",
     "date": "1999-08-05",
     "season": "1999-00",
-    "title": "Danny Manning, Pat Garrity Trade",
+    "title": "Pat Garrity, Anfernee Hardaway, Danny Manning Trade",
     "description": "On 1999-08-05:  Suns acquire Anfernee Hardaway  Magic acquire Danny Manning",
     "is_multi_team": false,
     "teams": [
@@ -422,7 +422,7 @@
     "id": "a619b933-6111-4154-ae0a-2dfcfbf303a1",
     "date": "1999-08-08",
     "season": "1999-00",
-    "title": "Clippers / Hawks Trade",
+    "title": "Quentin Richardson, Lorenzen Wright, Chris Wilcox Trade",
     "description": "On 1999-08-08:  Hawks acquire Lorenzen Wright  Clippers acquire conditional first round pick (lottery protected) (2000 #18-Quentin Richardson)",
     "is_multi_team": false,
     "teams": [
@@ -490,7 +490,7 @@
     "id": "0c8a4cb3-2655-4dba-b39f-8cf5bd650a80",
     "date": "1999-08-11",
     "season": "1999-00",
-    "title": "Terry Davis, Ben Wallace, Tim Legler Trade",
+    "title": "Ben Wallace, Terry Davis, Tim Legler Trade",
     "description": "On 1999-08-11:  Wizards acquire Isaac Austin  Magic acquire Terry Davis",
     "is_multi_team": false,
     "teams": [
@@ -569,7 +569,7 @@
     "id": "d3bf2339-b869-4293-bea8-a39ca92ab74a",
     "date": "1999-08-12",
     "season": "1999-00",
-    "title": "Hersey Hawkins, James Cotton Trade",
+    "title": "Brent Barry, Hersey Hawkins, James Cotton Trade",
     "description": "On 1999-08-12:  Sonics acquire Brent Barry  Bulls acquire Hersey Hawkins",
     "is_multi_team": false,
     "teams": [
@@ -626,7 +626,7 @@
     "id": "b051a390-820f-4533-87da-90b48ecf64a6",
     "date": "1999-08-13",
     "season": "1999-00",
-    "title": "Billy Owens, Harvey Grant, Anthony Parker Trade",
+    "title": "Billy Owens, Anthony Parker, Harvey Grant Trade",
     "description": "On 1999-08-13:  Magic acquire Harvey Grant  76ers acquire Billy Owens",
     "is_multi_team": false,
     "teams": [
@@ -683,7 +683,7 @@
     "id": "de8926d9-8f21-4760-b34c-b06c911575ff",
     "date": "1999-08-19",
     "season": "1999-00",
-    "title": "Danny Manning, Dale Ellis, Chris Gatling Trade",
+    "title": "Chris Gatling, Danny Manning, Dale Ellis Trade",
     "description": "On 1999-08-19:  Magic acquire Chris Gatling  Bucks acquire Danny Manning",
     "is_multi_team": false,
     "teams": [
@@ -751,7 +751,7 @@
     "id": "bd680cc5-7bf7-4e6e-ae2d-b7d2ffe74e0e",
     "date": "1999-08-27",
     "season": "1999-00",
-    "title": "Michael Dickerson, Othella Harrington, Brent Price Trade",
+    "title": "Steve Francis, Michael Dickerson, Othella Harrington Trade",
     "description": "On 1999-08-27:  Rockets acquire Tony Massenburg  Grizzlies acquire Michael Dickerson Other Team(s) Involved in Trade: Magic",
     "is_multi_team": true,
     "teams": [
@@ -934,7 +934,7 @@
     "id": "2624be3b-dbf2-4583-99bb-797dd13de3d7",
     "date": "1999-09-01",
     "season": "1999-00",
-    "title": "A.C. Green Trade",
+    "title": "A.C. Green, Sean Rooks, Pete Mickeal Trade",
     "description": "On 1999-09-01:  Mavericks acquire Sean Rooks  Lakers acquire A.C. Green",
     "is_multi_team": false,
     "teams": [
@@ -991,7 +991,7 @@
     "id": "07b6548d-2287-452c-a614-7682bd4873ca",
     "date": "1999-09-21",
     "season": "1999-00",
-    "title": "Lakers / Pistons Trade",
+    "title": "Derek Harper, Melvin Levett Trade",
     "description": "On 1999-09-21:  Pistons acquire Derek Harper  Lakers acquire rights to Melvin Levett",
     "is_multi_team": false,
     "teams": [
@@ -1037,7 +1037,7 @@
     "id": "60f2014e-32ba-460a-b83a-62bb4b0fe191",
     "date": "1999-09-21",
     "season": "1999-00",
-    "title": "Magic / Wizards Trade",
+    "title": "Laron Profit, Omar Cook Trade",
     "description": "On 1999-09-21:  Wizards acquire rights to Laron Profit  Magic acquire 2001 conditional second round pick (#32-Omar Cook)",
     "is_multi_team": false,
     "teams": [
@@ -1083,7 +1083,7 @@
     "id": "dc9da9fe-c0c1-4d4a-843f-07c06b325b20",
     "date": "1999-09-23",
     "season": "1999-00",
-    "title": "Eric Murdock Trade",
+    "title": "Johnny Newman, Eric Murdock Trade",
     "description": "On 1999-09-23:  Nets acquire Johnny Newman  Clippers acquire Eric Murdock",
     "is_multi_team": false,
     "teams": [
@@ -1129,7 +1129,7 @@
     "id": "807437fc-562c-48e3-834e-4a9b7799e08d",
     "date": "1999-09-29",
     "season": "1999-00",
-    "title": "Bulls / Mavericks Trade",
+    "title": "Chris Anstey, Dan Langhi Trade",
     "description": "On 1999-09-29:  Mavericks acquire 2000 second round pick (#31-Dan Langhi)  Bulls acquire Chris Anstey",
     "is_multi_team": false,
     "teams": [
@@ -1186,7 +1186,7 @@
     "id": "2042a602-d661-4edf-9564-3d6822434821",
     "date": "1999-10-02",
     "season": "1999-00",
-    "title": "Scottie Pippen, Walt Williams, Kelvin Cato Trade",
+    "title": "Scottie Pippen, Kelvin Cato, Walt Williams Trade",
     "description": "On 1999-10-02:  Rockets acquire Walt Williams  Blazers acquire Scottie Pippen",
     "is_multi_team": false,
     "teams": [
@@ -1287,7 +1287,7 @@
     "id": "0d8faa6f-0e5c-49a4-b882-aa39c847ed5a",
     "date": "1999-12-30",
     "season": "1999-00",
-    "title": "Clippers / Bobcats Trade",
+    "title": "Emeka Okafor, Shaun Livingston, Predrag Drobnjak Trade",
     "description": "On 1999-12-30:  Bobcats acquire 2004 first round pick (#2-Emeka Okafor)  Clippers acquire 2004 first round pick (#4-Shaun Livingston)",
     "is_multi_team": false,
     "teams": [
@@ -1355,7 +1355,7 @@
     "id": "f77fe13c-ed0d-4233-96d8-4d55d4693e7b",
     "date": "2000-01-19",
     "season": "1999-00",
-    "title": "Bucks / Hornets Trade",
+    "title": "Dale Ellis, Jason Hart, Chris Owens Trade",
     "description": "On 2000-01-19:  Hornets acquire Dale Ellis  Bucks acquire 2000 second round pick (#49-Jason Hart)",
     "is_multi_team": false,
     "teams": [
@@ -1412,7 +1412,7 @@
     "id": "0632a145-11a6-4f89-b187-f6707bd9e516",
     "date": "2000-02-01",
     "season": "1999-00",
-    "title": "Ron Mercer, Chauncey Billups, Johnny Taylor Trade",
+    "title": "Chris Gatling, Ron Mercer, Omar Cook Trade",
     "description": "On 2000-02-01:  Nuggets acquire Tariq Abdul-Wahad  Magic acquire Ron Mercer",
     "is_multi_team": false,
     "teams": [
@@ -1524,7 +1524,7 @@
     "id": "7f2e4214-63d7-4041-ab16-7c7c8e631673",
     "date": "2000-02-16",
     "season": "1999-00",
-    "title": "Toni Kukoc, Bruce Bowen, Larry Hughes Trade",
+    "title": "Larry Hughes, Billy Owens, Bruce Bowen Trade",
     "description": "On 2000-02-16:  Bulls acquire John Starks  Warriors acquire Larry Hughes Other Team(s) Involved in Trade: 76ers",
     "is_multi_team": true,
     "teams": [
@@ -1619,7 +1619,7 @@
     "id": "fa46c0aa-0e02-48af-a8b1-008059bd94f1",
     "date": "2000-02-24",
     "season": "1999-00",
-    "title": "Hawks / Magic Trade",
+    "title": "Anthony Johnson, Viktor Sanikidze Trade",
     "description": "On 2000-02-24:  Magic acquire Anthony Johnson  Hawks acquire 2000-2004 (Magic option) conditional second round pick (2004 #42-Viktor Sanikidze)",
     "is_multi_team": false,
     "teams": [
@@ -1676,7 +1676,7 @@
     "id": "df5ce312-5d4f-4ff1-a989-cf384b77de82",
     "date": "2000-06-23",
     "season": "1999-00",
-    "title": "Jazz / Nuggets Trade",
+    "title": "Mamadou N'diaye, Joseph Forte Trade",
     "description": "On 2000-06-23:  Nuggets acquire 2000 first round pick (#26-Mamadou N'diaye)  Jazz acquire 2001 first round pick (#21-Joseph Forte)",
     "is_multi_team": false,
     "teams": [
@@ -1722,7 +1722,7 @@
     "id": "1a8e986f-b2f2-4527-bb73-aa555d00b4f2",
     "date": "2000-06-27",
     "season": "1999-00",
-    "title": "Jason Caffey, Billy Owens, J.R. Reid Trade",
+    "title": "Jason Caffey, J.R. Reid, Robert Traylor Trade",
     "description": "On 2000-06-27:  Cavaliers acquire J.R. Reid  Bucks acquire Jason Caffey Other Team(s) Involved in Trade:Warriors",
     "is_multi_team": true,
     "teams": [
@@ -1817,7 +1817,7 @@
     "id": "40a38c0d-626f-42a8-b6b9-99c5faa807a8",
     "date": "2000-06-27",
     "season": "1999-00",
-    "title": "Chris Gatling, Voshon Lenard, Mark Strickland Trade",
+    "title": "Voshon Lenard, Eddie House, Chris Gatling Trade",
     "description": "On 2000-06-27:  Nuggets acquire Voshon Lenard  Heat acquire Chris Gatling",
     "is_multi_team": false,
     "teams": [
@@ -1885,7 +1885,7 @@
     "id": "3a2edd16-06bf-44d1-b3dd-124bfafcf374",
     "date": "2000-06-28",
     "season": "1999-00",
-    "title": "Bucks / Rockets Trade",
+    "title": "Joel Przybilla, Jason Collier, Jeryl Sasser Trade",
     "description": "On 2000-06-28:  Rockets acquire rights to Jason Collier  Bucks acquire rights to Joel Przybilla",
     "is_multi_team": false,
     "teams": [
@@ -1942,7 +1942,7 @@
     "id": "22c54560-c549-488c-9ab4-e3192b6b7849",
     "date": "2000-06-28",
     "season": "1999-00",
-    "title": "Jamal Crawford Trade",
+    "title": "Jamal Crawford, Chris Mihm Trade",
     "description": "On 2000-06-28:  Cavaliers acquire Chris Mihm  Bulls acquire Jamal Crawford",
     "is_multi_team": false,
     "teams": [
@@ -1999,7 +1999,7 @@
     "id": "4d463c68-d2be-4d22-b94e-442b6a996465",
     "date": "2000-06-28",
     "season": "1999-00",
-    "title": "Celtics / Sonics Trade",
+    "title": "Earl Watson, Josip Sesar, Michael Wright Trade",
     "description": "On 2000-06-28:  Sonics acquire 2001 second round pick (#38-Michael Wright)  Celtics acquire rights to Josip Sesar",
     "is_multi_team": false,
     "teams": [
@@ -2067,7 +2067,7 @@
     "id": "71e8c35f-8bdd-431d-b8f9-2ba2df7ee6cd",
     "date": "2000-06-28",
     "season": "1999-00",
-    "title": "Lakers / Spurs Trade",
+    "title": "Corey Hightower, Robertas Javtokas, Randy Holcomb Trade",
     "description": "On 2000-06-28:  Spurs acquire 2001 second round pick (#55-Robertas Javtokas)  Lakers acquire rights to Corey Hightower",
     "is_multi_team": false,
     "teams": [
@@ -2135,7 +2135,7 @@
     "id": "a4747fbe-713c-48fb-a1fd-cc4c8a4c5ee6",
     "date": "2000-06-28",
     "season": "1999-00",
-    "title": "Magic / Mavericks Trade",
+    "title": "Dan Langhi, Brandon Armstrong, Courtney Alexander Trade",
     "description": "On 2000-06-28:  Mavericks acquire rights to Courtney Alexander  Magic acquire 2000 second round pick (#31-Dan Langhi)",
     "is_multi_team": false,
     "teams": [
@@ -2203,7 +2203,7 @@
     "id": "db641ce6-56d5-4fc1-b16d-20dc8d29d811",
     "date": "2000-06-28",
     "season": "1999-00",
-    "title": "Clippers / Magic Trade",
+    "title": "Corey Maggette, Keyon Dooling, Derek Strong Trade",
     "description": "On 2000-06-28:  Magic acquire first round pick (top 21 protected in 2003, top 15 protected in 2004, top 14 protected in 2005) (2006 #22-Marcus Williams)  Clippers acquire Corey Maggette",
     "is_multi_team": false,
     "teams": [
@@ -2337,7 +2337,7 @@
     "id": "8a7221e3-3875-485c-b9b5-a8dd9650f7cc",
     "date": "2000-06-28",
     "season": "1999-00",
-    "title": "Sean Rooks Trade",
+    "title": "Sean Rooks, Eric Murdock, Dan Langhi Trade",
     "description": "On 2000-06-28:  Mavericks acquire Eric Murdock  Clippers acquire Sean Rooks",
     "is_multi_team": false,
     "teams": [
@@ -2394,7 +2394,7 @@
     "id": "3296bb5b-946a-45c9-82c1-235f989d827c",
     "date": "2000-06-28",
     "season": "1999-00",
-    "title": "Erick Strickland Trade",
+    "title": "Donnell Harvey, Erick Strickland, John Wallace Trade",
     "description": "On 2000-06-28:  Mavericks acquire John Wallace  Knicks acquire Erick Strickland",
     "is_multi_team": false,
     "teams": [
@@ -2462,7 +2462,7 @@
     "id": "8454c2cf-1c34-4961-85b3-ee22fa0693e6",
     "date": "2000-06-28",
     "season": "1999-00",
-    "title": "Mavericks / Rockets Trade",
+    "title": "Eduardo Najera, Kyle Hill, Dan Langhi Trade",
     "description": "On 2000-06-28:  Rockets acquire rights to Dan Langhi  Mavericks acquire rights to Eduardo Najera",
     "is_multi_team": false,
     "teams": [
