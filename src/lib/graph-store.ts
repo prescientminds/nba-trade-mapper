@@ -16,6 +16,89 @@ import type { VisualSkin } from './skins';
 import { getDraftInfo } from './draft-data';
 import type { StaticTrade } from './supabase';
 
+// ── Supabase data cache ──────────────────────────────────────────────
+// Session-level cache for reference data. Keyed by lowercase player name
+// or team ID. Fetch once per player/team, filter client-side thereafter.
+// Eliminates redundant Supabase calls when multiple functions request
+// overlapping subsets of the same player's data.
+
+interface PlayoffGameLogEntry {
+  season: string;
+  team_id: string;
+  game_date: string;
+  game_score: number;
+  game_margin: number | null;
+  pts: number;
+  trb: number;
+  ast: number;
+  opponent_id: string;
+  result: string | null;
+}
+
+const _playerSeasonsCache = new Map<string, PlayerSeason[]>();
+const _playerAccoladesCache = new Map<string, PlayerAccolade[]>();
+const _teamSeasonsCache = new Map<string, TeamSeason[]>();
+const _playerContractsCache = new Map<string, PlayerContract[]>();
+const _playoffGamesCache = new Map<string, PlayoffGameLogEntry[]>();
+
+async function cachedPlayerSeasons(sb: ReturnType<typeof getSupabase>, playerName: string): Promise<PlayerSeason[]> {
+  const key = playerName.toLowerCase();
+  if (_playerSeasonsCache.has(key)) return _playerSeasonsCache.get(key)!;
+  const { data } = await sb
+    .from('player_seasons').select('*')
+    .ilike('player_name', playerName)
+    .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
+  const result = data ?? [];
+  if (result.length > 0) _playerSeasonsCache.set(key, result);
+  return result;
+}
+
+async function cachedPlayerAccolades(sb: ReturnType<typeof getSupabase>, playerName: string): Promise<PlayerAccolade[]> {
+  const key = playerName.toLowerCase();
+  if (_playerAccoladesCache.has(key)) return _playerAccoladesCache.get(key)!;
+  const { data } = await sb
+    .from('player_accolades').select('*')
+    .ilike('player_name', playerName) as { data: PlayerAccolade[] | null };
+  const result = data ?? [];
+  if (result.length > 0) _playerAccoladesCache.set(key, result);
+  return result;
+}
+
+async function cachedTeamSeasons(sb: ReturnType<typeof getSupabase>, teamId: string): Promise<TeamSeason[]> {
+  if (_teamSeasonsCache.has(teamId)) return _teamSeasonsCache.get(teamId)!;
+  const { data } = await sb
+    .from('team_seasons').select('*')
+    .eq('team_id', teamId) as { data: TeamSeason[] | null };
+  const result = data ?? [];
+  if (result.length > 0) _teamSeasonsCache.set(teamId, result);
+  return result;
+}
+
+async function cachedPlayerContracts(sb: ReturnType<typeof getSupabase>, playerName: string): Promise<PlayerContract[]> {
+  const key = playerName.toLowerCase();
+  if (_playerContractsCache.has(key)) return _playerContractsCache.get(key)!;
+  const { data } = await sb
+    .from('player_contracts').select('*')
+    .ilike('player_name', playerName) as { data: PlayerContract[] | null };
+  const result = data ?? [];
+  if (result.length > 0) _playerContractsCache.set(key, result);
+  return result;
+}
+
+async function cachedPlayoffGames(sb: ReturnType<typeof getSupabase>, playerName: string): Promise<PlayoffGameLogEntry[]> {
+  const key = playerName.toLowerCase();
+  if (_playoffGamesCache.has(key)) return _playoffGamesCache.get(key)!;
+  const { data } = await sb
+    .from('playoff_game_logs')
+    .select('season,team_id,game_date,game_score,game_margin,pts,trb,ast,opponent_id,result')
+    .ilike('player_name', playerName)
+    .not('game_score', 'is', null)
+    .order('game_score', { ascending: false }) as { data: PlayoffGameLogEntry[] | null };
+  const result = data ?? [];
+  if (result.length > 0) _playoffGamesCache.set(key, result);
+  return result;
+}
+
 // ── Suffix resolution ────────────────────────────────────────────────
 // Trade data uses "Glen Rice Sr." but player_seasons has "Glen Rice".
 // Conversely, BBRef scraper sometimes drops "Jr." that Kaggle data keeps.
@@ -54,12 +137,8 @@ async function fetchSeasonsWithVariants(
   let fallbackName = playerName;
 
   for (const variant of statsNameVariants(playerName)) {
-    const { data } = await sb
-      .from('player_seasons')
-      .select('*')
-      .ilike('player_name', variant)
-      .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
-    if (data && data.length > 0) {
+    const data = await cachedPlayerSeasons(sb, variant);
+    if (data.length > 0) {
       if (!teamId || data.some(s => s.team_id === teamId)) {
         return { seasons: data, resolvedName: variant };
       }
@@ -77,6 +156,7 @@ async function fetchSeasonsWithVariants(
     const firstName = parts[0];
     const lastName = parts[parts.length - 1];
     if (firstName && lastName && firstName !== lastName) {
+      // Diacritics fallback can't use the name-keyed cache — uses a pattern query
       const { data } = await sb
         .from('player_seasons')
         .select('*')
@@ -88,6 +168,8 @@ async function fetchSeasonsWithVariants(
         const target = stripDiacritics(playerName).toLowerCase();
         if (normalized === target || normalized.startsWith(target.replace(SUFFIX_RE, '').trim())) {
           const resolved = data[0].player_name;
+          // Populate cache under the resolved name for future lookups
+          _playerSeasonsCache.set(resolved.toLowerCase(), data);
           if (!teamId || data.some(s => s.team_id === teamId)) {
             return { seasons: data, resolvedName: resolved };
           }
@@ -216,11 +298,18 @@ export interface GapNodeData {
 }
 
 // ── Championship node data ───────────────────────────────────────────
+export interface ChampionshipIngredients {
+  tradePct: number;
+  draftPct: number;
+  faPct: number;
+}
+
 export interface ChampionshipNodeData {
   teamId: string;
   season: string;
   teamName: string;
   teamColor: string;
+  ingredients?: ChampionshipIngredients;
   players: Array<{
     playerName: string;
     avgPpg: number | null;
@@ -375,7 +464,8 @@ function makeChampionshipNode(
   teamName: string,
   teamColor: string,
   players: ChampionshipNodeData['players'],
-  position = { x: 0, y: 0 }
+  position = { x: 0, y: 0 },
+  ingredients?: ChampionshipIngredients,
 ): Node {
   return {
     id: championshipNodeId(teamId, season),
@@ -387,6 +477,7 @@ function makeChampionshipNode(
       teamName,
       teamColor,
       players,
+      ...(ingredients ? { ingredients } : {}),
     } satisfies ChampionshipNodeData,
   };
 }
@@ -1610,22 +1701,18 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       if (st) staticTradeCache.set(tid, st);
     }
 
-    // Process each player in parallel
+    // Process each player in parallel (using session cache)
     const playerResults = await Promise.all(valuablePlayers.map(async (vp) => {
       const nodes: Node[] = [];
       const edges: Edge[] = [];
 
-      // Fetch seasons + accolades in parallel
-      const seasonsPromise = sb.from('player_seasons').select('*')
-        .ilike('player_name', vp.name)
-        .order('season', { ascending: true }) as unknown as Promise<{ data: PlayerSeason[] | null }>;
-      const accoladesPromise = sb.from('player_accolades').select('*')
-        .ilike('player_name', vp.name) as unknown as Promise<{ data: PlayerAccolade[] | null }>;
-      const [seasonsRes, accoladesRes] = await Promise.all([seasonsPromise, accoladesPromise]);
+      // Fetch seasons + accolades in parallel (cached per player)
+      const [allSeasons, allAccolades] = await Promise.all([
+        cachedPlayerSeasons(sb, vp.name),
+        cachedPlayerAccolades(sb, vp.name),
+      ]);
 
-      const allSeasons = seasonsRes.data;
-      const allAccolades = accoladesRes.data;
-      if (!allSeasons || allSeasons.length === 0) {
+      if (allSeasons.length === 0) {
         // No season data — bridge entry → exit trade directly
         if (vp.exitTradeId && vp.entryTradeId) {
           edges.push(makeEdge(tradeNodeId(vp.entryTradeId), tradeNodeId(vp.exitTradeId)));
@@ -1852,17 +1939,14 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     const sb = getSupabase();
 
-    // Fetch full career data for all players in parallel
+    // Fetch full career data for all players in parallel (using session cache)
     const playerDataResults = await Promise.all(
       playerNames.map(async (name) => {
-        const [seasonsRes, accoladesRes] = await Promise.all([
-          sb.from('player_seasons').select('*')
-            .ilike('player_name', name)
-            .order('season', { ascending: true }) as unknown as Promise<{ data: PlayerSeason[] | null }>,
-          sb.from('player_accolades').select('*')
-            .ilike('player_name', name) as unknown as Promise<{ data: PlayerAccolade[] | null }>,
+        const [seasons, accolades] = await Promise.all([
+          cachedPlayerSeasons(sb, name),
+          cachedPlayerAccolades(sb, name),
         ]);
-        return { name, seasons: seasonsRes.data, accolades: accoladesRes.data };
+        return { name, seasons: seasons.length > 0 ? seasons : null, accolades: accolades.length > 0 ? accolades : null };
       })
     );
 
@@ -2585,66 +2669,42 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     const { playerName, teamId, seasons } = stintNode.data as PlayerStintNodeData;
     const sb = getSupabase();
+    const seasonsSet = new Set(seasons);
 
-    // Fetch per-season stats
-    const { data: seasonStats } = await sb
-      .from('player_seasons')
-      .select('*')
-      .ilike('player_name', playerName)
-      .eq('team_id', teamId)
-      .in('season', seasons)
-      .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
+    // Fetch all 5 data sources in parallel using session cache, then filter client-side
+    const [allPlayerSeasons, allTeamSeasons, allAccolades, allContracts, allPlayoffGames] = await Promise.all([
+      cachedPlayerSeasons(sb, playerName),
+      cachedTeamSeasons(sb, teamId),
+      cachedPlayerAccolades(sb, playerName),
+      cachedPlayerContracts(sb, playerName),
+      cachedPlayoffGames(sb, playerName),
+    ]);
 
-    // Fetch team seasons
-    const { data: teamSeasons } = await sb
-      .from('team_seasons')
-      .select('*')
-      .eq('team_id', teamId)
-      .in('season', seasons) as { data: TeamSeason[] | null };
+    // Filter to this stint's team + seasons
+    const seasonStats = allPlayerSeasons.filter(s => s.team_id === teamId && seasonsSet.has(s.season));
+    const teamSeasons = allTeamSeasons.filter(ts => seasonsSet.has(ts.season));
 
     const teamSeasonMap = new Map<string, TeamSeason>();
-    if (teamSeasons) {
-      for (const ts of teamSeasons) teamSeasonMap.set(ts.season, ts);
-    }
+    for (const ts of teamSeasons) teamSeasonMap.set(ts.season, ts);
 
-    // Fetch accolades
-    const { data: accolades } = await sb
-      .from('player_accolades')
-      .select('*')
-      .ilike('player_name', playerName)
-      .in('season', seasons) as { data: PlayerAccolade[] | null };
+    const accolades = allAccolades.filter(a => a.season && seasonsSet.has(a.season));
 
     const accoladesByS = new Map<string, string[]>();
-    if (accolades) {
-      for (const a of accolades) {
-        if (!a.season) continue;
-        if (!accoladesByS.has(a.season)) accoladesByS.set(a.season, []);
-        accoladesByS.get(a.season)!.push(a.accolade);
-      }
+    for (const a of accolades) {
+      if (!a.season) continue;
+      if (!accoladesByS.has(a.season)) accoladesByS.set(a.season, []);
+      accoladesByS.get(a.season)!.push(a.accolade);
     }
 
-    // Fetch contracts
-    const { data: contracts } = await sb
-      .from('player_contracts')
-      .select('*')
-      .ilike('player_name', playerName)
-      .eq('team_id', teamId)
-      .in('season', seasons) as { data: PlayerContract[] | null };
+    const contracts = allContracts.filter(c => c.team_id === teamId && seasonsSet.has(c.season));
 
     const contractMap = new Map<string, PlayerContract>();
-    if (contracts) {
-      for (const c of contracts) contractMap.set(c.season, c);
-    }
+    for (const c of contracts) contractMap.set(c.season, c);
 
-    // Fetch playoff game logs for peak game badges
-    const { data: playoffGames } = await sb
-      .from('playoff_game_logs')
-      .select('season,game_date,game_score,game_margin,pts,trb,ast,opponent_id,result')
-      .ilike('player_name', playerName)
-      .eq('team_id', teamId)
-      .in('season', seasons)
-      .not('game_score', 'is', null)
-      .order('game_score', { ascending: false }) as { data: { season: string; game_date: string; game_score: number; game_margin: number | null; pts: number; trb: number; ast: number; opponent_id: string; result: string | null }[] | null };
+    // Filter playoff game logs for this team + seasons
+    const playoffGames = allPlayoffGames
+      .filter(g => g.team_id === teamId && seasonsSet.has(g.season))
+      .sort((a, b) => b.game_score - a.game_score);
 
     // Compute game numbers within each series and build series data
     const peakGamesBySeason = new Map<string, PlayoffPeakGame[]>();
@@ -2899,36 +2959,35 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     const stint = stints[matchedIdx];
     const stintSeasons = stint.seasons.map(s => s.season);
+    const stintSeasonsSet = new Set(stintSeasons);
 
-    // Fetch accolades, team seasons, contracts, and playoff game logs in parallel
-    const [accoladesResult, teamSeasonsResult, contractsResult, playoffGamesResult] = await Promise.all([
-      sb.from('player_accolades').select('*').ilike('player_name', resolvedName).in('season', stintSeasons),
-      sb.from('team_seasons').select('*').eq('team_id', toTeamId).in('season', stintSeasons),
-      sb.from('player_contracts').select('*').ilike('player_name', resolvedName).eq('team_id', toTeamId).in('season', stintSeasons),
-      sb.from('playoff_game_logs').select('season,game_date,game_score,game_margin,pts,trb,ast,opponent_id,result').ilike('player_name', resolvedName).eq('team_id', toTeamId).in('season', stintSeasons).not('game_score', 'is', null).order('game_score', { ascending: false }),
+    // Fetch all data in parallel using session cache, then filter client-side
+    const [allAccolades, allTeamSeasons, allContracts, allPlayoffGames] = await Promise.all([
+      cachedPlayerAccolades(sb, resolvedName),
+      cachedTeamSeasons(sb, toTeamId),
+      cachedPlayerContracts(sb, resolvedName),
+      cachedPlayoffGames(sb, resolvedName),
     ]);
 
-    const accolades = accoladesResult.data as PlayerAccolade[] | null;
-    const teamSeasons = teamSeasonsResult.data as TeamSeason[] | null;
-    const contracts = contractsResult.data as PlayerContract[] | null;
-    const playoffGames = playoffGamesResult.data as { season: string; game_date: string; game_score: number; game_margin: number | null; pts: number; trb: number; ast: number; opponent_id: string; result: string | null }[] | null;
+    const accolades = allAccolades.filter(a => a.season && stintSeasonsSet.has(a.season));
+    const teamSeasons = allTeamSeasons.filter(ts => stintSeasonsSet.has(ts.season));
+    const contracts = allContracts.filter(c => c.team_id === toTeamId && stintSeasonsSet.has(c.season));
+    const playoffGames = allPlayoffGames
+      .filter(g => g.team_id === toTeamId && stintSeasonsSet.has(g.season))
+      .sort((a, b) => b.game_score - a.game_score);
 
     const contractMap = new Map<string, PlayerContract>();
-    if (contracts) {
-      for (const c of contracts) contractMap.set(c.season, c);
-    }
+    for (const c of contracts) contractMap.set(c.season, c);
 
     const accoladesByS = new Map<string, string[]>();
-    if (accolades) {
-      for (const a of accolades) {
-        if (!a.season) continue;
-        if (!accoladesByS.has(a.season)) accoladesByS.set(a.season, []);
-        accoladesByS.get(a.season)!.push(a.accolade);
-      }
+    for (const a of accolades) {
+      if (!a.season) continue;
+      if (!accoladesByS.has(a.season)) accoladesByS.set(a.season, []);
+      accoladesByS.get(a.season)!.push(a.accolade);
     }
 
     const teamSeasonMap = new Map<string, TeamSeason>();
-    if (teamSeasons) for (const ts of teamSeasons) teamSeasonMap.set(ts.season, ts);
+    for (const ts of teamSeasons) teamSeasonMap.set(ts.season, ts);
 
     // Build playoff peak games and series data (same logic as expandStintDetails)
     const peakGamesBySeason = new Map<string, PlayoffPeakGame[]>();
@@ -3101,14 +3160,11 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       const forwardStints = stints.slice(startIdx);
       const allForwardSeasons = forwardStints.flatMap(s => s.seasons.map(ss => ss.season));
 
-      // Fetch accolades and inter-stint trades in parallel
-      const accoladesPromise = Promise.resolve(
-        sb
-          .from('player_accolades')
-          .select('*')
-          .ilike('player_name', resolvedName)
-          .in('season', allForwardSeasons)
-      ).then(r => r.data as PlayerAccolade[] | null).catch(() => null);
+      // Fetch accolades (cached) and inter-stint trades in parallel
+      const forwardSeasonsSet = new Set(allForwardSeasons);
+      const accoladesPromise = cachedPlayerAccolades(sb, resolvedName)
+        .then(all => all.filter(a => a.season && forwardSeasonsSet.has(a.season)))
+        .catch(() => [] as PlayerAccolade[]);
 
       const interStintPromises: Promise<StaticTrade | null>[] = [];
       for (let i = 0; i < forwardStints.length - 1; i++) {
@@ -3291,15 +3347,12 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
       const historicalStints = stints.slice(0, endIdx + 1);
       const allHistoricalSeasons = historicalStints.flatMap(s => s.seasons.map(ss => ss.season));
+      const historicalSeasonsSet = new Set(allHistoricalSeasons);
 
-      // Fetch accolades and inter-stint trades in parallel
-      const accoladesPromise = Promise.resolve(
-        sb
-          .from('player_accolades')
-          .select('*')
-          .ilike('player_name', resolvedName)
-          .in('season', allHistoricalSeasons)
-      ).then(r => r.data as PlayerAccolade[] | null).catch(() => null);
+      // Fetch accolades (cached) and inter-stint trades in parallel
+      const accoladesPromise = cachedPlayerAccolades(sb, resolvedName)
+        .then(all => all.filter(a => a.season && historicalSeasonsSet.has(a.season)))
+        .catch(() => [] as PlayerAccolade[]);
 
       const interStintPromises: Promise<StaticTrade | null>[] = [];
       for (let i = 0; i < historicalStints.length - 1; i++) {
@@ -3533,20 +3586,16 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const forwardStints = stints.slice(startIdx);
     const backwardStints = endIdx >= 0 ? stints.slice(0, endIdx + 1) : [];
 
-    // Collect ALL seasons for a single accolades query
-    const allRelevantSeasons = [
+    // Collect ALL seasons for accolades filtering
+    const allRelevantSeasons = new Set([
       ...backwardStints.flatMap(s => s.seasons.map(ss => ss.season)),
       ...forwardStints.flatMap(s => s.seasons.map(ss => ss.season)),
-    ];
+    ]);
 
-    // Fetch accolades for ALL stint seasons in one query
-    const accoladesPromise = Promise.resolve(
-      sb
-        .from('player_accolades')
-        .select('*')
-        .ilike('player_name', resolvedName)
-        .in('season', allRelevantSeasons)
-    ).then(r => r.data as PlayerAccolade[] | null).catch(() => null);
+    // Fetch accolades (cached full career, filter client-side)
+    const accoladesPromise = cachedPlayerAccolades(sb, resolvedName)
+      .then(all => all.filter(a => a.season && allRelevantSeasons.has(a.season)))
+      .catch(() => [] as PlayerAccolade[]);
 
     // Fetch inter-stint trades for FORWARD direction
     const forwardTradePromises: Promise<StaticTrade | null>[] = [];
@@ -3817,27 +3866,57 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   seedChampionshipRoster: async (teamId: string, season: string) => {
     const sb = getSupabase();
 
-    // 1. Fetch all players on this team in this season
-    const { data: rosterSeasons } = await sb
-      .from('player_seasons')
-      .select('*')
-      .eq('team_id', teamId)
-      .eq('season', season)
-      .order('playoff_ws', { ascending: false }) as { data: PlayerSeason[] | null };
+    // 1. Fetch roster + ingredients in parallel
+    const [{ data: rosterSeasons }, { data: ingredientsRows }] = await Promise.all([
+      sb
+        .from('player_seasons')
+        .select('*')
+        .eq('team_id', teamId)
+        .eq('season', season)
+        .order('playoff_ws', { ascending: false }) as unknown as Promise<{ data: PlayerSeason[] | null }>,
+      sb
+        .from('championship_ingredients')
+        .select('trade_pct, draft_pct, fa_pct')
+        .eq('team_id', teamId)
+        .eq('season', season)
+        .limit(1) as unknown as Promise<{ data: { trade_pct: number; draft_pct: number; fa_pct: number }[] | null }>,
+    ]);
 
     if (!rosterSeasons || rosterSeasons.length === 0) return;
 
-    // 2. For each player, fetch full career + draft info in parallel
+    const ingredients: ChampionshipIngredients | undefined = ingredientsRows?.[0]
+      ? { tradePct: ingredientsRows[0].trade_pct, draftPct: ingredientsRows[0].draft_pct, faPct: ingredientsRows[0].fa_pct }
+      : undefined;
+
+    // 2. Batch-fetch all players' full careers in ONE query (replaces N individual queries)
+    const rosterNames = [...new Set(rosterSeasons.map(ps => ps.player_name))];
+    const { data: allCareers } = await sb
+      .from('player_seasons').select('*')
+      .in('player_name', rosterNames)
+      .order('season', { ascending: true }) as { data: PlayerSeason[] | null };
+
+    // Populate the session cache for each player while we have the data
+    const careersByPlayer = new Map<string, PlayerSeason[]>();
+    if (allCareers) {
+      for (const s of allCareers) {
+        const key = s.player_name;
+        if (!careersByPlayer.has(key)) careersByPlayer.set(key, []);
+        careersByPlayer.get(key)!.push(s);
+      }
+      // Warm the cache so later calls (expandStintDetails etc.) don't re-fetch
+      for (const [name, seasons] of careersByPlayer) {
+        _playerSeasonsCache.set(name.toLowerCase(), seasons);
+      }
+    }
+
+    // For each player, build stint data + draft info in parallel
     const playerDataPromises = rosterSeasons.map(async (ps) => {
-      const [allSeasonsRes, draftInfo] = await Promise.all([
-        sb.from('player_seasons').select('*')
-          .ilike('player_name', ps.player_name)
-          .order('season', { ascending: true }) as unknown as Promise<{ data: PlayerSeason[] | null }>,
+      const [allSeasons, draftInfo] = await Promise.all([
+        Promise.resolve(careersByPlayer.get(ps.player_name) ?? []),
         getDraftInfo(ps.player_name).catch(() => null),
       ]);
 
-      const allSeasons = allSeasonsRes.data;
-      if (!allSeasons || allSeasons.length === 0) return null;
+      if (allSeasons.length === 0) return null;
 
       const stints = groupIntoStints(allSeasons.filter(s => s.team_id));
       const champIdx = stints.findIndex(s =>
@@ -3888,6 +3967,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
           totalWinShares: sum(champStint.seasons.map(s => s.win_shares)),
         };
       }),
+      { x: 0, y: 0 },
+      ingredients,
     );
 
     set({
@@ -4332,29 +4413,30 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     const champStint = playerData.allStints[playerData.championshipStintIndex];
     const stintSeasons = champStint.seasons.map(s => s.season);
+    const stintSeasonsSet = new Set(stintSeasons);
 
     const sb = getSupabase();
-    const [accoladesResult, teamSeasonsResult, playoffGamesResult] = await Promise.all([
-      sb.from('player_accolades').select('*').ilike('player_name', playerName).in('season', stintSeasons),
-      sb.from('team_seasons').select('*').eq('team_id', ctx.teamId).in('season', stintSeasons),
-      sb.from('playoff_game_logs').select('season,game_date,game_score,game_margin,pts,trb,ast,opponent_id,result').ilike('player_name', playerName).eq('team_id', ctx.teamId).in('season', stintSeasons).not('game_score', 'is', null).order('game_score', { ascending: false }),
+    const [allAccolades, allTeamSeasons, allPlayoffGames] = await Promise.all([
+      cachedPlayerAccolades(sb, playerName),
+      cachedTeamSeasons(sb, ctx.teamId),
+      cachedPlayoffGames(sb, playerName),
     ]);
 
-    const accolades = accoladesResult.data as PlayerAccolade[] | null;
-    const teamSeasons = teamSeasonsResult.data as TeamSeason[] | null;
-    const playoffGames = playoffGamesResult.data as { season: string; game_date: string; game_score: number; game_margin: number | null; pts: number; trb: number; ast: number; opponent_id: string; result: string | null }[] | null;
+    const accolades = allAccolades.filter(a => a.season && stintSeasonsSet.has(a.season));
+    const teamSeasons = allTeamSeasons.filter(ts => stintSeasonsSet.has(ts.season));
+    const playoffGames = allPlayoffGames
+      .filter(g => g.team_id === ctx.teamId && stintSeasonsSet.has(g.season))
+      .sort((a, b) => b.game_score - a.game_score);
 
     const accoladesByS = new Map<string, string[]>();
-    if (accolades) {
-      for (const a of accolades) {
-        if (!a.season) continue;
-        if (!accoladesByS.has(a.season)) accoladesByS.set(a.season, []);
-        accoladesByS.get(a.season)!.push(a.accolade);
-      }
+    for (const a of accolades) {
+      if (!a.season) continue;
+      if (!accoladesByS.has(a.season)) accoladesByS.set(a.season, []);
+      accoladesByS.get(a.season)!.push(a.accolade);
     }
 
     const teamSeasonMap = new Map<string, TeamSeason>();
-    if (teamSeasons) for (const ts of teamSeasons) teamSeasonMap.set(ts.season, ts);
+    for (const ts of teamSeasons) teamSeasonMap.set(ts.season, ts);
 
     // Build playoff peak games and series data
     const peakGamesBySeason = new Map<string, PlayoffPeakGame[]>();

@@ -2,9 +2,56 @@
 
 import { memo, useMemo, useState } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
-import { useGraphStore, ChampionshipNodeData } from '@/lib/graph-store';
+import { useGraphStore, ChampionshipNodeData, ChampionshipIngredients } from '@/lib/graph-store';
 import { SeasonTable } from '@/components/SeasonTable';
 import { ensureReadable, contrastText } from '@/lib/colors';
+
+const INGREDIENT_COLORS = { trade: '#f9c74f', draft: '#4ecdc4', fa: '#9b5de5' };
+
+function IngredientsBar({ ingredients }: { ingredients: ChampionshipIngredients }) {
+  const segments = [
+    { key: 'trade', pct: ingredients.tradePct, color: INGREDIENT_COLORS.trade, label: 'Trade' },
+    { key: 'draft', pct: ingredients.draftPct, color: INGREDIENT_COLORS.draft, label: 'Draft' },
+    { key: 'fa', pct: ingredients.faPct, color: INGREDIENT_COLORS.fa, label: 'FA' },
+  ].filter(s => s.pct >= 1);
+
+  return (
+    <div style={{ margin: '5px 0 2px' }}>
+      {/* Bar */}
+      <div style={{ display: 'flex', width: '100%', gap: 1, height: 10, marginBottom: 3 }}>
+        {segments.map((seg, i) => (
+          <div
+            key={seg.key}
+            style={{
+              width: `${seg.pct}%`,
+              height: '100%',
+              background: seg.color,
+              borderRadius: i === 0 && segments.length === 1 ? 2
+                : i === 0 ? '2px 0 0 2px'
+                : i === segments.length - 1 ? '0 2px 2px 0' : 0,
+            }}
+          />
+        ))}
+      </div>
+      {/* Legend */}
+      <div style={{ display: 'flex', gap: 6 }}>
+        {segments.map(s => (
+          <div key={s.key} style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <span style={{ width: 5, height: 5, borderRadius: 1, background: s.color, flexShrink: 0 }} />
+            <span style={{
+              fontSize: 7,
+              color: 'var(--text-muted)',
+              fontFamily: 'var(--font-body)',
+              letterSpacing: 0.2,
+            }}>
+              {s.label} {s.pct.toFixed(0)}%
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function ChampionshipNodeComponent({ id, data }: NodeProps) {
   const {
@@ -14,6 +61,7 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
     teamColor,
     players,
     inlinePlayers,
+    ingredients,
   } = data as ChampionshipNodeData;
 
   const expandTradeNode = useGraphStore((s) => s.expandTradeNode);
@@ -233,6 +281,11 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
       >
         {teamName}
       </div>
+
+      {/* Ingredients bar — trade / draft / FA breakdown */}
+      {ingredients && (
+        <IngredientsBar ingredients={ingredients} />
+      )}
 
       {/* Collapsed: player count */}
       {!isExpanded && (

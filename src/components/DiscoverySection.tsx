@@ -113,17 +113,6 @@ type VerdictFlipRow = {
   team_scores: Record<string, { score: number }>;
 };
 
-type DynastyRow = {
-  team_id: string;
-  season: string;
-  trade_pct: number;
-  draft_pct: number;
-  fa_pct: number;
-  top_trade_id: string | null;
-  top_trade_pws: number;
-  roster: { name: string; playoff_ws: number; acquisition: string; trade_id?: string }[];
-};
-
 /** Recursively walk the chain asset tree and collect all players with their chain score. */
 function flattenChainPlayers(assets: ChainAsset[]): { name: string; score: number }[] {
   const best = new Map<string, number>();
@@ -1390,11 +1379,6 @@ const METRIC_DEFS: Record<string, { metricLabel: string; metricExplanation: stri
     metricExplanation:
       `Total Win Shares generated through multiple rounds of trading — what one team accumulated by flipping assets. Only counts production while on that team. Requires depth ≥ 2 and chain adding 20%+ beyond direct value. Fractional attribution prevents double-counting. ${FORMULA_BASE}`,
   },
-  'dynasty-ingredients': {
-    metricLabel: '% Trade-Built',
-    metricExplanation:
-      'Percentage of the championship playoff run (by Playoff Win Shares) produced by trade-acquired players. Drafted players and free agent signings account for the rest. Shows how each ring was assembled.',
-  },
   'verdict-flips': {
     metricLabel: 'WS',
     metricExplanation:
@@ -1425,9 +1409,8 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
         let champs: ChampRow[] = [];
         let chainRows: ChainScoreRow[] = [];
         let verdictRows: VerdictFlipRow[] = [];
-        let dynastyRows: DynastyRow[] = [];
         try {
-          const [scoresRes, champsRes, chainRes, verdictRes, dynastyRes] = await Promise.all([
+          const [scoresRes, champsRes, chainRes, verdictRes] = await Promise.all([
             getSupabase()
               .from('trade_scores')
               .select('trade_id, lopsidedness, winner, team_scores')
@@ -1454,17 +1437,11 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
               .eq('verdict_flipped', true)
               .order('lopsidedness', { ascending: false })
               .limit(100) as unknown as Promise<{ data: VerdictFlipRow[] | null }>,
-            getSupabase()
-              .from('championship_ingredients')
-              .select('team_id, season, trade_pct, draft_pct, fa_pct, top_trade_id, top_trade_pws, roster')
-              .eq('league', league)
-              .order('trade_pct', { ascending: false }) as unknown as Promise<{ data: DynastyRow[] | null }>,
           ]);
           scores = scoresRes.data ?? [];
           champs = champsRes.data ?? [];
           chainRows = chainRes.data ?? [];
           verdictRows = verdictRes.data ?? [];
-          dynastyRows = dynastyRes.data ?? [];
         } catch (supabaseErr) {
           console.warn('[DiscoverySection] Supabase unavailable, showing static data only:', supabaseErr);
         }
@@ -1589,34 +1566,6 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
               badge: `${yr1Name} → ${yr5Name}`,
               date: entry.date,
               verdictFlip: { winner1yr: row.winner_1yr, winner5yr: row.winner_5yr },
-            };
-          })
-          .filter((c): c is TradeCard => c !== null)
-          .slice(0, 200);
-
-        // 0c. Dynasty Ingredients — how championship rosters were assembled
-        const dynastyCards: TradeCard[] = dynastyRows
-          .map((row): TradeCard | null => {
-            // Find the top trade in the search index
-            const topTradeEntry = row.top_trade_id ? indexMap.get(row.top_trade_id) : null;
-            const info = getAnyTeamDisplayInfo(row.team_id, `${row.season.split('-')[0]}-06-15`);
-            const teamName = info.name;
-            // Top 3 trade-acquired players by playoff WS
-            const tradeAcquired = (row.roster || [])
-              .filter((r: { acquisition: string }) => r.acquisition === 'trade')
-              .slice(0, 3)
-              .map((r: { name: string; playoff_ws: number }) => r.name);
-            return {
-              type: 'trade',
-              tradeId: row.top_trade_id || `dynasty-${row.team_id}-${row.season}`,
-              heading: `${row.season.split('-')[0]} ${teamName}`,
-              players: tradeAcquired.length > 0 ? tradeAcquired : [`${row.draft_pct.toFixed(0)}% drafted`],
-              season: row.season,
-              teams: [row.team_id],
-              winner: row.team_id,
-              metric: row.trade_pct,
-              badge: `${row.trade_pct.toFixed(0)}% trade-built`,
-              date: topTradeEntry?.date,
             };
           })
           .filter((c): c is TradeCard => c !== null)
@@ -1766,14 +1715,6 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             accentColor: 'var(--accent-teal)',
             ...METRIC_DEFS['trade-tree'],
             cards: chainCards,
-          },
-          {
-            id: 'dynasty-ingredients',
-            label: 'Dynasty Ingredients',
-            description: 'How each championship was assembled — the percentage of playoff production from trade-acquired players.',
-            accentColor: 'var(--accent-gold)',
-            ...METRIC_DEFS['dynasty-ingredients'],
-            cards: dynastyCards,
           },
           {
             id: 'verdict-flips',
