@@ -626,6 +626,13 @@ export default function TradeGradeCard({
       overflow: 'hidden',
     }}>
 
+      {/* Watermark */}
+      <img src="/watermark.png" alt="" style={{
+        position: 'absolute', top: 12, left: 12,
+        width: 40, height: 40, borderRadius: '50%',
+        zIndex: 10, opacity: 0.85,
+      }} />
+
       {/* ── TOP: Hero zone (~65%) — two team sections side by side ── */}
       <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
 

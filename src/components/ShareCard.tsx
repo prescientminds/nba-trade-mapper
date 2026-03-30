@@ -384,6 +384,13 @@ function OGCard(props: ShareCardProps) {
       overflow: 'hidden',
     }}>
 
+      {/* Watermark */}
+      <img src="/watermark.png" alt="" style={{
+        position: 'absolute', top: 12, left: 12,
+        width: 40, height: 40, borderRadius: '50%',
+        zIndex: 10, opacity: 0.85,
+      }} />
+
       {/* ── BODY: full-bleed team sections, no header bar ── */}
       <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
         {teams.map(([teamId, td], idx) => {
@@ -658,7 +665,15 @@ function SquareCard(props: ShareCardProps) {
       borderRadius: sk.cardRadius,
       boxShadow: sk.cardShadow,
       overflow: 'hidden',
+      position: 'relative',
     }}>
+      {/* Watermark */}
+      <img src="/watermark.png" alt="" style={{
+        position: 'absolute', top: 12, left: 12,
+        width: 40, height: 40, borderRadius: '50%',
+        zIndex: 10, opacity: 0.85,
+      }} />
+
       {teams.map(([teamId, td], idx) => {
         const c = CARD_TEAM_COLORS[teamId] || '#888';
         const c2 = CARD_TEAM_SECONDARY[teamId] || c;
@@ -888,7 +903,15 @@ function StoryCard(props: ShareCardProps) {
       borderRadius: sk.cardRadius,
       boxShadow: sk.cardShadow,
       overflow: 'hidden',
+      position: 'relative',
     }}>
+      {/* Watermark */}
+      <img src="/watermark.png" alt="" style={{
+        position: 'absolute', top: 12, left: 12,
+        width: 40, height: 40, borderRadius: '50%',
+        zIndex: 10, opacity: 0.85,
+      }} />
+
       {teams.map(([teamId, td], idx) => {
         const c = CARD_TEAM_COLORS[teamId] || '#888';
         const c2 = CARD_TEAM_SECONDARY[teamId] || c;
