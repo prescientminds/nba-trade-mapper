@@ -1511,15 +1511,22 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             const chainPlayers = flattenChainPlayers(winnerData.assets);
 
             // Build narrative heading: "Turned FirstName LastName into A, B, C…"
-            // The outgoing player = what the winning team SENT AWAY to start the chain
-            const winnerIdx = entry.teams.indexOf(winnerTeam);
-            const outgoingPlayer = winnerIdx >= 0 && entry.topAssets?.[winnerIdx]
-              ? entry.topAssets[winnerIdx]
-              : null;
+            // The outgoing player = what the winning team SENT AWAY.
+            // Derive from chain_scores: the non-winner team's assets are what they RECEIVED
+            // (= what the winner sent). Pick the highest-direct-WS player from other teams.
+            let outgoingPlayer: string | null = null;
+            for (const [teamId, teamData] of sorted) {
+              if (teamId === winnerTeam) continue;
+              const topSent = teamData.assets
+                .filter(a => a.type === 'player' && a.direct > 0)
+                .sort((a, b) => b.direct - a.direct);
+              if (topSent.length > 0 && (!outgoingPlayer || topSent[0].direct > 0)) {
+                outgoingPlayer = topSent[0].name;
+                break;
+              }
+            }
             // All chain players sorted by WS — these are what the team got back
-            // Exclude the outgoing player to avoid "Turned X into X, ..." in multi-team trades
-            const chainNames = chainPlayers.map((p) => p.name)
-              .filter(n => n !== outgoingPlayer);
+            const chainNames = chainPlayers.map((p) => p.name);
 
             let chainHeading: string;
             if (outgoingPlayer && chainNames.length > 0) {
