@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Our Team | NBA Trade Impact Mapper',
+  title: 'Our Team | NBA Trade Mapper',
   description:
-    'The people behind NBA Trade Impact Mapper.',
+    'The people behind NBA Trade Mapper.',
 };
 
 export default function TeamPage() {
@@ -224,6 +224,13 @@ const team: {
     stats: '9 years advance scouting \u00b7 312 scouting reports filed \u00b7 1 trade graded F',
   },
   {
+    name: 'EZRA KATZ',
+    title: 'Senior Writer',
+    image: '/images/team/ezra-katz.png',
+    bio: `The autographed Kevin Durant rookie card sits in a UV-protective case on his desk \u2014 won at Congregation Beth Shalom\u2019s annual trivia bowl in the spring of 2007. His father ran community relations for the Seattle SuperSonics.\n\nThree weeks after the trivia bowl, the Sonics hired Sam Presti as general manager. Presti drafted Durant that June. The following year he drafted Russell Westbrook. The year after that, James Harden. Three future MVPs in three consecutive drafts. Katz watched it happen from Seattle \u2014 the best roster construction in the history of the league, assembled in real time, for a franchise that was already leaving. The team moved to Oklahoma City in 2008. His father\u2019s position was eliminated.\n\nHe covers front office strategy \u2014 the draft picks nobody noticed, the two-way contracts that became rotation players, the cap decisions that built or broke a five-year window. He has an MFA from the Iowa Writers\u2019 Workshop. His thesis was a collection of short stories about competitive swimmers. Katz does not discuss Oklahoma City.`,
+    stats: 'Seattle \u00b7 Iowa Writers\u2019 Workshop MFA, 2009 \u00b7 1 Kevin Durant rookie card (Congregation Beth Shalom Trivia Bowl, 2007)',
+  },
+  {
     name: 'MARA KINGSLEY',
     title: 'NBA Analyst',
     image: '/images/team/mara-kingsley.png',
@@ -276,5 +283,12 @@ const team: {
     image: '/images/team/jessie-tran.png',
     bio: `She maintains the data pipeline, the scraping scripts, the Supabase schema, and the daily update workflow. She is supposed to be at Virginia Tech finishing a computer science degree. That was the plan two years ago when she started as a summer intern writing import scripts. Her parents have asked about the degree three times. She has answered three times that she\u2019s taking a gap year.\n\nShe found the parseFloat bug \u2014 a single line storing every player with exactly zero Win Shares as null, no error, no log entry, 340 rows silently wrong. She once logged into the production database at 2 a.m. because Xu\u2019s query was returning a number that couldn\u2019t be right. The number was right. The trade was just that bad.`,
     stats: '2 years (ongoing) \u00b7 Found the parseFloat bug (340 rows) \u00b7 1 gap year (extended) \u00b7 3 parental inquiries (deflected)',
+  },
+  {
+    name: 'TALIA SANTOS',
+    title: 'On-Camera Correspondent & Creator',
+    image: '/images/team/talia-santos.png',
+    bio: `A D1 swimmer at the University of Miami, Talia Santos was chosen to host Quibi\u2019s revival of the Wild On! franchise \u2014 spring break beaches, nightlife, the format. COVID turned spring break into a political lightning rod. Quibi crashed. The show never aired.\n\nShe subbed in as an ambassador at the 2020 Summer Olympics in Tokyo after the original ambassador was immunocompromised and refused to attend. She covered BMX \u2014 Hannah Roberts, Perris Benegas, Nick Bruce. She returned with NBC for the 2024 Paris Games as a social media coordinator covering basketball, becoming the go-to voice for Team USA gossip, sparking speculation that Anthony Edwards and Kevin Durant might team up in Minnesota. Her interview with Edwards in Le Marais \u2014 followed by a 4 a.m. video of a hotel hallway \u2014 got six million views.\n\nThe daughter of a Cuban father and a Japanese mother. A board member of Dyslexic Miami, she is an advocate for different types of intelligence and for spreading the joy and love for the game of basketball and the people who play it. She does not write. Everything is video. She carries the Trade Mapper database in her head and deploys CATV scores on camera without notes. Derek May and Lil Baby have reportedly slid into her DMs.\n\nShe believes every trade is ultimately about ego. To her, there are two categories of men \u2014 those who name their first son after themselves, and those who don\u2019t. She won\u2019t say which she prefers.`,
+    stats: 'D1 swimming, Miami \u00b7 Quibi (RIP) \u00b7 Tokyo 2020 \u00b7 NBC, Paris 2024 \u00b7 6M views (Le Marais) \u00b7 Does not write',
   },
 ];

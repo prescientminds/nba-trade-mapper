@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'How We Score Trades | NBA Trade Impact Mapper',
+  title: 'How We Score Trades | NBA Trade Mapper',
   description:
     'Our methodology for evaluating NBA trades: Win Shares, playoff premium, contribution-weighted championships, and accolade bonuses.',
 };

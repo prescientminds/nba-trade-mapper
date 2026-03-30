@@ -6,17 +6,17 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://nbatrades.vercel.app",
   ),
-  title: "NBA Trade Impact Mapper",
+  title: "NBA Trade Mapper",
   description: "Trace the ripple effects of NBA trades across time",
   openGraph: {
-    title: "NBA Trade Impact Mapper",
+    title: "NBA Trade Mapper",
     description: "Trace the ripple effects of NBA trades across time",
-    siteName: "NBA Trade Impact Mapper",
+    siteName: "NBA Trade Mapper",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "NBA Trade Impact Mapper",
+    title: "NBA Trade Mapper",
     description: "Trace the ripple effects of NBA trades across time",
   },
 };

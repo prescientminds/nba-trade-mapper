@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!data) {
     return {
-      title: 'NBA Trade Impact Mapper',
+      title: 'NBA Trade Mapper',
       description: 'Trace the ripple effects of NBA trades across time',
     };
   }
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title,
       description,
-      siteName: 'NBA Trade Impact Mapper',
+      siteName: 'NBA Trade Mapper',
       type: 'website',
       images: [`/s/${id}/og`],
     },
