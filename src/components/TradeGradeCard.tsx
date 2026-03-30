@@ -577,7 +577,12 @@ export default function TradeGradeCard({
   }) as [string, TeamScoreEntry][];
 
   const gradeW = getTradeGrade(teams[0][1].score);
-  const gradeL = teams.length > 1 ? getTradeGrade(teams[1][1].score) : null;
+  // Loser's grade factors in what they gave up: effective = score × (score / winner_score).
+  // Close trades barely change; blowouts drop hard.
+  const loserEffective = teams.length > 1 && teams[0][1].score > 0
+    ? teams[1][1].score * (teams[1][1].score / teams[0][1].score)
+    : teams.length > 1 ? teams[1][1].score : 0;
+  const gradeL = teams.length > 1 ? getTradeGrade(loserEffective) : null;
 
   const cW = CARD_TEAM_COLORS[teams[0][0]] || '#888';
   const cL = teams.length > 1 ? (CARD_TEAM_COLORS[teams[1][0]] || '#888') : '#888';
