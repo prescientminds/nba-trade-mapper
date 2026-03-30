@@ -243,7 +243,7 @@ export default function SearchOverlay() {
         border: '1px solid var(--border-medium)',
         borderRadius: 'var(--radius-md)',
         maxHeight: 400,
-        overflowY: 'auto',
+        overflowY: 'scroll',
         backdropFilter: 'blur(20px)',
         boxShadow: 'var(--shadow-lg)',
         animation: 'slideDown 0.2s ease-out',

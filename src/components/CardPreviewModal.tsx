@@ -7,6 +7,7 @@ import { CARD_TEAM_COLORS, CARD_TEAM_SECONDARY } from '@/lib/card-templates';
 import { CARD_SKINS, type CardSkin } from '@/lib/skins';
 import { useHeadshots } from '@/components/cards/shared/useHeadshots';
 import { useTemplates } from '@/components/cards/shared/useTemplates';
+import { useWatermark } from '@/components/cards/shared/useWatermark';
 import { captureElement, FORMAT_DIMS, FORMAT_LABELS, type Format } from '@/components/cards/shared/capture';
 import ShareCard from './ShareCard';
 import TradeGradeCard from './TradeGradeCard';
@@ -79,6 +80,9 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
 
   // Headshot pipeline: fetch → data URL → per-skin color grading (BBRef fallback for retired players)
   const { headshots, headshotsLoading } = useHeadshots(tradeData?.heroUrls, skin, tradeData?.fallbackHeroUrls);
+
+  // Watermark pipeline: preload as data URL for html2canvas
+  const watermarkUrl = useWatermark();
 
   // Template pipeline: load grayscale texture → tint per team
   const teamColors = useMemo(() => {
@@ -695,6 +699,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
                   skin={skin}
                   caption={savedCaption}
                   selectedPlayers={selectedPlayers}
+                  watermarkUrl={watermarkUrl}
                 />
               ) : (
                 <ShareCard
@@ -709,6 +714,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
                   headshots={headshots}
                   templates={templates}
                   caption={savedCaption}
+                  watermarkUrl={watermarkUrl}
                 />
               )}
             </div>

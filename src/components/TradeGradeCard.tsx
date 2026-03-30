@@ -360,6 +360,8 @@ export interface TradeGradeCardProps {
   skin?: CardSkin;
   caption?: string;
   selectedPlayers?: Record<string, string[]>;
+  /** Pre-loaded watermark data URL for html2canvas capture */
+  watermarkUrl?: string | null;
 }
 
 // ── Echo shadow helper (matches ShareCard) ──
@@ -566,6 +568,7 @@ export default function TradeGradeCard({
   skin = 'noir',
   caption,
   selectedPlayers,
+  watermarkUrl,
 }: TradeGradeCardProps) {
   const hasCaption = !!caption?.trim();
   const theme = GRADE_THEMES[skin];
@@ -627,11 +630,13 @@ export default function TradeGradeCard({
     }}>
 
       {/* Watermark */}
-      <img src="/watermark.png" alt="" style={{
+      {watermarkUrl && <div style={{
         position: 'absolute', top: 12, left: 12,
         width: 40, height: 40, borderRadius: '50%',
         zIndex: 10, opacity: 0.85,
-      }} />
+        backgroundImage: `url(${watermarkUrl})`,
+        backgroundSize: 'cover',
+      }} />}
 
       {/* ── TOP: Hero zone (~65%) — two team sections side by side ── */}
       <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>

@@ -211,8 +211,11 @@ function GraphToolbar() {
         transform: 'translateX(-50%)',
         zIndex: 8,
         display: 'flex',
+        flexWrap: isMobile ? 'wrap' : 'nowrap',
         alignItems: 'center',
-        gap: 2,
+        justifyContent: 'center',
+        gap: isMobile ? 4 : 2,
+        maxWidth: isMobile ? 'calc(100vw - 24px)' : 'none',
         padding: '3px 4px',
         background: 'rgba(18, 18, 26, 0.92)',
         backdropFilter: 'blur(12px)',
@@ -221,9 +224,10 @@ function GraphToolbar() {
         boxShadow: '0 4px 16px rgba(0,0,0,0.4)',
       }}
     >
+      <div style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
       {/* Home — far left, always visible */}
       <span data-tour="toolbar-home">
-        <ToolbarButton icon={<IconHome />} label={isMobile ? undefined : "Home"} title="Clear graph and start a new search" onClick={clearGraph} isMobile={isMobile} accent="rgba(255,255,255,0.85)" />
+        <ToolbarButton icon={<IconHome />} label="Home" title="Clear graph and start a new search" onClick={clearGraph} isMobile={isMobile} accent="rgba(255,255,255,0.85)" />
       </span>
 
       <Separator />
@@ -259,6 +263,9 @@ function GraphToolbar() {
         />
       </span>
 
+      </div>
+
+      <div style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
       {/* Championship buttons (conditional) */}
       {(hasUnexpandedPlayers || hasRoadPhasePlayers) && (
         <>
@@ -298,7 +305,7 @@ function GraphToolbar() {
 
       {/* Reset */}
       <span data-tour="toolbar-reset">
-        <ToolbarButton icon={<IconReset />} label={isMobile ? undefined : "Reset"} title="Collapse all expansions back to initial view" onClick={collapseAll} isMobile={isMobile} />
+        <ToolbarButton icon={<IconReset />} label="Reset" title="Collapse all expansions back to initial view" onClick={collapseAll} isMobile={isMobile} />
       </span>
 
       <Separator />
@@ -392,6 +399,7 @@ function GraphToolbar() {
             {skin.shortLabel}
           </button>
         ))}
+      </div>
       </div>
     </div>
   );

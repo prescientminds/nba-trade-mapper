@@ -93,6 +93,8 @@ export interface ShareCardProps {
   templates?: Record<string, string>;
   /** Optional 140-char take / caption */
   caption?: string;
+  /** Pre-loaded watermark data URL for html2canvas capture */
+  watermarkUrl?: string | null;
 }
 
 function filterAssets(
@@ -344,7 +346,7 @@ function Watermark({ teamId, fontSize, color }: { teamId: string; fontSize: numb
 // ══════════════════════════════════════════════════════════════
 
 function OGCard(props: ShareCardProps) {
-  const { teamScores, winner, lopsidedness, date, league, selectedPlayers, spotlight, skin = 'classic', headshots, templates, caption } = props;
+  const { teamScores, winner, lopsidedness, date, league, selectedPlayers, spotlight, skin = 'classic', headshots, templates, caption, watermarkUrl } = props;
   const sk = THEMES[skin];
   const teams = sortTeams(teamScores, winner);
   const is3 = teams.length > 2;
@@ -385,11 +387,13 @@ function OGCard(props: ShareCardProps) {
     }}>
 
       {/* Watermark */}
-      <img src="/watermark.png" alt="" style={{
+      {watermarkUrl && <div style={{
         position: 'absolute', top: 12, left: 12,
         width: 40, height: 40, borderRadius: '50%',
         zIndex: 10, opacity: 0.85,
-      }} />
+        backgroundImage: `url(${watermarkUrl})`,
+        backgroundSize: 'cover',
+      }} />}
 
       {/* ── BODY: full-bleed team sections, no header bar ── */}
       <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
@@ -635,7 +639,7 @@ function OGCard(props: ShareCardProps) {
 // ══════════════════════════════════════════════════════════════
 
 function SquareCard(props: ShareCardProps) {
-  const { teamScores, winner, lopsidedness, date, league, selectedPlayers, spotlight, skin = 'classic', headshots, templates, caption } = props;
+  const { teamScores, winner, lopsidedness, date, league, selectedPlayers, spotlight, skin = 'classic', headshots, templates, caption, watermarkUrl } = props;
   const sk = THEMES[skin];
   const teams = sortTeams(teamScores, winner);
   const totalScore = teams.reduce((s, [, d]) => s + d.score, 0) || 1;
@@ -668,11 +672,13 @@ function SquareCard(props: ShareCardProps) {
       position: 'relative',
     }}>
       {/* Watermark */}
-      <img src="/watermark.png" alt="" style={{
+      {watermarkUrl && <div style={{
         position: 'absolute', top: 12, left: 12,
         width: 40, height: 40, borderRadius: '50%',
         zIndex: 10, opacity: 0.85,
-      }} />
+        backgroundImage: `url(${watermarkUrl})`,
+        backgroundSize: 'cover',
+      }} />}
 
       {teams.map(([teamId, td], idx) => {
         const c = CARD_TEAM_COLORS[teamId] || '#888';
@@ -875,7 +881,7 @@ function SquareCard(props: ShareCardProps) {
 // ══════════════════════════════════════════════════════════════
 
 function StoryCard(props: ShareCardProps) {
-  const { teamScores, winner, lopsidedness, date, league, selectedPlayers, spotlight, skin = 'classic', headshots, templates } = props;
+  const { teamScores, winner, lopsidedness, date, league, selectedPlayers, spotlight, skin = 'classic', headshots, templates, watermarkUrl } = props;
   const sk = THEMES[skin];
   const teams = sortTeams(teamScores, winner);
   const totalScore = teams.reduce((s, [, d]) => s + d.score, 0) || 1;
@@ -906,11 +912,13 @@ function StoryCard(props: ShareCardProps) {
       position: 'relative',
     }}>
       {/* Watermark */}
-      <img src="/watermark.png" alt="" style={{
+      {watermarkUrl && <div style={{
         position: 'absolute', top: 12, left: 12,
         width: 40, height: 40, borderRadius: '50%',
         zIndex: 10, opacity: 0.85,
-      }} />
+        backgroundImage: `url(${watermarkUrl})`,
+        backgroundSize: 'cover',
+      }} />}
 
       {teams.map(([teamId, td], idx) => {
         const c = CARD_TEAM_COLORS[teamId] || '#888';
