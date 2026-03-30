@@ -35,9 +35,9 @@ function tradeHeading(
   tradeDate?: string,
 ): string {
   if (topAssets) {
-    const names = topAssets.filter(Boolean);
-    if (names.length >= 2) return `${names[0]} for ${names[1]}`;
-    if (names.length === 1) return `${names[0]} Trade`;
+    const unique = [...new Set(topAssets.filter(Boolean))];
+    if (unique.length >= 2) return `${unique[0]} for ${unique[1]}`;
+    if (unique.length === 1) return `${unique[0]} Trade`;
   }
 
   // Fallback: team nicknames
@@ -1517,7 +1517,9 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
               ? entry.topAssets[winnerIdx]
               : null;
             // All chain players sorted by WS — these are what the team got back
-            const chainNames = chainPlayers.map((p) => p.name);
+            // Exclude the outgoing player to avoid "Turned X into X, ..." in multi-team trades
+            const chainNames = chainPlayers.map((p) => p.name)
+              .filter(n => n !== outgoingPlayer);
 
             let chainHeading: string;
             if (outgoingPlayer && chainNames.length > 0) {
