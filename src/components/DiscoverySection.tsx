@@ -1517,13 +1517,19 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             let outgoingPlayer: string | null = null;
             for (const [teamId, teamData] of sorted) {
               if (teamId === winnerTeam) continue;
-              const topSent = teamData.assets
-                .filter(a => a.type === 'player' && a.direct > 0)
+              // What the non-winner received = what the winner sent away
+              const candidates = teamData.assets
+                .filter(a => a.name)
                 .sort((a, b) => b.direct - a.direct);
-              if (topSent.length > 0 && (!outgoingPlayer || topSent[0].direct > 0)) {
-                outgoingPlayer = topSent[0].name;
+              if (candidates.length > 0) {
+                outgoingPlayer = candidates[0].name;
                 break;
               }
+            }
+            // Fallback: use topAssets, picking whichever name isn't in the chain
+            if (!outgoingPlayer && entry.topAssets) {
+              const chainSet = new Set(chainPlayers.map(p => p.name));
+              outgoingPlayer = entry.topAssets.find(n => n && !chainSet.has(n)) ?? null;
             }
             // All chain players sorted by WS — these are what the team got back
             const chainNames = chainPlayers.map((p) => p.name);
