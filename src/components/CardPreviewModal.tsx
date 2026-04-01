@@ -815,6 +815,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
                 skin={skin}
                 caption={savedCaption}
                 selectedPlayers={selectedPlayers}
+                watermarkUrl={watermarkUrl}
               />
             ) : (
               <ShareCard
@@ -829,6 +830,7 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
                 headshots={headshots}
                 templates={templates}
                 caption={savedCaption}
+                watermarkUrl={watermarkUrl}
               />
             )}
           </div>
