@@ -388,8 +388,8 @@ function OGCard(props: ShareCardProps) {
 
       {/* Watermark */}
       {watermarkUrl && <div style={{
-        position: 'absolute', top: 12, left: 12,
-        width: 40, height: 40, borderRadius: '50%',
+        position: 'absolute', top: 16, left: 16,
+        width: 80, height: 80, borderRadius: '50%',
         zIndex: 10, opacity: 0.85,
         backgroundImage: `url(${watermarkUrl})`,
         backgroundSize: 'cover',
@@ -673,8 +673,8 @@ function SquareCard(props: ShareCardProps) {
     }}>
       {/* Watermark */}
       {watermarkUrl && <div style={{
-        position: 'absolute', top: 12, left: 12,
-        width: 40, height: 40, borderRadius: '50%',
+        position: 'absolute', top: 16, left: 16,
+        width: 80, height: 80, borderRadius: '50%',
         zIndex: 10, opacity: 0.85,
         backgroundImage: `url(${watermarkUrl})`,
         backgroundSize: 'cover',
@@ -913,8 +913,8 @@ function StoryCard(props: ShareCardProps) {
     }}>
       {/* Watermark */}
       {watermarkUrl && <div style={{
-        position: 'absolute', top: 12, left: 12,
-        width: 40, height: 40, borderRadius: '50%',
+        position: 'absolute', top: 16, left: 16,
+        width: 80, height: 80, borderRadius: '50%',
         zIndex: 10, opacity: 0.85,
         backgroundImage: `url(${watermarkUrl})`,
         backgroundSize: 'cover',
