@@ -631,7 +631,7 @@ export default function TradeGradeCard({
 
       {/* Watermark */}
       {watermarkUrl && <div style={{
-        position: 'absolute', top: 16, left: 16,
+        position: 'absolute', top: 16, right: 16,
         width: 80, height: 80, borderRadius: '50%',
         zIndex: 10, opacity: 0.85,
         backgroundImage: `url(${watermarkUrl})`,
