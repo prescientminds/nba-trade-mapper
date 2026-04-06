@@ -55,13 +55,13 @@ export async function createShareLink(): Promise<string | null> {
   const sb = getSupabase();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { error } = await (sb.from('shared_graphs') as any).insert({
-    id,
-    share_state: shareState,
-    title,
-    subtitle,
-    teams,
-    league: selectedLeague,
+  const { error } = await (sb.rpc as any)('create_shared_graph', {
+    p_id: id,
+    p_share_state: shareState,
+    p_title: title,
+    p_subtitle: subtitle,
+    p_teams: teams,
+    p_league: selectedLeague,
   });
 
   if (error) {
