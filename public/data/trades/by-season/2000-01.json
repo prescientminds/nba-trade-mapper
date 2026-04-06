@@ -273,7 +273,7 @@
         "pick_year": 2005,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Fran Vazquez",
+        "became_player_name": "Fran Vázquez",
         "notes": null
       },
       {
@@ -349,7 +349,7 @@
         "pick_year": 2001,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Joseph Forte",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -770,7 +770,7 @@
         "pick_year": 2001,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Brendan Haywood",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -948,7 +948,7 @@
         "pick_year": 2001,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Michael Wright",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -959,7 +959,7 @@
         "pick_year": 2001,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Eric Chenowith",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -970,7 +970,7 @@
         "pick_year": 2002,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Kareem Rush",
+        "became_player_name": "Nenê",
         "notes": null
       },
       {
@@ -1003,7 +1003,7 @@
         "pick_year": 2001,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jason Collins",
+        "became_player_name": "Vladimir Radmanović",
         "notes": null
       },
       {
@@ -1128,7 +1128,7 @@
         "pick_year": 2002,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Rod Grizzard",
+        "became_player_name": "Vincent Yarbrough",
         "notes": null
       }
     ],
@@ -1174,7 +1174,7 @@
         "pick_year": 2006,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Dee Brown (a)",
+        "became_player_name": "Steve Novak",
         "notes": null
       },
       {
@@ -1391,7 +1391,7 @@
         "pick_year": 1990,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Cedric Ceballos",
+        "became_player_name": "Carl Herrera",
         "notes": null
       },
       {
@@ -1399,17 +1399,6 @@
         "player_name": null,
         "from_team_id": "HOU",
         "to_team_id": "MIA",
-        "pick_year": 2002,
-        "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Rasual Butler",
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "MIA",
-        "to_team_id": "HOU",
         "pick_year": 2002,
         "pick_round": 2,
         "original_team_id": null,
@@ -1421,10 +1410,21 @@
         "player_name": null,
         "from_team_id": "MIA",
         "to_team_id": "HOU",
+        "pick_year": 2002,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Rasual Butler",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "HOU",
         "pick_year": 2003,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Tommy Smith",
+        "became_player_name": "Jerome Beasley",
         "notes": null
       }
     ],
@@ -1764,7 +1764,7 @@
         "pick_year": 2001,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jamaal Tinsley",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1775,7 +1775,7 @@
         "pick_year": 2001,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Antonis Fotsis",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1944,7 +1944,7 @@
         "pick_year": 2002,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Kareem Rush",
+        "became_player_name": "Nenê",
         "notes": null
       }
     ],
@@ -2135,7 +2135,7 @@
         "pick_year": 2005,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Fran Vazquez",
+        "became_player_name": "Jason Maxiell",
         "notes": null
       },
       {
@@ -2192,7 +2192,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Jerryl Sasser",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -2203,7 +2203,7 @@
         "pick_year": 2001,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Brandon Armstrong",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -2214,7 +2214,7 @@
         "pick_year": 2005,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Fran Vázquez",
+        "became_player_name": "Jason Maxiell",
         "notes": null
       }
     ],
@@ -2249,7 +2249,7 @@
         "pick_year": 2001,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Sean Lampley",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -2306,7 +2306,7 @@
         "pick_year": 2001,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Damone Brown",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -2477,7 +2477,7 @@
         "pick_year": 2003,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Carlos Delfino",
+        "became_player_name": "Boris Diaw",
         "notes": null
       },
       {
@@ -2545,7 +2545,7 @@
         "pick_year": 2001,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jamaal Tinsley",
+        "became_player_name": "Pau Gasol",
         "notes": null
       },
       {

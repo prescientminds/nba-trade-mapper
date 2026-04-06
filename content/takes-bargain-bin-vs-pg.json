@@ -1,0 +1,142 @@
+{
+  "title": "10 Bargain-Bin Pickups That Outproduced a $211M Contract",
+  "generated": "2026-03-27",
+  "since": 2024,
+  "antagonist": {
+    "player": "Paul George",
+    "team": "PHI",
+    "ws": 2.7,
+    "salary": 211584940,
+    "dollars_per_ws": 78364793
+  },
+  "combined_stats": {
+    "total_ws": 71.8,
+    "total_salary": 120000000,
+    "avg_dollars_per_ws": 1670000,
+    "championships": 1,
+    "all_rookie": 3,
+    "multiplier_vs_pg": 26.6
+  },
+  "slides": [
+    {
+      "rank": 1,
+      "type": "best",
+      "player": "Donovan Clingan",
+      "team": "POR",
+      "headline": "Donovan Clingan — 10.0 WS, Portland +15 wins",
+      "data_callout": "$24.2M total. 3.7x more Win Shares than Paul George at 11% of the cost.",
+      "ws": 10.0,
+      "salary": 24248618,
+      "dollars_per_ws": 2424862,
+      "accolades": ["All-Rookie Team"]
+    },
+    {
+      "rank": 2,
+      "type": "best",
+      "player": "Neemias Queta",
+      "team": "BOS",
+      "headline": "Neemias Queta — 9.2 WS for $5M in Boston",
+      "data_callout": "$545K per Win Share — second-best value of any signing since 2024.",
+      "ws": 9.2,
+      "salary": 5017522,
+      "dollars_per_ws": 545383,
+      "accolades": []
+    },
+    {
+      "rank": 3,
+      "type": "best",
+      "player": "Goga Bitadze",
+      "team": "ORL",
+      "headline": "Goga Bitadze — 9.0 WS for $15.9M in Orlando",
+      "data_callout": "$1.8M per WS vs. George's $78.4M per WS. A 43x gap.",
+      "ws": 9.0,
+      "salary": 15942029,
+      "dollars_per_ws": 1771337,
+      "accolades": []
+    },
+    {
+      "rank": 4,
+      "type": "best",
+      "player": "Kel'el Ware",
+      "team": "MIA",
+      "headline": "Kel'el Ware — 8.9 WS, All-Rookie, Miami",
+      "data_callout": "$16.2M total. Miami's best value acquisition of the offseason.",
+      "ws": 8.9,
+      "salary": 16234272,
+      "dollars_per_ws": 1824076,
+      "accolades": ["All-Rookie Team"]
+    },
+    {
+      "rank": 5,
+      "type": "best",
+      "player": "Naji Marshall",
+      "team": "DAL",
+      "headline": "Naji Marshall — 7.9 WS for $18.4M in Dallas",
+      "data_callout": "2.9x more Win Shares than George at 8.7% of the cost.",
+      "ws": 7.9,
+      "salary": 18428571,
+      "dollars_per_ws": 2332731,
+      "accolades": []
+    },
+    {
+      "rank": 6,
+      "type": "best",
+      "player": "Collin Gillespie",
+      "team": "PHX",
+      "headline": "Collin Gillespie — 6.1 WS on a two-way contract",
+      "data_callout": "$376K per Win Share — best value of any move since 2024.",
+      "ws": 6.1,
+      "salary": 2296274,
+      "dollars_per_ws": 376438,
+      "accolades": []
+    },
+    {
+      "rank": 7,
+      "type": "best",
+      "player": "Cam Spencer",
+      "team": "MEM",
+      "headline": "Cam Spencer — 5.2 WS on a Memphis two-way",
+      "data_callout": "$10.4M total. Memphis +21 wins.",
+      "ws": 5.2,
+      "salary": 10396518,
+      "dollars_per_ws": 1999330,
+      "accolades": []
+    },
+    {
+      "rank": 8,
+      "type": "best",
+      "player": "Jaylen Wells",
+      "team": "MEM",
+      "headline": "Jaylen Wells — 5.0 WS, All-Rookie, $1.2M salary",
+      "data_callout": "33rd pick. Made All-Rookie. Costs what George earns every 3 games.",
+      "ws": 5.0,
+      "salary": 7895796,
+      "dollars_per_ws": 1579159,
+      "accolades": ["All-Rookie Team"]
+    },
+    {
+      "rank": 9,
+      "type": "best",
+      "player": "Ajay Mitchell",
+      "team": "OKC",
+      "headline": "Ajay Mitchell — 5.2 WS, championship ring, OKC two-way",
+      "data_callout": "$11.7M total. NBA champion. Nearly 2x George's production.",
+      "ws": 5.2,
+      "salary": 11700000,
+      "dollars_per_ws": 2250000,
+      "accolades": ["NBA Champion"]
+    },
+    {
+      "rank": 10,
+      "type": "best",
+      "player": "Justin Champagnie",
+      "team": "WAS",
+      "headline": "Justin Champagnie — 5.3 WS, converted two-way, Washington",
+      "data_callout": "$8.0M total. $1.5M per WS. 2x George's output.",
+      "ws": 5.3,
+      "salary": 8022607,
+      "dollars_per_ws": 1513699,
+      "accolades": []
+    }
+  ]
+}

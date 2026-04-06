@@ -25,7 +25,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Mirsad Turkcan",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -36,7 +36,7 @@
         "pick_year": 2003,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Carlos Delfino",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -93,7 +93,7 @@
         "pick_year": 1999,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jumaine Jones",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -104,7 +104,7 @@
         "pick_year": 2000,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Scoonie Penn",
+        "became_player_name": "Brian Cardinal",
         "notes": null
       }
     ],
@@ -253,7 +253,7 @@
         "pick_year": 2000,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Keyon Dooling",
+        "became_player_name": "Mamadou N'Diaye",
         "notes": null
       },
       {
@@ -275,7 +275,7 @@
         "pick_year": 1998,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Keon Clark",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -437,7 +437,7 @@
         "pick_year": 1999,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jonathan Bender",
+        "became_player_name": "James Posey",
         "notes": null
       },
       {
@@ -517,7 +517,7 @@
         "pick_year": 2000,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Jake Voskuhl",
+        "became_player_name": "Eduardo Nájera",
         "notes": null
       },
       {
@@ -574,7 +574,7 @@
         "pick_year": 2000,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Dalibor Bagaric",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -631,7 +631,7 @@
         "pick_year": 1988,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Andrew Lang",
+        "became_player_name": "Tito Horford",
         "notes": null
       },
       {
@@ -688,7 +688,7 @@
         "pick_year": 1999,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jumaine Jones",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -767,7 +767,7 @@
         "pick_year": 1999,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Metta World Peace",
+        "became_player_name": "Shawn Marion",
         "notes": null
       },
       {
@@ -824,7 +824,7 @@
         "pick_year": 2000,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Chris Porter",
+        "became_player_name": "Kaniel Dickens",
         "notes": null
       },
       {
@@ -1156,7 +1156,7 @@
         "pick_year": 1999,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Andre Miller",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1270,7 +1270,7 @@
         "pick_year": 1999,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jason Terry",
+        "became_player_name": "Jeff Foster",
         "notes": null
       },
       {
@@ -1395,7 +1395,7 @@
         "pick_year": 2000,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Chris Carrawell",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -1452,7 +1452,7 @@
         "pick_year": 2001,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Troy Murphy",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -1487,7 +1487,7 @@
         "pick_year": 1999,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jumaine Jones",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1498,7 +1498,7 @@
         "pick_year": 2000,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Quentin Richardson",
+        "became_player_name": "Speedy Claxton",
         "notes": null
       },
       {
@@ -1599,7 +1599,7 @@
         "pick_year": 2000,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Olumide Oyedeji",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1610,7 +1610,7 @@
         "pick_year": 2001,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Bobby Simmons",
+        "became_player_name": "Omar Cook",
         "notes": null
       }
     ],

@@ -65,6 +65,10 @@ function pickYearToSeason(year: number): string {
   return `${year}-${String(year + 1).slice(2)}`;
 }
 
+function getWinPctMultiplier(teamId: string, season: string, teamWinPctMap: Map<string, number>): number {
+  return teamWinPctMap.get(`${teamId}|${season}`) ?? 1.0;
+}
+
 // ── Bulk loader ──
 
 async function fetchAll<T>(table: string, columns: string): Promise<T[]> {
@@ -93,6 +97,7 @@ function scorePlayerCapped(
   accoladesByPlayer: Map<string, Accolade[]>,
   championshipSet: Set<string>,
   teamChampPlayoffWs: Map<string, number>,
+  teamWinPctMap: Map<string, number>,
 ): number {
   const key = `${resolveStatsName(playerName)}|${teamId}`;
   const eligible = (seasonsByPlayerTeam.get(key) || []).filter(s => {
@@ -105,7 +110,8 @@ function scorePlayerCapped(
 
   let ws = 0, playoffWs = 0, championshipBonus = 0;
   for (const s of eligible) {
-    ws += s.win_shares ?? 0;
+    const mult = getWinPctMultiplier(teamId, s.season, teamWinPctMap);
+    ws += (s.win_shares ?? 0) * mult;
     playoffWs += s.playoff_ws ?? 0;
     const champKey = `${teamId}|${s.season}`;
     if (championshipSet.has(champKey)) {
@@ -132,6 +138,7 @@ function scoreTradeAtHorizon(
   accoladesByPlayer: Map<string, Accolade[]>,
   championshipSet: Set<string>,
   teamChampPlayoffWs: Map<string, number>,
+  teamWinPctMap: Map<string, number>,
 ): { winner: string | null; scores: Record<string, number> } {
   const tradeYear = seasonToYear(trade.season);
   const teamScores: Record<string, number> = {};
@@ -154,7 +161,7 @@ function scoreTradeAtHorizon(
 
     const score = scorePlayerCapped(
       playerName, teamId, seasonCutoff, tradeYear, maxYears,
-      seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs,
+      seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs, teamWinPctMap,
     );
 
     teamScores[teamId] = (teamScores[teamId] || 0) + score;
@@ -184,7 +191,7 @@ async function main() {
   const [playerSeasons, accolades, teamSeasons] = await Promise.all([
     fetchAll<PlayerSeason>('player_seasons', 'player_name,team_id,season,win_shares,playoff_ws'),
     fetchAll<Accolade>('player_accolades', 'player_name,accolade,season'),
-    fetchAll<{ team_id: string; season: string; championship: boolean }>('team_seasons', 'team_id,season,championship'),
+    fetchAll<{ team_id: string; season: string; wins: number | null; losses: number | null; championship: boolean }>('team_seasons', 'team_id,season,wins,losses,championship'),
   ]);
 
   console.log(`  player_seasons: ${playerSeasons.length}`);
@@ -212,6 +219,16 @@ async function main() {
     const champKey = `${row.team_id}|${row.season}`;
     if (championshipSet.has(champKey)) {
       teamChampPlayoffWs.set(champKey, (teamChampPlayoffWs.get(champKey) || 0) + (row.playoff_ws ?? 0));
+    }
+  }
+
+  const teamWinPctMap = new Map<string, number>();
+  for (const row of teamSeasons) {
+    if (row.wins != null && row.losses != null) {
+      const total = row.wins + row.losses;
+      if (total > 0) {
+        teamWinPctMap.set(`${row.team_id}|${row.season}`, Math.min(1.0, (row.wins / total) * 2));
+      }
     }
   }
 
@@ -245,9 +262,9 @@ async function main() {
   let processed = 0;
 
   for (const trade of eligibleTrades) {
-    const h1 = scoreTradeAtHorizon(trade, 1, seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs);
-    const h3 = scoreTradeAtHorizon(trade, 3, seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs);
-    const h5 = scoreTradeAtHorizon(trade, 5, seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs);
+    const h1 = scoreTradeAtHorizon(trade, 1, seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs, teamWinPctMap);
+    const h3 = scoreTradeAtHorizon(trade, 3, seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs, teamWinPctMap);
+    const h5 = scoreTradeAtHorizon(trade, 5, seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs, teamWinPctMap);
 
     const flipped = !!(h1.winner && h5.winner && h1.winner !== h5.winner);
 

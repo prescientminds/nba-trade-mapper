@@ -347,7 +347,7 @@ async function main() {
   const [playerSeasons, accolades, teamSeasons] = await Promise.all([
     fetchAll<PlayerSeason>('player_seasons', 'player_name,team_id,season,win_shares,playoff_ws'),
     fetchAll<Accolade>('player_accolades', 'player_name,accolade,season'),
-    fetchAll<{ team_id: string; season: string; championship: boolean }>('team_seasons', 'team_id,season,championship'),
+    fetchAll<{ team_id: string; season: string; wins: number | null; losses: number | null; championship: boolean }>('team_seasons', 'team_id,season,wins,losses,championship'),
   ]);
 
   console.log(`  player_seasons: ${playerSeasons.length} rows`);
@@ -381,7 +381,9 @@ async function main() {
       teamChampPlayoffWs.set(champKey, (teamChampPlayoffWs.get(champKey) || 0) + (row.playoff_ws ?? 0));
     }
   }
-  console.log(`  Championship team playoff WS totals: ${teamChampPlayoffWs.size} team-seasons\n`);
+  console.log(`  Championship team playoff WS totals: ${teamChampPlayoffWs.size} team-seasons`);
+
+  console.log('');
 
   // Load trade JSON files
   const seasonFiles = fs.readdirSync(TRADES_DIR)

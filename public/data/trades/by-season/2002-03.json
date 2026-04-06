@@ -172,7 +172,7 @@
         "pick_year": 2004,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Sergei Lishchuk",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -183,7 +183,7 @@
         "pick_year": 1995,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Don Reid",
+        "became_player_name": "Anthony Pelle",
         "notes": null
       },
       {
@@ -194,7 +194,7 @@
         "pick_year": 2007,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Marcus Williams",
+        "became_player_name": "Reyshawn Terry",
         "notes": null
       },
       {
@@ -216,7 +216,7 @@
         "pick_year": 2006,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Marcus Williams",
+        "became_player_name": "JJ Redick",
         "notes": null
       }
     ],
@@ -306,7 +306,7 @@
         "pick_year": 2003,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Andreas Glyniadakis",
+        "became_player_name": "Nedžad Sinanović",
         "notes": null
       }
     ],
@@ -363,7 +363,7 @@
         "pick_year": 2003,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "T.J.Ford",
+        "became_player_name": "Boris Diaw",
         "notes": null
       },
       {
@@ -556,7 +556,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Milt Palacio",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -624,7 +624,7 @@
         "pick_year": 2007,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jared Dudley",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -714,7 +714,7 @@
         "pick_year": 2004,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Josh Smith",
+        "became_player_name": "Jameer Nelson",
         "notes": null
       }
     ],
@@ -749,7 +749,7 @@
         "pick_year": 2003,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Andreas Gliniadakis",
+        "became_player_name": "Andreas Glyniadakis",
         "notes": null
       },
       {
@@ -760,7 +760,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Mengke Bateer",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -900,7 +900,7 @@
         "pick_year": 2005,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Joey Graham",
+        "became_player_name": "Luther Head",
         "notes": null
       },
       {
@@ -922,7 +922,7 @@
         "pick_year": 2004,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Vassilis Spanoulis",
+        "became_player_name": "Luis Flores",
         "notes": null
       }
     ],
@@ -980,7 +980,7 @@
         "pick_year": 2003,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Kendrick Perkins",
+        "became_player_name": "Reece Gaines",
         "notes": null
       },
       {
@@ -991,7 +991,7 @@
         "pick_year": 2004,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Sergei Lishchuk",
+        "became_player_name": "Sergei Lishouk",
         "notes": null
       },
       {
@@ -1092,7 +1092,7 @@
         "pick_year": 2003,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Sani Becirovic",
+        "became_player_name": "Brandon Hunter",
         "notes": null
       },
       {
@@ -1239,7 +1239,7 @@
         "pick_year": 2003,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Luke Ridnour",
+        "became_player_name": "T.J. Ford",
         "notes": null
       }
     ],
@@ -1285,7 +1285,7 @@
         "pick_year": 2005,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Orien Greene",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1388,7 +1388,7 @@
         "pick_year": 2004,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Chris Duhon",
+        "became_player_name": "Albert Miralles",
         "notes": null
       },
       {
@@ -1399,7 +1399,7 @@
         "pick_year": 2003,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Matt Bonner",
+        "became_player_name": "Remon van de Hare",
         "notes": null
       },
       {
@@ -1524,7 +1524,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Yuyang Xue",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -1605,7 +1605,7 @@
         "pick_year": 2005,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "David Lee",
+        "became_player_name": "Nate Robinson",
         "notes": null
       },
       {

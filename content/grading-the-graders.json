@@ -1,0 +1,556 @@
+{
+  "title": "Grading the Graders: How ESPN's Trade Grades Hold Up Against Reality",
+  "byline": "Mara Kingsley",
+  "beat": "Verdict Revisit",
+  "methodology": "ESPN grades at time of trade vs. CATV scores computed with 3-5 years of actual player production (win shares, playoff WS, championships, accolades). Only trades from 2021 and earlier included — minimum 4 seasons of hindsight.",
+  "grader": "Kevin Pelton (ESPN)",
+  "grading_scale": {
+    "A+": "100+", "A": "60+", "A-": "45+", "B+": "30+", "B": "20+", "B-": "12+",
+    "C+": "8+", "C": "5+", "C-": "3+", "D": "1+", "F": "0"
+  },
+  "sources": [
+    "ABC News (mirrored ESPN Insider articles unpaywalled, 2014-2019)",
+    "Arizona Sports (CP3 to PHX)",
+    "Heavy.com (Westbrook to LAL)",
+    "973 ESPN (Harden-Simmons)",
+    "RealGM forums (Gasol to TOR, Harris to PHI)"
+  ],
+  "trades": [
+    {
+      "id": "harris-det-2016",
+      "date": "2016-02-16",
+      "description": "Tobias Harris to DET for Brandon Jennings, Ersan Ilyasova",
+      "espn_grades": { "DET": "A", "ORL": "D+" },
+      "catv_winner": "DET",
+      "catv_margin": 22.4,
+      "verdict_flipped": false,
+      "catv_grades": {
+        "DET": { "score": 23.1, "grade": "B", "key_assets": "Harris (23.1)" },
+        "ORL": { "score": 0.7, "grade": "F", "key_assets": "Jennings (0.7), Ilyasova (0.0)" }
+      },
+      "espn_winner_correct": true,
+      "espn_accuracy": "B",
+      "analysis": "Pelton got the winner right. Harris gave Detroit years of production. The grade inflation (A for what turned out to be B-level value) is typical but the directional call was correct."
+    },
+    {
+      "id": "mcw-snell-2016",
+      "date": "2016-10-17",
+      "description": "MCW to CHI for Tony Snell",
+      "espn_grades": { "CHI": "B", "MIL": "C-" },
+      "catv_winner": "MIL",
+      "catv_margin": 9.55,
+      "verdict_flipped": false,
+      "catv_grades": {
+        "MIL": { "score": 9.6, "grade": "C+", "key_assets": "Tony Snell (9.6) — reliable 3&D starter for multiple seasons" },
+        "CHI": { "score": 0.1, "grade": "F", "key_assets": "MCW (0.1) — out of the rotation within a year" }
+      },
+      "espn_winner_correct": false,
+      "espn_accuracy": "D",
+      "analysis": "Pelton gave Chicago a B for acquiring MCW — who produced 0.1 CATV and was out of the rotation quickly. Tony Snell, graded C-, became a reliable starter and produced 9.6 CATV for Milwaukee."
+    },
+    {
+      "id": "korver-cle-2017",
+      "date": "2017-01-07",
+      "description": "Kyle Korver to CLE for Mo Williams, Mike Dunleavy, 2019 1st (top-10 protected)",
+      "espn_grades": { "CLE": "A", "ATL": "C" },
+      "catv_winner": "CLE",
+      "catv_margin": 6.8,
+      "verdict_flipped": false,
+      "catv_grades": {
+        "CLE": { "score": 8.0, "grade": "C+", "key_assets": "Korver (8.0) — contributed to Finals run" },
+        "ATL": { "score": 1.2, "grade": "D", "key_assets": "Dunleavy (1.2)" }
+      },
+      "espn_winner_correct": true,
+      "espn_accuracy": "B-",
+      "analysis": "Correct winner. But Pelton's A for 8.0 CATV (C+ value) shows the chronic grade inflation — giving top marks for modest production."
+    },
+    {
+      "id": "nurkic-plumlee-2017",
+      "date": "2017-02-12",
+      "description": "Jusuf Nurkic + MEM 1st to POR for Mason Plumlee + 2018 2nd",
+      "espn_grades": { "POR": "B", "DEN": "C-" },
+      "catv_winner": "POR",
+      "catv_margin": 9.35,
+      "verdict_flipped": false,
+      "catv_grades": {
+        "POR": { "score": 25.4, "grade": "B", "key_assets": "Nurkic (25.0) — became Portland's franchise center" },
+        "DEN": { "score": 16.0, "grade": "B-", "key_assets": "Plumlee (16.0) — solid backup/starter" }
+      },
+      "espn_winner_correct": true,
+      "espn_accuracy": "A-",
+      "analysis": "One of Pelton's best calls. Got the winner right AND the margin was reasonable. Nurkic became Portland's franchise center. Plumlee was a fine starter. Both sides got value — Portland just got more. Pelton even underrated Denver (C- for B- value), but the directional call was clean."
+    },
+    {
+      "id": "ibaka-tor-2017",
+      "date": "2017-02-14",
+      "description": "Serge Ibaka to TOR for Terrence Ross + lower of LAC/TOR 2017 1st",
+      "espn_grades": { "TOR": "A-", "ORL": "B" },
+      "catv_winner": "TOR",
+      "catv_margin": 11.13,
+      "verdict_flipped": false,
+      "catv_grades": {
+        "TOR": { "score": 21.3, "grade": "B", "key_assets": "Ibaka (21.3) — 4+ years as a key contributor" },
+        "ORL": { "score": 10.2, "grade": "C+", "key_assets": "Ross (10.2)" }
+      },
+      "espn_winner_correct": true,
+      "espn_accuracy": "B+",
+      "analysis": "Correct winner. Ibaka gave Toronto years of production across multiple playoff runs. Pelton's best instinct: trusting the established player over the younger asset when the established player actually committed long-term."
+    },
+    {
+      "id": "2a9f05df-d4a9-4536-a361-9cf5a691f8cd",
+      "date": "2017-02-19",
+      "description": "DeMarcus Cousins + Casspi to NOP for Buddy Hield, Tyreke Evans, Langston Galloway, 2017 1st",
+      "espn_grades": { "NOP": "A-", "SAC": "D" },
+      "catv_winner": "SAC",
+      "catv_margin": 9.0,
+      "verdict_flipped": true,
+      "verdict_path": "1yr: NOP → 3yr: SAC → 5yr: SAC",
+      "catv_grades": {
+        "SAC": { "score": 15.9, "grade": "B-", "key_assets": "Buddy Hield (15.6) — high-volume 3PT shooter for years" },
+        "NOP": { "score": 6.9, "grade": "C", "key_assets": "Cousins (6.9) — Achilles tear yr 2, left in FA" }
+      },
+      "espn_winner_correct": false,
+      "espn_accuracy": "F",
+      "analysis": "Pelton gave Sacramento a D for Buddy Hield — a player he described as having 'poor shooting efficiency.' Hield produced 15.6 CATV. Cousins tore his Achilles and left in free agency (6.9 CATV). The star-for-role-player trade flipped because Pelton didn't price injury risk."
+    },
+    {
+      "id": "celtics-76ers-2017",
+      "date": "2017-06-19",
+      "description": "No. 1 pick (Markelle Fultz) to PHI for No. 3 pick (Jayson Tatum) + 2018 LAL 1st",
+      "espn_grades": { "PHI": "B", "BOS": "B" },
+      "catv_winner": "BOS",
+      "catv_margin": 95.13,
+      "verdict_flipped": false,
+      "verdict_path": "1yr: BOS → 3yr: BOS → 5yr: BOS",
+      "catv_grades": {
+        "BOS": { "score": 95.6, "grade": "A", "key_assets": "Jayson Tatum (95.6) — MVP candidate, franchise player, 5x All-Star" },
+        "PHI": { "score": 0.5, "grade": "F", "key_assets": "Markelle Fultz (0.5) — forgot how to shoot, traded within 2 years" }
+      },
+      "espn_winner_correct": false,
+      "espn_accuracy": "F",
+      "analysis": "The single largest CATV gap in the entire dataset. Pelton called this a dead-even trade (B/B). Boston got Jayson Tatum — a franchise player, MVP candidate, 95.6 CATV. Philadelphia got Markelle Fultz — who forgot how to shoot and produced 0.5 CATV before being traded. The gap between Pelton's grade and reality: 95.1 CATV. No other miss comes close."
+    },
+    {
+      "id": "russell-lopez-2017",
+      "date": "2017-06-22",
+      "description": "D'Angelo Russell + Mozgov to BKN for Brook Lopez + No. 27 pick (Kyle Kuzma)",
+      "espn_grades": { "BKN": "A-", "LAL": "B" },
+      "catv_winner": "LAL",
+      "catv_margin": 10.45,
+      "verdict_flipped": false,
+      "catv_grades": {
+        "LAL": { "score": 17.0, "grade": "B-", "key_assets": "Kyle Kuzma (13.2) — 3+ seasons as rotation player, Lopez (3.8)" },
+        "BKN": { "score": 6.5, "grade": "C", "key_assets": "D'Angelo Russell (6.2) — traded within 2 seasons, Mozgov (0.4)" }
+      },
+      "espn_winner_correct": false,
+      "espn_accuracy": "D",
+      "analysis": "Pelton loved Brooklyn's asset hoarding strategy — 4 separate A or A- grades for Nets acquisitions in 2017-2018. This one didn't work. Russell was traded to Golden State within two years. The No. 27 pick (Kuzma) outproduced the headliner. Pelton graded the name, not the fit."
+    },
+    {
+      "id": "howard-cha-2017",
+      "date": "2017-06-20",
+      "description": "Dwight Howard + No. 31 pick to CHA for Belinelli, Miles Plumlee, No. 41 pick",
+      "espn_grades": { "CHA": "A-", "ATL": "D" },
+      "catv_winner": "CHA",
+      "catv_margin": 3.2,
+      "verdict_flipped": false,
+      "catv_grades": {
+        "CHA": { "score": 6.8, "grade": "C", "key_assets": "Howard (6.8) — one productive season" },
+        "ATL": { "score": 3.6, "grade": "C-", "key_assets": "Belinelli (1.9), Plumlee (1.4)" }
+      },
+      "espn_winner_correct": true,
+      "espn_accuracy": "C+",
+      "analysis": "Correct winner but both sides produced little. Pelton's A- for 6.8 CATV is classic grade inflation. Howard gave Charlotte one season."
+    },
+    {
+      "id": "1002225d-2497-4243-b28b-34b507e4fae2",
+      "date": "2017-06-22",
+      "description": "Jimmy Butler to MIN for Zach LaVine, Kris Dunn, #7 pick (Lauri Markkanen)",
+      "espn_grades": { "MIN": "A", "CHI": "F" },
+      "catv_winner": "CHI",
+      "catv_margin": 35.1,
+      "verdict_flipped": true,
+      "verdict_path": "1yr: MIN → 3yr: CHI → 5yr: CHI",
+      "catv_grades": {
+        "CHI": { "score": 46.8, "grade": "A-", "key_assets": "LaVine (31.1), Markkanen (11.8), Dunn (3.8)" },
+        "MIN": { "score": 11.7, "grade": "C+", "key_assets": "Butler (11.7) — 2 seasons then demanded trade" }
+      },
+      "espn_winner_correct": false,
+      "espn_accuracy": "F",
+      "analysis": "Pelton gave Chicago the worst possible grade for a package that produced 46.8 CATV including a 2x All-Star (LaVine) and an All-NBA player (Markkanen). Butler gave Minnesota 2 seasons, 1 playoff appearance, then forced his way out."
+    },
+    {
+      "id": "gallinari-3team-2017",
+      "date": "2017-07-06",
+      "description": "Gallinari to LAC (3-team: LAC, ATL, DEN)",
+      "espn_grades": { "ATL": "B", "LAC": "C-", "DEN": "B-" },
+      "catv_winner": "LAC",
+      "catv_margin": 9.25,
+      "verdict_flipped": false,
+      "catv_grades": {
+        "LAC": { "score": 9.3, "grade": "C+", "key_assets": "Gallinari (9.3)" },
+        "ATL": { "score": 0.0, "grade": "F", "key_assets": "Crawford (0.0), Stone (0.0)" },
+        "DEN": { "score": 0.0, "grade": "F", "key_assets": "Nothing produced" }
+      },
+      "espn_winner_correct": false,
+      "espn_accuracy": "D",
+      "analysis": "Pelton gave Atlanta the best grade (B) for a package that produced 0.0 CATV. Denver (B-) also produced 0.0. The Clippers (C-) got Gallinari at 9.3 — the only team that got anything. The grades were backwards."
+    },
+    {
+      "id": "bradley-morris-2017",
+      "date": "2017-07-07",
+      "description": "Avery Bradley to DET for Marcus Morris",
+      "espn_grades": { "BOS": "B", "DET": "D" },
+      "catv_winner": "BOS",
+      "catv_margin": 10.0,
+      "verdict_flipped": false,
+      "catv_grades": {
+        "BOS": { "score": 9.8, "grade": "C+", "key_assets": "Morris (9.8) — solid rotation player for 2+ seasons" },
+        "DET": { "score": -0.2, "grade": "F", "key_assets": "Bradley (-0.2) — left in FA after 1 year" }
+      },
+      "espn_winner_correct": true,
+      "espn_accuracy": "B",
+      "analysis": "Correct winner. Pelton's D for Detroit was prescient — Bradley was a rental who left in free agency and produced negative CATV. Morris gave Boston years of solid production."
+    },
+    {
+      "id": "carroll-bkn-2017",
+      "date": "2017-07-13",
+      "description": "DeMarre Carroll + 2018 1st + 2018 2nd to BKN for Justin Hamilton",
+      "espn_grades": { "BKN": "A", "TOR": "C-" },
+      "catv_winner": "BKN",
+      "catv_margin": 9.6,
+      "verdict_flipped": false,
+      "catv_grades": {
+        "BKN": { "score": 9.6, "grade": "C+", "key_assets": "Carroll (7.0), Kurucs (2.5)" },
+        "TOR": { "score": 0.0, "grade": "F", "key_assets": "Hamilton (0.0)" }
+      },
+      "espn_winner_correct": true,
+      "espn_accuracy": "B-",
+      "analysis": "Correct winner. Brooklyn's salary-dump acquisition strategy paid off here — they took on Carroll's contract and got picks. But the A grade for 9.6 CATV (C+ value) is 5 grades inflated."
+    },
+    {
+      "id": "9df0911f-d097-41cb-8680-252c69e67499",
+      "date": "2017-08-22",
+      "description": "Kyrie Irving to BOS for Isaiah Thomas, Jae Crowder, Ante Zizic, #8 pick (Collin Sexton)",
+      "espn_grades": { "CLE": "A", "BOS": "C" },
+      "catv_winner": "BOS",
+      "catv_margin": 13.3,
+      "verdict_flipped": false,
+      "verdict_path": "1yr: BOS → 3yr: BOS → 5yr: BOS",
+      "catv_grades": {
+        "BOS": { "score": 20.4, "grade": "B", "key_assets": "Kyrie Irving (20.4)" },
+        "CLE": { "score": 7.1, "grade": "C", "key_assets": "Sexton (5.5), Crowder (1.7), Zizic (0.0)" }
+      },
+      "espn_winner_correct": false,
+      "espn_accuracy": "D",
+      "analysis": "Pelton gave Cleveland an A for a package built on the assumption the Brooklyn pick would land top-3. It landed at 8. Isaiah Thomas was broken — 32 games for Cleveland. Boston got Kyrie for 2 productive seasons and a conference finals run."
+    },
+    {
+      "id": "bledsoe-mil-2017",
+      "date": "2017-11-07",
+      "description": "Eric Bledsoe to MIL for Greg Monroe + protected 1st + protected 2nd",
+      "espn_grades": { "MIL": "B-", "PHX": "C" },
+      "catv_winner": "MIL",
+      "catv_margin": 19.55,
+      "verdict_flipped": false,
+      "catv_grades": {
+        "MIL": { "score": 20.9, "grade": "B", "key_assets": "Bledsoe (20.9) — 3 seasons as Giannis's backcourt partner, championship contributor" },
+        "PHX": { "score": 1.4, "grade": "D", "key_assets": "Monroe (1.4) — barely played" }
+      },
+      "espn_winner_correct": true,
+      "espn_accuracy": "A-",
+      "analysis": "Correct winner and reasonable grades. Bledsoe gave Milwaukee 3 productive seasons including a championship contribution. One of Pelton's best calls — he identified the right side and was conservative rather than inflated."
+    },
+    {
+      "id": "8fd9c323-fbb1-4f4a-b778-4ce50696b068",
+      "date": "2018-01-29",
+      "description": "Blake Griffin to DET for Tobias Harris, Avery Bradley, Boban, 2018 1st (Miles Bridges), 2019 2nd",
+      "espn_grades": { "DET": "D", "LAC": "B" },
+      "catv_winner": "DET",
+      "catv_margin": 3.95,
+      "verdict_flipped": false,
+      "catv_grades": {
+        "DET": { "score": 11.3, "grade": "C+", "key_assets": "Griffin (11.3) — 2.5 productive seasons, All-Star in Detroit" },
+        "LAC": { "score": 7.3, "grade": "C", "key_assets": "Harris (7.6) — flipped to PHI within a year, Bradley (-0.3)" }
+      },
+      "espn_winner_correct": false,
+      "espn_accuracy": "D",
+      "analysis": "Pelton saw the Griffin contract as an albatross (D). Griffin gave Detroit 2.5 seasons and an All-Star nod (11.3 CATV). The Clippers' return scattered — Harris was flipped, Bradley left in FA."
+    },
+    {
+      "id": "9599b407-5f9a-4597-9e3a-bfbd66d84b12",
+      "date": "2018-02-08",
+      "description": "Isaiah Thomas + Channing Frye + 2018 1st (Moritz Wagner) to LAL for Jordan Clarkson + Larry Nance Jr.",
+      "espn_grades": { "LAL": "A", "CLE": "D" },
+      "catv_winner": "CLE",
+      "catv_margin": 17.55,
+      "verdict_flipped": false,
+      "verdict_path": "1yr: CLE → 3yr: CLE → 5yr: CLE",
+      "catv_grades": {
+        "CLE": { "score": 18.1, "grade": "B-", "key_assets": "Nance Jr. (14.8) — 4+ years of production, Clarkson (3.3)" },
+        "LAL": { "score": 0.5, "grade": "F", "key_assets": "IT (0.0) — 17 games, waived. Frye (0.3), Wagner (0.2)" }
+      },
+      "espn_winner_correct": false,
+      "espn_accuracy": "F",
+      "analysis": "Pelton gave the Lakers an A for Isaiah Thomas — who played 17 games before being waived. The 2018 first became Moritz Wagner (0.2 CATV). Cleveland got Nance Jr. (14.8 over 4+ years) and Clarkson (3.3). Complete A-to-F inversion."
+    },
+    {
+      "id": "hill-mil-2018",
+      "date": "2018-12-07",
+      "description": "George Hill + Jason Smith to MIL (3-team: MIL, CLE, WAS)",
+      "espn_grades": { "MIL": "A", "CLE": "B", "WAS": "B-" },
+      "catv_winner": "MIL",
+      "catv_margin": 15.25,
+      "verdict_flipped": false,
+      "catv_grades": {
+        "MIL": { "score": 15.3, "grade": "B-", "key_assets": "George Hill (15.3) — championship contributor" },
+        "CLE": { "score": 0.0, "grade": "F", "key_assets": "Dellavedova (0.0), Henson (0.0)" },
+        "WAS": { "score": 0.0, "grade": "F", "key_assets": "Dekker (0.0)" }
+      },
+      "espn_winner_correct": true,
+      "espn_accuracy": "B-",
+      "analysis": "Correct winner. Hill gave Milwaukee real production and contributed to a championship. But CLE and WAS both got B/B- grades for packages that produced 0.0 CATV. Pelton graded upside that never materialized."
+    },
+    {
+      "id": "ab35d092-4019-4f60-8e96-3afeb849f36d",
+      "date": "2018-11-12",
+      "description": "Jimmy Butler to PHI for Robert Covington, Dario Šarić, Jerryd Bayless, 2nd-round pick",
+      "espn_grades": { "PHI": "C-", "MIN": "B" },
+      "catv_winner": "PHI",
+      "catv_margin": 1.75,
+      "verdict_flipped": false,
+      "catv_grades": {
+        "PHI": { "score": 9.2, "grade": "C+", "key_assets": "Butler (9.2) — one playoff run, left for Miami" },
+        "MIN": { "score": 7.4, "grade": "C", "key_assets": "Covington (4.1), Šarić (3.3)" }
+      },
+      "espn_winner_correct": false,
+      "espn_accuracy": "C",
+      "analysis": "Pelton's closest miss. Wrong winner but the margin was 1.75 — nearly a draw. Neither side got lasting value. Most defensible wrong call in the dataset."
+    },
+    {
+      "id": "3741cd97-5dd5-4b5d-8e78-3cd2b9c64eba",
+      "date": "2019-02-06",
+      "description": "Tobias Harris + Mike Scott + Boban to PHI for Landry Shamet, Wilson Chandler, Mike Muscala, 2020 1st, 2021 1st",
+      "espn_grades": { "LAC": "A", "PHI": "C-" },
+      "catv_winner": "PHI",
+      "catv_margin": 40.6,
+      "verdict_flipped": false,
+      "verdict_path": "1yr: PHI → 3yr: PHI → 5yr: PHI",
+      "catv_grades": {
+        "PHI": { "score": 44.6, "grade": "A-", "key_assets": "Harris (40.0) — max extension, 5+ years of production, Scott (4.7)" },
+        "LAC": { "score": 4.0, "grade": "C-", "key_assets": "Shamet (4.2), Muscala (0.0), Chandler (-0.1)" }
+      },
+      "espn_winner_correct": false,
+      "espn_accuracy": "F",
+      "analysis": "Pelton gave LAC an A for a package that produced C- value (4.0 CATV). Philadelphia's 'overpay' for Harris (C- grade) returned A- value (44.6). Harris's max contract was mocked — he outproduced the entire return by 10x. The lesson: a player who stays and produces beats a collection of assets that scatter."
+    },
+    {
+      "id": "gasol-tor-2019",
+      "date": "2019-02-07",
+      "description": "Marc Gasol to TOR for Jonas Valančiūnas, Delon Wright, CJ Miles, 2024 2nd",
+      "espn_grades": { "TOR": "B+", "MEM": "C" },
+      "catv_winner": "MEM",
+      "catv_margin": 9.48,
+      "verdict_flipped": false,
+      "catv_grades": {
+        "MEM": { "score": 19.1, "grade": "B-", "key_assets": "Valančiūnas (16.8) — became Memphis's starting center for years, Wright (2.0)" },
+        "TOR": { "score": 9.6, "grade": "C+", "key_assets": "Gasol (9.6) — championship contributor" }
+      },
+      "espn_winner_correct": false,
+      "espn_accuracy": "D",
+      "analysis": "Pelton gave Toronto the edge (B+ vs C). Gasol contributed to a championship (9.6 CATV) — but Valančiūnas gave Memphis years of starting-caliber production (16.8). Like the Kawhi trade: the championship argument is real, but CATV measures cumulative production, and the team that kept the younger player longer won on volume."
+    },
+    {
+      "id": "ad-lal-2019",
+      "date": "2019-07-06",
+      "description": "Anthony Davis to LAL for Brandon Ingram, Lonzo Ball, Josh Hart, #4 pick, future 1sts",
+      "espn_grades": { "NOP": "A-", "LAL": "C+" },
+      "catv_winner": "LAL",
+      "catv_margin": 60.42,
+      "verdict_flipped": false,
+      "verdict_path": "1yr: LAL → 3yr: LAL → 5yr: LAL",
+      "catv_grades": {
+        "LAL": { "score": 64.8, "grade": "A", "key_assets": "Anthony Davis (64.8) — championship, All-NBA, franchise cornerstone" },
+        "NOP": { "score": 43.5, "grade": "A-", "key_assets": "Ingram (24.4), Hart (9.2), Ball (5.6)" }
+      },
+      "espn_winner_correct": false,
+      "espn_accuracy": "D",
+      "analysis": "Pelton gave New Orleans the edge (A- vs C+) and the CATV says LAL won by 60.4. Anthony Davis won a championship in year one and produced 64.8 CATV. New Orleans got real value back (43.5) — Ingram became an All-Star — but the Lakers won. The C+ for a player who won a championship and became a franchise player is Pelton's structural bias against big-name acquisitions, inverted: he was skeptical of the price, but the player was worth it."
+    },
+    {
+      "id": "bbref-2019-07-16-abf34ed1",
+      "date": "2019-07-16",
+      "description": "Russell Westbrook to HOU for Chris Paul + picks",
+      "espn_grades": {},
+      "espn_grader_note": "Paywalled",
+      "catv_winner": "OKC",
+      "catv_margin": 6.7,
+      "catv_grades": {
+        "OKC": { "score": 11.6, "grade": "C+", "key_assets": "CP3 (11.6) — 1 elite season, flipped to PHX" },
+        "HOU": { "score": 4.9, "grade": "C-", "key_assets": "Westbrook (4.9) — fit never worked, traded after 1 year" }
+      }
+    },
+    {
+      "id": "acc913b3-7113-44bb-9045-0dbc98a07972",
+      "date": "2018-07-18",
+      "description": "Kawhi Leonard + Danny Green to TOR for DeMar DeRozan, Jakob Poeltl, 2019 1st",
+      "espn_grades": {},
+      "espn_grader_note": "Paywalled",
+      "catv_winner": "SAS",
+      "catv_margin": 17.8,
+      "verdict_flipped": true,
+      "catv_grades": {
+        "SAS": { "score": 47.9, "grade": "A-", "key_assets": "Poeltl (25.6), DeRozan (22.2)" },
+        "TOR": { "score": 30.1, "grade": "B+", "key_assets": "Kawhi (22.7) + Green (7.3) — CHAMPIONSHIP" }
+      },
+      "analysis": "CATV says SAS won (volume) but Toronto won a championship. The most philosophically interesting trade in the dataset."
+    },
+    {
+      "id": "565dba7b-89e6-41de-b5fe-6a24c0d5de41",
+      "date": "2017-07-06",
+      "description": "Paul George to OKC for Victor Oladipo, Domantas Sabonis",
+      "espn_grades": {},
+      "espn_grader_note": "Paywalled",
+      "catv_winner": "IND",
+      "catv_margin": 23.1,
+      "catv_grades": {
+        "IND": { "score": 48.1, "grade": "A-", "key_assets": "Sabonis (34.2), Oladipo (13.9) — Oladipo became MIP yr 1" },
+        "OKC": { "score": 25.0, "grade": "B", "key_assets": "PG13 (25.0) — 2 great seasons, left in FA" }
+      }
+    },
+    {
+      "id": "eac532b3-71dd-49ed-b3d1-4baff67308ff",
+      "date": "2019-01-31",
+      "description": "Kristaps Porzingis + THJ + Burke + Lee to DAL for Dennis Smith Jr., DeAndre Jordan, Wes Matthews, 2021 1st, 2023 1st",
+      "espn_grades": {},
+      "espn_grader_note": "Paywalled",
+      "catv_winner": "DAL",
+      "catv_margin": 20.1,
+      "catv_grades": {
+        "DAL": { "score": 20.8, "grade": "B", "key_assets": "THJ (16.2), Burke (3.6)" },
+        "NYK": { "score": 0.7, "grade": "F", "key_assets": "Jordan (1.9), DSJ (-1.1)" }
+      }
+    },
+    {
+      "id": "bbref-2020-11-16-3d6e7f52",
+      "date": "2020-11-16",
+      "description": "Chris Paul to PHX for Ricky Rubio, Kelly Oubre Jr., Ty Jerome, Jalen Lecque, 2022 1st",
+      "espn_grades": { "OKC": "A", "PHX": "B-" },
+      "catv_winner": "PHX",
+      "catv_margin": 33.1,
+      "verdict_flipped": false,
+      "verdict_path": "1yr: PHX → 3yr: PHX → 5yr: PHX",
+      "catv_grades": {
+        "PHX": { "score": 34.9, "grade": "B+", "key_assets": "CP3 (34.2) — NBA Finals yr 1, 64-win season yr 2" },
+        "OKC": { "score": 1.8, "grade": "D", "key_assets": "Jerome (1.8), Oubre/Lecque/Rubio all gone instantly" }
+      },
+      "espn_winner_correct": false,
+      "espn_accuracy": "F",
+      "analysis": "Pelton's worst miss by magnitude after the Tatum-Fultz swap. OKC's entire A-graded return produced 1.8 CATV. CP3 took Phoenix from lottery to NBA Finals. Pelton was skeptical of a 35-year-old on a big contract. CP3 produced 34.2."
+    },
+    {
+      "id": "bbref-2020-11-23-911c74b2",
+      "date": "2020-11-23",
+      "description": "Jrue Holiday to MIL (4-team: MIL, NOP, DEN, OKC)",
+      "espn_grades": {},
+      "espn_grader_note": "Paywalled",
+      "catv_winner": "MIL",
+      "catv_margin": 25.9,
+      "catv_grades": {
+        "MIL": { "score": 26.0, "grade": "B", "key_assets": "Jrue Holiday (25.5) — championship + 4 seasons of two-way excellence" },
+        "NOP": { "score": 7.5, "grade": "C", "key_assets": "Missi (5.2), Bledsoe (2.3)" }
+      }
+    },
+    {
+      "id": "bbref-2020-12-02-d2cdee3a",
+      "date": "2020-12-02",
+      "description": "Russell Westbrook to WAS for John Wall + 2023 1st",
+      "espn_grades": {},
+      "espn_grader_note": "Paywalled",
+      "catv_winner": "HOU",
+      "catv_margin": 15.4,
+      "verdict_flipped": true,
+      "catv_grades": {
+        "HOU": { "score": 19.1, "grade": "B-", "key_assets": "Amen Thompson (19.4 from pick), Wall (-0.2)" },
+        "WAS": { "score": 3.7, "grade": "C-", "key_assets": "Westbrook (3.7) — 1 season, traded" }
+      }
+    },
+    {
+      "id": "bbref-2021-01-16-5559381c",
+      "date": "2021-01-16",
+      "description": "James Harden to BKN (4-team deal: BKN, HOU, CLE, IND)",
+      "espn_grades": { "BKN": "D" },
+      "catv_winner": "CLE",
+      "catv_margin": 54.0,
+      "verdict_flipped": false,
+      "catv_grades": {
+        "CLE": { "score": 53.9, "grade": "A-", "key_assets": "Jarrett Allen (53.1!) — All-Star center, Cleveland cornerstone" },
+        "HOU": { "score": 45.5, "grade": "A-", "key_assets": "Thompson (19.4), Green (11.2), Eason (11.2)" },
+        "BKN": { "score": 13.7, "grade": "B-", "key_assets": "Harden (13.7) — 1.5 productive seasons then demanded trade" },
+        "IND": { "score": -0.1, "grade": "F", "key_assets": "LeVert (0.0)" }
+      },
+      "espn_accuracy": "B-",
+      "analysis": "Pelton gave BKN a D — skeptical of what they gave up. Right instinct: Harden's 13.7 was B- value, not superstar returns. But the real story was Cleveland getting Jarrett Allen (53.1 CATV) as a throw-in nobody discussed."
+    },
+    {
+      "id": "bbref-2021-03-25-dd00cd09",
+      "date": "2021-03-25",
+      "description": "Aaron Gordon + Gary Clark to DEN for Gary Harris, R.J. Hampton, 2025 1st",
+      "espn_grades": {},
+      "espn_grader_note": "Paywalled",
+      "catv_winner": "DEN",
+      "catv_margin": 25.6,
+      "catv_grades": {
+        "DEN": { "score": 35.5, "grade": "B+", "key_assets": "Aaron Gordon (35.5) — championship contributor, 4+ years" },
+        "ORL": { "score": 9.8, "grade": "C+", "key_assets": "Harris (8.7), Hampton (0.6)" }
+      }
+    },
+    {
+      "id": "bbref-2021-08-06-759f6a73",
+      "date": "2021-08-06",
+      "description": "Russell Westbrook to LAL for Kuzma, KCP, Harrell, #22 pick (Isaiah Jackson) + more (5-team deal)",
+      "espn_grades": { "LAL": "D" },
+      "catv_winner": "WAS",
+      "catv_margin": 11.4,
+      "catv_grades": {
+        "LAL": { "score": 2.4, "grade": "D", "key_assets": "Westbrook (2.4) — disastrous fit, traded after 1 year" },
+        "WAS": { "score": 11.4, "grade": "C+", "key_assets": "Harrell (5.1), KCP (2.8), Kuzma (1.8)" },
+        "IND": { "score": 9.8, "grade": "C+", "key_assets": "Isaiah Jackson (9.8)" }
+      },
+      "espn_winner_correct": true,
+      "espn_accuracy": "A",
+      "analysis": "Pelton's cleanest call. He saw the Westbrook-to-Lakers disaster coming. Westbrook produced 2.4 CATV and was traded after one season."
+    }
+  ],
+  "scorecard": {
+    "total_trades_with_confirmed_grades": 24,
+    "total_trades_in_dataset": 34,
+    "trades_with_evaluable_winner_calls": 26,
+    "correct_winner_calls": 11,
+    "wrong_winner_calls": 15,
+    "winner_accuracy": "42%",
+    "pelton_overall_grade": "C-",
+    "grade_inflation_note": "Pelton's median A-graded team produced C+ value (8.5 CATV). His As are worth about 2 full grades less than advertised.",
+    "worst_misses": [
+      "Celtics-76ers pick swap (2017): called it B/B, reality was A (95.6)/F (0.5). Tatum vs Fultz — 95.1 CATV gap.",
+      "IT/Clarkson swap (2018): gave LAL an A for 0.5 CATV and CLE a D for 18.1 CATV. Complete inversion.",
+      "CP3 to PHX (2020): gave OKC an A for 1.8 CATV and PHX a B- for 34.9 CATV. OKC's entire return was a rounding error.",
+      "Harris to PHI (2019): gave LAC an A for 4.0 CATV and PHI a C- for 44.6 CATV. Harris on the max produced 10x the return.",
+      "Butler to MIN (2017): gave CHI an F for 46.8 CATV. The only F he ever gave, and it was wrong by 8 grades."
+    ],
+    "best_calls": [
+      "Westbrook to LAL (2021): D grade, D reality. Nailed it.",
+      "Nurkic-Plumlee (2017): B/C-, reality B/B-. Winner and relative margin both right.",
+      "Bledsoe to MIL (2017): B-/C, reality B/D. Championship contributor. Right winner, right direction.",
+      "Ibaka to TOR (2017): A-/B, reality B/C+. Right winner, Ibaka gave years of production.",
+      "Bradley-Morris (2017): B/D, reality C+/F. Right winner, Bradley was indeed a bad acquisition."
+    ],
+    "systematic_biases": [
+      "Grade inflation: Pelton's A grades correspond to C+ actual value on average. His As are overrated by ~5 grades.",
+      "Young player discount: F for LaVine+Markkanen (age 22), D for Buddy Hield, D for Nance+Clarkson. Young players in packages get structurally underrated.",
+      "Rental trap: Overvalues the team getting the star in rental situations (Butler, CP3, Cousins, Kyrie). Stars leave.",
+      "Reputation grading: IT got an A for the Lakers despite being physically broken. Name recognition drives the grade more than projected production.",
+      "Afterthought blindness: The most valuable players in multi-team trades are the ones nobody discusses (Allen in Harden trade, Nance in IT trade, Kuzma in Russell-Lopez trade)."
+    ]
+  }
+}
