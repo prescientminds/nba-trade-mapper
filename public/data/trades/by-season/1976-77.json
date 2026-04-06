@@ -25,7 +25,7 @@
         "pick_year": 1977,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Brad Davis",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -128,7 +128,7 @@
         "pick_year": 1977,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Mike Glenn",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -185,7 +185,7 @@
         "pick_year": 1977,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Wilson Washington",
+        "became_player_name": "Glen Williams",
         "notes": null
       },
       {
@@ -196,7 +196,7 @@
         "pick_year": 1978,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Maurice Cheeks",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -207,7 +207,7 @@
         "pick_year": 1969,
         "pick_round": 3,
         "original_team_id": null,
-        "became_player_name": "Fred Carter",
+        "became_player_name": "Mike Grosso",
         "notes": null
       },
       {
@@ -424,7 +424,7 @@
         "pick_year": 1971,
         "pick_round": 3,
         "original_team_id": null,
-        "became_player_name": "Dave Wohl",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -435,7 +435,7 @@
         "pick_year": 1978,
         "pick_round": 4,
         "original_team_id": null,
-        "became_player_name": "Jackie Robinson",
+        "became_player_name": "Walter Jordan",
         "notes": null
       }
     ],
@@ -481,7 +481,7 @@
         "pick_year": 1977,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Ernie Grunfeld",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -492,7 +492,7 @@
         "pick_year": 1978,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "George Johnson (Lee)",
+        "became_player_name": "Mike Mitchell",
         "notes": null
       },
       {
@@ -549,7 +549,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "George Johnson (Thomas)",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -560,7 +560,7 @@
         "pick_year": 1977,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Wesley Cox",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -617,7 +617,7 @@
         "pick_year": 1977,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Greg Ballard",
+        "became_player_name": "Tree Rollins",
         "notes": null
       },
       {
@@ -685,7 +685,7 @@
         "pick_year": 1979,
         "pick_round": 4,
         "original_team_id": null,
-        "became_player_name": "James Donaldson",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -788,7 +788,7 @@
         "pick_year": 1973,
         "pick_round": 6,
         "original_team_id": null,
-        "became_player_name": "John Williamson",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -823,7 +823,7 @@
         "pick_year": 1979,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Paul Mokeski",
+        "became_player_name": "Johnny High",
         "notes": null
       },
       {
@@ -902,7 +902,7 @@
         "pick_year": 1977,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Steve Sheppard",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -981,7 +981,7 @@
         "pick_year": 1977,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Steve Sheppard",
+        "became_player_name": "Eddie Owens",
         "notes": null
       },
       {
@@ -1003,7 +1003,7 @@
         "pick_year": 1977,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Tom LaGarde",
+        "became_player_name": "Otis Birdsong",
         "notes": null
       }
     ],
@@ -1060,7 +1060,7 @@
         "pick_year": 1978,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Purvis Short",
+        "became_player_name": "Phil Ford",
         "notes": null
       },
       {
@@ -1071,7 +1071,7 @@
         "pick_year": 1978,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Ron Carter",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -1117,7 +1117,7 @@
         "pick_year": 1977,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Tate Armstrong",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1128,7 +1128,7 @@
         "pick_year": 1977,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Marques Johnson",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1174,7 +1174,7 @@
         "pick_year": 1973,
         "pick_round": 6,
         "original_team_id": null,
-        "became_player_name": "Johnny Neumann",
+        "became_player_name": "David Brent",
         "notes": null
       },
       {
@@ -1220,7 +1220,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "John Johnson (a)",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1231,7 +1231,7 @@
         "pick_year": 1977,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Larry Moffett",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1242,7 +1242,7 @@
         "pick_year": 1978,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Buster Matheney",
+        "became_player_name": "Jeff Judkins",
         "notes": null
       },
       {
@@ -1288,7 +1288,7 @@
         "pick_year": 1977,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Larry Johnson (a)",
+        "became_player_name": "Larry Johnson",
         "notes": null
       },
       {

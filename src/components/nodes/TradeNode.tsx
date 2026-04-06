@@ -8,6 +8,8 @@ import { SeasonTable } from '@/components/SeasonTable';
 import type { TransactionAsset } from '@/lib/supabase';
 import { ensureReadable, contrastText } from '@/lib/colors';
 import { getSupabase } from '@/lib/supabase';
+import type { ChainTeamData } from '@/lib/graph-store';
+import { flattenChainPlayers, findOutgoingPlayers } from '@/lib/chain-utils';
 import { useHints } from '@/lib/use-hints';
 import { HintLabel } from '@/components/HintLabel';
 import { createPortal } from 'react-dom';
@@ -73,6 +75,9 @@ function TradeNodeComponent({ id, data }: NodeProps) {
   const [pathLoading, setPathLoading] = useState<string | null>(null);
   const [cardPreviewOpen, setCardPreviewOpen] = useState(false);
   const [timelineOpen, setTimelineOpen] = useState(false);
+  const [chainData, setChainData] = useState<Record<string, ChainTeamData> | null>(null);
+  const [becameExpanded, setBecameExpanded] = useState(false);
+  const seedFromChain = useGraphStore((s) => s.seedFromChain);
   const selectedLeague = useGraphStore((s) => s.selectedLeague);
   const visualSkin = useGraphStore((s) => s.visualSkin);
   const [wsChartSignals, setWsChartSignals] = useState<Record<string, number>>({});
@@ -80,12 +85,21 @@ function TradeNodeComponent({ id, data }: NodeProps) {
     if (!isExpanded || scoreFetched) return;
     setScoreFetched(true);
     setScoreLoading(true);
-    getSupabase()
+    const scoreP = getSupabase()
       .from('trade_scores')
       .select('team_scores,winner,lopsidedness,salary_details')
       .eq('trade_id', trade.id)
       .single()
-      .then(({ data }) => { if (data) setTradeScore(data as TradeScoreRow); setScoreLoading(false); });
+      .then(({ data }) => { if (data) setTradeScore(data as TradeScoreRow); });
+    const chainP = getSupabase()
+      .from('trade_chain_scores')
+      .select('chain_scores')
+      .eq('trade_id', trade.id)
+      .single()
+      .then(({ data }: { data: { chain_scores: Record<string, ChainTeamData> } | null }) => {
+        if (data?.chain_scores) setChainData(data.chain_scores);
+      });
+    Promise.all([scoreP, chainP]).finally(() => setScoreLoading(false));
   }, [isExpanded, scoreFetched, trade.id]);
 
   // Auto-dismiss hint 4 after 5s when scores are visible
@@ -188,6 +202,43 @@ function TradeNodeComponent({ id, data }: NodeProps) {
     if (!scoreEntries) return 1;
     return Math.max(...scoreEntries.map(([, ts]) => ts.score), 0.01);
   }, [scoreEntries]);
+
+  // Chain lineage — "Turned X into A, B, C"
+  const becameInfo = useMemo(() => {
+    if (!chainData || !tradeScore) return null;
+    // Find team with best chain — use the trade winner if they have chain data
+    const winner = tradeScore.winner;
+    const sorted = Object.entries(chainData).sort((a, b) => b[1].chain - a[1].chain);
+    if (sorted.length === 0) return null;
+
+    // Prefer the trade winner's chain, fall back to highest chain
+    let bestTeamId = sorted[0][0];
+    let bestData = sorted[0][1];
+    if (winner && chainData[winner] && chainData[winner].depth >= 2) {
+      bestTeamId = winner;
+      bestData = chainData[winner];
+    }
+
+    // Require real chaining: depth >= 2, and chain must exceed direct by 20%+
+    if (bestData.depth < 2) return null;
+    if (bestData.chain <= bestData.direct * 1.2) return null;
+
+    const endpoints = flattenChainPlayers(bestData.assets, true);
+    if (endpoints.length === 0) return null;
+
+    // What did this team send away? (look at the other teams' received assets)
+    const outgoing = findOutgoingPlayers(chainData, bestTeamId);
+
+    return {
+      teamId: bestTeamId,
+      outgoing: outgoing.slice(0, 2),
+      endpoints: endpoints.slice(0, 4),
+      totalEndpoints: endpoints.length,
+      chainScore: bestData.chain,
+      directScore: bestData.direct,
+      depth: bestData.depth,
+    };
+  }, [chainData, tradeScore]);
 
   // Look up per-asset score from trade_scores data
   const getAssetScore = (teamId: string, assetName: string | null | undefined): number | null => {
@@ -727,6 +778,144 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                   Visualize →
                 </button>
               )}
+
+              {/* "Became" — chain lineage summary */}
+              {becameInfo && (() => {
+                const teamDisplayInfo = getAnyTeamDisplayInfo(becameInfo.teamId, trade.date);
+                const teamColor = ensureReadable(teamDisplayInfo.color);
+                const teamAbbr = teamDisplayInfo.abbreviation;
+                const outLabel = becameInfo.outgoing.length > 0
+                  ? becameInfo.outgoing.join(' + ')
+                  : 'assets';
+                const endpointNames = becameInfo.endpoints.map((p) => p.name);
+                const overflowCount = becameInfo.totalEndpoints - endpointNames.length;
+
+                return (
+                  <div style={{ marginTop: 4 }}>
+                    {/* Clickable summary line */}
+                    <div
+                      className="nopan nodrag"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (!becameExpanded) {
+                          // Estimate expanded height: ~14px per endpoint + 20px for button
+                          const expandH = becameInfo.endpoints.length * 14 + 24;
+                          adjustLayoutForToggle(id, expandH);
+                        } else {
+                          const collapseH = becameInfo.endpoints.length * 14 + 24;
+                          adjustLayoutForToggle(id, -collapseH);
+                        }
+                        setBecameExpanded((v) => !v);
+                      }}
+                      style={{
+                        fontSize: 8,
+                        fontFamily: 'var(--font-body)',
+                        color: 'var(--text-secondary)',
+                        cursor: 'pointer',
+                        padding: '2px 0',
+                        lineHeight: 1.4,
+                        transition: 'color 0.15s',
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--text-primary)'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-secondary)'; }}
+                    >
+                      <span style={{ color: teamColor, fontWeight: 600 }}>{teamAbbr}</span>
+                      {' turned '}
+                      <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{outLabel}</span>
+                      {' into '}
+                      <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>
+                        {endpointNames.join(', ')}
+                        {overflowCount > 0 && <span style={{ color: 'var(--text-muted)' }}> +{overflowCount}</span>}
+                      </span>
+                      <span style={{
+                        fontSize: 7,
+                        color: becameExpanded ? 'var(--accent-orange)' : 'var(--text-muted)',
+                        marginLeft: 3,
+                        transition: 'transform 0.2s',
+                        display: 'inline-block',
+                        transform: becameExpanded ? 'rotate(90deg)' : 'rotate(0deg)',
+                      }}>
+                        ▸
+                      </span>
+                    </div>
+
+                    {/* Expanded: chain path + View Full Chain */}
+                    {becameExpanded && (
+                      <div
+                        style={{
+                          marginTop: 3,
+                          padding: '4px 6px',
+                          background: 'var(--bg-tertiary)',
+                          borderRadius: 4,
+                          borderLeft: `2px solid ${teamColor}`,
+                        }}
+                      >
+                        {becameInfo.endpoints.map((p) => (
+                          <div
+                            key={p.name}
+                            style={{
+                              display: 'flex',
+                              justifyContent: 'space-between',
+                              alignItems: 'baseline',
+                              fontSize: 8,
+                              lineHeight: 1.7,
+                              gap: 6,
+                            }}
+                          >
+                            <span style={{ color: 'var(--text-primary)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>
+                              {p.name}
+                            </span>
+                            <span style={{
+                              fontFamily: 'var(--font-mono)',
+                              fontSize: 7,
+                              color: '#f9c74f',
+                              flexShrink: 0,
+                              padding: '0 3px',
+                              borderRadius: 2,
+                              background: 'rgba(249,199,79,0.1)',
+                            }}>
+                              {p.score.toFixed(1)}
+                            </span>
+                          </div>
+                        ))}
+                        <button
+                          className="nopan nodrag"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            seedFromChain(trade.id, chainData ?? undefined);
+                          }}
+                          style={{
+                            display: 'block',
+                            width: '100%',
+                            marginTop: 4,
+                            padding: '3px 0',
+                            background: 'none',
+                            border: 'none',
+                            cursor: 'pointer',
+                            fontSize: 7,
+                            fontWeight: 600,
+                            fontFamily: 'var(--font-body)',
+                            color: teamColor,
+                            letterSpacing: 0.6,
+                            textTransform: 'uppercase',
+                            textAlign: 'center',
+                            borderRadius: 3,
+                            transition: 'color 0.15s, background 0.15s',
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = 'none';
+                          }}
+                        >
+                          View Full Chain →
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
 
             </div>
           )}

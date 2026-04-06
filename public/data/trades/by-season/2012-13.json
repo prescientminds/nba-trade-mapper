@@ -166,7 +166,7 @@
         "pick_year": 2013,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Steven Adams",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -201,7 +201,7 @@
         "pick_year": 2016,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Cheick Diallo",
+        "became_player_name": "Marcus Paige",
         "notes": null
       },
       {
@@ -212,7 +212,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Reggie Evans",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -223,7 +223,7 @@
         "pick_year": 2016,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Marcus Paige",
+        "became_player_name": "Cheick Diallo",
         "notes": null
       },
       {
@@ -324,7 +324,7 @@
         "pick_year": 2013,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Shane Larkin",
+        "became_player_name": "Mason Plumlee",
         "notes": null
       },
       {
@@ -335,7 +335,7 @@
         "pick_year": 2015,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Kelly Oubre Jr.",
+        "became_player_name": "Chris McCullough",
         "notes": null
       },
       {
@@ -346,7 +346,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Frank Jackson",
+        "became_player_name": "Sasha Vezenkov",
         "notes": null
       },
       {
@@ -368,7 +368,7 @@
         "pick_year": 2015,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Chris McCullough",
+        "became_player_name": "Kelly Oubre Jr.",
         "notes": null
       }
     ],
@@ -550,7 +550,7 @@
         "pick_year": 2014,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Nemanja Nedovic",
+        "became_player_name": "Alec Brown",
         "notes": null
       },
       {
@@ -561,7 +561,7 @@
         "pick_year": 2013,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Alex Oriakhi",
+        "became_player_name": "Ryan Kelly",
         "notes": null
       },
       {
@@ -572,7 +572,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Johnny O'Bryant III",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -583,7 +583,7 @@
         "pick_year": 2018,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Mikal Bridges",
+        "became_player_name": "Moritz Wagner",
         "notes": null
       },
       {
@@ -833,7 +833,7 @@
         "pick_year": 2009,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "James Johnson",
+        "became_player_name": "DeMar DeRozan",
         "notes": null
       },
       {
@@ -844,7 +844,7 @@
         "pick_year": 2014,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "DeAndre Daniels",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -905,7 +905,7 @@
         "pick_year": 2013,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Jeff Withey",
+        "became_player_name": "Isaiah Canaan",
         "notes": null
       },
       {
@@ -916,7 +916,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Marko Todorovic",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1075,7 +1075,7 @@
         "pick_year": 2014,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Vasilije Micic",
+        "became_player_name": "Joe Harris",
         "notes": null
       },
       {
@@ -1191,7 +1191,7 @@
         "pick_year": 2013,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Lorenzo Brown",
+        "became_player_name": "Alex Oriakhi",
         "notes": null
       },
       {
@@ -1202,7 +1202,7 @@
         "pick_year": 2016,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Rade Zagorac",
+        "became_player_name": "Tyler Ulis",
         "notes": null
       },
       {
@@ -1224,7 +1224,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Semi Ojeleye",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1235,7 +1235,7 @@
         "pick_year": 2014,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Johnny O'Bryant",
+        "became_player_name": "Alec Brown",
         "notes": null
       }
     ],
@@ -1391,7 +1391,7 @@
         "pick_year": 2017,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "De'Aaron Fox",
+        "became_player_name": "Markelle Fultz",
         "notes": null
       },
       {
@@ -1435,7 +1435,7 @@
         "pick_year": 2014,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Dario Šarić",
+        "became_player_name": "Doug McDermott",
         "notes": null
       },
       {
@@ -1468,7 +1468,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Wesley Iwundu",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1604,7 +1604,7 @@
         "pick_year": 2013,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Steven Adams",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1615,7 +1615,7 @@
         "pick_year": 2013,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Alex Abrines",
+        "became_player_name": "Isaiah Canaan",
         "notes": null
       },
       {
@@ -1626,7 +1626,7 @@
         "pick_year": 2014,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Mitch McGary",
+        "became_player_name": "Clint Capela",
         "notes": null
       }
     ],
@@ -1724,7 +1724,7 @@
         "pick_year": 2017,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Harry Giles",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1818,7 +1818,7 @@
         "pick_year": 2013,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Jamaal Franklin",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -2236,7 +2236,7 @@
         "pick_year": 2013,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Janis Timma",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -2396,7 +2396,7 @@
         "pick_year": 2014,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Xavier Thames",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -2475,7 +2475,7 @@
         "pick_year": 2014,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Lamar Patterson",
+        "became_player_name": "Alec Brown",
         "notes": null
       }
     ],
@@ -2510,7 +2510,7 @@
         "pick_year": 2013,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Isaiah Canaan",
+        "became_player_name": "Alex Oriakhi",
         "notes": null
       },
       {
@@ -2521,7 +2521,7 @@
         "pick_year": 2011,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Marcus Morris",
+        "became_player_name": "Markieff Morris",
         "notes": null
       },
       {
@@ -2716,7 +2716,7 @@
         "pick_year": 2013,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Allen Crabbe",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -2738,7 +2738,7 @@
         "pick_year": 2016,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Paul Zipser",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -2852,7 +2852,7 @@
         "pick_year": 2014,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Cleanthony Early",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -2863,7 +2863,7 @@
         "pick_year": 2014,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Russ Smith",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -2955,7 +2955,7 @@
         "pick_year": 2015,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Pat Connaughton",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -2966,7 +2966,7 @@
         "pick_year": 2013,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Raul Neto",
+        "became_player_name": "Erick Green",
         "notes": null
       },
       {
@@ -3012,7 +3012,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Sterling Brown",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -3023,7 +3023,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "James Ennis",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -3183,7 +3183,7 @@
         "pick_year": 2014,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Alessandro Gentile",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -3262,7 +3262,7 @@
         "pick_year": 2014,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Nemanja Dangubic",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -3444,7 +3444,7 @@
         "pick_year": 2014,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Russ Smith",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -3455,7 +3455,7 @@
         "pick_year": 2013,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Ricky Ledo",
+        "became_player_name": "Mike Muscala",
         "notes": null
       },
       {

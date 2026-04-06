@@ -87,23 +87,40 @@ function findDraftedPlayer(
   pickYear: number,
   pickRound: number,
   toTeamId: string | null,
-  originalTeamId: string | null
+  originalTeamId: string | null,
+  fromTeamId: string | null
 ): string | null {
   const key = `${pickYear}-${pickRound}`;
   const picks = draftIndex.get(key);
   if (!picks) return null;
 
-  // Try to match by the team that holds the pick
-  const teamToMatch = toTeamId || originalTeamId;
-  if (teamToMatch) {
-    const match = picks.find((p) => resolveTeamId(p.team) === teamToMatch);
-    if (match && match.player) return match.player;
+  // Strategy: try to match unambiguously. If a team has multiple picks in
+  // the same round, we CANNOT tell which one this is — return null.
+
+  // Priority 1: original_team_id (the team whose record determined the pick)
+  // This is the most reliable signal when available.
+  if (originalTeamId) {
+    const matches = picks.filter((p) => resolveTeamId(p.team) === originalTeamId);
+    if (matches.length === 1 && matches[0].player) return matches[0].player;
+    // Multiple picks or no match — can't disambiguate
+    if (matches.length > 1) return null;
   }
 
-  // If original_team_id is set, try that
-  if (originalTeamId && originalTeamId !== toTeamId) {
-    const match = picks.find((p) => resolveTeamId(p.team) === originalTeamId);
-    if (match && match.player) return match.player;
+  // Priority 2: from_team_id (who sent the pick). For traded picks, this is
+  // often the original owner. Only try if different from to_team_id.
+  if (fromTeamId && fromTeamId !== toTeamId) {
+    const matches = picks.filter((p) => resolveTeamId(p.team) === fromTeamId);
+    if (matches.length === 1 && matches[0].player) return matches[0].player;
+    // Multiple picks for from_team — don't hard-stop, fall through to to_team_id
+  }
+
+  // Priority 3: to_team_id (who received and used the pick). Only use if the
+  // team had exactly ONE pick in this round — otherwise ambiguous.
+  if (toTeamId) {
+    const matches = picks.filter((p) => resolveTeamId(p.team) === toTeamId);
+    if (matches.length === 1 && matches[0].player) return matches[0].player;
+    // Team had multiple picks in this round — can't tell which one
+    if (matches.length > 1) return null;
   }
 
   return null;
@@ -111,11 +128,13 @@ function findDraftedPlayer(
 
 async function main() {
   const dryRun = process.argv.includes('--dry-run');
+  const force = process.argv.includes('--force');
   console.log('Loading draft pick history...');
   const draftIndex = loadDraftPicks();
   let totalPicks = 0;
   for (const picks of draftIndex.values()) totalPicks += picks.length;
   console.log(`  ${totalPicks} draft picks loaded`);
+  if (force) console.log('  --force: clearing all existing became_player_name before enrichment');
 
   console.log('Processing season files...');
   const seasonFiles = fs.readdirSync(SEASON_DIR).filter((f) => f.endsWith('.json'));
@@ -124,11 +143,25 @@ async function main() {
   let alreadyHad = 0;
   let notFound = 0;
   let noPick = 0;
+  let cleared = 0;
 
   for (const file of seasonFiles) {
     const filePath = path.join(SEASON_DIR, file);
     const trades: StaticTrade[] = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
     let modified = false;
+
+    // --force: clear all became_player_name so we re-enrich from scratch
+    if (force) {
+      for (const trade of trades) {
+        for (const asset of trade.assets) {
+          if ((asset.type === 'pick' || asset.type === 'swap') && asset.became_player_name) {
+            asset.became_player_name = null;
+            cleared++;
+            modified = true;
+          }
+        }
+      }
+    }
 
     for (const trade of trades) {
       for (const asset of trade.assets) {
@@ -148,7 +181,8 @@ async function main() {
           asset.pick_year,
           asset.pick_round,
           asset.to_team_id,
-          asset.original_team_id
+          asset.original_team_id,
+          asset.from_team_id
         );
 
         if (player) {
@@ -167,6 +201,7 @@ async function main() {
   }
 
   console.log(`\nPhase 1 — Forward enrichment (year/round → player name):`);
+  if (force) console.log(`  Cleared: ${cleared} existing values`);
   console.log(`  Enriched: ${enriched} picks got became_player_name`);
   console.log(`  Already had: ${alreadyHad}`);
   console.log(`  Not found: ${notFound} (ambiguous or future pick)`);

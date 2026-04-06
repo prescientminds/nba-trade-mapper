@@ -58,7 +58,7 @@
         "pick_year": 1981,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Danny Ainge",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -69,7 +69,7 @@
         "pick_year": 1983,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Rod Foster",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -137,7 +137,7 @@
         "pick_year": 1981,
         "pick_round": 4,
         "original_team_id": null,
-        "became_player_name": "Kenny Dennard",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -227,7 +227,7 @@
         "pick_year": 1980,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Carl Nicks",
+        "became_player_name": "Kevin McHale",
         "notes": null
       },
       {
@@ -273,7 +273,7 @@
         "pick_year": 1975,
         "pick_round": 4,
         "original_team_id": null,
-        "became_player_name": "C.J. Kupec",
+        "became_player_name": "Ken Smith",
         "notes": null
       },
       {
@@ -284,7 +284,7 @@
         "pick_year": 1979,
         "pick_round": 4,
         "original_team_id": null,
-        "became_player_name": "Sammy Drummer",
+        "became_player_name": "Eugene Robinson",
         "notes": null
       },
       {
@@ -363,7 +363,7 @@
         "pick_year": 1984,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Leon Wood",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -385,7 +385,7 @@
         "pick_year": 1978,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Mike Evans",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -488,7 +488,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Slick Watts",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -534,7 +534,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "John Brown (b)",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -545,7 +545,7 @@
         "pick_year": 1980,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Craig Shelton",
+        "became_player_name": "Sam Worthen",
         "notes": null
       },
       {
@@ -613,7 +613,7 @@
         "pick_year": 1980,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Larry Smith",
+        "became_player_name": "Brad Branson",
         "notes": null
       },
       {
@@ -716,7 +716,7 @@
         "pick_year": 1984,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Charles Barkley",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -784,7 +784,7 @@
         "pick_year": 1981,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Tracy Jackson",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -898,7 +898,7 @@
         "pick_year": 1976,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Scott Lloyd",
+        "became_player_name": "Willie Smith",
         "notes": null
       },
       {
@@ -909,7 +909,7 @@
         "pick_year": 2002,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Sam Clancy",
+        "became_player_name": "Mario Kasun",
         "notes": null
       },
       {
@@ -1034,7 +1034,7 @@
         "pick_year": 1979,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Larry Knight",
+        "became_player_name": "Kyle Macy",
         "notes": null
       },
       {
@@ -1045,7 +1045,7 @@
         "pick_year": 1980,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "John Duren",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1148,7 +1148,7 @@
         "pick_year": 1979,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Sly Williams",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1159,7 +1159,7 @@
         "pick_year": 1970,
         "pick_round": 3,
         "original_team_id": null,
-        "became_player_name": "Dennis Awtrey",
+        "became_player_name": "Willie Williams",
         "notes": null
       },
       {
@@ -1205,7 +1205,7 @@
         "pick_year": 1979,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Larry Demic",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1284,7 +1284,7 @@
         "pick_year": 1983,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Derek Harper",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -1455,7 +1455,7 @@
         "pick_year": 1979,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Bill Cartwright",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1466,7 +1466,7 @@
         "pick_year": 1979,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Larry Demic",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1477,7 +1477,7 @@
         "pick_year": 1979,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Sly Williams",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1545,7 +1545,7 @@
         "pick_year": 1979,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Calvin Natt",
+        "became_player_name": "Sidney Moncrief",
         "notes": null
       }
     ],
@@ -1602,7 +1602,7 @@
         "pick_year": 1980,
         "pick_round": 3,
         "original_team_id": null,
-        "became_player_name": "John Campbell",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1705,7 +1705,7 @@
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
-        "became_player_name": "Larry Butler",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1716,7 +1716,7 @@
         "pick_year": 1979,
         "pick_round": 10,
         "original_team_id": null,
-        "became_player_name": "Cortez Collins",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1784,7 +1784,7 @@
         "pick_year": 1979,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Greg Kelser",
+        "became_player_name": "Sidney Moncrief",
         "notes": null
       }
     ],

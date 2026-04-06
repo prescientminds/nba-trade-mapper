@@ -47,7 +47,7 @@
         "pick_year": 2019,
         "pick_round": 1,
         "original_team_id": "DAL",
-        "became_player_name": "Cam Reddish",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -104,7 +104,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Aaron Wiggins",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -115,7 +115,7 @@
         "pick_year": 2022,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Matteo Spagnolo",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -183,7 +183,7 @@
         "pick_year": 2019,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Jalen McDaniels",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -251,7 +251,7 @@
         "pick_year": 2019,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Bruno Fernando",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -330,7 +330,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Balša Koprivica",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -438,7 +438,7 @@
         "pick_year": 2019,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Adou Thiero",
+        "became_player_name": "Didi Louzada",
         "notes": null
       },
       {
@@ -449,7 +449,7 @@
         "pick_year": 2023,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Adou Thiero",
+        "became_player_name": "Jalen Wilson",
         "notes": null
       },
       {
@@ -550,7 +550,7 @@
         "pick_year": 2019,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Mfiondu Kabengele",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -640,7 +640,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Dalano Banton",
+        "became_player_name": "Brandon Boston Jr.",
         "notes": null
       },
       {
@@ -752,7 +752,7 @@
         "pick_year": 2019,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Keldon Johnson",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -899,7 +899,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "RaiQuan Gray",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -1197,7 +1197,7 @@
         "pick_year": 2022,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Ulrich Chomche",
+        "became_player_name": "AJ Griffin",
         "notes": null
       },
       {
@@ -1208,7 +1208,7 @@
         "pick_year": 2024,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Ulrich Chomche",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1219,7 +1219,7 @@
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Jahmai Mashack",
+        "became_player_name": "Brooks Barnhizer",
         "notes": null
       }
     ],
@@ -1626,7 +1626,7 @@
         "pick_year": 2022,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Matteo Spagnolo",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -1694,7 +1694,7 @@
         "pick_year": 2020,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Justinian Jessup",
+        "became_player_name": "Saben Lee",
         "notes": null
       },
       {
@@ -1705,7 +1705,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Greg Brown III",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -1799,7 +1799,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Greg Brown III",
+        "became_player_name": "Isaiah Todd",
         "notes": null
       },
       {
@@ -1821,7 +1821,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Sandro Mamukelashvili",
+        "became_player_name": "Isaiah Todd",
         "notes": null
       },
       {
@@ -1843,7 +1843,7 @@
         "pick_year": 2022,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Bryce McGowens",
+        "became_player_name": "Yannick Nzosa",
         "notes": null
       }
     ],
@@ -1991,7 +1991,7 @@
         "pick_year": 2020,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Marko Simonovic",
+        "became_player_name": "Robert Woodard II",
         "notes": null
       }
     ],
@@ -2171,7 +2171,7 @@
         "pick_year": 2021,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Keon Johnson",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -2182,7 +2182,7 @@
         "pick_year": 2024,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Kyshawn George",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -2272,7 +2272,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Brandon Boston Jr.",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -2283,7 +2283,7 @@
         "pick_year": 2023,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Julian Phillips",
+        "became_player_name": "Rayan Rupert",
         "notes": null
       }
     ],
@@ -2397,7 +2397,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Luka Garza",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -2685,7 +2685,7 @@
         "pick_year": 2023,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Tristan Vukcevic",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -2786,7 +2786,7 @@
         "pick_year": 2020,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Saddiq Bey",
+        "became_player_name": "Tyrese Maxey",
         "notes": null
       },
       {
@@ -2797,7 +2797,7 @@
         "pick_year": 2021,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Tre Mann",
+        "became_player_name": "Jaden Springer",
         "notes": null
       },
       {
@@ -2808,7 +2808,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Jeremiah Robinson-Earl",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -2819,7 +2819,7 @@
         "pick_year": 2023,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "James Nnaji",
+        "became_player_name": "Jordan Miller",
         "notes": null
       }
     ],
@@ -3001,7 +3001,7 @@
         "pick_year": 2024,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Juan Nunez",
+        "became_player_name": "Jonathan Mogbo",
         "notes": null
       }
     ],
@@ -3141,7 +3141,7 @@
         "pick_year": 2019,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Jordan Bone",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -3152,7 +3152,7 @@
         "pick_year": 2020,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Elijah Hughes",
+        "became_player_name": "Jordan Nwora",
         "notes": null
       },
       {
@@ -3163,7 +3163,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Greg Brown III",
+        "became_player_name": "Isaiah Todd",
         "notes": null
       }
     ],
@@ -3262,7 +3262,7 @@
         "pick_year": 2019,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Carsen Edwards",
+        "became_player_name": "Talen Horton-Tucker",
         "notes": null
       },
       {
@@ -3273,7 +3273,7 @@
         "pick_year": 2020,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Tyrese Maxey",
+        "became_player_name": "Cole Anthony",
         "notes": null
       },
       {
@@ -3341,7 +3341,7 @@
         "pick_year": 2019,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Bol Bol",
+        "became_player_name": "Didi Louzada",
         "notes": null
       },
       {
@@ -3363,7 +3363,7 @@
         "pick_year": 2024,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Nikola Djurisic",
         "notes": null
       },
       {
@@ -3409,7 +3409,7 @@
         "pick_year": 2019,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Eric Paschall",
+        "became_player_name": "Didi Louzada",
         "notes": null
       },
       {
@@ -3431,7 +3431,7 @@
         "pick_year": 2024,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Pelle Larsson",
+        "became_player_name": "Quinten Post",
         "notes": null
       }
     ],
@@ -3545,7 +3545,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "David Johnson",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -3556,7 +3556,7 @@
         "pick_year": 2023,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Emoni Bates",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -3613,7 +3613,7 @@
         "pick_year": 2020,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Paul Reed",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -3863,7 +3863,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Georgios Kalaitzakis",
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -4126,7 +4126,7 @@
         "pick_year": 2020,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Justinian Jessup",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -4137,7 +4137,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Brandon Boston Jr.",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -4148,7 +4148,7 @@
         "pick_year": 2023,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Julian Phillips",
+        "became_player_name": "Emoni Bates",
         "notes": null
       },
       {
@@ -4227,7 +4227,7 @@
         "pick_year": 2020,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Justinian Jessup",
+        "became_player_name": "Tyrell Terry",
         "notes": null
       },
       {
@@ -4238,7 +4238,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Brandon Boston Jr.",
+        "became_player_name": null,
         "notes": null
       }
     ],

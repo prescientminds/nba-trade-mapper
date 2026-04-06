@@ -6,7 +6,8 @@ import { getAnyTeam, getAnyTeamDisplayInfo } from '@/lib/teams';
 import { contrastText } from '@/lib/colors';
 import { loadTrade, loadSearchIndex, staticTradeToTradeWithDetails } from '@/lib/trade-data';
 import type { TradeWithDetails, TradeSearchIndexEntry } from '@/lib/supabase';
-import type { ChainAsset, ChainTeamData } from '@/lib/graph-store';
+import type { ChainTeamData } from '@/lib/graph-store';
+import { flattenChainPlayers } from '@/lib/chain-utils';
 import type { League } from '@/lib/league';
 import VerdictFlipTimeline from '@/components/VerdictFlipTimeline';
 
@@ -113,23 +114,7 @@ type VerdictFlipRow = {
   team_scores: Record<string, { score: number }>;
 };
 
-/** Recursively walk the chain asset tree and collect all players with their chain score. */
-function flattenChainPlayers(assets: ChainAsset[]): { name: string; score: number }[] {
-  const best = new Map<string, number>();
-  function walk(list: ChainAsset[]) {
-    for (const a of list) {
-      if (a.type === 'player') {
-        const prev = best.get(a.name) ?? -Infinity;
-        if (a.chain > prev) best.set(a.name, a.chain);
-      }
-      if (a.children) walk(a.children);
-    }
-  }
-  walk(assets);
-  return [...best.entries()]
-    .map(([name, score]) => ({ name, score }))
-    .sort((a, b) => b.score - a.score);
-}
+// flattenChainPlayers moved to @/lib/chain-utils
 
 // ── Metric Tooltip ────────────────────────────────────────────────────
 // Uses position: fixed + getBoundingClientRect to escape scroll containers
