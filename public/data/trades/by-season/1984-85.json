@@ -160,8 +160,8 @@
         "to_team_id": "LAC",
         "pick_year": 1985,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": "Anicet Lavodrama",
+        "original_team_id": "WAS",
+        "became_player_name": "Kenny Perry",
         "notes": null
       },
       {
@@ -206,8 +206,8 @@
         "to_team_id": "PHI",
         "pick_year": 1987,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": "Sean Couch",
+        "original_team_id": "PHI",
+        "became_player_name": "Hansi Gnad",
         "notes": null
       },
       {
@@ -218,7 +218,7 @@
         "pick_year": 1983,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Leo Rautins",
+        "became_player_name": "Mitchell Wiggins",
         "notes": null
       },
       {
@@ -274,8 +274,8 @@
         "to_team_id": "CHI",
         "pick_year": 1986,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Larry Krystkowiak",
+        "original_team_id": "PHX",
+        "became_player_name": "Rafael Addison",
         "notes": null
       },
       {
@@ -331,8 +331,8 @@
         "to_team_id": "IND",
         "pick_year": 1985,
         "pick_round": 5,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "IND",
+        "became_player_name": "Ivan Daniels",
         "notes": null
       },
       {
@@ -399,8 +399,8 @@
         "to_team_id": "WAS",
         "pick_year": 1985,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": "Anicet Lavodrama",
+        "original_team_id": "WAS",
+        "became_player_name": "Kenny Perry",
         "notes": null
       },
       {
@@ -580,7 +580,7 @@
         "pick_year": 1985,
         "pick_round": 3,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Sam Mitchell",
         "notes": null
       },
       {
@@ -669,7 +669,7 @@
         "to_team_id": "BOS",
         "pick_year": 1986,
         "pick_round": 1,
-        "original_team_id": null,
+        "original_team_id": "OKC",
         "became_player_name": "Len Bias",
         "notes": null
       },
@@ -727,7 +727,7 @@
         "pick_year": 1980,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "DeWayne Scales",
+        "became_player_name": "David Lawrence",
         "notes": null
       },
       {
@@ -737,8 +737,8 @@
         "to_team_id": "IND",
         "pick_year": 1985,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Gerald Wilkins",
+        "original_team_id": "IND",
+        "became_player_name": "Dwayne McClain",
         "notes": null
       },
       {
@@ -783,8 +783,8 @@
         "to_team_id": "DAL",
         "pick_year": 1990,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "IND",
+        "became_player_name": "Travis Mays",
         "notes": null
       },
       {
@@ -806,7 +806,7 @@
         "pick_year": 1984,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Vern Fleming",
+        "became_player_name": "Terence Stansbury",
         "notes": null
       },
       {
@@ -873,7 +873,7 @@
         "to_team_id": "SAS",
         "pick_year": 1986,
         "pick_round": 3,
-        "original_team_id": null,
+        "original_team_id": "SAS",
         "became_player_name": "Forrest McKenzie",
         "notes": null
       },
@@ -1033,8 +1033,8 @@
         "to_team_id": "PHI",
         "pick_year": 1986,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": "Forrest McKenzie",
+        "original_team_id": "PHI",
+        "became_player_name": "Keith Colbert",
         "notes": null
       },
       {
@@ -1112,8 +1112,8 @@
         "to_team_id": "SAS",
         "pick_year": 1986,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Kevin Duckworth",
+        "original_team_id": "OKC",
+        "became_player_name": "Lemone Lampley",
         "notes": null
       },
       {
@@ -1248,7 +1248,7 @@
         "to_team_id": "BOS",
         "pick_year": 1985,
         "pick_round": 1,
-        "original_team_id": null,
+        "original_team_id": "DEN",
         "became_player_name": "Sam Vincent",
         "notes": null
       },
@@ -1305,8 +1305,8 @@
         "to_team_id": "POR",
         "pick_year": 1987,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Bruce Dalrymple",
+        "original_team_id": "POR",
+        "became_player_name": "Nikita Wilson",
         "notes": null
       },
       {
@@ -1317,7 +1317,7 @@
         "pick_year": 1984,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jay Humphries",
+        "became_player_name": "Bernard Thompson",
         "notes": null
       },
       {
@@ -1362,8 +1362,8 @@
         "to_team_id": "WAS",
         "pick_year": 1985,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Bobby Lee Hurt",
+        "original_team_id": "WAS",
+        "became_player_name": "Manute Bol",
         "notes": null
       },
       {
@@ -1385,7 +1385,7 @@
         "pick_year": 1977,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Bo Ellis",
         "notes": null
       },
       {

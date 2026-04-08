@@ -24,7 +24,7 @@
         "to_team_id": "IND",
         "pick_year": 1987,
         "pick_round": 3,
-        "original_team_id": null,
+        "original_team_id": "IND",
         "became_player_name": "Sean Couch",
         "notes": null
       },
@@ -103,8 +103,8 @@
         "to_team_id": "PHX",
         "pick_year": 1988,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "PHX",
+        "became_player_name": "Steve Kerr",
         "notes": null
       },
       {
@@ -171,8 +171,8 @@
         "to_team_id": "GSW",
         "pick_year": 1986,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "GSW",
+        "became_player_name": "Wendell Alexis",
         "notes": null
       },
       {
@@ -228,8 +228,8 @@
         "to_team_id": "BOS",
         "pick_year": 1989,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Dino Radja",
+        "original_team_id": "PHI",
+        "became_player_name": "Reggie Cross",
         "notes": null
       },
       {
@@ -308,7 +308,7 @@
         "pick_year": 1986,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Len Bias",
+        "became_player_name": "Arvydas Sabonis",
         "notes": null
       },
       {
@@ -352,17 +352,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Jerry Sichting / Reggie Cross"
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "BOS",
-        "to_team_id": null,
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": "Jerry Sichting / Kenny Williams"
       }
     ],
     "topAssets": [
@@ -394,8 +383,8 @@
         "to_team_id": "PHI",
         "pick_year": 1989,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "PHI",
+        "became_player_name": "Reggie Cross",
         "notes": null
       },
       {
@@ -406,7 +395,7 @@
         "pick_year": 1979,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Tony Zeno",
+        "became_player_name": "Bernard Toone",
         "notes": null
       },
       {
@@ -462,8 +451,8 @@
         "to_team_id": "OKC",
         "pick_year": 1986,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Kevin Duckworth",
+        "original_team_id": "OKC",
+        "became_player_name": "Lemone Lampley",
         "notes": null
       },
       {
@@ -736,8 +725,8 @@
         "to_team_id": "POR",
         "pick_year": 1986,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "BOS",
+        "became_player_name": "Arvydas Sabonis",
         "notes": null
       },
       {
@@ -759,7 +748,7 @@
         "pick_year": 1981,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Tom Chambers",
+        "became_player_name": "Jeff Lamp",
         "notes": null
       },
       {
@@ -963,7 +952,7 @@
         "pick_year": 1991,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Alvaro Teheran",
+        "became_player_name": "Álvaro Teherán",
         "notes": null
       },
       {
@@ -985,7 +974,7 @@
         "pick_year": 1986,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Anthony Jones",
         "notes": null
       }
     ],
@@ -1041,8 +1030,8 @@
         "to_team_id": "CLE",
         "pick_year": 1986,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "LAC",
+        "became_player_name": "Brad Daugherty",
         "notes": null
       },
       {
@@ -1166,8 +1155,8 @@
         "to_team_id": "DAL",
         "pick_year": 1989,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Chucky Brown",
+        "original_team_id": "DAL",
+        "became_player_name": "Jeff Hodge",
         "notes": null
       },
       {
@@ -1382,7 +1371,7 @@
         "pick_year": 1987,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Mark Jackson",
         "notes": null
       },
       {
@@ -1393,7 +1382,7 @@
         "pick_year": 1989,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jeff Sanders",
         "notes": null
       }
     ],

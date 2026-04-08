@@ -70,8 +70,8 @@
         "to_team_id": "POR",
         "pick_year": 1981,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "POR",
+        "became_player_name": "Derek Holcomb",
         "notes": null
       },
       {
@@ -241,7 +241,7 @@
         "to_team_id": "SAS",
         "pick_year": 1980,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "SAC",
         "became_player_name": "Michael Wiley",
         "notes": null
       },
@@ -298,8 +298,8 @@
         "to_team_id": "DET",
         "pick_year": 1981,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Brian Jackson",
+        "original_team_id": "POR",
+        "became_player_name": "Harvey Knuckles",
         "notes": null
       },
       {
@@ -377,8 +377,8 @@
         "to_team_id": "LAC",
         "pick_year": 1980,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Chad Kinch",
+        "original_team_id": "CLE",
+        "became_player_name": "Michael Brooks",
         "notes": null
       }
     ],
@@ -491,8 +491,8 @@
         "to_team_id": "PHI",
         "pick_year": 1986,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "LAC",
+        "became_player_name": "Brad Daugherty",
         "notes": null
       },
       {
@@ -616,8 +616,8 @@
         "to_team_id": "LAL",
         "pick_year": 1980,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Michael Wiley",
+        "original_team_id": "SAS",
+        "became_player_name": "Butch Carter",
         "notes": null
       },
       {
@@ -673,7 +673,7 @@
         "to_team_id": "POR",
         "pick_year": 1981,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "BKN",
         "became_player_name": "Brian Jackson",
         "notes": null
       },
@@ -685,7 +685,7 @@
         "pick_year": 1978,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Wayne Radford",
+        "became_player_name": "Clemon Johnson",
         "notes": null
       },
       {
@@ -753,7 +753,7 @@
         "pick_year": 1980,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Dick Miller",
         "notes": null
       },
       {
@@ -809,8 +809,8 @@
         "to_team_id": "DEN",
         "pick_year": 1980,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DEN",
+        "became_player_name": "Eddie Lee",
         "notes": null
       },
       {
@@ -888,8 +888,8 @@
         "to_team_id": "UTA",
         "pick_year": 1980,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Craig Shelton",
+        "original_team_id": "ATL",
+        "became_player_name": "Jawann Oldham",
         "notes": null
       },
       {
@@ -900,7 +900,7 @@
         "pick_year": 1981,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Clyde Bradshaw",
+        "became_player_name": "Eddie Johnson",
         "notes": null
       },
       {
@@ -956,8 +956,8 @@
         "to_team_id": "HOU",
         "pick_year": 1980,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DEN",
+        "became_player_name": "John Stroud",
         "notes": null
       },
       {
@@ -1049,7 +1049,7 @@
         "pick_year": 1977,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Norm Nixon",
         "notes": null
       },
       {
@@ -1059,8 +1059,8 @@
         "to_team_id": "LAL",
         "pick_year": 1980,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "CLE",
+        "became_player_name": "Wayne Robinson",
         "notes": null
       },
       {
@@ -1071,7 +1071,7 @@
         "pick_year": 1981,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Gene Banks",
         "notes": null
       },
       {
@@ -1127,8 +1127,8 @@
         "to_team_id": "LAL",
         "pick_year": 1981,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "LAL",
+        "became_player_name": "Zam Fredrick",
         "notes": null
       },
       {
@@ -1184,8 +1184,8 @@
         "to_team_id": "CLE",
         "pick_year": 1980,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "CLE",
+        "became_player_name": "Stuart House",
         "notes": null
       },
       {
@@ -1263,7 +1263,7 @@
         "to_team_id": "DEN",
         "pick_year": 1980,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "ATL",
         "became_player_name": "Jawann Oldham",
         "notes": null
       },
@@ -1309,8 +1309,8 @@
         "to_team_id": "WAS",
         "pick_year": 1982,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Richard Anderson",
+        "original_team_id": "WAS",
+        "became_player_name": "Bryan Warrick",
         "notes": null
       },
       {
@@ -1389,7 +1389,7 @@
         "pick_year": 1976,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Armond Hill",
+        "became_player_name": "John Lucas",
         "notes": null
       },
       {
@@ -1446,7 +1446,7 @@
         "pick_year": 1980,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Michael Wiley",
         "notes": null
       },
       {
@@ -1502,8 +1502,8 @@
         "to_team_id": "NYK",
         "pick_year": 1981,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": "Mike Ferrara",
+        "original_team_id": "WAS",
+        "became_player_name": "Frank Brickowski",
         "notes": null
       },
       {
@@ -1661,7 +1661,7 @@
         "pick_year": 1980,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Craig Shelton",
+        "became_player_name": "Jawann Oldham",
         "notes": null
       },
       {
@@ -1729,7 +1729,7 @@
         "pick_year": 1980,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Andrew Toney",
         "notes": null
       },
       {
@@ -1843,7 +1843,7 @@
         "pick_year": 1981,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Brian Jackson",
         "notes": null
       },
       {
@@ -1899,8 +1899,8 @@
         "to_team_id": "POR",
         "pick_year": 1981,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Franklin Edwards",
+        "original_team_id": "CLE",
+        "became_player_name": "Al Wood",
         "notes": null
       },
       {
@@ -1979,7 +1979,7 @@
         "pick_year": 1981,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jeff Lamp",
         "notes": null
       }
     ],
@@ -2025,7 +2025,7 @@
         "pick_year": 1980,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Sam Worthen",
+        "became_player_name": "Brad Branson",
         "notes": null
       },
       {
@@ -2036,7 +2036,7 @@
         "pick_year": 1981,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Mike Olliver",
+        "became_player_name": "Elvis Rolle",
         "notes": null
       },
       {
@@ -2137,7 +2137,7 @@
         "pick_year": 1982,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "John Bagley",
+        "became_player_name": "James Worthy",
         "notes": null
       }
     ],
@@ -2171,8 +2171,8 @@
         "to_team_id": "BKN",
         "pick_year": 1982,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "David Thirdkill",
+        "original_team_id": "PHX",
+        "became_player_name": "Brook Steppe",
         "notes": null
       },
       {
@@ -2285,8 +2285,8 @@
         "to_team_id": "CHI",
         "pick_year": 1981,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Ken Green",
+        "original_team_id": "DEN",
+        "became_player_name": "Mike Olliver",
         "notes": null
       },
       {
@@ -2354,7 +2354,7 @@
         "pick_year": 1980,
         "pick_round": 1,
         "original_team_id": "GSW",
-        "became_player_name": null,
+        "became_player_name": "Kevin McHale",
         "notes": "1980 R1 Pick #3"
       },
       {
@@ -2365,19 +2365,8 @@
         "pick_year": 1980,
         "pick_round": 1,
         "original_team_id": "BOS",
-        "became_player_name": "Kevin McHale",
+        "became_player_name": "Joe Barry Carroll",
         "notes": "1980 R1 Pick #1"
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "BOS",
-        "to_team_id": "GSW",
-        "pick_year": 1980,
-        "pick_round": 1,
-        "original_team_id": "BOS",
-        "became_player_name": "Kevin McHale",
-        "notes": "1980 R1 Pick #13"
       }
     ],
     "topAssets": [
@@ -2410,8 +2399,8 @@
         "to_team_id": "DAL",
         "pick_year": 1981,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "PHX",
+        "became_player_name": "Elston Turner",
         "notes": null
       },
       {
@@ -2456,8 +2445,8 @@
         "to_team_id": "CHI",
         "pick_year": 1982,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Jeff Taylor",
+        "original_team_id": "GSW",
+        "became_player_name": "Wayne Sappleton",
         "notes": null
       },
       {
@@ -2468,7 +2457,7 @@
         "pick_year": 1979,
         "pick_round": 3,
         "original_team_id": null,
-        "became_player_name": "Ricardo Brown",
+        "became_player_name": "Cedrick Hordges",
         "notes": null
       },
       {
@@ -2525,7 +2514,7 @@
         "pick_year": 1981,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Orlando Woolridge",
+        "became_player_name": "Darnell Valentine",
         "notes": null
       },
       {
@@ -2547,7 +2536,7 @@
         "pick_year": 1981,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Orlando Woolridge",
+        "became_player_name": "Jeff Lamp",
         "notes": null
       }
     ],
@@ -2582,7 +2571,7 @@
         "pick_year": 1980,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Rick Mahorn",
+        "became_player_name": "Jeff Ruland",
         "notes": null
       },
       {

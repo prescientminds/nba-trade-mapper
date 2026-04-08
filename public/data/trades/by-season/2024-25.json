@@ -80,7 +80,7 @@
         "pick_year": 2025,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jeremiah Fears",
+        "became_player_name": "Drake Powell",
         "notes": null
       },
       {
@@ -142,7 +142,7 @@
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Johni Broome",
         "notes": null
       },
       {
@@ -219,7 +219,7 @@
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Rasheer Fleming",
+        "became_player_name": "Alex Toohey",
         "notes": null
       },
       {
@@ -436,18 +436,7 @@
         "pick_year": 2025,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "NYK",
-        "to_team_id": "BKN",
-        "pick_year": 2025,
-        "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Ben Saraf",
         "notes": null
       },
       {
@@ -458,7 +447,7 @@
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Kobe Sanders",
+        "became_player_name": "Adou Thiero",
         "notes": null
       },
       {
@@ -637,7 +626,7 @@
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Kam Jones",
+        "became_player_name": "Ryan Kalkbrenner",
         "notes": null
       },
       {
@@ -854,17 +843,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "DAL",
-        "to_team_id": "DET",
-        "pick_year": 2028,
-        "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -992,7 +970,7 @@
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Maxime Raynaud",
+        "became_player_name": "Rocco Zikarsky",
         "notes": null
       },
       {
@@ -1247,7 +1225,7 @@
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Rasheer Fleming",
+        "became_player_name": "Alex Toohey",
         "notes": null
       },
       {
@@ -1483,7 +1461,7 @@
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Adou Thiero",
+        "became_player_name": "Koby Brea",
         "notes": null
       },
       {
@@ -1751,17 +1729,6 @@
         "from_team_id": "PHX",
         "to_team_id": "CHA",
         "pick_year": 2026,
-        "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "PHX",
-        "to_team_id": "CHA",
-        "pick_year": 2031,
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": null,
@@ -2049,7 +2016,7 @@
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Lachlan Olbrich",
+        "became_player_name": "John Tonje",
         "notes": null
       },
       {
@@ -2071,7 +2038,7 @@
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Rasheer Fleming",
         "notes": null
       },
       {
@@ -2221,7 +2188,7 @@
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Kam Jones",
+        "became_player_name": "Maxime Raynaud",
         "notes": null
       },
       {
@@ -2954,7 +2921,7 @@
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Micah Peavy",
+        "became_player_name": "Bogoljub Markovic",
         "notes": null
       },
       {
@@ -3175,7 +3142,7 @@
         "pick_year": 2025,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Yang Hansen",
+        "became_player_name": "Walter Clayton Jr.",
         "notes": null
       },
       {
@@ -3230,7 +3197,7 @@
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Micah Peavy",
+        "became_player_name": "Javon Small",
         "notes": null
       }
     ],
@@ -3376,17 +3343,6 @@
         "from_team_id": "WAS",
         "to_team_id": "PHI",
         "pick_year": 2028,
-        "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "WAS",
-        "to_team_id": "PHI",
-        "pick_year": 2030,
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": null,
@@ -3683,7 +3639,7 @@
         "pick_year": 2025,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jase Richardson",
+        "became_player_name": "Yang Hansen",
         "notes": null
       },
       {

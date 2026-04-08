@@ -349,7 +349,7 @@
         "pick_year": 2001,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jason Richardson",
         "notes": null
       },
       {
@@ -770,7 +770,7 @@
         "pick_year": 2001,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Brendan Haywood",
         "notes": null
       }
     ],
@@ -956,21 +956,10 @@
         "player_name": null,
         "from_team_id": "OKC",
         "to_team_id": "NYK",
-        "pick_year": 2001,
-        "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "OKC",
-        "to_team_id": "NYK",
         "pick_year": 2002,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Nenê",
+        "became_player_name": "Kareem Rush",
         "notes": null
       },
       {
@@ -1003,7 +992,7 @@
         "pick_year": 2001,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Vladimir Radmanović",
+        "became_player_name": "Jason Collins",
         "notes": null
       },
       {
@@ -1174,7 +1163,7 @@
         "pick_year": 2006,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Steve Novak",
+        "became_player_name": "Dee Brown",
         "notes": null
       },
       {
@@ -1402,7 +1391,7 @@
         "pick_year": 2002,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Tito Maddox",
+        "became_player_name": "Dan Gadzuric",
         "notes": null
       },
       {
@@ -1413,7 +1402,7 @@
         "pick_year": 2002,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Rasual Butler",
+        "became_player_name": "Tito Maddox",
         "notes": null
       },
       {
@@ -1764,7 +1753,7 @@
         "pick_year": 2001,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jason Collins",
         "notes": null
       },
       {
@@ -1775,7 +1764,7 @@
         "pick_year": 2001,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Antonis Fotsis",
         "notes": null
       },
       {
@@ -1944,7 +1933,7 @@
         "pick_year": 2002,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Nenê",
+        "became_player_name": "Nenê Hilario",
         "notes": null
       }
     ],
@@ -2135,7 +2124,7 @@
         "pick_year": 2005,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jason Maxiell",
+        "became_player_name": "Charlie Villanueva",
         "notes": null
       },
       {
@@ -2202,8 +2191,8 @@
         "to_team_id": "HOU",
         "pick_year": 2001,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DAL",
+        "became_player_name": "Brandon Armstrong",
         "notes": null
       },
       {
@@ -2249,7 +2238,7 @@
         "pick_year": 2001,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Sean Lampley",
         "notes": null
       },
       {
@@ -2260,7 +2249,7 @@
         "pick_year": 1997,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Roberto Duenas",
+        "became_player_name": "Roberto Dueñas",
         "notes": null
       },
       {
@@ -2306,7 +2295,7 @@
         "pick_year": 2001,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Damone Brown",
         "notes": null
       },
       {
@@ -2476,8 +2465,8 @@
         "to_team_id": "ATL",
         "pick_year": 2003,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Boris Diaw",
+        "original_team_id": "DET",
+        "became_player_name": "Carlos Delfino",
         "notes": null
       },
       {
@@ -2533,7 +2522,7 @@
         "to_team_id": "ATL",
         "pick_year": 2003,
         "pick_round": 1,
-        "original_team_id": null,
+        "original_team_id": "IND",
         "became_player_name": "Boris Diaw",
         "notes": null
       },

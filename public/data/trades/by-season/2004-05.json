@@ -25,7 +25,7 @@
         "pick_year": 2002,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Melvin Ely",
         "notes": null
       },
       {
@@ -46,7 +46,7 @@
         "to_team_id": "LAC",
         "pick_year": 2005,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "CHA",
         "became_player_name": "Daniel Ewing",
         "notes": null
       },
@@ -58,7 +58,7 @@
         "pick_year": 2006,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Ryan Hollins",
+        "became_player_name": "Paul Davis",
         "notes": null
       },
       {
@@ -170,7 +170,7 @@
         "pick_year": 2007,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Stanko Barać",
+        "became_player_name": "Renaldas Seibutis",
         "notes": null
       }
     ],
@@ -204,8 +204,8 @@
         "to_team_id": "BKN",
         "pick_year": 2005,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Antoine Wright",
+        "original_team_id": "PHI",
+        "became_player_name": "Joey Graham",
         "notes": null
       },
       {
@@ -216,7 +216,7 @@
         "pick_year": 2007,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "JamesOn Curry",
         "notes": null
       },
       {
@@ -227,7 +227,7 @@
         "pick_year": 2006,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Renaldo Balkman",
         "notes": null
       },
       {
@@ -488,7 +488,7 @@
         "pick_year": 2005,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Martynas Andriuškevičius",
         "notes": null
       },
       {
@@ -499,7 +499,7 @@
         "pick_year": 2007,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Reyshawn Terry",
+        "became_player_name": "Brad Newley",
         "notes": null
       }
     ],
@@ -590,8 +590,8 @@
         "to_team_id": "BKN",
         "pick_year": 2005,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Daniel Ewing",
+        "original_team_id": "LAC",
+        "became_player_name": "Chris Taft",
         "notes": null
       },
       {
@@ -647,8 +647,8 @@
         "to_team_id": "BKN",
         "pick_year": 2005,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Daniel Ewing",
+        "original_team_id": "LAC",
+        "became_player_name": "Chris Taft",
         "notes": null
       },
       {
@@ -817,7 +817,7 @@
         "pick_year": 2007,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Al Horford",
         "notes": null
       },
       {
@@ -975,7 +975,7 @@
         "pick_year": 2006,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jordan Farmar",
+        "became_player_name": "Rajon Rondo",
         "notes": null
       },
       {
@@ -1053,8 +1053,8 @@
         "to_team_id": "CHA",
         "pick_year": 2005,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "NYK",
+        "became_player_name": "Ronny Turiaf",
         "notes": null
       },
       {
@@ -1065,7 +1065,7 @@
         "pick_year": 1997,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Predrag Drobnjak",
         "notes": null
       },
       {
@@ -1210,7 +1210,7 @@
         "pick_year": 2007,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Marco Belinelli",
+        "became_player_name": "Petteri Koponen",
         "notes": null
       },
       {
@@ -1381,7 +1381,7 @@
         "pick_year": 2005,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Brandon Bass",
+        "became_player_name": "Marcin Gortat",
         "notes": null
       },
       {
@@ -1437,8 +1437,8 @@
         "to_team_id": "LAL",
         "pick_year": 2005,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "NYK",
+        "became_player_name": "Ronny Turiaf",
         "notes": null
       },
       {
@@ -1449,7 +1449,7 @@
         "pick_year": 2009,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Patrick Beverley",
         "notes": null
       },
       {
@@ -1550,7 +1550,7 @@
         "pick_year": 2006,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Andrea Bargnani",
+        "became_player_name": "Josh Boone",
         "notes": null
       }
     ],
@@ -1687,8 +1687,8 @@
         "to_team_id": "PHX",
         "pick_year": 2007,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "D.J. Strawberry",
+        "original_team_id": "GSW",
+        "became_player_name": "Aaron Gray",
         "notes": null
       },
       {
@@ -1699,7 +1699,7 @@
         "pick_year": 2009,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "DeJuan Blair",
         "notes": null
       },
       {
@@ -1903,7 +1903,7 @@
         "pick_year": 2006,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Ronnie Brewer",
+        "became_player_name": "Joel Freeland",
         "notes": null
       },
       {
@@ -1948,8 +1948,8 @@
         "to_team_id": "BOS",
         "pick_year": 2007,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "D.J. Strawberry",
+        "original_team_id": "GSW",
+        "became_player_name": "Aaron Gray",
         "notes": null
       },
       {
@@ -1960,7 +1960,7 @@
         "pick_year": 1996,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Antoine Walker",
+        "became_player_name": "Samaki Walker",
         "notes": null
       },
       {
@@ -2027,8 +2027,8 @@
         "to_team_id": "GSW",
         "pick_year": 2005,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Mile Ilić",
+        "original_team_id": "LAC",
+        "became_player_name": "Chris Taft",
         "notes": null
       },
       {
@@ -2039,7 +2039,7 @@
         "pick_year": 2007,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Stephane Lasme",
         "notes": null
       },
       {
@@ -2379,7 +2379,7 @@
         "pick_year": 2006,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Steve Novak",
+        "became_player_name": "David Noel",
         "notes": null
       },
       {
@@ -2390,7 +2390,7 @@
         "pick_year": 2007,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Brad Newley",
+        "became_player_name": "Ramon Sessions",
         "notes": null
       },
       {
@@ -2469,7 +2469,7 @@
         "pick_year": 2007,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jeff Green",
+        "became_player_name": "Rudy Fernández",
         "notes": null
       },
       {
@@ -2684,7 +2684,7 @@
         "pick_year": 2006,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Mardy Collins",
         "notes": null
       },
       {
@@ -2898,8 +2898,8 @@
         "to_team_id": "PHI",
         "pick_year": 2005,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Lou Williams",
+        "original_team_id": "PHX",
+        "became_player_name": "Alex Acker",
         "notes": null
       },
       {
@@ -2910,7 +2910,7 @@
         "pick_year": 2008,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Ante Tomić",
         "notes": null
       }
     ],
@@ -2955,8 +2955,8 @@
         "to_team_id": "CLE",
         "pick_year": 2006,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "David Noel",
+        "original_team_id": "MIL",
+        "became_player_name": "Lior Eliyahu",
         "notes": null
       },
       {
@@ -3012,8 +3012,8 @@
         "to_team_id": "ORL",
         "pick_year": 2006,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "CLE",
+        "became_player_name": "Ejike Ugboaja",
         "notes": null
       },
       {
@@ -3069,19 +3069,8 @@
         "to_team_id": "POR",
         "pick_year": 2005,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Deron Williams",
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "UTA",
-        "to_team_id": "POR",
-        "pick_year": 2005,
-        "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Deron Williams",
+        "original_team_id": "POR",
+        "became_player_name": "Martell Webster",
         "notes": null
       },
       {
@@ -3102,7 +3091,7 @@
         "to_team_id": "UTA",
         "pick_year": 2005,
         "pick_round": 1,
-        "original_team_id": null,
+        "original_team_id": "POR",
         "became_player_name": "Deron Williams",
         "notes": null
       }
@@ -3138,7 +3127,7 @@
         "pick_year": 2005,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Lawrence Roberts",
         "notes": null
       },
       {
@@ -3148,8 +3137,8 @@
         "to_team_id": "OKC",
         "pick_year": 2006,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "MEM",
+        "became_player_name": "Yotam Halperin",
         "notes": null
       },
       {
@@ -3160,7 +3149,7 @@
         "pick_year": 2007,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Carl Landry",
         "notes": null
       },
       {

@@ -58,7 +58,7 @@
         "pick_year": 2017,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Markelle Fultz",
+        "became_player_name": "Jayson Tatum",
         "notes": null
       },
       {
@@ -91,7 +91,7 @@
         "pick_year": 2017,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Markelle Fultz",
+        "became_player_name": "De'Aaron Fox",
         "notes": null
       },
       {
@@ -102,7 +102,7 @@
         "pick_year": 2019,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Ty Jerome",
+        "became_player_name": "Romeo Langford",
         "notes": null
       },
       {
@@ -192,7 +192,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Jaron Blossomgame",
+        "became_player_name": "Mathias Lessort",
         "notes": null
       }
     ],
@@ -226,7 +226,7 @@
         "to_team_id": "SAC",
         "pick_year": 2016,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "SAS",
         "became_player_name": "Isaiah Cousins",
         "notes": null
       },
@@ -376,7 +376,7 @@
         "pick_year": 2019,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Tremont Waters",
+        "became_player_name": "Jalen McDaniels",
         "notes": null
       },
       {
@@ -397,8 +397,8 @@
         "to_team_id": "OKC",
         "pick_year": 2018,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "BOS",
+        "became_player_name": "Kevin Hervey",
         "notes": null
       },
       {
@@ -488,7 +488,7 @@
         "pick_year": 2016,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Juancho Hernangómez",
         "notes": null
       },
       {
@@ -510,7 +510,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Isaiah Hartenstein",
         "notes": null
       }
     ],
@@ -737,8 +737,8 @@
         "to_team_id": "NOP",
         "pick_year": 2016,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DEN",
+        "became_player_name": "David Michineau",
         "notes": null
       },
       {
@@ -749,7 +749,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Frank Mason III",
         "notes": null
       },
       {
@@ -896,7 +896,7 @@
         "pick_year": 2016,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Georgios Papagiannis",
         "notes": null
       },
       {
@@ -968,18 +968,7 @@
         "pick_year": 2018,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Jevon Carter",
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "MIA",
-        "to_team_id": "MEM",
-        "pick_year": 2018,
-        "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Jevon Carter",
+        "became_player_name": "De'Anthony Melton",
         "notes": null
       },
       {
@@ -1012,7 +1001,7 @@
         "pick_year": 2019,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Bol Bol",
         "notes": null
       },
       {
@@ -1149,7 +1138,7 @@
         "pick_year": 2018,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Collin Sexton",
+        "became_player_name": "Moritz Wagner",
         "notes": null
       }
     ],
@@ -1199,7 +1188,7 @@
         "pick_year": 2018,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Vince Edwards",
+        "became_player_name": "Vincent Edwards",
         "notes": null
       },
       {
@@ -1279,18 +1268,7 @@
         "pick_year": 2016,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "OKC",
-        "to_team_id": "DEN",
-        "pick_year": 2016,
-        "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Daniel Hamilton",
         "notes": null
       },
       {
@@ -1391,7 +1369,7 @@
         "pick_year": 2019,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Ja Morant",
+        "became_player_name": "Matisse Thybulle",
         "notes": null
       },
       {
@@ -1538,7 +1516,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Jordan Bell",
+        "became_player_name": "Damyean Dotson",
         "notes": null
       }
     ],
@@ -1731,7 +1709,7 @@
         "pick_year": 2020,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Robert Woodard II",
         "notes": null
       }
     ],

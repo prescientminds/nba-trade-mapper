@@ -24,8 +24,8 @@
         "to_team_id": "LAL",
         "pick_year": 1977,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "SAS",
+        "became_player_name": "Brad Davis",
         "notes": null
       },
       {
@@ -127,8 +127,8 @@
         "to_team_id": "CHI",
         "pick_year": 1977,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "CHI",
+        "became_player_name": "Mike Glenn",
         "notes": null
       },
       {
@@ -184,8 +184,8 @@
         "to_team_id": "PHI",
         "pick_year": 1977,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Glen Williams",
+        "original_team_id": "MIL",
+        "became_player_name": "Wilson Washington",
         "notes": null
       },
       {
@@ -196,7 +196,7 @@
         "pick_year": 1978,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Maurice Cheeks",
         "notes": null
       },
       {
@@ -434,8 +434,8 @@
         "to_team_id": "HOU",
         "pick_year": 1978,
         "pick_round": 4,
-        "original_team_id": null,
-        "became_player_name": "Walter Jordan",
+        "original_team_id": "BKN",
+        "became_player_name": "Jackie Robinson",
         "notes": null
       }
     ],
@@ -481,7 +481,7 @@
         "pick_year": 1977,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Ernie Grunfeld",
         "notes": null
       },
       {
@@ -492,7 +492,7 @@
         "pick_year": 1978,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Mike Mitchell",
+        "became_player_name": "George Johnson",
         "notes": null
       },
       {
@@ -559,8 +559,8 @@
         "to_team_id": "GSW",
         "pick_year": 1977,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "HOU",
+        "became_player_name": "Wesley Cox",
         "notes": null
       },
       {
@@ -617,7 +617,7 @@
         "pick_year": 1977,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Tree Rollins",
+        "became_player_name": "Greg Ballard",
         "notes": null
       },
       {
@@ -639,7 +639,7 @@
         "pick_year": 1977,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Tree Rollins",
+        "became_player_name": "Bo Ellis",
         "notes": null
       }
     ],
@@ -684,8 +684,8 @@
         "to_team_id": "OKC",
         "pick_year": 1979,
         "pick_round": 4,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "BKN",
+        "became_player_name": "James Donaldson",
         "notes": null
       },
       {
@@ -776,7 +776,7 @@
         "to_team_id": "BKN",
         "pick_year": 1977,
         "pick_round": 1,
-        "original_team_id": null,
+        "original_team_id": "IND",
         "became_player_name": "Bernard King",
         "notes": null
       },
@@ -822,8 +822,8 @@
         "to_team_id": "OKC",
         "pick_year": 1979,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Johnny High",
+        "original_team_id": "PHX",
+        "became_player_name": "Paul Mokeski",
         "notes": null
       },
       {
@@ -902,7 +902,7 @@
         "pick_year": 1977,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Steve Sheppard",
         "notes": null
       },
       {
@@ -981,7 +981,7 @@
         "pick_year": 1977,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Eddie Owens",
+        "became_player_name": "Herman Harris",
         "notes": null
       },
       {
@@ -1060,7 +1060,7 @@
         "pick_year": 1978,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Phil Ford",
+        "became_player_name": "Purvis Short",
         "notes": null
       },
       {
@@ -1071,7 +1071,7 @@
         "pick_year": 1978,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Ron Carter",
         "notes": null
       }
     ],
@@ -1116,8 +1116,8 @@
         "to_team_id": "LAC",
         "pick_year": 1977,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "LAC",
+        "became_player_name": "Marques Johnson",
         "notes": null
       },
       {
@@ -1127,8 +1127,8 @@
         "to_team_id": "MIL",
         "pick_year": 1977,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "LAC",
+        "became_player_name": "Marques Johnson",
         "notes": null
       },
       {
@@ -1184,7 +1184,7 @@
         "to_team_id": "LAL",
         "pick_year": 1977,
         "pick_round": 3,
-        "original_team_id": null,
+        "original_team_id": "LAC",
         "became_player_name": "James Edwards",
         "notes": null
       }
@@ -1230,8 +1230,8 @@
         "to_team_id": "HOU",
         "pick_year": 1977,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "BOS",
+        "became_player_name": "Larry Moffett",
         "notes": null
       },
       {
@@ -1242,7 +1242,7 @@
         "pick_year": 1978,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Jeff Judkins",
+        "became_player_name": "Buster Matheney",
         "notes": null
       },
       {
@@ -1309,7 +1309,7 @@
         "to_team_id": "CHI",
         "pick_year": 1977,
         "pick_round": 1,
-        "original_team_id": null,
+        "original_team_id": "CHI",
         "became_player_name": "Tate Armstrong",
         "notes": null
       }

@@ -24,8 +24,8 @@
         "to_team_id": "OKC",
         "pick_year": 1990,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Tyrone Hill",
+        "original_team_id": "GSW",
+        "became_player_name": "Gary Payton",
         "notes": null
       },
       {
@@ -36,7 +36,7 @@
         "pick_year": 1981,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Danny Vranes",
+        "became_player_name": "Steve Johnson",
         "notes": null
       },
       {
@@ -228,8 +228,8 @@
         "to_team_id": "PHX",
         "pick_year": 1993,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "PHX",
+        "became_player_name": "Mark Buford",
         "notes": null
       },
       {
@@ -274,7 +274,7 @@
         "to_team_id": "CHA",
         "pick_year": 1991,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "DEN",
         "became_player_name": "Kevin Lynch",
         "notes": null
       },
@@ -388,8 +388,8 @@
         "to_team_id": "GSW",
         "pick_year": 1990,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Carl Herrera",
+        "original_team_id": "ATL",
+        "became_player_name": "Steve Bardo",
         "notes": null
       },
       {
@@ -435,7 +435,7 @@
         "pick_year": 1982,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Darren Tillis",
+        "became_player_name": "Sleepy Floyd",
         "notes": null
       },
       {
@@ -559,8 +559,8 @@
         "to_team_id": "DAL",
         "pick_year": 1993,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DAL",
+        "became_player_name": "Eric Riley",
         "notes": null
       },
       {
@@ -616,8 +616,8 @@
         "to_team_id": "MIN",
         "pick_year": 1990,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "PHI",
+        "became_player_name": "Gerald Glass",
         "notes": null
       },
       {
@@ -628,7 +628,7 @@
         "pick_year": 1991,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Alvaro Teheran",
+        "became_player_name": "Álvaro Teherán",
         "notes": null
       },
       {
@@ -718,7 +718,7 @@
         "pick_year": 1990,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Loy Vaught",
         "notes": null
       },
       {
@@ -729,7 +729,7 @@
         "pick_year": 1991,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Jimmy Oliver",
+        "became_player_name": "Joe Wylie",
         "notes": null
       },
       {
@@ -740,7 +740,7 @@
         "pick_year": 1992,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Elmore Spencer",
         "notes": null
       }
     ],
@@ -808,7 +808,7 @@
         "pick_year": 1991,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Kevin Lynch",
+        "became_player_name": "Chad Gallagher",
         "notes": null
       }
     ],
@@ -955,7 +955,7 @@
         "pick_year": 1991,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Rodney Monroe",
+        "became_player_name": "Steve Hood",
         "notes": null
       }
     ],
@@ -1285,8 +1285,8 @@
         "to_team_id": "GSW",
         "pick_year": 1990,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "GSW",
+        "became_player_name": "Kevin Pritchard",
         "notes": null
       },
       {
@@ -1445,8 +1445,8 @@
         "to_team_id": "CHA",
         "pick_year": 1991,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Kevin Lynch",
+        "original_team_id": "NYK",
+        "became_player_name": "Jimmy Oliver",
         "notes": null
       },
       {
@@ -1502,8 +1502,8 @@
         "to_team_id": "CLE",
         "pick_year": 1991,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Kevin Lynch",
+        "original_team_id": "NYK",
+        "became_player_name": "Jimmy Oliver",
         "notes": null
       },
       {
@@ -1514,7 +1514,7 @@
         "pick_year": 1988,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Randolph Keys",
+        "became_player_name": "Dan Majerle",
         "notes": null
       },
       {
@@ -1559,8 +1559,8 @@
         "to_team_id": "PHI",
         "pick_year": 1990,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "PHI",
+        "became_player_name": "Brian Oliver",
         "notes": null
       },
       {
@@ -1606,7 +1606,7 @@
         "pick_year": 1982,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Rob Williams",
+        "became_player_name": "David Thirdkill",
         "notes": null
       },
       {
@@ -1616,8 +1616,8 @@
         "to_team_id": "DEN",
         "pick_year": 1990,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Mahmoud Abdul-Rauf",
+        "original_team_id": "WAS",
+        "became_player_name": "Willie Burton",
         "notes": null
       },
       {
@@ -1673,19 +1673,8 @@
         "to_team_id": "MIA",
         "pick_year": 1990,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Mahmoud Abdul-Rauf",
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "DEN",
-        "to_team_id": "MIA",
-        "pick_year": 1990,
-        "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Mahmoud Abdul-Rauf",
+        "original_team_id": "WAS",
+        "became_player_name": "Willie Burton",
         "notes": null
       },
       {
@@ -1695,8 +1684,8 @@
         "to_team_id": "DEN",
         "pick_year": 1990,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Mahmoud Abdul-Rauf",
+        "original_team_id": "WAS",
+        "became_player_name": "Willie Burton",
         "notes": null
       }
     ],
@@ -1757,7 +1746,7 @@
         "pick_year": 1991,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Mike Iuzzolino",
         "notes": null
       },
       {
@@ -1790,7 +1779,7 @@
         "pick_year": 1990,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Anthony Bonner",
         "notes": null
       },
       {
@@ -1836,8 +1825,8 @@
         "to_team_id": "ORL",
         "pick_year": 1993,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "John Best",
+        "original_team_id": "OKC",
+        "became_player_name": "Adonis Jordan",
         "notes": null
       },
       {
@@ -1915,8 +1904,8 @@
         "to_team_id": "BKN",
         "pick_year": 1990,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "CHI",
+        "became_player_name": "Tate George",
         "notes": null
       },
       {
@@ -1995,18 +1984,7 @@
         "pick_year": 1990,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "DAL",
-        "to_team_id": "SAC",
-        "pick_year": 1990,
-        "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Duane Causwell",
         "notes": null
       },
       {
@@ -2039,7 +2017,7 @@
         "pick_year": 1991,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Rodney Monroe",
         "notes": null
       }
     ],
@@ -2096,7 +2074,7 @@
         "pick_year": 1994,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Charlie Ward",
         "notes": null
       },
       {
@@ -2152,19 +2130,8 @@
         "to_team_id": "ATL",
         "pick_year": 1990,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Tyrone Hill",
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "GSW",
-        "to_team_id": "ATL",
-        "pick_year": 1990,
-        "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "ATL",
+        "became_player_name": "Rumeal Robinson",
         "notes": null
       },
       {
@@ -2185,8 +2152,8 @@
         "to_team_id": "GSW",
         "pick_year": 1990,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Rumeal Robinson",
+        "original_team_id": "ATL",
+        "became_player_name": "Tyrone Hill",
         "notes": null
       },
       {

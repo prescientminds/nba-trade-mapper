@@ -58,7 +58,7 @@
         "pick_year": 1981,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Danny Ainge",
         "notes": null
       },
       {
@@ -136,8 +136,8 @@
         "to_team_id": "SAC",
         "pick_year": 1981,
         "pick_round": 4,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DEN",
+        "became_player_name": "Kenny Dennard",
         "notes": null
       },
       {
@@ -226,8 +226,8 @@
         "to_team_id": "IND",
         "pick_year": 1980,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Kevin McHale",
+        "original_team_id": "BOS",
+        "became_player_name": "Carl Nicks",
         "notes": null
       },
       {
@@ -283,8 +283,8 @@
         "to_team_id": "HOU",
         "pick_year": 1979,
         "pick_round": 4,
-        "original_team_id": null,
-        "became_player_name": "Eugene Robinson",
+        "original_team_id": "HOU",
+        "became_player_name": "Sammy Drummer",
         "notes": null
       },
       {
@@ -363,7 +363,7 @@
         "pick_year": 1984,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Leon Wood",
         "notes": null
       },
       {
@@ -385,7 +385,7 @@
         "pick_year": 1978,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Mike Evans",
         "notes": null
       },
       {
@@ -476,7 +476,7 @@
         "to_team_id": "UTA",
         "pick_year": 1981,
         "pick_round": 1,
-        "original_team_id": null,
+        "original_team_id": "HOU",
         "became_player_name": "Danny Schayes",
         "notes": null
       },
@@ -544,8 +544,8 @@
         "to_team_id": "ATL",
         "pick_year": 1980,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Sam Worthen",
+        "original_team_id": "CHI",
+        "became_player_name": "Craig Shelton",
         "notes": null
       },
       {
@@ -612,8 +612,8 @@
         "to_team_id": "GSW",
         "pick_year": 1980,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Brad Branson",
+        "original_team_id": "DET",
+        "became_player_name": "Larry Smith",
         "notes": null
       },
       {
@@ -669,7 +669,7 @@
         "to_team_id": "PHX",
         "pick_year": 1979,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "BOS",
         "became_player_name": "Johnny High",
         "notes": null
       },
@@ -715,8 +715,8 @@
         "to_team_id": "PHI",
         "pick_year": 1984,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "LAC",
+        "became_player_name": "Charles Barkley",
         "notes": null
       },
       {
@@ -784,7 +784,7 @@
         "pick_year": 1981,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Tracy Jackson",
         "notes": null
       },
       {
@@ -829,7 +829,7 @@
         "to_team_id": "MIL",
         "pick_year": 1979,
         "pick_round": 4,
-        "original_team_id": null,
+        "original_team_id": "MIL",
         "became_player_name": "Eugene Robinson",
         "notes": null
       },
@@ -898,7 +898,7 @@
         "pick_year": 1976,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Willie Smith",
+        "became_player_name": "Al Fleming",
         "notes": null
       },
       {
@@ -909,7 +909,7 @@
         "pick_year": 2002,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Mario Kasun",
+        "became_player_name": "Roger Mason Jr.",
         "notes": null
       },
       {
@@ -1034,7 +1034,7 @@
         "pick_year": 1979,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Kyle Macy",
+        "became_player_name": "Larry Knight",
         "notes": null
       },
       {
@@ -1045,7 +1045,7 @@
         "pick_year": 1980,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "John Duren",
         "notes": null
       },
       {
@@ -1147,8 +1147,8 @@
         "to_team_id": "BOS",
         "pick_year": 1979,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "OKC",
+        "became_player_name": "Sly Williams",
         "notes": null
       },
       {
@@ -1204,8 +1204,8 @@
         "to_team_id": "BOS",
         "pick_year": 1979,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "GSW",
+        "became_player_name": "Larry Demic",
         "notes": null
       },
       {
@@ -1284,7 +1284,7 @@
         "pick_year": 1983,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Derek Harper",
         "notes": null
       }
     ],
@@ -1454,30 +1454,8 @@
         "to_team_id": "NYK",
         "pick_year": 1979,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "BOS",
-        "to_team_id": "NYK",
-        "pick_year": 1979,
-        "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "BOS",
-        "to_team_id": "NYK",
-        "pick_year": 1979,
-        "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "BOS",
+        "became_player_name": "Bill Cartwright",
         "notes": null
       },
       {
@@ -1545,7 +1523,7 @@
         "pick_year": 1979,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Sidney Moncrief",
+        "became_player_name": "Roy Hamilton",
         "notes": null
       }
     ],
@@ -1590,7 +1568,7 @@
         "to_team_id": "PHX",
         "pick_year": 1979,
         "pick_round": 1,
-        "original_team_id": null,
+        "original_team_id": "WAS",
         "became_player_name": "Kyle Macy",
         "notes": null
       },
@@ -1761,7 +1739,7 @@
         "to_team_id": "MIL",
         "pick_year": 1979,
         "pick_round": 1,
-        "original_team_id": null,
+        "original_team_id": "DET",
         "became_player_name": "Sidney Moncrief",
         "notes": null
       },
@@ -1783,8 +1761,8 @@
         "to_team_id": "DET",
         "pick_year": 1979,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Sidney Moncrief",
+        "original_team_id": "DET",
+        "became_player_name": "Greg Kelser",
         "notes": null
       }
     ],

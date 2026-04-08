@@ -35,8 +35,8 @@
         "to_team_id": "GSW",
         "pick_year": 1991,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "PHI",
+        "became_player_name": "Chris Gatling",
         "notes": null
       },
       {
@@ -104,7 +104,7 @@
         "pick_year": 1991,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Pete Chilcutt",
         "notes": null
       },
       {
@@ -263,8 +263,8 @@
         "to_team_id": "GSW",
         "pick_year": 1991,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "LAL",
+        "became_player_name": "Shaun Vandiver",
         "notes": null
       },
       {
@@ -365,7 +365,7 @@
         "pick_year": 1994,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Charlie Ward",
         "notes": null
       },
       {
@@ -421,7 +421,7 @@
         "to_team_id": "DET",
         "pick_year": 1995,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "DEN",
         "became_player_name": "Anthony Pelle",
         "notes": null
       },
@@ -489,8 +489,8 @@
         "to_team_id": "PHX",
         "pick_year": 1994,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Wesley Person",
+        "original_team_id": "PHI",
+        "became_player_name": "Sharone Wright",
         "notes": null
       },
       {
@@ -593,7 +593,7 @@
         "pick_year": 1991,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Stanley Roberts",
         "notes": null
       },
       {
@@ -707,7 +707,7 @@
         "pick_year": 1991,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Rich King",
+        "became_player_name": "LeRon Ellis",
         "notes": null
       },
       {
@@ -959,7 +959,7 @@
         "pick_year": 1992,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Bryant Stith",
         "notes": null
       }
     ],
@@ -995,7 +995,7 @@
         "pick_year": 1988,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Ricky Berry",
+        "became_player_name": "Hersey Hawkins",
         "notes": null
       },
       {
@@ -1005,8 +1005,8 @@
         "to_team_id": "SAC",
         "pick_year": 1993,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "SAC",
+        "became_player_name": "Alex Holcombe",
         "notes": null
       },
       {
@@ -1131,7 +1131,7 @@
         "pick_year": 1994,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Carlos Rogers",
+        "became_player_name": "Brooks Thompson",
         "notes": null
       },
       {
@@ -1177,7 +1177,7 @@
         "pick_year": 1985,
         "pick_round": 3,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Michael Adams",
         "notes": null
       },
       {
@@ -1187,8 +1187,8 @@
         "to_team_id": "WAS",
         "pick_year": 1991,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "LaBradford Smith",
+        "original_team_id": "WAS",
+        "became_player_name": "Mark Macon",
         "notes": null
       },
       {
@@ -1198,8 +1198,8 @@
         "to_team_id": "DEN",
         "pick_year": 1991,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "LaBradford Smith",
+        "original_team_id": "WAS",
+        "became_player_name": "Mark Macon",
         "notes": null
       },
       {
@@ -1312,8 +1312,8 @@
         "to_team_id": "HOU",
         "pick_year": 1996,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Reggie Geary",
+        "original_team_id": "CLE",
+        "became_player_name": "Terrell Bell",
         "notes": null
       },
       {
@@ -1358,8 +1358,8 @@
         "to_team_id": "LAC",
         "pick_year": 1996,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Jeff McInnis",
+        "original_team_id": "DEN",
+        "became_player_name": "Russ Millard",
         "notes": null
       },
       {
@@ -1426,8 +1426,8 @@
         "to_team_id": "ATL",
         "pick_year": 1991,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "LeRon Ellis",
+        "original_team_id": "LAC",
+        "became_player_name": "Stacey Augmon",
         "notes": null
       },
       {
@@ -1551,8 +1551,8 @@
         "to_team_id": "GSW",
         "pick_year": 1995,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "SAC",
+        "became_player_name": "Tyus Edney",
         "notes": null
       },
       {
@@ -1563,7 +1563,7 @@
         "pick_year": 1999,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Roberto Bergersen",
+        "became_player_name": "Tim Young",
         "notes": null
       },
       {
@@ -1659,7 +1659,7 @@
         "pick_year": 1991,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Kevin Brooks",
+        "became_player_name": "Dikembe Mutombo",
         "notes": null
       },
       {
@@ -1669,8 +1669,8 @@
         "to_team_id": "DEN",
         "pick_year": 1994,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Voshon Lenard",
+        "original_team_id": "ORL",
+        "became_player_name": "Rodney Dent",
         "notes": null
       },
       {
@@ -1761,7 +1761,7 @@
         "pick_year": 1994,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Gaylon Nickerson",
+        "became_player_name": "Lawrence Funderburke",
         "notes": null
       }
     ],

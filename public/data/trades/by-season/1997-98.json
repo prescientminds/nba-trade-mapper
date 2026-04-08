@@ -36,7 +36,7 @@
         "pick_year": 2003,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Darko Miličić",
         "notes": null
       },
       {
@@ -228,7 +228,7 @@
         "to_team_id": "BOS",
         "pick_year": 1999,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "ORL",
         "became_player_name": "Kris Clack",
         "notes": null
       },
@@ -517,7 +517,7 @@
         "pick_year": 2000,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Dan McClintock",
+        "became_player_name": "Hanno Möttölä",
         "notes": null
       },
       {
@@ -584,23 +584,12 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "DEN",
-        "to_team_id": "CLE",
-        "pick_year": 1994,
-        "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Jalen Rose",
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
         "from_team_id": "CLE",
         "to_team_id": "DEN",
         "pick_year": 2005,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "CLE",
+        "became_player_name": "Sean May",
         "notes": null
       },
       {
@@ -691,7 +680,7 @@
         "pick_year": 1998,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Ryan Bowen",
         "notes": null
       },
       {
@@ -751,8 +740,8 @@
         "to_team_id": "POR",
         "pick_year": 1998,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "NYK",
+        "became_player_name": "Bryce Drew",
         "notes": null
       },
       {
@@ -763,7 +752,7 @@
         "pick_year": 2007,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Kyrylo Fesenko",
         "notes": null
       },
       {
@@ -832,7 +821,7 @@
         "pick_year": 2000,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Dan McClintock",
+        "became_player_name": "Eddie House",
         "notes": null
       }
     ],
@@ -922,7 +911,7 @@
         "pick_year": 1998,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "DeMarco Johnson",
         "notes": null
       },
       {
@@ -1047,7 +1036,7 @@
         "pick_year": 1999,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Kris Clack",
+        "became_player_name": "Obinna Ekezie",
         "notes": null
       }
     ],
@@ -1092,8 +1081,8 @@
         "to_team_id": "HOU",
         "pick_year": 2000,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Eduardo Nájera",
+        "original_team_id": "MEM",
+        "became_player_name": "Jake Voskuhl",
         "notes": null
       },
       {
@@ -1264,7 +1253,7 @@
         "pick_year": 2003,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Carlos Delfino",
         "notes": null
       },
       {
@@ -1364,8 +1353,8 @@
         "to_team_id": "OKC",
         "pick_year": 1998,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Casey Shaw",
+        "original_team_id": "LAC",
+        "became_player_name": "Jelani McCoy",
         "notes": null
       }
     ],
@@ -1466,7 +1455,7 @@
         "pick_year": 1998,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Antawn Jamison",
+        "became_player_name": "Mirsad Türkcan",
         "notes": null
       },
       {
@@ -2021,7 +2010,7 @@
         "pick_year": 1998,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Shammond Williams",
         "notes": null
       },
       {
@@ -2032,7 +2021,7 @@
         "pick_year": 2000,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Chris Porter",
+        "became_player_name": "A.J. Guyton",
         "notes": null
       },
       {
@@ -2111,7 +2100,7 @@
         "pick_year": 1998,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Brian Skinner",
         "notes": null
       },
       {
@@ -2201,7 +2190,7 @@
         "pick_year": 1998,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Matt Harpring",
         "notes": null
       },
       {
@@ -2393,8 +2382,8 @@
         "to_team_id": "UTA",
         "pick_year": 1999,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "PHI",
+        "became_player_name": "Quincy Lewis",
         "notes": null
       },
       {
@@ -2451,7 +2440,7 @@
         "pick_year": 1999,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Roberto Bergersen",
         "notes": null
       },
       {
@@ -2462,7 +2451,7 @@
         "pick_year": 2000,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Khalid El-Amin",
         "notes": null
       },
       {

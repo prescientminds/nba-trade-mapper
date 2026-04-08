@@ -47,7 +47,7 @@
         "pick_year": 2018,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Svi Mykhailiuk",
+        "became_player_name": "Mitchell Robinson",
         "notes": null
       },
       {
@@ -58,7 +58,7 @@
         "pick_year": 2019,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Daniel Gafford",
+        "became_player_name": "Bruno Fernando",
         "notes": null
       }
     ],
@@ -449,7 +449,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Kessler Edwards",
         "notes": null
       },
       {
@@ -630,7 +630,7 @@
         "to_team_id": "NOP",
         "pick_year": 2018,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "NOP",
         "became_player_name": "Tony Carr",
         "notes": null
       },
@@ -835,7 +835,7 @@
         "pick_year": 2020,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Reggie Perry",
+        "became_player_name": "Jordan Nwora",
         "notes": null
       }
     ],
@@ -881,18 +881,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "UTA",
-        "to_team_id": "PHI",
-        "pick_year": 2017,
-        "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Nigel Williams-Goss",
         "notes": null
       },
       {
@@ -960,7 +949,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Monté Morris",
         "notes": null
       },
       {
@@ -971,7 +960,7 @@
         "pick_year": 2013,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Álex Abrines",
+        "became_player_name": "Alex Oriakhi",
         "notes": null
       },
       {
@@ -1131,7 +1120,7 @@
         "pick_year": 2020,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Immanuel Quickley",
+        "became_player_name": "Tyrese Maxey",
         "notes": null
       }
     ],
@@ -1165,8 +1154,8 @@
         "to_team_id": "POR",
         "pick_year": 2017,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "CLE",
+        "became_player_name": "Caleb Swanigan",
         "notes": null
       },
       {
@@ -1176,8 +1165,8 @@
         "to_team_id": "CLE",
         "pick_year": 2018,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Anfernee Simons",
+        "original_team_id": "CLE",
+        "became_player_name": "Moritz Wagner",
         "notes": null
       }
     ],
@@ -1245,7 +1234,7 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Sharife Cooper",
+        "became_player_name": "Herbert Jones",
         "notes": null
       },
       {
@@ -1256,7 +1245,7 @@
         "pick_year": 2022,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Ryan Rollins",
+        "became_player_name": "Vince Williams Jr.",
         "notes": null
       },
       {
@@ -1493,7 +1482,7 @@
         "pick_year": 2018,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Shake Milton",
         "notes": null
       },
       {
@@ -1550,7 +1539,7 @@
         "pick_year": 2017,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "OG Anunoby",
+        "became_player_name": "Anžejs Pasečņiks",
         "notes": null
       },
       {
@@ -1629,7 +1618,7 @@
         "pick_year": 2017,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Zach Collins",
         "notes": null
       },
       {
@@ -1708,18 +1697,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "ATL",
-        "to_team_id": "PHI",
-        "pick_year": 2017,
-        "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Mathias Lessort",
         "notes": null
       },
       {
@@ -1741,7 +1719,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Frank Mason III",
         "notes": null
       }
     ],
@@ -1798,7 +1776,7 @@
         "pick_year": 2017,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jarrett Allen",
         "notes": null
       },
       {
@@ -1899,7 +1877,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jawun Evans",
         "notes": null
       },
       {
@@ -1910,7 +1888,7 @@
         "pick_year": 2020,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Tyrell Terry",
+        "became_player_name": "Nico Mannion",
         "notes": null
       },
       {
@@ -2011,7 +1989,7 @@
         "pick_year": 2018,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Mitchell Robinson",
         "notes": null
       }
     ],
@@ -2057,7 +2035,7 @@
         "pick_year": 2017,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Tony Bradley",
         "notes": null
       },
       {
@@ -2158,7 +2136,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Alec Peters",
         "notes": null
       },
       {
@@ -2169,7 +2147,7 @@
         "pick_year": 2018,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "George King",
         "notes": null
       }
     ],
@@ -2203,8 +2181,8 @@
         "to_team_id": "PHI",
         "pick_year": 2017,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Jayson Tatum",
+        "original_team_id": "SAC",
+        "became_player_name": "Markelle Fultz",
         "notes": null
       },
       {
@@ -2214,8 +2192,8 @@
         "to_team_id": "BOS",
         "pick_year": 2017,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Markelle Fultz",
+        "original_team_id": "SAC",
+        "became_player_name": "Jayson Tatum",
         "notes": null
       },
       {
@@ -2305,7 +2283,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Frank Jackson",
+        "became_player_name": "Tyler Dorsey",
         "notes": null
       },
       {
@@ -2327,7 +2305,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Frank Jackson",
+        "became_player_name": "Mathias Lessort",
         "notes": null
       }
     ],
@@ -2361,8 +2339,8 @@
         "to_team_id": "NOP",
         "pick_year": 2017,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "WAS",
+        "became_player_name": "Edmond Sumner",
         "notes": null
       },
       {
@@ -2647,7 +2625,7 @@
         "pick_year": 2017,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Ognjen Jaramaz",
         "notes": null
       },
       {
@@ -2657,8 +2635,8 @@
         "to_team_id": "HOU",
         "pick_year": 2018,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Jevon Carter",
+        "original_team_id": "MIA",
+        "became_player_name": "De'Anthony Melton",
         "notes": null
       },
       {
@@ -2988,8 +2966,8 @@
         "to_team_id": "PHI",
         "pick_year": 2018,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "De'Anthony Melton",
+        "original_team_id": "HOU",
+        "became_player_name": "Kostas Antetokounmpo",
         "notes": null
       },
       {
@@ -3134,7 +3112,7 @@
         "pick_year": 2018,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Omari Spellman",
         "notes": null
       },
       {
@@ -3237,7 +3215,7 @@
         "pick_year": 2009,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Eric Maynor",
+        "became_player_name": "Jonny Flynn",
         "notes": null
       },
       {
@@ -3247,8 +3225,8 @@
         "to_team_id": "MIN",
         "pick_year": 2018,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Grayson Allen",
+        "original_team_id": "OKC",
+        "became_player_name": "Josh Okogie",
         "notes": null
       },
       {

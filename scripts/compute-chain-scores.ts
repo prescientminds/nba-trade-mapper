@@ -266,6 +266,25 @@ function findExitTrade(
   return candidates.find(t => t.date > arrivedDate) ?? null;
 }
 
+// ── Pick exit trade index: for draft picks re-traded before the draft ────────
+//
+// When a team receives a pick (e.g., "2017 R1 from BKN") and trades that pick
+// before the draft, the became_player_name was never on this team. The player
+// exit index won't find them. This index finds trades where a pick with the
+// same year+round was sent FROM this team, keyed by "year-round-fromTeamId".
+
+function findPickExitTrade(
+  pickYear: number,
+  pickRound: number,
+  teamId: string,
+  arrivedDate: string,
+  pickExitIndex: Map<string, Trade[]>,
+): Trade | null {
+  const key = `${pickYear}-${pickRound}-${teamId}`;
+  const candidates = pickExitIndex.get(key) || [];
+  return candidates.find(t => t.date > arrivedDate) ?? null;
+}
+
 // ── Recursive chain computation ────────────────────────────────────────────────
 
 function computeChain(
@@ -277,6 +296,9 @@ function computeChain(
   depth: number,
   visited: Set<string>,
   exitTradeIndex: Map<string, Trade[]>,
+  pickExitIndex: Map<string, Trade[]>,
+  pickYear: number | null,
+  pickRound: number | null,
   seasonsByPlayerTeam: Map<string, PlayerSeason[]>,
   accoladesByPlayer: Map<string, Accolade[]>,
   championshipSet: Set<string>,
@@ -294,7 +316,15 @@ function computeChain(
   }
   visited.add(visitKey);
 
-  const exitTrade = findExitTrade(playerName, teamId, arrivedDate, exitTradeIndex);
+  // Try player exit trade first
+  let exitTrade = findExitTrade(playerName, teamId, arrivedDate, exitTradeIndex);
+
+  // If no player exit trade and this is a pick with 0 direct production,
+  // the pick was likely re-traded before the draft. Look for a pick exit trade.
+  if (!exitTrade && type === 'pick' && direct === 0 && pickYear && pickRound) {
+    exitTrade = findPickExitTrade(pickYear, pickRound, teamId, arrivedDate, pickExitIndex);
+  }
+
   if (!exitTrade) {
     return { name: playerName, type, direct, chain: direct, exit_trade_id: null, fraction: 1, children: [] };
   }
@@ -318,7 +348,8 @@ function computeChain(
       children.push(computeChain(
         asset.player_name, teamId, exitTrade.date, exitTrade.season,
         'player', depth + 1, visited,
-        exitTradeIndex, seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs,
+        exitTradeIndex, pickExitIndex, null, null,
+        seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs,
       ));
     } else if (asset.type === 'pick' && asset.became_player_name) {
       // Pick resolves to a player — their stats start the season after the draft
@@ -326,7 +357,8 @@ function computeChain(
       children.push(computeChain(
         asset.became_player_name, teamId, exitTrade.date, pickSeason,
         'pick', depth + 1, visited,
-        exitTradeIndex, seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs,
+        exitTradeIndex, pickExitIndex, asset.pick_year, asset.pick_round,
+        seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs,
       ));
     }
     // Unresolved picks (no became_player_name) contribute nothing
@@ -350,6 +382,7 @@ function computeChain(
 function scoreTradeChain(
   trade: Trade,
   exitTradeIndex: Map<string, Trade[]>,
+  pickExitIndex: Map<string, Trade[]>,
   seasonsByPlayerTeam: Map<string, PlayerSeason[]>,
   accoladesByPlayer: Map<string, Accolade[]>,
   championshipSet: Set<string>,
@@ -389,7 +422,10 @@ function scoreTradeChain(
       const node = computeChain(
         playerName, teamId, trade.date, seasonCutoff, assetType,
         0, visited,
-        exitTradeIndex, seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs,
+        exitTradeIndex, pickExitIndex,
+        assetType === 'pick' ? asset.pick_year : null,
+        assetType === 'pick' ? asset.pick_round : null,
+        seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs,
       );
       topLevelNodes.push(node);
     }
@@ -422,6 +458,7 @@ interface LeagueImpactResult {
 function computeLeagueImpact(
   trade: Trade,
   exitTradeIndex: Map<string, Trade[]>,
+  pickExitIndex: Map<string, Trade[]>,
   seasonsByPlayer: Map<string, PlayerSeason[]>,
   accoladesByPlayer: Map<string, Accolade[]>,
   championshipSet: Set<string>,
@@ -511,32 +548,48 @@ function computeLeagueImpact(
   };
 }
 
-// ── Build the exit trade index ─────────────────────────────────────────────────
+// ── Build exit trade indexes ─────────────────────────────────────────────────
 //
-// Key: "${playerName}|${fromTeamId}"
-// Value: all trades where that player left that team, sorted ascending by date.
+// Player index: Key = "${playerName}|${fromTeamId}"
+// Pick index:   Key = "${pickYear}-${pickRound}-${fromTeamId}"
+// Both sorted ascending by date.
 
-function buildExitTradeIndex(allTrades: Trade[]): Map<string, Trade[]> {
-  const index = new Map<string, Trade[]>();
+function buildExitTradeIndexes(allTrades: Trade[]): {
+  playerIndex: Map<string, Trade[]>;
+  pickIndex: Map<string, Trade[]>;
+} {
+  const playerIndex = new Map<string, Trade[]>();
+  const pickIndex = new Map<string, Trade[]>();
 
   for (const trade of allTrades) {
     for (const asset of trade.assets) {
       if (asset.type === 'cash' || asset.type === 'swap') continue;
-      const name = asset.player_name ?? asset.became_player_name;
-      if (!name) continue;
 
-      const key = `${name}|${asset.from_team_id}`;
-      if (!index.has(key)) index.set(key, []);
-      index.get(key)!.push(trade);
+      // Player/pick exit index (existing)
+      const name = asset.player_name ?? asset.became_player_name;
+      if (name) {
+        const key = `${name}|${asset.from_team_id}`;
+        if (!playerIndex.has(key)) playerIndex.set(key, []);
+        playerIndex.get(key)!.push(trade);
+      }
+
+      // Pick exit index (new): tracks when a pick is sent FROM a team
+      if (asset.type === 'pick' && asset.pick_year && asset.pick_round && asset.from_team_id) {
+        const key = `${asset.pick_year}-${asset.pick_round}-${asset.from_team_id}`;
+        if (!pickIndex.has(key)) pickIndex.set(key, []);
+        pickIndex.get(key)!.push(trade);
+      }
     }
   }
 
-  // Sort each list ascending by date so findExitTrade can do a simple .find()
-  for (const [, trades] of index) {
+  for (const [, trades] of playerIndex) {
+    trades.sort((a, b) => a.date.localeCompare(b.date));
+  }
+  for (const [, trades] of pickIndex) {
     trades.sort((a, b) => a.date.localeCompare(b.date));
   }
 
-  return index;
+  return { playerIndex, pickIndex };
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────────
@@ -621,8 +674,8 @@ async function main() {
   }
   console.log(`Loaded ${allTrades.length} total trades (all seasons, for exit index).`);
 
-  const exitTradeIndex = buildExitTradeIndex(allTrades);
-  console.log(`Exit trade index: ${exitTradeIndex.size} (player, team) pairs.\n`);
+  const { playerIndex: exitTradeIndex, pickIndex: pickExitIndex } = buildExitTradeIndexes(allTrades);
+  console.log(`Exit trade index: ${exitTradeIndex.size} player pairs, ${pickExitIndex.size} pick pairs.\n`);
 
   // Filter to target season(s) for scoring
   const tradesToScore = singleSeason
@@ -648,7 +701,7 @@ async function main() {
 
   for (const trade of tradesToScore) {
     const chainScores = scoreTradeChain(
-      trade, exitTradeIndex,
+      trade, exitTradeIndex, pickExitIndex,
       seasonsByPlayerTeam, accoladesByPlayer, championshipSet, teamChampPlayoffWs,
     );
 
@@ -658,7 +711,7 @@ async function main() {
     const maxChainDepth   = teams.length ? Math.max(...teams.map(t => t.depth)) : 0;
 
     const li = computeLeagueImpact(
-      trade, exitTradeIndex,
+      trade, exitTradeIndex, pickExitIndex,
       seasonsByPlayer, accoladesByPlayer, championshipSet, teamChampPlayoffWs,
     );
 

@@ -309,7 +309,7 @@
         "to_team_id": "NOP",
         "pick_year": 2008,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "HOU",
         "became_player_name": "Maarty Leunen",
         "notes": null
       },
@@ -342,7 +342,7 @@
         "to_team_id": "HOU",
         "pick_year": 2008,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "HOU",
         "became_player_name": "Maarty Leunen",
         "notes": null
       },
@@ -400,18 +400,7 @@
         "pick_year": 2007,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "DEN",
-        "to_team_id": "CHI",
-        "pick_year": 2007,
-        "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "JamesOn Curry",
         "notes": null
       },
       {
@@ -535,8 +524,8 @@
         "to_team_id": "OKC",
         "pick_year": 2009,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "BKN",
+        "became_player_name": "Derrick Brown",
         "notes": null
       },
       {
@@ -741,8 +730,8 @@
         "to_team_id": "ATL",
         "pick_year": 2007,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "IND",
+        "became_player_name": "Acie Law",
         "notes": null
       },
       {
@@ -911,18 +900,7 @@
         "pick_year": 2007,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "DEN",
-        "to_team_id": "PHI",
-        "pick_year": 2007,
-        "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Daequan Cook",
         "notes": null
       },
       {
@@ -1273,7 +1251,7 @@
         "pick_year": 2009,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Robert Vaden",
         "notes": null
       },
       {
@@ -1443,8 +1421,8 @@
         "to_team_id": "DAL",
         "pick_year": 2007,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "ATL",
+        "became_player_name": "Nick Fazekas",
         "notes": null
       },
       {
@@ -1546,8 +1524,8 @@
         "to_team_id": "DET",
         "pick_year": 2009,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "TOR",
+        "became_player_name": "Jonas Jerebko",
         "notes": null
       },
       {
@@ -1558,7 +1536,7 @@
         "pick_year": 2011,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Kyle Singler",
         "notes": null
       },
       {
@@ -1569,7 +1547,7 @@
         "pick_year": 2003,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Chris Bosh",
+        "became_player_name": "Carlos Delfino",
         "notes": null
       },
       {
@@ -1683,7 +1661,7 @@
         "pick_year": 2009,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Nick Calathes",
         "notes": null
       },
       {
@@ -2033,8 +2011,8 @@
         "to_team_id": "HOU",
         "pick_year": 2007,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Reyshawn Terry",
+        "original_team_id": "CLE",
+        "became_player_name": "Brad Newley",
         "notes": null
       }
     ],
@@ -2193,8 +2171,8 @@
         "to_team_id": "OKC",
         "pick_year": 2008,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Maarty Leunen",
+        "original_team_id": "NOP",
+        "became_player_name": "Sasha Kaun",
         "notes": null
       },
       {
@@ -2239,8 +2217,8 @@
         "to_team_id": "MIA",
         "pick_year": 2009,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "A.J. Price",
+        "original_team_id": "IND",
+        "became_player_name": "Marcus Thornton",
         "notes": null
       },
       {
@@ -2307,8 +2285,8 @@
         "to_team_id": "SAS",
         "pick_year": 2008,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "TOR",
+        "became_player_name": "Goran Dragić",
         "notes": null
       },
       {

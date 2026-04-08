@@ -249,7 +249,7 @@
         "to_team_id": "MIL",
         "pick_year": 1990,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "MIL",
         "became_player_name": "Steve Henson",
         "notes": null
       },
@@ -409,8 +409,8 @@
         "to_team_id": "SAC",
         "pick_year": 1991,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Von McDade",
+        "original_team_id": "BKN",
+        "became_player_name": "Randy Brown",
         "notes": null
       },
       {
@@ -421,7 +421,7 @@
         "pick_year": 1996,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Jason Sasser",
+        "became_player_name": "Jeff McInnis",
         "notes": null
       },
       {
@@ -432,7 +432,7 @@
         "pick_year": 1981,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Kelly Tripucka",
         "notes": null
       },
       {
@@ -489,7 +489,7 @@
         "pick_year": 1985,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Adrian Branch",
         "notes": null
       },
       {
@@ -818,7 +818,7 @@
         "pick_year": 1991,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Doug Smith",
+        "became_player_name": "LaBradford Smith",
         "notes": null
       },
       {
@@ -988,7 +988,7 @@
         "to_team_id": "POR",
         "pick_year": 1989,
         "pick_round": 1,
-        "original_team_id": null,
+        "original_team_id": "NYK",
         "became_player_name": "Byron Irvin",
         "notes": null
       },
@@ -1203,8 +1203,8 @@
         "to_team_id": "MIN",
         "pick_year": 1989,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Frank Kornet",
+        "original_team_id": "MIN",
+        "became_player_name": "Gary Leonard",
         "notes": null
       }
     ],
@@ -1261,7 +1261,7 @@
         "pick_year": 1989,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Byron Irvin",
+        "became_player_name": "Mookie Blaylock",
         "notes": null
       }
     ],
@@ -1296,7 +1296,7 @@
         "pick_year": 1989,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Kenny Payne",
         "notes": null
       },
       {
@@ -1455,8 +1455,8 @@
         "to_team_id": "OKC",
         "pick_year": 1989,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Tim Hardaway",
+        "original_team_id": "HOU",
+        "became_player_name": "Dana Barros",
         "notes": null
       },
       {
@@ -1466,7 +1466,7 @@
         "to_team_id": "GSW",
         "pick_year": 1990,
         "pick_round": 1,
-        "original_team_id": null,
+        "original_team_id": "GSW",
         "became_player_name": "Gary Payton",
         "notes": null
       }

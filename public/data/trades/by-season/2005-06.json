@@ -24,7 +24,7 @@
         "to_team_id": "CHA",
         "pick_year": 2006,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "SAC",
         "became_player_name": "Ryan Hollins",
         "notes": null
       },
@@ -36,7 +36,7 @@
         "pick_year": 2000,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Jabari Smith",
+        "became_player_name": "Jason Hart",
         "notes": null
       },
       {
@@ -263,7 +263,7 @@
         "pick_year": 2008,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Semih Erden",
+        "became_player_name": "Sasha Kaun",
         "notes": null
       },
       {
@@ -456,7 +456,7 @@
         "pick_year": 2008,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Semih Erden",
+        "became_player_name": "Sasha Kaun",
         "notes": null
       },
       {
@@ -649,7 +649,7 @@
         "pick_year": 2008,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Semih Erden",
+        "became_player_name": "Sasha Kaun",
         "notes": null
       },
       {
@@ -797,7 +797,7 @@
         "pick_year": 2012,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Austin Rivers",
         "notes": null
       },
       {
@@ -921,8 +921,8 @@
         "to_team_id": "IND",
         "pick_year": 2008,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Malik Hairston",
+        "original_team_id": "PHX",
+        "became_player_name": "Mike Taylor",
         "notes": null
       },
       {
@@ -979,7 +979,7 @@
         "pick_year": 2002,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Juan Dixon",
         "notes": null
       },
       {
@@ -990,7 +990,7 @@
         "pick_year": 2006,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Marcus Vinicius",
+        "became_player_name": "Craig Smith",
         "notes": null
       },
       {
@@ -1069,7 +1069,7 @@
         "pick_year": 2006,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "LaMarcus Aldridge",
         "notes": null
       },
       {
@@ -1080,7 +1080,7 @@
         "pick_year": 2007,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Wilson Chandler",
+        "became_player_name": "Joakim Noah",
         "notes": null
       },
       {
@@ -1091,7 +1091,7 @@
         "pick_year": 2007,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Kyrylo Fesenko",
         "notes": null
       },
       {
@@ -1102,7 +1102,7 @@
         "pick_year": 2009,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jon Brockman",
         "notes": null
       },
       {
@@ -1226,8 +1226,8 @@
         "to_team_id": "LAL",
         "pick_year": 2007,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "CHA",
+        "became_player_name": "Sun Yue",
         "notes": null
       },
       {
@@ -1295,7 +1295,7 @@
         "pick_year": 2006,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Cedric Simmons",
         "notes": null
       },
       {
@@ -1340,8 +1340,8 @@
         "to_team_id": "DET",
         "pick_year": 2009,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "MIN",
+        "became_player_name": "DaJuan Summers",
         "notes": null
       },
       {
@@ -1477,7 +1477,7 @@
         "pick_year": 2009,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jonny Flynn",
         "notes": null
       },
       {
@@ -1532,7 +1532,7 @@
         "pick_year": 2006,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Craig Smith",
         "notes": null
       },
       {
@@ -1578,7 +1578,7 @@
         "pick_year": 2002,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Forfeited pick",
         "notes": null
       },
       {
@@ -1588,8 +1588,8 @@
         "to_team_id": "MIN",
         "pick_year": 2006,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "PHX",
+        "became_player_name": "Loukas Mavrokefalidis",
         "notes": null
       },
       {
@@ -1657,7 +1657,7 @@
         "pick_year": 2009,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jack McClinton",
         "notes": null
       },
       {
@@ -1702,8 +1702,8 @@
         "to_team_id": "NYK",
         "pick_year": 2006,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Andrea Bargnani",
+        "original_team_id": "DEN",
+        "became_player_name": "Renaldo Balkman",
         "notes": null
       },
       {
@@ -1942,7 +1942,7 @@
         "pick_year": 2007,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Rodney Stuckey",
         "notes": null
       }
     ],
@@ -2119,7 +2119,7 @@
         "pick_year": 2008,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "DeVon Hardin",
         "notes": null
       },
       {
@@ -2461,7 +2461,7 @@
         "pick_year": 2009,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jonas Jerebko",
         "notes": null
       }
     ],
@@ -2506,8 +2506,8 @@
         "to_team_id": "MIN",
         "pick_year": 2007,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Kyrylo Fesenko",
+        "original_team_id": "PHI",
+        "became_player_name": "Chris Richard",
         "notes": null
       },
       {
@@ -2575,7 +2575,7 @@
         "pick_year": 2007,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Kyrylo Fesenko",
+        "became_player_name": "Demetris Nichols",
         "notes": null
       },
       {
@@ -2631,8 +2631,8 @@
         "to_team_id": "POR",
         "pick_year": 2008,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "MEM",
+        "became_player_name": "Joey Dorsey",
         "notes": null
       },
       {
@@ -2700,7 +2700,7 @@
         "pick_year": 2007,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Derrick Byars",
         "notes": null
       },
       {
@@ -2814,7 +2814,7 @@
         "pick_year": 2006,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Randy Foye",
+        "became_player_name": "Sergio Rodríguez",
         "notes": null
       },
       {
@@ -2928,7 +2928,7 @@
         "pick_year": 2006,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "J.R. Pinnock",
+        "became_player_name": "J. R. Pinnock",
         "notes": null
       },
       {
@@ -2938,8 +2938,8 @@
         "to_team_id": "DAL",
         "pick_year": 2007,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "MIA",
+        "became_player_name": "Renaldas Seibutis",
         "notes": null
       },
       {
@@ -2995,8 +2995,8 @@
         "to_team_id": "SAS",
         "pick_year": 2007,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Ramon Sessions",
+        "original_team_id": "MIL",
+        "became_player_name": "Marcus Williams",
         "notes": null
       },
       {
@@ -3052,8 +3052,8 @@
         "to_team_id": "DEN",
         "pick_year": 2007,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Gabe Pruitt",
+        "original_team_id": "GSW",
+        "became_player_name": "Aaron Gray",
         "notes": null
       },
       {
@@ -3154,7 +3154,7 @@
         "pick_year": 2008,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Semih Erden",
+        "became_player_name": "Trent Plaisted",
         "notes": null
       }
     ],
@@ -3257,7 +3257,7 @@
         "pick_year": 2007,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Demetris Nichols",
         "notes": null
       },
       {

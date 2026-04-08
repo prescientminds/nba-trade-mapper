@@ -35,7 +35,7 @@
         "to_team_id": "GSW",
         "pick_year": 1994,
         "pick_round": 1,
-        "original_team_id": null,
+        "original_team_id": "CLE",
         "became_player_name": "Clifford Rozier",
         "notes": null
       }
@@ -70,8 +70,8 @@
         "to_team_id": "POR",
         "pick_year": 1995,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Erik Meek",
+        "original_team_id": "DET",
+        "became_player_name": "Don Reid",
         "notes": null
       },
       {
@@ -150,7 +150,7 @@
         "pick_year": 1994,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Rodney Dent",
+        "became_player_name": "Anthony Miller",
         "notes": null
       },
       {
@@ -264,7 +264,7 @@
         "pick_year": 1994,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Carlos Rogers",
+        "became_player_name": "Brooks Thompson",
         "notes": null
       },
       {
@@ -365,7 +365,7 @@
         "pick_year": 1994,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Carlos Rogers",
         "notes": null
       },
       {
@@ -387,7 +387,7 @@
         "pick_year": 1994,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Sharone Wright",
         "notes": null
       }
     ],
@@ -477,7 +477,7 @@
         "pick_year": 1996,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jerome Williams",
+        "became_player_name": "John Wallace",
         "notes": null
       },
       {
@@ -533,8 +533,8 @@
         "to_team_id": "IND",
         "pick_year": 1994,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Derrick Alston",
+        "original_team_id": "IND",
+        "became_player_name": "William Njoku",
         "notes": null
       },
       {
@@ -647,8 +647,8 @@
         "to_team_id": "PHX",
         "pick_year": 1994,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "PHX",
+        "became_player_name": "Antonio Lang",
         "notes": null
       },
       {
@@ -876,7 +876,7 @@
         "pick_year": 1994,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Brooks Thompson",
+        "became_player_name": "Eric Mobley",
         "notes": null
       },
       {
@@ -955,7 +955,7 @@
         "pick_year": 1994,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Jevon Crudup",
+        "became_player_name": "Michael Smith",
         "notes": null
       },
       {
@@ -966,7 +966,7 @@
         "pick_year": 1999,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Cal Bowdler",
         "notes": null
       }
     ],
@@ -1069,7 +1069,7 @@
         "pick_year": 1994,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "B.J. Tyler",
         "notes": null
       },
       {
@@ -1205,7 +1205,7 @@
         "pick_year": 1994,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Greg Minor",
         "notes": null
       },
       {
@@ -1365,7 +1365,7 @@
         "pick_year": 1994,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Dwayne Morton",
         "notes": null
       },
       {
@@ -1375,8 +1375,8 @@
         "to_team_id": "GSW",
         "pick_year": 1995,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Frankie King",
+        "original_team_id": "GSW",
+        "became_player_name": "Dwayne Whitfield",
         "notes": null
       }
     ],
@@ -1411,7 +1411,7 @@
         "pick_year": 1996,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Joseph Blair",
         "notes": null
       },
       {

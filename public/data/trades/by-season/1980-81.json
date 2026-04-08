@@ -24,8 +24,8 @@
         "to_team_id": "POR",
         "pick_year": 1983,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Howard Carter",
+        "original_team_id": "POR",
+        "became_player_name": "Clyde Drexler",
         "notes": null
       },
       {
@@ -36,7 +36,7 @@
         "pick_year": 1984,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Willie White",
+        "became_player_name": "Steve Colter",
         "notes": null
       },
       {
@@ -47,7 +47,7 @@
         "pick_year": 1977,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "T. R. Dunn",
         "notes": null
       },
       {
@@ -57,7 +57,7 @@
         "to_team_id": "DEN",
         "pick_year": 1983,
         "pick_round": 1,
-        "original_team_id": null,
+        "original_team_id": "POR",
         "became_player_name": "Clyde Drexler",
         "notes": null
       },
@@ -115,7 +115,7 @@
         "pick_year": 1984,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Lancaster Gordon",
         "notes": null
       },
       {
@@ -286,7 +286,7 @@
         "pick_year": 1984,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Anthony Teachey",
         "notes": null
       },
       {
@@ -343,7 +343,7 @@
         "pick_year": 1981,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Sam Williams",
+        "became_player_name": "Ken Green",
         "notes": null
       },
       {
@@ -399,8 +399,8 @@
         "to_team_id": "DAL",
         "pick_year": 1984,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Tim McCormick",
+        "original_team_id": "CLE",
+        "became_player_name": "Sam Perkins",
         "notes": null
       },
       {
@@ -542,8 +542,8 @@
         "to_team_id": "WAS",
         "pick_year": 1981,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "SAS",
+        "became_player_name": "Claude Gregory",
         "notes": null
       },
       {
@@ -565,7 +565,7 @@
         "pick_year": 1978,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Frankie Sanders",
+        "became_player_name": "Roger Phegley",
         "notes": null
       },
       {
@@ -610,8 +610,8 @@
         "to_team_id": "LAL",
         "pick_year": 1981,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "POR",
+        "became_player_name": "Harvey Knuckles",
         "notes": null
       },
       {
@@ -703,7 +703,7 @@
         "pick_year": 1979,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Paul Mokeski",
+        "became_player_name": "Larry Wilson",
         "notes": null
       },
       {
@@ -713,8 +713,8 @@
         "to_team_id": "HOU",
         "pick_year": 1982,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Jeff Taylor",
+        "original_team_id": "LAC",
+        "became_player_name": "Richard Anderson",
         "notes": null
       },
       {
@@ -759,8 +759,8 @@
         "to_team_id": "POR",
         "pick_year": 1984,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "LAL",
+        "became_player_name": "Jerome Kersey",
         "notes": null
       },
       {
@@ -874,7 +874,7 @@
         "pick_year": 1981,
         "pick_round": 3,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Mickey Dillard",
         "notes": null
       },
       {
@@ -1020,8 +1020,8 @@
         "to_team_id": "GSW",
         "pick_year": 1981,
         "pick_round": 4,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "OKC",
+        "became_player_name": "Lewis Lloyd",
         "notes": null
       },
       {
@@ -1088,8 +1088,8 @@
         "to_team_id": "BKN",
         "pick_year": 1982,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "James Worthy",
+        "original_team_id": "LAL",
+        "became_player_name": "Eddie Phillips",
         "notes": null
       }
     ],
@@ -1134,8 +1134,8 @@
         "to_team_id": "PHX",
         "pick_year": 1981,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "IND",
+        "became_player_name": "Al Leslie",
         "notes": null
       },
       {
@@ -1191,8 +1191,8 @@
         "to_team_id": "ATL",
         "pick_year": 1983,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Scooter McCray",
+        "original_team_id": "IND",
+        "became_player_name": "Jim Thomas",
         "notes": null
       },
       {
@@ -1203,7 +1203,7 @@
         "pick_year": 1984,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Ben Coleman",
         "notes": null
       },
       {
@@ -1259,8 +1259,8 @@
         "to_team_id": "DAL",
         "pick_year": 1981,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DEN",
+        "became_player_name": "Rolando Blackman",
         "notes": null
       },
       {
@@ -1271,7 +1271,7 @@
         "pick_year": 1985,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Blair Rasmussen",
+        "became_player_name": "Sam Vincent",
         "notes": null
       },
       {
@@ -1293,7 +1293,7 @@
         "pick_year": 1986,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Roy Tarpley",
+        "became_player_name": "Maurice Martin",
         "notes": null
       }
     ],
@@ -1339,7 +1339,7 @@
         "pick_year": 1982,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Fat Lever",
+        "became_player_name": "Ricky Pierce",
         "notes": null
       },
       {
@@ -1566,8 +1566,8 @@
         "to_team_id": "CLE",
         "pick_year": 1981,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "NYK",
+        "became_player_name": "Kevin Loder",
         "notes": null
       },
       {
@@ -1623,8 +1623,8 @@
         "to_team_id": "POR",
         "pick_year": 1984,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Vern Fleming",
+        "original_team_id": "IND",
+        "became_player_name": "Sam Bowie",
         "notes": null
       },
       {
@@ -1680,8 +1680,8 @@
         "to_team_id": "POR",
         "pick_year": 1982,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "POR",
+        "became_player_name": "Audie Norris",
         "notes": null
       },
       {
@@ -1793,7 +1793,7 @@
         "pick_year": 1981,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Ed Turner",
+        "became_player_name": "Charles Davis",
         "notes": null
       }
     ],
@@ -1827,8 +1827,8 @@
         "to_team_id": "CHI",
         "pick_year": 1981,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Al Wood",
+        "original_team_id": "CLE",
+        "became_player_name": "Orlando Woolridge",
         "notes": null
       },
       {
@@ -1849,8 +1849,8 @@
         "to_team_id": "ATL",
         "pick_year": 1981,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Orlando Woolridge",
+        "original_team_id": "CLE",
+        "became_player_name": "Al Wood",
         "notes": null
       },
       {
@@ -1861,7 +1861,7 @@
         "pick_year": 1981,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Mike Olliver",
+        "became_player_name": "Clyde Bradshaw",
         "notes": null
       }
     ],
@@ -1895,8 +1895,8 @@
         "to_team_id": "IND",
         "pick_year": 1981,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "IND",
+        "became_player_name": "Al Leslie",
         "notes": null
       },
       {
@@ -1918,7 +1918,7 @@
         "pick_year": 1979,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Dudley Bradley",
+        "became_player_name": "Calvin Natt",
         "notes": null
       },
       {
@@ -1963,8 +1963,8 @@
         "to_team_id": "CLE",
         "pick_year": 1981,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Eddie Johnson",
+        "original_team_id": "SAC",
+        "became_player_name": "Ray Blume",
         "notes": null
       },
       {
@@ -1974,8 +1974,8 @@
         "to_team_id": "SAC",
         "pick_year": 1981,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "NYK",
+        "became_player_name": "Kevin Loder",
         "notes": null
       }
     ],
@@ -2032,7 +2032,7 @@
         "pick_year": 1981,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Eddie Johnson",
+        "became_player_name": "Ray Blume",
         "notes": null
       }
     ],
@@ -2202,8 +2202,8 @@
         "to_team_id": "SAS",
         "pick_year": 1982,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Dave Magley",
+        "original_team_id": "SAS",
+        "became_player_name": "Oliver Robinson",
         "notes": null
       },
       {

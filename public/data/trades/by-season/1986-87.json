@@ -139,7 +139,7 @@
         "pick_year": 1988,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Ricky Berry",
+        "became_player_name": "Hersey Hawkins",
         "notes": null
       },
       {
@@ -376,7 +376,7 @@
         "pick_year": 1981,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jay Vincent",
         "notes": null
       },
       {
@@ -386,8 +386,8 @@
         "to_team_id": "DAL",
         "pick_year": 1990,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "WAS",
+        "became_player_name": "Willie Burton",
         "notes": null
       },
       {
@@ -432,8 +432,8 @@
         "to_team_id": "CHI",
         "pick_year": 1988,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "NYK",
+        "became_player_name": "Greg Butler",
         "notes": null
       },
       {
@@ -455,7 +455,7 @@
         "pick_year": 1979,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Dave Greenwood",
+        "became_player_name": "David Greenwood",
         "notes": null
       },
       {
@@ -511,8 +511,8 @@
         "to_team_id": "UTA",
         "pick_year": 1987,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "UTA",
+        "became_player_name": "Billy Donovan",
         "notes": null
       },
       {
@@ -602,7 +602,7 @@
         "pick_year": 1989,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Kenny Payne",
+        "became_player_name": "Shawn Kemp",
         "notes": null
       }
     ],
@@ -659,7 +659,7 @@
         "pick_year": 1978,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "John Long",
         "notes": null
       },
       {
@@ -704,8 +704,8 @@
         "to_team_id": "NYK",
         "pick_year": 1987,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Mark Jackson",
+        "original_team_id": "DEN",
+        "became_player_name": "Olden Polynice",
         "notes": null
       },
       {
@@ -840,8 +840,8 @@
         "to_team_id": "HOU",
         "pick_year": 1989,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "CLE",
+        "became_player_name": "Chucky Brown",
         "notes": null
       },
       {
@@ -897,8 +897,8 @@
         "to_team_id": "DEN",
         "pick_year": 1987,
         "pick_round": 7,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DEN",
+        "became_player_name": "Curtis Hunter",
         "notes": null
       },
       {
@@ -1000,8 +1000,8 @@
         "to_team_id": "CHI",
         "pick_year": 1987,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Mark Jackson",
+        "original_team_id": "DEN",
+        "became_player_name": "Olden Polynice",
         "notes": null
       },
       {
@@ -1012,7 +1012,7 @@
         "pick_year": 1980,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Sam Worthen",
+        "became_player_name": "Craig Shelton",
         "notes": null
       },
       {
@@ -1079,8 +1079,8 @@
         "to_team_id": "MIL",
         "pick_year": 1987,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "MIL",
+        "became_player_name": "Winston Garland",
         "notes": null
       },
       {
@@ -1136,8 +1136,8 @@
         "to_team_id": "NYK",
         "pick_year": 1987,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Mark Jackson",
+        "original_team_id": "NYK",
+        "became_player_name": "Scottie Pippen",
         "notes": null
       },
       {
@@ -1147,8 +1147,8 @@
         "to_team_id": "OKC",
         "pick_year": 1987,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Mark Jackson",
+        "original_team_id": "NYK",
+        "became_player_name": "Scottie Pippen",
         "notes": null
       },
       {
@@ -1193,7 +1193,7 @@
         "to_team_id": "CLE",
         "pick_year": 1989,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "CLE",
         "became_player_name": "Chucky Brown",
         "notes": null
       },
@@ -1342,8 +1342,8 @@
         "to_team_id": "LAC",
         "pick_year": 1987,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "HOU",
+        "became_player_name": "Joe Wolf",
         "notes": null
       },
       {
@@ -1354,7 +1354,7 @@
         "pick_year": 1977,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Marques Johnson",
         "notes": null
       },
       {
@@ -1410,8 +1410,8 @@
         "to_team_id": "LAC",
         "pick_year": 1987,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DET",
+        "became_player_name": "Ken Norman",
         "notes": null
       },
       {
@@ -1512,7 +1512,7 @@
         "pick_year": 1987,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Greg \"Cadillac\" Anderson",
         "notes": null
       },
       {
@@ -1523,7 +1523,7 @@
         "pick_year": 1990,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Tony Smith",
+        "became_player_name": "Sean Higgins",
         "notes": null
       },
       {
@@ -1590,7 +1590,7 @@
         "to_team_id": "CLE",
         "pick_year": 1989,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "CLE",
         "became_player_name": "Chucky Brown",
         "notes": null
       },
@@ -1704,8 +1704,8 @@
         "to_team_id": "PHX",
         "pick_year": 1988,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DET",
+        "became_player_name": "Randolph Keys",
         "notes": null
       }
     ],
@@ -1739,8 +1739,8 @@
         "to_team_id": "MIL",
         "pick_year": 1989,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Frank Kornet",
+        "original_team_id": "MIN",
+        "became_player_name": "Gary Leonard",
         "notes": null
       },
       {
@@ -1875,7 +1875,7 @@
         "to_team_id": "SAS",
         "pick_year": 1988,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "SAS",
         "became_player_name": "Shelton Jones",
         "notes": null
       },
@@ -1933,7 +1933,7 @@
         "pick_year": 1989,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Kenny Payne",
         "notes": null
       },
       {
@@ -1955,7 +1955,7 @@
         "pick_year": 1989,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "B. J. Armstrong",
         "notes": "1989 pick swap right — SEA exercised swap (#20→#18) then traded #18 back to CHI for Brad Sellers; CHI used #18 to draft B.J. Armstrong"
       },
       {

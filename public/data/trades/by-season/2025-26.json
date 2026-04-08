@@ -231,8 +231,8 @@
     "id": "bbref-2025-07-06-3954f899",
     "date": "2025-07-06",
     "season": "2025-26",
-    "title": "Pat Connaughton, Vasilije Micić Trade",
-    "description": "The Charlotte Hornets traded Vasilije Micić to the Milwaukee Bucks for Pat Connaughton, a 2031 2nd round draft pick and a 2032 2nd round draft pick. Milwaukee also received a trade exception 2031 2nd-rd pick is MIL own 2032 2nd-rd pick is MIL own",
+    "title": "Pat Connaughton, Vasilije Mici\u0107 Trade",
+    "description": "The Charlotte Hornets traded Vasilije Mici\u0107 to the Milwaukee Bucks for Pat Connaughton, a 2031 2nd round draft pick and a 2032 2nd round draft pick. Milwaukee also received a trade exception 2031 2nd-rd pick is MIL own 2032 2nd-rd pick is MIL own",
     "is_multi_team": false,
     "teams": [
       {
@@ -247,7 +247,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Vasilije Micić",
+        "player_name": "Vasilije Mici\u0107",
         "from_team_id": "CHA",
         "to_team_id": "MIL",
         "pick_year": null,
@@ -292,7 +292,7 @@
     ],
     "topAssets": [
       "Pat Connaughton",
-      "Vasilije Micić"
+      "Vasilije Mici\u0107"
     ]
   },
   {
@@ -1239,8 +1239,8 @@
     "id": "bbref-2025-07-13-aaa8b844",
     "date": "2025-07-13",
     "season": "2025-26",
-    "title": "Jonas Valančiūnas, Dario Šarić Trade",
-    "description": "The Sacramento Kings traded Jonas Valančiūnas to the Denver Nuggets for Dario Šarić. Denver also received a trade exception Sacramento also received a trade exception",
+    "title": "Jonas Valan\u010di\u016bnas, Dario \u0160ari\u0107 Trade",
+    "description": "The Sacramento Kings traded Jonas Valan\u010di\u016bnas to the Denver Nuggets for Dario \u0160ari\u0107. Denver also received a trade exception Sacramento also received a trade exception",
     "is_multi_team": false,
     "teams": [
       {
@@ -1255,7 +1255,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Jonas Valančiūnas",
+        "player_name": "Jonas Valan\u010di\u016bnas",
         "from_team_id": "SAC",
         "to_team_id": "DEN",
         "pick_year": null,
@@ -1266,7 +1266,7 @@
       },
       {
         "type": "player",
-        "player_name": "Dario Šarić",
+        "player_name": "Dario \u0160ari\u0107",
         "from_team_id": "DEN",
         "to_team_id": "SAC",
         "pick_year": null,
@@ -1277,8 +1277,8 @@
       }
     ],
     "topAssets": [
-      "Jonas Valančiūnas",
-      "Dario Šarić"
+      "Jonas Valan\u010di\u016bnas",
+      "Dario \u0160ari\u0107"
     ]
   },
   {
@@ -1581,8 +1581,8 @@
     "id": "bbref-2026-02-01-fcd4c372",
     "date": "2026-02-01",
     "season": "2025-26",
-    "title": "Dario Šarić, Emanuel Miller, De'Andre Hunter Trade",
-    "description": "In a 3-team trade, the Chicago Bulls traded Emanuel Miller to the Cleveland Cavaliers; the Cleveland Cavaliers traded a 2027 2nd round draft pick to the Chicago Bulls; the Cleveland Cavaliers traded De'Andre Hunter to the Sacramento Kings; the Sacramento Kings traded Dario Šarić and a 2029 2nd round draft pick to the Chicago Bulls; and the Sacramento Kings traded Keon Ellis and Dennis Schroder to the Cleveland Cavaliers.",
+    "title": "Dario \u0160ari\u0107, Emanuel Miller, De'Andre Hunter Trade",
+    "description": "In a 3-team trade, the Chicago Bulls traded Emanuel Miller to the Cleveland Cavaliers; the Cleveland Cavaliers traded a 2027 2nd round draft pick to the Chicago Bulls; the Cleveland Cavaliers traded De'Andre Hunter to the Sacramento Kings; the Sacramento Kings traded Dario \u0160ari\u0107 and a 2029 2nd round draft pick to the Chicago Bulls; and the Sacramento Kings traded Keon Ellis and Dennis Schroder to the Cleveland Cavaliers.",
     "is_multi_team": true,
     "teams": [
       {
@@ -1634,7 +1634,7 @@
       },
       {
         "type": "player",
-        "player_name": "Dario Šarić",
+        "player_name": "Dario \u0160ari\u0107",
         "from_team_id": "SAC",
         "to_team_id": "CHI",
         "pick_year": null,
@@ -1657,8 +1657,8 @@
     ],
     "topAssets": [
       "Emanuel Miller",
-      "Dario Šarić",
-      "Dario Šarić"
+      "Dario \u0160ari\u0107",
+      "Dario \u0160ari\u0107"
     ]
   },
   {
@@ -1783,17 +1783,6 @@
         "player_name": null,
         "from_team_id": "UTA",
         "to_team_id": "MEM",
-        "pick_year": 2027,
-        "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "UTA",
-        "to_team_id": "MEM",
         "pick_year": 2031,
         "pick_round": 1,
         "original_team_id": null,
@@ -1811,7 +1800,7 @@
     "date": "2026-02-03",
     "season": "2025-26",
     "title": "Jaden Ivey, Mike Conley, Kevin Huerter Trade",
-    "description": "In a 3-team trade, the Chicago Bulls traded Kevin Huerter and Dario Šarić to the Detroit Pistons; the Detroit Pistons traded Jaden Ivey to the Chicago Bulls; the Detroit Pistons traded to the Minnesota Timberwolves; the Minnesota Timberwolves traded Mike Conley to the Chicago Bulls; and the Minnesota Timberwolves traded a 2026 1st round draft pick to the Detroit Pistons. 2026 1st-rd pick is a protected right to swap Minnesota also received a trade exception",
+    "description": "In a 3-team trade, the Chicago Bulls traded Kevin Huerter and Dario \u0160ari\u0107 to the Detroit Pistons; the Detroit Pistons traded Jaden Ivey to the Chicago Bulls; the Detroit Pistons traded to the Minnesota Timberwolves; the Minnesota Timberwolves traded Mike Conley to the Chicago Bulls; and the Minnesota Timberwolves traded a 2026 1st round draft pick to the Detroit Pistons. 2026 1st-rd pick is a protected right to swap Minnesota also received a trade exception",
     "is_multi_team": true,
     "teams": [
       {
@@ -1841,7 +1830,7 @@
       },
       {
         "type": "player",
-        "player_name": "Dario Šarić",
+        "player_name": "Dario \u0160ari\u0107",
         "from_team_id": "CHI",
         "to_team_id": "DET",
         "pick_year": null,
@@ -2111,17 +2100,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "OKC",
-        "to_team_id": "PHI",
-        "pick_year": 2028,
-        "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -2233,17 +2211,6 @@
         "to_team_id": "CHI",
         "pick_year": null,
         "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "CHA",
-        "to_team_id": "CHI",
-        "pick_year": 2031,
-        "pick_round": 2,
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
@@ -2467,8 +2434,8 @@
     "id": "bbref-2026-02-05-c67e472c",
     "date": "2026-02-05",
     "season": "2025-26",
-    "title": "Nikola Vučević, Anfernee Simons Trade",
-    "description": "The Boston Celtics traded Anfernee Simons and a 2026 2nd round draft pick to the Chicago Bulls for Nikola Vučević and a 2027 2nd round draft pick. 2026 2nd-rd pick is more favorable Boston also received a trade exception 2027 2nd-rd pick is DEN own",
+    "title": "Nikola Vu\u010devi\u0107, Anfernee Simons Trade",
+    "description": "The Boston Celtics traded Anfernee Simons and a 2026 2nd round draft pick to the Chicago Bulls for Nikola Vu\u010devi\u0107 and a 2027 2nd round draft pick. 2026 2nd-rd pick is more favorable Boston also received a trade exception 2027 2nd-rd pick is DEN own",
     "is_multi_team": false,
     "teams": [
       {
@@ -2505,7 +2472,7 @@
       },
       {
         "type": "player",
-        "player_name": "Nikola Vučević",
+        "player_name": "Nikola Vu\u010devi\u0107",
         "from_team_id": "CHI",
         "to_team_id": "BOS",
         "pick_year": null,
@@ -2528,7 +2495,7 @@
     ],
     "topAssets": [
       "Anfernee Simons",
-      "Nikola Vučević"
+      "Nikola Vu\u010devi\u0107"
     ]
   },
   {

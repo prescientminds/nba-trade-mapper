@@ -71,17 +71,6 @@
         "original_team_id": null,
         "became_player_name": "Eurelijus Žukauskas",
         "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "OKC",
-        "to_team_id": "GSW",
-        "pick_year": 1995,
-        "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Eurelijus Žukauskas",
-        "notes": null
       }
     ],
     "topAssets": [
@@ -171,8 +160,8 @@
         "to_team_id": "PHI",
         "pick_year": 1996,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DET",
+        "became_player_name": "Jamie Feick",
         "notes": null
       },
       {
@@ -250,8 +239,8 @@
         "to_team_id": "ORL",
         "pick_year": 1996,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Ronnie Henderson",
+        "original_team_id": "MEM",
+        "became_player_name": "Randy Livingston",
         "notes": null
       },
       {
@@ -273,7 +262,7 @@
         "pick_year": 1998,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Michael Doleac",
         "notes": null
       },
       {
@@ -284,7 +273,7 @@
         "pick_year": 1998,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Keon Clark",
         "notes": null
       }
     ],
@@ -329,8 +318,8 @@
         "to_team_id": "PHX",
         "pick_year": 1996,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DEN",
+        "became_player_name": "Russ Millard",
         "notes": null
       },
       {
@@ -352,7 +341,7 @@
         "pick_year": 1999,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Melvin Levett",
+        "became_player_name": "Lari Ketner",
         "notes": null
       }
     ],
@@ -386,8 +375,8 @@
         "to_team_id": "WAS",
         "pick_year": 1996,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Malik Rose",
+        "original_team_id": "SAS",
+        "became_player_name": "Ronnie Henderson",
         "notes": null
       },
       {
@@ -398,7 +387,7 @@
         "pick_year": 1997,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Predrag Drobnjak",
         "notes": null
       },
       {
@@ -522,8 +511,8 @@
         "to_team_id": "PHX",
         "pick_year": 1995,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "LAL",
+        "became_player_name": "Michael Finley",
         "notes": null
       },
       {
@@ -579,8 +568,8 @@
         "to_team_id": "LAL",
         "pick_year": 1997,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "NYK",
+        "became_player_name": "Paul Rogers",
         "notes": null
       },
       {
@@ -602,7 +591,7 @@
         "pick_year": 1998,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Sean Marks",
         "notes": null
       }
     ],
@@ -636,8 +625,8 @@
         "to_team_id": "DAL",
         "pick_year": 1997,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Paul Grant",
+        "original_team_id": "MIN",
+        "became_player_name": "Kelvin Cato",
         "notes": null
       },
       {
@@ -773,7 +762,7 @@
         "pick_year": 1996,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Joe Vogel",
         "notes": null
       },
       {
@@ -795,7 +784,7 @@
         "pick_year": 1996,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Priest Lauderdale",
+        "became_player_name": "Walter McCarty",
         "notes": null
       },
       {
@@ -863,7 +852,7 @@
         "pick_year": 2000,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Chris Mihm",
         "notes": null
       },
       {
@@ -874,7 +863,7 @@
         "pick_year": 1996,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Todd Fuller",
+        "became_player_name": "Vitaly Potapenko",
         "notes": null
       },
       {
@@ -885,7 +874,7 @@
         "pick_year": 1998,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Vince Carter",
+        "became_player_name": "Keon Clark",
         "notes": null
       }
     ],
@@ -919,7 +908,7 @@
         "to_team_id": "BOS",
         "pick_year": 1995,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "BOS",
         "became_player_name": "Junior Burrough",
         "notes": null
       },
@@ -1010,7 +999,7 @@
         "pick_year": 1995,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Shawn Respert",
+        "became_player_name": "Randolph Childress",
         "notes": null
       },
       {
@@ -1180,7 +1169,7 @@
         "to_team_id": "CLE",
         "pick_year": 1995,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "MIA",
         "became_player_name": "George Banks",
         "notes": null
       },
@@ -1191,8 +1180,8 @@
         "to_team_id": "MIA",
         "pick_year": 1995,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Donny Marshall",
+        "original_team_id": "MIA",
+        "became_player_name": "George Banks",
         "notes": null
       },
       {
@@ -1237,7 +1226,7 @@
         "to_team_id": "MEM",
         "pick_year": 1996,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "NYK",
         "became_player_name": "Amal McCaskill",
         "notes": null
       },
@@ -1283,7 +1272,7 @@
         "to_team_id": "POR",
         "pick_year": 1995,
         "pick_round": 1,
-        "original_team_id": null,
+        "original_team_id": "POR",
         "became_player_name": "Shawn Respert",
         "notes": null
       },
@@ -1294,19 +1283,8 @@
         "to_team_id": "DET",
         "pick_year": 1995,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Shawn Respert",
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "POR",
-        "to_team_id": "DET",
-        "pick_year": 1995,
-        "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Shawn Respert",
+        "original_team_id": "POR",
+        "became_player_name": "Theo Ratliff",
         "notes": null
       },
       {
@@ -1556,7 +1534,7 @@
         "pick_year": 1996,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Drew Barry",
         "notes": null
       },
       {

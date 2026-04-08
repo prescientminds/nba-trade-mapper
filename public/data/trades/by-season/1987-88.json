@@ -141,8 +141,8 @@
         "to_team_id": "NYK",
         "pick_year": 1988,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Vinny Del Negro",
+        "original_team_id": "DET",
+        "became_player_name": "Fennis Dembo",
         "notes": null
       },
       {
@@ -187,8 +187,8 @@
         "to_team_id": "BOS",
         "pick_year": 1988,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "NYK",
+        "became_player_name": "Sylvester Gray",
         "notes": null
       },
       {
@@ -323,8 +323,8 @@
         "to_team_id": "CLE",
         "pick_year": 1989,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Chucky Brown",
+        "original_team_id": "PHX",
+        "became_player_name": "Greg Grant",
         "notes": null
       },
       {
@@ -335,7 +335,7 @@
         "pick_year": 1979,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Kyle Macy",
+        "became_player_name": "Sidney Moncrief",
         "notes": null
       },
       {
@@ -494,8 +494,8 @@
         "to_team_id": "ATL",
         "pick_year": 1990,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "GSW",
+        "became_player_name": "Les Jepsen",
         "notes": null
       },
       {
@@ -620,7 +620,7 @@
         "pick_year": 1989,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Tim Hardaway",
+        "became_player_name": "Dana Barros",
         "notes": null
       },
       {
@@ -676,7 +676,7 @@
         "to_team_id": "NYK",
         "pick_year": 1988,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "NYK",
         "became_player_name": "Greg Butler",
         "notes": null
       },
@@ -801,7 +801,7 @@
         "to_team_id": "UTA",
         "pick_year": 1988,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "UTA",
         "became_player_name": "Jeff Moe",
         "notes": null
       },
@@ -959,7 +959,7 @@
         "to_team_id": "ATL",
         "pick_year": 1991,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "SAC",
         "became_player_name": "Rodney Monroe",
         "notes": null
       },
@@ -982,7 +982,7 @@
         "pick_year": 1981,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Al Wood",
+        "became_player_name": "Orlando Woolridge",
         "notes": null
       },
       {
@@ -1262,7 +1262,7 @@
         "pick_year": 1991,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Doug Overton",
+        "became_player_name": "Richard Dumas",
         "notes": null
       }
     ],
@@ -1422,7 +1422,7 @@
         "pick_year": 1988,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Randolph Keys",
+        "became_player_name": "Tim Perry",
         "notes": null
       },
       {
@@ -1466,7 +1466,7 @@
         "pick_year": 1988,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Randolph Keys",
+        "became_player_name": "Dan Majerle",
         "notes": null
       },
       {
@@ -1477,7 +1477,7 @@
         "pick_year": 1988,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Dean Garrett",
         "notes": null
       },
       {
@@ -1612,8 +1612,8 @@
         "to_team_id": "MIA",
         "pick_year": 1990,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Stefano Rusconi",
+        "original_team_id": "ATL",
+        "became_player_name": "Steve Bardo",
         "notes": null
       }
     ],
@@ -1647,8 +1647,8 @@
         "to_team_id": "MIA",
         "pick_year": 1988,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DAL",
+        "became_player_name": "Kevin Edwards",
         "notes": null
       },
       {
@@ -1704,8 +1704,8 @@
         "to_team_id": "MIA",
         "pick_year": 1989,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Frank Kornet",
+        "original_team_id": "MIA",
+        "became_player_name": "Scott Haffner",
         "notes": null
       }
     ],
@@ -1797,7 +1797,7 @@
         "pick_year": 1988,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Rod Strickland",
+        "became_player_name": "Will Perdue",
         "notes": null
       },
       {
@@ -1808,7 +1808,7 @@
         "pick_year": 1988,
         "pick_round": 3,
         "original_team_id": null,
-        "became_player_name": "Phil Stinnie",
+        "became_player_name": "Derrick Lewis",
         "notes": null
       },
       {
@@ -1830,7 +1830,7 @@
         "pick_year": 1988,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Will Perdue",
+        "became_player_name": "Rod Strickland",
         "notes": null
       },
       {
@@ -1841,7 +1841,7 @@
         "pick_year": 1988,
         "pick_round": 3,
         "original_team_id": null,
-        "became_player_name": "Derrick Lewis",
+        "became_player_name": "Phil Stinnie",
         "notes": null
       },
       {
@@ -1909,7 +1909,7 @@
         "pick_year": 1988,
         "pick_round": 3,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jorge González",
         "notes": null
       },
       {
@@ -1988,7 +1988,7 @@
         "pick_year": 1989,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Danny Ferry",
+        "became_player_name": "Kenny Payne",
         "notes": null
       },
       {

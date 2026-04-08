@@ -1493,7 +1493,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             // Excludes heists like Kobe/Parish where the team just held the asset forever.
             if (winnerData.depth < 2) return null;
             if (winnerData.chain <= winnerData.direct * 1.2) return null;
-            const chainPlayers = flattenChainPlayers(winnerData.assets);
+            const chainPlayers = flattenChainPlayers(winnerData.assets, true);
 
             // Build narrative heading: "Turned FirstName LastName into A, B, C…"
             // The outgoing player = what the winning team SENT AWAY.
@@ -1587,7 +1587,7 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             if (winnerData.asset_count < 4) return null;
             // Exclude outlier-dominated chains — no single asset > 30% of chain
             if (winnerData.max_single_asset > winnerData.chain * 0.3) return null;
-            const chainPlayers = flattenChainPlayers(winnerData.assets);
+            const chainPlayers = flattenChainPlayers(winnerData.assets, true);
             const playerNames = chainPlayers.length > 0
               ? chainPlayers.slice(0, 4).map((p) => p.name)
               : entry.players;

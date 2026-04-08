@@ -35,8 +35,8 @@
         "to_team_id": "PHX",
         "pick_year": 1978,
         "pick_round": 4,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "PHX",
+        "became_player_name": "Wayne Smith",
         "notes": null
       },
       {
@@ -229,7 +229,7 @@
         "pick_year": 1978,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Winford Boynes",
+        "became_player_name": "Rick Robey",
         "notes": null
       },
       {
@@ -240,7 +240,7 @@
         "pick_year": 1979,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Cliff Robinson",
         "notes": null
       },
       {
@@ -296,8 +296,8 @@
         "to_team_id": "LAC",
         "pick_year": 1979,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Sidney Moncrief",
+        "original_team_id": "MIL",
+        "became_player_name": "Roy Hamilton",
         "notes": null
       },
       {
@@ -410,8 +410,8 @@
         "to_team_id": "ATL",
         "pick_year": 1978,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Jerome Whitehead",
+        "original_team_id": "LAC",
+        "became_player_name": "Keith Herron",
         "notes": null
       },
       {
@@ -548,8 +548,8 @@
         "to_team_id": "PHI",
         "pick_year": 1981,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Franklin Edwards",
+        "original_team_id": "CLE",
+        "became_player_name": "Al Wood",
         "notes": null
       },
       {
@@ -616,8 +616,8 @@
         "to_team_id": "POR",
         "pick_year": 1978,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Rick Wilson",
+        "original_team_id": "LAC",
+        "became_player_name": "Keith Herron",
         "notes": null
       },
       {
@@ -673,8 +673,8 @@
         "to_team_id": "WAS",
         "pick_year": 1978,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DEN",
+        "became_player_name": "Dave Corzine",
         "notes": null
       },
       {
@@ -685,7 +685,7 @@
         "pick_year": 1977,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Bo Ellis",
         "notes": null
       },
       {
@@ -730,8 +730,8 @@
         "to_team_id": "ATL",
         "pick_year": 1978,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "James Hardy",
+        "original_team_id": "LAL",
+        "became_player_name": "Jack Givens",
         "notes": null
       },
       {
@@ -787,8 +787,8 @@
         "to_team_id": "LAC",
         "pick_year": 1978,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "LAC",
+        "became_player_name": "Mike Santos",
         "notes": null
       },
       {
@@ -923,8 +923,8 @@
         "to_team_id": "HOU",
         "pick_year": 1979,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Johnny Moore",
+        "original_team_id": "PHX",
+        "became_player_name": "Paul Mokeski",
         "notes": null
       },
       {
@@ -935,7 +935,7 @@
         "pick_year": 1980,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Billy Williams",
         "notes": null
       },
       {
@@ -1003,17 +1003,6 @@
         "notes": "Howard Porter / Terry Tyler"
       },
       {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "BKN",
-        "to_team_id": null,
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": "Howard Porter / Tony Price"
-      },
-      {
         "type": "player",
         "player_name": "Kevin Porter",
         "from_team_id": "BKN",
@@ -1025,28 +1014,6 @@
         "notes": null
       },
       {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "BKN",
-        "to_team_id": null,
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": "Kevin Porter / Terry Tyler"
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "BKN",
-        "to_team_id": null,
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": "Kevin Porter / Tony Price"
-      },
-      {
         "type": "cash",
         "player_name": null,
         "from_team_id": "BKN",
@@ -1056,28 +1023,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "BKN",
-        "to_team_id": null,
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": "cash / Terry Tyler"
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "BKN",
-        "to_team_id": null,
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": "cash / Tony Price"
       }
     ],
     "topAssets": [
@@ -1109,8 +1054,8 @@
         "to_team_id": "POR",
         "pick_year": 1978,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DET",
+        "became_player_name": "Ron Brewer",
         "notes": null
       },
       {
@@ -1178,7 +1123,7 @@
         "pick_year": 1978,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Keven McDonald",
         "notes": null
       },
       {
@@ -1189,7 +1134,7 @@
         "pick_year": 1979,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Johnny Moore",
+        "became_player_name": "Andrew Fields",
         "notes": null
       },
       {
@@ -1256,8 +1201,8 @@
         "to_team_id": "NYK",
         "pick_year": 1978,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Rick Wilson",
+        "original_team_id": "ATL",
+        "became_player_name": "John Rudd",
         "notes": null
       },
       {
@@ -1314,7 +1259,7 @@
         "pick_year": 1978,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Jerome Whitehead",
+        "became_player_name": "John Long",
         "notes": null
       },
       {
@@ -1358,7 +1303,7 @@
         "pick_year": 1979,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Cliff Robinson",
         "notes": null
       },
       {
@@ -1482,8 +1427,8 @@
         "to_team_id": "ATL",
         "pick_year": 1978,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Buster Matheney",
+        "original_team_id": "HOU",
+        "became_player_name": "Rick Wilson",
         "notes": null
       },
       {
@@ -1494,7 +1439,7 @@
         "pick_year": 1979,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Paul Mokeski",
+        "became_player_name": "Larry Wilson",
         "notes": null
       },
       {
@@ -1619,7 +1564,7 @@
         "pick_year": 1978,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jack Givens",
         "notes": null
       },
       {
@@ -1713,7 +1658,7 @@
         "pick_year": 1981,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Danny Schayes",
+        "became_player_name": "Danny Vranes",
         "notes": null
       }
     ],
@@ -1771,7 +1716,7 @@
         "pick_year": 1980,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Louis Orr",
         "notes": null
       },
       {
@@ -1782,7 +1727,7 @@
         "pick_year": 1981,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Brian Jackson",
         "notes": null
       }
     ],
@@ -1816,8 +1761,8 @@
         "to_team_id": "BKN",
         "pick_year": 1979,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Gary Garland",
+        "original_team_id": "DEN",
+        "became_player_name": "Clint Richardson",
         "notes": null
       },
       {
@@ -1873,8 +1818,8 @@
         "to_team_id": "PHI",
         "pick_year": 1979,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DEN",
+        "became_player_name": "Clint Richardson",
         "notes": null
       },
       {
@@ -1907,7 +1852,7 @@
         "pick_year": 1977,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Bob Elliott",
         "notes": null
       },
       {
@@ -2031,8 +1976,8 @@
         "to_team_id": "BOS",
         "pick_year": 1978,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Tommie Green",
+        "original_team_id": "NOP",
+        "became_player_name": "Jeff Judkins",
         "notes": null
       },
       {
@@ -2133,7 +2078,7 @@
         "pick_year": 1979,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Phil Hubbard",
         "notes": null
       }
     ],
@@ -2167,8 +2112,8 @@
         "to_team_id": "MIL",
         "pick_year": 1979,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Sidney Moncrief",
+        "original_team_id": "DET",
+        "became_player_name": "Greg Kelser",
         "notes": null
       },
       {
@@ -2178,8 +2123,8 @@
         "to_team_id": "CLE",
         "pick_year": 1978,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "George Johnson",
+        "original_team_id": "MIL",
+        "became_player_name": "Mike Mitchell",
         "notes": null
       }
     ],
@@ -2213,8 +2158,8 @@
         "to_team_id": "POR",
         "pick_year": 1978,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Rick Robey",
+        "original_team_id": "IND",
+        "became_player_name": "Mychal Thompson",
         "notes": null
       },
       {
@@ -2235,8 +2180,8 @@
         "to_team_id": "IND",
         "pick_year": 1978,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Rick Robey",
+        "original_team_id": "IND",
+        "became_player_name": "Mychal Thompson",
         "notes": null
       }
     ],
@@ -2270,8 +2215,8 @@
         "to_team_id": "POR",
         "pick_year": 1981,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "GSW",
+        "became_player_name": "Albert King",
         "notes": null
       },
       {
@@ -2281,8 +2226,8 @@
         "to_team_id": "GSW",
         "pick_year": 1978,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "POR",
+        "became_player_name": "Raymond Townsend",
         "notes": null
       }
     ],
@@ -2327,8 +2272,8 @@
         "to_team_id": "LAL",
         "pick_year": 1978,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Jerome Whitehead",
+        "original_team_id": "LAL",
+        "became_player_name": "Lew Massey",
         "notes": null
       },
       {
@@ -2373,8 +2318,8 @@
         "to_team_id": "DEN",
         "pick_year": 1978,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "OKC",
+        "became_player_name": "Rod Griffin",
         "notes": null
       },
       {
@@ -2385,7 +2330,7 @@
         "pick_year": 1977,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jack Sikma",
+        "became_player_name": "Anthony Roberts",
         "notes": null
       },
       {
@@ -2468,7 +2413,7 @@
         "pick_year": 1979,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Gary Garland",
+        "became_player_name": "Mark Young",
         "notes": null
       }
     ],
@@ -2541,7 +2486,7 @@
         "pick_year": 1979,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Gary Garland",
+        "became_player_name": "Mark Young",
         "notes": null
       }
     ],
@@ -2576,8 +2521,8 @@
         "to_team_id": "POR",
         "pick_year": 1980,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "IND",
+        "became_player_name": "David Lawrence",
         "notes": null
       },
       {

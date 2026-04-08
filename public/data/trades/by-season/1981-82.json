@@ -35,8 +35,8 @@
         "to_team_id": "NYK",
         "pick_year": 1982,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": "Phillip Lockett",
+        "original_team_id": "NYK",
+        "became_player_name": "Craig Tucker",
         "notes": null
       },
       {
@@ -103,8 +103,8 @@
         "to_team_id": "BKN",
         "pick_year": 1982,
         "pick_round": 4,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "BKN",
+        "became_player_name": "James Griffin",
         "notes": null
       }
     ],
@@ -149,8 +149,8 @@
         "to_team_id": "BKN",
         "pick_year": 1982,
         "pick_round": 4,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "BKN",
+        "became_player_name": "James Griffin",
         "notes": null
       }
     ],
@@ -264,7 +264,7 @@
         "pick_year": 1984,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Eric Turner",
+        "became_player_name": "Tony Costner",
         "notes": null
       },
       {
@@ -309,7 +309,7 @@
         "to_team_id": "POR",
         "pick_year": 1982,
         "pick_round": 3,
-        "original_team_id": null,
+        "original_team_id": "POR",
         "became_player_name": "Phillip Lockett",
         "notes": null
       },
@@ -377,8 +377,8 @@
         "to_team_id": "UTA",
         "pick_year": 1982,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "UTA",
+        "became_player_name": "Jerry Eaves",
         "notes": null
       },
       {
@@ -503,7 +503,7 @@
         "pick_year": 1980,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Brad Branson",
         "notes": null
       },
       {
@@ -570,8 +570,8 @@
         "to_team_id": "GSW",
         "pick_year": 1982,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "GSW",
+        "became_player_name": "Derek Smith",
         "notes": null
       },
       {
@@ -582,7 +582,7 @@
         "pick_year": 1984,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Steve Burtt",
         "notes": null
       },
       {
@@ -627,8 +627,8 @@
         "to_team_id": "CLE",
         "pick_year": 1983,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "CLE",
+        "became_player_name": "Les Craft",
         "notes": null
       },
       {
@@ -707,7 +707,7 @@
         "pick_year": 1982,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Sleepy Floyd",
         "notes": null
       },
       {
@@ -821,7 +821,7 @@
         "pick_year": 1984,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Danny Young",
         "notes": null
       }
     ],
@@ -991,8 +991,8 @@
         "to_team_id": "BKN",
         "pick_year": 1983,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Horace Owens",
+        "original_team_id": "SAS",
+        "became_player_name": "Kevin Williams",
         "notes": null
       },
       {
@@ -1231,7 +1231,7 @@
         "pick_year": 1982,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "John Bagley",
+        "became_player_name": "Cliff Levingston",
         "notes": null
       },
       {
@@ -1298,8 +1298,8 @@
         "to_team_id": "SAC",
         "pick_year": 1984,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": "Joe Binion",
+        "original_team_id": "SAC",
+        "became_player_name": "Roosevelt Chapman",
         "notes": null
       },
       {
@@ -1418,8 +1418,8 @@
         "to_team_id": "PHX",
         "pick_year": 1982,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Rob Williams",
+        "original_team_id": "DEN",
+        "became_player_name": "David Thirdkill",
         "notes": null
       },
       {
@@ -1465,7 +1465,7 @@
         "pick_year": 1977,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Rich Laurel",
+        "became_player_name": "Tree Rollins",
         "notes": null
       },
       {
@@ -1475,8 +1475,8 @@
         "to_team_id": "DET",
         "pick_year": 1982,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Fat Lever",
+        "original_team_id": "SAS",
+        "became_player_name": "Ricky Pierce",
         "notes": null
       },
       {
@@ -1521,8 +1521,8 @@
         "to_team_id": "CHI",
         "pick_year": 1983,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Pace Mannion",
+        "original_team_id": "ATL",
+        "became_player_name": "Doc Rivers",
         "notes": null
       },
       {
@@ -1532,8 +1532,8 @@
         "to_team_id": "GSW",
         "pick_year": 1982,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "GSW",
+        "became_player_name": "Wayne Sappleton",
         "notes": null
       }
     ],
@@ -1579,7 +1579,7 @@
         "pick_year": 1985,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Terry Porter",
+        "became_player_name": "Uwe Blab",
         "notes": null
       },
       {
@@ -1624,7 +1624,7 @@
         "to_team_id": "MIL",
         "pick_year": 1982,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "MIL",
         "became_player_name": "Fred Roberts",
         "notes": null
       },
@@ -1681,8 +1681,8 @@
         "to_team_id": "LAC",
         "pick_year": 1982,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Jeff Taylor",
+        "original_team_id": "LAC",
+        "became_player_name": "Richard Anderson",
         "notes": null
       },
       {
@@ -1703,7 +1703,7 @@
         "to_team_id": "HOU",
         "pick_year": 1982,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "LAC",
         "became_player_name": "Richard Anderson",
         "notes": null
       },
@@ -1806,8 +1806,8 @@
         "to_team_id": "GSW",
         "pick_year": 1983,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Horace Owens",
+        "original_team_id": "GSW",
+        "became_player_name": "Pace Mannion",
         "notes": null
       }
     ],
@@ -1852,8 +1852,8 @@
         "to_team_id": "SAC",
         "pick_year": 1984,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "OKC",
+        "became_player_name": "Ben Coleman",
         "notes": null
       },
       {

@@ -35,8 +35,8 @@
         "to_team_id": "HOU",
         "pick_year": 2003,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DET",
+        "became_player_name": "Carlos Delfino",
         "notes": null
       },
       {
@@ -92,8 +92,8 @@
         "to_team_id": "DET",
         "pick_year": 1999,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "POR",
+        "became_player_name": "Jumaine Jones",
         "notes": null
       },
       {
@@ -104,7 +104,7 @@
         "pick_year": 2000,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Brian Cardinal",
+        "became_player_name": "Scoonie Penn",
         "notes": null
       }
     ],
@@ -252,8 +252,8 @@
         "to_team_id": "ORL",
         "pick_year": 2000,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Mamadou N'Diaye",
+        "original_team_id": "DEN",
+        "became_player_name": "Keyon Dooling",
         "notes": null
       },
       {
@@ -275,7 +275,7 @@
         "pick_year": 1998,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Michael Doleac",
         "notes": null
       },
       {
@@ -437,7 +437,7 @@
         "pick_year": 1999,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "James Posey",
+        "became_player_name": "Jonathan Bender",
         "notes": null
       },
       {
@@ -574,7 +574,7 @@
         "pick_year": 2000,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Dalibor Bagarić",
         "notes": null
       },
       {
@@ -620,7 +620,7 @@
         "pick_year": 2001,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Andre Hutson",
+        "became_player_name": "Trenton Hassell",
         "notes": null
       },
       {
@@ -688,7 +688,7 @@
         "pick_year": 1999,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Dion Glover",
         "notes": null
       },
       {
@@ -767,7 +767,7 @@
         "pick_year": 1999,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Shawn Marion",
+        "became_player_name": "Ron Artest",
         "notes": null
       },
       {
@@ -823,8 +823,8 @@
         "to_team_id": "GSW",
         "pick_year": 2000,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Kaniel Dickens",
+        "original_team_id": "UTA",
+        "became_player_name": "Chris Porter",
         "notes": null
       },
       {
@@ -1156,7 +1156,7 @@
         "pick_year": 1999,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Andre Miller",
         "notes": null
       },
       {
@@ -1270,7 +1270,7 @@
         "pick_year": 1999,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jeff Foster",
+        "became_player_name": "Jason Terry",
         "notes": null
       },
       {
@@ -1452,7 +1452,7 @@
         "pick_year": 2001,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Troy Murphy",
         "notes": null
       }
     ],
@@ -1487,7 +1487,7 @@
         "pick_year": 1999,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jeff Foster",
         "notes": null
       },
       {
@@ -1497,8 +1497,8 @@
         "to_team_id": "ATL",
         "pick_year": 2000,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Speedy Claxton",
+        "original_team_id": "TOR",
+        "became_player_name": "Quentin Richardson",
         "notes": null
       },
       {
@@ -1599,7 +1599,7 @@
         "pick_year": 2000,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Chris Carrawell",
         "notes": null
       },
       {

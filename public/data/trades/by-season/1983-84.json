@@ -36,7 +36,7 @@
         "pick_year": 1984,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Danny Young",
         "notes": null
       },
       {
@@ -47,7 +47,7 @@
         "pick_year": 1985,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Bill Wennington",
         "notes": null
       },
       {
@@ -92,7 +92,7 @@
         "to_team_id": "CLE",
         "pick_year": 1986,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "CLE",
         "became_player_name": "Johnny Newman",
         "notes": null
       },
@@ -104,7 +104,7 @@
         "pick_year": 1982,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "John Bagley",
+        "became_player_name": "James Worthy",
         "notes": null
       },
       {
@@ -150,7 +150,7 @@
         "pick_year": 1984,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Devin Durrant",
         "notes": null
       },
       {
@@ -206,8 +206,8 @@
         "to_team_id": "POR",
         "pick_year": 1984,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": "Kevin Springman",
+        "original_team_id": "POR",
+        "became_player_name": "Tim Kearney",
         "notes": null
       },
       {
@@ -308,7 +308,7 @@
         "pick_year": 1984,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Michael Cage",
         "notes": null
       },
       {
@@ -408,8 +408,8 @@
         "to_team_id": "POR",
         "pick_year": 1987,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Kannard Johnson",
+        "original_team_id": "POR",
+        "became_player_name": "Lester Fonville",
         "notes": null
       },
       {
@@ -480,8 +480,8 @@
         "to_team_id": "SAC",
         "pick_year": 1984,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DET",
+        "became_player_name": "Greg Wiltjer",
         "notes": null
       },
       {
@@ -606,8 +606,8 @@
         "to_team_id": "SAC",
         "pick_year": 1985,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DEN",
+        "became_player_name": "Michael Adams",
         "notes": null
       },
       {
@@ -618,7 +618,7 @@
         "pick_year": 1981,
         "pick_round": 4,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "B. B. Davis",
         "notes": null
       }
     ],
@@ -664,7 +664,7 @@
         "pick_year": 1984,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Fred Reynolds",
         "notes": null
       },
       {
@@ -778,7 +778,7 @@
         "pick_year": 1997,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Ed Elisma",
         "notes": null
       },
       {
@@ -810,8 +810,8 @@
         "to_team_id": "ATL",
         "pick_year": 1986,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "ATL",
+        "became_player_name": "Cedric Henderson",
         "notes": null
       }
     ],
@@ -845,8 +845,8 @@
         "to_team_id": "POR",
         "pick_year": 1986,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "POR",
+        "became_player_name": "Juden Smith",
         "notes": null
       },
       {
@@ -1050,7 +1050,7 @@
         "pick_year": 1982,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Terry Cummings",
+        "became_player_name": "Cliff Levingston",
         "notes": null
       },
       {
@@ -1060,8 +1060,8 @@
         "to_team_id": "DET",
         "pick_year": 1986,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Dennis Rodman",
+        "original_team_id": "PHX",
+        "became_player_name": "Jeff Hornacek",
         "notes": null
       },
       {
@@ -1164,7 +1164,7 @@
         "pick_year": 1982,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "David Thirdkill",
+        "became_player_name": "Brook Steppe",
         "notes": null
       },
       {
@@ -1174,8 +1174,8 @@
         "to_team_id": "PHX",
         "pick_year": 1986,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Dennis Rodman",
+        "original_team_id": "PHX",
+        "became_player_name": "Jeff Hornacek",
         "notes": null
       },
       {
@@ -1310,8 +1310,8 @@
         "to_team_id": "IND",
         "pick_year": 1988,
         "pick_round": 3,
-        "original_team_id": null,
-        "became_player_name": "Rob Lock",
+        "original_team_id": "DEN",
+        "became_player_name": "Michael Anderson",
         "notes": null
       },
       {
@@ -1400,8 +1400,8 @@
         "to_team_id": "SAC",
         "pick_year": 1985,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "CHI",
+        "became_player_name": "Ken Johnson",
         "notes": null
       }
     ],
@@ -1435,8 +1435,8 @@
         "to_team_id": "PHI",
         "pick_year": 1988,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Shelton Jones",
+        "original_team_id": "PHI",
+        "became_player_name": "Everette Stephens",
         "notes": null
       },
       {
@@ -1503,8 +1503,8 @@
         "to_team_id": "GSW",
         "pick_year": 1984,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "PHI",
+        "became_player_name": "Gary Plummer",
         "notes": null
       },
       {
@@ -1571,8 +1571,8 @@
         "to_team_id": "GSW",
         "pick_year": 1985,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Bobby Lee Hurt",
+        "original_team_id": "WAS",
+        "became_player_name": "Manute Bol",
         "notes": null
       },
       {
@@ -1618,7 +1618,7 @@
         "pick_year": 1982,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Rob Williams",
+        "became_player_name": "Ricky Pierce",
         "notes": null
       },
       {
@@ -1628,7 +1628,7 @@
         "to_team_id": "SAS",
         "pick_year": 1984,
         "pick_round": 3,
-        "original_team_id": null,
+        "original_team_id": "DEN",
         "became_player_name": "Joe Binion",
         "notes": null
       },
@@ -1697,7 +1697,7 @@
         "pick_year": 1984,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Tony Costner",
         "notes": null
       },
       {
@@ -1820,7 +1820,7 @@
         "pick_year": 1985,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Terry Porter",
+        "became_player_name": "Blair Rasmussen",
         "notes": null
       }
     ],
@@ -2017,7 +2017,7 @@
         "to_team_id": "PHI",
         "pick_year": 1988,
         "pick_round": 1,
-        "original_team_id": null,
+        "original_team_id": "WAS",
         "became_player_name": "Harvey Grant",
         "notes": null
       },
@@ -2029,7 +2029,7 @@
         "pick_year": 1984,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Melvin Turpin",
+        "became_player_name": "Tom Sewell",
         "notes": null
       },
       {

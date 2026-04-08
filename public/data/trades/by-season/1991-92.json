@@ -24,7 +24,7 @@
         "to_team_id": "LAC",
         "pick_year": 1993,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "LAC",
         "became_player_name": "Leonard White",
         "notes": null
       },
@@ -36,7 +36,7 @@
         "pick_year": 1991,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Elliot Perry",
         "notes": null
       },
       {
@@ -195,8 +195,8 @@
         "to_team_id": "WAS",
         "pick_year": 1993,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "WAS",
+        "became_player_name": "Conrad McRae",
         "notes": null
       },
       {
@@ -218,7 +218,7 @@
         "pick_year": 1983,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Antoine Carr",
+        "became_player_name": "Jeff Malone",
         "notes": null
       }
     ],
@@ -354,7 +354,7 @@
         "pick_year": 1994,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Anthony Goldwire",
         "notes": null
       }
     ],
@@ -411,7 +411,7 @@
         "pick_year": 1994,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Greg Minor",
         "notes": null
       }
     ],
@@ -456,8 +456,8 @@
         "to_team_id": "OKC",
         "pick_year": 1994,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "LAL",
+        "became_player_name": "Dontonio Wingfield",
         "notes": null
       },
       {
@@ -479,7 +479,7 @@
         "pick_year": 1996,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jeff Nordgaard",
         "notes": null
       },
       {
@@ -935,7 +935,7 @@
         "pick_year": 1981,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Mark Aguirre",
         "notes": null
       },
       {
@@ -945,8 +945,8 @@
         "to_team_id": "DAL",
         "pick_year": 1995,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "NYK",
+        "became_player_name": "Loren Meyer",
         "notes": null
       },
       {
@@ -1014,7 +1014,7 @@
         "pick_year": 1992,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Lee Mayberry",
         "notes": null
       },
       {
@@ -1161,7 +1161,7 @@
         "pick_year": 1997,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Charles O'Bannon",
+        "became_player_name": "Ed Elisma",
         "notes": null
       }
     ],

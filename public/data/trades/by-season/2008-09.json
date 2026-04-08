@@ -194,7 +194,7 @@
         "pick_year": 1996,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Efthimios Rentzias",
+        "became_player_name": "Erick Dampier",
         "notes": null
       },
       {
@@ -204,8 +204,8 @@
         "to_team_id": "LAC",
         "pick_year": 2010,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Willie Warren",
+        "original_team_id": "NYK",
+        "became_player_name": "Andy Rautins",
         "notes": null
       },
       {
@@ -215,8 +215,8 @@
         "to_team_id": "DEN",
         "pick_year": 2010,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Willie Warren",
+        "original_team_id": "NYK",
+        "became_player_name": "Andy Rautins",
         "notes": null
       },
       {
@@ -330,7 +330,7 @@
         "pick_year": 2010,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Willie Warren",
         "notes": null
       },
       {
@@ -398,7 +398,7 @@
         "pick_year": 2006,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Steve Novak",
+        "became_player_name": "David Noel",
         "notes": null
       },
       {
@@ -408,7 +408,7 @@
         "to_team_id": "LAC",
         "pick_year": 2011,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "LAC",
         "became_player_name": "Chandler Parsons",
         "notes": null
       },
@@ -419,7 +419,7 @@
         "to_team_id": "HOU",
         "pick_year": 2011,
         "pick_round": 2,
-        "original_team_id": null,
+        "original_team_id": "LAC",
         "became_player_name": "Chandler Parsons",
         "notes": null
       },
@@ -465,8 +465,8 @@
         "to_team_id": "CHA",
         "pick_year": 2009,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "BKN",
+        "became_player_name": "Derrick Brown",
         "notes": null
       },
       {
@@ -640,7 +640,7 @@
         "pick_year": 2009,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Omri Casspi",
         "notes": null
       },
       {
@@ -855,7 +855,7 @@
         "pick_year": 2009,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Ahmad Nivins",
+        "became_player_name": "A. J. Price",
         "notes": null
       },
       {
@@ -866,7 +866,7 @@
         "pick_year": 2010,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Solomon Alabi",
+        "became_player_name": "Ryan Reid",
         "notes": null
       },
       {
@@ -1149,7 +1149,7 @@
         "pick_year": 2010,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Gani Lawal",
         "notes": null
       }
     ],
@@ -1187,8 +1187,8 @@
         "to_team_id": "MEM",
         "pick_year": 2010,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "MEM",
+        "became_player_name": "Xavier Henry",
         "notes": null
       },
       {
@@ -1391,7 +1391,7 @@
         "pick_year": 2009,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Taj Gibson",
         "notes": null
       },
       {
@@ -1630,7 +1630,7 @@
         "pick_year": 2010,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Da'Sean Butler",
         "notes": null
       },
       {
@@ -1720,7 +1720,7 @@
         "pick_year": 2005,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Daniel Ewing",
+        "became_player_name": "Amir Johnson",
         "notes": null
       },
       {
@@ -1731,7 +1731,7 @@
         "pick_year": 2011,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Trey Thompkins",
         "notes": null
       },
       {
@@ -1741,8 +1741,8 @@
         "to_team_id": "DET",
         "pick_year": 2013,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "LAC",
+        "became_player_name": "Peyton Siva",
         "notes": null
       },
       {
@@ -1934,8 +1934,8 @@
         "to_team_id": "CHI",
         "pick_year": 2009,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "DEN",
+        "became_player_name": "Taj Gibson",
         "notes": null
       },
       {
@@ -1946,7 +1946,7 @@
         "pick_year": 2006,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Mouhamed Sene",
+        "became_player_name": "Rodney Carney",
         "notes": null
       },
       {
@@ -2086,7 +2086,7 @@
         "pick_year": 2009,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "DeMarre Carroll",
         "notes": null
       },
       {
@@ -2260,7 +2260,7 @@
         "pick_year": 2014,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Lamar Patterson",
         "notes": null
       }
     ],
@@ -2501,7 +2501,7 @@
         "to_team_id": "POR",
         "pick_year": 2009,
         "pick_round": 1,
-        "original_team_id": null,
+        "original_team_id": "POR",
         "became_player_name": "Byron Mullens",
         "notes": null
       },
@@ -2512,8 +2512,8 @@
         "to_team_id": "DAL",
         "pick_year": 2009,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Victor Claver",
+        "original_team_id": "POR",
+        "became_player_name": "Byron Mullens",
         "notes": null
       },
       {
@@ -2535,7 +2535,7 @@
         "pick_year": 2010,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Armon Johnson",
+        "became_player_name": "Magnum Rolle",
         "notes": null
       }
     ],
@@ -2603,7 +2603,7 @@
         "pick_year": 2009,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Ricky Rubio",
         "notes": null
       },
       {
@@ -2693,7 +2693,7 @@
         "pick_year": 2010,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Dwayne Collins",
         "notes": null
       },
       {
@@ -2942,8 +2942,8 @@
         "to_team_id": "LAL",
         "pick_year": 2011,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "NYK",
+        "became_player_name": "Andrew Goudelock",
         "notes": null
       },
       {
@@ -2999,8 +2999,8 @@
         "to_team_id": "DET",
         "pick_year": 2012,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "HOU",
+        "became_player_name": "Kim English",
         "notes": null
       },
       {
@@ -3011,7 +3011,7 @@
         "pick_year": 2009,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Chase Budinger",
         "notes": null
       },
       {
@@ -3135,8 +3135,8 @@
         "to_team_id": "MIA",
         "pick_year": 2010,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "NOP",
+        "became_player_name": "Jarvis Varnado",
         "notes": null
       },
       {
@@ -3147,7 +3147,7 @@
         "pick_year": 2012,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Darius Miller",
+        "became_player_name": "Jae Crowder",
         "notes": null
       },
       {
@@ -3204,7 +3204,7 @@
         "pick_year": 2009,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Chinemelu Elonu",
         "notes": null
       },
       {
@@ -3214,8 +3214,8 @@
         "to_team_id": "LAL",
         "pick_year": 2011,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Bojan Bogdanović",
+        "original_team_id": "MIA",
+        "became_player_name": "Ater Majok",
         "notes": null
       },
       {
@@ -3282,8 +3282,8 @@
         "to_team_id": "MIN",
         "pick_year": 2010,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Solomon Alabi",
+        "original_team_id": "POR",
+        "became_player_name": "Magnum Rolle",
         "notes": null
       },
       {
@@ -3340,7 +3340,7 @@
         "pick_year": 2010,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Magnum Rolle",
+        "became_player_name": "Solomon Alabi",
         "notes": null
       },
       {
@@ -3386,7 +3386,7 @@
         "pick_year": 2009,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jonny Flynn",
         "notes": null
       },
       {
@@ -3396,8 +3396,8 @@
         "to_team_id": "MIN",
         "pick_year": 2010,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": null,
+        "original_team_id": "CHA",
+        "became_player_name": "Luke Babbitt",
         "notes": null
       },
       {
@@ -3498,7 +3498,7 @@
         "pick_year": 2010,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Dwayne Collins",
         "notes": null
       }
     ],
