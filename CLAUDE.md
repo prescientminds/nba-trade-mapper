@@ -295,7 +295,7 @@ npx tsx scripts/score-trades.ts                         # Recompute all trade sc
 - **DB connection note**: Service role key does NOT work as postgres password. Use Management API with access token for migrations, or use Supabase SQL Editor directly.
 
 ## GitHub
-- **Repo**: https://github.com/wandebao/nba-trade-mapper
+- **Repo**: https://github.com/prescientminds/nba-trade-mapper
 - **Status**: Pushed and deployed — auto-deploys on push to main
 
 ## Known Issues & Gotchas
