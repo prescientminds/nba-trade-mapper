@@ -2948,13 +2948,9 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       if (stints[i].teamId === toTeamId) { matchedIdx = i; break; }
     }
 
-    // Pick was re-traded before being used — show their actual stint instead of "No Games Played"
+    // No stint on the receiving team — player was re-traded or never played here
     if (matchedIdx === -1) {
-      if (stints.length > 0) {
-        matchedIdx = 0;
-      } else {
-        await storeNeverPlayed(); return;
-      }
+      await storeNeverPlayed(); return;
     }
 
     const stint = stints[matchedIdx];

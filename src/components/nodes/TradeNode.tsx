@@ -9,7 +9,7 @@ import type { TransactionAsset } from '@/lib/supabase';
 import { ensureReadable, contrastText } from '@/lib/colors';
 import { getSupabase } from '@/lib/supabase';
 import type { ChainTeamData } from '@/lib/graph-store';
-import { flattenChainPlayers, findOutgoingPlayers } from '@/lib/chain-utils';
+import { flattenChainPlayers, findOutgoingPlayers, resolveTeamOutcomes } from '@/lib/chain-utils';
 import { useHints } from '@/lib/use-hints';
 import { HintLabel } from '@/components/HintLabel';
 import { createPortal } from 'react-dom';
@@ -239,6 +239,15 @@ function TradeNodeComponent({ id, data }: NodeProps) {
       depth: bestData.depth,
     };
   }, [chainData, tradeScore]);
+
+  // Resolved outcomes — what each team truly ended up with (multi-team view)
+  const resolvedOutcomes = useMemo(() => {
+    if (!chainData) return null;
+    const hasChaining = Object.values(chainData).some(d => d.depth >= 2);
+    if (!hasChaining) return null;
+    const outcomes = resolveTeamOutcomes(chainData).filter(o => o.endpoints.length > 0);
+    return outcomes.length > 0 ? outcomes : null;
+  }, [chainData]);
 
   // Look up per-asset score from trade_scores data
   const getAssetScore = (teamId: string, assetName: string | null | undefined): number | null => {
@@ -798,11 +807,26 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                       onClick={(e) => {
                         e.stopPropagation();
                         if (!becameExpanded) {
-                          // Estimate expanded height: ~14px per endpoint + 20px for button
-                          const expandH = becameInfo.endpoints.length * 14 + 24;
+                          let expandH: number;
+                          if (resolvedOutcomes) {
+                            const teamCount = Math.min(resolvedOutcomes.length, 3);
+                            const totalEps = resolvedOutcomes.slice(0, 3)
+                              .reduce((s, o) => s + Math.min(o.endpoints.length, 4), 0);
+                            expandH = teamCount * 22 + totalEps * 14 + 24;
+                          } else {
+                            expandH = becameInfo.endpoints.length * 14 + 24;
+                          }
                           adjustLayoutForToggle(id, expandH);
                         } else {
-                          const collapseH = becameInfo.endpoints.length * 14 + 24;
+                          let collapseH: number;
+                          if (resolvedOutcomes) {
+                            const teamCount = Math.min(resolvedOutcomes.length, 3);
+                            const totalEps = resolvedOutcomes.slice(0, 3)
+                              .reduce((s, o) => s + Math.min(o.endpoints.length, 4), 0);
+                            collapseH = teamCount * 22 + totalEps * 14 + 24;
+                          } else {
+                            collapseH = becameInfo.endpoints.length * 14 + 24;
+                          }
                           adjustLayoutForToggle(id, -collapseH);
                         }
                         setBecameExpanded((v) => !v);
@@ -839,45 +863,64 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                       </span>
                     </div>
 
-                    {/* Expanded: chain path + View Full Chain */}
+                    {/* Expanded: resolved outcomes per team + View Full Chain */}
                     {becameExpanded && (
-                      <div
-                        style={{
-                          marginTop: 3,
-                          padding: '4px 6px',
-                          background: 'var(--bg-tertiary)',
-                          borderRadius: 4,
-                          borderLeft: `2px solid ${teamColor}`,
-                        }}
-                      >
-                        {becameInfo.endpoints.map((p) => (
-                          <div
-                            key={p.name}
-                            style={{
-                              display: 'flex',
-                              justifyContent: 'space-between',
-                              alignItems: 'baseline',
-                              fontSize: 8,
-                              lineHeight: 1.7,
-                              gap: 6,
-                            }}
-                          >
-                            <span style={{ color: 'var(--text-primary)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>
-                              {p.name}
-                            </span>
-                            <span style={{
-                              fontFamily: 'var(--font-mono)',
-                              fontSize: 7,
-                              color: '#f9c74f',
-                              flexShrink: 0,
-                              padding: '0 3px',
-                              borderRadius: 2,
-                              background: 'rgba(249,199,79,0.1)',
+                      <div style={{ marginTop: 3, display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        {(resolvedOutcomes ?? [{ teamId: becameInfo.teamId, endpoints: becameInfo.endpoints.map(p => ({ name: p.name, score: p.score, via: null })), chain: becameInfo.chainScore }])
+                          .slice(0, 3).map(({ teamId: tid, endpoints }) => {
+                          const info = getAnyTeamDisplayInfo(tid, trade.date);
+                          const tColor = ensureReadable(info.color);
+                          return (
+                            <div key={tid} style={{
+                              padding: '3px 6px',
+                              background: 'var(--bg-tertiary)',
+                              borderRadius: 4,
+                              borderLeft: `2px solid ${tColor}`,
                             }}>
-                              {p.score.toFixed(1)}
-                            </span>
-                          </div>
-                        ))}
+                              <div style={{
+                                fontSize: 7, fontWeight: 600, textTransform: 'uppercase' as const,
+                                letterSpacing: 0.5, color: tColor, marginBottom: 1,
+                              }}>
+                                {info.abbreviation} ended up with
+                              </div>
+                              {endpoints.slice(0, 4).map(ep => (
+                                <div key={ep.name} style={{
+                                  display: 'flex', alignItems: 'baseline',
+                                  justifyContent: 'space-between', gap: 4,
+                                  fontSize: 8, lineHeight: 1.7,
+                                }}>
+                                  <span style={{
+                                    color: 'var(--text-primary)', flex: 1, minWidth: 0,
+                                    overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                                  }}>
+                                    {ep.name}
+                                    {ep.via && (
+                                      <span style={{
+                                        fontSize: 7, color: 'var(--text-muted)',
+                                        fontStyle: 'italic', marginLeft: 4,
+                                      }}>
+                                        {ep.via}
+                                      </span>
+                                    )}
+                                  </span>
+                                  <span style={{
+                                    fontFamily: 'var(--font-mono)', fontSize: 7,
+                                    color: '#f9c74f', flexShrink: 0,
+                                    padding: '0 3px', borderRadius: 2,
+                                    background: 'rgba(249,199,79,0.1)',
+                                  }}>
+                                    {ep.score.toFixed(1)}
+                                  </span>
+                                </div>
+                              ))}
+                              {endpoints.length > 4 && (
+                                <div style={{ fontSize: 7, color: 'var(--text-muted)', marginTop: 1 }}>
+                                  +{endpoints.length - 4} more
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
                         <button
                           className="nopan nodrag"
                           onClick={(e) => {
@@ -885,29 +928,16 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                             seedFromChain(trade.id, chainData ?? undefined);
                           }}
                           style={{
-                            display: 'block',
-                            width: '100%',
-                            marginTop: 4,
-                            padding: '3px 0',
-                            background: 'none',
-                            border: 'none',
-                            cursor: 'pointer',
-                            fontSize: 7,
-                            fontWeight: 600,
-                            fontFamily: 'var(--font-body)',
-                            color: teamColor,
-                            letterSpacing: 0.6,
-                            textTransform: 'uppercase',
-                            textAlign: 'center',
-                            borderRadius: 3,
+                            display: 'block', width: '100%', marginTop: 2,
+                            padding: '3px 0', background: 'none', border: 'none',
+                            cursor: 'pointer', fontSize: 7, fontWeight: 600,
+                            fontFamily: 'var(--font-body)', color: teamColor,
+                            letterSpacing: 0.6, textTransform: 'uppercase',
+                            textAlign: 'center', borderRadius: 3,
                             transition: 'color 0.15s, background 0.15s',
                           }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.background = 'none';
-                          }}
+                          onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; }}
+                          onMouseLeave={(e) => { e.currentTarget.style.background = 'none'; }}
                         >
                           View Full Chain →
                         </button>
@@ -1703,27 +1733,54 @@ function TradeNodeComponent({ id, data }: NodeProps) {
                         </div>
                       )}
 
-                      {/* "Never played" empty state */}
-                      {isPickInlineExpanded && isPickNeverPlayed && (
-                        <div
-                          style={{
-                            marginTop: 3,
-                            marginBottom: 3,
-                            padding: '4px 6px',
-                            background: 'var(--bg-tertiary)',
-                            borderRadius: 3,
-                            borderLeft: '2px solid var(--pick-yellow)',
-                          }}
-                        >
-                          <div style={{
-                            fontSize: 8,
-                            color: 'var(--text-muted)',
-                            fontStyle: 'italic',
-                          }}>
-                            No Games Played
+                      {/* "Never played" — show what the pick resolved to via chain */}
+                      {isPickInlineExpanded && isPickNeverPlayed && (() => {
+                        // Find chain children: what came back when this pick was re-traded
+                        let chainChildren: string[] = [];
+                        if (chainData && pickPlayerName) {
+                          const teamChain = chainData[teamId];
+                          if (teamChain) {
+                            const findChildren = (assets: typeof teamChain.assets): string[] => {
+                              for (const a of assets) {
+                                if (a.name === pickPlayerName && a.children?.length) {
+                                  return a.children
+                                    .filter(c => c.chain > 0)
+                                    .sort((x, y) => y.chain - x.chain)
+                                    .map(c => c.name);
+                                }
+                                if (a.children?.length) {
+                                  const found = findChildren(a.children);
+                                  if (found.length) return found;
+                                }
+                              }
+                              return [];
+                            };
+                            chainChildren = findChildren(teamChain.assets);
+                          }
+                        }
+                        return (
+                          <div
+                            style={{
+                              marginTop: 3,
+                              marginBottom: 3,
+                              padding: '4px 6px',
+                              background: 'var(--bg-tertiary)',
+                              borderRadius: 3,
+                              borderLeft: '2px solid var(--pick-yellow)',
+                            }}
+                          >
+                            <div style={{
+                              fontSize: 8,
+                              color: 'var(--text-muted)',
+                              fontStyle: 'italic',
+                            }}>
+                              {chainChildren.length > 0
+                                ? `Traded → ${chainChildren.join(', ')}`
+                                : 'No Games Played'}
+                            </div>
                           </div>
-                        </div>
-                      )}
+                        );
+                      })()}
                     </div>
                   );
                 })}
