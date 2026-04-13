@@ -189,16 +189,16 @@ export function ValueChart({ rows }: { rows: SeasonDetailRow[] }) {
           <circle key={`w${i}`} cx={p.x} cy={p.y} r={single ? 3 : 1.5} fill="#ff6b35" />
         ))}
 
-        {/* Y-axis labels */}
+        {/* Y-axis labels — prefixed with metric name so dual axes aren't ambiguous */}
         <text x={padL - 2} y={padT + 3} textAnchor="end" fontSize={6} fill="#ff6b35" fontFamily="var(--font-mono)">
-          {wsMax.toFixed(0)}
+          {`WS ${wsMax.toFixed(0)}`}
         </text>
         <text x={padL - 2} y={padT + plotH} textAnchor="end" fontSize={6} fill="var(--text-muted)" fontFamily="var(--font-mono)">
           0
         </text>
         {hasSalary && (
           <text x={padL + plotW + 2} y={padT + 3} textAnchor="start" fontSize={6} fill="#4ecdc4" fontFamily="var(--font-mono)">
-            {salMax >= 1_000_000 ? `$${(salMax / 1_000_000).toFixed(0)}M` : `$${(salMax / 1_000).toFixed(0)}K`}
+            {salMax >= 1_000_000 ? `Sal $${(salMax / 1_000_000).toFixed(0)}M` : `Sal $${(salMax / 1_000).toFixed(0)}K`}
           </text>
         )}
 
