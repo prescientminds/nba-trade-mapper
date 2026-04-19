@@ -346,6 +346,12 @@ export default function MethodologyPage() {
               </strong>{' '}
               1,935 (1976&ndash;present)
             </li>
+            <li>
+              <strong style={{ color: 'var(--text-primary)' }}>
+                Salary contracts:
+              </strong>{' '}
+              15,370 (1984&ndash;2031, 2,102 unique players)
+            </li>
           </ul>
         </Section>
 
@@ -447,32 +453,40 @@ function FormulaBlock() {
 /* ── Data ───────────────────────────────────────────────────────────── */
 
 const accolades: [string, string, string][] = [
-  ['MVP', '+5.0', 'Captures dominance that cumulative stats understate.'],
-  ['Finals MVP', '+3.0', 'Best player on the biggest stage.'],
-  ['DPOY', '+2.5', 'Primary correction for defensive value.'],
-  ['All-NBA 1st Team', '+2.0', 'Top 5 player that season.'],
-  ['ROY', '+1.5', 'Immediate contributor \u2014 relevant for picks.'],
+  ['MVP', '+5.0', 'Highest individual honor. Captures dominance that cumulative stats understate.'],
+  ['Finals MVP', '+3.0', 'Most trade-relevant accolade. Best player on the biggest stage.'],
+  ['DPOY', '+2.5', 'Primary correction for defensive value. Win Shares\u2019 defensive component is unreliable.'],
+  ['All-NBA 1st Team', '+2.0', 'Top 5 player in the league that season.'],
+  ['ROY', '+1.5', 'Immediate contributor, acknowledges draft pick outcomes.'],
   ['All-NBA 2nd Team', '+1.2', 'Top 10 player.'],
-  ['Sixth Man', '+0.8', 'Best reserve.'],
+  ['Sixth Man', '+0.8', 'Best reserve. WS handles this role reasonably, but the award signals consensus around player impact.'],
   ['All-NBA 3rd Team', '+0.7', 'Top 15 player.'],
   ['MIP', '+0.5', 'Breakout season.'],
-  ['All-Defensive Team', '+0.5', 'Broader defensive correction than DPOY alone.'],
-  ['All-Star', '+0.3', 'Partially a popularity contest.'],
-  ['All-Rookie Team', '+0.2', 'Minor signal.'],
+  ['All-Defensive Team', '+0.5', 'Partial correction for defensive blind spot \u2014 broader than DPOY.'],
+  ['All-Star', '+0.3', 'Partially a popularity contest. Low weight reflects the noise. Repeated selections signal sustained relevance.'],
+  ['All-Rookie Team', '+0.2', 'Minor signal for immediate contribution.'],
 ];
 
 const limitations: [string, string][] = [
   [
+    'Decision quality',
+    'Smart bets that don\u2019t pay off get no credit. Outcomes only.',
+  ],
+  [
     'Strategic value',
-    'A team that trades a star for expirings to clear cap space scores zero for the expirings.',
+    'Cap space cleared for a free agent signing scores zero for the expiring contracts.',
   ],
   [
     'Peak impact',
     'Eight solid years outscores two brilliant years.',
   ],
   [
+    'Marginal value',
+    'Measures production, not production relative to who they replaced.',
+  ],
+  [
     'Defensive impact beyond awards',
-    'Elite defenders who didn\u2019t win DPOY or make All-Defensive teams are undervalued.',
+    'Win Shares\u2019 defensive component is unreliable. Awards are a partial correction only.',
   ],
 ];
 
@@ -496,9 +510,9 @@ const edgeCases: [string, string][] = [
 ];
 
 const alternatives: [string, string][] = [
-  ['PER', 'Overvalues high-usage scorers. Outdated.'],
-  ['VORP', 'Ignores team quality. We want team quality.'],
-  ['BPM', 'Rate stat. We need cumulative production.'],
-  ['EPM / RAPTOR / LEBRON / DARKO', 'Proprietary, defunct, or only from ~2014.'],
-  ['Raw box score', 'Doesn\u2019t account for efficiency, defense, or winning.'],
+  ['PER', 'Overvalues high-usage scorers. Widely considered outdated.'],
+  ['VORP', 'Measures individual production regardless of team quality. We want team quality in the equation. Correlates ~0.85 with Win Shares \u2014 adds complexity without new information.'],
+  ['BPM', 'Strong rate stat, but we need cumulative production, not per-possession rates.'],
+  ['EPM / RAPTOR / LEBRON / DARKO', 'Proprietary, defunct, or only available from ~2014 forward. No 50-year historical depth.'],
+  ['Raw box score (PPG/RPG/APG)', 'Doesn\u2019t account for efficiency, defense, or contribution to winning.'],
 ];
