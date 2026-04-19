@@ -6,12 +6,18 @@ import { useGraphStore, ChampionshipNodeData, ChampionshipIngredients } from '@/
 import { SeasonTable } from '@/components/SeasonTable';
 import { ensureReadable, contrastText } from '@/lib/colors';
 
-const INGREDIENT_COLORS = { trade: '#f9c74f', draft: '#4ecdc4', fa: '#9b5de5' };
+const INGREDIENT_COLORS = {
+  trade: '#f9c74f',
+  draft: '#4ecdc4',
+  tradedPick: '#ff6b35',
+  fa: '#9b5de5',
+};
 
 function IngredientsBar({ ingredients }: { ingredients: ChampionshipIngredients }) {
   const segments = [
     { key: 'trade', pct: ingredients.tradePct, color: INGREDIENT_COLORS.trade, label: 'Trade' },
     { key: 'draft', pct: ingredients.draftPct, color: INGREDIENT_COLORS.draft, label: 'Draft' },
+    { key: 'tradedPick', pct: ingredients.tradedPickPct, color: INGREDIENT_COLORS.tradedPick, label: 'Traded pick' },
     { key: 'fa', pct: ingredients.faPct, color: INGREDIENT_COLORS.fa, label: 'FA' },
   ].filter(s => s.pct >= 1);
 
@@ -62,7 +68,14 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
     players,
     inlinePlayers,
     ingredients,
+    isChampionship,
+    madePlayoffs,
   } = data as ChampionshipNodeData;
+
+  // When seedChampionshipRoster predates the flag, fall back to presence of playoff data
+  const hasPlayoffData = players.some(p => (p.playoffWs ?? 0) > 0 || (p.playoffGp ?? 0) > 0);
+  const effectiveIsChampionship = isChampionship === true;
+  const effectiveMadePlayoffs = madePlayoffs === undefined ? hasPlayoffData : madePlayoffs;
 
   const expandTradeNode = useGraphStore((s) => s.expandTradeNode);
   const expandChampionshipPlayer = useGraphStore((s) => s.expandChampionshipPlayer);
@@ -83,6 +96,9 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
   const [pathLoading, setPathLoading] = useState<string | null>(null);
   const [afterLoading, setAfterLoading] = useState<string | null>(null);
   const [expandLoading, setExpandLoading] = useState(false);
+  const [wsChartSignals, setWsChartSignals] = useState<Record<string, number>>({});
+  // WS column mode: single season (default) vs total while on team
+  const [wsMode, setWsMode] = useState<'season' | 'stint'>('season');
 
   const isExpanded = expandedNodes.has(id);
   const color = ensureReadable(teamColor || '#9b5de5');
@@ -105,6 +121,12 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
     if (!pd) return false;
     return pd.championshipStintIndex < pd.allStints.length - 1;
   };
+
+  // Roster sorted by the active WS mode — stint total when toggled, else the default order.
+  const sortedPlayers = useMemo(() => {
+    if (wsMode !== 'stint') return players;
+    return [...players].sort((a, b) => (b.totalWinShares ?? -1) - (a.totalWinShares ?? -1));
+  }, [players, wsMode]);
 
   // Season display
   const seasonEnd = useMemo(() => {
@@ -146,6 +168,15 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
   const handleInlineClick = (e: React.MouseEvent, playerName: string) => {
     e.stopPropagation();
     expandInlineChampionshipPlayer(id, playerName);
+  };
+
+  // Click the WS number → open inline panel (if not already) and fire chart signal
+  // so SeasonTable auto-opens the WS-vs-Salary chart.
+  const handleWsClick = (e: React.MouseEvent, playerName: string) => {
+    e.stopPropagation();
+    const already = !!inlinePlayers?.[playerName] && !inlinePlayers[playerName].isLoading;
+    if (!already) expandInlineChampionshipPlayer(id, playerName);
+    setWsChartSignals((prev) => ({ ...prev, [playerName]: (prev[playerName] ?? 0) + 1 }));
   };
 
   return (
@@ -238,9 +269,11 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
         </div>
       </div>
 
-      {/* Header: trophy + team badge */}
+      {/* Header: trophy (champs only) + team badge */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 3, paddingRight: 36 }}>
-        <span style={{ fontSize: 14, lineHeight: 1 }}>{'\uD83C\uDFC6'}</span>
+        {effectiveIsChampionship && (
+          <span style={{ fontSize: 14, lineHeight: 1 }}>{'\uD83C\uDFC6'}</span>
+        )}
         <span
           style={{
             fontSize: 8,
@@ -258,7 +291,7 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
           style={{
             fontSize: 9,
             fontFamily: 'var(--font-mono)',
-            color: '#f9c74f',
+            color: effectiveIsChampionship ? '#f9c74f' : 'var(--text-muted)',
             fontWeight: 700,
             marginLeft: 'auto',
           }}
@@ -312,12 +345,12 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
               fontWeight: 600,
               letterSpacing: 0.7,
               textTransform: 'uppercase',
-              color: '#f9c74f',
+              color: effectiveMadePlayoffs ? '#f9c74f' : 'var(--text-muted)',
               fontFamily: 'var(--font-body)',
               marginBottom: 2,
             }}
           >
-            Playoff Stats
+            {effectiveMadePlayoffs ? 'Playoff Stats' : 'Season Stats'}
           </div>
 
           {/* Column headers — spacer at end matches Path/After button width */}
@@ -333,8 +366,41 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
             <span style={{ fontSize: 6, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: 0.3, flexShrink: 0, width: 52, textAlign: 'right' }}>
               PPG/RPG/APG
             </span>
-            <span style={{ fontSize: 6, color: '#f9c74f', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: 0.3, flexShrink: 0, width: 16, textAlign: 'right' }}>
-              WS
+            <span
+              className="nopan nodrag"
+              onClick={(e) => {
+                e.stopPropagation();
+                setWsMode((m) => (m === 'season' ? 'stint' : 'season'));
+              }}
+              title={wsMode === 'season'
+                ? 'Showing season WS — click to switch to total WS on team (sorted)'
+                : 'Showing total WS on team — click to switch back to season WS (sorted)'}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'flex-end',
+                gap: 2,
+                fontSize: 6,
+                fontFamily: 'var(--font-mono)',
+                textTransform: 'uppercase',
+                letterSpacing: 0.3,
+                flexShrink: 0,
+                width: 34,
+                textAlign: 'right',
+                cursor: 'pointer',
+                userSelect: 'none',
+              }}
+            >
+              <span style={{ color: wsMode === 'season' ? '#f9c74f' : 'rgba(255,255,255,0.3)', fontWeight: wsMode === 'season' ? 700 : 400 }}>
+                WS
+              </span>
+              <span style={{ color: 'rgba(255,255,255,0.25)', fontSize: 7 }}>/</span>
+              <span style={{ color: wsMode === 'stint' ? '#ff6b35' : 'rgba(255,255,255,0.3)', fontWeight: wsMode === 'stint' ? 700 : 400, fontSize: 8 }}>
+                ∑
+              </span>
+              <svg width="6" height="6" viewBox="0 0 6 6" style={{ marginLeft: 1, opacity: 0.55 }}>
+                <path d="M0 2 L3 0 L6 2 M0 4 L3 6 L6 4" fill="none" stroke="currentColor" strokeWidth="0.8" />
+              </svg>
             </span>
             {/* Spacer matching Path/After/on-graph button */}
             <span style={{ flexShrink: 0, width: 28 }} />
@@ -344,7 +410,7 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
           <div style={{ height: 1, background: 'var(--border-subtle)', margin: '0 -6px 4px' }} />
 
           {/* Player rows */}
-          {players.map((player) => {
+          {sortedPlayers.map((player) => {
             const onGraph = isPlayerOnGraph(player.playerName);
             const isLoading = pathLoading === player.playerName;
             const isAfterLoading = afterLoading === player.playerName;
@@ -408,19 +474,42 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
                     </span>
                   )}
 
-                  {/* Playoff WS */}
-                  {player.playoffWs != null && player.playoffWs > 0 && (
-                    <span style={{
-                      fontSize: 7,
-                      fontFamily: 'var(--font-mono)',
-                      color: '#f9c74f',
-                      flexShrink: 0,
-                      width: 16,
-                      textAlign: 'right',
-                    }}>
-                      {player.playoffWs.toFixed(1)}
-                    </span>
-                  )}
+                  {/* WS column — mode-aware. Click value to open WS-vs-Salary chart. */}
+                  {(() => {
+                    let wsValue: number | null = null;
+                    let color = '#fff';
+                    if (wsMode === 'stint') {
+                      wsValue = player.totalWinShares;
+                      color = '#ff6b35';
+                    } else if (effectiveMadePlayoffs && player.playoffWs != null && player.playoffWs > 0) {
+                      wsValue = player.playoffWs;
+                      color = '#f9c74f';
+                    } else {
+                      wsValue = player.seasonWinShares;
+                      color = '#fff';
+                    }
+                    if (wsValue == null) return <span style={{ width: 22, flexShrink: 0 }} />;
+                    return (
+                      <span
+                        className="nopan nodrag"
+                        onClick={(e) => handleWsClick(e, player.playerName)}
+                        title="Open WS vs Salary chart"
+                        style={{
+                          fontSize: 7,
+                          fontFamily: 'var(--font-mono)',
+                          fontWeight: 700,
+                          color,
+                          flexShrink: 0,
+                          width: 22,
+                          textAlign: 'right',
+                          cursor: 'pointer',
+                          userSelect: 'none',
+                        }}
+                      >
+                        {wsValue.toFixed(1)}
+                      </span>
+                    );
+                  })()}
 
                   {/* Inline loading */}
                   {isInlineLoading && (
@@ -558,7 +647,11 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
                         </span>
                       )}
                     </div>
-                    <SeasonTable rows={inlineData.seasonDetails} onHeightChange={(delta) => adjustLayoutForToggle(id, delta)} />
+                    <SeasonTable
+                      rows={inlineData.seasonDetails}
+                      onHeightChange={(delta) => adjustLayoutForToggle(id, delta)}
+                      chartSignal={wsChartSignals[player.playerName] ?? 0}
+                    />
                   </div>
                 )}
               </div>

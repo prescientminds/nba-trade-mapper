@@ -15,6 +15,7 @@ import { HintLabel } from '@/components/HintLabel';
 import type { League } from '@/lib/league';
 import { SKINS, type VisualSkin } from '@/lib/skins';
 import Link from 'next/link';
+import TeamSeasonPicker from '@/components/TeamSeasonPicker';
 
 export default function SearchOverlay() {
   const [query, setQuery] = useState('');
@@ -567,6 +568,27 @@ export default function SearchOverlay() {
         >
           Search for any player or trade to begin
         </p>
+
+        {/* Secondary entry — browse any team's roster composition */}
+        <div style={{ marginTop: 28, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 10,
+              fontFamily: 'var(--font-body)',
+              fontSize: 11,
+              letterSpacing: 1.2,
+              textTransform: 'uppercase',
+              color: 'var(--text-muted)',
+            }}
+          >
+            <span style={{ width: 40, height: 1, background: 'var(--border-subtle)' }} />
+            <span>or browse a roster</span>
+            <span style={{ width: 40, height: 1, background: 'var(--border-subtle)' }} />
+          </div>
+          <TeamSeasonPicker />
+        </div>
         <Link
           href="/methodology"
           data-tour="methodology-link"
