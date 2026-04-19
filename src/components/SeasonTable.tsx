@@ -127,7 +127,7 @@ function SeriesPanel({ series }: { series: PlayoffSeries }) {
   );
 }
 
-export function ValueChart({ rows }: { rows: SeasonDetailRow[] }) {
+export function ValueChart({ rows, currentSeason }: { rows: SeasonDetailRow[]; currentSeason?: string }) {
   const data = rows
     .map(r => ({ season: r.season, ws: r.winShares, salary: r.salary }))
     .filter(d => d.ws !== null || d.salary !== null);
@@ -172,6 +172,34 @@ export function ValueChart({ rows }: { rows: SeasonDetailRow[] }) {
         {/* Grid lines */}
         <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="rgba(255,255,255,0.06)" strokeWidth={0.5} />
         <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="rgba(255,255,255,0.06)" strokeWidth={0.5} />
+
+        {/* Vertical dashed marker at the current-season x position */}
+        {(() => {
+          if (!currentSeason) return null;
+          const idx = data.findIndex((d) => d.season === currentSeason);
+          if (idx < 0) return null;
+          const x = xOffset + idx * xStep;
+          return (
+            <>
+              <line
+                x1={x} y1={padT}
+                x2={x} y2={padT + plotH + 2}
+                stroke="rgba(255,255,255,0.45)"
+                strokeWidth={0.8}
+                strokeDasharray="2 2"
+              />
+              <text
+                x={x} y={padT - 1}
+                textAnchor="middle"
+                fontSize={5.5}
+                fill="rgba(255,255,255,0.55)"
+                fontFamily="var(--font-mono)"
+              >
+                now
+              </text>
+            </>
+          );
+        })()}
 
         {/* Salary line (behind) */}
         {hasSalary && (
@@ -223,7 +251,7 @@ export function ValueChart({ rows }: { rows: SeasonDetailRow[] }) {
   );
 }
 
-export function SeasonTable({ rows, onHeightChange, chartSignal = 0 }: { rows: SeasonDetailRow[]; onHeightChange?: (delta: number) => void; chartSignal?: number }) {
+export function SeasonTable({ rows, onHeightChange, chartSignal = 0, currentSeason }: { rows: SeasonDetailRow[]; onHeightChange?: (delta: number) => void; chartSignal?: number; currentSeason?: string }) {
   const [expandedSeries, setExpandedSeries] = useState<{ season: string; opponentId: string } | null>(null);
   const [showValueChart, setShowValueChart] = useState(chartSignal > 0);
   const prevChartSignal = useRef(chartSignal);
@@ -466,7 +494,7 @@ export function SeasonTable({ rows, onHeightChange, chartSignal = 0 }: { rows: S
         </tfoot>
       )}
     </table>
-    {showValueChart && <div data-tour="tour-ws-chart"><ValueChart rows={rows} /></div>}
+    {showValueChart && <div data-tour="tour-ws-chart"><ValueChart rows={rows} currentSeason={currentSeason} /></div>}
     </>
   );
 }

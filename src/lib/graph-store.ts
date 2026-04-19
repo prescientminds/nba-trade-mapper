@@ -4449,10 +4449,11 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const stintSeasonsSet = new Set(stintSeasons);
 
     const sb = getSupabase();
-    const [allAccolades, allTeamSeasons, allPlayoffGames] = await Promise.all([
+    const [allAccolades, allTeamSeasons, allPlayoffGames, allContracts] = await Promise.all([
       cachedPlayerAccolades(sb, playerName),
       cachedTeamSeasons(sb, ctx.teamId),
       cachedPlayoffGames(sb, playerName),
+      cachedPlayerContracts(sb, playerName),
     ]);
 
     const accolades = allAccolades.filter(a => a.season && stintSeasonsSet.has(a.season));
@@ -4460,6 +4461,13 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const playoffGames = allPlayoffGames
       .filter(g => g.team_id === ctx.teamId && stintSeasonsSet.has(g.season))
       .sort((a, b) => b.game_score - a.game_score);
+
+    // Salary lookup: filtered to this team + stint seasons (full contract over the stint,
+    // including future years if under contract past the target season)
+    const contractMap = new Map<string, PlayerContract>();
+    for (const c of allContracts.filter(c => c.team_id === ctx.teamId && stintSeasonsSet.has(c.season))) {
+      contractMap.set(c.season, c);
+    }
 
     const accoladesByS = new Map<string, string[]>();
     for (const a of accolades) {
@@ -4532,7 +4540,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       teamLosses: teamSeasonMap.get(ss.season)?.losses ?? null,
       playoffResult: teamSeasonMap.get(ss.season)?.playoff_result ?? null,
       accolades: accoladesByS.get(ss.season) ?? [],
-      salary: null,
+      salary: contractMap.get(ss.season)?.salary ?? null,
       playoffPeakGames: peakGamesBySeason.get(ss.season),
       playoffSeries: seriesBySeason.get(ss.season),
     }));

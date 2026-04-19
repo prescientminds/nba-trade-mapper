@@ -651,6 +651,7 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
                       rows={inlineData.seasonDetails}
                       onHeightChange={(delta) => adjustLayoutForToggle(id, delta)}
                       chartSignal={wsChartSignals[player.playerName] ?? 0}
+                      currentSeason={season}
                     />
                   </div>
                 )}
