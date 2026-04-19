@@ -1,15 +1,16 @@
 /**
- * Compute Dynasty Ingredients — how each championship was assembled.
+ * Compute Roster Ingredients — how every team-season was assembled.
  *
- * For every championship team:
+ * For every team-season from 1999-00 forward (FA data floor):
  *   1. Find all players on that team that season (from player_seasons)
  *   2. Trace how each player arrived: trade, draft, or free agency
  *   3. For trade-acquired players, identify which trade brought them
- *   4. Compute % of playoff WS from each acquisition type
- *   5. Identify the single trade that contributed the most playoff WS
+ *   4. Compute % of WS from each acquisition type — playoff WS for playoff teams,
+ *      regular-season WS for non-playoff teams
+ *   5. Identify the single trade that contributed the most WS
  *
  * Reads:   public/data/trades/by-season/*.json, player_seasons, team_seasons
- * Writes:  championship_ingredients table
+ * Writes:  championship_ingredients table (one row per team-season)
  *
  * PREREQUISITE: Run database/migrations/016-discovery-v2.sql first.
  *
@@ -19,7 +20,8 @@
  *   - "fa": player was on a different team before, but no trade brought them here
  *
  * Usage:
- *   npx tsx scripts/compute-dynasty-ingredients.ts              # Compute all
+ *   npx tsx scripts/compute-dynasty-ingredients.ts              # Compute all (1999+)
+ *   npx tsx scripts/compute-dynasty-ingredients.ts --champs-only # Legacy: only championship teams
  *   npx tsx scripts/compute-dynasty-ingredients.ts --dry-run    # Print results, no DB writes
  */
 
@@ -60,6 +62,54 @@ function r2(n: number): number { return Math.round(n * 100) / 100; }
 
 function seasonToYear(s: string): number { return parseInt(s.split('-')[0], 10); }
 
+function prevSeason(season: string): string {
+  const start = parseInt(season.split('-')[0], 10);
+  return `${start - 1}-${String(start).slice(-2)}`;
+}
+
+/**
+ * Find the first season of the player's CURRENT stint on this team.
+ * A stint is a contiguous run of seasons on the same team — but a gap caused by
+ * the player missing a full season (no player_seasons row for ANY team) does
+ * NOT break the stint. This matters for injury-lost seasons: Jamal Murray missed
+ * 2021-22 with a torn ACL but never left Denver; his 2022-23 stint should trace
+ * back to 2016-17, not restart.
+ *
+ * A gap year where the player has a row for a DIFFERENT team (Dwight Howard's
+ * 2013-19 years away from LAL) IS a departure and breaks the stint.
+ *
+ * Returns null if the player has no row for (team, targetSeason).
+ */
+function findStintStart(
+  playerSeasons: PlayerSeason[],
+  teamId: string,
+  targetSeason: string,
+): string | null {
+  const teamSeasonSet = new Set(playerSeasons.map(s => `${s.season}|${s.team_id}`));
+  const allSeasonSet = new Set(playerSeasons.map(s => s.season));
+  if (!teamSeasonSet.has(`${targetSeason}|${teamId}`)) return null;
+
+  let stintStart = targetSeason;
+  let cursor = targetSeason;
+  while (true) {
+    const prev = prevSeason(cursor);
+    if (teamSeasonSet.has(`${prev}|${teamId}`)) {
+      stintStart = prev;
+      cursor = prev;
+      continue;
+    }
+    // Not on this team in `prev`. If the player was on SOME OTHER team that year
+    // (or retired/new-to-league), that's a real departure — stop walking.
+    // If the player has no row at all (full-year absence, typically injury),
+    // step over the gap and keep checking earlier years.
+    if (allSeasonSet.has(prev)) break;
+    cursor = prev;
+    // Safety: don't walk past some reasonable lower bound
+    if (seasonToYear(prev) < 1946) break;
+  }
+  return stintStart;
+}
+
 // ── Bulk loader ──
 
 async function fetchAll<T>(table: string, columns: string): Promise<T[]> {
@@ -78,11 +128,15 @@ async function fetchAll<T>(table: string, columns: string): Promise<T[]> {
 
 // ── Main ──
 
+// FA transaction data starts 1999-00; earlier team-seasons can't reliably identify signings.
+const FIRST_SEASON = '1999-00';
+
 async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
+  const champsOnly = args.includes('--champs-only');
 
-  console.log('Computing Dynasty Ingredients...\n');
+  console.log(`Computing Roster Ingredients${champsOnly ? ' (champions only)' : ''}...\n`);
 
   // Load data
   const [playerSeasons, teamSeasons] = await Promise.all([
@@ -93,9 +147,11 @@ async function main() {
   console.log(`  player_seasons: ${playerSeasons.length}`);
   console.log(`  team_seasons: ${teamSeasons.length}`);
 
-  // Championship team-seasons
-  const champSeasons = teamSeasons.filter(t => t.championship);
-  console.log(`  Championships: ${champSeasons.length}\n`);
+  // Target team-seasons: champions-only (legacy) or all post-1999 (new default)
+  const targetSeasons = champsOnly
+    ? teamSeasons.filter(t => t.championship)
+    : teamSeasons.filter(t => t.season >= FIRST_SEASON);
+  console.log(`  Target team-seasons: ${targetSeasons.length}\n`);
 
   // Index: player → all their seasons (sorted by season)
   const seasonsByPlayer = new Map<string, PlayerSeason[]>();
@@ -115,39 +171,46 @@ async function main() {
   }
   console.log(`  ${allTrades.length} trades loaded.`);
 
-  // Index: "playerName|teamId" → most recent trade that brought them to teamId
-  // (Handles re-trades: take the latest trade before the championship season)
-  const tradeArrivalIndex = new Map<string, { trade: Trade; season: string }[]>();
+  // Two separate indexes. The distinction matters for acquisition categorization:
+  //   directTradeIndex — player was directly traded to team (arrives as established NBA asset)
+  //   pickTradeIndex   — pick that became this player was acquired by team via trade
+  //                      (team still drafted the player, but acquired the pick via trade)
+  const directTradeIndex = new Map<string, { trade: Trade; season: string }[]>();
+  const pickTradeIndex = new Map<string, { trade: Trade; season: string }[]>();
+
   for (const trade of allTrades) {
     for (const asset of trade.assets) {
       if (asset.type === 'cash' || asset.type === 'swap') continue;
 
-      // Player directly traded
       if (asset.type === 'player' && asset.player_name) {
         const key = `${asset.player_name}|${asset.to_team_id}`;
-        if (!tradeArrivalIndex.has(key)) tradeArrivalIndex.set(key, []);
-        tradeArrivalIndex.get(key)!.push({ trade, season: trade.season });
+        if (!directTradeIndex.has(key)) directTradeIndex.set(key, []);
+        directTradeIndex.get(key)!.push({ trade, season: trade.season });
       }
 
-      // Pick that became a player — the team drafts them
       if (asset.type === 'pick' && asset.became_player_name) {
         const key = `${asset.became_player_name}|${asset.to_team_id}`;
-        if (!tradeArrivalIndex.has(key)) tradeArrivalIndex.set(key, []);
-        tradeArrivalIndex.get(key)!.push({ trade, season: trade.season });
+        if (!pickTradeIndex.has(key)) pickTradeIndex.set(key, []);
+        pickTradeIndex.get(key)!.push({ trade, season: trade.season });
       }
     }
   }
-  // Sort each entry chronologically
-  for (const [, arr] of tradeArrivalIndex) arr.sort((a, b) => a.season.localeCompare(b.season));
 
-  console.log(`  Trade arrival index: ${tradeArrivalIndex.size} entries.\n`);
+  for (const [, arr] of directTradeIndex) arr.sort((a, b) => a.season.localeCompare(b.season));
+  for (const [, arr] of pickTradeIndex) arr.sort((a, b) => a.season.localeCompare(b.season));
+
+  console.log(`  Direct-trade index: ${directTradeIndex.size} entries.`);
+  console.log(`  Pick-trade index:   ${pickTradeIndex.size} entries.\n`);
 
   // ── Process each championship ──
+
+  type Acquisition = 'trade' | 'draft' | 'traded_pick' | 'fa';
 
   interface RosterEntry {
     name: string;
     playoff_ws: number;
-    acquisition: 'trade' | 'draft' | 'fa';
+    weight: number; // playoff WS when team made postseason, else regular-season WS
+    acquisition: Acquisition;
     trade_id?: string;
     trade_season?: string;
   }
@@ -158,6 +221,7 @@ async function main() {
     roster: RosterEntry[];
     trade_pct: number;
     draft_pct: number;
+    traded_pick_pct: number;
     fa_pct: number;
     top_trade_id: string | null;
     top_trade_pws: number;
@@ -165,83 +229,94 @@ async function main() {
 
   const results: ChampResult[] = [];
 
-  for (const champ of champSeasons) {
-    const { team_id, season } = champ;
-    const champYear = seasonToYear(season);
+  for (const ts of targetSeasons) {
+    const { team_id, season } = ts;
 
-    // Find all players on this team this season
     const rosterPlayers = playerSeasons.filter(
       ps => ps.team_id === team_id && ps.season === season
     );
 
     const roster: RosterEntry[] = [];
 
+    // Regular-season WS is the weighting fallback for non-playoff team-seasons
+    const teamPlayoffWsTotal = rosterPlayers.reduce((s, p) => s + (p.playoff_ws ?? 0), 0);
+
     for (const ps of rosterPlayers) {
       const playoffWs = ps.playoff_ws ?? 0;
       const playerName = ps.player_name;
 
-      // Determine acquisition method
       const allPlayerSeasons = seasonsByPlayer.get(playerName) || [];
-      const firstSeason = allPlayerSeasons[0];
-      const firstOnThisTeam = allPlayerSeasons.find(s => s.team_id === team_id);
-      const wasOnOtherTeamBefore = allPlayerSeasons.some(
-        s => s.team_id !== team_id && s.season < season
-      );
+      const firstCareerSeason = allPlayerSeasons[0]?.season ?? null;
 
-      // Check if any trade brought this player to this team before the championship season
-      const tradeKey = `${playerName}|${team_id}`;
-      const arrivals = tradeArrivalIndex.get(tradeKey) || [];
-      // Find the most recent trade arrival BEFORE or during the championship season
-      const relevantTrade = [...arrivals]
-        .filter(a => a.season <= season)
-        .pop(); // Last one (most recent)
+      // Current stint on this team — contiguous, gap-aware
+      const stintStart = findStintStart(allPlayerSeasons, team_id, season);
 
-      let acquisition: 'trade' | 'draft' | 'fa';
+      // Direct-trade match: a player-trade whose season matches the stint's first season.
+      // This avoids the "left-and-came-back" bug where an ancient trade record (e.g. Dwight
+      // Howard to LAL in 2012-13) gets credited to a completely separate later FA stint.
+      const directArrivals = directTradeIndex.get(`${playerName}|${team_id}`) || [];
+      const directTrade = stintStart
+        ? directArrivals.find(a => a.season === stintStart)
+        : undefined;
+
+      // Pick-trade match: a traded pick that ultimately became this player. Only counts
+      // when the player's FIRST NBA season is on this team (i.e. this team drafted them)
+      // AND the pick was acquired via trade. Draymond Green, Jayson Tatum, Jamal Murray.
+      const pickArrivals = pickTradeIndex.get(`${playerName}|${team_id}`) || [];
+      const pickTrade = pickArrivals[0];
+      const draftedHere = stintStart !== null && stintStart === firstCareerSeason;
+
+      let acquisition: Acquisition;
       let tradeId: string | undefined;
       let tradeSeason: string | undefined;
 
-      if (relevantTrade) {
-        // Player was traded here (or drafted via a traded pick)
+      if (directTrade) {
         acquisition = 'trade';
-        tradeId = relevantTrade.trade.id;
-        tradeSeason = relevantTrade.season;
-      } else if (firstSeason && firstSeason.team_id === team_id && !wasOnOtherTeamBefore) {
-        // First NBA season was on this team, never played elsewhere before → drafted
+        tradeId = directTrade.trade.id;
+        tradeSeason = directTrade.season;
+      } else if (draftedHere && pickTrade) {
+        acquisition = 'traded_pick';
+        tradeId = pickTrade.trade.id;
+        tradeSeason = pickTrade.season;
+      } else if (draftedHere) {
         acquisition = 'draft';
-      } else if (firstOnThisTeam && firstOnThisTeam.season === season && !relevantTrade) {
-        // First time on this team is the championship season, no trade → FA signing
-        acquisition = 'fa';
-      } else if (wasOnOtherTeamBefore && !relevantTrade) {
-        // Was on another team before, no trade record → free agency
-        acquisition = 'fa';
       } else {
-        // Default: if first season on this team and no other data → draft
-        acquisition = 'draft';
+        acquisition = 'fa';
       }
+
+      const weight = teamPlayoffWsTotal > 0
+        ? Math.max(0, playoffWs)
+        : Math.max(0, ps.win_shares ?? 0);
 
       roster.push({
         name: playerName,
         playoff_ws: r2(playoffWs),
+        weight: r2(weight),
         acquisition,
         ...(tradeId && { trade_id: tradeId, trade_season: tradeSeason }),
       });
     }
 
-    // Compute percentages
-    const totalPws = roster.reduce((s, r) => s + Math.max(0, r.playoff_ws), 0);
-    const tradePws = roster.filter(r => r.acquisition === 'trade').reduce((s, r) => s + Math.max(0, r.playoff_ws), 0);
-    const draftPws = roster.filter(r => r.acquisition === 'draft').reduce((s, r) => s + Math.max(0, r.playoff_ws), 0);
-    const faPws = roster.filter(r => r.acquisition === 'fa').reduce((s, r) => s + Math.max(0, r.playoff_ws), 0);
+    // Compute percentages from the weight field
+    const totalW = roster.reduce((s, r) => s + r.weight, 0);
+    const sumBy = (acq: Acquisition) =>
+      roster.filter(r => r.acquisition === acq).reduce((s, r) => s + r.weight, 0);
+    const tradeW = sumBy('trade');
+    const draftW = sumBy('draft');
+    const tradedPickW = sumBy('traded_pick');
+    const faW = sumBy('fa');
 
-    const tradePct = totalPws > 0 ? r2(tradePws / totalPws * 100) : 0;
-    const draftPct = totalPws > 0 ? r2(draftPws / totalPws * 100) : 0;
-    const faPct = totalPws > 0 ? r2(faPws / totalPws * 100) : 0;
+    const tradePct = totalW > 0 ? r2(tradeW / totalW * 100) : 0;
+    const draftPct = totalW > 0 ? r2(draftW / totalW * 100) : 0;
+    const tradedPickPct = totalW > 0 ? r2(tradedPickW / totalW * 100) : 0;
+    const faPct = totalW > 0 ? r2(faW / totalW * 100) : 0;
 
-    // Find the single trade that contributed the most playoff WS
+    // Top trade includes both direct and pick-trade contributions — the single
+    // transaction that added the most weight to the roster regardless of category.
     const tradeContributions = new Map<string, number>();
     for (const r of roster) {
-      if (r.acquisition === 'trade' && r.trade_id) {
-        tradeContributions.set(r.trade_id, (tradeContributions.get(r.trade_id) || 0) + Math.max(0, r.playoff_ws));
+      if ((r.acquisition === 'trade' || r.acquisition === 'traded_pick') && r.trade_id) {
+        tradeContributions.set(r.trade_id, (tradeContributions.get(r.trade_id) || 0) + r.weight);
       }
     }
     let topTradeId: string | null = null;
@@ -250,31 +325,29 @@ async function main() {
       if (pws > topTradePws) { topTradeId = tid; topTradePws = pws; }
     }
 
-    // Sort roster by playoff WS descending
     roster.sort((a, b) => b.playoff_ws - a.playoff_ws);
 
     results.push({
       team_id, season, roster,
-      trade_pct: tradePct, draft_pct: draftPct, fa_pct: faPct,
+      trade_pct: tradePct, draft_pct: draftPct, traded_pick_pct: tradedPickPct, fa_pct: faPct,
       top_trade_id: topTradeId, top_trade_pws: r2(topTradePws),
     });
   }
 
-  // Sort by trade_pct descending (most trade-assembled championships first)
-  results.sort((a, b) => b.trade_pct - a.trade_pct);
+  // Sort by (trade + traded_pick) descending — the aggregate "built by transactions" signal
+  results.sort((a, b) => (b.trade_pct + b.traded_pick_pct) - (a.trade_pct + a.traded_pick_pct));
 
-  console.log(`Computed ${results.length} championship breakdowns.\n`);
+  console.log(`Computed ${results.length} team-season breakdowns.\n`);
 
-  // Print
   const printAll = dryRun || args.includes('--verbose');
   for (const r of results) {
     const trade = allTrades.find(t => t.id === r.top_trade_id);
     const topTradeLabel = trade ? `${trade.title || trade.id.slice(-8)} (${trade.season})` : 'none';
-    console.log(`${r.season} ${r.team_id}  —  Trade: ${r.trade_pct}%  Draft: ${r.draft_pct}%  FA: ${r.fa_pct}%`);
-    console.log(`  Top trade: ${topTradeLabel} → ${r.top_trade_pws.toFixed(1)} playoff WS`);
+    console.log(`${r.season} ${r.team_id}  —  Trade: ${r.trade_pct}%  Draft: ${r.draft_pct}%  Traded-pick: ${r.traded_pick_pct}%  FA: ${r.fa_pct}%`);
+    console.log(`  Top trade: ${topTradeLabel} → ${r.top_trade_pws.toFixed(1)} weight`);
     if (printAll) {
       for (const p of r.roster.slice(0, 8)) {
-        console.log(`    ${p.acquisition.padEnd(5)} ${p.name}: ${p.playoff_ws.toFixed(1)} pWS${p.trade_id ? ` (trade: ${p.trade_season})` : ''}`);
+        console.log(`    ${p.acquisition.padEnd(12)} ${p.name}: ${p.playoff_ws.toFixed(1)} pWS${p.trade_id ? ` (trade: ${p.trade_season})` : ''}`);
       }
     }
     console.log('');
@@ -285,7 +358,6 @@ async function main() {
     return;
   }
 
-  // Upsert to championship_ingredients
   console.log('Upserting to championship_ingredients...');
   const batch = results.map(r => ({
     team_id: r.team_id,
@@ -294,6 +366,7 @@ async function main() {
     roster: r.roster,
     trade_pct: r.trade_pct,
     draft_pct: r.draft_pct,
+    traded_pick_pct: r.traded_pick_pct,
     fa_pct: r.fa_pct,
     top_trade_id: r.top_trade_id,
     top_trade_pws: r.top_trade_pws,

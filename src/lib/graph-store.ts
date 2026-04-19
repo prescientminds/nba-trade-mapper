@@ -301,6 +301,7 @@ export interface GapNodeData {
 export interface ChampionshipIngredients {
   tradePct: number;
   draftPct: number;
+  tradedPickPct: number;
   faPct: number;
 }
 
@@ -309,6 +310,8 @@ export interface ChampionshipNodeData {
   season: string;
   teamName: string;
   teamColor: string;
+  isChampionship?: boolean;
+  madePlayoffs?: boolean;
   ingredients?: ChampionshipIngredients;
   players: Array<{
     playerName: string;
@@ -320,7 +323,8 @@ export interface ChampionshipNodeData {
     playoffApg: number | null;
     playoffGp: number | null;
     playoffWs: number | null;
-    totalWinShares: number | null;
+    seasonWinShares: number | null;  // this season's regular-season WS
+    totalWinShares: number | null;   // sum of regular-season WS across the current stint
   }>;
   inlinePlayers?: Record<string, InlinePlayerData>;
   [key: string]: unknown;
@@ -466,6 +470,7 @@ function makeChampionshipNode(
   players: ChampionshipNodeData['players'],
   position = { x: 0, y: 0 },
   ingredients?: ChampionshipIngredients,
+  flags: { isChampionship?: boolean; madePlayoffs?: boolean } = {},
 ): Node {
   return {
     id: championshipNodeId(teamId, season),
@@ -478,6 +483,8 @@ function makeChampionshipNode(
       teamColor,
       players,
       ...(ingredients ? { ingredients } : {}),
+      ...(flags.isChampionship !== undefined ? { isChampionship: flags.isChampionship } : {}),
+      ...(flags.madePlayoffs !== undefined ? { madePlayoffs: flags.madePlayoffs } : {}),
     } satisfies ChampionshipNodeData,
   };
 }
@@ -3862,27 +3869,42 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   seedChampionshipRoster: async (teamId: string, season: string) => {
     const sb = getSupabase();
 
-    // 1. Fetch roster + ingredients in parallel
-    const [{ data: rosterSeasons }, { data: ingredientsRows }] = await Promise.all([
+    // 1. Fetch roster + ingredients + team flags in parallel
+    const [{ data: rosterSeasons }, { data: ingredientsRows }, { data: teamSeasonRows }] = await Promise.all([
       sb
         .from('player_seasons')
         .select('*')
         .eq('team_id', teamId)
         .eq('season', season)
-        .order('playoff_ws', { ascending: false }) as unknown as Promise<{ data: PlayerSeason[] | null }>,
+        .order('playoff_ws', { ascending: false, nullsFirst: false })
+        .order('win_shares', { ascending: false, nullsFirst: false }) as unknown as Promise<{ data: PlayerSeason[] | null }>,
       sb
         .from('championship_ingredients')
-        .select('trade_pct, draft_pct, fa_pct')
+        .select('trade_pct, draft_pct, traded_pick_pct, fa_pct')
         .eq('team_id', teamId)
         .eq('season', season)
-        .limit(1) as unknown as Promise<{ data: { trade_pct: number; draft_pct: number; fa_pct: number }[] | null }>,
+        .limit(1) as unknown as Promise<{ data: { trade_pct: number; draft_pct: number; traded_pick_pct: number | null; fa_pct: number }[] | null }>,
+      sb
+        .from('team_seasons')
+        .select('championship, playoff_result')
+        .eq('team_id', teamId)
+        .eq('season', season)
+        .limit(1) as unknown as Promise<{ data: { championship: boolean | null; playoff_result: string | null }[] | null }>,
     ]);
 
     if (!rosterSeasons || rosterSeasons.length === 0) return;
 
     const ingredients: ChampionshipIngredients | undefined = ingredientsRows?.[0]
-      ? { tradePct: ingredientsRows[0].trade_pct, draftPct: ingredientsRows[0].draft_pct, faPct: ingredientsRows[0].fa_pct }
+      ? {
+          tradePct: ingredientsRows[0].trade_pct,
+          draftPct: ingredientsRows[0].draft_pct,
+          tradedPickPct: ingredientsRows[0].traded_pick_pct ?? 0,
+          faPct: ingredientsRows[0].fa_pct,
+        }
       : undefined;
+
+    const isChampionship = teamSeasonRows?.[0]?.championship === true;
+    const madePlayoffs = !!teamSeasonRows?.[0]?.playoff_result;
 
     // 2. Batch-fetch all players' full careers in ONE query (replaces N individual queries)
     const rosterNames = [...new Set(rosterSeasons.map(ps => ps.player_name))];
@@ -3937,7 +3959,15 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const allPlayerData = (await Promise.all(playerDataPromises))
       .filter((p): p is ChampionshipPlayerData => p !== null);
 
-    allPlayerData.sort((a, b) => (b.playoffWs ?? 0) - (a.playoffWs ?? 0));
+    // Sort by playoff WS when available; fall back to regular-season WS for non-playoff rosters
+    allPlayerData.sort((a, b) => {
+      const aScore = a.playoffWs ?? -1;
+      const bScore = b.playoffWs ?? -1;
+      if (aScore !== bScore) return bScore - aScore;
+      const aWs = sum(a.allStints[a.championshipStintIndex].seasons.map(s => s.win_shares));
+      const bWs = sum(b.allStints[b.championshipStintIndex].seasons.map(s => s.win_shares));
+      return (bWs ?? 0) - (aWs ?? 0);
+    });
 
     if (allPlayerData.length === 0) return;
 
@@ -3950,6 +3980,11 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       teamInfo.color || '#9b5de5',
       allPlayerData.map(pd => {
         const champStint = pd.allStints[pd.championshipStintIndex];
+        const thisSeasonRow = champStint.seasons.find(s => s.season === season);
+        // Total WS on team = sum across this stint UP TO AND INCLUDING the target season.
+        // Future seasons (if the player is still on the team) are excluded so the stat
+        // reflects what the player had contributed by the time of this team-season.
+        const stintSeasonsThroughNow = champStint.seasons.filter(s => s.season <= season);
         return {
           playerName: pd.playerName,
           avgPpg: avg(champStint.seasons.map(s => s.ppg)),
@@ -3960,11 +3995,13 @@ export const useGraphStore = create<GraphState>((set, get) => ({
           playoffApg: pd.playoffApg,
           playoffGp: pd.playoffGp,
           playoffWs: pd.playoffWs,
-          totalWinShares: sum(champStint.seasons.map(s => s.win_shares)),
+          seasonWinShares: thisSeasonRow?.win_shares ?? null,
+          totalWinShares: sum(stintSeasonsThroughNow.map(s => s.win_shares)),
         };
       }),
       { x: 0, y: 0 },
       ingredients,
+      { isChampionship, madePlayoffs },
     );
 
     set({
