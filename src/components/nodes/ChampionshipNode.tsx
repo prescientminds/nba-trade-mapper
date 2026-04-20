@@ -385,7 +385,7 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
                 textTransform: 'uppercase',
                 letterSpacing: 0.3,
                 flexShrink: 0,
-                width: 34,
+                width: wsMode === 'stint' ? 62 : 34,
                 textAlign: 'right',
                 cursor: 'pointer',
                 userSelect: 'none',
@@ -398,6 +398,11 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
               <span style={{ color: wsMode === 'stint' ? '#ff6b35' : 'rgba(255,255,255,0.3)', fontWeight: wsMode === 'stint' ? 700 : 400, fontSize: 8 }}>
                 ∑
               </span>
+              {wsMode === 'stint' && (
+                <span style={{ color: '#ff6b35', fontSize: 6, opacity: 0.75, marginLeft: 1 }}>
+                  ({seasonEnd})
+                </span>
+              )}
               <svg width="6" height="6" viewBox="0 0 6 6" style={{ marginLeft: 1, opacity: 0.55 }}>
                 <path d="M0 2 L3 0 L6 2 M0 4 L3 6 L6 4" fill="none" stroke="currentColor" strokeWidth="0.8" />
               </svg>

@@ -74,12 +74,19 @@ async function cachedTeamSeasons(sb: ReturnType<typeof getSupabase>, teamId: str
   return result;
 }
 
+// player_contracts stores names without diacritics (Nikola Jokic, Luka Doncic),
+// while player_seasons has them (Nikola Jokić). Normalize both sides.
+function stripDiacritics(s: string): string {
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
 async function cachedPlayerContracts(sb: ReturnType<typeof getSupabase>, playerName: string): Promise<PlayerContract[]> {
   const key = playerName.toLowerCase();
   if (_playerContractsCache.has(key)) return _playerContractsCache.get(key)!;
+  const normalized = stripDiacritics(playerName);
   const { data } = await sb
     .from('player_contracts').select('*')
-    .ilike('player_name', playerName) as { data: PlayerContract[] | null };
+    .or(`player_name.ilike.${playerName},player_name.ilike.${normalized}`) as { data: PlayerContract[] | null };
   const result = data ?? [];
   if (result.length > 0) _playerContractsCache.set(key, result);
   return result;

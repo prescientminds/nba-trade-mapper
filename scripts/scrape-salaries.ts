@@ -445,10 +445,42 @@ async function scrapePlayerHistory(
   return [];
 }
 
-async function scrapeHistoricalSalaries(refresh: boolean, limit: number): Promise<SalaryRow[]> {
-  console.log('Collecting traded player names from static JSON...');
-  const playerNames = getTradedPlayerNames();
-  console.log(`  Found ${playerNames.length} unique traded players.`);
+/**
+ * Collect every distinct player_name from player_seasons (1999-present).
+ * Captures franchise players who were never traded (Jokić, Embiid, Curry
+ * pre-first-trade) — the `--historical` mode's traded-players list misses these.
+ */
+async function getAllPlayerNames(): Promise<string[]> {
+  const names = new Set<string>();
+  let from = 0;
+  while (true) {
+    const { data, error } = await supabase
+      .from('player_seasons')
+      .select('player_name')
+      .gte('season', '1999-00')
+      .range(from, from + 999);
+    if (error) throw new Error(`player_seasons fetch: ${error.message}`);
+    if (!data || data.length === 0) break;
+    for (const row of data) {
+      if (row.player_name) names.add(stripDiacritics(row.player_name));
+    }
+    if (data.length < 1000) break;
+    from += 1000;
+  }
+  return [...names].sort();
+}
+
+async function scrapeHistoricalSalaries(refresh: boolean, limit: number, allPlayers: boolean): Promise<SalaryRow[]> {
+  let playerNames: string[];
+  if (allPlayers) {
+    console.log('Collecting all player names from player_seasons (1999-present)...');
+    playerNames = await getAllPlayerNames();
+    console.log(`  Found ${playerNames.length} unique players.`);
+  } else {
+    console.log('Collecting traded player names from static JSON...');
+    playerNames = getTradedPlayerNames();
+    console.log(`  Found ${playerNames.length} unique traded players.`);
+  }
 
   const effectiveLimit = limit > 0 ? Math.min(limit, playerNames.length) : playerNames.length;
   console.log(`  Will scrape ${effectiveLimit} players.\n`);
@@ -502,6 +534,7 @@ async function main() {
   const dryRun = args.includes('--dry-run');
   const refresh = args.includes('--refresh');
   const historical = args.includes('--historical');
+  const allPlayers = args.includes('--all-players');
 
   let limit = 0;
   const limitIdx = args.indexOf('--limit');
@@ -531,9 +564,9 @@ async function main() {
       }
       await sleep(RATE_LIMIT_MS);
     }
-  } else if (historical) {
-    console.log('=== Historical Salary Scraper (BBRef Player Pages) ===\n');
-    allRows = await scrapeHistoricalSalaries(refresh, limit);
+  } else if (historical || allPlayers) {
+    console.log(`=== Historical Salary Scraper (${allPlayers ? 'all players in player_seasons' : 'traded players only'}) ===\n`);
+    allRows = await scrapeHistoricalSalaries(refresh, limit, allPlayers);
   } else {
     console.log('=== Current Contracts Scraper (BBRef Contracts Page) ===\n');
     allRows = await scrapeCurrentContracts(refresh);
