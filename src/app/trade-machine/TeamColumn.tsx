@@ -17,9 +17,29 @@ export interface RosterPlayer {
 }
 
 export interface OutgoingPick {
-  key: string;
+  pick_key: string;
   year: number;
   round: 1 | 2;
+  original_team_id: string;
+  conditional: boolean;
+  lineage: Array<{
+    trade_id: string;
+    date: string;
+    from_team_id: string | null;
+    to_team_id: string | null;
+    description_snippet: string;
+  }>;
+}
+
+/** A pick entry loaded from /data/pick-ownership.json. */
+export interface OwnedPick {
+  pick_key: string;
+  year: number;
+  round: 1 | 2;
+  original_team_id: string;
+  current_owner_team_id: string;
+  conditional: boolean;
+  lineage: OutgoingPick['lineage'];
 }
 
 export interface BuilderState {
@@ -36,12 +56,26 @@ interface Props {
   onChange: (next: BuilderState) => void;
 }
 
-const PICK_YEARS = [2026, 2027, 2028, 2029, 2030, 2031] as const;
+// Module-level cache — pick-ownership.json is static and only needs to be
+// fetched once per page load, not once per team column.
+let ownershipCache: Record<string, OwnedPick[]> | null = null;
+let ownershipPromise: Promise<Record<string, OwnedPick[]>> | null = null;
+async function loadOwnership(): Promise<Record<string, OwnedPick[]>> {
+  if (ownershipCache) return ownershipCache;
+  if (ownershipPromise) return ownershipPromise;
+  ownershipPromise = fetch('/data/pick-ownership.json')
+    .then((r) => r.json())
+    .then((j) => {
+      ownershipCache = j.teams as Record<string, OwnedPick[]>;
+      return ownershipCache!;
+    });
+  return ownershipPromise;
+}
 
 export default function TeamColumn({ label, state, otherTeamId, onChange }: Props) {
   const [loadingRoster, setLoadingRoster] = useState(false);
-  const [pickYear, setPickYear] = useState<number>(2026);
-  const [pickRound, setPickRound] = useState<1 | 2>(1);
+  const [ownedPicks, setOwnedPicks] = useState<OwnedPick[] | null>(null);
+  const [hoveredPickKey, setHoveredPickKey] = useState<string | null>(null);
 
   // Fetch roster whenever teamId changes.
   useEffect(() => {
@@ -71,6 +105,17 @@ export default function TeamColumn({ label, state, otherTeamId, onChange }: Prop
 
   const team = state.teamId ? TEAMS[state.teamId] : null;
 
+  // Load this team's owned picks whenever teamId changes.
+  useEffect(() => {
+    if (!state.teamId) { setOwnedPicks(null); return; }
+    let cancelled = false;
+    loadOwnership().then((byTeam) => {
+      if (cancelled) return;
+      setOwnedPicks(byTeam[state.teamId!] ?? []);
+    });
+    return () => { cancelled = true; };
+  }, [state.teamId]);
+
   const togglePlayer = (name: string) => {
     const next = new Set(state.selectedPlayerNames);
     if (next.has(name)) next.delete(name);
@@ -78,16 +123,26 @@ export default function TeamColumn({ label, state, otherTeamId, onChange }: Prop
     onChange({ ...state, selectedPlayerNames: next });
   };
 
-  const addPick = () => {
-    const key = `${pickYear}-r${pickRound}-${Date.now()}`;
-    onChange({
-      ...state,
-      picks: [...state.picks, { key, year: pickYear, round: pickRound }],
-    });
-  };
-
-  const removePick = (key: string) => {
-    onChange({ ...state, picks: state.picks.filter((p) => p.key !== key) });
+  const togglePick = (p: OwnedPick) => {
+    const isSelected = state.picks.some((x) => x.pick_key === p.pick_key);
+    if (isSelected) {
+      onChange({ ...state, picks: state.picks.filter((x) => x.pick_key !== p.pick_key) });
+    } else {
+      onChange({
+        ...state,
+        picks: [
+          ...state.picks,
+          {
+            pick_key: p.pick_key,
+            year: p.year,
+            round: p.round,
+            original_team_id: p.original_team_id,
+            conditional: p.conditional,
+            lineage: p.lineage,
+          },
+        ],
+      });
+    }
   };
 
   return (
@@ -238,101 +293,118 @@ export default function TeamColumn({ label, state, otherTeamId, onChange }: Prop
         )}
       </div>
 
-      {/* Picks */}
+      {/* Picks — owned pick war chest */}
       <div>
-        <SectionLabel>Outgoing picks</SectionLabel>
-        <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 8 }}>
-          <select
-            value={pickYear}
-            onChange={(e) => setPickYear(parseInt(e.target.value, 10))}
-            style={{
-              background: 'var(--bg-elevated)',
-              color: 'var(--text-primary)',
-              border: '1px solid var(--border-medium)',
-              borderRadius: 'var(--radius-sm)',
-              padding: '4px 6px',
-              fontFamily: 'var(--font-body)',
-              fontSize: 12,
-            }}
-          >
-            {PICK_YEARS.map((y) => (
-              <option key={y} value={y}>{y}</option>
-            ))}
-          </select>
-          <div style={{ display: 'flex', gap: 10, fontSize: 12, color: 'var(--text-secondary)' }}>
-            {([1, 2] as const).map((r) => (
-              <label key={r} style={{ display: 'flex', alignItems: 'center', gap: 4, cursor: 'pointer' }}>
-                <input
-                  type="radio"
-                  name={`round-${label}`}
-                  checked={pickRound === r}
-                  onChange={() => setPickRound(r)}
-                  style={{ accentColor: 'var(--accent-orange)' }}
-                />
-                Rd {r}
-              </label>
-            ))}
-          </div>
-          <button
-            type="button"
-            onClick={addPick}
-            disabled={!state.teamId}
-            style={{
-              marginLeft: 'auto',
-              background: 'var(--accent-orange)',
-              color: '#0a0a0f',
-              border: 'none',
-              borderRadius: 'var(--radius-sm)',
-              padding: '5px 10px',
-              fontFamily: 'var(--font-body)',
-              fontSize: 12,
-              fontWeight: 600,
-              cursor: state.teamId ? 'pointer' : 'not-allowed',
-              opacity: state.teamId ? 1 : 0.4,
-            }}
-          >
-            Add pick
-          </button>
-        </div>
-        {state.picks.length === 0 ? (
-          <EmptyHint>No picks added.</EmptyHint>
-        ) : (
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-            {state.picks.map((p) => (
-              <span
-                key={p.key}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 6,
-                  background: 'var(--bg-elevated)',
-                  border: '1px solid var(--border-medium)',
-                  borderRadius: 999,
-                  padding: '3px 10px',
-                  fontSize: 12,
-                  fontFamily: 'var(--font-mono)',
-                  color: 'var(--pick-yellow)',
-                }}
-              >
-                {p.year} R{p.round}
-                <button
-                  type="button"
-                  onClick={() => removePick(p.key)}
-                  aria-label={`Remove ${p.year} round ${p.round} pick`}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: 'var(--text-muted)',
-                    cursor: 'pointer',
-                    padding: 0,
-                    fontSize: 14,
-                    lineHeight: 1,
-                  }}
+        <SectionLabel>Outgoing picks · war chest</SectionLabel>
+        {!state.teamId && (
+          <EmptyHint>Pick a team to see their draft picks.</EmptyHint>
+        )}
+        {state.teamId && ownedPicks === null && (
+          <EmptyHint>Loading picks…</EmptyHint>
+        )}
+        {state.teamId && ownedPicks && ownedPicks.length === 0 && (
+          <EmptyHint>No tradeable picks for this team.</EmptyHint>
+        )}
+        {state.teamId && ownedPicks && ownedPicks.length > 0 && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 2, maxHeight: 240, overflowY: 'auto', paddingRight: 4 }}>
+            {ownedPicks.map((p) => {
+              const selected = state.picks.some((x) => x.pick_key === p.pick_key);
+              const isOwn = p.original_team_id === state.teamId;
+              const originLabel = isOwn
+                ? 'own'
+                : `via ${p.original_team_id}`;
+              const hovered = hoveredPickKey === p.pick_key;
+              return (
+                <div
+                  key={p.pick_key}
+                  style={{ position: 'relative' }}
+                  onMouseEnter={() => setHoveredPickKey(p.pick_key)}
+                  onMouseLeave={() => setHoveredPickKey(null)}
                 >
-                  ×
-                </button>
-              </span>
-            ))}
+                  <label
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: '18px 58px 1fr auto',
+                      alignItems: 'center',
+                      gap: 8,
+                      padding: '5px 8px',
+                      borderRadius: 'var(--radius-sm)',
+                      background: selected ? 'rgba(255, 107, 53, 0.1)' : 'transparent',
+                      cursor: 'pointer',
+                      transition: 'background 0.15s',
+                    }}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={selected}
+                      onChange={() => togglePick(p)}
+                      style={{ accentColor: 'var(--accent-orange)' }}
+                    />
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--pick-yellow, #f9c74f)' }}>
+                      {p.year} R{p.round}
+                    </span>
+                    <span style={{ fontSize: 11, color: isOwn ? 'var(--text-muted)' : 'var(--text-secondary)' }}>
+                      {originLabel}
+                    </span>
+                    {p.conditional && (
+                      <span
+                        title="Trade description references protection, swap, or conditional language. Structured rules not yet enforced."
+                        style={{
+                          fontSize: 8,
+                          fontWeight: 600,
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.08em',
+                          color: 'var(--accent-purple)',
+                          padding: '1px 6px',
+                          borderRadius: 999,
+                          background: 'rgba(155, 93, 229, 0.12)',
+                          border: '1px solid rgba(155, 93, 229, 0.3)',
+                        }}
+                      >
+                        cond.
+                      </span>
+                    )}
+                  </label>
+                  {hovered && p.lineage.length > 0 && (
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: '100%',
+                        left: 18,
+                        right: 0,
+                        zIndex: 10,
+                        marginTop: 2,
+                        padding: '8px 10px',
+                        background: 'var(--bg-elevated)',
+                        border: '1px solid var(--border-medium)',
+                        borderRadius: 'var(--radius-sm)',
+                        fontSize: 10,
+                        fontFamily: 'var(--font-mono)',
+                        color: 'var(--text-secondary)',
+                        lineHeight: 1.5,
+                        boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
+                      }}
+                    >
+                      <div style={{ fontSize: 9, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 4 }}>
+                        Lineage
+                      </div>
+                      {p.lineage.map((step, i) => (
+                        <div key={i} style={{ marginBottom: 2 }}>
+                          <span style={{ color: 'var(--text-muted)' }}>{step.date}</span>
+                          {' · '}
+                          {step.from_team_id} → {step.to_team_id}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+        {state.picks.length > 0 && (
+          <div style={{ marginTop: 6, fontSize: 10, color: 'var(--text-muted)' }}>
+            {state.picks.length} pick{state.picks.length === 1 ? '' : 's'} selected
           </div>
         )}
       </div>
