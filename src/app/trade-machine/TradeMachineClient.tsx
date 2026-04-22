@@ -106,6 +106,7 @@ export default function TradeMachineClient() {
           />
         </div>
 
+        <SalaryLedger left={left} right={right} />
         <LegalitySection left={left} right={right} />
 
         <ComparablesSection
@@ -268,6 +269,143 @@ function evaluateLegality(left: BuilderState, right: BuilderState): LegalityVerd
 function fmtM(dollars: number): string {
   return `${(dollars / 1e6).toFixed(1)}M`;
 }
+
+// ── Salary Ledger ─────────────────────────────────────────────────
+// Shows each side's outgoing salary, the max it can legally take back
+// under the 2023 CBA, and what it's actually taking back. Gives the
+// user live guidance on whether the trade is balanced before the
+// legality verdict flips.
+
+function SalaryLedger({ left, right }: { left: BuilderState; right: BuilderState }) {
+  const { total: leftOut, complete: leftComplete } = outgoingSalaryOf(left);
+  const { total: rightOut, complete: rightComplete } = outgoingSalaryOf(right);
+  const bothTeamsPicked = !!left.teamId && !!right.teamId;
+  const bothSendPlayers =
+    left.selectedPlayerNames.size > 0 && right.selectedPlayerNames.size > 0;
+
+  if (!bothTeamsPicked || !bothSendPlayers) return null;
+  if (!leftComplete || !rightComplete) {
+    return (
+      <section style={ledgerShell}>
+        <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>
+          Missing 2025-26 salary data for one or more selected players — legality
+          check falls back to asset-count only.
+        </div>
+      </section>
+    );
+  }
+
+  const era = getCBAEra('2026-02-01');
+  const leftMaxIn = maxIncomingSalary(leftOut, era);
+  const rightMaxIn = maxIncomingSalary(rightOut, era);
+
+  const leftOk = rightOut <= leftMaxIn;
+  const rightOk = leftOut <= rightMaxIn;
+
+  const leftTeamName = left.teamId ? TEAMS[left.teamId]?.name ?? 'Team A' : 'Team A';
+  const rightTeamName = right.teamId ? TEAMS[right.teamId]?.name ?? 'Team B' : 'Team B';
+
+  return (
+    <section style={ledgerShell}>
+      <LedgerRow
+        teamName={leftTeamName}
+        sends={leftOut}
+        maxIn={leftMaxIn}
+        actuallyTakes={rightOut}
+        ok={leftOk}
+      />
+      <LedgerRow
+        teamName={rightTeamName}
+        sends={rightOut}
+        maxIn={rightMaxIn}
+        actuallyTakes={leftOut}
+        ok={rightOk}
+      />
+    </section>
+  );
+}
+
+function LedgerRow({
+  teamName,
+  sends,
+  maxIn,
+  actuallyTakes,
+  ok,
+}: {
+  teamName: string;
+  sends: number;
+  maxIn: number;
+  actuallyTakes: number;
+  ok: boolean;
+}) {
+  const overshoot = actuallyTakes - maxIn;
+  const color = ok ? 'var(--accent-green)' : 'var(--accent-red)';
+  return (
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '18px 1fr auto auto auto',
+        alignItems: 'center',
+        gap: 12,
+        padding: '8px 12px',
+        borderRadius: 'var(--radius-sm)',
+        background: ok ? 'rgba(6,214,160,0.06)' : 'rgba(239,71,111,0.08)',
+      }}
+    >
+      <span style={{ color, fontSize: 14, fontWeight: 700 }}>{ok ? '✓' : '✗'}</span>
+      <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-primary)' }}>
+        {teamName}
+      </span>
+      <LedgerStat label="Sends" value={`$${fmtM(sends)}`} />
+      <LedgerStat label="Max incoming" value={`$${fmtM(maxIn)}`} />
+      <LedgerStat
+        label={ok ? 'Taking back' : `Over by $${fmtM(Math.max(0, overshoot))}`}
+        value={`$${fmtM(actuallyTakes)}`}
+        emphasize={!ok}
+      />
+    </div>
+  );
+}
+
+function LedgerStat({
+  label,
+  value,
+  emphasize,
+}: {
+  label: string;
+  value: string;
+  emphasize?: boolean;
+}) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', minWidth: 90 }}>
+      <span
+        style={{
+          fontSize: 9,
+          color: emphasize ? 'var(--accent-red)' : 'var(--text-muted)',
+          textTransform: 'uppercase',
+          letterSpacing: '0.06em',
+          fontWeight: 600,
+        }}
+      >
+        {label}
+      </span>
+      <span style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--text-primary)' }}>
+        {value}
+      </span>
+    </div>
+  );
+}
+
+const ledgerShell: React.CSSProperties = {
+  marginTop: 20,
+  padding: '10px 12px',
+  borderRadius: 'var(--radius-md)',
+  background: 'var(--bg-card)',
+  border: '1px solid var(--border-subtle)',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 8,
+};
 
 function LegalitySection({
   left,
@@ -438,17 +576,23 @@ function ComparablesSection({
 }
 
 function ComparableCard({ comparable, year }: { comparable: Comparable; year: number | null }) {
+  const [expanded, setExpanded] = useState(false);
   const pct = Math.round(comparable.matchScore * 100);
+  const factors = comparable.factors;
+
   return (
     <div
+      onClick={() => setExpanded((v) => !v)}
       style={{
         padding: 14,
         background: 'var(--bg-card)',
-        border: '1px solid var(--border-subtle)',
+        border: `1px solid ${expanded ? 'var(--accent-orange)' : 'var(--border-subtle)'}`,
         borderRadius: 'var(--radius-md)',
         display: 'flex',
         flexDirection: 'column',
         gap: 8,
+        cursor: 'pointer',
+        transition: 'border-color 0.15s',
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 8 }}>
@@ -474,33 +618,173 @@ function ComparableCard({ comparable, year }: { comparable: Comparable; year: nu
           {pct}% match
         </div>
       </div>
+
       {year != null && (
         <div style={{ fontSize: 11, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
           {year - 1}-{String(year).slice(-2)}
         </div>
       )}
-      {comparable.outcomeSummary && (
-        <div style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-          {comparable.outcomeSummary}
-        </div>
+
+      {/* Always-on factor chips */}
+      {factors && <FactorChips factors={factors} />}
+
+      {/* Click-to-expand rationale */}
+      {expanded && factors && (
+        <ExpandedRationale
+          factors={factors}
+          outcomeSummary={comparable.outcomeSummary}
+          motivation={comparable.motivation}
+          tradeId={comparable.id}
+        />
       )}
-      {comparable.motivation && (
+
+      {!expanded && (
         <div
           style={{
-            alignSelf: 'flex-start',
             fontSize: 10,
-            textTransform: 'uppercase',
-            letterSpacing: '0.08em',
-            color: 'var(--accent-purple)',
-            padding: '3px 7px',
-            borderRadius: 999,
-            background: 'rgba(155, 93, 229, 0.12)',
-            border: '1px solid rgba(155, 93, 229, 0.3)',
+            color: 'var(--text-muted)',
+            fontStyle: 'italic',
+            marginTop: 2,
           }}
         >
-          {comparable.motivation.replace(/_/g, ' ')}
+          click for details
         </div>
       )}
+    </div>
+  );
+}
+
+function FactorChips({ factors }: { factors: NonNullable<Comparable['factors']> }) {
+  const chipStyle: React.CSSProperties = {
+    fontSize: 10,
+    fontFamily: 'var(--font-mono)',
+    color: 'var(--text-secondary)',
+    background: 'rgba(255,255,255,0.04)',
+    padding: '2px 7px',
+    borderRadius: 999,
+    border: '1px solid var(--border-subtle)',
+    whiteSpace: 'nowrap',
+  };
+  const bpm = factors.bpmDelta;
+  const age = factors.ageDelta;
+  const era = factors.eraGap;
+  return (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
+      <span style={chipStyle}>
+        ΔBPM {bpm == null ? '—' : (Math.abs(bpm) < 0.05 ? '0.0' : bpm.toFixed(1))}
+      </span>
+      <span style={chipStyle}>
+        Δage {age === 0 ? '0' : (age > 0 ? `+${age}` : `${age}`)}y
+      </span>
+      <span style={chipStyle}>
+        {era === 0 ? 'same yr' : `${Math.abs(era)}y era`}
+      </span>
+    </div>
+  );
+}
+
+function rationaleSentence(factors: NonNullable<Comparable['factors']>): string {
+  const p = factors.proposedAnchor;
+  const c = factors.candidateAnchor;
+  const bpmPart =
+    factors.bpmDelta == null
+      ? `${p.name} (age ${p.age}) and ${c.name} (age ${c.age})`
+      : `${p.name} (age ${p.age}, ${fmtBpm(p.bpm)} BPM) and ${c.name} (age ${c.age}, ${fmtBpm(c.bpm)} BPM)`;
+  const eraAbs = Math.abs(factors.eraGap);
+  const eraPart =
+    factors.eraGap === 0
+      ? 'same era'
+      : `${eraAbs} year${eraAbs === 1 ? '' : 's'} ${factors.eraGap > 0 ? 'later' : 'earlier'}`;
+  return `Anchors ${bpmPart} — ${eraPart}.`;
+}
+
+function fmtBpm(x: number | null): string {
+  if (x == null) return '—';
+  return x > 0 ? `+${x.toFixed(1)}` : x.toFixed(1);
+}
+
+function ExpandedRationale({
+  factors,
+  outcomeSummary,
+  motivation,
+  tradeId,
+}: {
+  factors: NonNullable<Comparable['factors']>;
+  outcomeSummary?: string;
+  motivation?: string;
+  tradeId: string;
+}) {
+  return (
+    <div
+      onClick={(e) => e.stopPropagation()}
+      style={{
+        marginTop: 6,
+        padding: '10px 12px',
+        background: 'rgba(255,107,53,0.05)',
+        border: '1px solid rgba(255,107,53,0.2)',
+        borderRadius: 'var(--radius-sm)',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 8,
+      }}
+    >
+      <div style={{ fontSize: 11, color: 'var(--accent-orange)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+        Why this match
+      </div>
+      <div style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+        {rationaleSentence(factors)}
+      </div>
+
+      {outcomeSummary && (
+        <div
+          style={{
+            fontSize: 12,
+            color: 'var(--text-tertiary)',
+            paddingTop: 6,
+            borderTop: '1px solid var(--border-subtle)',
+          }}
+        >
+          <span style={{ color: 'var(--text-muted)', marginRight: 6 }}>Outcome:</span>
+          {outcomeSummary}
+        </div>
+      )}
+
+      {motivation && (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+          <span style={{ fontSize: 10, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+            Tagged:
+          </span>
+          <span
+            style={{
+              fontSize: 10,
+              textTransform: 'uppercase',
+              letterSpacing: '0.08em',
+              color: 'var(--accent-purple)',
+              padding: '2px 7px',
+              borderRadius: 999,
+              background: 'rgba(155, 93, 229, 0.12)',
+              border: '1px solid rgba(155, 93, 229, 0.3)',
+            }}
+          >
+            {motivation.replace(/_/g, ' ')}
+          </span>
+        </div>
+      )}
+
+      <a
+        href={`/?t=${tradeId}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          fontSize: 11,
+          color: 'var(--accent-orange)',
+          textDecoration: 'none',
+          alignSelf: 'flex-start',
+        }}
+      >
+        Open this trade in the graph →
+      </a>
     </div>
   );
 }

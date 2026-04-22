@@ -57,6 +57,24 @@ export interface TradeProfile {
   headline?: string;
 }
 
+export interface AnchorSummary {
+  name: string;
+  age: number;
+  bpm: number | null;
+}
+
+/** Deltas between the tightest proposed→candidate anchor pairing. */
+export interface MatchFactors {
+  proposedAnchor: AnchorSummary;
+  candidateAnchor: AnchorSummary;
+  /** proposed.bpm − candidate.bpm (null if either side has no BPM). */
+  bpmDelta: number | null;
+  /** proposed.age − candidate.age. */
+  ageDelta: number;
+  /** proposed.year − candidate.year (positive = proposed is newer). */
+  eraGap: number;
+}
+
 export interface Comparable {
   id: string;
   /** 0..1 within the returned set. 1 = closest, 0 = furthest among top N. */
@@ -64,6 +82,10 @@ export interface Comparable {
   motivation?: MotivationFlag;
   headline?: string;
   outcomeSummary?: string;
+  /** Year of the candidate trade — passed through so the UI doesn't have to look it up. */
+  year?: number;
+  /** Tightest anchor pairing, used for UI chips + expanded rationale. */
+  factors?: MatchFactors;
 }
 
 // ── Anchors ──────────────────────────────────────────────────────────
@@ -97,11 +119,18 @@ function anchorDistance(a: PlayerProfile, b: PlayerProfile): number {
   return Math.sqrt(WEIGHT_BPM * dBpm * dBpm + WEIGHT_AGE * dAge * dAge);
 }
 
-/** Mean anchor-pair distance between two trades, with era penalty. */
-export function tradeDistance(
+function toAnchorSummary(p: PlayerProfile): AnchorSummary {
+  return { name: p.name, age: p.age, bpm: p.bpm };
+}
+
+/**
+ * Pair proposed anchors → candidate anchors greedily, return the mean anchor
+ * distance (with era penalty) plus the tightest pairing for UI display.
+ */
+export function tradeMatch(
   proposed: TradeProfile,
   candidate: TradeProfile,
-): number {
+): { distance: number; factors: MatchFactors | null } {
   const pAnchors = proposed.sides
     .map((s) => anchorPlayer(s.players))
     .filter((p): p is PlayerProfile => p !== null);
@@ -109,11 +138,15 @@ export function tradeDistance(
     .map((s) => anchorPlayer(s.players))
     .filter((p): p is PlayerProfile => p !== null);
 
-  if (pAnchors.length === 0 || cAnchors.length === 0) return Infinity;
+  if (pAnchors.length === 0 || cAnchors.length === 0) {
+    return { distance: Infinity, factors: null };
+  }
 
   const used = new Set<number>();
   let total = 0;
   let matched = 0;
+  let tightest: { p: PlayerProfile; c: PlayerProfile; d: number } | null = null;
+
   for (const p of pAnchors) {
     let bestIdx = -1;
     let bestDist = Infinity;
@@ -126,12 +159,37 @@ export function tradeDistance(
     used.add(bestIdx);
     total += bestDist;
     matched += 1;
+    if (!tightest || bestDist < tightest.d) {
+      tightest = { p, c: cAnchors[bestIdx], d: bestDist };
+    }
   }
-  if (matched === 0) return Infinity;
+  if (matched === 0 || !tightest) return { distance: Infinity, factors: null };
 
   const mean = total / matched;
   const eraPenalty = 1 + Math.abs(proposed.year - candidate.year) / 30;
-  return mean * eraPenalty;
+
+  const bpmDelta =
+    tightest.p.bpm != null && tightest.c.bpm != null
+      ? tightest.p.bpm - tightest.c.bpm
+      : null;
+
+  const factors: MatchFactors = {
+    proposedAnchor: toAnchorSummary(tightest.p),
+    candidateAnchor: toAnchorSummary(tightest.c),
+    bpmDelta,
+    ageDelta: tightest.p.age - tightest.c.age,
+    eraGap: proposed.year - candidate.year,
+  };
+
+  return { distance: mean * eraPenalty, factors };
+}
+
+/** Mean anchor-pair distance between two trades, with era penalty. */
+export function tradeDistance(
+  proposed: TradeProfile,
+  candidate: TradeProfile,
+): number {
+  return tradeMatch(proposed, candidate).distance;
 }
 
 // ── Main ─────────────────────────────────────────────────────────────
@@ -154,7 +212,10 @@ export function findComparables(
 
   const scored = candidates
     .filter((c) => c.id !== proposed.id)
-    .map((c) => ({ trade: c, distance: tradeDistance(proposed, c) }))
+    .map((c) => {
+      const { distance, factors } = tradeMatch(proposed, c);
+      return { trade: c, distance, factors };
+    })
     .filter((s) => Number.isFinite(s.distance))
     .sort((a, b) => a.distance - b.distance)
     .slice(0, topN);
@@ -170,5 +231,7 @@ export function findComparables(
     motivation: s.trade.motivation,
     headline: s.trade.headline,
     outcomeSummary: s.trade.outcomeSummary,
+    year: s.trade.year,
+    factors: s.factors ?? undefined,
   }));
 }

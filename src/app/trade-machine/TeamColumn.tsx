@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { getSupabase } from '@/lib/supabase';
 import { TEAMS, TEAM_LIST } from '@/lib/teams';
+import BPMExplainer from './BPMExplainer';
 
 const CURRENT_SEASON = '2025-26';
 
@@ -165,64 +166,74 @@ export default function TeamColumn({ label, state, otherTeamId, onChange }: Prop
           <EmptyHint>No 2025-26 roster data for this team.</EmptyHint>
         )}
         {state.roster.length > 0 && (
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 2,
-              maxHeight: 280,
-              overflowY: 'auto',
-              paddingRight: 4,
-            }}
-          >
-            {state.roster.map((p) => {
-              const selected = state.selectedPlayerNames.has(p.player_name);
-              return (
-                <label
-                  key={p.player_name}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 8,
-                    padding: '6px 8px',
-                    borderRadius: 'var(--radius-sm)',
-                    background: selected ? 'rgba(255, 107, 53, 0.1)' : 'transparent',
-                    cursor: 'pointer',
-                    transition: 'background 0.15s',
-                  }}
-                >
-                  <input
-                    type="checkbox"
-                    checked={selected}
-                    onChange={() => togglePlayer(p.player_name)}
-                    style={{ accentColor: 'var(--accent-orange)' }}
-                  />
-                  <span
+          <div>
+            <RosterHeader />
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 2,
+                maxHeight: 280,
+                overflowY: 'auto',
+                paddingRight: 4,
+              }}
+            >
+              {state.roster.map((p) => {
+                const selected = state.selectedPlayerNames.has(p.player_name);
+                return (
+                  <label
+                    key={p.player_name}
                     style={{
-                      flex: 1,
-                      fontSize: 13,
-                      color: selected ? 'var(--text-primary)' : 'var(--text-secondary)',
+                      display: 'grid',
+                      gridTemplateColumns: '18px 1fr 30px 44px 56px',
+                      alignItems: 'center',
+                      gap: 6,
+                      padding: '6px 8px',
+                      borderRadius: 'var(--radius-sm)',
+                      background: selected ? 'rgba(255, 107, 53, 0.1)' : 'transparent',
+                      cursor: 'pointer',
+                      transition: 'background 0.15s',
                     }}
                   >
-                    {p.player_name}
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: 10,
-                      color: 'var(--text-muted)',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    {p.age != null ? `${p.age}` : '—'}
-                    {' · '}
-                    {p.bpm != null ? `${p.bpm.toFixed(1)} BPM` : '— BPM'}
-                    {' · '}
-                    {p.salary != null ? `$${(p.salary / 1e6).toFixed(1)}M` : '—'}
-                  </span>
-                </label>
-              );
-            })}
+                    <input
+                      type="checkbox"
+                      checked={selected}
+                      onChange={() => togglePlayer(p.player_name)}
+                      style={{ accentColor: 'var(--accent-orange)' }}
+                    />
+                    <span
+                      style={{
+                        fontSize: 13,
+                        color: selected ? 'var(--text-primary)' : 'var(--text-secondary)',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      {p.player_name}
+                    </span>
+                    <span style={statCellStyle}>
+                      {p.age != null ? p.age : '—'}
+                    </span>
+                    <span
+                      style={{
+                        ...statCellStyle,
+                        color: p.bpm == null ? 'var(--text-muted)'
+                          : p.bpm >= 5 ? '#6ee0d8'
+                          : p.bpm >= 0 ? 'var(--text-secondary)'
+                          : '#d88a88',
+                        fontWeight: p.bpm != null && p.bpm >= 5 ? 700 : 400,
+                      }}
+                    >
+                      {p.bpm != null ? (p.bpm > 0 ? `+${p.bpm.toFixed(1)}` : p.bpm.toFixed(1)) : '—'}
+                    </span>
+                    <span style={statCellStyle}>
+                      {p.salary != null ? `$${(p.salary / 1e6).toFixed(1)}M` : '—'}
+                    </span>
+                  </label>
+                );
+              })}
+            </div>
           </div>
         )}
       </div>
@@ -429,6 +440,54 @@ function EmptyHint({ children }: { children: React.ReactNode }) {
     <div style={{ fontSize: 12, color: 'var(--text-muted)', padding: '4px 0' }}>
       {children}
     </div>
+  );
+}
+
+const statCellStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-mono)',
+  fontSize: 11,
+  color: 'var(--text-muted)',
+  whiteSpace: 'nowrap',
+  textAlign: 'right',
+};
+
+function RosterHeader() {
+  const [explainerOpen, setExplainerOpen] = useState(false);
+  const headerStyle: React.CSSProperties = {
+    fontFamily: 'var(--font-body)',
+    fontSize: 9,
+    fontWeight: 600,
+    letterSpacing: '0.08em',
+    textTransform: 'uppercase',
+    color: 'var(--text-muted)',
+    textAlign: 'right',
+  };
+  return (
+    <>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '18px 1fr 30px 44px 56px',
+          gap: 6,
+          padding: '4px 8px',
+          borderBottom: '1px solid var(--border-subtle)',
+          marginBottom: 4,
+        }}
+      >
+        <span />
+        <span style={{ ...headerStyle, textAlign: 'left' }}>Player</span>
+        <span style={headerStyle}>Age</span>
+        <span
+          style={{ ...headerStyle, cursor: 'pointer', color: 'var(--text-secondary)' }}
+          onClick={(e) => { e.preventDefault(); setExplainerOpen(true); }}
+          title="What is BPM? Click to learn more."
+        >
+          BPM <span style={{ color: 'var(--accent-orange)', marginLeft: 1 }}>ⓘ</span>
+        </span>
+        <span style={headerStyle}>Salary</span>
+      </div>
+      {explainerOpen && <BPMExplainer onClose={() => setExplainerOpen(false)} />}
+    </>
   );
 }
 
