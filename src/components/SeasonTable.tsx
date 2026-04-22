@@ -300,6 +300,7 @@ export function SeasonTable({ rows, onHeightChange, chartSignal = 0, currentSeas
         <col style={{ width: 25 }} />{/* PPG */}
         <col style={{ width: 25 }} />{/* RPG */}
         <col style={{ width: 26 }} />{/* APG */}
+        <col style={{ width: 28 }} />{/* BPM */}
         <col style={{ width: 28 }} />{/* WS  */}
         <col />                       {/* Accolades — all remaining width */}
       </colgroup>
@@ -310,6 +311,7 @@ export function SeasonTable({ rows, onHeightChange, chartSignal = 0, currentSeas
           <th style={thStyle}>PPG</th>
           <th style={thStyle}>RPG</th>
           <th style={thStyle}>APG</th>
+          <th style={thStyle} title="Box Plus/Minus — per-100-possessions impact above league average">BPM</th>
           <th
             className="nopan nodrag"
             data-tour="tour-ws-header"
@@ -355,6 +357,19 @@ export function SeasonTable({ rows, onHeightChange, chartSignal = 0, currentSeas
               <td style={compactTd}>{r.ppg !== null ? r.ppg.toFixed(1) : '--'}</td>
               <td style={compactTd}>{r.rpg !== null ? r.rpg.toFixed(1) : '--'}</td>
               <td style={compactTd}>{r.apg !== null ? r.apg.toFixed(1) : '--'}</td>
+              <td
+                style={{
+                  ...compactTd,
+                  color: r.bpm === null ? 'var(--text-muted)'
+                    : r.bpm >= 5 ? '#6ee0d8'
+                    : r.bpm >= 0 ? '#fff'
+                    : '#d88a88',
+                  fontWeight: r.bpm !== null && r.bpm >= 5 ? 700 : 400,
+                }}
+                title="Box Plus/Minus"
+              >
+                {r.bpm !== null ? (r.bpm > 0 ? `+${r.bpm.toFixed(1)}` : r.bpm.toFixed(1)) : '--'}
+              </td>
               <td style={{ ...compactTd, fontWeight: 700, color: '#fff' }}>{r.winShares !== null ? r.winShares.toFixed(1) : '--'}</td>
               <td style={{ ...compactTd, textAlign: 'left', paddingLeft: 3, overflow: 'hidden' }}>
                 <span data-tour={r.season === richestSeason ? 'tour-accolades-row' : undefined} style={{ display: 'inline-flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>

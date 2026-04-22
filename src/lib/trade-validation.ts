@@ -12,14 +12,15 @@
 
 // ── CBA Eras ────────────────────────────────────────────────────────
 
-export type CBAEra = '2005' | '2011' | '2017' | '2023';
+export type CBAEra = '1999' | '2005' | '2011' | '2017' | '2023';
 
 export function getCBAEra(tradeDate: string): CBAEra {
   // CBA effective dates (approximate — based on ratification, not season start)
   if (tradeDate >= '2023-07-01') return '2023';
   if (tradeDate >= '2017-07-01') return '2017';
   if (tradeDate >= '2011-12-01') return '2011';  // 2011 lockout ended Dec 2011
-  return '2005';
+  if (tradeDate >= '2005-07-01') return '2005';
+  return '1999';  // 1999 CBA: flat 125% + $100K, no tiered brackets
 }
 
 // ── Salary matching rules per CBA era ───────────────────────────────
@@ -41,9 +42,14 @@ interface CBAMatchingRules {
 }
 
 const MATCHING_RULES: Record<CBAEra, CBAMatchingRules> = {
+  '1999': {
+    // 1999 CBA (post-lockout): flat 125% + $100K for all over-the-cap trades,
+    // no tiered brackets. Applies Jan 1999 through June 2005.
+    brackets: [],
+    fallback: { multiplier: 1.25, bonus: 100_000 },
+  },
   '2005': {
-    // Pre-2011: 125% + $100K (simplified — the 2005 CBA was actually more complex
-    // with different rules for taxpaying teams, but this is the standard rule)
+    // 2005 CBA added a 150% tier for outgoing salaries under ~$9.8M.
     brackets: [
       { threshold: 9_800_000, multiplier: 1.5, bonus: 100_000 },
     ],
@@ -266,19 +272,31 @@ export function validateTrade(
         ? `Above first apron — incoming ≤ outgoing (${(incomingSalary / 1e6).toFixed(1)}M ≤ ${(outgoingSalary / 1e6).toFixed(1)}M)`
         : `Above first apron — incoming $${(incomingSalary / 1e6).toFixed(1)}M exceeds outgoing $${(outgoingSalary / 1e6).toFixed(1)}M`;
     } else if (capStatus === 'above_second_apron') {
-      // Above second apron: same + cannot aggregate
+      // Above second apron (2023 CBA):
+      //   1. Incoming salary ≤ outgoing (dollar-in, dollar-out)
+      //   2. Cannot aggregate OUTGOING contracts to acquire a single bigger incoming
+      //      (e.g., Phoenix can't combine Nurkić + Little to trade for one $24M player).
+      //      Practical test: no single incoming salary can exceed the largest single
+      //      outgoing salary. If it does, matching would require combining outgoings.
       maxAllowedIncoming = outgoingSalary;
-      isLegal = incomingSalary <= outgoingSalary;
-      if (isLegal && incomingPlayers.length > 1) {
-        // Check aggregation rule: cannot combine multiple incoming players' salaries
-        // to match a single outgoing player. Each incoming player must individually
-        // match against an outgoing player's salary.
-        reason = `Above second apron — no aggregation allowed (${incomingPlayers.length} incoming players)`;
-        // Simplified: flag but don't block (full aggregation check is complex)
+      const totalCapOk = incomingSalary <= outgoingSalary;
+
+      const maxOutgoing = outgoingPlayers.length > 0
+        ? Math.max(...outgoingPlayers.map(p => p.salary))
+        : 0;
+      const maxIncoming = incomingPlayers.length > 0
+        ? Math.max(...incomingPlayers.map(p => p.salary))
+        : 0;
+      const aggregationOk = maxIncoming <= maxOutgoing;
+
+      isLegal = totalCapOk && aggregationOk;
+
+      if (!totalCapOk) {
+        reason = `Above second apron — incoming $${(incomingSalary / 1e6).toFixed(1)}M exceeds outgoing $${(outgoingSalary / 1e6).toFixed(1)}M`;
+      } else if (!aggregationOk) {
+        reason = `Above second apron — illegal outgoing aggregation: largest incoming $${(maxIncoming / 1e6).toFixed(1)}M exceeds largest single outgoing $${(maxOutgoing / 1e6).toFixed(1)}M`;
       } else {
-        reason = isLegal
-          ? `Above second apron — incoming ≤ outgoing`
-          : `Above second apron — incoming exceeds outgoing`;
+        reason = `Above second apron — incoming $${(incomingSalary / 1e6).toFixed(1)}M ≤ outgoing $${(outgoingSalary / 1e6).toFixed(1)}M, no outgoing aggregation`;
       }
     } else {
       // Standard over-the-cap matching rules

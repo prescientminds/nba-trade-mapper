@@ -124,11 +124,6 @@ function statsNameVariants(name: string): string[] {
   return variants;
 }
 
-/** Strip diacritics: "Šarić" → "Saric" */
-function stripDiacritics(s: string): string {
-  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-}
-
 /**
  * Fetch player_seasons trying all name variants. When a teamId is provided,
  * prefer the variant whose seasons include that team (handles Jr/Sr mismatches
@@ -267,6 +262,7 @@ export interface SeasonDetailRow {
   ppg: number | null;
   rpg: number | null;
   apg: number | null;
+  bpm: number | null;
   winShares: number | null;
   teamWins: number | null;
   teamLosses: number | null;
@@ -319,6 +315,8 @@ export interface ChampionshipNodeData {
   teamColor: string;
   isChampionship?: boolean;
   madePlayoffs?: boolean;
+  teamWins?: number | null;
+  teamLosses?: number | null;
   ingredients?: ChampionshipIngredients;
   players: Array<{
     playerName: string;
@@ -477,7 +475,12 @@ function makeChampionshipNode(
   players: ChampionshipNodeData['players'],
   position = { x: 0, y: 0 },
   ingredients?: ChampionshipIngredients,
-  flags: { isChampionship?: boolean; madePlayoffs?: boolean } = {},
+  flags: {
+    isChampionship?: boolean;
+    madePlayoffs?: boolean;
+    teamWins?: number | null;
+    teamLosses?: number | null;
+  } = {},
 ): Node {
   return {
     id: championshipNodeId(teamId, season),
@@ -492,6 +495,8 @@ function makeChampionshipNode(
       ...(ingredients ? { ingredients } : {}),
       ...(flags.isChampionship !== undefined ? { isChampionship: flags.isChampionship } : {}),
       ...(flags.madePlayoffs !== undefined ? { madePlayoffs: flags.madePlayoffs } : {}),
+      ...(flags.teamWins !== undefined ? { teamWins: flags.teamWins } : {}),
+      ...(flags.teamLosses !== undefined ? { teamLosses: flags.teamLosses } : {}),
     } satisfies ChampionshipNodeData,
   };
 }
@@ -2815,6 +2820,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
           ppg: ss.ppg,
           rpg: ss.rpg,
           apg: ss.apg,
+          bpm: ss.bpm ?? null,
           winShares: ss.win_shares,
           teamWins: ts?.wins ?? null,
           teamLosses: ts?.losses ?? null,
@@ -3055,6 +3061,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       ppg: ss.ppg,
       rpg: ss.rpg,
       apg: ss.apg,
+      bpm: ss.bpm ?? null,
       winShares: ss.win_shares,
       teamWins: teamSeasonMap.get(ss.season)?.wins ?? null,
       teamLosses: teamSeasonMap.get(ss.season)?.losses ?? null,
@@ -3893,10 +3900,10 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         .limit(1) as unknown as Promise<{ data: { trade_pct: number; draft_pct: number; traded_pick_pct: number | null; fa_pct: number }[] | null }>,
       sb
         .from('team_seasons')
-        .select('championship, playoff_result')
+        .select('championship, playoff_result, wins, losses')
         .eq('team_id', teamId)
         .eq('season', season)
-        .limit(1) as unknown as Promise<{ data: { championship: boolean | null; playoff_result: string | null }[] | null }>,
+        .limit(1) as unknown as Promise<{ data: { championship: boolean | null; playoff_result: string | null; wins: number | null; losses: number | null }[] | null }>,
     ]);
 
     if (!rosterSeasons || rosterSeasons.length === 0) return;
@@ -3912,6 +3919,8 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
     const isChampionship = teamSeasonRows?.[0]?.championship === true;
     const madePlayoffs = !!teamSeasonRows?.[0]?.playoff_result;
+    const teamWins = teamSeasonRows?.[0]?.wins ?? null;
+    const teamLosses = teamSeasonRows?.[0]?.losses ?? null;
 
     // 2. Batch-fetch all players' full careers in ONE query (replaces N individual queries)
     const rosterNames = [...new Set(rosterSeasons.map(ps => ps.player_name))];
@@ -4008,7 +4017,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       }),
       { x: 0, y: 0 },
       ingredients,
-      { isChampionship, madePlayoffs },
+      { isChampionship, madePlayoffs, teamWins, teamLosses },
     );
 
     set({
@@ -4542,6 +4551,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       ppg: ss.ppg,
       rpg: ss.rpg,
       apg: ss.apg,
+      bpm: ss.bpm ?? null,
       winShares: ss.win_shares,
       teamWins: teamSeasonMap.get(ss.season)?.wins ?? null,
       teamLosses: teamSeasonMap.get(ss.season)?.losses ?? null,
