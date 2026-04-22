@@ -1,0 +1,1535 @@
+{
+  "generated_at": "2026-04-22T20:51:31.185Z",
+  "stats": {
+    "total_candidate_picks": 82,
+    "high": 76,
+    "medium": 5,
+    "low": 0,
+    "unparsed_pre_2019": 1,
+    "no_protection_language": 122,
+    "swap_assets": 39,
+    "did_not_convey": 9,
+    "by_rule": {
+      "least_favorable": 31,
+      "swap_right": 39,
+      "top_protected": 8,
+      "protected_unspecified": 3,
+      "most_favorable": 4
+    }
+  },
+  "picks": {
+    "2026-2-MIA": {
+      "pick_key": "2026-2-MIA",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 2nd-rd pick is least favorable of DAL, PHI, and OKC; Miami also received a trade exception",
+      "trade_id": "bbref-2022-02-09-8051d92f",
+      "trade_date": "2022-02-09",
+      "notes": []
+    },
+    "2026-1-LAC": {
+      "pick_key": "2026-1-LAC",
+      "asset_class": "pick",
+      "conditions": [],
+      "status": "pending",
+      "confidence": "unparsed",
+      "raw_snippet": "Clippers acquire Paul George from Thunder in blockbuster deal. OKC receives SGA plus historic haul of 5 first-round picks and 2 pick swaps that launched their championship rebuild.",
+      "trade_id": "bbref-2019-07-10-8993a5ee",
+      "trade_date": "2019-07-10",
+      "notes": [
+        "Pre-2019 CSV era — not parsed. Raw snippet preserved."
+      ]
+    },
+    "2026-1-HOU": {
+      "pick_key": "2026-1-HOU",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "swap_right"
+          }
+        },
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "top_protected",
+            "threshold": 4
+          }
+        }
+      ],
+      "status": "did_not_convey",
+      "confidence": "high",
+      "raw_snippet": "The Oklahoma City Thunder traded Russell Westbrook to the Houston Rockets for Chris Paul, a 2021 1st round draft pick, a 2024 1st round draft pick (Nikola Topić was later selected), a 2025 1st round draft pick and a 2026 1st round draft pick. 2024 pick is top-4 protected 2026 pick is top-4 protected",
+      "trade_id": "bbref-2019-07-16-abf34ed1",
+      "trade_date": "2019-07-16",
+      "notes": []
+    },
+    "2026-2-TOR": {
+      "pick_key": "2026-2-TOR",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 2nd-rd pick is a right to swap Houston also received a trade exception",
+      "trade_id": "bbref-2023-02-09-21cbeb42",
+      "trade_date": "2023-02-09",
+      "notes": []
+    },
+    "2026-2-LAL": {
+      "pick_key": "2026-2-LAL",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "protected_unspecified"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "medium",
+      "raw_snippet": "2026 2nd-rd pick is LAL own Miami also received multiple trade exceptions protected",
+      "trade_id": "bbref-2025-02-06-35e81698",
+      "trade_date": "2025-02-06",
+      "notes": [
+        "Protection keyword present, threshold not stated in snippet."
+      ]
+    },
+    "2027-1-MIL": {
+      "pick_key": "2027-1-MIL",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2027,
+          "rule": {
+            "kind": "top_protected",
+            "threshold": 14
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2027 1st-rd pick is MIL own 2023 top-14 protected 1st-rd pick was DEN own",
+      "trade_id": "bbref-2020-11-23-911c74b2",
+      "trade_date": "2020-11-23",
+      "notes": []
+    },
+    "2026-2-MIN": {
+      "pick_key": "2026-2-MIN",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 2nd-rd pick is a right to swap",
+      "trade_id": "bbref-2022-06-24-7a88927e",
+      "trade_date": "2022-06-24",
+      "notes": []
+    },
+    "2026-1-PHI": {
+      "pick_key": "2026-1-PHI",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "top_protected",
+            "threshold": 6
+          }
+        }
+      ],
+      "status": "did_not_convey",
+      "confidence": "high",
+      "raw_snippet": "The Philadelphia 76ers traded Al Horford, Théo Maledon, Vasilije Micić and a 2026 1st round draft pick to the Oklahoma City Thunder for Terrance Ferguson, Danny Green and Vincent Poirier. 2025 1st-rd pick (PHI own) is top-6 protected, did not convey Philadelphia also received a trade exception from ",
+      "trade_id": "bbref-2020-12-08-a8f7457a",
+      "trade_date": "2020-12-08",
+      "notes": []
+    },
+    "2026-1-BKN": {
+      "pick_key": "2026-1-BKN",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "did_not_convey",
+      "confidence": "high",
+      "raw_snippet": "In a 4-team trade, the Brooklyn Nets traded Jarrett Allen and Taurean Prince to the Cleveland Cavaliers; the Brooklyn Nets traded Rodions Kurucs, a 2021 1st round draft pick, a 2022 1st round draft pick (Tari Eason was later selected), a 2023 1st round draft pick, a 2024 1st round draft pick (Reed S",
+      "trade_id": "bbref-2021-01-16-5559381c",
+      "trade_date": "2021-01-16",
+      "notes": []
+    },
+    "2027-1-BKN": {
+      "pick_key": "2027-1-BKN",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2027,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2027 1st-rd pick is a right to swap",
+      "trade_id": "bbref-2021-01-16-5559381c",
+      "trade_date": "2021-01-16",
+      "notes": []
+    },
+    "2026-2-DET": {
+      "pick_key": "2026-2-DET",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2024-01-14-7063b64b",
+      "trade_date": "2024-01-14",
+      "notes": []
+    },
+    "2027-2-OKC": {
+      "pick_key": "2027-2-OKC",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2027,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2027 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2021-07-30-2dd604b8",
+      "trade_date": "2021-07-30",
+      "notes": []
+    },
+    "2026-2-MEM": {
+      "pick_key": "2026-2-MEM",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2024-02-08-58b7d255",
+      "trade_date": "2024-02-08",
+      "notes": []
+    },
+    "2026-2-SAS": {
+      "pick_key": "2026-2-SAS",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2025-07-09-72a136bf",
+      "trade_date": "2025-07-09",
+      "notes": []
+    },
+    "2026-2-BOS": {
+      "pick_key": "2026-2-BOS",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 2nd-rd pick is a right to swap, Memphis also received a trade exception",
+      "trade_id": "bbref-2021-09-15-cd62a210",
+      "trade_date": "2021-09-15",
+      "notes": []
+    },
+    "2026-2-NOP": {
+      "pick_key": "2026-2-NOP",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2023-02-09-e6f42c9e",
+      "trade_date": "2023-02-09",
+      "notes": []
+    },
+    "2027-2-MEM": {
+      "pick_key": "2027-2-MEM",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2027,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2027 2nd-rd pick is least favorable least favorable from HOU, IND, MIA or OKC Portland also received a trade exception",
+      "trade_id": "bbref-2022-02-09-f9f3e74b",
+      "trade_date": "2022-02-09",
+      "notes": []
+    },
+    "2028-1-BOS": {
+      "pick_key": "2028-1-BOS",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2028,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2028 1st-rd pick is a right to swap",
+      "trade_id": "bbref-2022-02-10-e0ec06ac",
+      "trade_date": "2022-02-10",
+      "notes": []
+    },
+    "2027-1-PHI": {
+      "pick_key": "2027-1-PHI",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2027,
+          "rule": {
+            "kind": "top_protected",
+            "threshold": 8
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2027 1st-rd pick is top-8 protected and could turn into cash in 2029",
+      "trade_id": "bbref-2022-02-10-e8ab0d3b",
+      "trade_date": "2022-02-10",
+      "notes": []
+    },
+    "2028-2-BOS": {
+      "pick_key": "2028-2-BOS",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2028,
+          "rule": {
+            "kind": "top_protected",
+            "threshold": 45
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2028 2nd-rd pick is top-45 protected",
+      "trade_id": "bbref-2022-02-10-69790dfc",
+      "trade_date": "2022-02-10",
+      "notes": []
+    },
+    "2028-2-DAL": {
+      "pick_key": "2028-2-DAL",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2028,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2028 2nd-rd pick is least favorable Charlotte also received a trade exception 2027 protected 1st-rd pick is DAL own",
+      "trade_id": "bbref-2024-02-08-2baa7e5a",
+      "trade_date": "2024-02-08",
+      "notes": []
+    },
+    "2028-2-LAL": {
+      "pick_key": "2028-2-LAL",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2028,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2028 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2023-01-23-248146ec",
+      "trade_date": "2023-01-23",
+      "notes": []
+    },
+    "2027-2-MIN": {
+      "pick_key": "2027-2-MIN",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2027,
+          "rule": {
+            "kind": "most_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2027 2nd-rd pick is most favorable",
+      "trade_id": "bbref-2024-06-26-808f1f1b",
+      "trade_date": "2024-06-26",
+      "notes": []
+    },
+    "2026-1-ATL": {
+      "pick_key": "2026-1-ATL",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 1st-rd pick is a right to swap",
+      "trade_id": "bbref-2022-06-30-9b3ab778",
+      "trade_date": "2022-06-30",
+      "notes": []
+    },
+    "2026-1-MIN": {
+      "pick_key": "2026-1-MIN",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 1st-rd pick is a protected right to swap Minnesota also received a trade exception",
+      "trade_id": "bbref-2026-02-03-84dd6326",
+      "trade_date": "2026-02-03",
+      "notes": []
+    },
+    "2026-2-NYK": {
+      "pick_key": "2026-2-NYK",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2024-07-06-177105ba",
+      "trade_date": "2024-07-06",
+      "notes": []
+    },
+    "2026-1-CLE": {
+      "pick_key": "2026-1-CLE",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 1st-rd pick is a right to swap",
+      "trade_id": "bbref-2022-09-03-f41e070a",
+      "trade_date": "2022-09-03",
+      "notes": []
+    },
+    "2028-1-CLE": {
+      "pick_key": "2028-1-CLE",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2028,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2028 1st-rd pick is a right to swap",
+      "trade_id": "bbref-2022-09-03-f41e070a",
+      "trade_date": "2022-09-03",
+      "notes": []
+    },
+    "2028-2-MIA": {
+      "pick_key": "2028-2-MIA",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2028,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2028 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2024-07-06-0c53e4bd",
+      "trade_date": "2024-07-06",
+      "notes": []
+    },
+    "2029-2-POR": {
+      "pick_key": "2029-2-POR",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2029,
+          "rule": {
+            "kind": "protected_unspecified"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "medium",
+      "raw_snippet": "2029 2nd-rd pick is POR own Portland also received a trade exception 2023 protected 1st-rd pick is NYK own",
+      "trade_id": "bbref-2023-02-09-7d68ff76",
+      "trade_date": "2023-02-09",
+      "notes": [
+        "Protection keyword present, threshold not stated in snippet."
+      ]
+    },
+    "2028-1-PHO": {
+      "pick_key": "2028-1-PHO",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2028,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2028 1st-rd pick is a right to swap",
+      "trade_id": "bbref-2023-06-23-c9849a9a",
+      "trade_date": "2023-06-23",
+      "notes": []
+    },
+    "2029-1-PHO": {
+      "pick_key": "2029-1-PHO",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2029,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2029 1st-rd pick is least favorable Phoenix also received a trade exception",
+      "trade_id": "bbref-2025-06-30-8d49d43b",
+      "trade_date": "2025-06-30",
+      "notes": []
+    },
+    "2029-1-DEN": {
+      "pick_key": "2029-1-DEN",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2029,
+          "rule": {
+            "kind": "top_protected",
+            "threshold": 4
+          }
+        },
+        {
+          "year": 2029,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "did_not_convey",
+      "confidence": "medium",
+      "raw_snippet": "In a 4-team trade, the Denver Nuggets traded Maxwell Lewis to the Los Angeles Lakers; the Denver Nuggets traded a 2029 1st round draft pick to the Oklahoma City Thunder; the Indiana Pacers traded Jalen Pickett and Julian Strawther to the Denver Nuggets; the Los Angeles Lakers traded Mojave King and ",
+      "trade_id": "bbref-2023-06-23-770ca966",
+      "trade_date": "2023-06-23",
+      "notes": [
+        "2 rules co-present in one clause."
+      ]
+    },
+    "2028-2-PHO": {
+      "pick_key": "2028-2-PHO",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2028,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "did_not_convey",
+      "confidence": "high",
+      "raw_snippet": "In a 3-team trade, the Indiana Pacers traded Bilal Coulibaly to the Washington Wizards; the Phoenix Suns traded a 2028 2nd round draft pick to the Indiana Pacers; the Phoenix Suns traded Chris Paul, Landry Shamet, cash, a 2024 1st round draft pick, a 2024 2nd round draft pick (Melvin Ajinça was late",
+      "trade_id": "bbref-2023-06-23-c9849a9a",
+      "trade_date": "2023-06-23",
+      "notes": []
+    },
+    "2026-1-PHO": {
+      "pick_key": "2026-1-PHO",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 1st-rd pick is least favorable",
+      "trade_id": "bbref-2026-02-05-4a8e3fa2",
+      "trade_date": "2026-02-05",
+      "notes": []
+    },
+    "2026-2-PHO": {
+      "pick_key": "2026-2-PHO",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "did_not_convey",
+      "confidence": "high",
+      "raw_snippet": "In a 3-team trade, the Indiana Pacers traded Bilal Coulibaly to the Washington Wizards; the Phoenix Suns traded a 2028 2nd round draft pick to the Indiana Pacers; the Phoenix Suns traded Chris Paul, Landry Shamet, cash, a 2024 1st round draft pick, a 2024 2nd round draft pick (Melvin Ajinça was late",
+      "trade_id": "bbref-2023-06-23-c9849a9a",
+      "trade_date": "2023-06-23",
+      "notes": []
+    },
+    "2027-2-PHX": {
+      "pick_key": "2027-2-PHX",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2027,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "did_not_convey",
+      "confidence": "high",
+      "raw_snippet": "In a 3-team trade, the Indiana Pacers traded Bilal Coulibaly to the Washington Wizards; the Phoenix Suns traded a 2028 2nd round draft pick to the Indiana Pacers; the Phoenix Suns traded Chris Paul, Landry Shamet, cash, a 2024 1st round draft pick, a 2024 2nd round draft pick (Melvin Ajinça was late",
+      "trade_id": "bbref-2023-06-23-c9849a9a",
+      "trade_date": "2023-06-23",
+      "notes": []
+    },
+    "2030-1-PHO": {
+      "pick_key": "2030-1-PHO",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2030,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2030 1st-rd pick is a right to swap",
+      "trade_id": "bbref-2023-06-23-c9849a9a",
+      "trade_date": "2023-06-23",
+      "notes": []
+    },
+    "2030-2-PHO": {
+      "pick_key": "2030-2-PHO",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2030,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "did_not_convey",
+      "confidence": "high",
+      "raw_snippet": "In a 3-team trade, the Indiana Pacers traded Bilal Coulibaly to the Washington Wizards; the Phoenix Suns traded a 2028 2nd round draft pick to the Indiana Pacers; the Phoenix Suns traded Chris Paul, Landry Shamet, cash, a 2024 1st round draft pick, a 2024 2nd round draft pick (Melvin Ajinça was late",
+      "trade_id": "bbref-2023-06-23-c9849a9a",
+      "trade_date": "2023-06-23",
+      "notes": []
+    },
+    "2029-2-WAS": {
+      "pick_key": "2029-2-WAS",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2029,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "did_not_convey",
+      "confidence": "high",
+      "raw_snippet": "In a 3-team trade, the Indiana Pacers traded Bilal Coulibaly to the Washington Wizards; the Phoenix Suns traded a 2028 2nd round draft pick to the Indiana Pacers; the Phoenix Suns traded Chris Paul, Landry Shamet, cash, a 2024 1st round draft pick, a 2024 2nd round draft pick (Melvin Ajinça was late",
+      "trade_id": "bbref-2023-06-23-c9849a9a",
+      "trade_date": "2023-06-23",
+      "notes": []
+    },
+    "2028-2-IND": {
+      "pick_key": "2028-2-IND",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2028,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2028 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2023-07-07-ce4958fc",
+      "trade_date": "2023-07-07",
+      "notes": []
+    },
+    "2029-2-IND": {
+      "pick_key": "2029-2-IND",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2029,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2029 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2023-07-07-ce4958fc",
+      "trade_date": "2023-07-07",
+      "notes": []
+    },
+    "2026-2-LAC": {
+      "pick_key": "2026-2-LAC",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "swap_right"
+          }
+        },
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "In a 3-team trade, the Los Angeles Clippers traded a 2027 1st round draft pick to the Oklahoma City Thunder; the Los Angeles Clippers traded Nicolas Batum, Robert Covington, KJ Martin, Marcus Morris, cash, a 2024 2nd round draft pick (Juan Nunez was later selected), a 2028 1st round draft pick, a 20",
+      "trade_id": "bbref-2023-11-01-1504b287",
+      "trade_date": "2023-11-01",
+      "notes": []
+    },
+    "2030-1-MEM": {
+      "pick_key": "2030-1-MEM",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2030,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2030 1st-rd pick is a right to swap",
+      "trade_id": "bbref-2023-07-11-a4fa3653",
+      "trade_date": "2023-07-11",
+      "notes": []
+    },
+    "2030-1-TOR": {
+      "pick_key": "2030-1-TOR",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2030,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2030 1st-rd pick is a right to swap",
+      "trade_id": "bbref-2023-07-12-36d6a4b7",
+      "trade_date": "2023-07-12",
+      "notes": []
+    },
+    "2028-1-MIL": {
+      "pick_key": "2028-1-MIL",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2028,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2028 1st-rd pick WAS own swap option with MIL pick (least favorable of POR, MIL picks)",
+      "trade_id": "bbref-2025-02-06-b3b81531",
+      "trade_date": "2025-02-06",
+      "notes": []
+    },
+    "2030-1-MIL": {
+      "pick_key": "2030-1-MIL",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2030,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2030 1st-rd pick is a swap",
+      "trade_id": "bbref-2023-09-27-10527046",
+      "trade_date": "2023-09-27",
+      "notes": []
+    },
+    "2027-1-LAC": {
+      "pick_key": "2027-1-LAC",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2027,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2027 1st-rd pick is a right to swap",
+      "trade_id": "bbref-2023-11-01-1504b287",
+      "trade_date": "2023-11-01",
+      "notes": []
+    },
+    "2029-1-LAC": {
+      "pick_key": "2029-1-LAC",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2029,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2029 1st-rd pick is a swap",
+      "trade_id": "bbref-2023-11-01-1504b287",
+      "trade_date": "2023-11-01",
+      "notes": []
+    },
+    "2027-1-DAL": {
+      "pick_key": "2027-1-DAL",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2027,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "The Charlotte Hornets traded P.J. Washington, a 2024 2nd round draft pick (Ariel Hukporti was later selected) and a 2028 2nd round draft pick to the Dallas Mavericks for Seth Curry, Grant Williams and a 2027 1st round draft pick. Dallas also received a trade exception 2024 2nd-rd pick is BOS own 202",
+      "trade_id": "bbref-2024-02-08-2baa7e5a",
+      "trade_date": "2024-02-08",
+      "notes": []
+    },
+    "2026-1-MEM": {
+      "pick_key": "2026-1-MEM",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 1st-rd pick is a right to swap Brooklyn also received a trade exception",
+      "trade_id": "bbref-2024-02-08-58b7d255",
+      "trade_date": "2024-02-08",
+      "notes": []
+    },
+    "2030-1-MIN": {
+      "pick_key": "2030-1-MIN",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2030,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2030 1st-rd pick is a right to swap",
+      "trade_id": "bbref-2024-06-26-2668afb4",
+      "trade_date": "2024-06-26",
+      "notes": []
+    },
+    "2029-1-HOU": {
+      "pick_key": "2029-1-HOU",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2029,
+          "rule": {
+            "kind": "most_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2029 1st-rd two most favorable of DAL, PHO, HOU",
+      "trade_id": "bbref-2024-06-26-304b4d2a",
+      "trade_date": "2024-06-26",
+      "notes": []
+    },
+    "2029-1-BKN": {
+      "pick_key": "2029-1-BKN",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2029,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2029 1st-rd least favorable of DAL, PHO, HOU HOU optioned to swap",
+      "trade_id": "bbref-2024-06-26-304b4d2a",
+      "trade_date": "2024-06-26",
+      "notes": []
+    },
+    "2030-2-NOP": {
+      "pick_key": "2030-2-NOP",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2030,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "The Orlando Magic traded Antonio Reeves to the New Orleans Pelicans for a 2030 2nd round draft pick and a 2031 2nd round draft pick. 2030 2nd round pick is a right to swap 2031 2nd round pick is a right to swap",
+      "trade_id": "bbref-2024-06-27-7884ff5c",
+      "trade_date": "2024-06-27",
+      "notes": []
+    },
+    "2031-2-NOP": {
+      "pick_key": "2031-2-NOP",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2031,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "The Orlando Magic traded Antonio Reeves to the New Orleans Pelicans for a 2030 2nd round draft pick and a 2031 2nd round draft pick. 2030 2nd round pick is a right to swap 2031 2nd round pick is a right to swap",
+      "trade_id": "bbref-2024-06-27-7884ff5c",
+      "trade_date": "2024-06-27",
+      "notes": []
+    },
+    "2027-1-NOP": {
+      "pick_key": "2027-1-NOP",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2027,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2027 1st-rd pick least favorable, Atlanta also received a trade exception",
+      "trade_id": "bbref-2024-07-06-ff685d79",
+      "trade_date": "2024-07-06",
+      "notes": []
+    },
+    "2031-2-DAL": {
+      "pick_key": "2031-2-DAL",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2031,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2031 2nd-rd pick is a right to swap Minnesota also received a trade exception",
+      "trade_id": "bbref-2024-07-06-ae1de952",
+      "trade_date": "2024-07-06",
+      "notes": []
+    },
+    "2028-1-NYK": {
+      "pick_key": "2028-1-NYK",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2028,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2028 1st-rd pick is a swap",
+      "trade_id": "bbref-2024-07-06-177105ba",
+      "trade_date": "2024-07-06",
+      "notes": []
+    },
+    "2030-2-LAC": {
+      "pick_key": "2030-2-LAC",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2030,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2030 2nd-rd pick is a right to swap",
+      "trade_id": "bbref-2024-07-18-67cc8891",
+      "trade_date": "2024-07-18",
+      "notes": []
+    },
+    "2031-2-IND": {
+      "pick_key": "2031-2-IND",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2031,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2031 2nd-rd pick is a right to swap; Memphis also received a trade exception",
+      "trade_id": "bbref-2025-07-06-95eba8cc",
+      "trade_date": "2025-07-06",
+      "notes": []
+    },
+    "2027-1-UTA": {
+      "pick_key": "2027-1-UTA",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2027,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2027 1st-rd pick (least favorable of Cavaliers, Jazz, Timberwolves picks)",
+      "trade_id": "bbref-2025-01-21-de153044",
+      "trade_date": "2025-01-21",
+      "notes": []
+    },
+    "2029-1-UTA": {
+      "pick_key": "2029-1-UTA",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2029,
+          "rule": {
+            "kind": "top_protected",
+            "threshold": 5
+          }
+        },
+        {
+          "year": 2029,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "medium",
+      "raw_snippet": "2029 1st-rd pick (least favorable of Cavaliers, Jazz, Timberwolves (protected top 5) picks)",
+      "trade_id": "bbref-2025-01-21-de153044",
+      "trade_date": "2025-01-21",
+      "notes": [
+        "2 rules co-present in one clause."
+      ]
+    },
+    "2030-2-UTA": {
+      "pick_key": "2030-2-UTA",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2030,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2030 2nd-rd pick is a right to swap",
+      "trade_id": "bbref-2025-02-01-7488b584",
+      "trade_date": "2025-02-01",
+      "notes": []
+    },
+    "2031-2-OKC": {
+      "pick_key": "2031-2-OKC",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2031,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2031 2nd-rd pick is a right to swap New Orleans also received a trade exception",
+      "trade_id": "bbref-2025-02-05-0f6d2469",
+      "trade_date": "2025-02-05",
+      "notes": []
+    },
+    "2027-2-BOS": {
+      "pick_key": "2027-2-BOS",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2027,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2027 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2025-02-06-f0fe952f",
+      "trade_date": "2025-02-06",
+      "notes": []
+    },
+    "2031-2-HOU": {
+      "pick_key": "2031-2-HOU",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2031,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2031 2nd-rd pick is a right to swap Atlanta also received a trade exception",
+      "trade_id": "bbref-2025-07-06-9175421d",
+      "trade_date": "2025-07-06",
+      "notes": []
+    },
+    "2026-2-WAS": {
+      "pick_key": "2026-2-WAS",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "top_protected",
+            "threshold": 55
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 2nd-rd pick protected top 55",
+      "trade_id": "bbref-2025-02-06-b3b81531",
+      "trade_date": "2025-02-06",
+      "notes": []
+    },
+    "2026-1-GSW": {
+      "pick_key": "2026-1-GSW",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 1st-rd pick is least favorable",
+      "trade_id": "bbref-2025-02-06-a1d36d66",
+      "trade_date": "2025-02-06",
+      "notes": []
+    },
+    "2026-1-ORL": {
+      "pick_key": "2026-1-ORL",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 1st-rd pick is a right to swap",
+      "trade_id": "bbref-2025-06-15-36df98fc",
+      "trade_date": "2025-06-15",
+      "notes": []
+    },
+    "2029-1-ORL": {
+      "pick_key": "2029-1-ORL",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2029,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2029 1st-rd pick is a right to swap",
+      "trade_id": "bbref-2025-06-15-36df98fc",
+      "trade_date": "2025-06-15",
+      "notes": []
+    },
+    "2026-1-NOP": {
+      "pick_key": "2026-1-NOP",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "most_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 1st-rd pick is most favorable of NOP and MIL",
+      "trade_id": "bbref-2025-06-25-66f4b79a",
+      "trade_date": "2025-06-25",
+      "notes": []
+    },
+    "2027-1-SAC": {
+      "pick_key": "2027-1-SAC",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2027,
+          "rule": {
+            "kind": "protected_unspecified"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "medium",
+      "raw_snippet": "2027 1st-rd pick is protected",
+      "trade_id": "bbref-2025-06-25-a5e820d6",
+      "trade_date": "2025-06-25",
+      "notes": [
+        "Protection keyword present, threshold not stated in snippet."
+      ]
+    },
+    "2026-2-ORL": {
+      "pick_key": "2026-2-ORL",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "most_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 2nd-rd pick is most favorable",
+      "trade_id": "bbref-2025-06-26-3224780d",
+      "trade_date": "2025-06-26",
+      "notes": []
+    },
+    "2027-2-ORL": {
+      "pick_key": "2027-2-ORL",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2027,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2027 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2026-02-04-8f8e01d8",
+      "trade_date": "2026-02-04",
+      "notes": []
+    },
+    "2026-2-HOU": {
+      "pick_key": "2026-2-HOU",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2025-07-06-9175421d",
+      "trade_date": "2025-07-06",
+      "notes": []
+    },
+    "2031-2-CLE": {
+      "pick_key": "2031-2-CLE",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2031,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2031 2nd-rd pick is a right to swap",
+      "trade_id": "bbref-2026-02-05-a664a74a",
+      "trade_date": "2026-02-05",
+      "notes": []
+    },
+    "2029-2-DET": {
+      "pick_key": "2029-2-DET",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2029,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2029 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2025-07-07-31e0dda5",
+      "trade_date": "2025-07-07",
+      "notes": []
+    },
+    "2026-2-CLE": {
+      "pick_key": "2026-2-CLE",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2026-02-05-a664a74a",
+      "trade_date": "2026-02-05",
+      "notes": []
+    },
+    "2032-2-PHI": {
+      "pick_key": "2032-2-PHI",
+      "asset_class": "swap",
+      "conditions": [
+        {
+          "year": 2032,
+          "rule": {
+            "kind": "swap_right"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2032 2nd-rd pick is a swap",
+      "trade_id": "bbref-2026-02-05-ece51cdf",
+      "trade_date": "2026-02-05",
+      "notes": []
+    },
+    "2032-2-DEN": {
+      "pick_key": "2032-2-DEN",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2032,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "The Denver Nuggets traded Hunter Tyson and a 2032 2nd round draft pick to the Brooklyn Nets for a 2026 2nd round draft pick. Denver received a trade exception 2026 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2026-02-05-a117b6d6",
+      "trade_date": "2026-02-05",
+      "notes": []
+    },
+    "2026-2-BKN": {
+      "pick_key": "2026-2-BKN",
+      "asset_class": "pick",
+      "conditions": [
+        {
+          "year": 2026,
+          "rule": {
+            "kind": "least_favorable"
+          }
+        }
+      ],
+      "status": "pending",
+      "confidence": "high",
+      "raw_snippet": "2026 2nd-rd pick is least favorable",
+      "trade_id": "bbref-2026-02-05-a117b6d6",
+      "trade_date": "2026-02-05",
+      "notes": []
+    }
+  }
+}

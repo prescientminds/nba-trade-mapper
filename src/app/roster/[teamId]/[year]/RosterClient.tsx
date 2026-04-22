@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { ReactFlowProvider } from '@xyflow/react';
 import MainGraphCanvas from '@/components/MainGraphCanvas';
 import { useGraphStore } from '@/lib/graph-store';
@@ -57,6 +58,32 @@ export default function RosterClient({ teamId, season }: Props) {
     <ReactFlowProvider>
       <RosterSeeder teamId={teamId} season={season} />
       <MainGraphCanvas />
+      {/* Build Trade entry — top-right overlay above the React Flow canvas */}
+      <Link
+        href={`/trade-machine?from=${teamId}`}
+        style={{
+          position: 'fixed',
+          top: 12,
+          right: 12,
+          zIndex: 50,
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: 6,
+          padding: '7px 12px',
+          background: 'var(--accent-orange)',
+          color: '#0a0a0f',
+          textDecoration: 'none',
+          fontFamily: 'var(--font-body)',
+          fontSize: 12,
+          fontWeight: 700,
+          letterSpacing: '0.05em',
+          textTransform: 'uppercase',
+          borderRadius: 'var(--radius-sm)',
+          boxShadow: '0 4px 14px rgba(255, 107, 53, 0.35)',
+        }}
+      >
+        Build Trade
+      </Link>
     </ReactFlowProvider>
   );
 }

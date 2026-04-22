@@ -70,6 +70,8 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
     ingredients,
     isChampionship,
     madePlayoffs,
+    teamWins,
+    teamLosses,
   } = data as ChampionshipNodeData;
 
   // When seedChampionshipRoster predates the flag, fall back to presence of playoff data
@@ -300,19 +302,42 @@ function ChampionshipNodeComponent({ id, data }: NodeProps) {
         </span>
       </div>
 
-      {/* Team name */}
+      {/* Team name + record */}
       <div
         style={{
-          fontFamily: 'var(--font-display)',
-          fontSize: 13,
-          fontWeight: 700,
-          color: 'var(--text-primary)',
-          letterSpacing: 0.3,
-          lineHeight: 1.2,
+          display: 'flex',
+          alignItems: 'baseline',
+          gap: 6,
           marginBottom: 2,
         }}
       >
-        {teamName}
+        <div
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 13,
+            fontWeight: 700,
+            color: 'var(--text-primary)',
+            letterSpacing: 0.3,
+            lineHeight: 1.2,
+          }}
+        >
+          {teamName}
+        </div>
+        {teamWins != null && teamLosses != null && (
+          <div
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 9,
+              fontWeight: 600,
+              color: teamWins > teamLosses ? '#6ee0d8' : 'var(--text-muted)',
+              letterSpacing: 0.2,
+              whiteSpace: 'nowrap',
+            }}
+            title="Regular-season record"
+          >
+            {teamWins}-{teamLosses}
+          </div>
+        )}
       </div>
 
       {/* Ingredients bar — trade / draft / FA breakdown */}
