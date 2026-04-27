@@ -16,7 +16,8 @@ CREATE OR REPLACE FUNCTION create_shared_graph(
 )
 RETURNS void
 LANGUAGE plpgsql
-SECURITY INVOKER
+SECURITY DEFINER
+SET search_path = public
 AS $$
 BEGIN
   -- Reject oversized payloads (max 50KB for share_state)

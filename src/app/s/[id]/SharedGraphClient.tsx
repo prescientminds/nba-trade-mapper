@@ -12,10 +12,12 @@ import {
 import '@xyflow/react/dist/style.css';
 
 import { useGraphStore } from '@/lib/graph-store';
+import type { ChainTeamData } from '@/lib/graph-store';
 import { loadSharedGraph } from '@/lib/share';
 import type { ShareState } from '@/lib/share';
 import { loadTrade, staticTradeToTradeWithDetails } from '@/lib/trade-data';
 import { useMobile } from '@/lib/use-mobile';
+import { getSupabase } from '@/lib/supabase';
 
 import TradeNode from '@/components/nodes/TradeNode';
 import PlayerNode from '@/components/nodes/PlayerNode';
@@ -133,10 +135,13 @@ function ShareToolbar() {
 
 async function replayShareState(shareState: ShareState) {
   const store = useGraphStore.getState();
-  const { seed, league } = shareState;
+  const { seed, league, skin } = shareState;
 
   // Set league
   store.setSelectedLeague(league);
+
+  // Restore visual skin (legacy shares without skin keep current default)
+  if (skin) store.setVisualSkin(skin);
 
   // Replay the seed action
   switch (seed.type) {
@@ -148,7 +153,12 @@ async function replayShareState(shareState: ShareState) {
       break;
     }
     case 'chain': {
-      await store.seedFromChain(seed.tradeId);
+      const { data } = await getSupabase()
+        .from('trade_chain_scores')
+        .select('chain_scores')
+        .eq('trade_id', seed.tradeId)
+        .single() as { data: { chain_scores: Record<string, ChainTeamData> } | null };
+      await store.seedFromChain(seed.tradeId, data?.chain_scores);
       break;
     }
     case 'player': {
