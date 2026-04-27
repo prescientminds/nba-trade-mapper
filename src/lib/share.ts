@@ -3,6 +3,7 @@ import { getSupabase } from './supabase';
 import { useGraphStore } from './graph-store';
 import type { SeedInfo } from './graph-store';
 import type { League } from './league';
+import type { VisualSkin } from './skins';
 
 // ── Types ────────────────────────────────────────────────────────────
 
@@ -10,6 +11,7 @@ export interface ShareState {
   seed: SeedInfo;
   league: League;
   expansions: string[]; // node IDs expanded after seed, in order
+  skin?: VisualSkin;    // visual skin at time of share (optional for legacy compat)
 }
 
 interface SharedGraph {
@@ -27,7 +29,7 @@ interface SharedGraph {
 
 export async function createShareLink(): Promise<string | null> {
   const state = useGraphStore.getState();
-  const { seedInfo, selectedLeague, expandedNodes, coreNodes, nodes } = state;
+  const { seedInfo, selectedLeague, expandedNodes, coreNodes, nodes, visualSkin } = state;
 
   if (!seedInfo || nodes.length === 0) {
     console.error('Share failed: no seedInfo or empty graph', { seedInfo, nodeCount: nodes.length });
@@ -46,6 +48,7 @@ export async function createShareLink(): Promise<string | null> {
     seed: seedInfo,
     league: selectedLeague,
     expansions,
+    skin: visualSkin,
   };
 
   // Build OG metadata
