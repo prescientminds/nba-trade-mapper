@@ -795,7 +795,7 @@ function tradeCardOG(data: TradeVerdictData): React.ReactElement {
             </div>
           )}
           <div style={{ display: 'flex', fontSize: 10, color: sk.footerColor }}>
-            nbatrades.vercel.app
+            nbatrademapper.com
           </div>
         </div>
       </div>
@@ -1263,7 +1263,7 @@ function tradeCardStory(data: TradeVerdictData): React.ReactElement {
                   display: 'flex',
                   fontSize: 13, color: sk.footerColor, marginTop: 8,
                 }}>
-                  nbatrades.vercel.app
+                  nbatrademapper.com
                 </div>
               </div>
             )}

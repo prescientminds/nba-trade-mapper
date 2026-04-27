@@ -117,22 +117,19 @@ export async function GET(
           <div style={{ flex: 1, backgroundColor: rightColor }} />
         </div>
 
-        {/* Header */}
+        {/* Header — site logo */}
         <div style={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
           padding: '24px 48px 0',
         }}>
-          <div style={{
-            fontSize: 18,
-            fontWeight: 700,
-            letterSpacing: 3,
-            color: 'rgba(255,255,255,0.4)',
-            textTransform: 'uppercase' as const,
-          }}>
-            {league === 'WNBA' ? 'WNBA' : 'NBA'} TRADE MAPPER
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://nbatrademapper.com/watermark.png"
+            alt="NBA Trade Mapper"
+            width={72}
+            height={72}
+          />
         </div>
 
         {/* Main content */}
@@ -199,7 +196,7 @@ export async function GET(
             fontSize: 14,
             color: 'rgba(255,255,255,0.25)',
           }}>
-            nbatrades.vercel.app
+            nbatrademapper.com
           </div>
         </div>
       </div>
