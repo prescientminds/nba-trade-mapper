@@ -125,7 +125,7 @@ export async function GET(
         }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://nbatrademapper.com/watermark.png"
+            src="https://www.nbatrademapper.com/og-logo.png"
             alt="NBA Trade Mapper"
             width={72}
             height={72}
