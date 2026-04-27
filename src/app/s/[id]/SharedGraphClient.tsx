@@ -18,6 +18,7 @@ import type { ShareState } from '@/lib/share';
 import { loadTrade, staticTradeToTradeWithDetails } from '@/lib/trade-data';
 import { useMobile } from '@/lib/use-mobile';
 import { getSupabase } from '@/lib/supabase';
+import { track } from '@/lib/analytics';
 
 import TradeNode from '@/components/nodes/TradeNode';
 import PlayerNode from '@/components/nodes/PlayerNode';
@@ -244,7 +245,18 @@ function SharedGraphCanvas({ shareId }: { shareId: string }) {
     (async () => {
       try {
         const shared = await loadSharedGraph(shareId);
-        if (!shared) { setStatus('error'); return; }
+        if (!shared) {
+          track('share_link_opened', { share_id: shareId, status: 'not_found' });
+          setStatus('error');
+          return;
+        }
+
+        track('share_link_opened', {
+          share_id: shareId,
+          status: 'ok',
+          seed_type: shared.share_state?.seed?.type,
+          expansion_count: shared.share_state?.expansions?.length,
+        });
 
         // Clear any existing graph
         useGraphStore.getState().clearGraph();
@@ -259,6 +271,7 @@ function SharedGraphCanvas({ shareId }: { shareId: string }) {
         }, 500);
       } catch (err) {
         console.error('Failed to load shared graph:', err);
+        track('share_link_opened', { share_id: shareId, status: 'error' });
         setStatus('error');
       }
     })();
