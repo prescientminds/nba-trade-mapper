@@ -16,6 +16,7 @@ import type { League } from '@/lib/league';
 import { SKINS, type VisualSkin } from '@/lib/skins';
 import Link from 'next/link';
 import TeamSeasonPicker from '@/components/TeamSeasonPicker';
+import { track } from '@/lib/analytics';
 
 export default function SearchOverlay() {
   const [query, setQuery] = useState('');
@@ -54,6 +55,7 @@ export default function SearchOverlay() {
     if (!st) return;
     const trade = staticTradeToTradeWithDetails(st);
     seedFromTradeCollapsed(trade);
+    track('tutorial_started', { tour_id: 'guided' });
     setTimeout(() => {
       startTour('guided', GUIDED_TOUR_STEPS);
     }, 600);
@@ -75,6 +77,13 @@ export default function SearchOverlay() {
       setResults(res);
       setOpen(true);
       setSearching(false);
+      track('trade_searched', {
+        query_length: q.length,
+        result_count: res.trades.length + res.players.length,
+        trade_count: res.trades.length,
+        player_count: res.players.length,
+        league: selectedLeague,
+      });
     },
     [search, selectedLeague]
   );
@@ -90,6 +99,7 @@ export default function SearchOverlay() {
     setQuery('');
     dismissHint(1);
     dismissHint(6);
+    track('seed_graph', { seed_type: 'trade', trade_id: trade.id, source: 'search' });
     seedFromTrade(trade);
   };
 
@@ -98,6 +108,7 @@ export default function SearchOverlay() {
     setQuery('');
     dismissHint(1);
     dismissHint(6);
+    track('seed_graph', { seed_type: 'player', player_name: name, source: 'search' });
     seedFromPlayer(name);
   };
 
@@ -106,6 +117,7 @@ export default function SearchOverlay() {
     setQuery('');
     dismissHint(1);
     dismissHint(6);
+    track('seed_graph', { seed_type: 'chain', trade_id: tradeId, source: 'discovery' });
     seedFromChain(tradeId, chainScores as Parameters<typeof seedFromChain>[1]);
   };
 
@@ -114,6 +126,7 @@ export default function SearchOverlay() {
     setQuery('');
     dismissHint(1);
     dismissHint(6);
+    track('seed_graph', { seed_type: 'championship', team_id: teamId, season, source: 'discovery' });
     seedChampionshipRoster(teamId, season);
   };
 

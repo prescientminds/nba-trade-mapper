@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react';
 import { useGraphStore } from '@/lib/graph-store';
 import { createShareLink } from '@/lib/share';
 import { useMobile } from '@/lib/use-mobile';
+import { track } from '@/lib/analytics';
 
 const IconShare = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -25,6 +26,7 @@ export default function ShareButton() {
   const [shareState, setShareState] = useState<ShareState>('idle');
   const nodes = useGraphStore((s) => s.nodes);
   const seedInfo = useGraphStore((s) => s.seedInfo);
+  const visualSkin = useGraphStore((s) => s.visualSkin);
   const isMobile = useMobile();
 
   const handleShare = useCallback(async () => {
@@ -36,10 +38,18 @@ export default function ShareButton() {
       const url = await createShareLink();
       console.log('[Share] Result:', url);
       if (!url) {
+        track('share_link_failed', { stage: 'create' });
         setShareState('error');
         setTimeout(() => setShareState('idle'), 2000);
         return;
       }
+
+      track('share_link_created', {
+        node_count: nodes.length,
+        seed_type: seedInfo?.type,
+        skin: visualSkin,
+        surface: isMobile ? 'mobile' : 'desktop',
+      });
 
       // Try native share on mobile, clipboard on desktop
       if (isMobile && navigator.share) {
@@ -64,10 +74,11 @@ export default function ShareButton() {
       setTimeout(() => setShareState('idle'), 2500);
     } catch (err) {
       console.error('[Share] Failed:', err);
+      track('share_link_failed', { stage: 'exception' });
       setShareState('error');
       setTimeout(() => setShareState('idle'), 2000);
     }
-  }, [shareState, isMobile]);
+  }, [shareState, isMobile, nodes.length, seedInfo, visualSkin]);
 
   if (nodes.length === 0 || !seedInfo) return null;
 

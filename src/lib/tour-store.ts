@@ -1,6 +1,7 @@
 'use client';
 
 import { create } from 'zustand';
+import { track } from '@/lib/analytics';
 
 /**
  * Global tour state — one tour at a time across the entire app.
@@ -104,8 +105,15 @@ export const useTourStore = create<TourState>((set, get) => ({
   },
 
   skip: () => {
-    const { activeTour } = get();
+    const { activeTour, stepIndex, steps } = get();
     if (activeTour) {
+      const finished = stepIndex >= steps.length - 1;
+      track('tutorial_completed', {
+        tour_id: activeTour,
+        completion_type: finished ? 'finished' : 'skipped',
+        step_reached: stepIndex,
+        total_steps: steps.length,
+      });
       try { localStorage.setItem(STORAGE_PREFIX + activeTour, 'true'); } catch {}
     }
     set({ activeTour: null, steps: [], stepIndex: 0, showingWelcome: false, completed: true });

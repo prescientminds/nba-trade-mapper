@@ -16,6 +16,7 @@ import { createPortal } from 'react-dom';
 import CardPreviewModal from '@/components/CardPreviewModal';
 import { useTourStore } from '@/lib/tour-store';
 import VerdictFlipTimeline from '@/components/VerdictFlipTimeline';
+import { track } from '@/lib/analytics';
 
 function fmtSalary(n: number): string {
   if (n >= 1_000_000_000) return `$${(n / 1_000_000_000).toFixed(1)}B`;
@@ -328,7 +329,14 @@ function TradeNodeComponent({ id, data }: NodeProps) {
     <div
       className="trade-card"
       data-tour="trade-card"
-      onClick={() => { dismissHint(2); expandTradeNode(id); useTourStore.getState().advanceIfWaiting('trade-expanded'); }}
+      onClick={() => {
+        dismissHint(2);
+        if (!isExpanded) {
+          track('node_expanded', { node_type: 'trade', expand_mode: 'single' });
+        }
+        expandTradeNode(id);
+        useTourStore.getState().advanceIfWaiting('trade-expanded');
+      }}
       style={{
         width: cardWidth,
         minHeight: isExpanded ? 60 : 44,
@@ -418,10 +426,12 @@ function TradeNodeComponent({ id, data }: NodeProps) {
               if (expandLoading) return;
               if (!isExpanded) {
                 dismissHint(2);
+                track('node_expanded', { node_type: 'trade', expand_mode: 'single' });
                 expandTradeNode(id);
                 useTourStore.getState().advanceIfWaiting('trade-expanded');
               } else {
                 dismissHint(5);
+                track('node_expanded', { node_type: 'trade', expand_mode: 'web' });
                 setExpandLoading(true);
                 expandWeb(id).finally(() => setExpandLoading(false));
               }
