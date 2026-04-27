@@ -98,6 +98,103 @@ export async function loadSharedGraph(id: string): Promise<SharedGraph | null> {
 
 // ── Build OG metadata from seed info ─────────────────────────────────
 
+// Story-type headline picker for chain (Trade Tree) shares.
+// Uses what's available on the canvas: stint nodes (player + WS + team)
+// and trade nodes (dates + assets). No extra DB roundtrip.
+function buildChainOgMetadata(
+  nodes: { type?: string; data: Record<string, unknown> }[]
+): { title: string; subtitle: string | null; teams: string[] } {
+  const tradeNodes = nodes.filter((n) => n.type === 'trade');
+  const stintNodes = nodes.filter((n) => n.type === 'playerStint');
+  const rootTrade = (tradeNodes[0]?.data?.trade ?? null) as
+    | { title?: string; date?: string;
+        transaction_assets?: { asset_type: string; player_name: string | null; from_team_id: string | null }[] }
+    | null;
+
+  // Era span: from earliest trade to latest stint season end
+  const tradeYears = tradeNodes
+    .map((n) => {
+      const d = (n.data?.trade as { date?: string } | undefined)?.date;
+      return d ? parseInt(d.slice(0, 4), 10) : NaN;
+    })
+    .filter((y) => !isNaN(y));
+  const stintYears = stintNodes.flatMap((n) => {
+    const seasons = (n.data.seasons as string[] | undefined) ?? [];
+    return seasons.map((s) => parseInt(s.slice(0, 4), 10) + 1).filter((y) => !isNaN(y));
+  });
+  const allYears = [...tradeYears, ...stintYears];
+  const yearSpan = allYears.length > 0 ? Math.max(...allYears) - Math.min(...allYears) : 0;
+
+  // Per-team total WS across stints
+  const wsByTeam = new Map<string, number>();
+  for (const n of stintNodes) {
+    const teamId = n.data.teamId as string | undefined;
+    const ws = (n.data.totalWinShares as number | null | undefined) ?? 0;
+    if (teamId) wsByTeam.set(teamId, (wsByTeam.get(teamId) ?? 0) + ws);
+  }
+  const teamRanking = [...wsByTeam.entries()].sort((a, b) => b[1] - a[1]);
+  const winnerTeamId = teamRanking[0]?.[0] ?? null;
+  const winnerWs = teamRanking[0]?.[1] ?? 0;
+  const totalWs = teamRanking.reduce((s, [, v]) => s + v, 0);
+  const teamIds = teamRanking.map(([t]) => t);
+
+  // Top endpoint player on the winner team
+  const winnerStints = stintNodes.filter((n) => n.data.teamId === winnerTeamId);
+  winnerStints.sort(
+    (a, b) =>
+      ((b.data.totalWinShares as number | null) ?? 0) -
+      ((a.data.totalWinShares as number | null) ?? 0),
+  );
+  const topEndpoint = winnerStints[0]?.data.playerName as string | undefined;
+  const topEndpointWs = (winnerStints[0]?.data.totalWinShares as number | null) ?? 0;
+
+  // Seed asset: the first player_name from the root trade's assets,
+  // preferring an asset that left the winner team in this trade.
+  const assets = rootTrade?.transaction_assets ?? [];
+  const playerAssets = assets.filter((a) => a.asset_type === 'player' && a.player_name);
+  const fromWinner = playerAssets.find((a) => a.from_team_id === winnerTeamId);
+  const seedPlayer =
+    fromWinner?.player_name ??
+    playerAssets[0]?.player_name ??
+    (rootTrade?.title?.split(',')[0]?.trim() ?? 'Trade');
+
+  const tradeCount = tradeNodes.length;
+  const teamCount = teamIds.length;
+
+  // Story-type picker
+  let title: string;
+  let subtitle: string | null;
+
+  const yearsLabel = yearSpan > 0 ? `${yearSpan} years` : null;
+  const tradesLabel = tradeCount > 1 ? `${tradeCount} trades` : null;
+  const teamsLabel = teamCount > 1 ? `${teamCount} teams` : `${teamCount} team`;
+
+  // Value creation: clear endpoint payoff
+  if (topEndpoint && topEndpointWs >= 30 && seedPlayer && topEndpoint !== seedPlayer) {
+    title = `From ${seedPlayer} to ${topEndpoint}`;
+    subtitle = [yearsLabel, tradesLabel, teamsLabel].filter(Boolean).join(' · ');
+  }
+  // Single team's masterclass: one team captured 70%+ of value
+  else if (totalWs > 0 && winnerWs / totalWs >= 0.7 && winnerTeamId && tradeCount >= 2) {
+    const yearTag = tradeYears.length > 0 ? `${Math.min(...tradeYears)} ` : '';
+    title = `${winnerTeamId}'s ${yearTag}trade kept paying${yearsLabel ? ` for ${yearsLabel}` : ''}`;
+    subtitle = topEndpoint ? `${topEndpoint} was the payoff` : null;
+  }
+  // Wide ripple: many teams touched
+  else if (teamCount >= 4) {
+    title = seedPlayer ? `The ${seedPlayer} ripple` : 'Trade ripple';
+    const playerCount = stintNodes.length;
+    subtitle = [`${playerCount} players`, teamsLabel, yearsLabel].filter(Boolean).join(' · ');
+  }
+  // Default fallback
+  else {
+    title = seedPlayer ? `${seedPlayer} — Trade Tree` : 'Trade Tree';
+    subtitle = [yearsLabel, tradesLabel, teamsLabel].filter(Boolean).join(' · ') || null;
+  }
+
+  return { title, subtitle: subtitle || null, teams: teamIds };
+}
+
 function buildOgMetadata(
   seed: SeedInfo,
   nodes: { type?: string; data: Record<string, unknown> }[]
@@ -114,17 +211,7 @@ function buildOgMetadata(
       };
     }
     case 'chain': {
-      const tradeNode = nodes.find((n) => n.type === 'trade');
-      const trade = tradeNode?.data?.trade as { title?: string } | undefined;
-      const teamIds = nodes
-        .filter((n) => n.type === 'playerStint')
-        .map((n) => n.data.teamId as string)
-        .filter((v, i, a) => a.indexOf(v) === i);
-      return {
-        title: trade?.title ? `${trade.title} — Trade Tree` : 'Trade Tree',
-        subtitle: `${nodes.filter((n) => n.type === 'playerStint').length} player stints across ${teamIds.length} teams`,
-        teams: teamIds,
-      };
+      return buildChainOgMetadata(nodes);
     }
     case 'player': {
       const stintNodes = nodes.filter((n) => n.type === 'playerStint');
