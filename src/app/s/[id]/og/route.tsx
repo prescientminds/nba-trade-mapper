@@ -160,7 +160,6 @@ export async function GET(
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between',
           backgroundColor: '#0a0a0f',
           fontFamily: 'Inter, system-ui, sans-serif',
         }}
@@ -171,19 +170,31 @@ export async function GET(
           <div style={{ flex: 1, backgroundColor: rightColor }} />
         </div>
 
-        {/* Header — site logo */}
+        {/* Brand lockup — basketball + wordmark, centered, floating */}
         <div style={{
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
-          padding: '24px 48px 0',
+          paddingTop: 28,
+          gap: 6,
         }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="https://www.nbatrademapper.com/og-logo.png"
-            alt="NBA Trade Mapper"
-            width={72}
-            height={72}
+            alt=""
+            width={140}
+            height={140}
           />
+          <div style={{
+            display: 'flex',
+            fontSize: 56,
+            fontWeight: 900,
+            color: '#ffffff',
+            letterSpacing: 4,
+            lineHeight: 1,
+          }}>
+            NBA TRADE MAPPER
+          </div>
         </div>
 
         {/* Main content */}
@@ -193,11 +204,12 @@ export async function GET(
           alignItems: 'center',
           justifyContent: 'center',
           flex: 1,
-          padding: '0 48px',
-          gap: 16,
+          padding: '24px 48px 0',
+          gap: 14,
         }}>
           <div style={{
-            fontSize: 52,
+            display: 'flex',
+            fontSize: 44,
             fontWeight: 800,
             color: '#ffffff',
             textAlign: 'center',
@@ -209,6 +221,7 @@ export async function GET(
 
           {subtitle && (
             <div style={{
+              display: 'flex',
               fontSize: 22,
               color: 'rgba(255,255,255,0.5)',
               textAlign: 'center',
@@ -219,11 +232,12 @@ export async function GET(
           )}
 
           {teams && (teams as string[]).length > 0 && (
-            <div style={{ display: 'flex', gap: 12, marginTop: 8 }}>
+            <div style={{ display: 'flex', gap: 12, marginTop: 4 }}>
               {(teams as string[]).slice(0, 4).map((teamId: string) => (
                 <div
                   key={teamId}
                   style={{
+                    display: 'flex',
                     padding: '6px 16px',
                     borderRadius: 6,
                     backgroundColor: clampForBlackBg(CARD_TEAM_COLORS[teamId] || '#333'),
@@ -240,15 +254,17 @@ export async function GET(
           )}
         </div>
 
-        {/* Footer */}
+        {/* Footer URL */}
         <div style={{
           display: 'flex',
           justifyContent: 'center',
-          padding: '0 48px 24px',
+          padding: '0 48px 22px',
         }}>
           <div style={{
-            fontSize: 14,
-            color: 'rgba(255,255,255,0.25)',
+            display: 'flex',
+            fontSize: 13,
+            letterSpacing: 2,
+            color: 'rgba(255,255,255,0.3)',
           }}>
             nbatrademapper.com
           </div>

@@ -781,20 +781,26 @@ function tradeCardOG(data: TradeVerdictData): React.ReactElement {
             {verdict}
           </div>
         )}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <img
+            src="https://www.nbatrademapper.com/og-logo.png"
+            alt=""
+            width={22}
+            height={22}
+          />
           <div style={{
             display: 'flex',
-            fontSize: 10, fontWeight: 700, letterSpacing: 3,
+            fontSize: 13, fontWeight: 800, letterSpacing: 3,
             color: sk.brandColor, textTransform: 'uppercase' as const,
           }}>
             {league === 'WNBA' ? 'WNBA' : 'NBA'} Trade Mapper
           </div>
           {date && (
-            <div style={{ display: 'flex', fontSize: 10, color: sk.dateColor }}>
+            <div style={{ display: 'flex', fontSize: 11, color: sk.dateColor }}>
               {formatDate(date)}
             </div>
           )}
-          <div style={{ display: 'flex', fontSize: 10, color: sk.footerColor }}>
+          <div style={{ display: 'flex', fontSize: 11, color: sk.footerColor }}>
             nbatrademapper.com
           </div>
         </div>
