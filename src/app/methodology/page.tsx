@@ -91,40 +91,25 @@ export default function MethodologyPage() {
 
         <Divider />
 
-        {/* The Question */}
-        <Section title="THE QUESTION">
-          <p>
-            <strong style={{ color: 'var(--text-primary)' }}>
-              Who got the better end of the deal?
-            </strong>
-          </p>
-          <p>
-            Not predictions, not draft-night grades, not what the trade
-            &ldquo;should have been.&rdquo; We measure what each team got.
-          </p>
-        </Section>
+        {/* Lede */}
+        <p>
+          A team&rsquo;s score counts only what its acquired players did in
+          its uniform. Whatever those players did before the trade, or for
+          any team that came after, belongs to someone else&rsquo;s ledger.
+        </p>
 
         <Divider />
 
         {/* The Formula */}
         <Section title="THE FORMULA">
-          <p>
-            Every player is scored on what they produced{' '}
-            <strong style={{ color: 'var(--text-primary)' }}>
-              on the acquiring team, after the trade.
-            </strong>{' '}
-            Pre-trade stats don&rsquo;t count. Stats on other teams don&rsquo;t
-            count.
-          </p>
+          <p>For each player a team received:</p>
 
           <FormulaBlock />
 
           <p>
-            The team with the higher total won &mdash;{' '}
-            <strong style={{ color: 'var(--text-primary)' }}>
-              but only if the margin exceeds 1.5 points.
-            </strong>{' '}
-            A 0.8-point edge could flip on one decent season.
+            Sum the players. Compare the sums. The larger one wins &mdash;
+            but only past a 1.5-point margin. Inside that margin we call it
+            even, because a single rotation season can swing it.
           </p>
         </Section>
 
@@ -133,15 +118,20 @@ export default function MethodologyPage() {
         {/* Win Shares */}
         <Section title="WIN SHARES">
           <p>
-            Dean Oliver&rsquo;s stat. Divides team wins among players based on
-            their contributions. One Win Share &asymp; one win. Available back
-            to 1977.
+            Dean Oliver&rsquo;s stat. It divides team wins among the players
+            who produced them. One Win Share is roughly one win. The data
+            goes back to 1977.
           </p>
           <p>
-            Team-dependent: a player on a 60-win team has more wins to divide
-            than the same player on a 30-win team. If a player gets traded to a
-            bad team and the team keeps losing, the trade didn&rsquo;t produce
-            wins.
+            The number is team-dependent on purpose: a 25-point scorer on a
+            22-win team has fewer wins to claim than the same player on a
+            55-win team.
+          </p>
+          <p>
+            We track Box Plus/Minus but don&rsquo;t use it in the grade. It
+            is the metric for shorter windows &mdash; early-career players,
+            partial seasons, anywhere playoff Win Shares haven&rsquo;t
+            accumulated yet.
           </p>
         </Section>
 
@@ -150,9 +140,9 @@ export default function MethodologyPage() {
         {/* Playoff WS */}
         <Section title="PLAYOFF WIN SHARES &times; 1.5">
           <p>
-            Same math, playoff games, 1.5&times; weight. Teams that go deeper
-            play more games and accumulate more. A trade that reaches the Finals
-            produced more than a first-round exit.
+            The same calculation, applied to the postseason, weighted by half
+            again. A trade that took its team to the conference finals
+            produced more than one that ended on a Tuesday in April.
           </p>
         </Section>
 
@@ -176,8 +166,8 @@ export default function MethodologyPage() {
             Team&rsquo;s Total Playoff WS)
           </div>
           <p>
-            Carry 35% of the postseason workload, get +1.75 per title. Ride the
-            bench, get a fraction.
+            A title is worth five points, distributed by playoff workload.
+            Rings count for the whole roster, weighted by who did the work.
           </p>
         </Section>
 
@@ -186,7 +176,11 @@ export default function MethodologyPage() {
         {/* Accolade Bonus */}
         <Section title="ACCOLADE BONUS">
           <p>
-            Awards catch what the box score misses.
+            Awards catch what the box score misses. The defensive side of
+            Win Shares is the weakest part of the metric, so DPOY and
+            All-Defensive carry more weight than their place in the league
+            hierarchy would suggest. MVP and Finals MVP carry the most,
+            because they describe the player the trade actually delivered.
           </p>
 
           <table
@@ -259,31 +253,17 @@ export default function MethodologyPage() {
           </table>
 
           <p>
-            Awards double-count great seasons. They should. A player who leads
-            the league in Win Shares by a wide margin gets the same WS credit as
-            one who barely leads. The award captures the gap.
+            Awards are subjective, but they capture a league consensus about
+            a player&rsquo;s season.
           </p>
-        </Section>
-
-        <Divider />
-
-        {/* What we don't capture */}
-        <Section title="WHAT THIS SYSTEM DOESN&rsquo;T CAPTURE">
-          {limitations.map(([title, desc]) => (
-            <div key={title} style={{ marginTop: 12 }}>
-              <strong style={{ color: 'var(--text-primary)' }}>
-                {title}.
-              </strong>{' '}
-              {desc}
-            </div>
-          ))}
         </Section>
 
         <Divider />
 
         {/* Why Win Shares */}
         <Section title="WHY WIN SHARES">
-          <ul style={{ margin: '0', paddingLeft: 20, lineHeight: 2 }}>
+          <p>We tested every public alternative.</p>
+          <ul style={{ margin: '12px 0', paddingLeft: 20, lineHeight: 2 }}>
             {alternatives.map(([name, reason]) => (
               <li key={name}>
                 <strong style={{ color: 'var(--text-primary)' }}>
@@ -293,6 +273,10 @@ export default function MethodologyPage() {
               </li>
             ))}
           </ul>
+          <p style={{ marginTop: 16 }}>
+            Win Shares is the only public metric that goes back to the merger
+            and ties production to team outcomes. Both of those mattered.
+          </p>
         </Section>
 
         <Divider />
@@ -453,66 +437,42 @@ function FormulaBlock() {
 /* ── Data ───────────────────────────────────────────────────────────── */
 
 const accolades: [string, string, string][] = [
-  ['MVP', '+5.0', 'Highest individual honor. Captures dominance that cumulative stats understate.'],
-  ['Finals MVP', '+3.0', 'Most trade-relevant accolade. Best player on the biggest stage.'],
-  ['DPOY', '+2.5', 'Primary correction for defensive value. Win Shares\u2019 defensive component is unreliable.'],
-  ['All-NBA 1st Team', '+2.0', 'Top 5 player in the league that season.'],
-  ['ROY', '+1.5', 'Immediate contributor, acknowledges draft pick outcomes.'],
-  ['All-NBA 2nd Team', '+1.2', 'Top 10 player.'],
-  ['Sixth Man', '+0.8', 'Best reserve. WS handles this role reasonably, but the award signals consensus around player impact.'],
-  ['All-NBA 3rd Team', '+0.7', 'Top 15 player.'],
-  ['MIP', '+0.5', 'Breakout season.'],
-  ['All-Defensive Team', '+0.5', 'Partial correction for defensive blind spot \u2014 broader than DPOY.'],
-  ['All-Star', '+0.3', 'Partially a popularity contest. Low weight reflects the noise. Repeated selections signal sustained relevance.'],
-  ['All-Rookie Team', '+0.2', 'Minor signal for immediate contribution.'],
-];
-
-const limitations: [string, string][] = [
-  [
-    'Decision quality',
-    'Smart bets that don\u2019t pay off get no credit. Outcomes only.',
-  ],
-  [
-    'Strategic value',
-    'Cap space cleared for a free agent signing scores zero for the expiring contracts.',
-  ],
-  [
-    'Peak impact',
-    'Eight solid years outscores two brilliant years.',
-  ],
-  [
-    'Marginal value',
-    'Measures production, not production relative to who they replaced.',
-  ],
-  [
-    'Defensive impact beyond awards',
-    'Win Shares\u2019 defensive component is unreliable. Awards are a partial correction only.',
-  ],
+  ['MVP', '+5.0', 'Carried the league. Captures dominance the box score understates.'],
+  ['Finals MVP', '+3.0', 'Best player on the biggest stage. The most trade-relevant award we have.'],
+  ['DPOY', '+2.5', 'Primary correction for the weakest part of WS.'],
+  ['All-NBA 1st Team', '+2.0', 'Top five.'],
+  ['ROY', '+1.5', 'Immediate impact. Relevant for graded picks.'],
+  ['All-NBA 2nd Team', '+1.2', 'Top ten.'],
+  ['Sixth Man', '+0.8', 'A role WS handles, but the award marks the player the league agreed on.'],
+  ['All-NBA 3rd Team', '+0.7', 'Top fifteen.'],
+  ['MIP', '+0.5', 'A breakout.'],
+  ['All-Defensive Team', '+0.5', 'Defensive credit beyond DPOY.'],
+  ['All-Star', '+0.3', 'Half popularity, half merit. Repeated selections matter more than the first.'],
+  ['All-Rookie Team', '+0.2', 'Minor signal.'],
 ];
 
 const edgeCases: [string, string][] = [
   [
     'Recent trades',
-    'have fewer seasons to accumulate.',
+    'have fewer seasons banked. Their grades will move.',
   ],
   [
     'Sign-and-trades',
-    'are flagged separately. The player already chose the destination.',
+    'are flagged. The destination was the player’s choice.',
   ],
   [
-    'Unresolved draft picks',
+    'Unresolved picks',
     'score zero until the player enters the league.',
   ],
   [
-    'Three-team trades:',
-    'each team scored independently. Facilitators score low by design.',
+    'Three-team trades',
+    'are scored independently per team. Facilitators usually grade poorly.',
   ],
 ];
 
 const alternatives: [string, string][] = [
-  ['PER', 'Overvalues high-usage scorers. Widely considered outdated.'],
-  ['VORP', 'Measures individual production regardless of team quality. We want team quality in the equation. Correlates ~0.85 with Win Shares \u2014 adds complexity without new information.'],
-  ['BPM', 'Strong rate stat, but we need cumulative production, not per-possession rates.'],
-  ['EPM / RAPTOR / LEBRON / DARKO', 'Proprietary, defunct, or only available from ~2014 forward. No 50-year historical depth.'],
-  ['Raw box score (PPG/RPG/APG)', 'Doesn\u2019t account for efficiency, defense, or contribution to winning.'],
+  ['PER', 'Overweights volume scoring. The field has moved past it.'],
+  ['VORP', 'Correlates with WS at about 0.85, but does not factor in team success, essential to evaluating the success of a trade.'],
+  ['BPM', 'Per-possession rate stat. Does not factor in team success.'],
+  ['EPM, RAPTOR, LEBRON, DARKO', 'Proprietary, retired, or only available since 2014.'],
 ];
