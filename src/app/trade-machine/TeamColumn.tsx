@@ -4,6 +4,10 @@ import { useEffect, useState } from 'react';
 import { getSupabase } from '@/lib/supabase';
 import { TEAMS, TEAM_LIST } from '@/lib/teams';
 import BPMExplainer from './BPMExplainer';
+import PickProtectionPopover, {
+  loadProtections,
+  type PickProtection,
+} from './PickProtectionPopover';
 
 const CURRENT_SEASON = '2025-26';
 
@@ -76,6 +80,17 @@ export default function TeamColumn({ label, state, otherTeamId, onChange }: Prop
   const [loadingRoster, setLoadingRoster] = useState(false);
   const [ownedPicks, setOwnedPicks] = useState<OwnedPick[] | null>(null);
   const [hoveredPickKey, setHoveredPickKey] = useState<string | null>(null);
+  const [openProtectionKey, setOpenProtectionKey] = useState<string | null>(null);
+  const [protections, setProtections] = useState<Record<string, PickProtection> | null>(null);
+
+  // Load pick-protections.json once. Module-level cache lives in the popover file.
+  useEffect(() => {
+    let cancelled = false;
+    loadProtections().then((p) => {
+      if (!cancelled) setProtections(p);
+    });
+    return () => { cancelled = true; };
+  }, []);
 
   // Fetch roster whenever teamId changes.
   useEffect(() => {
@@ -347,8 +362,16 @@ export default function TeamColumn({ label, state, otherTeamId, onChange }: Prop
                       {originLabel}
                     </span>
                     {p.conditional && (
-                      <span
-                        title="Trade description references protection, swap, or conditional language. Structured rules not yet enforced."
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setOpenProtectionKey(
+                            openProtectionKey === p.pick_key ? null : p.pick_key,
+                          );
+                        }}
+                        title="Click for protection details"
                         style={{
                           fontSize: 8,
                           fontWeight: 600,
@@ -357,15 +380,27 @@ export default function TeamColumn({ label, state, otherTeamId, onChange }: Prop
                           color: 'var(--accent-purple)',
                           padding: '1px 6px',
                           borderRadius: 999,
-                          background: 'rgba(155, 93, 229, 0.12)',
+                          background:
+                            openProtectionKey === p.pick_key
+                              ? 'rgba(155, 93, 229, 0.25)'
+                              : 'rgba(155, 93, 229, 0.12)',
                           border: '1px solid rgba(155, 93, 229, 0.3)',
+                          cursor: 'pointer',
+                          fontFamily: 'inherit',
                         }}
                       >
                         cond.
-                      </span>
+                      </button>
                     )}
                   </label>
-                  {hovered && p.lineage.length > 0 && (
+                  {openProtectionKey === p.pick_key && (
+                    <PickProtectionPopover
+                      protection={protections?.[p.pick_key] ?? null}
+                      fallbackSnippet={p.lineage[p.lineage.length - 1]?.description_snippet}
+                      onClose={() => setOpenProtectionKey(null)}
+                    />
+                  )}
+                  {hovered && openProtectionKey !== p.pick_key && p.lineage.length > 0 && (
                     <div
                       style={{
                         position: 'absolute',

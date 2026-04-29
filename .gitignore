@@ -53,3 +53,11 @@ next-env.d.ts
 *.pyc
 __pycache__/
 /data/wiki-cache/
+
+# Brand work
+.claude/
+logo-explorations/
+brand/mark-master.png
+brand/lockup-square-master.png
+brand/lockup-horizontal-master.png
+/Nba trade mapper watermark.png
