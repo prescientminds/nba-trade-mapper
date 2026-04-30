@@ -1,7 +1,8 @@
 // Build all brand asset sizes from the master source PNGs.
 // Sources:
-//   - brand/source-29-master.png (2048×2048): square Gemini lockup #29 — used for the basketball mark crop
-//   - brand/source-horizontal-master.png (2036×893): horizontal Gemini lockup — used for share cards
+//   - brand/source-29-master.png (2048×2048): square Gemini lockup #29 — used for the basketball mark crop (favicons + watermark)
+//   - brand/source-horizontal-master.png (2036×893): horizontal Gemini lockup — used for og/twitter share cards
+//   - brand/source-square-lockup-master.png (2048×2048): in-ball wordmark — used for ≥180px square icons (apple-touch, PWA, social avatars)
 // Outputs: brand/ masters + public/ deployable assets + src/app/favicon.ico
 //
 // Run: npx tsx scripts/build-brand-assets.ts
@@ -14,6 +15,7 @@ import pngToIco from 'png-to-ico';
 const ROOT = process.cwd();
 const SRC = join(ROOT, 'brand/source-29-master.png');
 const SRC_HORIZONTAL = join(ROOT, 'brand/source-horizontal-master.png');
+const SRC_SQUARE_LOCKUP = join(ROOT, 'brand/source-square-lockup-master.png');
 const BRAND = join(ROOT, 'brand');
 const PUBLIC = join(ROOT, 'public');
 const APP = join(ROOT, 'src/app');
@@ -24,6 +26,8 @@ const BG = { r: 10, g: 10, b: 15, alpha: 1 };
 // 940×940 square crop centered on the ball — 7% padding, no wordmark intrusion.
 const MARK_CROP = { left: 107, top: 521, width: 940, height: 940 };
 const SPARKLE_PATCH = { left: 1880, top: 1880, width: 200, height: 200 };
+// In-ball lockup source has the Gemini sparkle in the bottom-right.
+const SQUARE_LOCKUP_SPARKLE_PATCH = { left: 1848, top: 1848, width: 200, height: 200 };
 
 async function ensureDirs() {
   await mkdir(BRAND, { recursive: true });
@@ -39,11 +43,11 @@ async function buildMarkOnly() {
   return buf;
 }
 
-async function buildLockupCleaned() {
+async function buildSquareLockupCleaned() {
   const patch = await sharp({
     create: {
-      width: SPARKLE_PATCH.width,
-      height: SPARKLE_PATCH.height,
+      width: SQUARE_LOCKUP_SPARKLE_PATCH.width,
+      height: SQUARE_LOCKUP_SPARKLE_PATCH.height,
       channels: 4,
       background: BG,
     },
@@ -51,8 +55,12 @@ async function buildLockupCleaned() {
     .png()
     .toBuffer();
 
-  const buf = await sharp(SRC)
-    .composite([{ input: patch, left: SPARKLE_PATCH.left, top: SPARKLE_PATCH.top }])
+  const buf = await sharp(SRC_SQUARE_LOCKUP)
+    .composite([{
+      input: patch,
+      left: SQUARE_LOCKUP_SPARKLE_PATCH.left,
+      top: SQUARE_LOCKUP_SPARKLE_PATCH.top,
+    }])
     .png()
     .toBuffer();
   await writeFile(join(BRAND, 'lockup-square-master.png'), buf);
@@ -124,8 +132,8 @@ async function main() {
   console.log('→ cropping mark from source');
   const markBuf = await buildMarkOnly();
 
-  console.log('→ cleaning square lockup (patching Gemini sparkle)');
-  await buildLockupCleaned();
+  console.log('→ cleaning in-ball square lockup (patching Gemini sparkle)');
+  const squareLockup = await buildSquareLockupCleaned();
 
   console.log('→ writing horizontal lockup master');
   const lockupHorizontal = await buildLockupHorizontal();
@@ -135,10 +143,10 @@ async function main() {
   const fav32 = await makeMarkSize(markBuf, 32, join(PUBLIC, 'favicon-32.png'), true);
   const fav48 = await makeMarkSize(markBuf, 48, join(PUBLIC, 'favicon-48.png'), true);
 
-  console.log('→ generating Apple + PWA icons');
-  await makeMarkSize(markBuf, 180, join(PUBLIC, 'apple-touch-icon.png'), true);
-  await makeMarkSize(markBuf, 192, join(PUBLIC, 'icon-192.png'), false);
-  await makeMarkSize(markBuf, 512, join(PUBLIC, 'icon-512.png'), false);
+  console.log('→ generating Apple + PWA icons (in-ball lockup, large enough for the wordmark to read)');
+  await makeMarkSize(squareLockup, 180, join(PUBLIC, 'apple-touch-icon.png'), true);
+  await makeMarkSize(squareLockup, 192, join(PUBLIC, 'icon-192.png'), false);
+  await makeMarkSize(squareLockup, 512, join(PUBLIC, 'icon-512.png'), false);
 
   console.log('→ regenerating og-logo.png (144×144 mark, used in dynamic share cards)');
   await makeMarkSize(markBuf, 144, join(PUBLIC, 'og-logo.png'), false);
