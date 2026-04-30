@@ -1,5 +1,7 @@
-// Build all brand asset sizes from the master source PNG.
-// Source: brand/source-29-master.png (2048×2048, the locked Gemini lockup #29)
+// Build all brand asset sizes from the master source PNGs.
+// Sources:
+//   - brand/source-29-master.png (2048×2048): square Gemini lockup #29 — used for the basketball mark crop
+//   - brand/source-horizontal-master.png (2036×893): horizontal Gemini lockup — used for share cards
 // Outputs: brand/ masters + public/ deployable assets + src/app/favicon.ico
 //
 // Run: npx tsx scripts/build-brand-assets.ts
@@ -11,6 +13,7 @@ import pngToIco from 'png-to-ico';
 
 const ROOT = process.cwd();
 const SRC = join(ROOT, 'brand/source-29-master.png');
+const SRC_HORIZONTAL = join(ROOT, 'brand/source-horizontal-master.png');
 const BRAND = join(ROOT, 'brand');
 const PUBLIC = join(ROOT, 'public');
 const APP = join(ROOT, 'src/app');
@@ -56,11 +59,9 @@ async function buildLockupCleaned() {
   return buf;
 }
 
-async function buildLockupHorizontal(lockupSquare: Buffer) {
-  const buf = await sharp(lockupSquare)
-    .resize({ width: 2400, height: 800, fit: 'cover', position: 'center' })
-    .png()
-    .toBuffer();
+async function buildLockupHorizontal() {
+  // The horizontal source is already the right composition — copy as the master.
+  const buf = await sharp(SRC_HORIZONTAL).png().toBuffer();
   await writeFile(join(BRAND, 'lockup-horizontal-master.png'), buf);
   return buf;
 }
@@ -73,12 +74,13 @@ async function makeMarkSize(markBuf: Buffer, size: number, outPath: string, opaq
   return buf;
 }
 
-async function makeOgDefault(lockupSquare: Buffer) {
+async function makeOgDefault(lockupHorizontal: Buffer) {
   const canvas = sharp({
     create: { width: 1200, height: 630, channels: 4, background: BG },
   });
-  const inner = await sharp(lockupSquare)
-    .resize({ height: 540, fit: 'contain', background: BG })
+  // Horizontal lockup ~2036×893 (ratio 2.28). Width-fit to 1100 leaves padding.
+  const inner = await sharp(lockupHorizontal)
+    .resize({ width: 1100, fit: 'contain', background: BG })
     .png()
     .toBuffer();
   const innerMeta = await sharp(inner).metadata();
@@ -91,12 +93,12 @@ async function makeOgDefault(lockupSquare: Buffer) {
   await writeFile(join(PUBLIC, 'og-default.png'), buf);
 }
 
-async function makeTwitterCard(lockupSquare: Buffer) {
+async function makeTwitterCard(lockupHorizontal: Buffer) {
   const canvas = sharp({
     create: { width: 1200, height: 600, channels: 4, background: BG },
   });
-  const inner = await sharp(lockupSquare)
-    .resize({ height: 520, fit: 'contain', background: BG })
+  const inner = await sharp(lockupHorizontal)
+    .resize({ width: 1100, fit: 'contain', background: BG })
     .png()
     .toBuffer();
   const innerMeta = await sharp(inner).metadata();
@@ -122,9 +124,11 @@ async function main() {
   console.log('→ cropping mark from source');
   const markBuf = await buildMarkOnly();
 
-  console.log('→ cleaning lockup (patching Gemini sparkle)');
-  const lockupSquare = await buildLockupCleaned();
-  await buildLockupHorizontal(lockupSquare);
+  console.log('→ cleaning square lockup (patching Gemini sparkle)');
+  await buildLockupCleaned();
+
+  console.log('→ writing horizontal lockup master');
+  const lockupHorizontal = await buildLockupHorizontal();
 
   console.log('→ generating favicon PNGs');
   const fav16 = await makeMarkSize(markBuf, 16, join(PUBLIC, 'favicon-16.png'), true);
@@ -142,9 +146,9 @@ async function main() {
   console.log('→ regenerating watermark.png (256×256 mark, used by useWatermark for in-app card capture)');
   await makeMarkSize(markBuf, 256, join(PUBLIC, 'watermark.png'), false);
 
-  console.log('→ generating og-default + twitter-card');
-  await makeOgDefault(lockupSquare);
-  await makeTwitterCard(lockupSquare);
+  console.log('→ generating og-default + twitter-card from horizontal lockup');
+  await makeOgDefault(lockupHorizontal);
+  await makeTwitterCard(lockupHorizontal);
 
   console.log('→ bundling favicon.ico (16/32/48)');
   await buildFaviconIco([fav16, fav32, fav48]);
