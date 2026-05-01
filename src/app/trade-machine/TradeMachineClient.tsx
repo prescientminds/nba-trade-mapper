@@ -12,9 +12,17 @@ import {
   type TeamSide,
   type TradeProfile,
 } from '@/lib/comparables';
-import { getCBAEra, maxIncomingSalary } from '@/lib/trade-validation';
+import {
+  getCBAEra,
+  maxIncomingSalary,
+  validatePickRules,
+  type PickAsset,
+  type TeamPickContext,
+} from '@/lib/trade-validation';
 import TeamColumn, {
+  loadOwnership,
   type BuilderState,
+  type OwnedPick,
 } from './TeamColumn';
 
 const CURRENT_SEASON = '2025-26';
@@ -31,6 +39,15 @@ export default function TradeMachineClient() {
 
   const [salaryCap, setSalaryCap] = useState<number | null>(null);
   const [candidates, setCandidates] = useState<TradeProfile[] | null>(null);
+  const [ownership, setOwnership] = useState<Record<string, OwnedPick[]> | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    loadOwnership().then((o) => {
+      if (!cancelled) setOwnership(o);
+    });
+    return () => { cancelled = true; };
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -84,12 +101,13 @@ export default function TradeMachineClient() {
         }}
       >
         <Heading />
+        <LegalitySection left={left} right={right} ownership={ownership} sticky />
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
             gap: 16,
-            marginTop: 20,
+            marginTop: 16,
           }}
         >
           <TeamColumn
@@ -107,7 +125,6 @@ export default function TradeMachineClient() {
         </div>
 
         <SalaryLedger left={left} right={right} />
-        <LegalitySection left={left} right={right} />
 
         <ComparablesSection
           left={left}
@@ -223,7 +240,11 @@ interface LegalityVerdict {
   reason: string;
 }
 
-function evaluateLegality(left: BuilderState, right: BuilderState): LegalityVerdict {
+function evaluateLegality(
+  left: BuilderState,
+  right: BuilderState,
+  ownership: Record<string, OwnedPick[]> | null,
+): LegalityVerdict {
   if (!left.teamId || !right.teamId) {
     return { status: 'incomplete', reason: 'Pick a team on each side' };
   }
@@ -234,6 +255,17 @@ function evaluateLegality(left: BuilderState, right: BuilderState): LegalityVerd
   const rightAssetCount = right.selectedPlayerNames.size + right.picks.length;
   if (leftAssetCount === 0 || rightAssetCount === 0) {
     return { status: 'incomplete', reason: 'Each side must send at least one asset' };
+  }
+
+  // Draft pick rules — Stepien + seven-year cap. Independent of salary
+  // matching, so check first; if a pick rule is violated the trade is dead
+  // regardless of money.
+  const pickRuleResult = checkPickRules(left, right, ownership);
+  if (!pickRuleResult.legal) {
+    return {
+      status: 'illegal',
+      reason: pickRuleResult.violations[0].reason,
+    };
   }
 
   const { total: leftSalary, complete: leftComplete } = outgoingSalaryOf(left);
@@ -264,6 +296,70 @@ function evaluateLegality(left: BuilderState, right: BuilderState): LegalityVerd
   }
 
   return { status: 'legal', reason: 'Trade has assets on both sides' };
+}
+
+// Build the per-team Stepien context from pick-ownership.json: for each
+// team, list every future-draft year where its own 1st is already owed
+// elsewhere (excluding picks selected in this trade — validatePickRules
+// folds those in itself).
+function checkPickRules(
+  left: BuilderState,
+  right: BuilderState,
+  ownership: Record<string, OwnedPick[]> | null,
+) {
+  if (!left.teamId || !right.teamId) {
+    return { legal: true, violations: [] as { reason: string }[] };
+  }
+
+  const outgoingByTeam: Record<string, PickAsset[]> = {
+    [left.teamId]: left.picks.map((p) => ({
+      pick_key: p.pick_key,
+      year: p.year,
+      round: p.round,
+      original_team_id: p.original_team_id,
+    })),
+    [right.teamId]: right.picks.map((p) => ({
+      pick_key: p.pick_key,
+      year: p.year,
+      round: p.round,
+      original_team_id: p.original_team_id,
+    })),
+  };
+
+  const teamContexts: Record<string, TeamPickContext> = {};
+  for (const teamId of [left.teamId, right.teamId]) {
+    teamContexts[teamId] = {
+      teamId,
+      ownFirstsAlreadyOwed: ownedAwayOwnFirsts(teamId, ownership),
+    };
+  }
+
+  return validatePickRules(outgoingByTeam, teamContexts, CURRENT_YEAR);
+}
+
+// Across the full ownership map, find this team's own future 1sts that
+// some other team currently owns. A pick reappears in the team's own
+// roster only if it was reacquired, so current_owner_team_id is the
+// authoritative "who controls it now" field.
+function ownedAwayOwnFirsts(
+  teamId: string,
+  ownership: Record<string, OwnedPick[]> | null,
+): number[] {
+  if (!ownership) return [];
+  const years = new Set<number>();
+  for (const picks of Object.values(ownership)) {
+    for (const p of picks) {
+      if (
+        p.round === 1 &&
+        p.original_team_id === teamId &&
+        p.current_owner_team_id !== teamId &&
+        p.year >= CURRENT_YEAR
+      ) {
+        years.add(p.year);
+      }
+    }
+  }
+  return [...years];
 }
 
 function fmtM(dollars: number): string {
@@ -410,11 +506,15 @@ const ledgerShell: React.CSSProperties = {
 function LegalitySection({
   left,
   right,
+  ownership,
+  sticky = false,
 }: {
   left: BuilderState;
   right: BuilderState;
+  ownership: Record<string, OwnedPick[]> | null;
+  sticky?: boolean;
 }) {
-  const verdict = evaluateLegality(left, right);
+  const verdict = evaluateLegality(left, right, ownership);
 
   let bg = 'rgba(255, 255, 255, 0.04)';
   let border = 'var(--border-subtle)';
@@ -426,8 +526,8 @@ function LegalitySection({
     color = 'var(--accent-green)';
     label = 'Legal';
   } else if (verdict.status === 'illegal') {
-    bg = 'rgba(239, 71, 111, 0.12)';
-    border = 'rgba(239, 71, 111, 0.35)';
+    bg = 'rgba(239, 71, 111, 0.16)';
+    border = 'rgba(239, 71, 111, 0.5)';
     color = 'var(--accent-red)';
     label = 'Illegal';
   }
@@ -435,22 +535,33 @@ function LegalitySection({
   return (
     <section
       style={{
-        marginTop: 24,
-        padding: '14px 16px',
+        marginTop: 16,
+        padding: '12px 16px',
         borderRadius: 'var(--radius-md)',
         background: bg,
         border: `1px solid ${border}`,
         display: 'flex',
         alignItems: 'center',
-        gap: 12,
+        gap: 14,
+        ...(sticky
+          ? {
+              position: 'sticky',
+              top: 12,
+              zIndex: 5,
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
+            }
+          : {}),
       }}
     >
       <div
         style={{
           fontFamily: 'var(--font-display)',
-          fontSize: 18,
-          letterSpacing: '0.05em',
+          fontSize: 16,
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
           color,
+          flexShrink: 0,
         }}
       >
         {label}

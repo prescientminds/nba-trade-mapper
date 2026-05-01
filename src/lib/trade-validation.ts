@@ -342,3 +342,123 @@ export function validateTrade(
     summary,
   };
 }
+
+// ── Draft pick rules: Stepien Rule + seven-year cap ─────────────────
+//
+// Two NBA rules that gate which picks can move in a trade, independent of
+// salary matching:
+//
+//   1. Seven-year cap (CBA Article VII §7) — a team can trade picks up
+//      to seven future drafts out (the upcoming draft + the next six).
+//      Anything farther out is non-tradeable.
+//   2. Stepien Rule — a team cannot leave itself without its own
+//      first-round pick in two consecutive future drafts. Top-protected
+//      pending 1sts still count as "owed" until they extinguish.
+//
+// Swap-vs-outright (a swap right cannot be re-traded as an outright pick)
+// is a separate rule that depends on pick provenance data we don't yet
+// surface in pick-ownership.json. Tracked as a follow-up.
+
+export interface PickAsset {
+  pick_key: string;
+  year: number;
+  round: 1 | 2;
+  /** The team whose draft slot this pick comes from (not the current owner). */
+  original_team_id: string;
+}
+
+export interface TeamPickContext {
+  teamId: string;
+  /**
+   * Future draft years where this team's own 1st-round pick is already
+   * owed elsewhere — derived from pick-ownership.json (any 1st where
+   * original_team_id === teamId AND current_owner_team_id !== teamId).
+   * Excludes picks selected in the current builder trade — those are
+   * folded in by validatePickRules itself.
+   */
+  ownFirstsAlreadyOwed: number[];
+}
+
+export type PickRuleViolation =
+  | {
+      rule: 'seven_year_cap';
+      pickKey: string;
+      year: number;
+      maxYear: number;
+      reason: string;
+    }
+  | {
+      rule: 'stepien';
+      teamId: string;
+      years: [number, number];
+      reason: string;
+    };
+
+export interface PickRuleResult {
+  legal: boolean;
+  violations: PickRuleViolation[];
+}
+
+/**
+ * Validate draft-pick trading rules against a proposed trade.
+ *
+ * @param outgoingByTeam   Map of teamId -> picks that team is sending.
+ * @param teamContexts     Map of teamId -> pre-existing pick obligations
+ *                         (own 1sts already owed elsewhere, excluding
+ *                         this trade).
+ * @param currentDraftYear The next upcoming draft year. For trades during
+ *                         the 2025-26 season, this is 2026.
+ */
+export function validatePickRules(
+  outgoingByTeam: Record<string, PickAsset[]>,
+  teamContexts: Record<string, TeamPickContext>,
+  currentDraftYear: number,
+): PickRuleResult {
+  const violations: PickRuleViolation[] = [];
+  const maxYear = currentDraftYear + 6;  // 7 drafts: current + next 6
+
+  // Seven-year cap — applies to every outgoing pick on every side.
+  for (const picks of Object.values(outgoingByTeam)) {
+    for (const p of picks) {
+      if (p.year > maxYear) {
+        violations.push({
+          rule: 'seven_year_cap',
+          pickKey: p.pick_key,
+          year: p.year,
+          maxYear,
+          reason: `Pick ${p.pick_key} (${p.year}) is beyond the 7-year window — only drafts through ${maxYear} are tradeable.`,
+        });
+      }
+    }
+  }
+
+  // Stepien Rule — for each team, combine pre-existing owed-away years
+  // with any own 1sts being sent in this trade. Flag if any two of those
+  // years are consecutive.
+  for (const [teamId, picks] of Object.entries(outgoingByTeam)) {
+    const context = teamContexts[teamId];
+    if (!context) continue;
+
+    const owedYears = new Set<number>(context.ownFirstsAlreadyOwed);
+    for (const p of picks) {
+      if (p.round === 1 && p.original_team_id === teamId) {
+        owedYears.add(p.year);
+      }
+    }
+
+    const sorted = [...owedYears].sort((a, b) => a - b);
+    for (let i = 1; i < sorted.length; i++) {
+      if (sorted[i] === sorted[i - 1] + 1) {
+        violations.push({
+          rule: 'stepien',
+          teamId,
+          years: [sorted[i - 1], sorted[i]],
+          reason: `${teamId} would be without its own 1st-round pick in ${sorted[i - 1]} and ${sorted[i]} — Stepien Rule prohibits consecutive missing 1sts.`,
+        });
+        break;  // One Stepien violation per team is enough to flag.
+      }
+    }
+  }
+
+  return { legal: violations.length === 0, violations };
+}

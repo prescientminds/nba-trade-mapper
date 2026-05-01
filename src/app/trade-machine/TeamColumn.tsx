@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getSupabase } from '@/lib/supabase';
 import { TEAMS, TEAM_LIST } from '@/lib/teams';
 import BPMExplainer from './BPMExplainer';
@@ -64,7 +64,7 @@ interface Props {
 // fetched once per page load, not once per team column.
 let ownershipCache: Record<string, OwnedPick[]> | null = null;
 let ownershipPromise: Promise<Record<string, OwnedPick[]>> | null = null;
-async function loadOwnership(): Promise<Record<string, OwnedPick[]>> {
+export async function loadOwnership(): Promise<Record<string, OwnedPick[]>> {
   if (ownershipCache) return ownershipCache;
   if (ownershipPromise) return ownershipPromise;
   ownershipPromise = fetch('/data/pick-ownership.json')
@@ -193,34 +193,13 @@ export default function TeamColumn({ label, state, otherTeamId, onChange }: Prop
         >
           {label}
         </div>
-        <select
-          value={state.teamId ?? ''}
-          onChange={(e) => {
-            const v = e.target.value;
-            onChange({ ...state, teamId: v || null, roster: [], selectedPlayerNames: new Set() });
-          }}
-          style={{
-            flex: 1,
-            background: 'var(--bg-elevated)',
-            color: 'var(--text-primary)',
-            border: '1px solid var(--border-medium)',
-            borderRadius: 'var(--radius-sm)',
-            padding: '6px 8px',
-            fontFamily: 'var(--font-body)',
-            fontSize: 13,
-          }}
-        >
-          <option value="">Choose team…</option>
-          {TEAM_LIST.map((t) => (
-            <option
-              key={t.id}
-              value={t.id}
-              disabled={otherTeamId === t.id}
-            >
-              {t.name}
-            </option>
-          ))}
-        </select>
+        <TeamPicker
+          value={state.teamId}
+          otherTeamId={otherTeamId}
+          onChange={(v) =>
+            onChange({ ...state, teamId: v, roster: [], selectedPlayerNames: new Set() })
+          }
+        />
       </div>
 
       {/* Roster */}
@@ -604,4 +583,176 @@ function hexToRgba(hex: string, alpha: number): string {
   const g = parseInt(h.slice(2, 4), 16);
   const b = parseInt(h.slice(4, 6), 16);
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+// ── TeamPicker — styled dropdown matching the rest of the app ──────
+//
+// Replaces the browser-native <select>, which used OS chrome for the
+// open list and didn't honor the dark theme. Click-outside and Escape
+// close the panel.
+
+interface TeamPickerProps {
+  value: string | null;
+  otherTeamId: string | null;
+  onChange: (next: string | null) => void;
+}
+
+function TeamPicker({ value, otherTeamId, onChange }: TeamPickerProps) {
+  const [open, setOpen] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDoc = (e: MouseEvent) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('mousedown', onDoc);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDoc);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
+  const team = value ? TEAMS[value] : null;
+  const accent = team ? team.color : 'var(--accent-orange)';
+
+  return (
+    <div ref={wrapperRef} style={{ position: 'relative', flex: 1 }}>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        style={{
+          width: '100%',
+          background: 'var(--bg-elevated)',
+          color: team ? 'var(--text-primary)' : 'var(--text-tertiary)',
+          border: `1px solid ${team ? hexToRgba(accent, 0.45) : 'var(--border-medium)'}`,
+          borderRadius: 'var(--radius-sm)',
+          padding: '7px 10px',
+          fontFamily: 'var(--font-body)',
+          fontSize: 13,
+          textAlign: 'left',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          cursor: 'pointer',
+        }}
+      >
+        <span>{team ? team.name : 'Choose team…'}</span>
+        <svg
+          width="10"
+          height="10"
+          viewBox="0 0 10 10"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          style={{
+            transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
+            transition: 'transform 120ms ease',
+            opacity: 0.6,
+          }}
+        >
+          <polyline points="2,3.5 5,6.5 8,3.5" />
+        </svg>
+      </button>
+
+      {open && (
+        <div
+          style={{
+            position: 'absolute',
+            top: 'calc(100% + 4px)',
+            left: 0,
+            right: 0,
+            zIndex: 20,
+            background: 'var(--bg-card)',
+            border: '1px solid var(--border-medium)',
+            borderRadius: 'var(--radius-sm)',
+            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)',
+            maxHeight: 320,
+            overflowY: 'auto',
+            padding: 4,
+          }}
+          role="listbox"
+        >
+          {TEAM_LIST.map((t) => {
+            const disabled = otherTeamId === t.id;
+            const isSelected = value === t.id;
+            return (
+              <button
+                key={t.id}
+                type="button"
+                role="option"
+                aria-selected={isSelected}
+                disabled={disabled}
+                onClick={() => {
+                  onChange(t.id);
+                  setOpen(false);
+                }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 10,
+                  width: '100%',
+                  padding: '8px 10px',
+                  background: isSelected ? hexToRgba(t.color, 0.12) : 'transparent',
+                  color: disabled
+                    ? 'var(--text-muted)'
+                    : isSelected
+                      ? 'var(--text-primary)'
+                      : 'var(--text-secondary)',
+                  border: 'none',
+                  borderLeft: `2px solid ${isSelected ? t.color : 'transparent'}`,
+                  borderRadius: 4,
+                  fontFamily: 'var(--font-body)',
+                  fontSize: 13,
+                  textAlign: 'left',
+                  cursor: disabled ? 'not-allowed' : 'pointer',
+                  opacity: disabled ? 0.4 : 1,
+                }}
+                onMouseEnter={(e) => {
+                  if (!disabled && !isSelected) {
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!disabled && !isSelected) {
+                    e.currentTarget.style.background = 'transparent';
+                  }
+                }}
+              >
+                <span
+                  style={{
+                    width: 8,
+                    height: 8,
+                    borderRadius: '50%',
+                    background: t.color,
+                    flexShrink: 0,
+                  }}
+                />
+                <span>{t.name}</span>
+                {disabled && (
+                  <span
+                    style={{
+                      marginLeft: 'auto',
+                      fontSize: 10,
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      color: 'var(--text-muted)',
+                    }}
+                  >
+                    in use
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
 }
