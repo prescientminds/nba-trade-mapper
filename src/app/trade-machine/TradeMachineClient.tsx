@@ -317,12 +317,14 @@ function checkPickRules(
       year: p.year,
       round: p.round,
       original_team_id: p.original_team_id,
+      asset_class: p.asset_class,
     })),
     [right.teamId]: right.picks.map((p) => ({
       pick_key: p.pick_key,
       year: p.year,
       round: p.round,
       original_team_id: p.original_team_id,
+      asset_class: p.asset_class,
     })),
   };
 
@@ -338,9 +340,10 @@ function checkPickRules(
 }
 
 // Across the full ownership map, find this team's own future 1sts that
-// some other team currently owns. A pick reappears in the team's own
-// roster only if it was reacquired, so current_owner_team_id is the
-// authoritative "who controls it now" field.
+// some other team currently owns OUTRIGHT (not as a swap right). A swap
+// right doesn't transfer the underlying pick — the original team still
+// drafts unless the swap is exercised — so swap-class entries don't
+// count against Stepien.
 function ownedAwayOwnFirsts(
   teamId: string,
   ownership: Record<string, OwnedPick[]> | null,
@@ -353,6 +356,7 @@ function ownedAwayOwnFirsts(
         p.round === 1 &&
         p.original_team_id === teamId &&
         p.current_owner_team_id !== teamId &&
+        p.asset_class === 'pick' &&
         p.year >= CURRENT_YEAR
       ) {
         years.add(p.year);

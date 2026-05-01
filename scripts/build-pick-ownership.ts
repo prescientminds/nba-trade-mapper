@@ -30,6 +30,7 @@ import * as path from 'path';
 
 const TRADES_DIR = path.join(__dirname, '..', 'public', 'data', 'trades', 'by-season');
 const OUT_FILE = path.join(__dirname, '..', 'public', 'data', 'pick-ownership.json');
+const PROTECTIONS_FILE = path.join(__dirname, '..', 'public', 'data', 'pick-protections.json');
 
 const YEARS = [2026, 2027, 2028, 2029, 2030, 2031, 2032] as const;
 const ROUNDS = [1, 2] as const;
@@ -95,6 +96,16 @@ interface OwnedPick {
   round: 1 | 2;
   original_team_id: string;
   current_owner_team_id: string;
+  /**
+   * 'pick' = outright pick ownership (the holder will make the selection).
+   * 'swap' = swap right (the holder controls an option to swap with the
+   * original team's pick; the underlying selection still belongs to the
+   * original team unless the swap is exercised).
+   *
+   * Sourced from pick-protections.json — any pick_key parsed there as a
+   * swap_right gets re-classed here.
+   */
+  asset_class: 'pick' | 'swap';
   conditional: boolean;
   lineage: LineageStep[];
 }
@@ -105,6 +116,7 @@ interface Output {
     total_picks: number;
     traded_picks: number;
     conditional_picks: number;
+    swap_picks: number;
   };
   teams: Record<string, OwnedPick[]>;
 }
@@ -115,6 +127,25 @@ const TEAM_IDS = [
   'HOU', 'IND', 'LAC', 'LAL', 'MEM', 'MIA', 'MIL', 'MIN', 'NOP', 'NYK',
   'OKC', 'ORL', 'PHI', 'PHX', 'POR', 'SAC', 'SAS', 'TOR', 'UTA', 'WAS',
 ] as const;
+
+/**
+ * Load the set of pick_keys that the protection parser flagged as swap
+ * rights. We use this to re-class entries in the ownership table — the raw
+ * trade JSON's `type: 'pick'` rows model the chain but lose the swap-vs-
+ * outright distinction. The parsed protections file is authoritative.
+ */
+function loadSwapPickKeys(): Set<string> {
+  if (!fs.existsSync(PROTECTIONS_FILE)) return new Set();
+  const raw = fs.readFileSync(PROTECTIONS_FILE, 'utf-8');
+  const parsed = JSON.parse(raw) as {
+    picks: Record<string, { asset_class?: 'pick' | 'swap' }>;
+  };
+  const swaps = new Set<string>();
+  for (const [pickKey, entry] of Object.entries(parsed.picks ?? {})) {
+    if (entry.asset_class === 'swap') swaps.add(pickKey);
+  }
+  return swaps;
+}
 
 function loadAllTrades(): StaticTrade[] {
   const files = fs.readdirSync(TRADES_DIR).filter((f) => f.endsWith('.json') && f !== 'index.json');
@@ -153,6 +184,9 @@ function main() {
   console.log('Loading static trade JSON…');
   const trades = loadAllTrades();
   console.log(`  trades: ${trades.length}`);
+
+  const swapPickKeys = loadSwapPickKeys();
+  console.log(`  swap pick_keys (from pick-protections.json): ${swapPickKeys.size}`);
 
   // Flatten pick assets across all trades, tagged with their parent trade id/date.
   interface FlatPick extends StaticTradeAsset {
@@ -219,6 +253,7 @@ function main() {
   let totalPicks = 0;
   let tradedPicks = 0;
   let conditionalPicks = 0;
+  let swapPicks = 0;
 
   for (const originalTeam of TEAM_IDS) {
     for (const year of YEARS) {
@@ -263,12 +298,26 @@ function main() {
         const allDescs = assets.map((a) => a.trade_description);
         const conditional = allDescs.some((d) => PROTECTION_RE.test(d));
 
+        const pickKey = `${year}-${round}-${originalTeam}`;
+        // Only flag asset_class='swap' when the chain actually shows the
+        // pick moving away from the original team — i.e., the holder is
+        // someone other than the original. The protections file flags both
+        // sides (the original team's encumbered pick AND the holder's
+        // swap right), but for the validator's "can't re-trade swap as
+        // pick" rule, the salient case is the holder. When current_owner
+        // === original_team, our chain didn't reach the holder (a known
+        // data gap); leave it as 'pick' to avoid a false positive on the
+        // original team's own pick.
+        const assetClass: 'pick' | 'swap' =
+          swapPickKeys.has(pickKey) && currentOwner !== originalTeam ? 'swap' : 'pick';
+
         const pick: OwnedPick = {
-          pick_key: `${year}-${round}-${originalTeam}`,
+          pick_key: pickKey,
           year,
           round,
           original_team_id: originalTeam,
           current_owner_team_id: currentOwner,
+          asset_class: assetClass,
           conditional,
           lineage,
         };
@@ -280,6 +329,7 @@ function main() {
         totalPicks += 1;
         if (lineage.length > 0) tradedPicks += 1;
         if (conditional) conditionalPicks += 1;
+        if (assetClass === 'swap') swapPicks += 1;
       }
     }
   }
@@ -302,7 +352,12 @@ function main() {
 
   const output: Output = {
     generated_at: new Date().toISOString(),
-    stats: { total_picks: totalPicks, traded_picks: tradedPicks, conditional_picks: conditionalPicks },
+    stats: {
+      total_picks: totalPicks,
+      traded_picks: tradedPicks,
+      conditional_picks: conditionalPicks,
+      swap_picks: swapPicks,
+    },
     teams: sortedTeams,
   };
 
@@ -310,6 +365,7 @@ function main() {
   console.log(`Total pick records: ${totalPicks}`);
   console.log(`  traded (any step): ${tradedPicks}`);
   console.log(`  conditional:       ${conditionalPicks}`);
+  console.log(`  swap-class:        ${swapPicks}`);
   for (const teamId of TEAM_IDS) {
     const list = sortedTeams[teamId] ?? [];
     const traded = list.filter((p) => p.original_team_id !== teamId).length;
