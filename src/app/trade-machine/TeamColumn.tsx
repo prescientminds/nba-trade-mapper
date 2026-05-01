@@ -25,6 +25,12 @@ export interface OutgoingPick {
   year: number;
   round: 1 | 2;
   original_team_id: string;
+  /**
+   * 'pick' = outright pick. 'swap' = swap right (the holder controls a
+   * swap option, not the underlying selection). Sourced from
+   * pick-protections.json via build-pick-ownership.ts.
+   */
+  asset_class: 'pick' | 'swap';
   conditional: boolean;
   lineage: Array<{
     trade_id: string;
@@ -42,6 +48,7 @@ export interface OwnedPick {
   round: 1 | 2;
   original_team_id: string;
   current_owner_team_id: string;
+  asset_class: 'pick' | 'swap';
   conditional: boolean;
   lineage: OutgoingPick['lineage'];
 }
@@ -152,6 +159,7 @@ export default function TeamColumn({ label, state, otherTeamId, onChange }: Prop
             year: p.year,
             round: p.round,
             original_team_id: p.original_team_id,
+            asset_class: p.asset_class,
             conditional: p.conditional,
             lineage: p.lineage,
           },
@@ -304,9 +312,12 @@ export default function TeamColumn({ label, state, otherTeamId, onChange }: Prop
             {ownedPicks.map((p) => {
               const selected = state.picks.some((x) => x.pick_key === p.pick_key);
               const isOwn = p.original_team_id === state.teamId;
-              const originLabel = isOwn
-                ? 'own'
-                : `via ${p.original_team_id}`;
+              const isSwap = p.asset_class === 'swap';
+              const originLabel = isSwap
+                ? `swap vs ${p.original_team_id}`
+                : isOwn
+                  ? 'own'
+                  : `via ${p.original_team_id}`;
               const hovered = hoveredPickKey === p.pick_key;
               return (
                 <div
@@ -334,10 +345,33 @@ export default function TeamColumn({ label, state, otherTeamId, onChange }: Prop
                       onChange={() => togglePick(p)}
                       style={{ accentColor: 'var(--accent-orange)' }}
                     />
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--pick-yellow, #f9c74f)' }}>
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: 12,
+                        color: isSwap ? 'var(--accent-purple)' : 'var(--pick-yellow, #f9c74f)',
+                      }}
+                    >
                       {p.year} R{p.round}
                     </span>
-                    <span style={{ fontSize: 11, color: isOwn ? 'var(--text-muted)' : 'var(--text-secondary)' }}>
+                    <span style={{ fontSize: 11, color: isOwn ? 'var(--text-muted)' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                      {isSwap && (
+                        <span
+                          style={{
+                            fontSize: 8,
+                            fontWeight: 700,
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.1em',
+                            color: 'var(--accent-purple)',
+                            padding: '1px 5px',
+                            borderRadius: 999,
+                            background: 'rgba(155, 93, 229, 0.18)',
+                            border: '1px solid rgba(155, 93, 229, 0.4)',
+                          }}
+                        >
+                          swap
+                        </span>
+                      )}
                       {originLabel}
                     </span>
                     {p.conditional && (

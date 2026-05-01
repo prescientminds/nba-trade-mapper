@@ -343,10 +343,10 @@ export function validateTrade(
   };
 }
 
-// ── Draft pick rules: Stepien Rule + seven-year cap ─────────────────
+// ── Draft pick rules: Stepien Rule + seven-year cap + swap-as-pick ──
 //
-// Two NBA rules that gate which picks can move in a trade, independent of
-// salary matching:
+// Three NBA rules that gate which picks can move in a trade, independent
+// of salary matching:
 //
 //   1. Seven-year cap (CBA Article VII §7) — a team can trade picks up
 //      to seven future drafts out (the upcoming draft + the next six).
@@ -354,10 +354,11 @@ export function validateTrade(
 //   2. Stepien Rule — a team cannot leave itself without its own
 //      first-round pick in two consecutive future drafts. Top-protected
 //      pending 1sts still count as "owed" until they extinguish.
-//
-// Swap-vs-outright (a swap right cannot be re-traded as an outright pick)
-// is a separate rule that depends on pick provenance data we don't yet
-// surface in pick-ownership.json. Tracked as a follow-up.
+//   3. Swap-as-pick — a swap right (option to swap with another team's
+//      pick) cannot be re-traded as if it were an outright pick. It is
+//      tradeable, but the asset class must travel with it. The current
+//      Trade Machine UI sends picks; a swap-classed asset triggers a
+//      violation rather than silently being treated as outright.
 
 export interface PickAsset {
   pick_key: string;
@@ -365,6 +366,12 @@ export interface PickAsset {
   round: 1 | 2;
   /** The team whose draft slot this pick comes from (not the current owner). */
   original_team_id: string;
+  /**
+   * 'pick' = outright pick (the holder will draft). 'swap' = swap right
+   * (the holder controls an option to swap with the original team's
+   * pick). Sourced from pick-ownership.json's asset_class field.
+   */
+  asset_class: 'pick' | 'swap';
 }
 
 export interface TeamPickContext {
@@ -392,6 +399,12 @@ export type PickRuleViolation =
       teamId: string;
       years: [number, number];
       reason: string;
+    }
+  | {
+      rule: 'swap_as_pick';
+      pickKey: string;
+      teamId: string;
+      reason: string;
     };
 
 export interface PickRuleResult {
@@ -417,7 +430,9 @@ export function validatePickRules(
   const violations: PickRuleViolation[] = [];
   const maxYear = currentDraftYear + 6;  // 7 drafts: current + next 6
 
-  // Seven-year cap — applies to every outgoing pick on every side.
+  // Seven-year cap — applies to every outgoing pick on every side. Swap
+  // rights are equally subject (a swap option seven drafts out is just as
+  // non-tradeable as the underlying pick).
   for (const picks of Object.values(outgoingByTeam)) {
     for (const p of picks) {
       if (p.year > maxYear) {
@@ -432,16 +447,37 @@ export function validatePickRules(
     }
   }
 
+  // Swap-as-pick — a swap right cannot be sent as if it were an outright
+  // pick. The current Trade Machine UI doesn't model swap-as-swap as a
+  // distinct asset type, so a swap-classed asset is by definition being
+  // mis-traded as outright; flag it.
+  for (const [teamId, picks] of Object.entries(outgoingByTeam)) {
+    for (const p of picks) {
+      if (p.asset_class === 'swap') {
+        violations.push({
+          rule: 'swap_as_pick',
+          pickKey: p.pick_key,
+          teamId,
+          reason: `${teamId} only holds a swap right on ${p.pick_key} (vs ${p.original_team_id} ${p.year} R${p.round}) — a swap right cannot be re-traded as an outright pick.`,
+        });
+      }
+    }
+  }
+
   // Stepien Rule — for each team, combine pre-existing owed-away years
-  // with any own 1sts being sent in this trade. Flag if any two of those
-  // years are consecutive.
+  // with any own 1sts being sent OUTRIGHT in this trade. Swap rights
+  // don't move the underlying pick, so they don't count against Stepien.
   for (const [teamId, picks] of Object.entries(outgoingByTeam)) {
     const context = teamContexts[teamId];
     if (!context) continue;
 
     const owedYears = new Set<number>(context.ownFirstsAlreadyOwed);
     for (const p of picks) {
-      if (p.round === 1 && p.original_team_id === teamId) {
+      if (
+        p.round === 1 &&
+        p.original_team_id === teamId &&
+        p.asset_class === 'pick'
+      ) {
         owedYears.add(p.year);
       }
     }
