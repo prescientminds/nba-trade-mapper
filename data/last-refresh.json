@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-05-02T01:04:13.120Z",
+  "year": 2026,
+  "season": "2025-26",
+  "teams": [
+    "DEN",
+    "MIN"
+  ],
+  "rostersRefreshed": 29,
+  "durationSec": 12,
+  "phases": [
+    {
+      "phase": "scrape-playoff-results",
+      "ok": true,
+      "durationSec": 2
+    },
+    {
+      "phase": "scrape-playoff-stats",
+      "ok": true,
+      "durationSec": 9
+    },
+    {
+      "phase": "derive-rosters",
+      "ok": true,
+      "durationSec": 0,
+      "detail": "29 names"
+    },
+    {
+      "phase": "scrape-playoff-game-logs",
+      "ok": true,
+      "durationSec": 0,
+      "detail": "skipped"
+    },
+    {
+      "phase": "verify-playoff-data",
+      "ok": true,
+      "durationSec": 1
+    }
+  ],
+  "verifyPassed": true
+}
