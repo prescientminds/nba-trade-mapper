@@ -280,11 +280,27 @@ npx tsx scripts/scrape-bbref-transactions.ts --no-db     # JSON only, skip Supab
 # Mid-season Kaggle stats refresh (downloads latest CSVs + re-imports)
 KAGGLE_API_TOKEN=xxx ./scripts/update-kaggle-stats.sh   # One command: download, compare, swap, import
 
-# Seasonal refresh (run each offseason after playoffs end)
-npx tsx scripts/scrape-playoff-results.ts --year 2026   # Bracket results → team_seasons
-npx tsx scripts/scrape-playoff-stats.ts --year 2026     # Playoff WS/PPG → player_seasons
-npx tsx scripts/score-trades.ts                         # Recompute all trade scores
+# Playoff data refresh — single command, all phases + verify (mid-bracket or end-of-postseason)
+# Invoked via /update skill, or run directly:
+npx tsx scripts/refresh-playoff-data.ts --year 2026                       # full refresh (~2.5 min)
+npx tsx scripts/refresh-playoff-data.ts --year 2026 --skip-game-logs      # bracket+stats only (~12s)
+npx tsx scripts/refresh-playoff-data.ts --year 2026 --teams DEN,MIN       # narrow game-log scope
+
+# Verifier — runs as final phase of orchestrator; standalone for spot-checks
+npx tsx scripts/verify-playoff-data.ts --year 2026                        # 5 hard invariants + advisory
+npx tsx scripts/verify-playoff-data.ts --year 2026 --json                 # machine-readable output
+
+# Underlying scripts (orchestrator calls these; rarely run directly)
+npx tsx scripts/scrape-playoff-results.ts --year 2026                     # bracket → team_seasons
+npx tsx scripts/scrape-playoff-stats.ts --year 2026 [--overwrite]         # WS/PPG → player_seasons
+npx tsx scripts/scrape-playoff-game-logs.ts --refresh --names "A,B,C"     # per-game logs (no --year flag)
+npx tsx scripts/score-trades.ts                                            # recompute trade scores
 ```
+
+**Key gotchas for `/update`:**
+- `scrape-playoff-game-logs.ts` has **no `--year` flag** (the orchestrator derives active rosters from the per-game cache and passes `--names`).
+- BBRef summary page lags ~24h on series completions; verifier handles this gracefully (active series legitimately have no stamps). When BBRef catches up, re-run the orchestrator.
+- Manifest at `data/last-refresh.json` records every run — orchestrator and skill both read it to avoid redundant scrapes within 4h.
 
 ## Supabase
 - **URL**: https://izvnmsrjygshtperrwqk.supabase.co
