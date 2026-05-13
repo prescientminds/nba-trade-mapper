@@ -1,41 +1,126 @@
 {
-  "timestamp": "2026-05-02T01:04:13.120Z",
+  "timestamp": "2026-05-13T18:21:01.457Z",
   "year": 2026,
-  "season": "2025-26",
-  "teams": [
-    "DEN",
-    "MIN"
-  ],
-  "rostersRefreshed": 29,
-  "durationSec": 12,
+  "league": "all",
+  "durationSec": 3320,
   "phases": [
     {
-      "phase": "scrape-playoff-results",
+      "phase": "scrape-today",
+      "league": "NBA",
+      "ok": true,
+      "durationSec": 1
+    },
+    {
+      "phase": "scrape-bbref-transactions",
+      "league": "NBA",
+      "ok": true,
+      "durationSec": 3
+    },
+    {
+      "phase": "refresh-playoff-data",
+      "league": "NBA",
+      "ok": false,
+      "durationSec": 1047,
+      "detail": "exit 1"
+    },
+    {
+      "phase": "scrape-cap-history",
+      "league": "NBA",
+      "ok": true,
+      "durationSec": 1
+    },
+    {
+      "phase": "scrape-salaries",
+      "league": "NBA",
       "ok": true,
       "durationSec": 2
     },
     {
-      "phase": "scrape-playoff-stats",
+      "phase": "scrape-salaries",
+      "league": "NBA",
       "ok": true,
-      "durationSec": 9
+      "durationSec": 2218
     },
     {
-      "phase": "derive-rosters",
+      "phase": "scrape-wnba-team-seasons",
+      "league": "WNBA",
       "ok": true,
-      "durationSec": 0,
-      "detail": "29 names"
+      "durationSec": 5
     },
     {
-      "phase": "scrape-playoff-game-logs",
+      "phase": "scrape-wnba-trades",
+      "league": "WNBA",
       "ok": true,
-      "durationSec": 0,
-      "detail": "skipped"
+      "durationSec": 4
+    },
+    {
+      "phase": "scrape-wnba-player-stats",
+      "league": "WNBA",
+      "ok": true,
+      "durationSec": 8
+    },
+    {
+      "phase": "scrape-wnba-playoffs",
+      "league": "WNBA",
+      "ok": true,
+      "durationSec": 1
+    },
+    {
+      "phase": "scrape-wnba-playoff-stats",
+      "league": "WNBA",
+      "ok": true,
+      "durationSec": 7
+    },
+    {
+      "phase": "scrape-wnba-accolades",
+      "league": "WNBA",
+      "ok": true,
+      "durationSec": 2
+    },
+    {
+      "phase": "scrape-wnba-draft",
+      "league": "WNBA",
+      "ok": true,
+      "durationSec": 4
+    },
+    {
+      "phase": "update-kaggle-stats",
+      "league": "shared",
+      "ok": true,
+      "durationSec": 3301,
+      "detail": "log: data/kaggle-refresh.log"
+    },
+    {
+      "phase": "score-trades",
+      "league": "shared",
+      "ok": true,
+      "durationSec": 10
+    },
+    {
+      "phase": "score-transactions",
+      "league": "shared",
+      "ok": true,
+      "durationSec": 17
+    },
+    {
+      "phase": "compute-dynasty-ingredients",
+      "league": "shared",
+      "ok": true,
+      "durationSec": 8
+    },
+    {
+      "phase": "update-cap-thresholds",
+      "league": "shared",
+      "ok": true,
+      "durationSec": 3
     },
     {
       "phase": "verify-playoff-data",
-      "ok": true,
-      "durationSec": 1
+      "league": "NBA",
+      "ok": false,
+      "durationSec": 1,
+      "detail": "exit 1"
     }
   ],
-  "verifyPassed": true
+  "allOk": false
 }

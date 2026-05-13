@@ -12,11 +12,18 @@ KAGGLE_DIR="data/kaggle"
 BACKUP_DIR="data/kaggle-prev"
 TMP_DIR="data/kaggle-new"
 
-# Preflight
-if [ -z "${KAGGLE_API_TOKEN:-}" ] && [ ! -f ~/.kaggle/kaggle.json ]; then
-  echo "Error: Set KAGGLE_API_TOKEN or place credentials at ~/.kaggle/kaggle.json"
-  echo "Get token: https://www.kaggle.com/settings → API"
+# Preflight — accept either env var, new-style access_token file, or legacy kaggle.json
+if [ -z "${KAGGLE_API_TOKEN:-}" ] && [ ! -f ~/.kaggle/access_token ] && [ ! -f ~/.kaggle/kaggle.json ]; then
+  echo "Error: No Kaggle credentials found."
+  echo "  Set KAGGLE_API_TOKEN env var, or place a token at ~/.kaggle/access_token"
+  echo "  Get token: https://www.kaggle.com/settings → API"
   exit 1
+fi
+
+# If the new-style access_token file exists, export it into env for the CLI.
+if [ -z "${KAGGLE_API_TOKEN:-}" ] && [ -f ~/.kaggle/access_token ]; then
+  export KAGGLE_API_TOKEN
+  KAGGLE_API_TOKEN="$(cat ~/.kaggle/access_token)"
 fi
 
 command -v kaggle >/dev/null || { echo "Error: kaggle CLI not installed (brew install kaggle)"; exit 1; }
@@ -47,7 +54,10 @@ mv "$TMP_DIR" "$KAGGLE_DIR"
 echo "Importing player stats..."
 npx tsx scripts/import-player-stats.ts
 
+echo "Importing team seasons..."
+npx tsx scripts/import-team-seasons.ts
+
 echo ""
 echo "Done. Previous data backed up to $BACKUP_DIR"
-echo "To import accolades (wipe table first!): npx tsx scripts/import-accolades.ts"
-echo "To import team seasons: npx tsx scripts/import-team-seasons.ts"
+echo "Accolades NOT imported (script uses INSERT — wipe table first if re-running):"
+echo "  npx tsx scripts/import-accolades.ts"

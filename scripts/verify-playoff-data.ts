@@ -234,14 +234,21 @@ async function check4_noOrphanGameLogs(season: string): Promise<CheckResult> {
 }
 
 async function check5_gameLogCounts(season: string): Promise<CheckResult> {
-  const { data: glRows } = await supabase
-    .from('playoff_game_logs')
-    .select('player_name, team_id')
-    .eq('season', season);
+  // Paginate through playoff_game_logs — PostgREST defaults to 1000 rows per response.
   const glCount = new Map<string, number>();
-  for (const r of (glRows || []) as { player_name: string; team_id: string }[]) {
-    const k = `${r.player_name}|${r.team_id}`;
-    glCount.set(k, (glCount.get(k) || 0) + 1);
+  const PAGE = 1000;
+  for (let from = 0; ; from += PAGE) {
+    const { data: glRows } = await supabase
+      .from('playoff_game_logs')
+      .select('player_name, team_id')
+      .eq('season', season)
+      .range(from, from + PAGE - 1);
+    const rows = (glRows || []) as { player_name: string; team_id: string }[];
+    for (const r of rows) {
+      const k = `${r.player_name}|${r.team_id}`;
+      glCount.set(k, (glCount.get(k) || 0) + 1);
+    }
+    if (rows.length < PAGE) break;
   }
   if (glCount.size === 0) {
     return {
