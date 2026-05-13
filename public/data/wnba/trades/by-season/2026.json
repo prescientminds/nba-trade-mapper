@@ -1,0 +1,245 @@
+[
+  {
+    "id": "wnba-2026-04-06-54359bfb",
+    "date": "2026-04-06",
+    "season": "2026",
+    "title": "Angel Reese Trade",
+    "description": "The Chicago Sky traded Angel Reese and a 2028 2nd round pick ( later selected) (2028 2nd-rd pick is a right to swap) to the Atlanta Dream for a 2027 1st round pick ( later selected) and a 2028 1st round pick ( later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Angel Reese",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": null,
+        "to_team_id": null,
+        "pick_year": 2028,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": null,
+        "to_team_id": null,
+        "pick_year": 2027,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": null,
+        "to_team_id": null,
+        "pick_year": 2028,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2026-04-09-588c648c",
+    "date": "2026-04-09",
+    "season": "2026",
+    "title": "Diamond Miller, Rayah Marshall Trade",
+    "description": "The Dallas Wings traded Diamond Miller to the Connecticut Sun for Rayah Marshall.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Diamond Miller",
+        "from_team_id": "W-DAL",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rayah Marshall",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2026-04-11-b5d5ee6d",
+    "date": "2026-04-11",
+    "season": "2026",
+    "title": "Jacy Sheldon Trade",
+    "description": "The Washington Mystics traded Jacy Sheldon to the Chicago Sky for a 2028 1st round pick ( later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jacy Sheldon",
+        "from_team_id": "W-WAS",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-WAS",
+        "pick_year": 2028,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2026-04-12-3e14aa10",
+    "date": "2026-04-12",
+    "season": "2026",
+    "title": "Ariel Atkins, Rickea Jackson Trade",
+    "description": "The Chicago Sky traded Ariel Atkins to the Los Angeles Sparks for Rickea Jackson.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ariel Atkins",
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rickea Jackson",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2026-04-13-d23f7c81",
+    "date": "2026-04-13",
+    "season": "2026",
+    "title": "Flau'jae Johnson, Marta Suárez Trade",
+    "description": "The Golden State Valkyries traded Flau'jae Johnson to the Seattle Storm for Marta Suárez and a 2028 2nd round pick ( later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-GSV",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-SEA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Flau'jae Johnson",
+        "from_team_id": "W-GSV",
+        "to_team_id": "W-SEA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Marta Suárez",
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-GSV",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-SEA",
+        "to_team_id": "W-GSV",
+        "pick_year": 2028,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]
