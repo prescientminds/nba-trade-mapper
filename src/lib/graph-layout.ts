@@ -11,6 +11,7 @@ const NODE_DIMENSIONS: Record<string, { width: number; height: number }> = {
   playerStint: { width: 180, height: 36 },
   gap: { width: 180, height: 20 },
   championship: { width: 220, height: 60 },
+  hypotheticalTrade: { width: 180, height: 50 },
 };
 
 /** Dynamic expanded trade height based on number of assets, teams, and inline player data */

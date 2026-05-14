@@ -18,6 +18,7 @@ import PickNode from '@/components/nodes/PickNode';
 import PlayerStintNode from '@/components/nodes/PlayerStintNode';
 import GapNode from '@/components/nodes/GapNode';
 import ChampionshipNode from '@/components/nodes/ChampionshipNode';
+import HypotheticalTradeNode from '@/components/nodes/HypotheticalTradeNode';
 import HighlightableEdge from '@/components/edges/HighlightableEdge';
 import SearchOverlay from '@/components/SearchOverlay';
 import ShareButton from '@/components/ShareButton';
@@ -33,6 +34,7 @@ const nodeTypes = {
   playerStint: PlayerStintNode,
   gap: GapNode,
   championship: ChampionshipNode,
+  hypotheticalTrade: HypotheticalTradeNode,
 };
 
 const edgeTypes = {
