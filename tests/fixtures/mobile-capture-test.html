@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>mobile-capture-test</title>
+<script src="/dev/lib/html2canvas.min.js"></script>
+<script src="/dev/lib/html-to-image.js"></script>
+</head>
+<body style="margin:0;padding:16px;font-family:system-ui;color:#fff;background:#0a0a0f;">
+  <h1 style="font-size:14px;">mobile-capture-test</h1>
+  <pre id="status" data-testid="status" style="font-size:12px;">starting</pre>
+
+  <!--
+    Test fixture for the share-card capture pipeline.
+
+    Two switches via query string let one fixture cover both bug and fix:
+      ?lib=html2canvas | html-to-image  (default html-to-image)
+      ?pos=left9999    | transform      (default transform)
+
+    The bug we shipped: lib=html2canvas + pos=left9999. iOS Safari
+    skips painting elements far outside the viewport, and html2canvas
+    reads the painted DOM, so the result is a near-blank PNG. The fix:
+    lib=html-to-image (foreignObject SVG, paint-independent) + a
+    transform-based off-screen position (still painted).
+
+    The card is a simplified 1080x1080 stand-in for TradeGradeCard with
+    the same kinds of layered backgrounds and text. Captured PNG size
+    is the assertion target — a near-blank 1080x1080 PNG is a few
+    hundred bytes; a real one is 20KB+.
+  -->
+
+  <div id="card-wrapper" style="position:fixed;top:0;left:0;pointer-events:none;z-index:-1;">
+    <div id="card" style="
+      width:1080px;height:1080px;
+      background:linear-gradient(135deg,#0a4d8c 0%,#0a0a0f 50%,#8c1a1a 100%);
+      color:#fff;font-family:Inter,system-ui,sans-serif;
+      display:flex;flex-direction:column;justify-content:space-between;padding:80px;
+      border:8px solid #f9c74f;box-sizing:border-box;
+    ">
+      <div>
+        <div style="font-size:32px;letter-spacing:8px;color:#4ecdc4;font-weight:800;">JUL 10, 2019</div>
+        <div style="font-size:140px;font-weight:900;line-height:0.9;margin-top:24px;">PG &rarr; LAC</div>
+        <div style="font-size:96px;font-weight:900;line-height:0.9;color:#f9c74f;">SGA &rarr; OKC</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+        <div>
+          <div style="font-size:24px;letter-spacing:4px;color:rgba(255,255,255,0.6);">CIPOLLONE STANDARD</div>
+          <div style="font-size:120px;font-weight:900;color:#f9c74f;">A+</div>
+        </div>
+        <div style="font-size:18px;letter-spacing:2px;color:rgba(255,255,255,0.4);">NBA TRADE MAPPER</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (async () => {
+    const params = new URLSearchParams(location.search);
+    const lib = params.get('lib') || 'html-to-image';
+    const pos = params.get('pos') || 'transform';
+
+    const statusEl = document.getElementById('status');
+    const setStatus = (s) => { statusEl.textContent = s; };
+
+    const wrapper = document.getElementById('card-wrapper');
+    if (pos === 'left9999') {
+      wrapper.style.left = '-9999px';
+    } else {
+      wrapper.style.transform = 'translateX(-200vw)';
+    }
+
+    setStatus(`config: lib=${lib} pos=${pos}`);
+
+    try {
+      // Layout settle.
+      await new Promise(r => requestAnimationFrame(() => r()));
+      await new Promise(r => setTimeout(r, 200));
+
+      const card = document.getElementById('card');
+      let blob;
+
+      if (lib === 'html2canvas') {
+        if (!window.html2canvas) throw new Error('html2canvas global not available');
+        const canvas = await window.html2canvas(card, {
+          width: 1080,
+          height: 1080,
+          scale: 1,
+          useCORS: true,
+          logging: false,
+          backgroundColor: null,
+          scrollX: 0,
+          scrollY: 0,
+          windowWidth: 1080,
+          windowHeight: 1080,
+        });
+        blob = await new Promise((resolve, reject) => {
+          canvas.toBlob(b => b ? resolve(b) : reject(new Error('toBlob failed')), 'image/png');
+        });
+      } else {
+        if (!window.htmlToImage) throw new Error('htmlToImage global not available');
+        blob = await window.htmlToImage.toBlob(card, {
+          width: 1080,
+          height: 1080,
+          canvasWidth: 1080,
+          canvasHeight: 1080,
+          pixelRatio: 1,
+          cacheBust: false,
+        });
+        if (!blob) throw new Error('toBlob returned null');
+      }
+
+      const bitmap = await createImageBitmap(blob).catch(() => null);
+      window.__captureResult = {
+        ok: true,
+        lib,
+        pos,
+        byteSize: blob.size,
+        width: bitmap?.width,
+        height: bitmap?.height,
+      };
+      setStatus(`captured ${blob.size} bytes (${bitmap?.width}x${bitmap?.height}) lib=${lib} pos=${pos}`);
+    } catch (e) {
+      window.__captureResult = { ok: false, lib, pos, error: String(e) };
+      setStatus(`error: ${String(e)} lib=${lib} pos=${pos}`);
+    }
+  })();
+  </script>
+</body>
+</html>

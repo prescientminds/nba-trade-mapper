@@ -685,8 +685,12 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
         </div>
 
         {/* ── Hidden card renderer ── */}
+        {/* Off-screen via transform, not left:-9999. iOS Safari skips painting
+            elements positioned far outside the viewport, which makes the
+            capture come back blank. Transform leaves the element in the
+            normal paint tree, just visually offset. */}
         {tradeData && (
-          <div style={{ position: 'fixed', left: -9999, top: 0, pointerEvents: 'none', zIndex: -1 }}>
+          <div style={{ position: 'fixed', top: 0, left: 0, transform: 'translateX(-200vw)', pointerEvents: 'none', zIndex: -1 }}>
             <div ref={cardRef}>
               {cardType === 'grade' ? (
                 <TradeGradeCard
@@ -794,12 +798,13 @@ export default function CardPreviewModal({ tradeId, tradeDate, onClose }: CardPr
         </div>
       </div>
 
-      {/* ── Hidden card renderer (full-size, off-screen) ────── */}
+      {/* ── Hidden card renderer (full-size, off-screen via transform) ────── */}
       {tradeData && (
         <div style={{
           position: 'fixed',
-          left: -9999,
           top: 0,
+          left: 0,
+          transform: 'translateX(-200vw)',
           pointerEvents: 'none',
           zIndex: -1,
         }}>
