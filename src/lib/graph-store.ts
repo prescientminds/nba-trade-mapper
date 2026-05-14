@@ -335,6 +335,17 @@ export interface ChampionshipNodeData {
   [key: string]: unknown;
 }
 
+// ── Hypothetical trade node data (Phase B canvas-native Trade Machine) ─
+export interface HypotheticalTradeNodeData {
+  teamIds: string[];
+  teamColors: string[];
+  /** Lightweight asset summary for collapsed-card display; real editing lives in the side panel (Step 2). */
+  assetCounts: { players: number; picks: number };
+  /** Local hint that this node is the active edit target. The canonical writing-node ID lives on the store. */
+  isWriting?: boolean;
+  [key: string]: unknown;
+}
+
 // ── Chain score types (shared with DiscoverySection) ─────────────────
 export interface ChainAsset {
   name: string;
@@ -429,6 +440,9 @@ interface GraphState {
   retreatFollowPath: () => void;
   exitFollowPath: () => void;
   championshipContext: ChampionshipContext | null;
+  /** Phase B: the hypothetical-trade node currently open for editing (one at a time). */
+  hypotheticalWritingNodeId: string | null;
+  setHypotheticalWritingNode: (nodeId: string | null) => void;
   seedChampionshipRoster: (teamId: string, season: string) => Promise<void>;
   expandChampionshipPlayer: (playerName: string) => Promise<void>;
   expandAllChampionshipPlayers: () => Promise<void>;
@@ -1005,6 +1019,11 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   visualSkin: 'classic' as VisualSkin,
   seedInfo: null,
   championshipContext: null,
+  hypotheticalWritingNodeId: null,
+
+  setHypotheticalWritingNode: (nodeId: string | null) => {
+    set({ hypotheticalWritingNodeId: nodeId });
+  },
 
   setSelectedLeague: (league: League) => {
     set({ selectedLeague: league });
@@ -1045,7 +1064,9 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     newLoading.delete(nodeId);
     const newCore = new Set(state.coreNodes);
     newCore.delete(nodeId);
-    set({ nodes: newNodes, edges: newEdges, expandedNodes: newExpanded, loadingNodes: newLoading, coreNodes: newCore });
+    const hypotheticalWritingNodeId =
+      state.hypotheticalWritingNodeId === nodeId ? null : state.hypotheticalWritingNodeId;
+    set({ nodes: newNodes, edges: newEdges, expandedNodes: newExpanded, loadingNodes: newLoading, coreNodes: newCore, hypotheticalWritingNodeId });
   },
 
   adjustLayoutForToggle: (nodeId: string, deltaH: number) => {
