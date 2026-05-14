@@ -12,6 +12,13 @@
 
 # testing
 /coverage
+/test-results
+/playwright-report
+# Test fixtures and vendored libs materialized into public/ at test time
+# by Playwright's globalSetup (see tests/global-setup.ts). Source-of-truth
+# lives in tests/fixtures/ and node_modules/. Excluded from production
+# deploys so they don't ship to Vercel.
+/public/dev/
 
 # next.js
 /.next/

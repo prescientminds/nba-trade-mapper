@@ -1,7 +1,14 @@
 /**
- * Shared html2canvas capture logic for all card templates.
+ * Shared card capture logic.
  * Returns a PNG blob from a DOM element.
+ *
+ * Uses html-to-image (foreignObject SVG approach) instead of html2canvas because
+ * iOS Safari's html2canvas implementation produces blank/sliver captures when the
+ * source element is positioned off-viewport. html-to-image serializes the live
+ * DOM to SVG and rasterizes via <img>, which is reliable across browsers.
  */
+
+import { toBlob } from 'html-to-image';
 
 export type Format = 'og' | 'square' | 'story';
 
@@ -21,28 +28,19 @@ export async function captureElement(
   el: HTMLElement,
   format: Format,
 ): Promise<{ blob: Blob; url: string }> {
-  const html2canvas = (await import('html2canvas')).default;
   const dims = FORMAT_DIMS[format];
 
-  const canvas = await html2canvas(el, {
+  const blob = await toBlob(el, {
     width: dims.w,
     height: dims.h,
-    scale: 1,
-    useCORS: true,
-    logging: false,
-    backgroundColor: null,
-    scrollX: 0,
-    scrollY: 0,
-    windowWidth: dims.w,
-    windowHeight: dims.h,
+    canvasWidth: dims.w,
+    canvasHeight: dims.h,
+    pixelRatio: 1,
+    cacheBust: false,
+    backgroundColor: undefined,
   });
 
-  const blob = await new Promise<Blob>((resolve, reject) => {
-    canvas.toBlob(
-      (b) => (b ? resolve(b) : reject(new Error('toBlob failed'))),
-      'image/png',
-    );
-  });
+  if (!blob) throw new Error('html-to-image toBlob returned null');
 
   const url = URL.createObjectURL(blob);
   return { blob, url };
