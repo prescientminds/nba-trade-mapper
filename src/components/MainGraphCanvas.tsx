@@ -21,6 +21,7 @@ import ChampionshipNode from '@/components/nodes/ChampionshipNode';
 import HypotheticalTradeNode from '@/components/nodes/HypotheticalTradeNode';
 import HighlightableEdge from '@/components/edges/HighlightableEdge';
 import SearchOverlay from '@/components/SearchOverlay';
+import TradeMachineSidePanel from '@/components/TradeMachineSidePanel';
 import ShareButton from '@/components/ShareButton';
 import CardPreviewModal from '@/components/CardPreviewModal';
 import { SKINS } from '@/lib/skins';
@@ -413,6 +414,14 @@ export default function MainGraphCanvas() {
   const isMobile = useMobile();
   const prevExpandedRef = useRef<Set<string>>(new Set());
 
+  // Dev-only: expose the store on window so Phase B actions can be smoke-tested
+  // from the console, e.g. `useGraphStore.getState().addHypotheticalTrade(['LAL','BOS'])`.
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      (window as unknown as { useGraphStore?: typeof useGraphStore }).useGraphStore = useGraphStore;
+    }
+  }, []);
+
   useEffect(() => {
     if (!pendingFitTarget) return;
     const timer = setTimeout(() => {
@@ -518,6 +527,7 @@ export default function MainGraphCanvas() {
           )}
         </ReactFlow>
       </div>
+      <TradeMachineSidePanel />
     </div>
   );
 }

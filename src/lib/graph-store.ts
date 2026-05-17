@@ -443,6 +443,13 @@ interface GraphState {
   /** Phase B: the hypothetical-trade node currently open for editing (one at a time). */
   hypotheticalWritingNodeId: string | null;
   setHypotheticalWritingNode: (nodeId: string | null) => void;
+  /**
+   * Phase B Step 2: create a new hypothetical-trade node on the canvas,
+   * set it as the writing target, and return its id. Position is picked
+   * relative to existing nodes — right of the canvas extent, or origin
+   * if the canvas is empty.
+   */
+  addHypotheticalTrade: (teamIds: string[]) => string;
   seedChampionshipRoster: (teamId: string, season: string) => Promise<void>;
   expandChampionshipPlayer: (playerName: string) => Promise<void>;
   expandAllChampionshipPlayers: () => Promise<void>;
@@ -479,6 +486,12 @@ function gapNodeId(playerName: string, fromYear: number, toYear: number) {
 
 function championshipNodeId(teamId: string, season: string) {
   return `championship-${teamId}-${season}`;
+}
+
+let _hypotheticalSeq = 0;
+function nextHypotheticalNodeId() {
+  _hypotheticalSeq += 1;
+  return `hypo-${Date.now().toString(36)}-${_hypotheticalSeq}`;
 }
 
 function makeChampionshipNode(
@@ -1023,6 +1036,45 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
   setHypotheticalWritingNode: (nodeId: string | null) => {
     set({ hypotheticalWritingNodeId: nodeId });
+  },
+
+  addHypotheticalTrade: (teamIds: string[]) => {
+    const state = get();
+    const id = nextHypotheticalNodeId();
+    const teamColors = teamIds.map((tid) => getAnyTeam(tid)?.color || '#666');
+
+    // Position to the right of the existing canvas extent so the new card
+    // doesn't overlap; fall back to origin on an empty canvas. ELK is not
+    // re-run for hypothetical nodes — the user drags or the side panel
+    // positions deliberately.
+    let position = { x: 0, y: 0 };
+    if (state.nodes.length > 0) {
+      const maxX = Math.max(...state.nodes.map((n) => n.position.x));
+      const minY = Math.min(...state.nodes.map((n) => n.position.y));
+      position = { x: maxX + 320, y: minY };
+    }
+
+    const node: Node = {
+      id,
+      type: 'hypotheticalTrade',
+      position,
+      data: {
+        teamIds,
+        teamColors,
+        assetCounts: { players: 0, picks: 0 },
+        // No `isWriting` flag — the store's `hypotheticalWritingNodeId` is the
+        // single source of truth for which node is the active edit target.
+        // A data-level flag goes stale the moment a second node is created.
+      } satisfies HypotheticalTradeNodeData,
+    };
+
+    set({
+      nodes: [...state.nodes, node],
+      hypotheticalWritingNodeId: id,
+      pendingFitTarget: id,
+    });
+
+    return id;
   },
 
   setSelectedLeague: (league: League) => {

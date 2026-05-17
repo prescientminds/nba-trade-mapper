@@ -39,6 +39,7 @@ export default function SearchOverlay() {
   const seedFromPlayer = useGraphStore((s) => s.seedFromPlayer);
   const seedChampionshipRoster = useGraphStore((s) => s.seedChampionshipRoster);
   const clearGraph = useGraphStore((s) => s.clearGraph);
+  const addHypotheticalTrade = useGraphStore((s) => s.addHypotheticalTrade);
   const nodes = useGraphStore((s) => s.nodes);
   const selectedLeague = useGraphStore((s) => s.selectedLeague);
   const setSelectedLeague = useGraphStore((s) => s.setSelectedLeague);
@@ -602,6 +603,42 @@ export default function SearchOverlay() {
           </div>
           <TeamSeasonPicker />
         </div>
+
+        {/* Build a Trade — canvas-native Trade Machine entry (Phase B).
+            Spawns an empty hypothetical-trade node and opens the side panel.
+            Team + asset selection lands in the panel in Step 2b; the
+            dedicated /trade-machine?from= deep-link route is Step 4. */}
+        <button
+          onClick={() => addHypotheticalTrade([])}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 8,
+            marginTop: 22,
+            padding: isMobile ? '11px 20px' : '12px 26px',
+            background: 'var(--accent-orange)',
+            border: '1px solid var(--accent-orange)',
+            borderRadius: 10,
+            color: '#fff',
+            fontSize: isMobile ? 13 : 14,
+            fontWeight: 700,
+            fontFamily: 'var(--font-display)',
+            letterSpacing: 0.8,
+            textTransform: 'uppercase',
+            cursor: 'pointer',
+            transition: 'opacity 0.15s',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.85'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+          Build a Trade
+        </button>
+
         <Link
           href="/methodology"
           data-tour="methodology-link"
