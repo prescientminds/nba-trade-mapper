@@ -1,23 +1,59 @@
 'use client';
 
 /**
- * Phase B Step 2a — side panel scaffolding.
+ * Phase B Step 2b — canvas-native Trade Machine side panel.
  *
- * Docked-right editor shell for the canvas-native Trade Machine. Binds to
- * the store's `hypotheticalWritingNodeId`: renders the panel when a
- * hypothetical-trade node is the active write target, nothing otherwise.
+ * Docked-right editor for the hypothetical-trade node bound to the store's
+ * `hypotheticalWritingNodeId`. The node's `data.sides` is the durable edit
+ * intent (team + selected player names + picks); this panel hydrates a
+ * working `BuilderState` from it, lets `TeamColumn` refetch the roster
+ * from the team id, and persists the intent back via
+ * `updateHypotheticalTrade` on every change.
  *
- * Step 2b ports TeamColumn + SalaryLedger + LegalitySection into the body.
- * Step 2c adds comparables cards. For now the body is an intentional
- * placeholder so the binding, layout, and mobile collapse can be verified.
+ * Hydration is keyed on `hypotheticalWritingNodeId` only (read imperatively
+ * via getState), NOT the node object — otherwise persisting would re-trigger
+ * hydration and clobber the working roster on every keystroke.
+ *
+ * Step 2c adds the comparables cards below the ledger.
  */
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useMobile } from '@/lib/use-mobile';
-import { useGraphStore, HypotheticalTradeNodeData } from '@/lib/graph-store';
+import {
+  useGraphStore,
+  HypotheticalTradeNodeData,
+  HypotheticalSide,
+} from '@/lib/graph-store';
 import { getAnyTeamDisplayInfo } from '@/lib/teams';
+import {
+  loadOwnership,
+  emptyState,
+  type BuilderState,
+  type OwnedPick,
+} from '@/lib/trade-builder';
+import TeamColumn from '@/app/trade-machine/TeamColumn';
+import SalaryLedger from '@/app/trade-machine/SalaryLedger';
+import LegalitySection from '@/app/trade-machine/LegalitySection';
 
 const ACCENT = '#ff6b35';
+
+function hydrateSide(side: HypotheticalSide | undefined): BuilderState {
+  if (!side) return emptyState(null);
+  return {
+    teamId: side.teamId,
+    roster: [],
+    selectedPlayerNames: new Set(side.playerNames),
+    picks: side.picks,
+  };
+}
+
+function toSide(state: BuilderState): HypotheticalSide {
+  return {
+    teamId: state.teamId,
+    playerNames: [...state.selectedPlayerNames],
+    picks: state.picks,
+  };
+}
 
 export default function TradeMachineSidePanel() {
   const writingNodeId = useGraphStore((s) => s.hypotheticalWritingNodeId);
@@ -25,8 +61,51 @@ export default function TradeMachineSidePanel() {
     s.nodes.find((n) => n.id === s.hypotheticalWritingNodeId),
   );
   const setWritingNode = useGraphStore((s) => s.setHypotheticalWritingNode);
+  const updateHypotheticalTrade = useGraphStore((s) => s.updateHypotheticalTrade);
   const isMobile = useMobile();
   const [collapsed, setCollapsed] = useState(false);
+
+  const [ownership, setOwnership] = useState<Record<string, OwnedPick[]> | null>(null);
+  const [left, setLeft] = useState<BuilderState>(() => emptyState(null));
+  const [right, setRight] = useState<BuilderState>(() => emptyState(null));
+
+  useEffect(() => {
+    let cancelled = false;
+    loadOwnership().then((o) => {
+      if (!cancelled) setOwnership(o);
+    });
+    return () => { cancelled = true; };
+  }, []);
+
+  // Hydrate the working state when the edit target changes. Read the node
+  // imperatively so this does not re-run when we persist back into it.
+  useEffect(() => {
+    if (!writingNodeId) return;
+    const n = useGraphStore
+      .getState()
+      .nodes.find((x) => x.id === writingNodeId);
+    if (!n || n.type !== 'hypotheticalTrade') return;
+    const sides = (n.data as HypotheticalTradeNodeData).sides ?? [];
+    setLeft(hydrateSide(sides[0]));
+    setRight(hydrateSide(sides[1]));
+  }, [writingNodeId]);
+
+  // Persist intent back onto the node. Called from the column onChange
+  // handlers with the up-to-date pair so there is no stale-closure window.
+  const persist = useRef<(l: BuilderState, r: BuilderState) => void>(() => {});
+  persist.current = (l, r) => {
+    if (!writingNodeId) return;
+    updateHypotheticalTrade(writingNodeId, [toSide(l), toSide(r)]);
+  };
+
+  const onLeftChange = (next: BuilderState) => {
+    setLeft(next);
+    persist.current(next, right);
+  };
+  const onRightChange = (next: BuilderState) => {
+    setRight(next);
+    persist.current(left, next);
+  };
 
   if (!writingNodeId || !node || node.type !== 'hypotheticalTrade') return null;
 
@@ -164,37 +243,40 @@ export default function TradeMachineSidePanel() {
         </button>
       </div>
 
-      {/* Body — Step 2b/2c port target */}
+      {/* Body — roster picker + ledger + legality.
+          Block flow (NOT a flex column): in a height-constrained flex
+          column the TeamColumns get shrunk to their minHeight while their
+          content overflows and paints over the next column. Block + scroll
+          lets each column keep its natural height; sticky legality still
+          pins to the scrolling body. */}
       {!(isMobile && collapsed) && (
         <div
           style={{
             flex: 1,
             overflowY: 'auto',
-            padding: '20px 16px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            textAlign: 'center',
-            gap: 8,
-            color: 'var(--text-muted)',
+            padding: '0 16px 28px',
           }}
         >
-          <div
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 14,
-              letterSpacing: '0.5px',
-              textTransform: 'uppercase',
-              color: 'var(--text-secondary)',
-            }}
-          >
-            Trade editor
+          <LegalitySection left={left} right={right} ownership={ownership} sticky />
+
+          <div style={{ marginTop: 14 }}>
+            <TeamColumn
+              label="Team A"
+              state={left}
+              otherTeamId={right.teamId}
+              onChange={onLeftChange}
+            />
           </div>
-          <p style={{ fontSize: 12, lineHeight: 1.6, maxWidth: 280, margin: 0 }}>
-            Roster picker, salary ledger, and legality check land here in Step 2b.
-            Comparables follow in 2c.
-          </p>
+          <div style={{ marginTop: 14 }}>
+            <TeamColumn
+              label="Team B"
+              state={right}
+              otherTeamId={left.teamId}
+              onChange={onRightChange}
+            />
+          </div>
+
+          <SalaryLedger left={left} right={right} />
         </div>
       )}
     </div>

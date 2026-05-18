@@ -3,84 +3,25 @@
 import { useEffect, useRef, useState } from 'react';
 import { getSupabase } from '@/lib/supabase';
 import { TEAMS, TEAM_LIST } from '@/lib/teams';
+import {
+  CURRENT_SEASON,
+  loadOwnership,
+  type BuilderState,
+  type OwnedPick,
+  type OutgoingPick,
+  type RosterPlayer,
+} from '@/lib/trade-builder';
 import BPMExplainer from './BPMExplainer';
 import PickProtectionPopover, {
   loadProtections,
   type PickProtection,
 } from './PickProtectionPopover';
 
-const CURRENT_SEASON = '2025-26';
-
-export interface RosterPlayer {
-  player_name: string;
-  age: number | null;
-  bpm: number | null;
-  salary: number | null;
-  /** Contract years remaining AFTER 2025-26 (0 = expiring). */
-  contractYearsRemaining: number | null;
-}
-
-export interface OutgoingPick {
-  pick_key: string;
-  year: number;
-  round: 1 | 2;
-  original_team_id: string;
-  /**
-   * 'pick' = outright pick. 'swap' = swap right (the holder controls a
-   * swap option, not the underlying selection). Sourced from
-   * pick-protections.json via build-pick-ownership.ts.
-   */
-  asset_class: 'pick' | 'swap';
-  conditional: boolean;
-  lineage: Array<{
-    trade_id: string;
-    date: string;
-    from_team_id: string | null;
-    to_team_id: string | null;
-    description_snippet: string;
-  }>;
-}
-
-/** A pick entry loaded from /data/pick-ownership.json. */
-export interface OwnedPick {
-  pick_key: string;
-  year: number;
-  round: 1 | 2;
-  original_team_id: string;
-  current_owner_team_id: string;
-  asset_class: 'pick' | 'swap';
-  conditional: boolean;
-  lineage: OutgoingPick['lineage'];
-}
-
-export interface BuilderState {
-  teamId: string | null;
-  roster: RosterPlayer[];
-  selectedPlayerNames: Set<string>;
-  picks: OutgoingPick[];
-}
-
 interface Props {
   label: string;
   state: BuilderState;
   otherTeamId: string | null;
   onChange: (next: BuilderState) => void;
-}
-
-// Module-level cache — pick-ownership.json is static and only needs to be
-// fetched once per page load, not once per team column.
-let ownershipCache: Record<string, OwnedPick[]> | null = null;
-let ownershipPromise: Promise<Record<string, OwnedPick[]>> | null = null;
-export async function loadOwnership(): Promise<Record<string, OwnedPick[]>> {
-  if (ownershipCache) return ownershipCache;
-  if (ownershipPromise) return ownershipPromise;
-  ownershipPromise = fetch('/data/pick-ownership.json')
-    .then((r) => r.json())
-    .then((j) => {
-      ownershipCache = j.teams as Record<string, OwnedPick[]>;
-      return ownershipCache!;
-    });
-  return ownershipPromise;
 }
 
 export default function TeamColumn({ label, state, otherTeamId, onChange }: Props) {
