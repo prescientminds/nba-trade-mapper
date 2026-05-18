@@ -14,7 +14,10 @@
  * via getState), NOT the node object — otherwise persisting would re-trigger
  * hydration and clobber the working roster on every keystroke.
  *
- * Step 2c adds the comparables cards below the ledger.
+ * Step 2c — comparables cards render below the ledger. The panel loads
+ * `trade-profiles.json` and the 2025-26 salary cap (the ledger didn't
+ * need the cap; the comparables cap-share factor does); `ComparablesSection`
+ * recomputes reactively off [left, right, salaryCap].
  */
 
 import { useEffect, useRef, useState } from 'react';
@@ -25,7 +28,10 @@ import {
   HypotheticalSide,
 } from '@/lib/graph-store';
 import { getAnyTeamDisplayInfo } from '@/lib/teams';
+import { getSupabase } from '@/lib/supabase';
+import { type TradeProfile } from '@/lib/comparables';
 import {
+  CURRENT_SEASON,
   loadOwnership,
   emptyState,
   type BuilderState,
@@ -34,6 +40,7 @@ import {
 import TeamColumn from '@/app/trade-machine/TeamColumn';
 import SalaryLedger from '@/app/trade-machine/SalaryLedger';
 import LegalitySection from '@/app/trade-machine/LegalitySection';
+import ComparablesSection from '@/app/trade-machine/ComparablesSection';
 
 const ACCENT = '#ff6b35';
 
@@ -66,6 +73,8 @@ export default function TradeMachineSidePanel() {
   const [collapsed, setCollapsed] = useState(false);
 
   const [ownership, setOwnership] = useState<Record<string, OwnedPick[]> | null>(null);
+  const [salaryCap, setSalaryCap] = useState<number | null>(null);
+  const [candidates, setCandidates] = useState<TradeProfile[] | null>(null);
   const [left, setLeft] = useState<BuilderState>(() => emptyState(null));
   const [right, setRight] = useState<BuilderState>(() => emptyState(null));
 
@@ -74,6 +83,36 @@ export default function TradeMachineSidePanel() {
     loadOwnership().then((o) => {
       if (!cancelled) setOwnership(o);
     });
+    return () => { cancelled = true; };
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch('/data/trade-profiles.json');
+        const json = (await res.json()) as TradeProfile[];
+        if (cancelled) return;
+        setCandidates(json);
+      } catch (e) {
+        console.error('Failed to load trade-profiles.json', e);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const sb = getSupabase();
+      const { data } = await sb
+        .from('salary_cap_history')
+        .select('salary_cap')
+        .eq('season', CURRENT_SEASON)
+        .limit(1) as unknown as { data: { salary_cap: number | null }[] | null };
+      if (cancelled) return;
+      if (data?.[0]?.salary_cap) setSalaryCap(data[0].salary_cap);
+    })();
     return () => { cancelled = true; };
   }, []);
 
@@ -277,6 +316,13 @@ export default function TradeMachineSidePanel() {
           </div>
 
           <SalaryLedger left={left} right={right} />
+
+          <ComparablesSection
+            left={left}
+            right={right}
+            salaryCap={salaryCap}
+            candidates={candidates}
+          />
         </div>
       )}
     </div>
