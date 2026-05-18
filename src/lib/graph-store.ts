@@ -12,6 +12,7 @@ import { getAnyTeam, getAnyTeamDisplayInfo } from './teams';
 import { layoutGraph, layoutPlayerTimeline, resolveNodeOverlaps } from './graph-layout';
 import { searchStaticTrades, staticTradeToTradeWithDetails, loadSeason, loadTrade, loadSearchIndex } from './trade-data';
 import { type League, leagueForTeam } from './league';
+import type { OutgoingPick } from './trade-builder';
 import type { VisualSkin } from './skins';
 import { getDraftInfo } from './draft-data';
 import type { StaticTrade } from './supabase';
@@ -336,10 +337,28 @@ export interface ChampionshipNodeData {
 }
 
 // ── Hypothetical trade node data (Phase B canvas-native Trade Machine) ─
+
+/**
+ * One side of a hypothetical trade — the durable *intent*. Only the trade
+ * intent lives here (team + selected player names + picks); the roster is
+ * transient DB-fetched data refetched from `teamId` by the side panel, so
+ * it never enters node data and the node stays JSON-serializable for
+ * Step 5 share/replay.
+ */
+export interface HypotheticalSide {
+  teamId: string | null;
+  playerNames: string[];
+  picks: OutgoingPick[];
+}
+
 export interface HypotheticalTradeNodeData {
+  /** Derived from `sides` (non-null team ids) — kept in sync for the collapsed card heading. */
   teamIds: string[];
+  /** Derived from `sides` team ids. */
   teamColors: string[];
-  /** Lightweight asset summary for collapsed-card display; real editing lives in the side panel (Step 2). */
+  /** The canonical edit state. `assetCounts`/`teamIds`/`teamColors` are derived from this. */
+  sides: HypotheticalSide[];
+  /** Derived asset summary for collapsed-card display. */
   assetCounts: { players: number; picks: number };
   /** Local hint that this node is the active edit target. The canonical writing-node ID lives on the store. */
   isWriting?: boolean;
@@ -450,6 +469,12 @@ interface GraphState {
    * if the canvas is empty.
    */
   addHypotheticalTrade: (teamIds: string[]) => string;
+  /**
+   * Phase B Step 2b: persist the side panel's edit intent back onto the
+   * hypothetical-trade node. `teamIds`, `teamColors`, and `assetCounts`
+   * are recomputed from `sides` so the collapsed card stays in sync.
+   */
+  updateHypotheticalTrade: (nodeId: string, sides: HypotheticalSide[]) => void;
   seedChampionshipRoster: (teamId: string, season: string) => Promise<void>;
   expandChampionshipPlayer: (playerName: string) => Promise<void>;
   expandAllChampionshipPlayers: () => Promise<void>;
@@ -1041,7 +1066,19 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   addHypotheticalTrade: (teamIds: string[]) => {
     const state = get();
     const id = nextHypotheticalNodeId();
-    const teamColors = teamIds.map((tid) => getAnyTeam(tid)?.color || '#666');
+
+    // v1 is a 2-team trade: always seed exactly two side slots so the
+    // side panel can render two team columns immediately, even before
+    // teams are chosen. teamIds may be [], [a], or [a, b].
+    const sides: HypotheticalSide[] = [0, 1].map((i) => ({
+      teamId: teamIds[i] ?? null,
+      playerNames: [],
+      picks: [],
+    }));
+    const seededTeamIds = sides
+      .map((s) => s.teamId)
+      .filter((t): t is string => !!t);
+    const teamColors = seededTeamIds.map((tid) => getAnyTeam(tid)?.color || '#666');
 
     // Position to the right of the existing canvas extent so the new card
     // doesn't overlap; fall back to origin on an empty canvas. ELK is not
@@ -1059,8 +1096,9 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       type: 'hypotheticalTrade',
       position,
       data: {
-        teamIds,
+        teamIds: seededTeamIds,
         teamColors,
+        sides,
         assetCounts: { players: 0, picks: 0 },
         // No `isWriting` flag — the store's `hypotheticalWritingNodeId` is the
         // single source of truth for which node is the active edit target.
@@ -1075,6 +1113,37 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     });
 
     return id;
+  },
+
+  updateHypotheticalTrade: (nodeId: string, sides: HypotheticalSide[]) => {
+    const state = get();
+    const teamIds = sides
+      .map((s) => s.teamId)
+      .filter((t): t is string => !!t);
+    const teamColors = teamIds.map((tid) => getAnyTeam(tid)?.color || '#666');
+    const assetCounts = sides.reduce(
+      (acc, s) => ({
+        players: acc.players + s.playerNames.length,
+        picks: acc.picks + s.picks.length,
+      }),
+      { players: 0, picks: 0 },
+    );
+
+    const nodes = state.nodes.map((n) =>
+      n.id === nodeId && n.type === 'hypotheticalTrade'
+        ? {
+            ...n,
+            data: {
+              ...(n.data as HypotheticalTradeNodeData),
+              sides,
+              teamIds,
+              teamColors,
+              assetCounts,
+            } satisfies HypotheticalTradeNodeData,
+          }
+        : n,
+    );
+    set({ nodes });
   },
 
   setSelectedLeague: (league: League) => {
