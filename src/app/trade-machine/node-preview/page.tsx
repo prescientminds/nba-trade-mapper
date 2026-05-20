@@ -123,6 +123,56 @@ const initialNodes: Node[] = [
       assetCounts: { players: 4, picks: 2 },
     },
   },
+  {
+    // 3-team fixture for Phase B item 5. Exercises: Oxford-join heading,
+    // per-team ledger rows that union outgoing across the other two sides,
+    // node width with three teams' worth of player/pick rows.
+    id: 'hypo-4',
+    type: 'hypotheticalTrade',
+    position: { x: 920, y: 80 },
+    data: {
+      teamIds: ['BOS', 'PHX', 'WAS'],
+      teamColors: ['#007A33', '#1d1160', '#002B5C'],
+      sides: [
+        {
+          teamId: 'BOS',
+          playerNames: ['Jaylen Brown'],
+          picks: [],
+        },
+        {
+          teamId: 'PHX',
+          playerNames: ['Devin Booker'],
+          picks: [
+            {
+              pick_key: '2030-1-PHX',
+              year: 2030,
+              round: 1,
+              original_team_id: 'PHX',
+              asset_class: 'pick',
+              conditional: false,
+              lineage: [],
+            },
+          ],
+        },
+        {
+          teamId: 'WAS',
+          playerNames: ['Jordan Poole'],
+          picks: [
+            {
+              pick_key: '2027-1-WAS',
+              year: 2027,
+              round: 1,
+              original_team_id: 'WAS',
+              asset_class: 'pick',
+              conditional: true,
+              lineage: [],
+            },
+          ],
+        },
+      ],
+      assetCounts: { players: 3, picks: 2 },
+    },
+  },
 ];
 
 export default function HypotheticalNodePreview() {
@@ -145,8 +195,9 @@ export default function HypotheticalNodePreview() {
           lineHeight: 1.5,
         }}
       >
-        Phase B · Step 1 preview — HypotheticalTradeNode.
-        Click a card to toggle write-mode. ✕ removes. Side panel arrives in Step 2.
+        Phase B preview — HypotheticalTradeNode. Click a card to toggle
+        write-mode. ✕ removes. Fixtures: 2-team swap, empty, long-name
+        2-team, 3-team (item 5).
       </div>
       <ReactFlow
         nodes={initialNodes}

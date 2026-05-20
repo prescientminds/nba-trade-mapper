@@ -16,22 +16,20 @@ import {
   type Comparable,
   type TradeProfile,
 } from '@/lib/comparables';
-import { buildProposedProfile, type BuilderState } from '@/lib/trade-builder';
+import { buildProposedProfileForSlots, type BuilderState } from '@/lib/trade-builder';
 
 export default function ComparablesSection({
-  left,
-  right,
+  slots,
   salaryCap,
   candidates,
 }: {
-  left: BuilderState;
-  right: BuilderState;
+  slots: BuilderState[];
   salaryCap: number | null;
   candidates: TradeProfile[] | null;
 }) {
   const proposed = useMemo(
-    () => buildProposedProfile(left, right, salaryCap),
-    [left, right, salaryCap],
+    () => buildProposedProfileForSlots(slots, salaryCap),
+    [slots, salaryCap],
   );
 
   const candidateLookup = useMemo(() => {

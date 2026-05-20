@@ -6,21 +6,19 @@
 import {
   type BuilderState,
   type OwnedPick,
-  evaluateLegality,
+  evaluateLegalityForSlots,
 } from '@/lib/trade-builder';
 
 export default function LegalitySection({
-  left,
-  right,
+  slots,
   ownership,
   sticky = false,
 }: {
-  left: BuilderState;
-  right: BuilderState;
+  slots: BuilderState[];
   ownership: Record<string, OwnedPick[]> | null;
   sticky?: boolean;
 }) {
-  const verdict = evaluateLegality(left, right, ownership);
+  const verdict = evaluateLegalityForSlots(slots, ownership);
 
   let bg = 'rgba(255, 255, 255, 0.04)';
   let border = 'var(--border-subtle)';

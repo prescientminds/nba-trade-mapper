@@ -22,7 +22,12 @@ import {
 
 export const CURRENT_SEASON = '2025-26';
 export const CURRENT_YEAR = 2026;
-// v1 scope: 2 teams, current season only. Multi-team + historical seasons in v2.
+// Current season only. Phase B v1: 2- or 3-team trades supported in the
+// canvas-native side panel (standalone /trade-machine page is 2-team-only,
+// retiring with Phase B). Historical seasons in v2.
+
+/** Hard cap on teams per hypothetical trade. Matches the 3-way real-NBA limit. */
+export const MAX_TEAMS_PER_TRADE = 3;
 
 // ── Types ──────────────────────────────────────────────────────────
 
@@ -132,96 +137,120 @@ export interface LegalityVerdict {
   reason: string;
 }
 
+/**
+ * N-slot legality. Drives both the 2-team and 3-team UIs through one
+ * code path. The 2-team adapter below preserves the original signature
+ * for the standalone `/trade-machine` page.
+ *
+ * 3-team CBA matching note: per-asset routing isn't modeled yet (each
+ * `HypotheticalSide` knows what it sends but not which other team
+ * receives each asset). For 3-team trades we fire Stepien and 7-year
+ * cap per team — those depend only on what each team sends — and skip
+ * the dollar-matching check with an explicit banner reason. Routing
+ * support is a follow-up.
+ */
+export function evaluateLegalityForSlots(
+  slots: BuilderState[],
+  ownership: Record<string, OwnedPick[]> | null,
+): LegalityVerdict {
+  const filled = slots.filter((s) => !!s.teamId);
+  if (filled.length < 2) {
+    return { status: 'incomplete', reason: 'Pick a team on each side' };
+  }
+  if (filled.length < slots.length) {
+    return { status: 'incomplete', reason: 'Pick a team on each side' };
+  }
+
+  const teamIds = filled.map((s) => s.teamId as string);
+  const uniqueTeamIds = new Set(teamIds);
+  if (uniqueTeamIds.size !== teamIds.length) {
+    return { status: 'illegal', reason: 'Two sides are the same team' };
+  }
+
+  for (const s of filled) {
+    const assetCount = s.selectedPlayerNames.size + s.picks.length;
+    if (assetCount === 0) {
+      return { status: 'incomplete', reason: 'Each side must send at least one asset' };
+    }
+  }
+
+  // Pick rules — Stepien + 7-year cap. Routing-independent: only depend
+  // on what each team sends. Fires for any N.
+  const pickRuleResult = checkPickRulesForSlots(filled, ownership);
+  if (!pickRuleResult.legal) {
+    return { status: 'illegal', reason: pickRuleResult.violations[0].reason };
+  }
+
+  // CBA dollar matching — 2-team only until per-asset routing lands.
+  if (filled.length === 2) {
+    const [left, right] = filled;
+    const { total: leftSalary, complete: leftComplete } = outgoingSalaryOf(left);
+    const { total: rightSalary, complete: rightComplete } = outgoingSalaryOf(right);
+    const bothHaveSalary =
+      leftComplete && rightComplete &&
+      left.selectedPlayerNames.size > 0 && right.selectedPlayerNames.size > 0;
+
+    if (bothHaveSalary) {
+      const era = getCBAEra('2026-02-01'); // 2025-26 mid-season → 2023 CBA
+      const leftMaxIn = maxIncomingSalary(leftSalary, era);
+      const rightMaxIn = maxIncomingSalary(rightSalary, era);
+      if (rightSalary > leftMaxIn) {
+        return {
+          status: 'illegal',
+          reason: `Team A sends $${fmtM(leftSalary)} but would take back $${fmtM(rightSalary)} (cap allows $${fmtM(leftMaxIn)})`,
+        };
+      }
+      if (leftSalary > rightMaxIn) {
+        return {
+          status: 'illegal',
+          reason: `Team B sends $${fmtM(rightSalary)} but would take back $${fmtM(leftSalary)} (cap allows $${fmtM(rightMaxIn)})`,
+        };
+      }
+      return { status: 'legal', reason: `Trade meets 2023 CBA matching rules (sending $${fmtM(leftSalary)} / $${fmtM(rightSalary)})` };
+    }
+    return { status: 'legal', reason: 'Trade has assets on both sides' };
+  }
+
+  // 3+ teams: pick rules cleared. CBA salary matching deferred.
+  return {
+    status: 'legal',
+    reason: 'Pick rules clear for all teams · 3-team salary matching requires per-asset routing (v2)',
+  };
+}
+
+/** 2-team adapter, preserved for the standalone /trade-machine page. */
 export function evaluateLegality(
   left: BuilderState,
   right: BuilderState,
   ownership: Record<string, OwnedPick[]> | null,
 ): LegalityVerdict {
-  if (!left.teamId || !right.teamId) {
-    return { status: 'incomplete', reason: 'Pick a team on each side' };
-  }
-  if (left.teamId === right.teamId) {
-    return { status: 'illegal', reason: 'Both sides are the same team' };
-  }
-  const leftAssetCount = left.selectedPlayerNames.size + left.picks.length;
-  const rightAssetCount = right.selectedPlayerNames.size + right.picks.length;
-  if (leftAssetCount === 0 || rightAssetCount === 0) {
-    return { status: 'incomplete', reason: 'Each side must send at least one asset' };
-  }
-
-  // Draft pick rules — Stepien + seven-year cap. Independent of salary
-  // matching, so check first; if a pick rule is violated the trade is dead
-  // regardless of money.
-  const pickRuleResult = checkPickRules(left, right, ownership);
-  if (!pickRuleResult.legal) {
-    return {
-      status: 'illegal',
-      reason: pickRuleResult.violations[0].reason,
-    };
-  }
-
-  const { total: leftSalary, complete: leftComplete } = outgoingSalaryOf(left);
-  const { total: rightSalary, complete: rightComplete } = outgoingSalaryOf(right);
-  const bothHaveSalary =
-    leftComplete && rightComplete &&
-    left.selectedPlayerNames.size > 0 && right.selectedPlayerNames.size > 0;
-
-  // CBA matching check — assumes both teams are over the cap, which is the
-  // conservative call. Under-cap absorptions would also pass this gate.
-  if (bothHaveSalary) {
-    const era = getCBAEra('2026-02-01'); // 2025-26 mid-season → 2023 CBA
-    const leftMaxIn = maxIncomingSalary(leftSalary, era);
-    const rightMaxIn = maxIncomingSalary(rightSalary, era);
-    if (rightSalary > leftMaxIn) {
-      return {
-        status: 'illegal',
-        reason: `Team A sends $${fmtM(leftSalary)} but would take back $${fmtM(rightSalary)} (cap allows $${fmtM(leftMaxIn)})`,
-      };
-    }
-    if (leftSalary > rightMaxIn) {
-      return {
-        status: 'illegal',
-        reason: `Team B sends $${fmtM(rightSalary)} but would take back $${fmtM(leftSalary)} (cap allows $${fmtM(rightMaxIn)})`,
-      };
-    }
-    return { status: 'legal', reason: `Trade meets 2023 CBA matching rules (sending $${fmtM(leftSalary)} / $${fmtM(rightSalary)})` };
-  }
-
-  return { status: 'legal', reason: 'Trade has assets on both sides' };
+  return evaluateLegalityForSlots([left, right], ownership);
 }
 
-// Build the per-team Stepien context from pick-ownership.json: for each
-// team, list every future-draft year where its own 1st is already owed
-// elsewhere (excluding picks selected in this trade — validatePickRules
-// folds those in itself).
-export function checkPickRules(
-  left: BuilderState,
-  right: BuilderState,
+/**
+ * Stepien + 7-year cap for N slots. Each slot fires its own context;
+ * `validatePickRules` aggregates violations across teams.
+ */
+export function checkPickRulesForSlots(
+  slots: BuilderState[],
   ownership: Record<string, OwnedPick[]> | null,
 ) {
-  if (!left.teamId || !right.teamId) {
+  const filled = slots.filter((s) => !!s.teamId);
+  if (filled.length < 2) {
     return { legal: true, violations: [] as { reason: string }[] };
   }
 
-  const outgoingByTeam: Record<string, PickAsset[]> = {
-    [left.teamId]: left.picks.map((p) => ({
-      pick_key: p.pick_key,
-      year: p.year,
-      round: p.round,
-      original_team_id: p.original_team_id,
-      asset_class: p.asset_class,
-    })),
-    [right.teamId]: right.picks.map((p) => ({
-      pick_key: p.pick_key,
-      year: p.year,
-      round: p.round,
-      original_team_id: p.original_team_id,
-      asset_class: p.asset_class,
-    })),
-  };
-
+  const outgoingByTeam: Record<string, PickAsset[]> = {};
   const teamContexts: Record<string, TeamPickContext> = {};
-  for (const teamId of [left.teamId, right.teamId]) {
+  for (const s of filled) {
+    const teamId = s.teamId as string;
+    outgoingByTeam[teamId] = s.picks.map((p) => ({
+      pick_key: p.pick_key,
+      year: p.year,
+      round: p.round,
+      original_team_id: p.original_team_id,
+      asset_class: p.asset_class,
+    }));
     teamContexts[teamId] = {
       teamId,
       ownFirstsAlreadyOwed: ownedAwayOwnFirsts(teamId, ownership),
@@ -229,6 +258,15 @@ export function checkPickRules(
   }
 
   return validatePickRules(outgoingByTeam, teamContexts, CURRENT_YEAR);
+}
+
+/** 2-team adapter, preserved for the standalone /trade-machine page. */
+export function checkPickRules(
+  left: BuilderState,
+  right: BuilderState,
+  ownership: Record<string, OwnedPick[]> | null,
+) {
+  return checkPickRulesForSlots([left, right], ownership);
 }
 
 // Across the full ownership map, find this team's own future 1sts that
@@ -260,24 +298,42 @@ export function ownedAwayOwnFirsts(
 
 // ── Comparables profile prep ───────────────────────────────────────
 
+/**
+ * N-slot proposed profile. Greedy anchor matcher in comparables.ts works on
+ * any number of sides — strongest anchors get paired across the proposed and
+ * candidate trades regardless of count, so 3-team trades will surface the
+ * best 2-anchor matches against the (overwhelmingly 2-team) historical set.
+ */
+export function buildProposedProfileForSlots(
+  slots: BuilderState[],
+  salaryCap: number | null,
+): TradeProfile | null {
+  const filled = slots.filter((s) => !!s.teamId);
+  if (filled.length < 2) return null;
+  const teamIds = filled.map((s) => s.teamId as string);
+  if (new Set(teamIds).size !== teamIds.length) return null;
+  const sides: TeamSide[] = [];
+  for (const s of filled) {
+    const side = toSide(s, salaryCap);
+    if (!side) return null;
+    if (side.players.length + side.pickCount === 0) return null;
+    sides.push(side);
+  }
+  return {
+    id: `proposed-${Date.now()}`,
+    year: CURRENT_YEAR,
+    sides,
+    // motivation undefined on purpose — user-built trades aren't hand-tagged
+  };
+}
+
+/** 2-team adapter, preserved for the standalone /trade-machine page. */
 export function buildProposedProfile(
   left: BuilderState,
   right: BuilderState,
   salaryCap: number | null,
 ): TradeProfile | null {
-  if (!left.teamId || !right.teamId) return null;
-  if (left.teamId === right.teamId) return null;
-  const leftSide = toSide(left, salaryCap);
-  const rightSide = toSide(right, salaryCap);
-  if (!leftSide || !rightSide) return null;
-  if (leftSide.players.length + leftSide.pickCount === 0) return null;
-  if (rightSide.players.length + rightSide.pickCount === 0) return null;
-  return {
-    id: `proposed-${Date.now()}`,
-    year: CURRENT_YEAR,
-    sides: [leftSide, rightSide],
-    // motivation undefined on purpose — user-built trades aren't hand-tagged
-  };
+  return buildProposedProfileForSlots([left, right], salaryCap);
 }
 
 export function toSide(state: BuilderState, salaryCap: number | null): TeamSide | null {
