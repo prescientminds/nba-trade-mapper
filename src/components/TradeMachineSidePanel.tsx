@@ -163,7 +163,11 @@ export default function TradeMachineSidePanel() {
   };
   const shellDesktop: React.CSSProperties = {
     position: 'absolute',
-    top: 0,
+    // SearchOverlay sits at top:16 with ~40px input height; the canvas toolbar
+    // at top:62 is centered so it doesn't cross the right-docked panel, but
+    // the search bar's right edge does on viewports narrower than ~1360px.
+    // Pushing the panel to top:68 clears the search bar's full height.
+    top: 68,
     right: 0,
     bottom: 0,
     width: 420,

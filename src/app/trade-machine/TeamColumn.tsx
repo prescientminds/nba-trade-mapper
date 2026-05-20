@@ -120,6 +120,12 @@ export default function TeamColumn({ label, state, otherTeamId, onChange }: Prop
         flexDirection: 'column',
         gap: 12,
         minHeight: 320,
+        // Cap each column at ~40vh so both teams fit in the panel viewport
+        // simultaneously and Team B's picker is always visible without
+        // having to scroll through all of Team A's roster + picks.
+        maxHeight: '40vh',
+        overflowY: 'auto',
+        overscrollBehavior: 'contain',
       }}
     >
       <div
@@ -604,18 +610,23 @@ function TeamPicker({ value, otherTeamId, onChange }: TeamPickerProps) {
         onClick={() => setOpen((v) => !v)}
         style={{
           width: '100%',
-          background: 'var(--bg-elevated)',
-          color: team ? 'var(--text-primary)' : 'var(--text-tertiary)',
-          border: `1px solid ${team ? hexToRgba(accent, 0.45) : 'var(--border-medium)'}`,
+          background: team ? 'var(--bg-elevated)' : 'rgba(255, 107, 53, 0.08)',
+          color: team ? 'var(--text-primary)' : 'var(--text-primary)',
+          border: `1px solid ${team ? hexToRgba(accent, 0.45) : 'rgba(255, 107, 53, 0.75)'}`,
           borderRadius: 'var(--radius-sm)',
           padding: '7px 10px',
           fontFamily: 'var(--font-body)',
           fontSize: 13,
+          fontWeight: team ? 400 : 600,
           textAlign: 'left',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           cursor: 'pointer',
+          boxShadow: team
+            ? 'none'
+            : '0 0 0 2px rgba(255, 107, 53, 0.18), 0 2px 12px rgba(255, 107, 53, 0.18)',
+          transition: 'box-shadow 160ms ease, background 160ms ease, border-color 160ms ease',
         }}
       >
         <span>{team ? team.name : 'Choose team…'}</span>
