@@ -26,6 +26,16 @@ interface TradeCard {
   chainScores?: Record<string, ChainTeamData>;
   date?: string;      // ISO date for historical team name lookup
   verdictFlip?: { winner1yr: string | null; winner5yr: string | null };
+  tradeDown?: {
+    year: string;        // draft year, e.g. "1998"
+    sent: string;        // "#6 Traylor"
+    got: string;         // "#9 Dirk +#19"
+    traderTeam: string;  // team id of the pick-trader (team that moved down)
+    otherTeam: string;   // team id of the other side
+    traderGot: { label: string; ws: number };
+    otherGot: { label: string; ws: number };
+    future: string;      // future-pick fate, "—" if none
+  };
 }
 
 /** Build heading from marquee players: "Gary Payton for Alton Lister", or fallback to team names.
@@ -342,6 +352,85 @@ function TradeCardItem({
   const [hovered, setHovered] = useState(false);
   const winnerInfo = card.winner ? getAnyTeamDisplayInfo(card.winner, card.date) : null;
   const winnerColor = winnerInfo?.color || accentColor;
+
+  // ── Trade-Down Ledger card ──────────────────────────────────────────
+  if (card.tradeDown) {
+    const td = card.tradeDown;
+    const traderInfo = getAnyTeamDisplayInfo(td.traderTeam, card.date);
+    const otherInfo = getAnyTeamDisplayInfo(td.otherTeam, card.date);
+    const won = card.metric > 0;
+    const swingColor = won ? 'var(--accent-green)' : 'var(--accent-orange)';
+    const signed = `${won ? '+' : card.metric < 0 ? '−' : ''}${Math.abs(card.metric).toFixed(1)}`;
+    const pill = (info: { abbreviation: string; color?: string }) => {
+      const bg = info.color || '#555555';
+      return (
+        <span style={{ fontSize: 9, padding: '1px 5px', borderRadius: 999, background: bg, color: contrastText(bg), fontFamily: 'var(--font-body)', whiteSpace: 'nowrap' }}>
+          {info.abbreviation}
+        </span>
+      );
+    };
+    const breakdownRow = (info: { abbreviation: string }, got: { label: string; ws: number }) => (
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, fontSize: 9, fontFamily: 'var(--font-body)', lineHeight: 1.4 }}>
+        <span style={{ color: 'var(--text-muted)', flexShrink: 0, width: 30 }}>{info.abbreviation}</span>
+        <span style={{ color: 'var(--text-tertiary)', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{got.label}</span>
+        <span style={{ color: 'var(--text-secondary)', fontWeight: 700, fontFamily: 'var(--font-mono)', flexShrink: 0 }}>{got.ws.toFixed(1)}</span>
+      </div>
+    );
+    return (
+      <button
+        className="discovery-card"
+        onClick={onClick}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{
+          flexShrink: 0,
+          width: 188,
+          background: hovered ? 'var(--bg-tertiary)' : 'var(--bg-card)',
+          border: `1px solid ${hovered ? 'var(--border-medium)' : 'var(--border-subtle)'}`,
+          borderRadius: 'var(--radius-md)',
+          padding: '12px 14px',
+          cursor: 'pointer',
+          textAlign: 'left',
+          transition: 'all var(--transition-fast)',
+          transform: hovered ? 'translateY(-2px)' : 'translateY(0)',
+          boxShadow: hovered ? '0 4px 16px rgba(0,0,0,0.3)' : 'none',
+        }}
+      >
+        <div data-tour={tourTag} style={{ fontSize: 8, fontWeight: 700, letterSpacing: 1.4, textTransform: 'uppercase', color: accentColor, fontFamily: 'var(--font-mono)', marginBottom: 5 }}>
+          {td.year} · Trade-Down
+        </div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'var(--font-display)', letterSpacing: 0.4, lineHeight: 1.15, marginBottom: 4 }}>
+          {card.heading}
+        </div>
+        <div style={{ fontSize: 9, color: 'var(--text-secondary)', fontFamily: 'var(--font-body)', marginBottom: 6, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          {td.sent} <span style={{ color: 'var(--text-muted)' }}>→</span> {td.got}
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginBottom: 9 }}>
+          {pill(traderInfo)}
+          <span style={{ fontSize: 10, color: 'var(--text-muted)' }}>⇄</span>
+          {pill(otherInfo)}
+        </div>
+        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 5, marginBottom: 8, paddingTop: 8, borderTop: '1px solid var(--border-subtle)' }}>
+          <span style={{ fontSize: 24, fontWeight: 700, fontFamily: 'var(--font-display)', color: swingColor, lineHeight: 1, letterSpacing: 0.5 }}>
+            {signed}
+          </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 3, paddingBottom: 2 }}>
+            <span style={{ fontSize: 8, fontWeight: 600, letterSpacing: 0.8, textTransform: 'uppercase', color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }}>
+              {metricLabel}
+            </span>
+            <MetricTooltip name={metricLabel} explanation={metricExplanation} />
+          </div>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 2, marginBottom: 6 }}>
+          {breakdownRow(traderInfo, td.traderGot)}
+          {breakdownRow(otherInfo, td.otherGot)}
+        </div>
+        <div style={{ fontSize: 8, color: 'var(--text-muted)', fontFamily: 'var(--font-body)', lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          Future: {td.future}
+        </div>
+      </button>
+    );
+  }
 
   return (
     <button
@@ -1159,6 +1248,12 @@ function CategoryRow({
   };
 
   const handleTradeClick = async (card: TradeCard) => {
+    // Trade-Down Ledger cards seed the real trade graph (curated; no chain engine)
+    if (card.tradeDown) {
+      const trade = await loadTrade(card.tradeId, league);
+      if (trade) onSelectTrade(staticTradeToTradeWithDetails(trade));
+      return;
+    }
     // Verdict flips open the timeline visualization
     if (card.verdictFlip && onVerdictFlipClick) {
       onVerdictFlipClick(card);
@@ -1369,7 +1464,45 @@ const METRIC_DEFS: Record<string, { metricLabel: string; metricExplanation: stri
     metricExplanation:
       `Trades where the winner at year 1 is different from the winner at year 5. Scored at each horizon using the same formula, capped to seasons within the time window. ${FORMULA_BASE}`,
   },
+  'trade-down': {
+    metricLabel: 'Pick-Swing WS',
+    metricExplanation:
+      'A team sent a higher draft pick and took a lower one in the same draft. The number is the Win-Share gap between what the pick-trader got and what the other side got — positive means moving down paid off. Each player is counted only for his first continuous tenure with the team that received him. Future-pick throw-ins are noted, never scored. Hand-verified ledger of 13 trades.',
+  },
 };
+
+// ── Trade-Down Ledger (curated, hand-verified 2026-05-17) ─────────────
+// Frozen canonical source: content/trade-down-ledger.md. Numbers under the
+// trade-tenure rule (first continuous stint on the receiving team). Row 8
+// and Row 13 carry audit corrections (−3.8, −91.6). Do not recompute here.
+const TRADE_DOWN_LEDGER: TradeCard[] = [
+  { type: 'trade', tradeId: '838dff7a-7071-4ce4-a9a5-451312008548', heading: 'Mavericks Trade Down', players: ['Dirk Nowitzki', 'Robert Traylor'], season: '1997-98', teams: ['DAL', 'MIL'], winner: 'DAL', metric: 202.9, date: '1998-06-24',
+    tradeDown: { year: '1998', sent: '#6 Traylor', got: '#9 Dirk +#19', traderTeam: 'DAL', otherTeam: 'MIL', traderGot: { label: 'Dirk', ws: 206.4 }, otherGot: { label: 'Traylor', ws: 3.5 }, future: '—' } },
+  { type: 'trade', tradeId: '9adc6d8c-f640-4953-9e7f-06a14c60a2c4', heading: 'Celtics Trade Down', players: ['Robert Parish', 'Kevin McHale'], season: '1979-80', teams: ['BOS', 'GSW'], winner: 'BOS', metric: 202.2, date: '1980-06-09',
+    tradeDown: { year: '1980', sent: '#1 + #13', got: 'Parish + #3', traderTeam: 'BOS', otherTeam: 'GSW', traderGot: { label: 'Parish + McHale', ws: 235.6 }, otherGot: { label: 'Carroll + Brown', ws: 33.4 }, future: '—' } },
+  { type: 'trade', tradeId: 'd7e95476-6a30-42bc-b1dd-9776a00c4236', heading: 'Celtics Trade Down', players: ['Jayson Tatum', 'Markelle Fultz'], season: '2016-17', teams: ['BOS', 'PHI'], winner: 'BOS', metric: 66.6, date: '2017-06-19',
+    tradeDown: { year: '2017', sent: '#1 Fultz', got: '#3 Tatum', traderTeam: 'BOS', otherTeam: 'PHI', traderGot: { label: 'Tatum', ws: 67.1 }, otherGot: { label: 'Fultz', ws: 0.5 }, future: '2019 1st → R. Langford (1.5)' } },
+  { type: 'trade', tradeId: '30e16c4c-0a2e-47d6-aa55-e11faca07ac5', heading: 'Bucks Trade Down', players: ['Ray Allen', 'Stephon Marbury'], season: '1995-96', teams: ['MIL', 'MIN'], winner: 'MIL', metric: 46.4, date: '1996-06-26',
+    tradeDown: { year: '1996', sent: '#4 Marbury', got: '#5 Allen + Lang', traderTeam: 'MIL', otherTeam: 'MIN', traderGot: { label: 'Allen + Lang', ws: 56.7 }, otherGot: { label: 'Marbury', ws: 10.3 }, future: '1999 1st → W. Avery, looped (−0.9)' } },
+  { type: 'trade', tradeId: 'c93d41bd-640e-488a-b6a1-771b1e9f847b', heading: 'Celtics Trade Down', players: ['Ray Allen', 'Jeff Green'], season: '2006-07', teams: ['BOS', 'OKC'], winner: 'BOS', metric: 39.9, date: '2007-06-28',
+    tradeDown: { year: '2007', sent: '#5 Green +2', got: '#35 Davis + Allen', traderTeam: 'BOS', otherTeam: 'OKC', traderGot: { label: 'Allen + Davis', ws: 56.1 }, otherGot: { label: 'Green + Wally + West', ws: 16.2 }, future: '2008 2nd → T. Plaisted (0)' } },
+  { type: 'trade', tradeId: '3626dddd-9c75-4d02-bd71-c0ba1e881db3', heading: 'Timberwolves Trade Down', players: ['Kevin Love', 'O.J. Mayo'], season: '2007-08', teams: ['MIN', 'MEM'], winner: 'MIN', metric: 32.1, date: '2008-06-26',
+    tradeDown: { year: '2008', sent: '#3 Mayo +3', got: '#5 Love +3', traderTeam: 'MIN', otherTeam: 'MEM', traderGot: { label: 'Love', ws: 47.0 }, otherGot: { label: 'Mayo', ws: 14.9 }, future: '—' } },
+  { type: 'trade', tradeId: 'bbref-2019-07-07-f797b182', heading: 'Pelicans Trade Down', players: ['Jaxson Hayes', "De'Andre Hunter"], season: '2019-20', teams: ['NOP', 'ATL'], winner: 'NOP', metric: 4.6, date: '2019-07-07',
+    tradeDown: { year: '2019', sent: '#4 Hunter', got: '#8 Hayes +#17', traderTeam: 'NOP', otherTeam: 'ATL', traderGot: { label: 'Hayes + NAW', ws: 14.4 }, otherGot: { label: 'Hunter', ws: 9.8 }, future: '2020 + 2021 2nds → minor' } },
+  { type: 'trade', tradeId: '7b0ec26e-32c3-476a-b9d9-3f4b844bb5ed', heading: '76ers Trade Down', players: ['Dario Šarić', 'Elfrid Payton'], season: '2013-14', teams: ['PHI', 'ORL'], winner: 'ORL', metric: -3.8, date: '2014-06-26',
+    tradeDown: { year: '2014', sent: '#10 Payton', got: '#12 Šarić', traderTeam: 'PHI', otherTeam: 'ORL', traderGot: { label: 'Šarić', ws: 7.8 }, otherGot: { label: 'Payton', ws: 11.6 }, future: '2015 1st → washed to 2nds' } },
+  { type: 'trade', tradeId: 'd4ed6706-31dd-45f5-b5ad-c0899fd4df19', heading: 'Hawks Trade Down', players: ['Trae Young', 'Luka Dončić'], season: '2017-18', teams: ['ATL', 'DAL'], winner: 'DAL', metric: -9.3, date: '2018-06-21',
+    tradeDown: { year: '2018', sent: '#3 Luka', got: '#5 Trae', traderTeam: 'ATL', otherTeam: 'DAL', traderGot: { label: 'Trae', ws: 44.4 }, otherGot: { label: 'Luka', ws: 53.7 }, future: '2019 1st → C. Reddish (0.6)' } },
+  { type: 'trade', tradeId: '840dc3b0-cd90-42d6-b0c5-c37655153205', heading: '76ers Trade Down', players: ['Mikal Bridges', 'Zhaire Smith'], season: '2017-18', teams: ['PHI', 'PHX'], winner: 'PHX', metric: -29.5, date: '2018-06-21',
+    tradeDown: { year: '2018', sent: '#10 Bridges', got: '#16 Z. Smith', traderTeam: 'PHI', otherTeam: 'PHX', traderGot: { label: 'Z. Smith', ws: 0.0 }, otherGot: { label: 'Bridges', ws: 29.5 }, future: 'MIA 2021 1st → no value' } },
+  { type: 'trade', tradeId: '1002225d-2497-4243-b28b-34b507e4fae2', heading: 'Timberwolves Trade Down', players: ['Jimmy Butler', 'Lauri Markkanen'], season: '2016-17', teams: ['MIN', 'CHI'], winner: 'CHI', metric: -35.6, date: '2017-06-22',
+    tradeDown: { year: '2017', sent: '#7 + LaVine + Dunn', got: '#16 + Butler', traderTeam: 'MIN', otherTeam: 'CHI', traderGot: { label: 'Butler + Patton', ws: 10.2 }, otherGot: { label: 'Markkanen + LaVine + Dunn', ws: 45.8 }, future: '—' } },
+  { type: 'trade', tradeId: '83bdc81e-de5b-4293-ae80-f9b055c7d868', heading: 'Bulls Trade Down', players: ['LaMarcus Aldridge', 'Tyrus Thomas'], season: '2005-06', teams: ['CHI', 'POR'], winner: 'POR', metric: -58.3, date: '2006-06-28',
+    tradeDown: { year: '2006', sent: '#2 Aldridge', got: '#4 Thomas + Khryapa', traderTeam: 'CHI', otherTeam: 'POR', traderGot: { label: 'Thomas + Khryapa', ws: 11.0 }, otherGot: { label: 'Aldridge', ws: 69.3 }, future: '2007 2nd → D. Nichols (0)' } },
+  { type: 'trade', tradeId: 'fec16875-dbef-42bf-886c-d3bc1edf37cb', heading: 'SuperSonics Trade Down', players: ['Scottie Pippen', 'Olden Polynice'], season: '1986-87', teams: ['OKC', 'CHI'], winner: 'CHI', metric: -91.6, date: '1987-06-22',
+    tradeDown: { year: '1987', sent: '#5 Pippen', got: '#8 Polynice', traderTeam: 'OKC', otherTeam: 'CHI', traderGot: { label: 'Polynice', ws: 7.9 }, otherGot: { label: 'Pippen', ws: 99.5 }, future: '1989 swap unused + minor 2nd' } },
+];
 
 // ── Main Component ────────────────────────────────────────────────────
 
@@ -1715,6 +1848,14 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
             accentColor: 'var(--accent-teal)',
             ...METRIC_DEFS['trade-tree'],
             cards: chainCards,
+          },
+          {
+            id: 'trade-down',
+            label: 'The Trade-Down Ledger',
+            description: 'Teams that sent a higher draft pick and took a lower one in the same draft — every time, scored by the Win-Share gap. Hand-verified ledger of 13.',
+            accentColor: 'var(--accent-gold)',
+            ...METRIC_DEFS['trade-down'],
+            cards: TRADE_DOWN_LEDGER,
           },
           {
             id: 'verdict-flips',
