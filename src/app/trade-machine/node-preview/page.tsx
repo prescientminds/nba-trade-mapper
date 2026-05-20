@@ -20,21 +20,107 @@ const initialNodes: Node[] = [
   {
     id: 'hypo-1',
     type: 'hypotheticalTrade',
-    position: { x: 200, y: 120 },
+    position: { x: 80, y: 80 },
     data: {
       teamIds: ['LAL', 'BOS'],
       teamColors: ['#552583', '#007A33'],
-      assetCounts: { players: 2, picks: 1 },
+      sides: [
+        {
+          teamId: 'LAL',
+          playerNames: ['LeBron James', 'Austin Reaves'],
+          picks: [
+            {
+              pick_key: '2027-1-LAL',
+              year: 2027,
+              round: 1,
+              original_team_id: 'LAL',
+              asset_class: 'pick',
+              conditional: false,
+              lineage: [],
+            },
+          ],
+        },
+        {
+          teamId: 'BOS',
+          playerNames: ['Jaylen Brown'],
+          picks: [
+            {
+              pick_key: '2028-1-BOS',
+              year: 2028,
+              round: 1,
+              original_team_id: 'BOS',
+              asset_class: 'pick',
+              conditional: true,
+              lineage: [],
+            },
+            {
+              pick_key: '2029-2-BOS',
+              year: 2029,
+              round: 2,
+              original_team_id: 'BOS',
+              asset_class: 'swap',
+              conditional: false,
+              lineage: [],
+            },
+          ],
+        },
+      ],
+      assetCounts: { players: 3, picks: 3 },
     },
   },
   {
     id: 'hypo-2',
     type: 'hypotheticalTrade',
-    position: { x: 200, y: 260 },
+    position: { x: 360, y: 80 },
     data: {
       teamIds: ['LAL'],
       teamColors: ['#552583'],
+      sides: [
+        { teamId: 'LAL', playerNames: [], picks: [] },
+        { teamId: null, playerNames: [], picks: [] },
+      ],
       assetCounts: { players: 0, picks: 0 },
+    },
+  },
+  {
+    id: 'hypo-3',
+    type: 'hypotheticalTrade',
+    position: { x: 640, y: 80 },
+    data: {
+      teamIds: ['PHX', 'OKC'],
+      teamColors: ['#1d1160', '#007ac1'],
+      sides: [
+        {
+          teamId: 'PHX',
+          playerNames: ['Devin Booker'],
+          picks: [],
+        },
+        {
+          teamId: 'OKC',
+          playerNames: ['Shai Gilgeous-Alexander', 'Josh Giddey', 'Lu Dort'],
+          picks: [
+            {
+              pick_key: '2026-1-OKC',
+              year: 2026,
+              round: 1,
+              original_team_id: 'OKC',
+              asset_class: 'pick',
+              conditional: false,
+              lineage: [],
+            },
+            {
+              pick_key: '2027-1-OKC',
+              year: 2027,
+              round: 1,
+              original_team_id: 'OKC',
+              asset_class: 'pick',
+              conditional: false,
+              lineage: [],
+            },
+          ],
+        },
+      ],
+      assetCounts: { players: 4, picks: 2 },
     },
   },
 ];

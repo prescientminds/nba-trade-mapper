@@ -8,7 +8,7 @@ import { useGraphStore, HypotheticalTradeNodeData } from '@/lib/graph-store';
 const DRAFT_ACCENT = '#ff6b35';
 
 function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
-  const { teamIds, teamColors, assetCounts, isWriting } = data as HypotheticalTradeNodeData;
+  const { teamIds, teamColors, sides, assetCounts, isWriting } = data as HypotheticalTradeNodeData;
   const setWritingNode = useGraphStore((s) => s.setHypotheticalWritingNode);
   const writingNodeId = useGraphStore((s) => s.hypotheticalWritingNodeId);
   const removeNode = useGraphStore((s) => s.removeNode);
@@ -36,12 +36,37 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
     return `${teamIds.length}-Team Trade`;
   }, [teamIds]);
 
-  const assetSummary = useMemo(() => {
-    const parts: string[] = [];
-    if (assetCounts.players > 0) parts.push(`${assetCounts.players}P`);
-    if (assetCounts.picks > 0) parts.push(`${assetCounts.picks}Pk`);
-    return parts.length > 0 ? parts.join(' ') : 'empty';
-  }, [assetCounts]);
+  /**
+   * Per-side ledger rows for the live card body.
+   *
+   * Semantics: each side's row shows what that team RECEIVES — i.e. the
+   * union of every OTHER side's outgoing players + picks. For a 2-team
+   * trade this is a clean swap; for N≥3 teams (not yet built) it shows
+   * total incoming. `playerNames`/`picks` on a `HypotheticalSide` are the
+   * OUTGOING assets for that side, so the receive view inverts the index.
+   */
+  const ledgerRows = useMemo(() => {
+    const safeSides = sides ?? [];
+    const rowsWithTeam = safeSides
+      .map((side, idx) => {
+        if (!side) return null;
+        if (!side.teamId) return null;
+        const teamName =
+          getAnyTeamDisplayInfo(side.teamId)?.name.split(' ').pop() || side.teamId;
+        const incomingPlayers: string[] = [];
+        const incomingPicks: typeof side.picks = [];
+        safeSides.forEach((other, otherIdx) => {
+          if (otherIdx === idx || !other) return;
+          incomingPlayers.push(...(other.playerNames ?? []));
+          incomingPicks.push(...(other.picks ?? []));
+        });
+        return { teamId: side.teamId, teamName, players: incomingPlayers, picks: incomingPicks };
+      })
+      .filter((r): r is NonNullable<typeof r> => r !== null);
+    return rowsWithTeam;
+  }, [sides]);
+
+  const hasAnyAssets = assetCounts.players > 0 || assetCounts.picks > 0;
 
   const handleEditToggle = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -54,7 +79,7 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
       className="hypothetical-trade-card"
       onClick={handleEditToggle}
       style={{
-        width: 180,
+        width: 220,
         minHeight: 44,
         background: 'var(--bg-card)',
         borderRadius: 'var(--radius-md)',
@@ -147,26 +172,100 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
         {heading}
       </div>
 
-      {/* Subtitle: asset count + edit hint */}
+      {/* Live ledger — per-side receive list. Auto-grows with assets. */}
+      {ledgerRows.length > 0 && hasAnyAssets && (
+        <div style={{ marginTop: 4, display: 'flex', flexDirection: 'column', gap: 4 }}>
+          {ledgerRows.map((row) => {
+            const isEmpty = row.players.length === 0 && row.picks.length === 0;
+            return (
+              <div key={row.teamId} style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                <div
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: 8,
+                    color: 'var(--text-secondary)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.5px',
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {row.teamName} receives
+                </div>
+                {isEmpty ? (
+                  <div
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize: 9,
+                      color: 'var(--text-muted)',
+                      fontStyle: 'italic',
+                      paddingLeft: 6,
+                      lineHeight: 1.3,
+                    }}
+                  >
+                    nothing yet
+                  </div>
+                ) : (
+                  <>
+                    {row.players.map((name) => (
+                      <div
+                        key={`p-${name}`}
+                        style={{
+                          fontFamily: 'var(--font-body)',
+                          fontSize: 10,
+                          color: 'var(--text-primary)',
+                          lineHeight: 1.3,
+                          paddingLeft: 6,
+                          whiteSpace: 'nowrap',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                        }}
+                        title={name}
+                      >
+                        • {name}
+                      </div>
+                    ))}
+                    {row.picks.map((pick) => {
+                      const roundLabel = pick.round === 1 ? '1st' : '2nd';
+                      const tags: string[] = [];
+                      if (pick.asset_class === 'swap') tags.push('swap');
+                      else if (pick.conditional) tags.push('cond.');
+                      const suffix = tags.length ? ` (${tags.join(', ')})` : '';
+                      return (
+                        <div
+                          key={`pk-${pick.pick_key}`}
+                          style={{
+                            fontFamily: 'var(--font-mono)',
+                            fontSize: 9,
+                            color: 'var(--text-secondary)',
+                            lineHeight: 1.3,
+                            paddingLeft: 6,
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                          }}
+                          title={`${pick.year} ${pick.original_team_id} ${roundLabel}${suffix}`}
+                        >
+                          • {pick.year} {pick.original_team_id} {roundLabel}{suffix}
+                        </div>
+                      );
+                    })}
+                  </>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Footer — edit hint. Sits below ledger or directly under heading when empty. */}
       <div
         style={{
-          marginTop: 2,
+          marginTop: 4,
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: 4,
+          justifyContent: 'flex-end',
         }}
       >
-        <span
-          style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: 9,
-            color: 'var(--text-muted)',
-            letterSpacing: '0.3px',
-          }}
-        >
-          {assetSummary}
-        </span>
         <span
           style={{
             fontFamily: 'var(--font-mono)',
