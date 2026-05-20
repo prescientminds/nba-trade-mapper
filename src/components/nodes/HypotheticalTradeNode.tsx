@@ -24,16 +24,16 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
 
   const heading = useMemo(() => {
     if (teamIds.length === 0) return 'New Trade';
-    if (teamIds.length === 1) {
-      const n1 = getAnyTeamDisplayInfo(teamIds[0])?.name.split(' ').pop() || teamIds[0];
-      return `${n1} & ?`;
-    }
-    if (teamIds.length === 2) {
-      const n1 = getAnyTeamDisplayInfo(teamIds[0])?.name.split(' ').pop() || teamIds[0];
-      const n2 = getAnyTeamDisplayInfo(teamIds[1])?.name.split(' ').pop() || teamIds[1];
-      return `${n1} & ${n2}`;
-    }
-    return `${teamIds.length}-Team Trade`;
+    const names = teamIds.map(
+      (tid) => getAnyTeamDisplayInfo(tid)?.name.split(' ').pop() || tid,
+    );
+    if (names.length === 1) return `${names[0]} & ?`;
+    if (names.length === 2) return `${names[0]} & ${names[1]}`;
+    // N≥3: Oxford-style — "CELTICS, SUNS & WIZARDS". Already uppercased
+    // by the parent style, so we lean on standard comma + ampersand join.
+    const head = names.slice(0, -1).join(', ');
+    const tail = names[names.length - 1];
+    return `${head} & ${tail}`;
   }, [teamIds]);
 
   /**

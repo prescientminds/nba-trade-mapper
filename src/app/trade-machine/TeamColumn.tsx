@@ -20,11 +20,14 @@ import PickProtectionPopover, {
 interface Props {
   label: string;
   state: BuilderState;
-  otherTeamId: string | null;
+  /** Team ids in use by other slots — those are disabled in the picker. */
+  otherTeamIds: string[];
   onChange: (next: BuilderState) => void;
+  /** Optional remove-this-slot affordance (only shown for slots ≥ 3). */
+  onRemove?: () => void;
 }
 
-export default function TeamColumn({ label, state, otherTeamId, onChange }: Props) {
+export default function TeamColumn({ label, state, otherTeamIds, onChange, onRemove }: Props) {
   const [loadingRoster, setLoadingRoster] = useState(false);
   const [ownedPicks, setOwnedPicks] = useState<OwnedPick[] | null>(null);
   const [hoveredPickKey, setHoveredPickKey] = useState<string | null>(null);
@@ -150,11 +153,37 @@ export default function TeamColumn({ label, state, otherTeamId, onChange }: Prop
         </div>
         <TeamPicker
           value={state.teamId}
-          otherTeamId={otherTeamId}
+          otherTeamIds={otherTeamIds}
           onChange={(v) =>
             onChange({ ...state, teamId: v, roster: [], selectedPlayerNames: new Set() })
           }
         />
+        {onRemove && (
+          <button
+            type="button"
+            onClick={onRemove}
+            aria-label="Remove this team"
+            title="Remove this team"
+            style={{
+              width: 24,
+              height: 24,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: 4,
+              border: 'none',
+              background: 'rgba(255,255,255,0.08)',
+              color: 'var(--text-secondary)',
+              fontSize: 13,
+              cursor: 'pointer',
+              flexShrink: 0,
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.18)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; }}
+          >
+            ✕
+          </button>
+        )}
       </div>
 
       {/* Roster */}
@@ -574,11 +603,12 @@ function hexToRgba(hex: string, alpha: number): string {
 
 interface TeamPickerProps {
   value: string | null;
-  otherTeamId: string | null;
+  otherTeamIds: string[];
   onChange: (next: string | null) => void;
 }
 
-function TeamPicker({ value, otherTeamId, onChange }: TeamPickerProps) {
+function TeamPicker({ value, otherTeamIds, onChange }: TeamPickerProps) {
+  const otherTeamSet = new Set(otherTeamIds);
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -666,7 +696,7 @@ function TeamPicker({ value, otherTeamId, onChange }: TeamPickerProps) {
           role="listbox"
         >
           {TEAM_LIST.map((t) => {
-            const disabled = otherTeamId === t.id;
+            const disabled = otherTeamSet.has(t.id);
             const isSelected = value === t.id;
             return (
               <button

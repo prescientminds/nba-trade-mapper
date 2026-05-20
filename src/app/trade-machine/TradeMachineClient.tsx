@@ -90,7 +90,7 @@ export default function TradeMachineClient() {
         }}
       >
         <Heading />
-        <LegalitySection left={left} right={right} ownership={ownership} sticky />
+        <LegalitySection slots={[left, right]} ownership={ownership} sticky />
         <div
           style={{
             display: 'grid',
@@ -102,22 +102,21 @@ export default function TradeMachineClient() {
           <TeamColumn
             label="Team A"
             state={left}
-            otherTeamId={right.teamId}
+            otherTeamIds={right.teamId ? [right.teamId] : []}
             onChange={setLeft}
           />
           <TeamColumn
             label="Team B"
             state={right}
-            otherTeamId={left.teamId}
+            otherTeamIds={left.teamId ? [left.teamId] : []}
             onChange={setRight}
           />
         </div>
 
-        <SalaryLedger left={left} right={right} />
+        <SalaryLedger slots={[left, right]} />
 
         <ComparablesSection
-          left={left}
-          right={right}
+          slots={[left, right]}
           salaryCap={salaryCap}
           candidates={candidates}
         />
