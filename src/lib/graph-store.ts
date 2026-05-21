@@ -13,6 +13,7 @@ import { layoutGraph, layoutPlayerTimeline, resolveNodeOverlaps } from './graph-
 import { searchStaticTrades, staticTradeToTradeWithDetails, loadSeason, loadTrade, loadSearchIndex } from './trade-data';
 import { type League, leagueForTeam } from './league';
 import type { OutgoingPick } from './trade-builder';
+import type { Comparable, TradeProfile } from './comparables';
 import type { VisualSkin } from './skins';
 import { getDraftInfo } from './draft-data';
 import type { StaticTrade } from './supabase';
@@ -462,6 +463,22 @@ interface GraphState {
   /** Phase B: the hypothetical-trade node currently open for editing (one at a time). */
   hypotheticalWritingNodeId: string | null;
   setHypotheticalWritingNode: (nodeId: string | null) => void;
+  /**
+   * Phase B item 6 (Visualize): the side panel publishes its latest computed
+   * comparables here (keyed by hypothetical node id) so the node-side
+   * "Visualize" button can fire without re-running the proposed-profile +
+   * findComparables pipeline. Cleared on node removal.
+   */
+  latestComparablesByNodeId: Map<string, Comparable[]>;
+  setLatestComparables: (nodeId: string, comparables: Comparable[]) => void;
+  /**
+   * Phase B item 6 (Visualize): spawn the hypothetical's top-5 comparables
+   * as real TradeNodes (custom id `cmp-<hypoId>-<tradeId>`) connected by
+   * `comparableTo` edges. Re-fire semantics: removes any previously spawned
+   * set for this hypothetical first, then re-spawns from the current
+   * comparables. Positioning is manual polar — no ELK pass.
+   */
+  visualizeHypothetical: (nodeId: string) => Promise<void>;
   /**
    * Phase B Step 2: create a new hypothetical-trade node on the canvas,
    * set it as the writing target, and return its id. Position is picked
@@ -1058,9 +1075,80 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   seedInfo: null,
   championshipContext: null,
   hypotheticalWritingNodeId: null,
+  latestComparablesByNodeId: new Map<string, Comparable[]>(),
 
   setHypotheticalWritingNode: (nodeId: string | null) => {
     set({ hypotheticalWritingNodeId: nodeId });
+  },
+
+  setLatestComparables: (nodeId: string, comparables: Comparable[]) => {
+    const state = get();
+    const next = new Map(state.latestComparablesByNodeId);
+    next.set(nodeId, comparables);
+    set({ latestComparablesByNodeId: next });
+  },
+
+  visualizeHypothetical: async (nodeId: string) => {
+    const state = get();
+    const hypoNode = state.nodes.find(
+      (n) => n.id === nodeId && n.type === 'hypotheticalTrade',
+    );
+    if (!hypoNode) return;
+    const comparables = state.latestComparablesByNodeId.get(nodeId) ?? [];
+    if (comparables.length === 0) return;
+
+    const spawnedIdPrefix = `cmp-${nodeId}-`;
+    const cleared = {
+      nodes: state.nodes.filter((n) => !n.id.startsWith(spawnedIdPrefix)),
+      edges: state.edges.filter(
+        (e) => !e.id.startsWith(`cmpedge-${nodeId}-`) &&
+          !e.source.startsWith(spawnedIdPrefix) &&
+          !e.target.startsWith(spawnedIdPrefix),
+      ),
+    };
+
+    // Resolve each comparable's underlying trade. loadTrade hits the static
+    // JSON layer (cached by season after first call); a missing trade just
+    // gets skipped — we'd rather render four comparables than throw.
+    const resolved = await Promise.all(
+      comparables.map(async (c) => {
+        const st = await loadTrade(c.id);
+        return st ? { comparable: c, trade: staticTradeToTradeWithDetails(st) } : null;
+      }),
+    );
+    const valid = resolved.filter((r): r is { comparable: Comparable; trade: TradeWithDetails } => r !== null);
+
+    // Polar positioning: arc opening downward to the right of the
+    // hypothetical so the cluster doesn't overlap the editor (right-docked
+    // side panel sits at x = viewport-right). Radius is generous because
+    // collapsed TradeNodes are 180w x 44h — we want some breathing room.
+    const RADIUS = 360;
+    const ARC_START = (35 * Math.PI) / 180;
+    const ARC_END = (145 * Math.PI) / 180;
+    const cx = hypoNode.position.x;
+    const cy = hypoNode.position.y;
+
+    const newNodes: Node[] = valid.map(({ trade }, idx) => {
+      const t = valid.length === 1 ? 0.5 : idx / (valid.length - 1);
+      const angle = ARC_START + (ARC_END - ARC_START) * t;
+      const x = cx + RADIUS * Math.cos(angle);
+      const y = cy + RADIUS * Math.sin(angle);
+      const node = makeTradeNode(trade, { x, y });
+      return { ...node, id: `${spawnedIdPrefix}${trade.id}` };
+    });
+
+    const newEdges: Edge[] = valid.map(({ trade }) => ({
+      id: `cmpedge-${nodeId}-${trade.id}`,
+      source: nodeId,
+      target: `${spawnedIdPrefix}${trade.id}`,
+      type: 'comparableTo',
+      animated: false,
+    }));
+
+    set({
+      nodes: [...cleared.nodes, ...newNodes],
+      edges: [...cleared.edges, ...newEdges],
+    });
   },
 
   addHypotheticalTrade: (teamIds: string[]) => {
@@ -1177,8 +1265,22 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
   removeNode: (nodeId: string) => {
     const state = get();
-    const newNodes = state.nodes.filter((n) => n.id !== nodeId);
-    const newEdges = state.edges.filter((e) => e.source !== nodeId && e.target !== nodeId);
+    // Removing a hypothetical also tears down any comparables it spawned via
+    // Visualize (id prefix `cmp-<hypoId>-`) and its entry in the comparables
+    // map. Orphans on the canvas after the parent is gone make no sense.
+    const removed = state.nodes.find((n) => n.id === nodeId);
+    const isHypo = removed?.type === 'hypotheticalTrade';
+    const spawnedPrefix = isHypo ? `cmp-${nodeId}-` : null;
+    const edgePrefix = isHypo ? `cmpedge-${nodeId}-` : null;
+
+    const newNodes = state.nodes.filter((n) =>
+      n.id !== nodeId && (!spawnedPrefix || !n.id.startsWith(spawnedPrefix)),
+    );
+    const newEdges = state.edges.filter((e) =>
+      e.source !== nodeId && e.target !== nodeId &&
+      (!edgePrefix || !e.id.startsWith(edgePrefix)) &&
+      (!spawnedPrefix || (!e.source.startsWith(spawnedPrefix) && !e.target.startsWith(spawnedPrefix))),
+    );
     const newExpanded = new Set(state.expandedNodes);
     newExpanded.delete(nodeId);
     const newLoading = new Set(state.loadingNodes);
@@ -1187,7 +1289,12 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     newCore.delete(nodeId);
     const hypotheticalWritingNodeId =
       state.hypotheticalWritingNodeId === nodeId ? null : state.hypotheticalWritingNodeId;
-    set({ nodes: newNodes, edges: newEdges, expandedNodes: newExpanded, loadingNodes: newLoading, coreNodes: newCore, hypotheticalWritingNodeId });
+    let latestComparablesByNodeId = state.latestComparablesByNodeId;
+    if (isHypo && latestComparablesByNodeId.has(nodeId)) {
+      latestComparablesByNodeId = new Map(latestComparablesByNodeId);
+      latestComparablesByNodeId.delete(nodeId);
+    }
+    set({ nodes: newNodes, edges: newEdges, expandedNodes: newExpanded, loadingNodes: newLoading, coreNodes: newCore, hypotheticalWritingNodeId, latestComparablesByNodeId });
   },
 
   adjustLayoutForToggle: (nodeId: string, deltaH: number) => {
