@@ -20,7 +20,7 @@
  * routing not modeled yet); Stepien + 7-year cap fire per team.
  */
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useMobile } from '@/lib/use-mobile';
 import {
   useGraphStore,
@@ -72,6 +72,7 @@ export default function TradeMachineSidePanel() {
   );
   const setWritingNode = useGraphStore((s) => s.setHypotheticalWritingNode);
   const updateHypotheticalTrade = useGraphStore((s) => s.updateHypotheticalTrade);
+  const setLatestComparables = useGraphStore((s) => s.setLatestComparables);
   const isMobile = useMobile();
   const [collapsed, setCollapsed] = useState(false);
 
@@ -140,6 +141,18 @@ export default function TradeMachineSidePanel() {
     if (!writingNodeId) return;
     updateHypotheticalTrade(writingNodeId, next.map(toSide));
   };
+
+  // Publish the side panel's latest top-5 to the store, keyed by the editing
+  // node id, so the node-side Visualize button can fire without recomputing.
+  // useCallback keeps the identity stable across renders so ComparablesSection's
+  // effect doesn't re-fire on every parent render.
+  const onComparablesChange = useCallback(
+    (results: Parameters<typeof setLatestComparables>[1]) => {
+      if (!writingNodeId) return;
+      setLatestComparables(writingNodeId, results);
+    },
+    [writingNodeId, setLatestComparables],
+  );
 
   const onSlotChange = (idx: number) => (next: BuilderState) => {
     const updated = slots.map((s, i) => (i === idx ? next : s));
@@ -375,6 +388,7 @@ export default function TradeMachineSidePanel() {
             slots={slots}
             salaryCap={salaryCap}
             candidates={candidates}
+            onResultsChange={onComparablesChange}
           />
         </div>
       )}

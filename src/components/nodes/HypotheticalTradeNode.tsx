@@ -12,6 +12,10 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
   const setWritingNode = useGraphStore((s) => s.setHypotheticalWritingNode);
   const writingNodeId = useGraphStore((s) => s.hypotheticalWritingNodeId);
   const removeNode = useGraphStore((s) => s.removeNode);
+  const visualizeHypothetical = useGraphStore((s) => s.visualizeHypothetical);
+  const comparableCount = useGraphStore(
+    (s) => s.latestComparablesByNodeId.get(id)?.length ?? 0,
+  );
 
   const [hovered, setHovered] = useState(false);
   const selected = writingNodeId === id || isWriting;
@@ -257,15 +261,25 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
         </div>
       )}
 
-      {/* Footer — edit hint. Sits below ledger or directly under heading when empty. */}
+      {/* Footer — edit hint + Visualize button. Sits below ledger or directly
+          under heading when empty. The Visualize button gates on whether the
+          side panel has computed comparables (published via
+          setLatestComparables). Until then the button is muted with a hint. */}
       <div
         style={{
           marginTop: 4,
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'flex-end',
+          justifyContent: 'space-between',
+          gap: 6,
         }}
       >
+        <VisualizeButton
+          nodeId={id}
+          comparableCount={comparableCount}
+          accent={primaryColor}
+          onVisualize={() => visualizeHypothetical(id)}
+        />
         <span
           style={{
             fontFamily: 'var(--font-mono)',
@@ -280,6 +294,57 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
 
       <Handle type="source" position={Position.Bottom} style={{ opacity: 0 }} />
     </div>
+  );
+}
+
+function VisualizeButton({
+  nodeId,
+  comparableCount,
+  accent,
+  onVisualize,
+}: {
+  nodeId: string;
+  comparableCount: number;
+  accent: string;
+  onVisualize: () => void;
+}) {
+  const enabled = comparableCount > 0;
+  return (
+    <button
+      type="button"
+      className="nopan nodrag"
+      data-visualize-button
+      data-node-id={nodeId}
+      disabled={!enabled}
+      onClick={(e) => {
+        e.stopPropagation();
+        if (enabled) onVisualize();
+      }}
+      title={enabled ? 'Spawn historical comparables on the canvas' : 'Open the editor and add players to compute comparables'}
+      style={{
+        fontFamily: 'var(--font-mono)',
+        fontSize: 9,
+        fontWeight: 700,
+        letterSpacing: '0.4px',
+        textTransform: 'uppercase',
+        padding: '3px 7px',
+        borderRadius: 3,
+        border: `1px solid ${enabled ? accent : 'var(--border-subtle)'}`,
+        background: enabled ? `${accent}1a` : 'transparent',
+        color: enabled ? accent : 'var(--text-muted)',
+        cursor: enabled ? 'pointer' : 'not-allowed',
+        transition: 'background 160ms ease, border-color 160ms ease',
+        lineHeight: 1,
+      }}
+      onMouseEnter={(e) => {
+        if (enabled) e.currentTarget.style.background = `${accent}33`;
+      }}
+      onMouseLeave={(e) => {
+        if (enabled) e.currentTarget.style.background = `${accent}1a`;
+      }}
+    >
+      Visualize{enabled ? ` (${comparableCount})` : ''}
+    </button>
   );
 }
 

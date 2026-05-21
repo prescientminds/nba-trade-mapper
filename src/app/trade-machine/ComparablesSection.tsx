@@ -10,7 +10,7 @@
 // presentation layer. Comparables-as-graph-nodes is Phase B Step 3;
 // this stays cards.
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   findComparables,
   type Comparable,
@@ -22,10 +22,15 @@ export default function ComparablesSection({
   slots,
   salaryCap,
   candidates,
+  onResultsChange,
 }: {
   slots: BuilderState[];
   salaryCap: number | null;
   candidates: TradeProfile[] | null;
+  /** Side-channel for the canvas-native panel: lets the parent publish the
+   *  current top-N to the graph store so the node-side Visualize button can
+   *  fire without recomputing. Standalone /trade-machine omits it. */
+  onResultsChange?: (results: Comparable[]) => void;
 }) {
   const proposed = useMemo(
     () => buildProposedProfileForSlots(slots, salaryCap),
@@ -42,6 +47,10 @@ export default function ComparablesSection({
     if (!proposed || !candidates) return [];
     return findComparables(proposed, candidates, { topN: 5 });
   }, [proposed, candidates]);
+
+  useEffect(() => {
+    onResultsChange?.(results);
+  }, [results, onResultsChange]);
 
   return (
     <section style={{ marginTop: 28 }}>
