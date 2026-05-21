@@ -22,12 +22,16 @@ interface Props {
   state: BuilderState;
   /** Team ids in use by other slots — those are disabled in the picker. */
   otherTeamIds: string[];
+  /** All team ids in the trade (including this slot's). Used to derive the
+   *  per-asset destination dropdown's options. When length >= 3 the dropdown
+   *  renders; in 2-team mode the destination is implicit (the other side). */
+  allTeamIds: string[];
   onChange: (next: BuilderState) => void;
   /** Optional remove-this-slot affordance (only shown for slots ≥ 3). */
   onRemove?: () => void;
 }
 
-export default function TeamColumn({ label, state, otherTeamIds, onChange, onRemove }: Props) {
+export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onChange, onRemove }: Props) {
   const [loadingRoster, setLoadingRoster] = useState(false);
   const [ownedPicks, setOwnedPicks] = useState<OwnedPick[] | null>(null);
   const [hoveredPickKey, setHoveredPickKey] = useState<string | null>(null);
@@ -82,18 +86,49 @@ export default function TeamColumn({ label, state, otherTeamIds, onChange, onRem
     return () => { cancelled = true; };
   }, [state.teamId]);
 
+  // Route targets = every team in the trade except this one. Used for the
+  // per-asset destination dropdown AND for defaulting toTeamId on select so
+  // a freshly-added asset always has SOME destination (otherwise it would
+  // disappear from the node ledger entirely).
+  const routeTargets = allTeamIds.filter((t) => !!t && t !== state.teamId);
+  const showRouting = allTeamIds.length >= 3;
+  const defaultDest = routeTargets[0] ?? null;
+
   const togglePlayer = (name: string) => {
     const next = new Set(state.selectedPlayerNames);
-    if (next.has(name)) next.delete(name);
-    else next.add(name);
-    onChange({ ...state, selectedPlayerNames: next });
+    const nextDests = new Map(state.playerDestinations);
+    if (next.has(name)) {
+      next.delete(name);
+      nextDests.delete(name);
+    } else {
+      next.add(name);
+      // Auto-default destination on select. 2-team mode: persistence layer
+      // will fill the other side. N>=3: default to first other team so the
+      // asset is immediately visible in the ledger; user can change via the
+      // dropdown.
+      if (showRouting) nextDests.set(name, defaultDest);
+    }
+    onChange({ ...state, selectedPlayerNames: next, playerDestinations: nextDests });
+  };
+
+  const setPlayerDestination = (name: string, toTeamId: string) => {
+    const nextDests = new Map(state.playerDestinations);
+    nextDests.set(name, toTeamId);
+    onChange({ ...state, playerDestinations: nextDests });
   };
 
   const togglePick = (p: OwnedPick) => {
     const isSelected = state.picks.some((x) => x.pick_key === p.pick_key);
+    const nextDests = new Map(state.pickDestinations);
     if (isSelected) {
-      onChange({ ...state, picks: state.picks.filter((x) => x.pick_key !== p.pick_key) });
+      nextDests.delete(p.pick_key);
+      onChange({
+        ...state,
+        picks: state.picks.filter((x) => x.pick_key !== p.pick_key),
+        pickDestinations: nextDests,
+      });
     } else {
+      if (showRouting) nextDests.set(p.pick_key, defaultDest);
       onChange({
         ...state,
         picks: [
@@ -108,8 +143,15 @@ export default function TeamColumn({ label, state, otherTeamIds, onChange, onRem
             lineage: p.lineage,
           },
         ],
+        pickDestinations: nextDests,
       });
     }
+  };
+
+  const setPickDestination = (pick_key: string, toTeamId: string) => {
+    const nextDests = new Map(state.pickDestinations);
+    nextDests.set(pick_key, toTeamId);
+    onChange({ ...state, pickDestinations: nextDests });
   };
 
   return (
@@ -213,57 +255,67 @@ export default function TeamColumn({ label, state, otherTeamIds, onChange, onRem
             >
               {state.roster.map((p) => {
                 const selected = state.selectedPlayerNames.has(p.player_name);
+                const dest = state.playerDestinations.get(p.player_name) ?? null;
                 return (
-                  <label
-                    key={p.player_name}
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: '18px 1fr 30px 44px 56px',
-                      alignItems: 'center',
-                      gap: 6,
-                      padding: '6px 8px',
-                      borderRadius: 'var(--radius-sm)',
-                      background: selected ? 'rgba(255, 107, 53, 0.1)' : 'transparent',
-                      cursor: 'pointer',
-                      transition: 'background 0.15s',
-                    }}
-                  >
-                    <input
-                      type="checkbox"
-                      checked={selected}
-                      onChange={() => togglePlayer(p.player_name)}
-                      style={{ accentColor: 'var(--accent-orange)' }}
-                    />
-                    <span
+                  <div key={p.player_name}>
+                    <label
                       style={{
-                        fontSize: 13,
-                        color: selected ? 'var(--text-primary)' : 'var(--text-secondary)',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        whiteSpace: 'nowrap',
+                        display: 'grid',
+                        gridTemplateColumns: '18px 1fr 30px 44px 56px',
+                        alignItems: 'center',
+                        gap: 6,
+                        padding: '6px 8px',
+                        borderRadius: 'var(--radius-sm)',
+                        background: selected ? 'rgba(255, 107, 53, 0.1)' : 'transparent',
+                        cursor: 'pointer',
+                        transition: 'background 0.15s',
                       }}
                     >
-                      {p.player_name}
-                    </span>
-                    <span style={statCellStyle}>
-                      {p.age != null ? p.age : '—'}
-                    </span>
-                    <span
-                      style={{
-                        ...statCellStyle,
-                        color: p.bpm == null ? 'var(--text-muted)'
-                          : p.bpm >= 5 ? '#6ee0d8'
-                          : p.bpm >= 0 ? 'var(--text-secondary)'
-                          : '#d88a88',
-                        fontWeight: p.bpm != null && p.bpm >= 5 ? 700 : 400,
-                      }}
-                    >
-                      {p.bpm != null ? (p.bpm > 0 ? `+${p.bpm.toFixed(1)}` : p.bpm.toFixed(1)) : '—'}
-                    </span>
-                    <span style={statCellStyle}>
-                      {p.salary != null ? `$${(p.salary / 1e6).toFixed(1)}M` : '—'}
-                    </span>
-                  </label>
+                      <input
+                        type="checkbox"
+                        checked={selected}
+                        onChange={() => togglePlayer(p.player_name)}
+                        style={{ accentColor: 'var(--accent-orange)' }}
+                      />
+                      <span
+                        style={{
+                          fontSize: 13,
+                          color: selected ? 'var(--text-primary)' : 'var(--text-secondary)',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
+                        {p.player_name}
+                      </span>
+                      <span style={statCellStyle}>
+                        {p.age != null ? p.age : '—'}
+                      </span>
+                      <span
+                        style={{
+                          ...statCellStyle,
+                          color: p.bpm == null ? 'var(--text-muted)'
+                            : p.bpm >= 5 ? '#6ee0d8'
+                            : p.bpm >= 0 ? 'var(--text-secondary)'
+                            : '#d88a88',
+                          fontWeight: p.bpm != null && p.bpm >= 5 ? 700 : 400,
+                        }}
+                      >
+                        {p.bpm != null ? (p.bpm > 0 ? `+${p.bpm.toFixed(1)}` : p.bpm.toFixed(1)) : '—'}
+                      </span>
+                      <span style={statCellStyle}>
+                        {p.salary != null ? `$${(p.salary / 1e6).toFixed(1)}M` : '—'}
+                      </span>
+                    </label>
+                    {selected && showRouting && (
+                      <DestinationRow
+                        teamId={state.teamId}
+                        currentDest={dest}
+                        routeTargets={routeTargets}
+                        onChange={(toTid) => setPlayerDestination(p.player_name, toTid)}
+                      />
+                    )}
+                  </div>
                 );
               })}
             </div>
@@ -421,6 +473,14 @@ export default function TeamColumn({ label, state, otherTeamIds, onChange, onRem
                       ))}
                     </div>
                   )}
+                  {selected && showRouting && (
+                    <DestinationRow
+                      teamId={state.teamId}
+                      currentDest={state.pickDestinations.get(p.pick_key) ?? null}
+                      routeTargets={routeTargets}
+                      onChange={(toTid) => setPickDestination(p.pick_key, toTid)}
+                    />
+                  )}
                 </div>
               );
             })}
@@ -535,6 +595,70 @@ function EmptyHint({ children }: { children: React.ReactNode }) {
   return (
     <div style={{ fontSize: 12, color: 'var(--text-muted)', padding: '4px 0' }}>
       {children}
+    </div>
+  );
+}
+
+/**
+ * Per-asset destination dropdown. Renders beneath a selected player or pick
+ * row when the trade involves 3+ teams. In 2-team trades the destination is
+ * implicit (the other side) — the panel's persist-time toSide() fills it
+ * automatically and this row is hidden.
+ *
+ * The arrow + native `<select>` is intentionally compact — this is a
+ * frequently-displayed control and a custom popover would overweight the
+ * row. Native select honors macOS/Windows/iOS conventions for the picker.
+ */
+function DestinationRow({
+  teamId,
+  currentDest,
+  routeTargets,
+  onChange,
+}: {
+  teamId: string | null;
+  currentDest: string | null;
+  routeTargets: string[];
+  onChange: (toTeamId: string) => void;
+}) {
+  if (!teamId || routeTargets.length === 0) return null;
+  const currentTeam = currentDest ? TEAMS[currentDest] : null;
+  return (
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 6,
+        padding: '2px 8px 4px 32px',
+        fontSize: 10,
+        color: 'var(--text-muted)',
+        fontFamily: 'var(--font-mono)',
+      }}
+    >
+      <span style={{ fontSize: 11 }}>→</span>
+      <span style={{ textTransform: 'uppercase', letterSpacing: '0.06em' }}>to</span>
+      <select
+        value={currentDest ?? ''}
+        onChange={(e) => onChange(e.target.value)}
+        style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: 10,
+          padding: '2px 6px',
+          borderRadius: 3,
+          border: `1px solid ${currentTeam ? hexToRgba(currentTeam.color, 0.5) : 'var(--border-medium)'}`,
+          background: currentTeam ? hexToRgba(currentTeam.color, 0.15) : 'var(--bg-elevated)',
+          color: 'var(--text-primary)',
+          textTransform: 'uppercase',
+          letterSpacing: '0.06em',
+          cursor: 'pointer',
+        }}
+      >
+        {!currentDest && <option value="">— pick team —</option>}
+        {routeTargets.map((tid) => (
+          <option key={tid} value={tid}>
+            {TEAMS[tid]?.name.split(' ').pop() || tid}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }

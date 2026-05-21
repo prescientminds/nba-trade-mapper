@@ -84,12 +84,18 @@ function CanvasInner() {
     updateHypotheticalTrade(id, [
       {
         teamId: 'LAL',
-        playerNames: ['LeBron James', 'Austin Reaves'],
+        playerNames: [
+          { name: 'LeBron James', toTeamId: 'BOS' },
+          { name: 'Austin Reaves', toTeamId: 'BOS' },
+        ],
         picks: [],
       },
       {
         teamId: 'BOS',
-        playerNames: ['Jaylen Brown', 'Derrick White'],
+        playerNames: [
+          { name: 'Jaylen Brown', toTeamId: 'LAL' },
+          { name: 'Derrick White', toTeamId: 'LAL' },
+        ],
         picks: [],
       },
     ]);

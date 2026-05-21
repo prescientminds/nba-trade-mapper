@@ -27,7 +27,10 @@ const initialNodes: Node[] = [
       sides: [
         {
           teamId: 'LAL',
-          playerNames: ['LeBron James', 'Austin Reaves'],
+          playerNames: [
+            { name: 'LeBron James', toTeamId: 'BOS' },
+            { name: 'Austin Reaves', toTeamId: 'BOS' },
+          ],
           picks: [
             {
               pick_key: '2027-1-LAL',
@@ -37,12 +40,13 @@ const initialNodes: Node[] = [
               asset_class: 'pick',
               conditional: false,
               lineage: [],
+              toTeamId: 'BOS',
             },
           ],
         },
         {
           teamId: 'BOS',
-          playerNames: ['Jaylen Brown'],
+          playerNames: [{ name: 'Jaylen Brown', toTeamId: 'LAL' }],
           picks: [
             {
               pick_key: '2028-1-BOS',
@@ -52,6 +56,7 @@ const initialNodes: Node[] = [
               asset_class: 'pick',
               conditional: true,
               lineage: [],
+              toTeamId: 'LAL',
             },
             {
               pick_key: '2029-2-BOS',
@@ -61,6 +66,7 @@ const initialNodes: Node[] = [
               asset_class: 'swap',
               conditional: false,
               lineage: [],
+              toTeamId: 'LAL',
             },
           ],
         },
@@ -92,12 +98,16 @@ const initialNodes: Node[] = [
       sides: [
         {
           teamId: 'PHX',
-          playerNames: ['Devin Booker'],
+          playerNames: [{ name: 'Devin Booker', toTeamId: 'OKC' }],
           picks: [],
         },
         {
           teamId: 'OKC',
-          playerNames: ['Shai Gilgeous-Alexander', 'Josh Giddey', 'Lu Dort'],
+          playerNames: [
+            { name: 'Shai Gilgeous-Alexander', toTeamId: 'PHX' },
+            { name: 'Josh Giddey', toTeamId: 'PHX' },
+            { name: 'Lu Dort', toTeamId: 'PHX' },
+          ],
           picks: [
             {
               pick_key: '2026-1-OKC',
@@ -107,6 +117,7 @@ const initialNodes: Node[] = [
               asset_class: 'pick',
               conditional: false,
               lineage: [],
+              toTeamId: 'PHX',
             },
             {
               pick_key: '2027-1-OKC',
@@ -116,6 +127,7 @@ const initialNodes: Node[] = [
               asset_class: 'pick',
               conditional: false,
               lineage: [],
+              toTeamId: 'PHX',
             },
           ],
         },
@@ -136,12 +148,14 @@ const initialNodes: Node[] = [
       sides: [
         {
           teamId: 'BOS',
-          playerNames: ['Jaylen Brown'],
+          // BOS sends Brown to PHX (gets Booker back), not to WAS
+          playerNames: [{ name: 'Jaylen Brown', toTeamId: 'PHX' }],
           picks: [],
         },
         {
           teamId: 'PHX',
-          playerNames: ['Devin Booker'],
+          // PHX sends Booker to BOS (the swap), pick to WAS
+          playerNames: [{ name: 'Devin Booker', toTeamId: 'BOS' }],
           picks: [
             {
               pick_key: '2030-1-PHX',
@@ -151,12 +165,14 @@ const initialNodes: Node[] = [
               asset_class: 'pick',
               conditional: false,
               lineage: [],
+              toTeamId: 'WAS',
             },
           ],
         },
         {
           teamId: 'WAS',
-          playerNames: ['Jordan Poole'],
+          // WAS sends Poole + 2027 1st to PHX as the third-team facilitator
+          playerNames: [{ name: 'Jordan Poole', toTeamId: 'PHX' }],
           picks: [
             {
               pick_key: '2027-1-WAS',
@@ -166,11 +182,51 @@ const initialNodes: Node[] = [
               asset_class: 'pick',
               conditional: true,
               lineage: [],
+              toTeamId: 'PHX',
             },
           ],
         },
       ],
       assetCounts: { players: 3, picks: 2 },
+    },
+  },
+  {
+    // 4-team fixture for the routing PR. Demonstrates the per-asset
+    // destination model: each team's assets are explicitly routed.
+    // The OLD ledger would have shown Team A everything from Teams B+C+D;
+    // the NEW ledger shows only what's actually destined for Team A.
+    id: 'hypo-5',
+    type: 'hypotheticalTrade',
+    position: { x: 1240, y: 80 },
+    data: {
+      teamIds: ['MIL', 'DET', 'MEM', 'CHI'],
+      teamColors: ['#00471B', '#C8102E', '#5D76A9', '#CE1141'],
+      sides: [
+        {
+          teamId: 'MIL',
+          playerNames: [{ name: 'Bobby Portis', toTeamId: 'DET' }],
+          picks: [],
+        },
+        {
+          teamId: 'DET',
+          playerNames: [{ name: 'Jaden Ivey', toTeamId: 'MEM' }],
+          picks: [],
+        },
+        {
+          teamId: 'MEM',
+          playerNames: [
+            { name: 'Marcus Smart', toTeamId: 'MIL' },
+            { name: 'Luke Kennard', toTeamId: 'CHI' },
+          ],
+          picks: [],
+        },
+        {
+          teamId: 'CHI',
+          playerNames: [{ name: 'Nikola Vučević', toTeamId: 'MIL' }],
+          picks: [],
+        },
+      ],
+      assetCounts: { players: 5, picks: 0 },
     },
   },
 ];

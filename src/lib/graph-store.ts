@@ -340,16 +340,56 @@ export interface ChampionshipNodeData {
 // ── Hypothetical trade node data (Phase B canvas-native Trade Machine) ─
 
 /**
+ * Outgoing player with destination routing. In 2-team trades `toTeamId` is
+ * always the other side; in 3+/4-team trades it must be explicitly chosen
+ * via the per-asset dropdown. Defaults to the first non-self team on select.
+ */
+export interface HypotheticalOutgoingPlayer {
+  name: string;
+  toTeamId: string | null;
+}
+
+export type HypotheticalOutgoingPick = OutgoingPick & {
+  toTeamId: string | null;
+};
+
+/**
  * One side of a hypothetical trade — the durable *intent*. Only the trade
- * intent lives here (team + selected player names + picks); the roster is
- * transient DB-fetched data refetched from `teamId` by the side panel, so
- * it never enters node data and the node stays JSON-serializable for
- * Step 5 share/replay.
+ * intent lives here (team + outgoing assets with destinations); the roster
+ * is transient DB-fetched data refetched from `teamId` by the side panel,
+ * so it never enters node data and the node stays JSON-serializable for
+ * share/replay.
+ *
+ * Routing: each outgoing asset carries `toTeamId`. The ledger renderer +
+ * salary validator filter incoming assets by destination, so 3+/4-team
+ * trades show only the assets actually destined for each team.
  */
 export interface HypotheticalSide {
   teamId: string | null;
-  playerNames: string[];
-  picks: OutgoingPick[];
+  playerNames: HypotheticalOutgoingPlayer[];
+  picks: HypotheticalOutgoingPick[];
+}
+
+/**
+ * Lift a legacy HypotheticalSide where `playerNames` is `string[]` (pre-routing
+ * shape, shipped 2026-05-20 via PR #38 share links) into the routed shape.
+ * Picks gain a null `toTeamId` if absent. For 2-team trades, the panel
+ * defaults nulls to the other side at persist time.
+ */
+export function liftHypotheticalSide(
+  side: HypotheticalSide | (Omit<HypotheticalSide, 'playerNames' | 'picks'> & {
+    playerNames: Array<string | HypotheticalOutgoingPlayer>;
+    picks: Array<OutgoingPick | HypotheticalOutgoingPick>;
+  }) | undefined,
+): HypotheticalSide {
+  if (!side) return { teamId: null, playerNames: [], picks: [] };
+  const playerNames: HypotheticalOutgoingPlayer[] = (side.playerNames ?? []).map((p) =>
+    typeof p === 'string' ? { name: p, toTeamId: null } : { name: p.name, toTeamId: p.toTeamId ?? null },
+  );
+  const picks: HypotheticalOutgoingPick[] = (side.picks ?? []).map((p) =>
+    'toTeamId' in p ? p : { ...p, toTeamId: null },
+  );
+  return { teamId: side.teamId, playerNames, picks };
 }
 
 export interface HypotheticalTradeNodeData {
@@ -1164,13 +1204,13 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     }));
 
     // ── Player fan: upward arc above the hypothetical, tighter radius ────
-    // Players come from the union of `playerNames` across all sides. Names
-    // are deduped (defensive — shouldn't happen in v1, but the player set
-    // is small enough that a Set is cheap). Spawning a PlayerNode lets the
-    // user click → existing expandPlayerNode handles the journey expansion.
+    // Players come from the union of outgoing-player names across all sides.
+    // Names are deduped (defensive — shouldn't happen in v1, but the player
+    // set is small enough that a Set is cheap). Routing destinations don't
+    // affect this spawn: every player moving in the trade gets a node.
     const sides = (hypoNode.data as HypotheticalTradeNodeData).sides ?? [];
     const playerNames = Array.from(
-      new Set(sides.flatMap((s) => s?.playerNames ?? [])),
+      new Set(sides.flatMap((s) => (s?.playerNames ?? []).map((p) => p.name))),
     );
 
     const PLY_RADIUS = 220;
