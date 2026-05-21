@@ -21,6 +21,7 @@ import ChampionshipNode from '@/components/nodes/ChampionshipNode';
 import HypotheticalTradeNode from '@/components/nodes/HypotheticalTradeNode';
 import HighlightableEdge from '@/components/edges/HighlightableEdge';
 import ComparableToEdge from '@/components/edges/ComparableToEdge';
+import ProposedAssetEdge from '@/components/edges/ProposedAssetEdge';
 import SearchOverlay from '@/components/SearchOverlay';
 import TradeMachineSidePanel from '@/components/TradeMachineSidePanel';
 import ShareButton from '@/components/ShareButton';
@@ -42,6 +43,7 @@ const nodeTypes = {
 const edgeTypes = {
   highlightable: HighlightableEdge,
   comparableTo: ComparableToEdge,
+  proposedAsset: ProposedAssetEdge,
 };
 
 // ── SVG icons for toolbar ──────────────────────────────────────────────

@@ -1097,16 +1097,30 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     const comparables = state.latestComparablesByNodeId.get(nodeId) ?? [];
     if (comparables.length === 0) return;
 
-    const spawnedIdPrefix = `cmp-${nodeId}-`;
+    // 6a spawned comparables under `cmp-<hypoId>-`; 6c adds players under
+    // `cmpply-<hypoId>-`. Re-fire clears both atomically so a re-click
+    // replaces (not appends) the whole visualization.
+    const cmpPrefix = `cmp-${nodeId}-`;
+    const plyPrefix = `cmpply-${nodeId}-`;
     const cleared = {
-      nodes: state.nodes.filter((n) => !n.id.startsWith(spawnedIdPrefix)),
+      nodes: state.nodes.filter(
+        (n) => !n.id.startsWith(cmpPrefix) && !n.id.startsWith(plyPrefix),
+      ),
       edges: state.edges.filter(
-        (e) => !e.id.startsWith(`cmpedge-${nodeId}-`) &&
-          !e.source.startsWith(spawnedIdPrefix) &&
-          !e.target.startsWith(spawnedIdPrefix),
+        (e) =>
+          !e.id.startsWith(`cmpedge-${nodeId}-`) &&
+          !e.id.startsWith(`cmpplyedge-${nodeId}-`) &&
+          !e.source.startsWith(cmpPrefix) &&
+          !e.target.startsWith(cmpPrefix) &&
+          !e.source.startsWith(plyPrefix) &&
+          !e.target.startsWith(plyPrefix),
       ),
     };
 
+    const cx = hypoNode.position.x;
+    const cy = hypoNode.position.y;
+
+    // ── Comparables fan: downward arc, generous radius (cards are wider) ─
     // Resolve each comparable's underlying trade. loadTrade hits the static
     // JSON layer (cached by season after first call); a missing trade just
     // gets skipped — we'd rather render four comparables than throw.
@@ -1116,38 +1130,72 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         return st ? { comparable: c, trade: staticTradeToTradeWithDetails(st) } : null;
       }),
     );
-    const valid = resolved.filter((r): r is { comparable: Comparable; trade: TradeWithDetails } => r !== null);
+    const validComparables = resolved.filter(
+      (r): r is { comparable: Comparable; trade: TradeWithDetails } => r !== null,
+    );
 
-    // Polar positioning: arc opening downward to the right of the
-    // hypothetical so the cluster doesn't overlap the editor (right-docked
-    // side panel sits at x = viewport-right). Radius is generous because
-    // collapsed TradeNodes are 180w x 44h — we want some breathing room.
-    const RADIUS = 360;
-    const ARC_START = (35 * Math.PI) / 180;
-    const ARC_END = (145 * Math.PI) / 180;
-    const cx = hypoNode.position.x;
-    const cy = hypoNode.position.y;
+    const CMP_RADIUS = 360;
+    const CMP_ARC_START = (35 * Math.PI) / 180;
+    const CMP_ARC_END = (145 * Math.PI) / 180;
 
-    const newNodes: Node[] = valid.map(({ trade }, idx) => {
-      const t = valid.length === 1 ? 0.5 : idx / (valid.length - 1);
-      const angle = ARC_START + (ARC_END - ARC_START) * t;
-      const x = cx + RADIUS * Math.cos(angle);
-      const y = cy + RADIUS * Math.sin(angle);
+    const newComparableNodes: Node[] = validComparables.map(({ trade }, idx) => {
+      const t = validComparables.length === 1
+        ? 0.5
+        : idx / (validComparables.length - 1);
+      const angle = CMP_ARC_START + (CMP_ARC_END - CMP_ARC_START) * t;
+      const x = cx + CMP_RADIUS * Math.cos(angle);
+      const y = cy + CMP_RADIUS * Math.sin(angle);
       const node = makeTradeNode(trade, { x, y });
-      return { ...node, id: `${spawnedIdPrefix}${trade.id}` };
+      return { ...node, id: `${cmpPrefix}${trade.id}` };
     });
 
-    const newEdges: Edge[] = valid.map(({ trade }) => ({
+    const newComparableEdges: Edge[] = validComparables.map(({ trade }) => ({
       id: `cmpedge-${nodeId}-${trade.id}`,
       source: nodeId,
-      target: `${spawnedIdPrefix}${trade.id}`,
+      target: `${cmpPrefix}${trade.id}`,
       type: 'comparableTo',
       animated: false,
     }));
 
+    // ── Player fan: upward arc above the hypothetical, tighter radius ────
+    // Players come from the union of `playerNames` across all sides. Names
+    // are deduped (defensive — shouldn't happen in v1, but the player set
+    // is small enough that a Set is cheap). Spawning a PlayerNode lets the
+    // user click → existing expandPlayerNode handles the journey expansion.
+    const sides = (hypoNode.data as HypotheticalTradeNodeData).sides ?? [];
+    const playerNames = Array.from(
+      new Set(sides.flatMap((s) => s?.playerNames ?? [])),
+    );
+
+    const PLY_RADIUS = 220;
+    const PLY_ARC_START = (215 * Math.PI) / 180;
+    const PLY_ARC_END = (325 * Math.PI) / 180;
+
+    const playerSlug = (name: string) => name.toLowerCase().replace(/\s+/g, '-');
+
+    const newPlayerNodes: Node[] = playerNames.map((name, idx) => {
+      const t = playerNames.length === 1 ? 0.5 : idx / (playerNames.length - 1);
+      const angle = PLY_ARC_START + (PLY_ARC_END - PLY_ARC_START) * t;
+      const x = cx + PLY_RADIUS * Math.cos(angle);
+      const y = cy + PLY_RADIUS * Math.sin(angle);
+      // hasJourneyData=true so the PlayerNode renders the "click to expand"
+      // affordance; expandPlayerNode handles the fetch lazily and falls
+      // back gracefully if the player has no season data.
+      const node = makePlayerNode(name, null, { x, y }, true);
+      return { ...node, id: `${plyPrefix}${playerSlug(name)}` };
+    });
+
+    const newPlayerEdges: Edge[] = playerNames.map((name) => ({
+      id: `cmpplyedge-${nodeId}-${playerSlug(name)}`,
+      source: nodeId,
+      target: `${plyPrefix}${playerSlug(name)}`,
+      type: 'proposedAsset',
+      animated: false,
+    }));
+
     set({
-      nodes: [...cleared.nodes, ...newNodes],
-      edges: [...cleared.edges, ...newEdges],
+      nodes: [...cleared.nodes, ...newComparableNodes, ...newPlayerNodes],
+      edges: [...cleared.edges, ...newComparableEdges, ...newPlayerEdges],
     });
   },
 
@@ -1265,21 +1313,29 @@ export const useGraphStore = create<GraphState>((set, get) => ({
 
   removeNode: (nodeId: string) => {
     const state = get();
-    // Removing a hypothetical also tears down any comparables it spawned via
-    // Visualize (id prefix `cmp-<hypoId>-`) and its entry in the comparables
+    // Removing a hypothetical also tears down any Visualize-spawned children
+    // (comparables under `cmp-<hypoId>-` from 6a, players under
+    // `cmpply-<hypoId>-` from 6c) and clears its entry in the comparables
     // map. Orphans on the canvas after the parent is gone make no sense.
     const removed = state.nodes.find((n) => n.id === nodeId);
     const isHypo = removed?.type === 'hypotheticalTrade';
-    const spawnedPrefix = isHypo ? `cmp-${nodeId}-` : null;
-    const edgePrefix = isHypo ? `cmpedge-${nodeId}-` : null;
+    const cmpPrefix = isHypo ? `cmp-${nodeId}-` : null;
+    const plyPrefix = isHypo ? `cmpply-${nodeId}-` : null;
+    const cmpEdgePrefix = isHypo ? `cmpedge-${nodeId}-` : null;
+    const plyEdgePrefix = isHypo ? `cmpplyedge-${nodeId}-` : null;
 
-    const newNodes = state.nodes.filter((n) =>
-      n.id !== nodeId && (!spawnedPrefix || !n.id.startsWith(spawnedPrefix)),
+    const isSpawnedNode = (id: string) =>
+      (cmpPrefix && id.startsWith(cmpPrefix)) ||
+      (plyPrefix && id.startsWith(plyPrefix));
+
+    const newNodes = state.nodes.filter(
+      (n) => n.id !== nodeId && !isSpawnedNode(n.id),
     );
     const newEdges = state.edges.filter((e) =>
       e.source !== nodeId && e.target !== nodeId &&
-      (!edgePrefix || !e.id.startsWith(edgePrefix)) &&
-      (!spawnedPrefix || (!e.source.startsWith(spawnedPrefix) && !e.target.startsWith(spawnedPrefix))),
+      (!cmpEdgePrefix || !e.id.startsWith(cmpEdgePrefix)) &&
+      (!plyEdgePrefix || !e.id.startsWith(plyEdgePrefix)) &&
+      !isSpawnedNode(e.source) && !isSpawnedNode(e.target),
     );
     const newExpanded = new Set(state.expandedNodes);
     newExpanded.delete(nodeId);
