@@ -172,6 +172,28 @@ async function replayShareState(shareState: ShareState) {
       await store.seedChampionshipRoster(seed.teamId, seed.season);
       break;
     }
+    case 'hypothetical': {
+      // Re-seed the hypothetical from the durable intent payload.
+      // addHypotheticalTrade seeds two empty side slots from teamIds; we
+      // then overwrite with the full sides so player/pick selections come
+      // through. We close the writing-node state immediately so the shared
+      // page does not auto-open the editor side panel (read-only feel).
+      const teamIds = seed.sides
+        .map((s) => s.teamId)
+        .filter((t): t is string => !!t);
+      const nodeId = store.addHypotheticalTrade(teamIds);
+      store.updateHypotheticalTrade(nodeId, seed.sides);
+      store.setHypotheticalWritingNode(null);
+
+      // If the sharer had Visualize'd, replay the comparable spawn using
+      // the same store action that powers the live canvas — this keeps
+      // the shared view byte-identical to what the sharer saw.
+      if (seed.comparables.length > 0) {
+        store.setLatestComparables(nodeId, seed.comparables);
+        await store.visualizeHypothetical(nodeId);
+      }
+      break;
+    }
   }
 
   // Replay expansions sequentially with small delays to let layout settle

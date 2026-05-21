@@ -1,9 +1,12 @@
 'use client';
 
-import { memo, useMemo, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
 import { getAnyTeamDisplayInfo } from '@/lib/teams';
 import { useGraphStore, HypotheticalTradeNodeData } from '@/lib/graph-store';
+import { createHypotheticalShareLink } from '@/lib/share';
+import { useMobile } from '@/lib/use-mobile';
+import { track } from '@/lib/analytics';
 
 const DRAFT_ACCENT = '#ff6b35';
 
@@ -261,10 +264,11 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
         </div>
       )}
 
-      {/* Footer — edit hint + Visualize button. Sits below ledger or directly
-          under heading when empty. The Visualize button gates on whether the
-          side panel has computed comparables (published via
-          setLatestComparables). Until then the button is muted with a hint. */}
+      {/* Footer — edit hint + Visualize/Share buttons. Sits below ledger or
+          directly under heading when empty. The Visualize button gates on
+          whether the side panel has computed comparables (published via
+          setLatestComparables). Share gates on whether any assets have been
+          added — sharing an empty draft is meaningless. */}
       <div
         style={{
           marginTop: 4,
@@ -274,12 +278,20 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
           gap: 6,
         }}
       >
-        <VisualizeButton
-          nodeId={id}
-          comparableCount={comparableCount}
-          accent={primaryColor}
-          onVisualize={() => visualizeHypothetical(id)}
-        />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+          <VisualizeButton
+            nodeId={id}
+            comparableCount={comparableCount}
+            accent={primaryColor}
+            onVisualize={() => visualizeHypothetical(id)}
+          />
+          <ShareNodeButton
+            nodeId={id}
+            hasAnyAssets={hasAnyAssets}
+            comparableCount={comparableCount}
+            accent={primaryColor}
+          />
+        </div>
         <span
           style={{
             fontFamily: 'var(--font-mono)',
@@ -344,6 +356,119 @@ function VisualizeButton({
       }}
     >
       Visualize{enabled ? ` (${comparableCount})` : ''}
+    </button>
+  );
+}
+
+type ShareUiState = 'idle' | 'loading' | 'copied' | 'error';
+
+function ShareNodeButton({
+  nodeId,
+  hasAnyAssets,
+  comparableCount,
+  accent,
+}: {
+  nodeId: string;
+  hasAnyAssets: boolean;
+  comparableCount: number;
+  accent: string;
+}) {
+  const [ui, setUi] = useState<ShareUiState>('idle');
+  const isMobile = useMobile();
+  const enabled = hasAnyAssets;
+
+  const handleShare = useCallback(
+    async (e: React.MouseEvent) => {
+      e.stopPropagation();
+      if (!enabled || ui === 'loading' || ui === 'copied') return;
+      setUi('loading');
+      try {
+        const url = await createHypotheticalShareLink(nodeId);
+        if (!url) {
+          track('share_link_failed', { stage: 'create', source: 'hypothetical_node' });
+          setUi('error');
+          setTimeout(() => setUi('idle'), 2000);
+          return;
+        }
+        track('share_link_created', {
+          source: 'hypothetical_node',
+          comparable_count: comparableCount,
+          surface: isMobile ? 'mobile' : 'desktop',
+        });
+        // Mobile gets the native share sheet; desktop copies to clipboard.
+        if (isMobile && typeof navigator !== 'undefined' && navigator.share) {
+          try {
+            await navigator.share({ url });
+            setUi('copied');
+          } catch {
+            setUi('idle');
+            return;
+          }
+        } else {
+          try {
+            await navigator.clipboard.writeText(url);
+          } catch {
+            window.prompt('Copy this link:', url);
+          }
+          setUi('copied');
+        }
+        setTimeout(() => setUi('idle'), 2500);
+      } catch (err) {
+        console.error('[ShareNodeButton] Failed:', err);
+        track('share_link_failed', { stage: 'exception', source: 'hypothetical_node' });
+        setUi('error');
+        setTimeout(() => setUi('idle'), 2000);
+      }
+    },
+    [enabled, ui, nodeId, comparableCount, isMobile],
+  );
+
+  const label =
+    ui === 'loading' ? 'Sharing…' :
+    ui === 'copied' ? 'Copied!' :
+    ui === 'error' ? 'Failed' :
+    'Share';
+  const color = ui === 'copied' ? '#4ecdc4' : ui === 'error' ? '#ff4444' : (enabled ? accent : 'var(--text-muted)');
+  const borderColor = ui === 'copied' ? '#4ecdc4' : ui === 'error' ? '#ff4444' : (enabled ? accent : 'var(--border-subtle)');
+  const bg = ui === 'copied' ? `#4ecdc41a` : enabled ? `${accent}1a` : 'transparent';
+
+  return (
+    <button
+      type="button"
+      className="nopan nodrag"
+      data-share-button
+      data-node-id={nodeId}
+      disabled={!enabled || ui === 'loading'}
+      onClick={handleShare}
+      title={
+        enabled
+          ? 'Copy a shareable link to this proposed trade'
+          : 'Add players or picks to share'
+      }
+      style={{
+        fontFamily: 'var(--font-mono)',
+        fontSize: 9,
+        fontWeight: 700,
+        letterSpacing: '0.4px',
+        textTransform: 'uppercase',
+        padding: '3px 7px',
+        borderRadius: 3,
+        border: `1px solid ${borderColor}`,
+        background: bg,
+        color,
+        cursor: enabled && ui !== 'loading' ? 'pointer' : 'not-allowed',
+        transition: 'background 160ms ease, border-color 160ms ease, color 160ms ease',
+        lineHeight: 1,
+        whiteSpace: 'nowrap',
+      }}
+      onMouseEnter={(e) => {
+        if (enabled && ui === 'idle') e.currentTarget.style.background = `${accent}33`;
+      }}
+      onMouseLeave={(e) => {
+        if (enabled && ui === 'idle') e.currentTarget.style.background = `${accent}1a`;
+      }}
+    >
+      {label}
     </button>
   );
 }
