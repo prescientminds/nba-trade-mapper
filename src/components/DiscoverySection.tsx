@@ -10,6 +10,7 @@ import type { ChainTeamData } from '@/lib/graph-store';
 import { flattenChainPlayers } from '@/lib/chain-utils';
 import type { League } from '@/lib/league';
 import VerdictFlipTimeline from '@/components/VerdictFlipTimeline';
+import { categoryIdToSlug } from '@/lib/discovery/slugs';
 
 // ── Types ─────────────────────────────────────────────────────────────
 
@@ -95,6 +96,8 @@ interface Props {
   onSelectPlayer: (name: string) => void;
   onSelectChain?: (tradeId: string, chainScores?: Record<string, ChainTeamData>) => void;
   onSelectChampionship?: (teamId: string, season: string) => void;
+  /** When set, render only this category. Used by the standalone /explore/[slug] pages. */
+  singleCategoryId?: string;
 }
 
 type ScoreRow = {
@@ -1208,6 +1211,9 @@ function CategoryRow({
   onSelectChain,
   onSelectChampionship,
   onVerdictFlipClick,
+  expanded = false,
+  showOpenAsPage = false,
+  slug,
 }: {
   category: Category;
   league: League;
@@ -1216,10 +1222,16 @@ function CategoryRow({
   onSelectChain?: (tradeId: string, chainScores?: Record<string, ChainTeamData>) => void;
   onSelectChampionship?: (teamId: string, season: string) => void;
   onVerdictFlipClick?: (card: TradeCard) => void;
+  /** Expanded mode: default to list view, show all cards (no pagination). */
+  expanded?: boolean;
+  /** Show the "Open ↗" link in the header. */
+  showOpenAsPage?: boolean;
+  /** URL slug for this category — required if showOpenAsPage is true. */
+  slug?: string | null;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [viewMode, setViewMode] = useState<'cards' | 'list'>('cards');
-  const [visibleCount, setVisibleCount] = useState(10);
+  const [viewMode, setViewMode] = useState<'cards' | 'list'>(expanded ? 'list' : 'cards');
+  const [visibleCount, setVisibleCount] = useState(expanded ? Number.MAX_SAFE_INTEGER : 10);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
@@ -1268,7 +1280,7 @@ function CategoryRow({
     if (trade) onSelectTrade(staticTradeToTradeWithDetails(trade));
   };
 
-  const maxVisible = Math.min(visibleCount, 200);
+  const maxVisible = expanded ? category.cards.length : Math.min(visibleCount, 200);
   const listCards = category.cards.slice(0, maxVisible);
   const hasMore = category.cards.length > maxVisible;
 
@@ -1295,8 +1307,34 @@ function CategoryRow({
         </div>
         <ViewToggle
           mode={viewMode}
-          onToggle={() => { setViewMode(viewMode === 'cards' ? 'list' : 'cards'); setVisibleCount(10); }}
+          onToggle={() => {
+            setViewMode(viewMode === 'cards' ? 'list' : 'cards');
+            if (!expanded) setVisibleCount(10);
+          }}
         />
+        {showOpenAsPage && slug && (
+          <a
+            href={`/explore/${slug}?league=${league}`}
+            style={{
+              fontSize: 9,
+              fontWeight: 700,
+              letterSpacing: 1.2,
+              textTransform: 'uppercase',
+              color: 'var(--text-secondary)',
+              fontFamily: 'var(--font-body)',
+              textDecoration: 'none',
+              padding: '2px 6px',
+              borderRadius: 3,
+              flexShrink: 0,
+              transition: 'color var(--transition-fast)',
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-primary)'; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-secondary)'; }}
+            title="Open as a shareable page"
+          >
+            Open ↗
+          </a>
+        )}
         <div style={{ flex: 1, height: 1, background: 'var(--border-subtle)' }} />
       </div>
 
@@ -1506,7 +1544,7 @@ const TRADE_DOWN_LEDGER: TradeCard[] = [
 
 // ── Main Component ────────────────────────────────────────────────────
 
-export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer, onSelectChain, onSelectChampionship }: Props) {
+export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer, onSelectChain, onSelectChampionship, singleCategoryId }: Props) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -1961,6 +1999,16 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
 
   if (categories.length === 0) return null;
 
+  const visibleCategories = singleCategoryId
+    ? categories.filter((c) => c.id === singleCategoryId)
+    : categories;
+
+  if (singleCategoryId && visibleCategories.length === 0) return (
+    <div style={{ textAlign: 'center', padding: '40px 0', color: 'var(--text-muted)', fontSize: 12, fontFamily: 'var(--font-body)' }}>
+      No data available for this category.
+    </div>
+  );
+
   return (
     <div style={{ marginTop: 20 }}>
       <h2 data-tour="discovery-heading" style={{
@@ -1975,11 +2023,14 @@ export default function DiscoverySection({ league, onSelectTrade, onSelectPlayer
       }}>
         Explore
       </h2>
-      {categories.map((cat) => (
+      {visibleCategories.map((cat) => (
         <CategoryRow
           key={cat.id}
           category={cat}
           league={league}
+          expanded={Boolean(singleCategoryId)}
+          showOpenAsPage={!singleCategoryId}
+          slug={categoryIdToSlug(cat.id)}
           onSelectTrade={onSelectTrade}
           onSelectPlayer={onSelectPlayer}
           onSelectChain={onSelectChain}
