@@ -3,7 +3,7 @@
 import { memo, useCallback, useMemo, useState } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
 import { getAnyTeamDisplayInfo } from '@/lib/teams';
-import { useGraphStore, HypotheticalTradeNodeData } from '@/lib/graph-store';
+import { useGraphStore, HypotheticalTradeNodeData, liftHypotheticalSide } from '@/lib/graph-store';
 import { createHypotheticalShareLink } from '@/lib/share';
 import { useMobile } from '@/lib/use-mobile';
 import { track } from '@/lib/analytics';
@@ -46,26 +46,42 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
   /**
    * Per-side ledger rows for the live card body.
    *
-   * Semantics: each side's row shows what that team RECEIVES — i.e. the
-   * union of every OTHER side's outgoing players + picks. For a 2-team
-   * trade this is a clean swap; for N≥3 teams (not yet built) it shows
-   * total incoming. `playerNames`/`picks` on a `HypotheticalSide` are the
-   * OUTGOING assets for that side, so the receive view inverts the index.
+   * Semantics: each side's row shows what that team RECEIVES — assets from
+   * the OTHER sides whose `toTeamId` matches this side's `teamId`. For 2-team
+   * trades the panel's toSide() auto-fills toTeamId with the other side, so
+   * the filter is naturally a clean swap. For 3+/4-team trades only the
+   * assets routed to this team appear here — unrouted assets (toTeamId
+   * still null) don't show until the user sets a destination via the
+   * per-asset dropdown in the side panel.
+   *
+   * Defensive lift: legacy shares (PR #38) may carry `playerNames: string[]`;
+   * normalize to the routed shape on read so the renderer never throws.
    */
   const ledgerRows = useMemo(() => {
-    const safeSides = sides ?? [];
+    const safeSides = (sides ?? []).map((s) => liftHypotheticalSide(s));
+    const isTwoTeam = safeSides.filter((s) => !!s.teamId).length === 2;
     const rowsWithTeam = safeSides
       .map((side, idx) => {
-        if (!side) return null;
         if (!side.teamId) return null;
         const teamName =
           getAnyTeamDisplayInfo(side.teamId)?.name.split(' ').pop() || side.teamId;
         const incomingPlayers: string[] = [];
         const incomingPicks: typeof side.picks = [];
         safeSides.forEach((other, otherIdx) => {
-          if (otherIdx === idx || !other) return;
-          incomingPlayers.push(...(other.playerNames ?? []));
-          incomingPicks.push(...(other.picks ?? []));
+          if (otherIdx === idx) return;
+          for (const p of other.playerNames) {
+            // 2-team mode: unrouted toTeamId is treated as "the other side"
+            // (matches the panel's persist-time default). N≥3: only show
+            // assets explicitly routed to this team.
+            if (p.toTeamId === side.teamId || (isTwoTeam && p.toTeamId == null)) {
+              incomingPlayers.push(p.name);
+            }
+          }
+          for (const pk of other.picks) {
+            if (pk.toTeamId === side.teamId || (isTwoTeam && pk.toTeamId == null)) {
+              incomingPicks.push(pk);
+            }
+          }
         });
         return { teamId: side.teamId, teamName, players: incomingPlayers, picks: incomingPicks };
       })

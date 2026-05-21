@@ -26,8 +26,9 @@ export const CURRENT_YEAR = 2026;
 // canvas-native side panel (standalone /trade-machine page is 2-team-only,
 // retiring with Phase B). Historical seasons in v2.
 
-/** Hard cap on teams per hypothetical trade. Matches the 3-way real-NBA limit. */
-export const MAX_TEAMS_PER_TRADE = 3;
+/** Hard cap on teams per hypothetical trade. 4 is the real-NBA ceiling — 5-team
+ *  trades exist but are rare and the UX collapses past 4. */
+export const MAX_TEAMS_PER_TRADE = 4;
 
 // ── Types ──────────────────────────────────────────────────────────
 
@@ -78,6 +79,13 @@ export interface BuilderState {
   roster: RosterPlayer[];
   selectedPlayerNames: Set<string>;
   picks: OutgoingPick[];
+  /** Per-asset destination routing. Key = player name; value = recipient team id.
+   *  For 2-team trades the panel auto-fills with the other side at persist time.
+   *  For N>=3 the user picks via the per-asset dropdown; default on select is the
+   *  first non-self team. `null` means unrouted. */
+  playerDestinations: Map<string, string | null>;
+  /** Per-pick destination routing. Key = pick_key. Same defaulting as players. */
+  pickDestinations: Map<string, string | null>;
 }
 
 // ── Ownership data load ────────────────────────────────────────────
@@ -106,6 +114,8 @@ export function emptyState(teamId: string | null): BuilderState {
     roster: [],
     selectedPlayerNames: new Set(),
     picks: [],
+    playerDestinations: new Map(),
+    pickDestinations: new Map(),
   };
 }
 

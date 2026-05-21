@@ -11,7 +11,7 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
-import { useGraphStore } from '@/lib/graph-store';
+import { useGraphStore, liftHypotheticalSide } from '@/lib/graph-store';
 import type { ChainTeamData } from '@/lib/graph-store';
 import { loadSharedGraph } from '@/lib/share';
 import type { ShareState } from '@/lib/share';
@@ -178,11 +178,16 @@ async function replayShareState(shareState: ShareState) {
       // then overwrite with the full sides so player/pick selections come
       // through. We close the writing-node state immediately so the shared
       // page does not auto-open the editor side panel (read-only feel).
-      const teamIds = seed.sides
+      //
+      // Defensive lift: PR #38 shipped shares with `playerNames: string[]`
+      // (pre-routing). Lift each side to the routed shape so the renderer
+      // and validator can read .name / .toTeamId without type-coercion bugs.
+      const liftedSides = seed.sides.map((s) => liftHypotheticalSide(s));
+      const teamIds = liftedSides
         .map((s) => s.teamId)
         .filter((t): t is string => !!t);
       const nodeId = store.addHypotheticalTrade(teamIds);
-      store.updateHypotheticalTrade(nodeId, seed.sides);
+      store.updateHypotheticalTrade(nodeId, liftedSides);
       store.setHypotheticalWritingNode(null);
 
       // If the sharer had Visualize'd, replay the comparable spawn using

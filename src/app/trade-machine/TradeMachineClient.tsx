@@ -103,12 +103,14 @@ export default function TradeMachineClient() {
             label="Team A"
             state={left}
             otherTeamIds={right.teamId ? [right.teamId] : []}
+            allTeamIds={[left.teamId, right.teamId].filter((t): t is string => !!t)}
             onChange={setLeft}
           />
           <TeamColumn
             label="Team B"
             state={right}
             otherTeamIds={left.teamId ? [left.teamId] : []}
+            allTeamIds={[left.teamId, right.teamId].filter((t): t is string => !!t)}
             onChange={setRight}
           />
         </div>
