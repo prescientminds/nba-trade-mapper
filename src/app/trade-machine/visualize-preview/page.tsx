@@ -33,17 +33,21 @@ import '@xyflow/react/dist/style.css';
 import { useGraphStore } from '@/lib/graph-store';
 import HypotheticalTradeNode from '@/components/nodes/HypotheticalTradeNode';
 import TradeNode from '@/components/nodes/TradeNode';
+import PlayerNode from '@/components/nodes/PlayerNode';
 import HighlightableEdge from '@/components/edges/HighlightableEdge';
 import ComparableToEdge from '@/components/edges/ComparableToEdge';
+import ProposedAssetEdge from '@/components/edges/ProposedAssetEdge';
 import type { Comparable } from '@/lib/comparables';
 
 const nodeTypes = {
   hypotheticalTrade: HypotheticalTradeNode,
   trade: TradeNode,
+  player: PlayerNode,
 };
 const edgeTypes = {
   highlightable: HighlightableEdge,
   comparableTo: ComparableToEdge,
+  proposedAsset: ProposedAssetEdge,
 };
 
 const SAMPLE_COMPARABLES: Comparable[] = [
@@ -72,12 +76,22 @@ function CanvasInner() {
 
   // Seed on mount. Close the panel immediately (the standalone sandbox has
   // no panel mounted anyway) so the node is plain-clickable.
+  // 6c fixture: 4 players across LAL+BOS exercises the upward arc nicely
+  // (more than 2 = arc shape becomes visible) without crowding.
   useEffect(() => {
     clearGraph();
     const id = addHypotheticalTrade(['LAL', 'BOS']);
     updateHypotheticalTrade(id, [
-      { teamId: 'LAL', playerNames: ['LeBron James'], picks: [] },
-      { teamId: 'BOS', playerNames: ['Jaylen Brown'], picks: [] },
+      {
+        teamId: 'LAL',
+        playerNames: ['LeBron James', 'Austin Reaves'],
+        picks: [],
+      },
+      {
+        teamId: 'BOS',
+        playerNames: ['Jaylen Brown', 'Derrick White'],
+        picks: [],
+      },
     ]);
     setLatestComparables(id, SAMPLE_COMPARABLES);
     setWritingNode(null);
@@ -86,8 +100,10 @@ function CanvasInner() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const spawnedCount = nodes.filter((n) => hypoId && n.id.startsWith(`cmp-${hypoId}-`)).length;
-  const edgeCount = edges.filter((e) => hypoId && e.id.startsWith(`cmpedge-${hypoId}-`)).length;
+  const tradeSpawnedCount = nodes.filter((n) => hypoId && n.id.startsWith(`cmp-${hypoId}-`)).length;
+  const tradeEdgeCount = edges.filter((e) => hypoId && e.id.startsWith(`cmpedge-${hypoId}-`)).length;
+  const playerSpawnedCount = nodes.filter((n) => hypoId && n.id.startsWith(`cmpply-${hypoId}-`)).length;
+  const playerEdgeCount = edges.filter((e) => hypoId && e.id.startsWith(`cmpplyedge-${hypoId}-`)).length;
 
   return (
     <div style={{ width: '100vw', height: '100vh', background: '#0a0a0f', position: 'relative' }}>
@@ -112,7 +128,10 @@ function CanvasInner() {
         }}
       >
         <div data-test-spawn-counts>
-          Spawned: {spawnedCount} nodes, {edgeCount} edges
+          Trades: {tradeSpawnedCount} / {tradeEdgeCount}
+        </div>
+        <div data-test-player-spawn-counts>
+          Players: {playerSpawnedCount} / {playerEdgeCount}
         </div>
         <button
           type="button"
