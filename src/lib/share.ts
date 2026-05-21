@@ -1,7 +1,9 @@
 import { nanoid } from 'nanoid';
 import { getSupabase } from './supabase';
 import { useGraphStore } from './graph-store';
-import type { SeedInfo } from './graph-store';
+import type { SeedInfo, HypotheticalTradeNodeData, HypotheticalSide } from './graph-store';
+import type { Comparable } from './comparables';
+import { getAnyTeamDisplayInfo } from './teams';
 import type { League } from './league';
 import type { VisualSkin } from './skins';
 
@@ -73,6 +75,75 @@ export async function createShareLink(): Promise<string | null> {
   }
 
   // Use current origin for the URL
+  const origin = typeof window !== 'undefined' ? window.location.origin : '';
+  return `${origin}/s/${id}`;
+}
+
+// ── Create a hypothetical-trade share link (Phase B item 7a) ────────
+// Distinct entry point so clicking Share on a HypotheticalTradeNode doesn't
+// mutate the canvas's `seedInfo` (the user may have seeded the canvas with a
+// real trade and built a hypothetical alongside — sharing one shouldn't clobber
+// the other). Posts via the same `create_shared_graph` RPC; replay handled by
+// the 'hypothetical' case in SharedGraphClient's replayShareState.
+
+export async function createHypotheticalShareLink(
+  hypotheticalNodeId: string,
+): Promise<string | null> {
+  const state = useGraphStore.getState();
+  const { nodes, selectedLeague, visualSkin, latestComparablesByNodeId } = state;
+
+  const node = nodes.find(
+    (n) => n.id === hypotheticalNodeId && n.type === 'hypotheticalTrade',
+  );
+  if (!node) {
+    console.error('Hypothetical share failed: node not found', { hypotheticalNodeId });
+    return null;
+  }
+
+  // Defensive copies — the share payload must be JSON-serializable and
+  // detached from the store (which keeps mutating after the user keeps editing).
+  const sides: HypotheticalSide[] = ((node.data as HypotheticalTradeNodeData).sides ?? []).map(
+    (s) => ({
+      teamId: s.teamId,
+      playerNames: [...(s.playerNames ?? [])],
+      picks: [...(s.picks ?? [])],
+    }),
+  );
+  const comparables: Comparable[] = (latestComparablesByNodeId.get(hypotheticalNodeId) ?? []).map(
+    (c) => ({ ...c }),
+  );
+
+  const seed: SeedInfo = {
+    type: 'hypothetical',
+    hypotheticalNodeId,
+    sides,
+    comparables,
+  };
+  const shareState: ShareState = {
+    seed,
+    league: selectedLeague,
+    expansions: [],
+    skin: visualSkin,
+  };
+  const { title, subtitle, teams } = buildOgMetadata(seed, nodes);
+
+  const id = nanoid(8);
+  const sb = getSupabase();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { error } = await (sb.rpc as any)('create_shared_graph', {
+    p_id: id,
+    p_share_state: shareState,
+    p_title: title,
+    p_subtitle: subtitle,
+    p_teams: teams,
+    p_league: selectedLeague,
+  });
+
+  if (error) {
+    console.error('Failed to create hypothetical share link:', error);
+    return null;
+  }
+
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
   return `${origin}/s/${id}`;
 }
@@ -230,6 +301,33 @@ function buildOgMetadata(
         subtitle: `${seed.teamId} — Road to the Title`,
         teams: [seed.teamId],
       };
+    }
+    case 'hypothetical': {
+      const teamIds = seed.sides
+        .map((s) => s.teamId)
+        .filter((t): t is string => !!t);
+      const teamNames = teamIds.map(
+        (tid) => getAnyTeamDisplayInfo(tid)?.name.split(' ').pop() || tid,
+      );
+
+      let title: string;
+      if (teamNames.length === 0) title = 'Proposed trade';
+      else if (teamNames.length === 1) title = `${teamNames[0]} proposed trade`;
+      else if (teamNames.length === 2) title = `${teamNames[0]}–${teamNames[1]} proposed trade`;
+      else {
+        const head = teamNames.slice(0, -1).join(', ');
+        const tail = teamNames[teamNames.length - 1];
+        title = `${head} & ${tail} proposed trade`;
+      }
+
+      const playerCount = seed.sides.reduce((sum, s) => sum + (s.playerNames?.length ?? 0), 0);
+      const pickCount = seed.sides.reduce((sum, s) => sum + (s.picks?.length ?? 0), 0);
+      const parts: string[] = [];
+      if (playerCount) parts.push(`${playerCount} player${playerCount === 1 ? '' : 's'}`);
+      if (pickCount) parts.push(`${pickCount} pick${pickCount === 1 ? '' : 's'}`);
+      if (seed.comparables.length) parts.push(`${seed.comparables.length} comparables`);
+
+      return { title, subtitle: parts.length ? parts.join(' · ') : null, teams: teamIds };
     }
   }
 }

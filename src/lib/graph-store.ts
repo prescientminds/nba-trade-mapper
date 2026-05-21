@@ -391,7 +391,13 @@ export type SeedInfo =
   | { type: 'trade'; tradeId: string }
   | { type: 'chain'; tradeId: string }
   | { type: 'player'; playerName: string }
-  | { type: 'championship'; teamId: string; season: string };
+  | { type: 'championship'; teamId: string; season: string }
+  | {
+      type: 'hypothetical';
+      hypotheticalNodeId: string;
+      sides: HypotheticalSide[];
+      comparables: Comparable[];
+    };
 
 // ── Store shape ──────────────────────────────────────────────────────
 interface GraphState {
