@@ -12,6 +12,7 @@ import {
   type OutgoingPick,
   type RosterPlayer,
 } from '@/lib/trade-builder';
+import { currentTeamOf, loadCurrentRosterOverlay } from '@/lib/current-rosters';
 import BPMExplainer from './BPMExplainer';
 import PickProtectionPopover, {
   loadProtections,
@@ -511,36 +512,89 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
 
 // ── Roster fetch ───────────────────────────────────────────────────
 
-async function fetchRoster(teamId: string): Promise<RosterPlayer[]> {
-  const sb = getSupabase();
+// Module-level caches so we only do the league-wide fetches once per page load.
+// Per-team filtering happens client-side after the trade-aware overlay is applied.
+type AllSeasonsRow = { player_name: string; team_id: string; age: number | null; bpm: number | null; mp: number | null };
+type AllContractsRow = { player_name: string; team_id: string; salary: number | null };
+type AllFutureContractsRow = { player_name: string; team_id: string; season: string };
 
-  const [{ data: seasons }, { data: contracts }, { data: futureContracts }] = await Promise.all([
-    sb
-      .from('player_seasons')
-      .select('player_name, age, bpm, mp')
-      .eq('team_id', teamId)
-      .eq('season', CURRENT_SEASON) as unknown as Promise<{
-        data: { player_name: string; age: number | null; bpm: number | null; mp: number | null }[] | null;
-      }>,
-    sb
-      .from('player_contracts')
-      .select('player_name, salary')
-      .eq('team_id', teamId)
-      .eq('season', CURRENT_SEASON) as unknown as Promise<{
-        data: { player_name: string; salary: number | null }[] | null;
-      }>,
-    // Count future seasons under contract per player. We pull rows > 2025-26;
-    // later we count how many each player has. Uses player_name because that's
-    // how contracts are keyed; the diacritic mismatch with player_seasons is a
-    // known v1 gap.
-    sb
-      .from('player_contracts')
-      .select('player_name, season')
-      .eq('team_id', teamId)
-      .gt('season', CURRENT_SEASON) as unknown as Promise<{
-        data: { player_name: string; season: string }[] | null;
-      }>,
+let allSeasonsCache: AllSeasonsRow[] | null = null;
+let allContractsCache: AllContractsRow[] | null = null;
+let allFutureContractsCache: AllFutureContractsRow[] | null = null;
+let allSeasonsPromise: Promise<AllSeasonsRow[]> | null = null;
+let allContractsPromise: Promise<AllContractsRow[]> | null = null;
+let allFutureContractsPromise: Promise<AllFutureContractsRow[]> | null = null;
+
+async function paginate<T>(query: () => { range: (a: number, b: number) => Promise<{ data: T[] | null; error: { message: string } | null }> }): Promise<T[]> {
+  const out: T[] = [];
+  const pageSize = 1000;
+  let from = 0;
+  for (;;) {
+    const { data, error } = await query().range(from, from + pageSize - 1);
+    if (error) throw new Error(error.message);
+    if (!data || data.length === 0) break;
+    out.push(...data);
+    if (data.length < pageSize) break;
+    from += pageSize;
+  }
+  return out;
+}
+
+async function loadAllSeasons(): Promise<AllSeasonsRow[]> {
+  if (allSeasonsCache) return allSeasonsCache;
+  if (allSeasonsPromise) return allSeasonsPromise;
+  const sb = getSupabase();
+  allSeasonsPromise = paginate<AllSeasonsRow>(() => sb
+    .from('player_seasons')
+    .select('player_name, team_id, age, bpm, mp')
+    .eq('season', CURRENT_SEASON) as unknown as { range: (a: number, b: number) => Promise<{ data: AllSeasonsRow[] | null; error: { message: string } | null }> })
+    .then((rows) => { allSeasonsCache = rows; return rows; });
+  return allSeasonsPromise;
+}
+
+async function loadAllContracts(): Promise<AllContractsRow[]> {
+  if (allContractsCache) return allContractsCache;
+  if (allContractsPromise) return allContractsPromise;
+  const sb = getSupabase();
+  allContractsPromise = paginate<AllContractsRow>(() => sb
+    .from('player_contracts')
+    .select('player_name, team_id, salary')
+    .eq('season', CURRENT_SEASON) as unknown as { range: (a: number, b: number) => Promise<{ data: AllContractsRow[] | null; error: { message: string } | null }> })
+    .then((rows) => { allContractsCache = rows; return rows; });
+  return allContractsPromise;
+}
+
+async function loadAllFutureContracts(): Promise<AllFutureContractsRow[]> {
+  if (allFutureContractsCache) return allFutureContractsCache;
+  if (allFutureContractsPromise) return allFutureContractsPromise;
+  const sb = getSupabase();
+  allFutureContractsPromise = paginate<AllFutureContractsRow>(() => sb
+    .from('player_contracts')
+    .select('player_name, team_id, season')
+    .gt('season', CURRENT_SEASON) as unknown as { range: (a: number, b: number) => Promise<{ data: AllFutureContractsRow[] | null; error: { message: string } | null }> })
+    .then((rows) => { allFutureContractsCache = rows; return rows; });
+  return allFutureContractsPromise;
+}
+
+async function fetchRoster(teamId: string): Promise<RosterPlayer[]> {
+  const [allSeasons, allContracts, allFutureContracts, overlay] = await Promise.all([
+    loadAllSeasons(),
+    loadAllContracts(),
+    loadAllFutureContracts(),
+    loadCurrentRosterOverlay(),
   ]);
+
+  // Apply the overlay: a player's "current team" is the overlay's value (if
+  // set) or the source table's team_id (if no recent trade moved them).
+  const seasons = allSeasons.filter(
+    (s) => currentTeamOf(s.player_name, s.team_id, overlay) === teamId,
+  );
+  const contracts = allContracts.filter(
+    (c) => currentTeamOf(c.player_name, c.team_id, overlay) === teamId,
+  );
+  const futureContracts = allFutureContracts.filter(
+    (f) => currentTeamOf(f.player_name, f.team_id, overlay) === teamId,
+  );
 
   if (!seasons) return [];
 
@@ -553,12 +607,18 @@ async function fetchRoster(teamId: string): Promise<RosterPlayer[]> {
     futureCountByName.set(k, (futureCountByName.get(k) ?? 0) + 1);
   }
 
-  // Dedupe by player_name (in case of mid-season team changes showing dup rows).
-  const seenNames = new Set<string>();
-  const roster: RosterPlayer[] = [];
+  // Dedupe by player_name. A mid-season trade produces split rows (one per
+  // stint); after the overlay maps them to the same current team we want the
+  // higher-minutes row to win so stats come from the better sample.
+  const bestRowByName = new Map<string, AllSeasonsRow>();
   for (const s of seasons) {
-    if (seenNames.has(s.player_name)) continue;
-    seenNames.add(s.player_name);
+    const existing = bestRowByName.get(s.player_name);
+    if (!existing || (s.mp ?? 0) > (existing.mp ?? 0)) {
+      bestRowByName.set(s.player_name, s);
+    }
+  }
+  const roster: RosterPlayer[] = [];
+  for (const s of bestRowByName.values()) {
     const key = normalizeName(s.player_name);
     // BPM is a per-100-possession rate stat — meaningless on a tiny sample.
     // Below the minutes floor we null it so a garbage-time line (e.g. an 8-min
