@@ -120,7 +120,9 @@ export default function BPMExplainer({ onClose }: { onClose: () => void }) {
         </div>
 
         <div style={{ marginTop: 18, fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.5 }}>
-          Values pulled from Basketball Reference (BBRef).
+          Values pulled from Basketball Reference (BBRef). Players under 150 minutes
+          this season show &ldquo;&mdash;&rdquo; instead of a number &mdash; BPM is a
+          per-100-possession rate stat and swings wildly on a small sample.
           <a
             href="https://www.basketball-reference.com/about/bpm2.html"
             target="_blank"

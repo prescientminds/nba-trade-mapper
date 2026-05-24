@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { getSupabase } from '@/lib/supabase';
 import { TEAMS, TEAM_LIST } from '@/lib/teams';
 import {
+  BPM_MIN_MINUTES,
   CURRENT_SEASON,
   loadOwnership,
   type BuilderState,
@@ -256,6 +257,12 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
               {state.roster.map((p) => {
                 const selected = state.selectedPlayerNames.has(p.player_name);
                 const dest = state.playerDestinations.get(p.player_name) ?? null;
+                // BPM nulled because the player is under the minutes floor —
+                // distinguish that "—" from a genuinely missing-data "—".
+                const lowSample =
+                  p.bpm == null &&
+                  p.minutesPlayed != null &&
+                  p.minutesPlayed < BPM_MIN_MINUTES;
                 return (
                   <div key={p.player_name}>
                     <label
@@ -292,6 +299,11 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
                         {p.age != null ? p.age : '—'}
                       </span>
                       <span
+                        title={
+                          lowSample
+                            ? `Only ${p.minutesPlayed} min played — too small a sample for a meaningful BPM (floor is ${BPM_MIN_MINUTES})`
+                            : undefined
+                        }
                         style={{
                           ...statCellStyle,
                           color: p.bpm == null ? 'var(--text-muted)'
@@ -299,6 +311,7 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
                             : p.bpm >= 0 ? 'var(--text-secondary)'
                             : '#d88a88',
                           fontWeight: p.bpm != null && p.bpm >= 5 ? 700 : 400,
+                          cursor: lowSample ? 'help' : undefined,
                         }}
                       >
                         {p.bpm != null ? (p.bpm > 0 ? `+${p.bpm.toFixed(1)}` : p.bpm.toFixed(1)) : '—'}
@@ -504,10 +517,10 @@ async function fetchRoster(teamId: string): Promise<RosterPlayer[]> {
   const [{ data: seasons }, { data: contracts }, { data: futureContracts }] = await Promise.all([
     sb
       .from('player_seasons')
-      .select('player_name, age, bpm')
+      .select('player_name, age, bpm, mp')
       .eq('team_id', teamId)
       .eq('season', CURRENT_SEASON) as unknown as Promise<{
-        data: { player_name: string; age: number | null; bpm: number | null }[] | null;
+        data: { player_name: string; age: number | null; bpm: number | null; mp: number | null }[] | null;
       }>,
     sb
       .from('player_contracts')
@@ -547,10 +560,17 @@ async function fetchRoster(teamId: string): Promise<RosterPlayer[]> {
     if (seenNames.has(s.player_name)) continue;
     seenNames.add(s.player_name);
     const key = normalizeName(s.player_name);
+    // BPM is a per-100-possession rate stat — meaningless on a tiny sample.
+    // Below the minutes floor we null it so a garbage-time line (e.g. an 8-min
+    // rookie at +11.5) doesn't sort to the top of the roster or skew the
+    // comparables matcher. `minutesPlayed` is kept so the display can label
+    // a sub-floor "—" as "limited sample" rather than "no data".
+    const qualified = s.mp != null && s.mp >= BPM_MIN_MINUTES;
     roster.push({
       player_name: s.player_name,
       age: s.age,
-      bpm: s.bpm,
+      bpm: qualified ? s.bpm : null,
+      minutesPlayed: s.mp,
       salary: salaryByName.get(key) ?? null,
       contractYearsRemaining: futureCountByName.get(key) ?? 0,
     });

@@ -30,12 +30,28 @@ export const CURRENT_YEAR = 2026;
  *  trades exist but are rare and the UX collapses past 4. */
 export const MAX_TEAMS_PER_TRADE = 4;
 
+/** Minimum minutes played for a player's BPM to be treated as meaningful.
+ *  BPM is a per-100-possession rate stat — on a tiny sample it's noise (a
+ *  garbage-time rookie can post +11 on a handful of minutes). Below this floor
+ *  the BPM is nulled at roster-fetch time, so it neither sorts to the top of a
+ *  roster nor feeds the comparables matcher with a misleading figure.
+ *
+ *  Note: the Asset Dashboard's `TALENT_MIN_MP = 500` is a different threshold
+ *  for a different question — "does this player qualify as a real rotation
+ *  contributor for the young-talent tier?" — and stays separate by design. */
+export const BPM_MIN_MINUTES = 150;
+
 // ── Types ──────────────────────────────────────────────────────────
 
 export interface RosterPlayer {
   player_name: string;
   age: number | null;
+  /** Box Plus/Minus. Null when minutes are below BPM_MIN_MINUTES (small-sample
+   *  noise) or when the source row has no BPM at all. */
   bpm: number | null;
+  /** Total minutes played this season. Used to gate `bpm`; lets the display
+   *  tell a sub-floor "—" apart from genuinely missing data. */
+  minutesPlayed: number | null;
   salary: number | null;
   /** Contract years remaining AFTER 2025-26 (0 = expiring). */
   contractYearsRemaining: number | null;
