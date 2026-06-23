@@ -151,6 +151,49 @@ async function check1_teamCoverage(year: number, season: string): Promise<CheckR
   };
 }
 
+// Backstop against stale-cache "all clean": if BBRef shows the Finals are
+// over, our DB MUST have a champion stamped. A stale bracket cache parses the
+// Finals as not-yet-played and silently excuses the missing stamp (check 1's
+// "active series" grace clause) — this check has no grace clause.
+async function check7_championWhenFinalsDone(year: number, season: string): Promise<CheckResult> {
+  const name = '7. champion stamped when Finals complete';
+  const cachePath = CACHE_BRACKET(year);
+  if (!fs.existsSync(cachePath)) {
+    return { name, status: 'SKIP', detail: `cache missing: ${cachePath}\n     run: npx tsx scripts/scrape-playoff-results.ts --year ${year} --refresh` };
+  }
+  const series = bracketSeries(fs.readFileSync(cachePath, 'utf-8'));
+  const isFinals = (round: string) => {
+    const n = round.toLowerCase();
+    return n.includes('final') && !n.includes('conference') && !n.includes('conf') && !n.includes('division');
+  };
+  const finalsDoneInBracket = series.some(s => isFinals(s.round) && s.status === 'completed');
+  // Calendar backstop, independent of the (possibly stale) bracket cache: the
+  // NBA Finals always conclude by late June, so once we're past July 1 of the
+  // season's end year, a champion MUST exist regardless of what the cache says.
+  const pastFinals = new Date() >= new Date(year, 6, 1);
+  const finalsDone = finalsDoneInBracket || pastFinals;
+  if (!finalsDone) {
+    return { name, status: 'PASS', detail: 'Finals not yet complete in bracket — no champion expected' };
+  }
+  const reason = finalsDoneInBracket ? 'bracket shows Finals complete' : `past July 1 ${year}`;
+  const { data } = await supabase
+    .from('team_seasons')
+    .select('team_id, championship')
+    .eq('season', season)
+    .eq('championship', true);
+  const champs = (data || []).map((r: { team_id: string }) => r.team_id);
+  if (champs.length === 1) {
+    return { name, status: 'PASS', detail: `Finals complete (${reason}); champion stamped: ${champs[0]}` };
+  }
+  return {
+    name,
+    status: 'FAIL',
+    detail: champs.length === 0
+      ? `Finals complete (${reason}) but NO champion is stamped for ${season} — bracket cache is likely stale.\n     run: npx tsx scripts/scrape-playoff-results.ts --year ${year} --refresh`
+      : `${champs.length} champions stamped for ${season} (expected exactly 1): ${champs.join(', ')}`,
+  };
+}
+
 async function check2_playerCoverage(year: number, season: string): Promise<CheckResult> {
   const cachePath = CACHE_PERGAME(year);
   if (!fs.existsSync(cachePath)) {
@@ -320,6 +363,7 @@ async function main() {
     check3_noDuplicates(season),
     check4_noOrphanGameLogs(season),
     check5_gameLogCounts(season),
+    check7_championWhenFinalsDone(year, season),
     check6_topFiveAdvisory(season),
   ]);
 

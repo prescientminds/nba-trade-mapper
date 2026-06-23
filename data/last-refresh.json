@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-05-23T23:56:18.254Z",
+  "timestamp": "2026-06-19T01:20:09.374Z",
   "year": 2026,
   "league": "all",
-  "durationSec": 3196,
+  "durationSec": 3267,
   "phases": [
     {
       "phase": "scrape-today",
@@ -20,7 +20,7 @@
       "phase": "refresh-playoff-data",
       "league": "NBA",
       "ok": true,
-      "durationSec": 986
+      "durationSec": 1051
     },
     {
       "phase": "scrape-cap-history",
@@ -32,13 +32,13 @@
       "phase": "scrape-salaries",
       "league": "NBA",
       "ok": true,
-      "durationSec": 2
+      "durationSec": 1
     },
     {
       "phase": "scrape-salaries",
       "league": "NBA",
       "ok": true,
-      "durationSec": 2184
+      "durationSec": 2188
     },
     {
       "phase": "scrape-wnba-team-seasons",
@@ -86,7 +86,7 @@
       "phase": "update-kaggle-stats",
       "league": "shared",
       "ok": true,
-      "durationSec": 3182,
+      "durationSec": 3251,
       "detail": "log: data/kaggle-refresh.log"
     },
     {
@@ -99,7 +99,7 @@
       "phase": "score-transactions",
       "league": "shared",
       "ok": true,
-      "durationSec": 13
+      "durationSec": 15
     },
     {
       "phase": "compute-dynasty-ingredients",
@@ -111,7 +111,7 @@
       "phase": "update-cap-thresholds",
       "league": "shared",
       "ok": true,
-      "durationSec": 3
+      "durationSec": 2
     },
     {
       "phase": "verify-playoff-data",
