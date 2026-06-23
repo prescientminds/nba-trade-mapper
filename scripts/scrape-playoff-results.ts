@@ -14,10 +14,14 @@
  * URL pattern: https://www.basketball-reference.com/playoffs/NBA_{year}.html
  * Rate limit: 3.1s between requests (same as trade scraper)
  * Cache: data/bbref-cache/playoffs/NBA_{year}.html
+ *   The active season is ALWAYS re-fetched (its bracket is still changing);
+ *   only completed historical seasons are served from cache. --refresh forces
+ *   a re-fetch for any year.
  *
  * Usage:
  *   npx tsx scripts/scrape-playoff-results.ts             # All seasons 1977–present
  *   npx tsx scripts/scrape-playoff-results.ts --year 2024 # Single year
+ *   npx tsx scripts/scrape-playoff-results.ts --refresh   # Bypass cache (any year)
  *   npx tsx scripts/scrape-playoff-results.ts --dry-run   # Parse only, no DB writes
  */
 
@@ -106,8 +110,11 @@ function roundNameToCode(name: string): PlayoffResult | null {
 
 // ── Fetch ────────────────────────────────────────────────────────────
 
-async function fetchPage(url: string, cachePath: string): Promise<string | null> {
-  if (fs.existsSync(cachePath)) {
+async function fetchPage(url: string, cachePath: string, forceRefresh = false): Promise<string | null> {
+  // Cache is only trustworthy for completed historical seasons. For the active
+  // season (or when --refresh is passed) the bracket is still changing, so a
+  // cached copy will silently serve a stale, half-finished bracket. Re-fetch.
+  if (!forceRefresh && fs.existsSync(cachePath)) {
     return fs.readFileSync(cachePath, 'utf-8');
   }
 
@@ -256,6 +263,7 @@ function seriesToTeamResults(series: SeriesResult[], season: string): TeamPlayof
 async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
+  const forceRefresh = args.includes('--refresh');
   const yearArg = args.find(a => a.startsWith('--year'));
   const singleYear = yearArg ? parseInt(yearArg.split('=')[1] || args[args.indexOf(yearArg) + 1]) : null;
 
@@ -278,7 +286,10 @@ async function main() {
 
     console.log(`${season} (${year}):`);
 
-    const html = await fetchPage(url, cachePath);
+    // Always re-fetch the active season — its bracket is still being decided,
+    // so any cached copy is stale by definition. Historical years stay cached.
+    const isActiveSeason = year >= currentYear;
+    const html = await fetchPage(url, cachePath, forceRefresh || isActiveSeason);
     if (!html) {
       console.log(`  Skipped (no page)\n`);
       continue;
