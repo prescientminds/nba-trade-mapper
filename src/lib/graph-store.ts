@@ -460,9 +460,12 @@ interface GraphState {
   selectedLeague: League;
   visualSkin: VisualSkin;
   seedInfo: SeedInfo | null;
+  // Column View: 'spatial' = React Flow canvas, 'columns' = Finder-style chain reader.
+  viewMode: 'spatial' | 'columns';
 
   setSelectedLeague: (league: League) => void;
   setVisualSkin: (skin: VisualSkin) => void;
+  setViewMode: (mode: 'spatial' | 'columns') => void;
   onNodesChange: OnNodesChange;
   onEdgesChange: OnEdgesChange;
 
@@ -1119,6 +1122,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
   selectedLeague: 'NBA' as League,
   visualSkin: 'classic' as VisualSkin,
   seedInfo: null,
+  viewMode: 'spatial',
   championshipContext: null,
   hypotheticalWritingNodeId: null,
   latestComparablesByNodeId: new Map<string, Comparable[]>(),
@@ -1332,6 +1336,10 @@ export const useGraphStore = create<GraphState>((set, get) => ({
     set({ selectedLeague: league });
   },
 
+  setViewMode: (mode: 'spatial' | 'columns') => {
+    set({ viewMode: mode });
+  },
+
   setVisualSkin: (skin: VisualSkin) => {
     set({ visualSkin: skin });
   },
@@ -1432,6 +1440,7 @@ export const useGraphStore = create<GraphState>((set, get) => ({
       followHighlightedEdges: new Set(),
       followPath: null,
       seedInfo: null,
+      viewMode: 'spatial',
       championshipContext: null,
     });
   },
