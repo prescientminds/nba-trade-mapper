@@ -64,9 +64,9 @@ function Inner() {
       {status === 'ready' && tree && sankey && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 36 }}>
           <section data-testid="flow-section">
-            <h2 style={sectionTitle}>Chain flow — connective tissue + degree/year toggle</h2>
+            <h2 style={sectionTitle}>Chain flow — follow the story</h2>
             <p style={sectionSub}>
-              Trades as nodes; each ribbon is the asset that moved between them (the mechanism), thickness = downstream win shares. Toggle the x-axis between degree and calendar year.
+              What turned into what, how, and the impact. Trades run left-to-right by degree; each ribbon is the asset that moved between them, thickness = downstream win shares. Hover a trade to light its path back to the root.
             </p>
             <ChainFlow tree={tree} />
           </section>
