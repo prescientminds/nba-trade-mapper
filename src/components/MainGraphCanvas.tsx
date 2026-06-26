@@ -29,6 +29,7 @@ import CardPreviewModal from '@/components/CardPreviewModal';
 import { SKINS } from '@/lib/skins';
 import { createPortal } from 'react-dom';
 import GuidedTour from '@/components/tour/Tour';
+import ColumnView from '@/components/ColumnView';
 
 const nodeTypes = {
   trade: TradeNode,
@@ -96,6 +97,14 @@ const IconHome = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
     <polyline points="9 22 9 12 15 12 15 22" />
+  </svg>
+);
+
+const IconColumns = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="6" height="18" rx="1" />
+    <rect x="11" y="3" width="6" height="13" rx="1" />
+    <rect x="19" y="3" width="2" height="9" rx="1" />
   </svg>
 );
 
@@ -176,6 +185,8 @@ function GraphToolbar() {
   const visualSkin = useGraphStore((s) => s.visualSkin);
   const setVisualSkin = useGraphStore((s) => s.setVisualSkin);
   const seedInfo = useGraphStore((s) => s.seedInfo);
+  const viewMode = useGraphStore((s) => s.viewMode);
+  const setViewMode = useGraphStore((s) => s.setViewMode);
   const { zoomIn, zoomOut, fitView } = useReactFlow();
   const isMobile = useMobile();
   const [expanding, setExpanding] = useState(false);
@@ -264,6 +275,23 @@ function GraphToolbar() {
             isMobile={isMobile}
           />
         </span>
+
+        {/* Column View toggle — only meaningful when the graph is rooted on a real trade chain. */}
+        {(seedInfo?.type === 'trade' || seedInfo?.type === 'chain') && !isMobile && (
+          <>
+            <Separator />
+            <span data-tour="toolbar-columns">
+              <ToolbarButton
+                icon={<IconColumns />}
+                label="Columns"
+                title="Read this trade's downstream chain as ranked columns"
+                onClick={() => setViewMode(viewMode === 'columns' ? 'spatial' : 'columns')}
+                accent={viewMode === 'columns' ? '#ff6b35' : undefined}
+                isMobile={isMobile}
+              />
+            </span>
+          </>
+        )}
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -414,6 +442,9 @@ export default function MainGraphCanvas() {
   const exitFollowPath = useGraphStore((s) => s.exitFollowPath);
   const expandedNodes = useGraphStore((s) => s.expandedNodes);
   const visualSkin = useGraphStore((s) => s.visualSkin);
+  const viewMode = useGraphStore((s) => s.viewMode);
+  const setViewMode = useGraphStore((s) => s.setViewMode);
+  const seedInfo = useGraphStore((s) => s.seedInfo);
   const { fitView } = useReactFlow();
   const isMobile = useMobile();
   const prevExpandedRef = useRef<Set<string>>(new Set());
@@ -531,6 +562,26 @@ export default function MainGraphCanvas() {
           )}
         </ReactFlow>
       </div>
+      {viewMode === 'columns' && (seedInfo?.type === 'trade' || seedInfo?.type === 'chain') && (
+        <div
+          style={{
+            position: 'absolute',
+            top: 52,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 7,
+            background: 'var(--bg, #0a0a0f)',
+            borderTop: '1px solid rgba(255,255,255,0.08)',
+          }}
+        >
+          <ColumnView
+            rootTradeId={seedInfo.tradeId}
+            onClose={() => setViewMode('spatial')}
+            onSelectTrade={() => setViewMode('spatial')}
+          />
+        </div>
+      )}
       <TradeMachineSidePanel />
     </div>
   );
