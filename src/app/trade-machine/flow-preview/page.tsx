@@ -11,6 +11,7 @@ import { useSearchParams } from 'next/navigation';
 import { buildChainFlow, type TradeTreeNode, type SankeyGraphInput } from '@/lib/chain-hierarchy';
 import ChainIcicle from '@/components/ChainIcicle';
 import ChainSankey from '@/components/ChainSankey';
+import ChainFlow from '@/components/ChainFlow';
 
 const DEFAULT_ROOT = '53fb1654-6be8-4c58-a2fe-4d4f5df1a084';
 
@@ -62,8 +63,16 @@ function Inner() {
 
       {status === 'ready' && tree && sankey && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 36 }}>
+          <section data-testid="flow-section">
+            <h2 style={sectionTitle}>Chain flow — connective tissue + degree/year toggle</h2>
+            <p style={sectionSub}>
+              Trades as nodes; each ribbon is the asset that moved between them (the mechanism), thickness = downstream win shares. Toggle the x-axis between degree and calendar year.
+            </p>
+            <ChainFlow tree={tree} />
+          </section>
+
           <section data-testid="icicle-section">
-            <h2 style={sectionTitle}>A · Icicle (recommended)</h2>
+            <h2 style={sectionTitle}>A · Icicle (reference)</h2>
             <p style={sectionSub}>
               Columns = degree. Child blocks nest inside their parent&apos;s band, so lineage shows by adjacency.
             </p>

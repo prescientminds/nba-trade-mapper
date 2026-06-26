@@ -38,6 +38,9 @@ export interface ColumnViewModel {
   rootTradeId: string;
   /** Every reachable trade in the chain, keyed by id. */
   nodes: Record<string, ColumnTradeNode>;
+  /** The asset that links a parent→child trade — the "mechanism" of the connection.
+   *  Keyed `${parentTradeId}->${childTradeId}`; value is the moved asset's name. */
+  edgeAssets: Record<string, string>;
 }
 
 /** Filter the non-player junk that leaks into chain data (mirrors chain-utils). */
@@ -74,9 +77,12 @@ export async function fetchChainScores(
 function buildGraph(
   rootTradeId: string,
   chainScores: Record<string, ChainTeamData>,
-): Record<string, ColumnTradeNode> {
+): { nodes: Record<string, ColumnTradeNode>; edgeAssets: Record<string, string> } {
   const nodes: Record<string, ColumnTradeNode> = {};
   const seenNames: Record<string, Set<string>> = {};
+  // Per parent→child edge, remember the highest-value moved asset as the link.
+  const edgeAssets: Record<string, string> = {};
+  const edgeBest: Record<string, number> = {};
 
   function ensure(id: string): ColumnTradeNode {
     if (!nodes[id]) {
@@ -109,6 +115,15 @@ function buildGraph(
         if (!cur.childTradeIds.includes(childId) && childId !== currentTradeId) {
           cur.childTradeIds.push(childId);
         }
+        // Record the moved asset as the edge's mechanism (keep the highest-value one).
+        if (a.name && childId !== currentTradeId) {
+          const key = `${currentTradeId}->${childId}`;
+          const w = a.chain || 0;
+          if (edgeBest[key] === undefined || w > edgeBest[key]) {
+            edgeBest[key] = w;
+            edgeAssets[key] = a.name;
+          }
+        }
         if (a.children && a.children.length > 0) {
           walk(a.children, childId, depth + 1);
         } else {
@@ -126,7 +141,7 @@ function buildGraph(
   for (const node of Object.values(nodes)) {
     node.childTradeIds.sort((x, y) => (nodes[y]?.score ?? 0) - (nodes[x]?.score ?? 0));
   }
-  return nodes;
+  return { nodes, edgeAssets };
 }
 
 /**
@@ -141,7 +156,7 @@ export async function buildColumnViewModel(
   const chainScores = await fetchChainScores(rootTradeId);
   if (!chainScores) return null;
 
-  const nodes = buildGraph(rootTradeId, chainScores);
+  const { nodes, edgeAssets } = buildGraph(rootTradeId, chainScores);
 
   // Hydrate trade summaries for every reachable trade (chains are bounded — a handful).
   const ids = Object.keys(nodes);
@@ -150,7 +165,7 @@ export async function buildColumnViewModel(
     nodes[id].trade = trades[i];
   });
 
-  return { rootTradeId, nodes };
+  return { rootTradeId, nodes, edgeAssets };
 }
 
 /** Resolve a column's trade ids to nodes, score-sorted, skipping any that vanished. */

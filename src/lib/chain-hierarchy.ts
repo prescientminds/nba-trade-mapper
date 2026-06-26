@@ -18,9 +18,13 @@ export interface TradeTreeNode {
   tradeId: string;
   label: string;
   year: string;
+  /** Full ISO date, for the year/time-scale axis. */
+  date: string | null;
   names: string[];
   teamIds: string[];
   teamColors: string[];
+  /** The asset that links this trade to its parent — the connective-tissue mechanism. */
+  linkAsset: string | null;
   /** WS produced at this trade only. */
   directValue: number;
   /** directValue + sum of every descendant's directValue. The block/branch weight. */
@@ -29,12 +33,12 @@ export interface TradeTreeNode {
   children: TradeTreeNode[];
 }
 
-function teamFields(model: ColumnViewModel, tradeId: string): { ids: string[]; colors: string[]; year: string } {
+function teamFields(model: ColumnViewModel, tradeId: string): { ids: string[]; colors: string[]; year: string; date: string | null } {
   const trade = model.nodes[tradeId]?.trade;
   const date = trade?.date ?? null;
   const ids = (trade?.teams ?? []).map((t) => t.team_id);
   const colors = ids.map((id) => getAnyTeamDisplayInfo(id, date).color);
-  return { ids, colors, year: date ? date.slice(0, 4) : '' };
+  return { ids, colors, year: date ? date.slice(0, 4) : '', date };
 }
 
 /**
@@ -46,14 +50,15 @@ function teamFields(model: ColumnViewModel, tradeId: string): { ids: string[]; c
 export function buildChainTree(model: ColumnViewModel): TradeTreeNode {
   const visited = new Set<string>();
 
-  function recurse(tradeId: string, depth: number): TradeTreeNode {
+  function recurse(tradeId: string, depth: number, linkAsset: string | null): TradeTreeNode {
     visited.add(tradeId);
     const node = model.nodes[tradeId];
-    const { ids, colors, year } = teamFields(model, tradeId);
+    const { ids, colors, year, date } = teamFields(model, tradeId);
     const children: TradeTreeNode[] = [];
     for (const childId of node?.childTradeIds ?? []) {
       if (!visited.has(childId) && model.nodes[childId]) {
-        children.push(recurse(childId, depth + 1));
+        const link = model.edgeAssets[`${tradeId}->${childId}`] ?? null;
+        children.push(recurse(childId, depth + 1, link));
       }
     }
     const directValue = Math.max(0, node?.directScore ?? 0);
@@ -62,9 +67,11 @@ export function buildChainTree(model: ColumnViewModel): TradeTreeNode {
       tradeId,
       label: node?.trade?.title ?? tradeId,
       year,
+      date,
       names: node?.assetNames ?? [],
       teamIds: ids,
       teamColors: colors,
+      linkAsset,
       directValue,
       total,
       depth,
@@ -72,7 +79,7 @@ export function buildChainTree(model: ColumnViewModel): TradeTreeNode {
     };
   }
 
-  return recurse(model.rootTradeId, 0);
+  return recurse(model.rootTradeId, 0, null);
 }
 
 // ── Sankey shapes ────────────────────────────────────────────────────
