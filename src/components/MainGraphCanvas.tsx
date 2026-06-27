@@ -29,7 +29,7 @@ import CardPreviewModal from '@/components/CardPreviewModal';
 import { SKINS } from '@/lib/skins';
 import { createPortal } from 'react-dom';
 import GuidedTour from '@/components/tour/Tour';
-import ColumnView from '@/components/ColumnView';
+import ChainFlowPanel from '@/components/ChainFlowPanel';
 
 const nodeTypes = {
   trade: TradeNode,
@@ -283,8 +283,8 @@ function GraphToolbar() {
             <span data-tour="toolbar-columns">
               <ToolbarButton
                 icon={<IconColumns />}
-                label="Columns"
-                title="Read this trade's downstream chain as ranked columns"
+                label={viewMode === 'columns' ? 'Canvas' : 'Chain'}
+                title="Toggle between the canvas graph and the chain-flow view"
                 onClick={() => setViewMode(viewMode === 'columns' ? 'spatial' : 'columns')}
                 accent={viewMode === 'columns' ? '#ff6b35' : undefined}
                 isMobile={isMobile}
@@ -575,10 +575,9 @@ export default function MainGraphCanvas() {
             borderTop: '1px solid rgba(255,255,255,0.08)',
           }}
         >
-          <ColumnView
+          <ChainFlowPanel
             rootTradeId={seedInfo.tradeId}
             onClose={() => setViewMode('spatial')}
-            onSelectTrade={() => setViewMode('spatial')}
           />
         </div>
       )}
