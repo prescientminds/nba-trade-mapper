@@ -25,9 +25,12 @@ export interface TradeTreeNode {
   teamColors: string[];
   /** The asset that links this trade to its parent — the connective-tissue mechanism. */
   linkAsset: string | null;
-  /** WS produced at this trade only. */
+  /** Canonical chain score for this trade (same value the column view + Discovery show).
+   *  This is the displayed impact number and the flow's branch weight. */
+  score: number;
+  /** WS produced at this trade only. Retained for the reference icicle/sankey only. */
   directValue: number;
-  /** directValue + sum of every descendant's directValue. The block/branch weight. */
+  /** directValue + sum of every descendant's directValue. Reference icicle/sankey only. */
   total: number;
   depth: number;
   children: TradeTreeNode[];
@@ -72,6 +75,7 @@ export function buildChainTree(model: ColumnViewModel): TradeTreeNode {
       teamIds: ids,
       teamColors: colors,
       linkAsset,
+      score: Math.max(0, node?.score ?? 0),
       directValue,
       total,
       depth,

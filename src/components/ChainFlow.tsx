@@ -46,10 +46,15 @@ export default function ChainFlow({
       if (y1 - y0 < MIN_BAND) return;
       maxDepth = Math.max(maxDepth, node.depth);
       placedMap.set(node.tradeId, { node, x: 0, y0, y1, parent });
-      if (node.children.length === 0 || node.total <= 0) return;
+      if (node.children.length === 0) return;
+      // Children fill the parent's band proportional to their canonical chain score,
+      // normalized by the sibling sum so the band is exactly filled (chain score isn't
+      // additive down the tree, so we normalize among siblings rather than against the parent).
+      const sibSum = node.children.reduce((s, c) => s + Math.max(c.score, 0), 0) || node.children.length;
       let cursor = y0;
       for (const child of node.children) {
-        const ch = (child.total / node.total) * (y1 - y0);
+        const w = node.children.length ? Math.max(child.score, 0) || sibSum / node.children.length : 0;
+        const ch = (w / sibSum) * (y1 - y0);
         placeY(child, cursor, cursor + ch, node);
         cursor += ch;
       }
@@ -158,12 +163,12 @@ export default function ChainFlow({
                   <tspan opacity={0.6}>{p.node.year} </tspan>
                   {clip(p.node.names[0] || p.node.label, 22)}
                   <tspan dx={5} fontWeight={700} fill="#f9c74f">
-                    {p.node.total.toFixed(0)}
+                    {p.node.score.toFixed(0)}
                   </tspan>
                 </text>
               )}
               <title>
-                {p.node.year} {p.node.label} · {p.node.total.toFixed(1)} WS
+                {p.node.year} {p.node.label} · {p.node.score.toFixed(1)} WS
                 {p.node.linkAsset ? `\nconnected via: ${p.node.linkAsset}` : ''}
               </title>
             </g>
