@@ -1,13 +1,7 @@
 /**
- * Chain hierarchy — turns the flat ColumnViewModel into the two shapes the flow
- * visualizations need:
- *   - a strict value-weighted tree (for the icicle / partition), and
- *   - a node+link graph (for d3-sankey).
- *
- * Both are derived from the same chain. Block/ribbon size uses `directScore` — the WS
- * produced AT each trade before its assets were re-traded — because it sums cleanly down
- * the tree. (`score`, the recursive chain total, can exceed a node's parent, which breaks
- * containment in a partition layout.)
+ * Chain hierarchy — turns the flat ColumnViewModel into a strict value-weighted tree for
+ * the ChainFlow view. Each trade is a node; node size and the displayed impact number both
+ * use the canonical chain score (the same value the column view + Discovery show).
  */
 
 import { buildColumnViewModel, type ColumnViewModel } from './column-view';
@@ -18,7 +12,7 @@ export interface TradeTreeNode {
   tradeId: string;
   label: string;
   year: string;
-  /** Full ISO date, for the year/time-scale axis. */
+  /** Full ISO date. */
   date: string | null;
   names: string[];
   teamIds: string[];
@@ -28,10 +22,6 @@ export interface TradeTreeNode {
   /** Canonical chain score for this trade (same value the column view + Discovery show).
    *  This is the displayed impact number and the flow's branch weight. */
   score: number;
-  /** WS produced at this trade only. Retained for the reference icicle/sankey only. */
-  directValue: number;
-  /** directValue + sum of every descendant's directValue. Reference icicle/sankey only. */
-  total: number;
   depth: number;
   children: TradeTreeNode[];
 }
@@ -47,8 +37,7 @@ function teamFields(model: ColumnViewModel, tradeId: string): { ids: string[]; c
 /**
  * Walk the model into a strict tree rooted at the root trade. A trade can be reached by
  * more than one asset path (the chain is a DAG); we place each trade once, on the first
- * (highest-scoring, since childTradeIds is score-sorted) path that reaches it, so the
- * partition stays a clean tree.
+ * (highest-scoring, since childTradeIds is score-sorted) path that reaches it.
  */
 export function buildChainTree(model: ColumnViewModel): TradeTreeNode {
   const visited = new Set<string>();
@@ -64,8 +53,6 @@ export function buildChainTree(model: ColumnViewModel): TradeTreeNode {
         children.push(recurse(childId, depth + 1, link));
       }
     }
-    const directValue = Math.max(0, node?.directScore ?? 0);
-    const total = directValue + children.reduce((s, c) => s + c.total, 0);
     return {
       tradeId,
       label: node?.trade?.title ?? tradeId,
@@ -76,8 +63,6 @@ export function buildChainTree(model: ColumnViewModel): TradeTreeNode {
       teamColors: colors,
       linkAsset,
       score: Math.max(0, node?.score ?? 0),
-      directValue,
-      total,
       depth,
       children,
     };
@@ -86,66 +71,12 @@ export function buildChainTree(model: ColumnViewModel): TradeTreeNode {
   return recurse(model.rootTradeId, 0, null);
 }
 
-// ── Sankey shapes ────────────────────────────────────────────────────
-export interface SankeyNodeInput {
-  id: string;
-  label: string;
-  year: string;
-  names: string[];
-  teamColors: string[];
-  depth: number;
-}
-export interface SankeyLinkInput {
-  source: number;
-  target: number;
-  value: number;
-}
-export interface SankeyGraphInput {
-  nodes: SankeyNodeInput[];
-  links: SankeyLinkInput[];
-}
-
-/** Flatten the tree into d3-sankey node/link inputs. Link value = the child branch total. */
-export function treeToSankey(root: TradeTreeNode): SankeyGraphInput {
-  const nodes: SankeyNodeInput[] = [];
-  const links: SankeyLinkInput[] = [];
-  const indexOf = new Map<string, number>();
-
-  function addNode(n: TradeTreeNode): number {
-    if (indexOf.has(n.tradeId)) return indexOf.get(n.tradeId)!;
-    const idx = nodes.length;
-    indexOf.set(n.tradeId, idx);
-    nodes.push({
-      id: n.tradeId,
-      label: n.label,
-      year: n.year,
-      names: n.names,
-      teamColors: n.teamColors,
-      depth: n.depth,
-    });
-    return idx;
-  }
-
-  function walk(n: TradeTreeNode) {
-    const si = addNode(n);
-    for (const c of n.children) {
-      const ti = addNode(c);
-      // d3-sankey requires strictly positive link values.
-      links.push({ source: si, target: ti, value: Math.max(c.total, 0.1) });
-      walk(c);
-    }
-  }
-  walk(root);
-  return { nodes, links };
-}
-
-/** One-shot loader: build both shapes for a root trade. Null if the trade has no chain. */
+/** Load + build the chain tree for a root trade. Null if the trade has no scored chain. */
 export async function buildChainFlow(
   rootTradeId: string,
   league: League = 'NBA',
-): Promise<{ tree: TradeTreeNode; sankey: SankeyGraphInput } | null> {
+): Promise<{ tree: TradeTreeNode } | null> {
   const model = await buildColumnViewModel(rootTradeId, league);
   if (!model) return null;
-  const tree = buildChainTree(model);
-  return { tree, sankey: treeToSankey(tree) };
+  return { tree: buildChainTree(model) };
 }

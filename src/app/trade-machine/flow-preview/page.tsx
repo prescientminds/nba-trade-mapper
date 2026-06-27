@@ -1,16 +1,14 @@
 'use client';
 
 /**
- * Side-by-side prototype: icicle vs. sankey on the same trade chain. Lets us compare the
- * two flow visualizations on real data before picking one for the product. Default root is
- * the 2013 Pierce/Garnett chain; override via ?trade=<id>.
+ * Dev preview for the ChainFlow view. Renders the flow on a chain in isolation so it can
+ * be tested against any trade without seeding the canvas. Default root is the 2013
+ * Pierce/Garnett chain; override via ?trade=<id>.
  */
 
 import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { buildChainFlow, type TradeTreeNode, type SankeyGraphInput } from '@/lib/chain-hierarchy';
-import ChainIcicle from '@/components/ChainIcicle';
-import ChainSankey from '@/components/ChainSankey';
+import { buildChainFlow, type TradeTreeNode } from '@/lib/chain-hierarchy';
 import ChainFlow from '@/components/ChainFlow';
 
 const DEFAULT_ROOT = '53fb1654-6be8-4c58-a2fe-4d4f5df1a084';
@@ -19,7 +17,6 @@ function Inner() {
   const params = useSearchParams();
   const root = params.get('trade') ?? DEFAULT_ROOT;
   const [tree, setTree] = useState<TradeTreeNode | null>(null);
-  const [sankey, setSankey] = useState<SankeyGraphInput | null>(null);
   const [status, setStatus] = useState<'loading' | 'ready' | 'empty'>('loading');
 
   useEffect(() => {
@@ -32,7 +29,6 @@ function Inner() {
         return;
       }
       setTree(res.tree);
-      setSankey(res.sankey);
       setStatus('ready');
     });
     return () => {
@@ -40,52 +36,19 @@ function Inner() {
     };
   }, [root]);
 
-  const sectionTitle: React.CSSProperties = {
-    fontSize: 13,
-    fontWeight: 700,
-    letterSpacing: 0.4,
-    color: '#fff',
-    margin: '0 0 2px',
-  };
-  const sectionSub: React.CSSProperties = { fontSize: 11, color: 'rgba(255,255,255,0.45)', margin: '0 0 10px' };
-
   return (
     <div style={{ minHeight: '100vh', background: '#0a0a0f', padding: 20, color: '#fff' }}>
       <h1 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>
-        Chain flow prototype — {status === 'ready' ? tree?.label : root}
+        Chain flow — {status === 'ready' ? tree?.label : root}
       </h1>
-      <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.45)', marginBottom: 24 }}>
-        Same chain, two renderers. Block / ribbon size = downstream win shares.
+      <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.45)', marginBottom: 20 }}>
+        What turned into what, how, and the impact. Ribbon = the asset that moved; thickness = downstream win shares.
       </p>
-
       {status === 'loading' && <p style={{ color: 'rgba(255,255,255,0.5)' }}>Loading chain…</p>}
       {status === 'empty' && <p style={{ color: 'rgba(255,255,255,0.5)' }}>No scored chain for this trade.</p>}
-
-      {status === 'ready' && tree && sankey && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 36 }}>
-          <section data-testid="flow-section">
-            <h2 style={sectionTitle}>Chain flow — follow the story</h2>
-            <p style={sectionSub}>
-              What turned into what, how, and the impact. Trades run left-to-right by degree; each ribbon is the asset that moved between them, thickness = downstream win shares. Hover a trade to light its path back to the root.
-            </p>
-            <ChainFlow tree={tree} />
-          </section>
-
-          <section data-testid="icicle-section">
-            <h2 style={sectionTitle}>A · Icicle (reference)</h2>
-            <p style={sectionSub}>
-              Columns = degree. Child blocks nest inside their parent&apos;s band, so lineage shows by adjacency.
-            </p>
-            <ChainIcicle tree={tree} />
-          </section>
-
-          <section data-testid="sankey-section">
-            <h2 style={sectionTitle}>B · Sankey</h2>
-            <p style={sectionSub}>
-              Flowing ribbons, width = branch win shares. Directional read of value, not strict conservation.
-            </p>
-            <ChainSankey data={sankey} />
-          </section>
+      {status === 'ready' && tree && (
+        <div data-testid="flow-section">
+          <ChainFlow tree={tree} />
         </div>
       )}
     </div>

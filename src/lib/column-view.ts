@@ -23,11 +23,8 @@ export interface ColumnTradeNode {
   tradeId: string;
   /** Loaded summary (date/title/teams). Null if the trade isn't in the static JSON. */
   trade: StaticTrade | null;
-  /** Summed chain WS of the assets received in this trade. Sort key within a column. */
+  /** Summed chain WS of the assets received in this trade. Sort key + displayed impact. */
   score: number;
-  /** Summed *direct* WS (production at this trade only, before re-trades). Sums cleanly
-   *  down the tree, so it's the value used for partition/icicle block sizing. */
-  directScore: number;
   /** Significant players/picks received in this trade (deduped, score-ordered). */
   assetNames: string[];
   /** Immediate downstream trades, score-sorted. Populating the next column. */
@@ -86,7 +83,7 @@ function buildGraph(
 
   function ensure(id: string): ColumnTradeNode {
     if (!nodes[id]) {
-      nodes[id] = { tradeId: id, trade: null, score: 0, directScore: 0, assetNames: [], childTradeIds: [] };
+      nodes[id] = { tradeId: id, trade: null, score: 0, assetNames: [], childTradeIds: [] };
       seenNames[id] = new Set();
     }
     return nodes[id];
@@ -99,9 +96,6 @@ function buildGraph(
     const cur = ensure(currentTradeId);
     for (const a of assets) {
       const isAsset = a.type === 'player' || a.type === 'pick';
-      if (isAsset && a.direct > 0) {
-        cur.directScore += a.direct;
-      }
       if (isAsset && a.chain > 0) {
         cur.score += a.chain;
         if (isRealPlayerName(a.name) && !seenNames[currentTradeId].has(a.name)) {
@@ -166,15 +160,4 @@ export async function buildColumnViewModel(
   });
 
   return { rootTradeId, nodes, edgeAssets };
-}
-
-/** Resolve a column's trade ids to nodes, score-sorted, skipping any that vanished. */
-export function columnNodes(
-  model: ColumnViewModel,
-  tradeIds: string[],
-): ColumnTradeNode[] {
-  return tradeIds
-    .map((id) => model.nodes[id])
-    .filter((n): n is ColumnTradeNode => !!n)
-    .sort((a, b) => b.score - a.score);
 }
