@@ -4,6 +4,10 @@
  * Reads data/kaggle/Draft Pick History.csv and writes public/data/drafts.json
  * as a lookup map keyed by normalized player name (lowercase).
  *
+ * Kaggle lags the June draft by months, so any draft year present in
+ * public/data/draft-ownership.json (Wikipedia scrape) but absent from the
+ * Kaggle CSV is back-filled from the ownership table (selecting_team = teamId).
+ *
  * Usage: npx tsx scripts/export-draft-data.ts
  */
 
@@ -14,6 +18,15 @@ import { resolveTeamId } from './lib/team-resolver';
 
 const DRAFT_CSV = path.join(__dirname, '..', 'data', 'kaggle', 'Draft Pick History.csv');
 const OUTPUT_PATH = path.join(__dirname, '..', 'public', 'data', 'drafts.json');
+const OWNERSHIP_PATH = path.join(__dirname, '..', 'public', 'data', 'draft-ownership.json');
+
+interface OwnershipPick {
+  year: number;
+  round: number;
+  overall_pick: number;
+  player: string;
+  selecting_team: string;
+}
 
 export interface DraftEntry {
   year: number;
@@ -51,6 +64,22 @@ function main() {
     if (!drafts[key]) {
       drafts[key] = { year, round, pick, teamId };
     }
+  }
+
+  // Back-fill draft years Kaggle hasn't published yet from draft-ownership.json
+  const kaggleMaxYear = Math.max(...Object.values(drafts).map((d) => d.year));
+  if (fs.existsSync(OWNERSHIP_PATH)) {
+    const ownership = JSON.parse(fs.readFileSync(OWNERSHIP_PATH, 'utf-8')) as OwnershipPick[];
+    let added = 0;
+    for (const p of ownership) {
+      if (p.year <= kaggleMaxYear || !p.player) continue;
+      const key = p.player.trim().toLowerCase();
+      if (!drafts[key]) {
+        drafts[key] = { year: p.year, round: p.round, pick: p.overall_pick, teamId: p.selecting_team };
+        added++;
+      }
+    }
+    console.log(`Kaggle covers drafts through ${kaggleMaxYear}; back-filled ${added} picks from draft-ownership.json`);
   }
 
   const count = Object.keys(drafts).length;

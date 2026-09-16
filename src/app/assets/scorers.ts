@@ -11,7 +11,8 @@ import type { OwnedPick } from '@/lib/trade-builder';
 
 export const CURRENT_SEASON = '2025-26';
 export const NEXT_SEASON = '2026-27';
-export const CURRENT_YEAR = 2026;
+/** Next draft year (2026 draft complete as of 2026-06-24). */
+export const CURRENT_YEAR = 2027;
 /**
  * 2026-27 projected salary cap. The 2025-26 cap was $140.6M; the league's
  * published 2026-27 projection at the time of build is ~$154.6M. Used when

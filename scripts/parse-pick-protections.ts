@@ -27,7 +27,7 @@ import * as path from 'path';
 const TRADES_DIR = path.join(__dirname, '..', 'public', 'data', 'trades', 'by-season');
 const OUT_FILE = path.join(__dirname, '..', 'public', 'data', 'pick-protections.json');
 
-const TARGET_YEARS = [2026, 2027, 2028, 2029, 2030, 2031, 2032] as const;
+const TARGET_YEARS = [2027, 2028, 2029, 2030, 2031, 2032, 2033] as const;
 
 // =============================================================================
 // Types

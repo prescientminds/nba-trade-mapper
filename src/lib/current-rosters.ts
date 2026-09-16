@@ -12,7 +12,7 @@
  * want to fight that — we want the overlay to be transparent and let
  * the source data win once it catches up.
  */
-import { CURRENT_SEASON } from './trade-builder';
+import { CURRENT_SEASON, NEXT_SEASON } from './trade-builder';
 
 interface TradeAsset {
   type: string;
@@ -34,8 +34,15 @@ let overlayPromise: Promise<Map<string, string>> | null = null;
 export async function loadCurrentRosterOverlay(): Promise<Map<string, string>> {
   if (overlayCache) return overlayCache;
   if (overlayPromise) return overlayPromise;
-  overlayPromise = fetch(`/data/trades/by-season/${CURRENT_SEASON}.json`)
-    .then((r) => r.json() as Promise<Trade[]>)
+  // Offseason trades (July onward) live in NEXT_SEASON's file, so walk both.
+  // The upcoming-season file may not exist yet early in the summer — treat a
+  // non-OK response as an empty list rather than failing the overlay.
+  const loadSeason = (season: string): Promise<Trade[]> =>
+    fetch(`/data/trades/by-season/${season}.json`)
+      .then((r) => (r.ok ? (r.json() as Promise<Trade[]>) : []))
+      .catch(() => []);
+  overlayPromise = Promise.all([loadSeason(CURRENT_SEASON), loadSeason(NEXT_SEASON)])
+    .then(([cur, next]) => [...cur, ...next])
     .then((trades) => {
       const sorted = [...trades].sort((a, b) => a.date.localeCompare(b.date));
       const overlay = new Map<string, string>();
