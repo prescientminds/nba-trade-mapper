@@ -201,7 +201,12 @@ async function main() {
   let inserted = 0;
 
   for (let i = 0; i < rows.length; i += BATCH) {
-    const batch = rows.slice(i, i + BATCH);
+    // BBRef's page has no tax column for most seasons. Never write a null
+    // luxury_tax — it would clobber the values update-cap-thresholds.ts
+    // maintains for 2002-03+ (observed 2026-09-16: 2025-26 tax nulled).
+    const batch = rows.slice(i, i + BATCH).map(({ luxury_tax, ...rest }) =>
+      luxury_tax == null ? rest : { ...rest, luxury_tax }
+    );
     const { error } = await supabase
       .from('salary_cap_history')
       .upsert(batch, { onConflict: 'season' });

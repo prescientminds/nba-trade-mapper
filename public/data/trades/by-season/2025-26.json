@@ -231,8 +231,8 @@
     "id": "bbref-2025-07-06-3954f899",
     "date": "2025-07-06",
     "season": "2025-26",
-    "title": "Pat Connaughton, Vasilije Mici\u0107 Trade",
-    "description": "The Charlotte Hornets traded Vasilije Mici\u0107 to the Milwaukee Bucks for Pat Connaughton, a 2031 2nd round draft pick and a 2032 2nd round draft pick. Milwaukee also received a trade exception 2031 2nd-rd pick is MIL own 2032 2nd-rd pick is MIL own",
+    "title": "Pat Connaughton, Vasilije Micić Trade",
+    "description": "The Charlotte Hornets traded Vasilije Micić to the Milwaukee Bucks for Pat Connaughton, a 2031 2nd round draft pick and a 2032 2nd round draft pick. Milwaukee also received a trade exception 2031 2nd-rd pick is MIL own 2032 2nd-rd pick is MIL own",
     "is_multi_team": false,
     "teams": [
       {
@@ -247,7 +247,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Vasilije Mici\u0107",
+        "player_name": "Vasilije Micić",
         "from_team_id": "CHA",
         "to_team_id": "MIL",
         "pick_year": null,
@@ -292,7 +292,7 @@
     ],
     "topAssets": [
       "Pat Connaughton",
-      "Vasilije Mici\u0107"
+      "Vasilije Micić"
     ]
   },
   {
@@ -437,7 +437,7 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Bruce Thornton",
         "notes": null
       },
       {
@@ -559,7 +559,7 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Isaiah Evans",
         "notes": null
       },
       {
@@ -625,7 +625,7 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Ugonna Onyenso",
         "notes": null
       },
       {
@@ -691,7 +691,7 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Ugonna Onyenso",
         "notes": null
       },
       {
@@ -1079,7 +1079,7 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Meleek Thomas",
         "notes": null
       },
       {
@@ -1226,7 +1226,7 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Trey Kaufman-Renn",
         "notes": null
       }
     ],
@@ -1239,8 +1239,8 @@
     "id": "bbref-2025-07-13-aaa8b844",
     "date": "2025-07-13",
     "season": "2025-26",
-    "title": "Jonas Valan\u010di\u016bnas, Dario \u0160ari\u0107 Trade",
-    "description": "The Sacramento Kings traded Jonas Valan\u010di\u016bnas to the Denver Nuggets for Dario \u0160ari\u0107. Denver also received a trade exception Sacramento also received a trade exception",
+    "title": "Jonas Valančiūnas, Dario Šarić Trade",
+    "description": "The Sacramento Kings traded Jonas Valančiūnas to the Denver Nuggets for Dario Šarić. Denver also received a trade exception Sacramento also received a trade exception",
     "is_multi_team": false,
     "teams": [
       {
@@ -1255,7 +1255,7 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "Jonas Valan\u010di\u016bnas",
+        "player_name": "Jonas Valančiūnas",
         "from_team_id": "SAC",
         "to_team_id": "DEN",
         "pick_year": null,
@@ -1266,7 +1266,7 @@
       },
       {
         "type": "player",
-        "player_name": "Dario \u0160ari\u0107",
+        "player_name": "Dario Šarić",
         "from_team_id": "DEN",
         "to_team_id": "SAC",
         "pick_year": null,
@@ -1277,8 +1277,8 @@
       }
     ],
     "topAssets": [
-      "Jonas Valan\u010di\u016bnas",
-      "Dario \u0160ari\u0107"
+      "Jonas Valančiūnas",
+      "Dario Šarić"
     ]
   },
   {
@@ -1397,7 +1397,7 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Isaiah Evans",
         "notes": null
       }
     ],
@@ -1581,8 +1581,8 @@
     "id": "bbref-2026-02-01-fcd4c372",
     "date": "2026-02-01",
     "season": "2025-26",
-    "title": "Dario \u0160ari\u0107, Emanuel Miller, De'Andre Hunter Trade",
-    "description": "In a 3-team trade, the Chicago Bulls traded Emanuel Miller to the Cleveland Cavaliers; the Cleveland Cavaliers traded a 2027 2nd round draft pick to the Chicago Bulls; the Cleveland Cavaliers traded De'Andre Hunter to the Sacramento Kings; the Sacramento Kings traded Dario \u0160ari\u0107 and a 2029 2nd round draft pick to the Chicago Bulls; and the Sacramento Kings traded Keon Ellis and Dennis Schroder to the Cleveland Cavaliers.",
+    "title": "Dario Šarić, Emanuel Miller, De'Andre Hunter Trade",
+    "description": "In a 3-team trade, the Chicago Bulls traded Emanuel Miller to the Cleveland Cavaliers; the Cleveland Cavaliers traded a 2027 2nd round draft pick to the Chicago Bulls; the Cleveland Cavaliers traded De'Andre Hunter to the Sacramento Kings; the Sacramento Kings traded Dario Šarić and a 2029 2nd round draft pick to the Chicago Bulls; and the Sacramento Kings traded Keon Ellis and Dennis Schroder to the Cleveland Cavaliers.",
     "is_multi_team": true,
     "teams": [
       {
@@ -1634,7 +1634,7 @@
       },
       {
         "type": "player",
-        "player_name": "Dario \u0160ari\u0107",
+        "player_name": "Dario Šarić",
         "from_team_id": "SAC",
         "to_team_id": "CHI",
         "pick_year": null,
@@ -1657,8 +1657,8 @@
     ],
     "topAssets": [
       "Emanuel Miller",
-      "Dario \u0160ari\u0107",
-      "Dario \u0160ari\u0107"
+      "Dario Šarić",
+      "Dario Šarić"
     ]
   },
   {
@@ -1800,7 +1800,7 @@
     "date": "2026-02-03",
     "season": "2025-26",
     "title": "Jaden Ivey, Mike Conley, Kevin Huerter Trade",
-    "description": "In a 3-team trade, the Chicago Bulls traded Kevin Huerter and Dario \u0160ari\u0107 to the Detroit Pistons; the Detroit Pistons traded Jaden Ivey to the Chicago Bulls; the Detroit Pistons traded to the Minnesota Timberwolves; the Minnesota Timberwolves traded Mike Conley to the Chicago Bulls; and the Minnesota Timberwolves traded a 2026 1st round draft pick to the Detroit Pistons. 2026 1st-rd pick is a protected right to swap Minnesota also received a trade exception",
+    "description": "In a 3-team trade, the Chicago Bulls traded Kevin Huerter and Dario Šarić to the Detroit Pistons; the Detroit Pistons traded Jaden Ivey to the Chicago Bulls; the Detroit Pistons traded to the Minnesota Timberwolves; the Minnesota Timberwolves traded Mike Conley to the Chicago Bulls; and the Minnesota Timberwolves traded a 2026 1st round draft pick to the Detroit Pistons. 2026 1st-rd pick is a protected right to swap Minnesota also received a trade exception",
     "is_multi_team": true,
     "teams": [
       {
@@ -1830,7 +1830,7 @@
       },
       {
         "type": "player",
-        "player_name": "Dario \u0160ari\u0107",
+        "player_name": "Dario Šarić",
         "from_team_id": "CHI",
         "to_team_id": "DET",
         "pick_year": null,
@@ -1869,7 +1869,7 @@
         "pick_year": 2026,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Karim López",
         "notes": null
       }
     ],
@@ -1984,7 +1984,7 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Henri Veesaar",
         "notes": null
       }
     ],
@@ -2076,7 +2076,7 @@
         "pick_year": 2026,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Koa Peat",
         "notes": null
       },
       {
@@ -2434,8 +2434,8 @@
     "id": "bbref-2026-02-05-c67e472c",
     "date": "2026-02-05",
     "season": "2025-26",
-    "title": "Nikola Vu\u010devi\u0107, Anfernee Simons Trade",
-    "description": "The Boston Celtics traded Anfernee Simons and a 2026 2nd round draft pick to the Chicago Bulls for Nikola Vu\u010devi\u0107 and a 2027 2nd round draft pick. 2026 2nd-rd pick is more favorable Boston also received a trade exception 2027 2nd-rd pick is DEN own",
+    "title": "Nikola Vučević, Anfernee Simons Trade",
+    "description": "The Boston Celtics traded Anfernee Simons and a 2026 2nd round draft pick to the Chicago Bulls for Nikola Vučević and a 2027 2nd round draft pick. 2026 2nd-rd pick is more favorable Boston also received a trade exception 2027 2nd-rd pick is DEN own",
     "is_multi_team": false,
     "teams": [
       {
@@ -2467,12 +2467,12 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Narcisse Ngoy",
         "notes": null
       },
       {
         "type": "player",
-        "player_name": "Nikola Vu\u010devi\u0107",
+        "player_name": "Nikola Vučević",
         "from_team_id": "CHI",
         "to_team_id": "BOS",
         "pick_year": null,
@@ -2495,7 +2495,7 @@
     ],
     "topAssets": [
       "Anfernee Simons",
-      "Nikola Vu\u010devi\u0107"
+      "Nikola Vučević"
     ]
   },
   {
@@ -2855,7 +2855,7 @@
         "pick_year": 2026,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "AJ Dybantsa",
         "notes": null
       },
       {
@@ -2866,7 +2866,7 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Bruce Thornton",
         "notes": null
       },
       {
@@ -2946,7 +2946,7 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Jaden Bradley",
         "notes": null
       }
     ],
@@ -3025,7 +3025,7 @@
         "pick_year": 2026,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Keaton Wagler",
         "notes": null
       },
       {
@@ -3137,7 +3137,7 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Izaiyah Nelson",
         "notes": null
       },
       {
@@ -3517,13 +3517,928 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": null,
+        "became_player_name": "Isaiah Evans",
         "notes": null
       }
     ],
     "topAssets": [
       "Hunter Tyson",
       ""
+    ]
+  },
+  {
+    "id": "bbref-2026-06-23-ffe536f0",
+    "date": "2026-06-23",
+    "season": "2025-26",
+    "title": "Ebuka Okorie, Bennett Stirtz Trade",
+    "description": "The Oklahoma City Thunder traded Ebuka Okorie to the Memphis Grizzlies for Bennett Stirtz.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "OKC",
+        "role": "participant"
+      },
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ebuka Okorie",
+        "from_team_id": "OKC",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bennett Stirtz",
+        "from_team_id": "MEM",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-06-23-05fddeb8",
+    "date": "2026-06-23",
+    "season": "2025-26",
+    "title": "Ebuka Okorie, Karim Lopez Trade",
+    "description": "The Memphis Grizzlies traded Ebuka Okorie to the Detroit Pistons for Karim Lopez.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      },
+      {
+        "team_id": "DET",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ebuka Okorie",
+        "from_team_id": "MEM",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Karim Lopez",
+        "from_team_id": "DET",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-06-23-11695121",
+    "date": "2026-06-23",
+    "season": "2025-26",
+    "title": "Tarris Reed Jr., Trevon Brazile Trade",
+    "description": "The Denver Nuggets traded Tarris Reed Jr. to the San Antonio Spurs for Trevon Brazile, a 2028 2nd round draft pick and a 2031 2nd round draft pick. 2028 2nd-rd pick is MIN own 2031 2nd-rd pick is SAC own",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "DEN",
+        "role": "participant"
+      },
+      {
+        "team_id": "SAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tarris Reed Jr.",
+        "from_team_id": "DEN",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Trevon Brazile",
+        "from_team_id": "SAS",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "DEN",
+        "pick_year": 2028,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAS",
+        "to_team_id": "DEN",
+        "pick_year": 2031,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-06-24-69811503",
+    "date": "2026-06-24",
+    "season": "2025-26",
+    "title": "Nick Martinelli, Bruce Thornton, Jack Kayil Trade",
+    "description": "The New York Knicks traded Nick Martinelli and Bruce Thornton to the Houston Rockets for Jack Kayil, Mojave King and Ugonna Onyenso.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "participant"
+      },
+      {
+        "team_id": "HOU",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nick Martinelli",
+        "from_team_id": "NYK",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bruce Thornton",
+        "from_team_id": "NYK",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jack Kayil",
+        "from_team_id": "HOU",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mojave King",
+        "from_team_id": "HOU",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ugonna Onyenso",
+        "from_team_id": "HOU",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-06-24-5b68b039",
+    "date": "2026-06-24",
+    "season": "2025-26",
+    "title": "Nick Martinelli Trade",
+    "description": "The Houston Rockets traded Nick Martinelli to the Los Angeles Clippers for cash.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "HOU",
+        "role": "participant"
+      },
+      {
+        "team_id": "LAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nick Martinelli",
+        "from_team_id": "HOU",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-06-24-30c50662",
+    "date": "2026-06-24",
+    "season": "2025-26",
+    "title": "Alex Karaban, Meleek Thomas Trade",
+    "description": "The Cleveland Cavaliers traded Alex Karaban to the Sacramento Kings for Meleek Thomas and a 2032 2nd round draft pick.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CLE",
+        "role": "participant"
+      },
+      {
+        "team_id": "SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Alex Karaban",
+        "from_team_id": "CLE",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Meleek Thomas",
+        "from_team_id": "SAC",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "CLE",
+        "pick_year": 2032,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-06-24-720846b3",
+    "date": "2026-06-24",
+    "season": "2025-26",
+    "title": "Vsevolod Ishchenko Trade",
+    "description": "The Chicago Bulls traded Vsevolod Ishchenko to the Los Angeles Lakers for cash.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "LAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Vsevolod Ishchenko",
+        "from_team_id": "CHI",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-06-24-4a6c923d",
+    "date": "2026-06-24",
+    "season": "2025-26",
+    "title": "Vsevolod Ishchenko Trade",
+    "description": "The Los Angeles Lakers traded Vsevolod Ishchenko to the Dallas Mavericks for cash.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "DAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Vsevolod Ishchenko",
+        "from_team_id": "LAL",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-06-24-f2f5ae64",
+    "date": "2026-06-24",
+    "season": "2025-26",
+    "title": "Melvin Ajinca, Koa Peat, Sergio de Larrea Trade",
+    "description": "In a 4-team trade, the Dallas Mavericks traded Melvin Ajinca, a 2030 2nd round draft pick and a 2032 2nd round draft pick to the New York Knicks; the Dallas Mavericks traded Koa Peat to the Phoenix Suns; the Los Angeles Lakers traded Sergio de Larrea to the Dallas Mavericks; the Los Angeles Lakers traded cash, Chinemelu Elonu and Louis Labeyrie to the New York Knicks; the New York Knicks traded Cameron Carr to the Los Angeles Lakers; and the Phoenix Suns traded Tyler Nickel, a 2029 2nd round draft pick and a 2033 2nd round draft pick to the New York Knicks. 2029 2nd-rd pick is PHO own 2033 2nd-rd pick is PHO own 2030 2nd-rd pick is PHI own 2032 2nd-rd pick is DAL own",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "NYK",
+        "role": "participant"
+      },
+      {
+        "team_id": "PHX",
+        "role": "participant"
+      },
+      {
+        "team_id": "LAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Melvin Ajinca",
+        "from_team_id": "DAL",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "NYK",
+        "pick_year": 2030,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "NYK",
+        "pick_year": 2032,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Koa Peat",
+        "from_team_id": "DAL",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Sergio de Larrea",
+        "from_team_id": "LAL",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Chinemelu Elonu",
+        "from_team_id": "LAL",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Louis Labeyrie",
+        "from_team_id": "LAL",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cameron Carr",
+        "from_team_id": "NYK",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tyler Nickel",
+        "from_team_id": "PHX",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "NYK",
+        "pick_year": 2029,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "NYK",
+        "pick_year": 2033,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-06-24-03f1c94c",
+    "date": "2026-06-24",
+    "season": "2025-26",
+    "title": "Ugonna Onyenso Trade",
+    "description": "The New York Knicks traded Ugonna Onyenso to the Detroit Pistons for cash.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NYK",
+        "role": "participant"
+      },
+      {
+        "team_id": "DET",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ugonna Onyenso",
+        "from_team_id": "NYK",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-06-24-e947964c",
+    "date": "2026-06-24",
+    "season": "2025-26",
+    "title": "Ryan Conwell, Otega Oweh Trade",
+    "description": "The Oklahoma City Thunder traded Ryan Conwell to the Miami Heat for cash and Otega Oweh.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "OKC",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Ryan Conwell",
+        "from_team_id": "OKC",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Otega Oweh",
+        "from_team_id": "MIA",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-06-24-e87e8d82",
+    "date": "2026-06-24",
+    "season": "2025-26",
+    "title": "Henri Veesaar, Narcisse Ngoy Trade",
+    "description": "The Los Angeles Clippers traded Henri Veesaar to the Atlanta Hawks for cash and Narcisse Ngoy.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Henri Veesaar",
+        "from_team_id": "LAC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Narcisse Ngoy",
+        "from_team_id": "ATL",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-06-24-84621f9e",
+    "date": "2026-06-24",
+    "season": "2025-26",
+    "title": "Kam Jones, Braden Smith Trade",
+    "description": "The Indiana Pacers traded Kam Jones to the Chicago Bulls for Braden Smith. Indiana received a trade exception",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "IND",
+        "role": "participant"
+      },
+      {
+        "team_id": "CHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kam Jones",
+        "from_team_id": "IND",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Braden Smith",
+        "from_team_id": "CHI",
+        "to_team_id": "IND",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-06-24-bd4d7b41",
+    "date": "2026-06-24",
+    "season": "2025-26",
+    "title": "Malique Lewis, Felix Okpara Trade",
+    "description": "In a 3-team trade, the Orlando Magic traded Malique Lewis to the Milwaukee Bucks; the Orlando Magic traded Felix Okpara to the Washington Wizards; and the Washington Wizards traded cash and Izaiyah Nelson to the Orlando Magic.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "ORL",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIL",
+        "role": "participant"
+      },
+      {
+        "team_id": "WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Malique Lewis",
+        "from_team_id": "ORL",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Felix Okpara",
+        "from_team_id": "ORL",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-06-29-ca2d9aba",
+    "date": "2026-06-29",
+    "season": "2025-26",
+    "title": "Jerami Grant, Kris Murray, Ja Morant Trade",
+    "description": "The Portland Trail Blazers traded Jerami Grant and Kris Murray to the Memphis Grizzlies for Ja Morant and cash. Memphis received a trade exception. Portland received a trade exception.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "POR",
+        "role": "participant"
+      },
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jerami Grant",
+        "from_team_id": "POR",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kris Murray",
+        "from_team_id": "POR",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ja Morant",
+        "from_team_id": "MEM",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-06-30-229b6f9d",
+    "date": "2026-06-30",
+    "season": "2025-26",
+    "title": "Alpha Kaba, Devin Carter Trade",
+    "description": "The Atlanta Hawks traded Alpha Kaba to the Sacramento Kings for Devin Carter and a 2033 2nd round draft pick. 2033 2nd-rd pick is SAC own Sacramento received a trade exception.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "SAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Alpha Kaba",
+        "from_team_id": "ATL",
+        "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Devin Carter",
+        "from_team_id": "SAC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "ATL",
+        "pick_year": 2033,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
     ]
   }
 ]

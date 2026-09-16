@@ -36638,5 +36638,485 @@
     "player": "Jahmai Mashack",
     "selecting_team": "MEM",
     "original_team": "OKC"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 1,
+    "player": "AJ Dybantsa",
+    "selecting_team": "WAS",
+    "original_team": "WAS"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 2,
+    "player": "Darryn Peterson",
+    "selecting_team": "UTA",
+    "original_team": "UTA"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 3,
+    "player": "Cameron Boozer",
+    "selecting_team": "MEM",
+    "original_team": "MEM"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 4,
+    "player": "Caleb Wilson",
+    "selecting_team": "CHI",
+    "original_team": "CHI"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 5,
+    "player": "Keaton Wagler",
+    "selecting_team": "LAC",
+    "original_team": "IND"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 6,
+    "player": "Mikel Brown Jr.",
+    "selecting_team": "BKN",
+    "original_team": "BKN"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 7,
+    "player": "Darius Acuff Jr.",
+    "selecting_team": "SAC",
+    "original_team": "SAC"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 8,
+    "player": "Kingston Flemings",
+    "selecting_team": "ATL",
+    "original_team": "NOP"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 9,
+    "player": "Morez Johnson Jr.",
+    "selecting_team": "DAL",
+    "original_team": "DAL"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 10,
+    "player": "Brayden Burries",
+    "selecting_team": "MIL",
+    "original_team": "MIL"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 11,
+    "player": "Yaxel Lendeborg",
+    "selecting_team": "GSW",
+    "original_team": "GSW"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 12,
+    "player": "Aday Mara",
+    "selecting_team": "OKC",
+    "original_team": "LAC"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 13,
+    "player": "Nate Ament",
+    "selecting_team": "MIL",
+    "original_team": "MIA"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 14,
+    "player": "Hannes Steinbach",
+    "selecting_team": "CHA",
+    "original_team": "CHA"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 15,
+    "player": "Dailyn Swain",
+    "selecting_team": "CHI",
+    "original_team": "POR"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 16,
+    "player": "Bennett Stirtz",
+    "selecting_team": "OKC",
+    "original_team": "PHX"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 17,
+    "player": "Ebuka Okorie",
+    "selecting_team": "DET",
+    "original_team": "PHI"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 18,
+    "player": "Christian Anderson Jr.",
+    "selecting_team": "CHA",
+    "original_team": "ORL"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 19,
+    "player": "Allen Graves",
+    "selecting_team": "TOR",
+    "original_team": "TOR"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 20,
+    "player": "Jayden Quaintance",
+    "selecting_team": "SAS",
+    "original_team": "ATL"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 21,
+    "player": "Karim López",
+    "selecting_team": "MEM",
+    "original_team": "MIN"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 22,
+    "player": "Labaron Philon Jr.",
+    "selecting_team": "PHI",
+    "original_team": "HOU"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 23,
+    "player": "Zuby Ejiofor",
+    "selecting_team": "ATL",
+    "original_team": "CLE"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 24,
+    "player": "Cameron Carr",
+    "selecting_team": "NYK",
+    "original_team": "NYK"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 25,
+    "player": "Sergio de Larrea",
+    "selecting_team": "DAL",
+    "original_team": "LAL"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 26,
+    "player": "Tarris Reed Jr.",
+    "selecting_team": "SAS",
+    "original_team": "DEN"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 27,
+    "player": "Chris Cenac Jr.",
+    "selecting_team": "BOS",
+    "original_team": "BOS"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 28,
+    "player": "Joshua Jefferson",
+    "selecting_team": "BKN",
+    "original_team": "DET"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 29,
+    "player": "Alex Karaban",
+    "selecting_team": "SAC",
+    "original_team": "SAS"
+  },
+  {
+    "year": 2026,
+    "round": 1,
+    "overall_pick": 30,
+    "player": "Koa Peat",
+    "selecting_team": "PHX",
+    "original_team": "OKC"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 31,
+    "player": "Bruce Thornton",
+    "selecting_team": "HOU",
+    "original_team": "WAS"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 32,
+    "player": "Richie Saunders",
+    "selecting_team": "MEM",
+    "original_team": "IND"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 33,
+    "player": "Isaiah Evans",
+    "selecting_team": "MIN",
+    "original_team": "BKN"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 34,
+    "player": "Meleek Thomas",
+    "selecting_team": "CLE",
+    "original_team": "SAC"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 35,
+    "player": "Trevon Brazile",
+    "selecting_team": "DEN",
+    "original_team": "UTA"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 36,
+    "player": "Baba Miller",
+    "selecting_team": "LAC",
+    "original_team": "MEM"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 37,
+    "player": "Ryan Conwell",
+    "selecting_team": "MIA",
+    "original_team": "DAL"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 38,
+    "player": "Braden Smith",
+    "selecting_team": "IND",
+    "original_team": "NOP"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 39,
+    "player": "Jack Kayil",
+    "selecting_team": "NYK",
+    "original_team": "CHI"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 40,
+    "player": "Dillon Mitchell",
+    "selecting_team": "BOS",
+    "original_team": "MIL"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 41,
+    "player": "Otega Oweh",
+    "selecting_team": "OKC",
+    "original_team": "GSW"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 42,
+    "player": "Ja'Kobi Gillespie",
+    "selecting_team": "SAS",
+    "original_team": "POR"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 43,
+    "player": "Tyler Bilodeau",
+    "selecting_team": "BKN",
+    "original_team": "LAC"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 44,
+    "player": "Maliq Brown",
+    "selecting_team": "SAS",
+    "original_team": "MIA"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 45,
+    "player": "Emanuel Sharp",
+    "selecting_team": "SAC",
+    "original_team": "CHA"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 46,
+    "player": "Felix Okpara",
+    "selecting_team": "WAS",
+    "original_team": "ORL"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 47,
+    "player": "Tyler Nickel",
+    "selecting_team": "NYK",
+    "original_team": "PHI"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 48,
+    "player": "Tobi Lawal",
+    "selecting_team": "DAL",
+    "original_team": "PHX"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 49,
+    "player": "Bryce Hopkins",
+    "selecting_team": "DEN",
+    "original_team": "ATL"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 50,
+    "player": "Jaden Bradley",
+    "selecting_team": "TOR",
+    "original_team": "TOR"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 51,
+    "player": "Izaiyah Nelson",
+    "selecting_team": "ORL",
+    "original_team": "MIN"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 52,
+    "player": "Henri Veesaar",
+    "selecting_team": "ATL",
+    "original_team": "CLE"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 53,
+    "player": "Ugonna Onyenso",
+    "selecting_team": "DET",
+    "original_team": "HOU"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 54,
+    "player": "Lajae Jones",
+    "selecting_team": "GSW",
+    "original_team": "LAL"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 55,
+    "player": "Nick Martinelli",
+    "selecting_team": "LAC",
+    "original_team": "NYK"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 56,
+    "player": "Vsevolod Ishchenko",
+    "selecting_team": "DAL",
+    "original_team": "DEN"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 57,
+    "player": "Narcisse Ngoy",
+    "selecting_team": "LAC",
+    "original_team": "BOS"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 58,
+    "player": "Jaron Pierre Jr.",
+    "selecting_team": "NOP",
+    "original_team": "DET"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 59,
+    "player": "Trey Kaufman-Renn",
+    "selecting_team": "MIN",
+    "original_team": "SAS"
+  },
+  {
+    "year": 2026,
+    "round": 2,
+    "overall_pick": 60,
+    "player": "Malique Lewis",
+    "selecting_team": "MIL",
+    "original_team": "OKC"
   }
 ]

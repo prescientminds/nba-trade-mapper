@@ -79,7 +79,10 @@ const THRESHOLDS: CapThresholds[] = [
   { season: '2024-25', luxury_tax: 170_814_000, first_apron: 178_132_000, second_apron: 188_931_000,
     mle: 12_870_000, taxpayer_mle: 5_180_000, bae: 4_680_000, minimum_salary: 1_157_970 },
   { season: '2025-26', luxury_tax: 187_895_000, first_apron: 195_945_000, second_apron: 207_824_000,
-    mle: 14_104_000, taxpayer_mle: 5_685_000, bae: 5_135_000, minimum_salary: 1_157_970 },
+    mle: 14_104_000, taxpayer_mle: 5_685_000, bae: 5_135_000, minimum_salary: 1_272_870 },
+  // 2026-27: NBA press release (cap $164.961M, tax, aprons); Hoops Rumors 2026-07 (MLE/BAE, rookie minimum $1,357,763)
+  { season: '2026-27', luxury_tax: 200_428_000, first_apron: 209_015_000, second_apron: 221_686_000,
+    mle: 15_044_000, taxpayer_mle: 6_064_000, bae: 5_477_000, minimum_salary: 1_357_763 },
 ];
 
 // ── Main ─────────────────────────────────────────────────────────────

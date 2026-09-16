@@ -75,6 +75,8 @@ const FINALS_MVP_WINNERS: [string, string][] = [
   ['2021-22', 'Stephen Curry'],
   ['2022-23', 'Nikola Jokic'],
   ['2023-24', 'Jaylen Brown'],
+  ['2024-25', 'Shai Gilgeous-Alexander'],
+  ['2025-26', 'Jalen Brunson'],
 ];
 
 async function main() {

@@ -20,8 +20,12 @@ import {
   type TeamPickContext,
 } from './trade-validation';
 
+/** Last completed season — source of roster/stat rows in player_seasons. */
 export const CURRENT_SEASON = '2025-26';
-export const CURRENT_YEAR = 2026;
+/** Upcoming season — offseason trades land in this by-season file (rollover 2026-09-16). */
+export const NEXT_SEASON = '2026-27';
+/** Next draft year. 2026 picks were consumed on 2026-06-24; pick rules now start at 2027. */
+export const CURRENT_YEAR = 2027;
 // Current season only. Phase B v1: 2- or 3-team trades supported in the
 // canvas-native side panel (standalone /trade-machine page is 2-team-only,
 // retiring with Phase B). Historical seasons in v2.

@@ -1,5 +1,5 @@
 /**
- * Scrape Wikipedia NBA draft pages (1976-2025) via the MediaWiki API
+ * Scrape Wikipedia NBA draft pages (1976-2026) via the MediaWiki API
  * to build a pick ownership lookup table.
  *
  * For every draft pick: who was the original team whose record determined
@@ -8,7 +8,7 @@
  * Output: public/data/draft-ownership.json
  *
  * Usage:
- *   npx tsx scripts/scrape-wiki-draft-ownership.ts              # All years 1976-2025
+ *   npx tsx scripts/scrape-wiki-draft-ownership.ts              # All years 1976-2026
  *   npx tsx scripts/scrape-wiki-draft-ownership.ts --year 2016   # Single year
  *   npx tsx scripts/scrape-wiki-draft-ownership.ts --from 2010   # 2010-present
  *   npx tsx scripts/scrape-wiki-draft-ownership.ts --no-cache    # Force re-fetch
@@ -26,7 +26,7 @@ const CACHE_DIR = path.join(__dirname, '..', 'data', 'wiki-cache', 'draft');
 const OUT_PATH = path.join(__dirname, '..', 'public', 'data', 'draft-ownership.json');
 const RATE_LIMIT_MS = 1500;
 const DEFAULT_START_YEAR = 1976;
-const DEFAULT_END_YEAR = 2025;
+const DEFAULT_END_YEAR = 2026;
 
 // ── Types ────────────────────────────────────────────────────────────
 

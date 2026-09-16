@@ -10,7 +10,7 @@
  * Writes: public/data/pick-ownership.json
  *
  * Algorithm:
- *   For each (original_team_id, year, round) tuple where year ∈ [2026..2032]
+ *   For each (original_team_id, year, round) tuple where year ∈ [2027..2033]
  *   and round ∈ [1, 2]:
  *     1. Collect all pick-asset entries matching the pick across all seasons.
  *     2. Sort chronologically by trade date.
@@ -32,7 +32,7 @@ const TRADES_DIR = path.join(__dirname, '..', 'public', 'data', 'trades', 'by-se
 const OUT_FILE = path.join(__dirname, '..', 'public', 'data', 'pick-ownership.json');
 const PROTECTIONS_FILE = path.join(__dirname, '..', 'public', 'data', 'pick-protections.json');
 
-const YEARS = [2026, 2027, 2028, 2029, 2030, 2031, 2032] as const;
+const YEARS = [2027, 2028, 2029, 2030, 2031, 2032, 2033] as const;
 const ROUNDS = [1, 2] as const;
 
 const PROTECTION_RE =

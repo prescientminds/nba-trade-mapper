@@ -1,0 +1,1528 @@
+[
+  {
+    "id": "bbref-2026-07-06-d2cf9a55",
+    "date": "2026-07-06",
+    "season": "2026-27",
+    "title": "Dorian Finney-Smith Trade",
+    "description": "The Houston Rockets traded Dorian Finney-Smith, a 2027 2nd round draft pick, a 2028 2nd round draft pick and a 2033 2nd round draft pick to the Charlotte Hornets for a 2033 2nd round draft pick (cash was later selected). 2027 2nd-rd pick is MEM own 2028 2nd-rd pick is HOU own 2033 2nd-rd pick is HOU own Houston received a trade exception.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "HOU",
+        "role": "participant"
+      },
+      {
+        "team_id": "CHA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dorian Finney-Smith",
+        "from_team_id": "HOU",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "CHA",
+        "pick_year": 2027,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "cash",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "CHA",
+        "pick_year": 2028,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "cash",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "HOU",
+        "to_team_id": "CHA",
+        "pick_year": 2033,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "cash",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "HOU",
+        "pick_year": 2033,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "cash",
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-07-06-fdc2e4a3",
+    "date": "2026-07-06",
+    "season": "2026-27",
+    "title": "Isaiah Joe Trade",
+    "description": "The Oklahoma City Thunder traded Isaiah Joe to the Detroit Pistons for a 2030 2nd round draft pick and a 2031 2nd round draft pick. 2030 2nd-rd pick is MIN own 2030 2nd-rd pick is DET own Oklahoma City received a trade exception.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "OKC",
+        "role": "participant"
+      },
+      {
+        "team_id": "DET",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Isaiah Joe",
+        "from_team_id": "OKC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "OKC",
+        "pick_year": 2030,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "OKC",
+        "pick_year": 2031,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-07-06-117e50ad",
+    "date": "2026-07-06",
+    "season": "2026-27",
+    "title": "Jaylen Brown, Paul George Trade",
+    "description": "The Boston Celtics traded Jaylen Brown to the Philadelphia 76ers for Paul George, a 2028 1st round draft pick, a 2028 2nd round draft pick, a 2030 2nd round draft pick and a 2031 1st round draft pick. 2028 1st-rd pick is PHI own 2028 2nd-rd pick is more favorable 2030 2nd-rd pick is more favorable 2031 1st-rd pick is more favorable Boston received a trade exception.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "BOS",
+        "role": "participant"
+      },
+      {
+        "team_id": "PHI",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jaylen Brown",
+        "from_team_id": "BOS",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Paul George",
+        "from_team_id": "PHI",
+        "to_team_id": "BOS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "BOS",
+        "pick_year": 2028,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "BOS",
+        "pick_year": 2028,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "BOS",
+        "pick_year": 2030,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "BOS",
+        "pick_year": 2031,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-07-06-c152ad1d",
+    "date": "2026-07-06",
+    "season": "2026-27",
+    "title": "Giannis Antetokounmpo, Bobby Portis, Nate Ament Trade",
+    "description": "The Milwaukee Bucks traded Giannis Antetokounmpo and Bobby Portis to the Miami Heat for Nate Ament, Tyler Herro, Kasparas Jakucionis, Jaime Jaquez Jr., Kel'el Ware, a 2030 1st round draft pick, a 2031 1st round draft pick, a 2033 1st round draft pick and a 2033 2nd round draft pick. 2030 1st-rd pick is a swap 2031 1st-rd pick is MIA own 2033 1st-rd pick is MIA own 2033 2nd-rd pick is MIA own Milwaukee received multiple trade exceptions.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "MIL",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Giannis Antetokounmpo",
+        "from_team_id": "MIL",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bobby Portis",
+        "from_team_id": "MIL",
+        "to_team_id": "MIA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Nate Ament",
+        "from_team_id": "MIA",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tyler Herro",
+        "from_team_id": "MIA",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kasparas Jakucionis",
+        "from_team_id": "MIA",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jaime Jaquez Jr.",
+        "from_team_id": "MIA",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Kel'el Ware",
+        "from_team_id": "MIA",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "MIL",
+        "pick_year": 2030,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "MIL",
+        "pick_year": 2031,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "MIL",
+        "pick_year": 2033,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIA",
+        "to_team_id": "MIL",
+        "pick_year": 2033,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-07-06-447fc972",
+    "date": "2026-07-06",
+    "season": "2026-27",
+    "title": "Aaron Wiggins Trade",
+    "description": "The Oklahoma City Thunder traded Aaron Wiggins to the Atlanta Hawks for a 2030 2nd round draft pick and a 2032 2nd round draft pick. 2030 2nd-rd pick is ATL own 2032 2nd-rd pick is least favorable Oklahoma City received a trade exception.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "OKC",
+        "role": "participant"
+      },
+      {
+        "team_id": "ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Aaron Wiggins",
+        "from_team_id": "OKC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "OKC",
+        "pick_year": 2030,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "OKC",
+        "pick_year": 2032,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-07-07-ec820cf5",
+    "date": "2026-07-07",
+    "season": "2026-27",
+    "title": "Deandre Ayton, Jaden Hardy Trade",
+    "description": "The Los Angeles Lakers traded Deandre Ayton to the Washington Wizards for Jaden Hardy, a 2031 2nd round draft pick and a 2032 2nd round draft pick. 2031 2nd-rd pick is WAS own 2032 2nd-rd pick is WAS own Los Angeles received a trade exception.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "WAS",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Deandre Ayton",
+        "from_team_id": "LAL",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Jaden Hardy",
+        "from_team_id": "WAS",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "LAL",
+        "pick_year": 2031,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "LAL",
+        "pick_year": 2032,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-07-08-ac4048b1",
+    "date": "2026-07-08",
+    "season": "2026-27",
+    "title": "Walker Kessler Trade",
+    "description": "The Utah Jazz traded Walker Kessler to the Los Angeles Lakers for a 2028 1st round draft pick, a 2030 1st round draft pick, a 2031 1st round draft pick and a 2033 1st round draft pick. 2028 1st-rd pick is a swap 2030 1st-rd pick is a swap 2031 1st-rd pick is LAL own 2033 1st-rd pick is LAL own Utah received a trade exception",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "participant"
+      },
+      {
+        "team_id": "LAL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Walker Kessler",
+        "from_team_id": "UTA",
+        "to_team_id": "LAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "UTA",
+        "pick_year": 2028,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "UTA",
+        "pick_year": 2030,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "UTA",
+        "pick_year": 2031,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "LAL",
+        "to_team_id": "UTA",
+        "pick_year": 2033,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-07-08-41a56552",
+    "date": "2026-07-08",
+    "season": "2026-27",
+    "title": "A.J. Johnson, Khris Middleton, Marcus Sasser Trade",
+    "description": "In a 6-team trade, the Dallas Mavericks traded A.J. Johnson, a 2029 2nd round draft pick and a 2030 1st round draft pick to the Memphis Grizzlies; the Dallas Mavericks traded Khris Middleton and a 2033 2nd round draft pick to the Washington Wizards; the Detroit Pistons traded Marcus Sasser to the Dallas Mavericks; the Detroit Pistons traded a 2028 2nd round draft pick to the Los Angeles Clippers; the Detroit Pistons traded Isaiah Stewart to the Memphis Grizzlies; the Detroit Pistons traded Caris LeVert and a 2027 2nd round draft pick to the Milwaukee Bucks; the Los Angeles Clippers traded John Collins to the Detroit Pistons; the Los Angeles Clippers traded cash to the Milwaukee Bucks; the Memphis Grizzlies traded Santi Aldama and Tarik Biberovic to the Dallas Mavericks; the Memphis Grizzlies traded a 2029 2nd round draft pick, a 2031 2nd round draft pick and a 2032 2nd round draft pick to the Detroit Pistons; the Milwaukee Bucks traded Gary Harris and Taurean Prince to the Detroit Pistons; and the Washington Wizards traded D'Angelo Russell, a 2029 2nd round draft pick, a 2032 2nd round draft pick and a 2033 2nd round draft pick to the Memphis Grizzlies. 2028 2nd-rd pick is more favorable 2033 2nd-rd pick is DAL own 2027 2nd-rd pick is MIL own 2029 2nd-rd pick is HOU own 2029 2nd-rd pick is LAL own conditional 2030 1st-rd pick is GSW own 2032 2nd-rd pick is a swap 2033 2nd-rd pick is WAS own 2029 2nd-rd pick is DET own 2031 2nd-rd pick is DAL own 2032 2nd-rd pick is DET own Los Angeles received a trade exception. Washington received a trade exception. Detroit received multiple trade exceptions.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      },
+      {
+        "team_id": "WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "DET",
+        "role": "participant"
+      },
+      {
+        "team_id": "LAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "A.J. Johnson",
+        "from_team_id": "DAL",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "MEM",
+        "pick_year": 2029,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "MEM",
+        "pick_year": 2030,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Khris Middleton",
+        "from_team_id": "DAL",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DAL",
+        "to_team_id": "WAS",
+        "pick_year": 2033,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Marcus Sasser",
+        "from_team_id": "DET",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "LAC",
+        "pick_year": 2028,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Isaiah Stewart",
+        "from_team_id": "DET",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Caris LeVert",
+        "from_team_id": "DET",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "DET",
+        "to_team_id": "MIL",
+        "pick_year": 2027,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "John Collins",
+        "from_team_id": "LAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "MIL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Santi Aldama",
+        "from_team_id": "MEM",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tarik Biberovic",
+        "from_team_id": "MEM",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "DET",
+        "pick_year": 2029,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "DET",
+        "pick_year": 2031,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MEM",
+        "to_team_id": "DET",
+        "pick_year": 2032,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gary Harris",
+        "from_team_id": "MIL",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Taurean Prince",
+        "from_team_id": "MIL",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "D'Angelo Russell",
+        "from_team_id": "WAS",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "MEM",
+        "pick_year": 2029,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "MEM",
+        "pick_year": 2032,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "MEM",
+        "pick_year": 2033,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-07-10-6829d636",
+    "date": "2026-07-10",
+    "season": "2026-27",
+    "title": "Nicolas Claxton, Isaiah Evans, Mouhamadou Gueye Trade",
+    "description": "In a 4-team trade, the Brooklyn Nets traded Nicolas Claxton to the Chicago Bulls; the Brooklyn Nets traded Isaiah Evans to the Minnesota Timberwolves; the Chicago Bulls traded Mouhamadou Gueye to the Charlotte Hornets; the Charlotte Hornets traded LaMelo Ball and Josh Green to the Minnesota Timberwolves; the Minnesota Timberwolves traded Joshua Jefferson and Julius Randle to the Brooklyn Nets; and the Minnesota Timberwolves traded Naz Reid, Matteo Spagnolo, a 2028 1st round draft pick, a 2029 1st round draft pick, a 2029 2nd round draft pick, a 2030 1st round draft pick, a 2032 2nd round draft pick, a 2033 1st round draft pick and a 2033 2nd round draft pick to the Charlotte Hornets. 2028 1st-rd pick is a swap 2029 1st-rd pick is a swap 2029 2nd-rd pick is MIN own 2030 1st-rd pick is a swap 2032 2nd-rd pick is MIN own 2033 1st-rd pick is MIN own 2033 2nd-rd pick is MIN own Charlotte received a trade exception.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "BKN",
+        "role": "participant"
+      },
+      {
+        "team_id": "CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIN",
+        "role": "participant"
+      },
+      {
+        "team_id": "CHA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nicolas Claxton",
+        "from_team_id": "BKN",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Isaiah Evans",
+        "from_team_id": "BKN",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Mouhamadou Gueye",
+        "from_team_id": "CHI",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "LaMelo Ball",
+        "from_team_id": "CHA",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Josh Green",
+        "from_team_id": "CHA",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Joshua Jefferson",
+        "from_team_id": "MIN",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Julius Randle",
+        "from_team_id": "MIN",
+        "to_team_id": "BKN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Naz Reid",
+        "from_team_id": "MIN",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Matteo Spagnolo",
+        "from_team_id": "MIN",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "CHA",
+        "pick_year": 2028,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "CHA",
+        "pick_year": 2029,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "CHA",
+        "pick_year": 2029,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "CHA",
+        "pick_year": 2030,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "CHA",
+        "pick_year": 2032,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "CHA",
+        "pick_year": 2033,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "CHA",
+        "pick_year": 2033,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-07-13-92308846",
+    "date": "2026-07-13",
+    "season": "2026-27",
+    "title": "Miles Bridges, Grayson Allen, Royce O'Neale Trade",
+    "description": "The Charlotte Hornets traded Miles Bridges and a 2027 2nd round draft pick to the Phoenix Suns for Grayson Allen, Royce O'Neale and a 2033 1st round draft pick. 2027 2nd-rd pick is least favorable 2033 1st-rd pick is PHO own",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "participant"
+      },
+      {
+        "team_id": "PHX",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Miles Bridges",
+        "from_team_id": "CHA",
+        "to_team_id": "PHX",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "PHX",
+        "pick_year": 2027,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Grayson Allen",
+        "from_team_id": "PHX",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Royce O'Neale",
+        "from_team_id": "PHX",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHX",
+        "to_team_id": "CHA",
+        "pick_year": 2033,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-07-19-67ccaf94",
+    "date": "2026-07-19",
+    "season": "2026-27",
+    "title": "Zaccharie Risacher, Ryan Nembhard, Luguentz Dort Trade",
+    "description": "In a 3-team trade, the Atlanta Hawks traded Zaccharie Risacher to the Dallas Mavericks; the Dallas Mavericks traded Ryan Nembhard to the Atlanta Hawks; and the Oklahoma City Thunder traded Luguentz Dort to the Atlanta Hawks. Dallas received a trade exception. Oklahoma City received a trade exception.",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "ATL",
+        "role": "participant"
+      },
+      {
+        "team_id": "DAL",
+        "role": "participant"
+      },
+      {
+        "team_id": "OKC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Zaccharie Risacher",
+        "from_team_id": "ATL",
+        "to_team_id": "DAL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ryan Nembhard",
+        "from_team_id": "DAL",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Luguentz Dort",
+        "from_team_id": "OKC",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-07-28-2ce8cb36",
+    "date": "2026-07-28",
+    "season": "2026-27",
+    "title": "Johni Broome Trade",
+    "description": "The Philadelphia 76ers traded Johni Broome to the Los Angeles Clippers for cash. Philadelphia received a trade exception.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "PHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "LAC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Johni Broome",
+        "from_team_id": "PHI",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "LAC",
+        "to_team_id": "PHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-08-20-646446f2",
+    "date": "2026-08-20",
+    "season": "2026-27",
+    "title": "Tre Mann, Dennis Schroder, Max Strus Trade",
+    "description": "In a 5-team trade, the traded and to the ; the Charlotte Hornets traded Tre Mann to the Washington Wizards; the Cleveland Cavaliers traded cash and Dennis Schroder to the Charlotte Hornets; the Cleveland Cavaliers traded Max Strus to the Los Angeles Clippers; the Cleveland Cavaliers traded cash to the Washington Wizards; the Denver Nuggets traded Peyton Watson to the Cleveland Cavaliers; the Los Angeles Clippers traded Ismael Kamagate to the Cleveland Cavaliers; the Washington Wizards traded Cam Whitmore to the Cleveland Cavaliers; and the Washington Wizards traded Julian Reese to the Denver Nuggets. Denver received a trade exception Cleveland received a trade exception",
+    "is_multi_team": true,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "participant"
+      },
+      {
+        "team_id": "WAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "CLE",
+        "role": "participant"
+      },
+      {
+        "team_id": "LAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "DEN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Tre Mann",
+        "from_team_id": "CHA",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Dennis Schroder",
+        "from_team_id": "CLE",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Max Strus",
+        "from_team_id": "CLE",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "CLE",
+        "to_team_id": "WAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Peyton Watson",
+        "from_team_id": "DEN",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ismael Kamagate",
+        "from_team_id": "LAC",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cam Whitmore",
+        "from_team_id": "WAS",
+        "to_team_id": "CLE",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Julian Reese",
+        "from_team_id": "WAS",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-08-29-225df8b3",
+    "date": "2026-08-29",
+    "season": "2026-27",
+    "title": "John Konchar, Cody Williams, Josh Green Trade",
+    "description": "The Utah Jazz traded John Konchar and Cody Williams to the Minnesota Timberwolves for cash and Josh Green. Minnesota received a trade exception",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "UTA",
+        "role": "participant"
+      },
+      {
+        "team_id": "MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "John Konchar",
+        "from_team_id": "UTA",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Cody Williams",
+        "from_team_id": "UTA",
+        "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "MIN",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Josh Green",
+        "from_team_id": "MIN",
+        "to_team_id": "UTA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-09-08-d883ffef",
+    "date": "2026-09-08",
+    "season": "2026-27",
+    "title": "Jordan Hawkins, Micah Peavy, Taj Gibson Trade",
+    "description": "The New Orleans Pelicans traded Jordan Hawkins and Micah Peavy to the Memphis Grizzlies for Taj Gibson and A.J. Johnson. New Orleans received a trade exception",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "NOP",
+        "role": "participant"
+      },
+      {
+        "team_id": "MEM",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Jordan Hawkins",
+        "from_team_id": "NOP",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Micah Peavy",
+        "from_team_id": "NOP",
+        "to_team_id": "MEM",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Taj Gibson",
+        "from_team_id": "MEM",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "A.J. Johnson",
+        "from_team_id": "MEM",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "bbref-2026-09-14-125824d1",
+    "date": "2026-09-14",
+    "season": "2026-27",
+    "title": "Kawhi Leonard, Gradey Dick, Brandon Ingram Trade",
+    "description": "The Los Angeles Clippers traded Kawhi Leonard to the Toronto Raptors for Gradey Dick and Brandon Ingram. Los Angeles received a trade exception",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "LAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "TOR",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kawhi Leonard",
+        "from_team_id": "LAC",
+        "to_team_id": "TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Gradey Dick",
+        "from_team_id": "TOR",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Brandon Ingram",
+        "from_team_id": "TOR",
+        "to_team_id": "LAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  }
+]
