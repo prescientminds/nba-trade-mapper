@@ -12,6 +12,7 @@ import {
 import '@xyflow/react/dist/style.css';
 
 import { useGraphStore } from '@/lib/graph-store';
+import { track } from '@/lib/analytics';
 import TradeNode from '@/components/nodes/TradeNode';
 import PlayerNode from '@/components/nodes/PlayerNode';
 import PickNode from '@/components/nodes/PickNode';
@@ -445,9 +446,11 @@ export default function MainGraphCanvas() {
   const viewMode = useGraphStore((s) => s.viewMode);
   const setViewMode = useGraphStore((s) => s.setViewMode);
   const seedInfo = useGraphStore((s) => s.seedInfo);
+  const seedFromChain = useGraphStore((s) => s.seedFromChain);
   const { fitView } = useReactFlow();
   const isMobile = useMobile();
   const prevExpandedRef = useRef<Set<string>>(new Set());
+  const deepLinkHandledRef = useRef(false);
 
   // Dev-only: expose the store on window so Phase B actions can be smoke-tested
   // from the console, e.g. `useGraphStore.getState().addHypotheticalTrade(['LAL','BOS'])`.
@@ -456,6 +459,18 @@ export default function MainGraphCanvas() {
       (window as unknown as { useGraphStore?: typeof useGraphStore }).useGraphStore = useGraphStore;
     }
   }, []);
+
+  // Deep link: /?trade=<id> seeds the canvas straight from a trade permalink.
+  // Reads location directly rather than useSearchParams, which would force a
+  // Suspense boundary around an already fully-client canvas.
+  useEffect(() => {
+    if (deepLinkHandledRef.current) return;
+    deepLinkHandledRef.current = true;
+    const tradeId = new URLSearchParams(window.location.search).get('trade');
+    if (!tradeId) return;
+    track('seed_graph', { source: 'permalink', trade_id: tradeId });
+    void seedFromChain(tradeId);
+  }, [seedFromChain]);
 
   useEffect(() => {
     if (!pendingFitTarget) return;
