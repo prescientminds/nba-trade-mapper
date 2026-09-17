@@ -4,14 +4,14 @@ import { useEffect, useMemo, useState } from 'react';
 import { getSupabase } from '@/lib/supabase';
 import { TEAMS } from '@/lib/teams';
 import { loadOwnership, type OwnedPick } from '@/lib/trade-builder';
-import { currentTeamOf, loadCurrentRosterOverlay } from '@/lib/current-rosters';
+import { currentTeamOf, loadCurrentRosterOverlay, resolveStatsSeason } from '@/lib/current-rosters';
+import { prevSeason } from '@/lib/trade-builder';
 import {
   buildRows,
   fmtMoney,
   tierLabel,
   TIER_COLOR,
   CURRENT_SEASON,
-  NEXT_SEASON,
   PROJECTED_NEXT_CAP_FALLBACK,
   type TeamAssetRow,
   type Tier,
@@ -22,7 +22,12 @@ type SortKey = 'team' | 'cap' | 'picks' | 'young' | 'stars';
 type SortDir = 'asc' | 'desc';
 
 const STAR_ACCOLADES = ['All-Star', 'All-NBA 1st Team', 'All-NBA 2nd Team', 'All-NBA 3rd Team'];
-const STAR_LOOKBACK_SEASONS = ['2023-24', '2024-25', '2025-26'];
+/** The three most recent played seasons, derived from the stats season so
+ *  this rolls forward on its own instead of silently aging. */
+function starLookbackSeasons(statsSeason: string): string[] {
+  const s2 = prevSeason(statsSeason);
+  return [prevSeason(s2), s2, statsSeason];
+}
 
 function normalizeName(name: string): string {
   return name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
@@ -33,6 +38,7 @@ export default function AssetsClient() {
   const [error, setError] = useState<string | null>(null);
   const [projectedCap, setProjectedCap] = useState(PROJECTED_NEXT_CAP_FALLBACK);
   const [capIsFallback, setCapIsFallback] = useState(true);
+  const [statsSeasonLabel, setStatsSeasonLabel] = useState<string | null>(null);
   const [sortKey, setSortKey] = useState<SortKey>('picks');
   const [sortDir, setSortDir] = useState<SortDir>('desc');
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -43,11 +49,11 @@ export default function AssetsClient() {
       try {
         const sb = getSupabase();
 
-        // Try to read the real 2026-27 cap; fall back to projection if absent.
+        // Try to read the real CURRENT_SEASON cap; fall back to projection if absent.
         const capRow = (await sb
           .from('salary_cap_history')
           .select('salary_cap')
-          .eq('season', NEXT_SEASON)
+          .eq('season', CURRENT_SEASON)
           .limit(1)) as unknown as { data: { salary_cap: number | null }[] | null };
         let cap = PROJECTED_NEXT_CAP_FALLBACK;
         let isFallback = true;
@@ -56,23 +62,29 @@ export default function AssetsClient() {
           isFallback = false;
         }
 
+        // Stats lag the CBA season through the offseason: player_seasons has no
+        // rows for CURRENT_SEASON until games are played, so young-talent and
+        // accolade lookups run against the most recent season that does.
+        const statsSeason = await resolveStatsSeason(sb);
+        if (!cancelled) setStatsSeasonLabel(statsSeason);
+
         // Parallel queries. The overlay (current-rosters) is fetched alongside
         // the raw rows so we can re-map team_id values to reflect trades that
         // happened after Kaggle's last published cut.
-        const [ownership, overlay, youngRowsRes, starsRes, currentContractsRes, nextContractsRes] =
+        const [ownership, overlay, youngRowsRes, starsRes, rosterContractsRes, salaryContractsRes] =
           await Promise.all([
             loadOwnership(),
             loadCurrentRosterOverlay(),
-            paginate(sb, 'player_seasons', 'player_name, team_id, age, bpm, mp', { season: CURRENT_SEASON }),
+            paginate(sb, 'player_seasons', 'player_name, team_id, age, bpm, mp', { season: statsSeason }),
             sb
               .from('player_accolades')
               .select('player_name, accolade, season')
-              .in('season', STAR_LOOKBACK_SEASONS)
+              .in('season', starLookbackSeasons(statsSeason))
               .in('accolade', STAR_ACCOLADES) as unknown as Promise<{
                 data: { player_name: string; accolade: string; season: string }[] | null;
               }>,
             paginate(sb, 'player_contracts', 'player_name, team_id', { season: CURRENT_SEASON }),
-            paginate(sb, 'player_contracts', 'player_name, team_id, salary', { season: NEXT_SEASON }),
+            paginate(sb, 'player_contracts', 'player_name, team_id, salary', { season: CURRENT_SEASON }),
           ]);
 
         if (cancelled) return;
@@ -101,7 +113,7 @@ export default function AssetsClient() {
 
         // Map player → CURRENT team (overlay applied) for star → roster join.
         const teamByNormalizedName = new Map<string, string>();
-        for (const c of currentContractsRes as Array<{ player_name: string; team_id: string }>) {
+        for (const c of rosterContractsRes as Array<{ player_name: string; team_id: string }>) {
           const teamId = currentTeamOf(c.player_name, c.team_id, overlay) ?? c.team_id;
           teamByNormalizedName.set(normalizeName(c.player_name), teamId);
         }
@@ -123,10 +135,10 @@ export default function AssetsClient() {
           starsByTeamArr[team] = [...set];
         }
 
-        // Sum 2026-27 commitments per CURRENT team. A player's cap hit follows
-        // them to their new team after a trade, so we apply the overlay here too.
+        // Sum CURRENT_SEASON commitments per CURRENT team. A player's cap hit
+        // follows them to their new team after a trade, so the overlay applies here too.
         const commitmentsByTeam: Record<string, number> = {};
-        for (const c of nextContractsRes as Array<{ player_name: string; team_id: string; salary: number | null }>) {
+        for (const c of salaryContractsRes as Array<{ player_name: string; team_id: string; salary: number | null }>) {
           if (c.salary == null) continue;
           const teamId = currentTeamOf(c.player_name, c.team_id, overlay) ?? c.team_id;
           commitmentsByTeam[teamId] = (commitmentsByTeam[teamId] ?? 0) + c.salary;
@@ -224,9 +236,9 @@ export default function AssetsClient() {
                 lineHeight: 1.5,
               }}
             >
-              CAP: 2026-27 commitments vs {capIsFallback ? 'projected' : 'official'} ${(projectedCap / 1e6).toFixed(1)}M cap{capIsFallback ? ' (projection — apron tiers pending DB fill)' : ''}.{' '}
+              CAP: {CURRENT_SEASON} commitments vs {capIsFallback ? 'projected' : 'official'} ${(projectedCap / 1e6).toFixed(1)}M cap{capIsFallback ? ' (projection — apron tiers pending DB fill)' : ''}.{' '}
               PICKS: EV = round (1st=10, 2nd=2) × swap (×0.4) × cond. (×0.7).{' '}
-              YOUNG: age ≤ 23 + BPM tiers (500-min floor).{' '}
+              YOUNG: age ≤ 23 + BPM tiers (500-min floor){statsSeasonLabel ? `, ${statsSeasonLabel} stats` : ''}.{' '}
               STARS: All-NBA or All-Star within 3 seasons, still on roster.
             </div>
             <table

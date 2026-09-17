@@ -7,16 +7,24 @@
  */
 
 import { TEAMS } from '@/lib/teams';
-import type { OwnedPick } from '@/lib/trade-builder';
+import { CURRENT_YEAR, type OwnedPick } from '@/lib/trade-builder';
 
-export const CURRENT_SEASON = '2025-26';
-export const NEXT_SEASON = '2026-27';
-/** Next draft year (2026 draft complete as of 2026-06-24). */
-export const CURRENT_YEAR = 2027;
 /**
- * 2026-27 projected salary cap. The 2025-26 cap was $140.6M; the league's
- * published 2026-27 projection at the time of build is ~$154.6M. Used when
- * salary_cap_history has no 2026-27 row yet. Surface this assumption in UI.
+ * Season constants come from trade-builder so the dashboard and the Trade
+ * Machine can never disagree about what season the league is on. They flip
+ * together on July 1.
+ *
+ * Note the split: CURRENT_SEASON governs contracts, cap, and roster
+ * membership. Stats lag it through the offseason, so anything reading
+ * `player_seasons` resolves its season at query time via
+ * `resolveStatsSeason()` rather than using CURRENT_SEASON.
+ */
+export { CURRENT_SEASON, NEXT_SEASON, CURRENT_YEAR } from '@/lib/trade-builder';
+/**
+ * Fallback cap, used only if `salary_cap_history` has no row for
+ * CURRENT_SEASON. The real 2026-27 row landed in the season rollover, so this
+ * should not fire today; it stays as a guard for the window after a July 1
+ * flip and before the new cap is scraped. Surface the assumption in UI.
  */
 export const PROJECTED_NEXT_CAP_FALLBACK = 154_600_000;
 
