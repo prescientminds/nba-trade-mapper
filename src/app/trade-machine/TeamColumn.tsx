@@ -12,7 +12,7 @@ import {
   type OutgoingPick,
   type RosterPlayer,
 } from '@/lib/trade-builder';
-import { currentTeamOf, loadCurrentRosterOverlay } from '@/lib/current-rosters';
+import { currentTeamOf, loadCurrentRosterOverlay, resolveStatsSeason } from '@/lib/current-rosters';
 import BPMExplainer from './BPMExplainer';
 import PickProtectionPopover, {
   loadProtections,
@@ -234,13 +234,13 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
       <div>
         <SectionLabel>Outgoing players</SectionLabel>
         {!state.teamId && (
-          <EmptyHint>Pick a team to see its 2025-26 roster.</EmptyHint>
+          <EmptyHint>Pick a team to see its {CURRENT_SEASON} roster.</EmptyHint>
         )}
         {state.teamId && loadingRoster && (
           <EmptyHint>Loading roster…</EmptyHint>
         )}
         {state.teamId && !loadingRoster && state.roster.length === 0 && (
-          <EmptyHint>No 2025-26 roster data for this team.</EmptyHint>
+          <EmptyHint>No {CURRENT_SEASON} roster data for this team.</EmptyHint>
         )}
         {state.roster.length > 0 && (
           <div>
@@ -544,10 +544,13 @@ async function loadAllSeasons(): Promise<AllSeasonsRow[]> {
   if (allSeasonsCache) return allSeasonsCache;
   if (allSeasonsPromise) return allSeasonsPromise;
   const sb = getSupabase();
-  allSeasonsPromise = paginate<AllSeasonsRow>(() => sb
-    .from('player_seasons')
-    .select('player_name, team_id, age, bpm, mp')
-    .eq('season', CURRENT_SEASON) as unknown as { range: (a: number, b: number) => Promise<{ data: AllSeasonsRow[] | null; error: { message: string } | null }> })
+  // Stats come from the most recent season that has rows — CURRENT_SEASON once
+  // games are played, the prior season during the offseason.
+  allSeasonsPromise = resolveStatsSeason(sb)
+    .then((statsSeason) => paginate<AllSeasonsRow>(() => sb
+      .from('player_seasons')
+      .select('player_name, team_id, age, bpm, mp')
+      .eq('season', statsSeason) as unknown as { range: (a: number, b: number) => Promise<{ data: AllSeasonsRow[] | null; error: { message: string } | null }> }))
     .then((rows) => { allSeasonsCache = rows; return rows; });
   return allSeasonsPromise;
 }
@@ -584,55 +587,67 @@ async function fetchRoster(teamId: string): Promise<RosterPlayer[]> {
     loadCurrentRosterOverlay(),
   ]);
 
-  // Apply the overlay: a player's "current team" is the overlay's value (if
-  // set) or the source table's team_id (if no recent trade moved them).
-  const seasons = allSeasons.filter(
-    (s) => currentTeamOf(s.player_name, s.team_id, overlay) === teamId,
-  );
-  const contracts = allContracts.filter(
-    (c) => currentTeamOf(c.player_name, c.team_id, overlay) === teamId,
-  );
-  const futureContracts = allFutureContracts.filter(
-    (f) => currentTeamOf(f.player_name, f.team_id, overlay) === teamId,
-  );
-
-  if (!seasons) return [];
+  // ── Membership: who is signed with this team for CURRENT_SEASON ──────────
+  // Source of truth is player_contracts (BBRef lists each player under his
+  // current team), corrected by the overlay (daily-fresh trades, signings,
+  // waivers). A player the overlay puts on this team but who has no contract
+  // row yet (e.g. a signing BBRef hasn't published) is still included, with
+  // salary unknown.
+  const members = new Map<string, string>(); // normalized → display name
+  for (const c of allContracts) {
+    if (currentTeamOf(c.player_name, c.team_id, overlay) === teamId) {
+      members.set(normalizeName(c.player_name), c.player_name);
+    }
+  }
+  for (const entry of overlay.values()) {
+    if (entry.teamId === teamId) {
+      const k = normalizeName(entry.name);
+      if (!members.has(k)) members.set(k, entry.name);
+    }
+  }
+  if (members.size === 0) return [];
 
   const salaryByName = new Map<string, number | null>();
-  for (const c of contracts ?? []) salaryByName.set(normalizeName(c.player_name), c.salary);
+  for (const c of allContracts) {
+    const k = normalizeName(c.player_name);
+    if (members.has(k)) salaryByName.set(k, c.salary);
+  }
 
   const futureCountByName = new Map<string, number>();
-  for (const f of futureContracts ?? []) {
+  for (const f of allFutureContracts) {
     const k = normalizeName(f.player_name);
+    if (!members.has(k)) continue;
     futureCountByName.set(k, (futureCountByName.get(k) ?? 0) + 1);
   }
 
-  // Dedupe by player_name. A mid-season trade produces split rows (one per
-  // stint); after the overlay maps them to the same current team we want the
-  // higher-minutes row to win so stats come from the better sample.
+  // ── Stats: joined by name from the stats season ──────────────────────────
+  // A player traded mid-season has one row per stint; the higher-minutes row
+  // wins so stats come from the better sample. Stats-season team_id is
+  // ignored here — membership was decided above.
   const bestRowByName = new Map<string, AllSeasonsRow>();
-  for (const s of seasons) {
-    const existing = bestRowByName.get(s.player_name);
-    if (!existing || (s.mp ?? 0) > (existing.mp ?? 0)) {
-      bestRowByName.set(s.player_name, s);
-    }
+  for (const r of allSeasons) {
+    const k = normalizeName(r.player_name);
+    if (!members.has(k)) continue;
+    const existing = bestRowByName.get(k);
+    if (!existing || (r.mp ?? 0) > (existing.mp ?? 0)) bestRowByName.set(k, r);
   }
+
   const roster: RosterPlayer[] = [];
-  for (const s of bestRowByName.values()) {
-    const key = normalizeName(s.player_name);
+  for (const [k, displayName] of members) {
+    const r = bestRowByName.get(k);
     // BPM is a per-100-possession rate stat — meaningless on a tiny sample.
     // Below the minutes floor we null it so a garbage-time line (e.g. an 8-min
     // rookie at +11.5) doesn't sort to the top of the roster or skew the
     // comparables matcher. `minutesPlayed` is kept so the display can label
     // a sub-floor "—" as "limited sample" rather than "no data".
-    const qualified = s.mp != null && s.mp >= BPM_MIN_MINUTES;
+    const qualified = r != null && r.mp != null && r.mp >= BPM_MIN_MINUTES;
     roster.push({
-      player_name: s.player_name,
-      age: s.age,
-      bpm: qualified ? s.bpm : null,
-      minutesPlayed: s.mp,
-      salary: salaryByName.get(key) ?? null,
-      contractYearsRemaining: futureCountByName.get(key) ?? 0,
+      player_name: r?.player_name ?? displayName,
+      age: r?.age ?? null,
+      bpm: qualified ? r!.bpm : null,
+      minutesPlayed: r?.mp ?? null,
+      salary: salaryByName.get(k) ?? null,
+      contractYearsRemaining: futureCountByName.get(k) ?? 0,
     });
   }
   // Sort by BPM desc, ties by name. Puts stars at the top.

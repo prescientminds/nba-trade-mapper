@@ -13,6 +13,7 @@
 // totals and a small note pointing at the deferral. Stepien + 7-yr cap
 // still fire in the legality banner above.
 
+import { CURRENT_SEASON } from '@/lib/trade-builder';
 import { TEAMS } from '@/lib/teams';
 import { getCBAEra, maxIncomingSalary } from '@/lib/trade-validation';
 import { type BuilderState, outgoingSalaryOf, fmtM } from '@/lib/trade-builder';
@@ -71,7 +72,7 @@ export default function SalaryLedger({ slots }: { slots: BuilderState[] }) {
     return (
       <section style={ledgerShell}>
         <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>
-          Missing 2025-26 salary data for one or more selected players — legality
+          Missing {CURRENT_SEASON} salary data for one or more selected players — legality
           check falls back to asset-count only.
         </div>
       </section>
