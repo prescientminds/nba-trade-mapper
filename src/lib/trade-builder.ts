@@ -20,10 +20,20 @@ import {
   type TeamPickContext,
 } from './trade-validation';
 
-/** Last completed season — source of roster/stat rows in player_seasons. */
-export const CURRENT_SEASON = '2025-26';
-/** Upcoming season — offseason trades land in this by-season file (rollover 2026-09-16). */
-export const NEXT_SEASON = '2026-27';
+/**
+ * The season the CBA is on: cap, aprons, contracts, and roster membership.
+ * Flips on July 1. Stats may lag this in the offseason — see
+ * `resolveStatsSeason()` in current-rosters.ts, which falls back to the most
+ * recent season that actually has player_seasons rows.
+ */
+export const CURRENT_SEASON = '2026-27';
+/** The season after CURRENT_SEASON (its trade file may not exist yet). */
+export const NEXT_SEASON = '2027-28';
+/** '2026-27' → '2025-26'. */
+export function prevSeason(season: string): string {
+  const y = parseInt(season.slice(0, 4), 10) - 1;
+  return `${y}-${String(y + 1).slice(2)}`;
+}
 /** Next draft year. 2026 picks were consumed on 2026-06-24; pick rules now start at 2027. */
 export const CURRENT_YEAR = 2027;
 // Current season only. Phase B v1: 2- or 3-team trades supported in the
@@ -57,7 +67,7 @@ export interface RosterPlayer {
    *  tell a sub-floor "—" apart from genuinely missing data. */
   minutesPlayed: number | null;
   salary: number | null;
-  /** Contract years remaining AFTER 2025-26 (0 = expiring). */
+  /** Contract years remaining AFTER CURRENT_SEASON (0 = expiring). */
   contractYearsRemaining: number | null;
 }
 

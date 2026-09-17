@@ -1,18 +1,25 @@
 /**
  * Current-roster overlay.
  *
- * Kaggle's `player_seasons` table and the salary scraper both publish on
- * external cadences that lag mid-season trades by weeks-to-months. The
- * trade JSON in `public/data/trades/by-season/` is daily-fresh, so we
- * walk it to derive a `normalized_player_name → current_team_id` map.
- * Callers apply the override when filtering or grouping by team.
+ * Roster membership comes from `player_contracts` for CURRENT_SEASON — BBRef's
+ * contracts page lists every player under the team he is signed with today.
+ * Two things still lag it: (1) rows added by the historical player-page pass
+ * can carry a stale team, and (2) BBRef publishes on its own cadence. The
+ * static JSON in `public/data/` is daily-fresh, so we walk it and derive a
+ * `normalized_player_name → current team` map that wins over the source row:
+ *   - trades in CURRENT_SEASON + NEXT_SEASON files (player → to_team_id)
+ *   - transactions in CURRENT_SEASON file: signings / two-way / Exhibit 10 /
+ *     claims put a player ON a team; waivers and retirements take him OFF
+ *     (team = null). Latest event by date wins; same-day sign-then-waive
+ *     resolves to waived.
  *
- * Why a separate layer instead of writing back into the DB: Kaggle's
- * eventual update will re-publish authoritative split rows. We don't
- * want to fight that — we want the overlay to be transparent and let
- * the source data win once it catches up.
+ * Why a separate layer instead of writing back into the DB: the next salary
+ * scrape re-publishes authoritative rows. We don't want to fight that — the
+ * overlay is transparent and the source data wins once it catches up.
  */
-import { CURRENT_SEASON, NEXT_SEASON } from './trade-builder';
+
+import type { SupabaseClient } from '@supabase/supabase-js';
+import { CURRENT_SEASON, NEXT_SEASON, prevSeason } from './trade-builder';
 
 interface TradeAsset {
   type: string;
@@ -28,35 +35,90 @@ interface Trade {
   assets: TradeAsset[];
 }
 
-let overlayCache: Map<string, string> | null = null;
-let overlayPromise: Promise<Map<string, string>> | null = null;
+interface Transaction {
+  date: string;
+  transaction_type: string;
+  player_name: string | null;
+  team_id: string | null;
+}
 
-export async function loadCurrentRosterOverlay(): Promise<Map<string, string>> {
+export interface OverlayEntry {
+  /** null = off every roster (waived / retired) as of the last event. */
+  teamId: string | null;
+  /** Display name as it appears in the source JSON. */
+  name: string;
+  date: string;
+}
+
+export type RosterOverlay = Map<string, OverlayEntry>;
+
+const ON_ROSTER = new Set(['signing', 'two_way', 'exhibit_10', 'claimed', '10_day', 'rest_of_season', 'converted']);
+const OFF_ROSTER = new Set(['waiver', 'retirement']);
+
+let overlayCache: RosterOverlay | null = null;
+let overlayPromise: Promise<RosterOverlay> | null = null;
+
+async function fetchJsonOrEmpty<T>(url: string): Promise<T[]> {
+  try {
+    const r = await fetch(url);
+    return r.ok ? ((await r.json()) as T[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+export async function loadCurrentRosterOverlay(): Promise<RosterOverlay> {
   if (overlayCache) return overlayCache;
   if (overlayPromise) return overlayPromise;
-  // Offseason trades (July onward) live in NEXT_SEASON's file, so walk both.
-  // The upcoming-season file may not exist yet early in the summer — treat a
-  // non-OK response as an empty list rather than failing the overlay.
-  const loadSeason = (season: string): Promise<Trade[]> =>
-    fetch(`/data/trades/by-season/${season}.json`)
-      .then((r) => (r.ok ? (r.json() as Promise<Trade[]>) : []))
-      .catch(() => []);
-  overlayPromise = Promise.all([loadSeason(CURRENT_SEASON), loadSeason(NEXT_SEASON)])
-    .then(([cur, next]) => [...cur, ...next])
-    .then((trades) => {
-      const sorted = [...trades].sort((a, b) => a.date.localeCompare(b.date));
-      const overlay = new Map<string, string>();
-      for (const t of sorted) {
-        for (const asset of t.assets ?? []) {
-          if (asset.type === 'player' && asset.player_name && asset.to_team_id) {
-            overlay.set(normalizeName(asset.player_name), asset.to_team_id);
-          }
+  overlayPromise = Promise.all([
+    fetchJsonOrEmpty<Trade>(`/data/trades/by-season/${CURRENT_SEASON}.json`),
+    fetchJsonOrEmpty<Trade>(`/data/trades/by-season/${NEXT_SEASON}.json`),
+    fetchJsonOrEmpty<Transaction>(`/data/transactions/by-season/${CURRENT_SEASON}.json`),
+  ]).then(([curTrades, nextTrades, transactions]) => {
+    // Flatten to one event stream. `order` breaks same-day ties: a player
+    // signed and waived on the same date ends up waived.
+    type Ev = { date: string; order: number; name: string; teamId: string | null };
+    const events: Ev[] = [];
+    for (const t of [...curTrades, ...nextTrades]) {
+      for (const a of t.assets ?? []) {
+        if (a.type === 'player' && a.player_name && a.to_team_id) {
+          events.push({ date: t.date, order: 1, name: a.player_name, teamId: a.to_team_id });
         }
       }
-      overlayCache = overlay;
-      return overlay;
-    });
+    }
+    for (const tx of transactions) {
+      if (!tx.player_name) continue;
+      if (ON_ROSTER.has(tx.transaction_type) && tx.team_id) {
+        events.push({ date: tx.date, order: 0, name: tx.player_name, teamId: tx.team_id });
+      } else if (OFF_ROSTER.has(tx.transaction_type)) {
+        events.push({ date: tx.date, order: 2, name: tx.player_name, teamId: null });
+      }
+    }
+    events.sort((a, b) => a.date.localeCompare(b.date) || a.order - b.order);
+    const overlay: RosterOverlay = new Map();
+    for (const e of events) {
+      overlay.set(normalizeName(e.name), { teamId: e.teamId, name: e.name, date: e.date });
+    }
+    overlayCache = overlay;
+    return overlay;
+  });
   return overlayPromise;
+}
+
+/**
+ * The most recent season with `player_seasons` rows. In the offseason the
+ * CBA is already on CURRENT_SEASON but no games have been played, so stats
+ * come from the prior season until Kaggle publishes the new one. Cached per
+ * page load.
+ */
+let statsSeasonPromise: Promise<string> | null = null;
+export function resolveStatsSeason(sb: SupabaseClient): Promise<string> {
+  if (statsSeasonPromise) return statsSeasonPromise;
+  statsSeasonPromise = (async () => {
+    const { count } = await sb.from('player_seasons').select('*', { count: 'exact', head: true }).eq('season', CURRENT_SEASON);
+    return count && count > 0 ? CURRENT_SEASON : prevSeason(CURRENT_SEASON);
+  })();
+  return statsSeasonPromise;
 }
 
 /**
@@ -80,11 +142,16 @@ export function normalizeName(name: string): string {
     .trim();
 }
 
-/** Returns the player's current team_id after applying trade overrides. */
+/**
+ * Returns the player's current team_id after applying overlay overrides.
+ * `null` means the overlay knows he is off every roster (waived/retired);
+ * an absent overlay entry falls through to the source row's team.
+ */
 export function currentTeamOf(
   playerName: string,
   sourceTeamId: string | null,
-  overlay: Map<string, string>,
+  overlay: RosterOverlay,
 ): string | null {
-  return overlay.get(normalizeName(playerName)) ?? sourceTeamId;
+  const hit = overlay.get(normalizeName(playerName));
+  return hit ? hit.teamId : sourceTeamId;
 }
