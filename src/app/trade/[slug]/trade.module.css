@@ -1,0 +1,254 @@
+/* Trade permalink page. Server-rendered, so it needs real CSS for responsive
+   columns and hover states rather than the inline styles used elsewhere. */
+
+.page {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 0 16px 80px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.topNav {
+  padding: 20px 0 8px;
+}
+
+.backLink,
+.inlineLink {
+  color: var(--accent-orange);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.backLink:hover,
+.inlineLink:hover {
+  text-decoration: underline;
+}
+
+.header {
+  padding: 24px 0 8px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin: 0 0 8px;
+}
+
+.title {
+  font-size: clamp(28px, 6vw, 44px);
+  line-height: 1.1;
+  margin: 0 0 16px;
+  font-weight: 700;
+}
+
+.teamPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.teamPill {
+  border: 1px solid;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sectionHeading {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin: 40px 0 16px;
+  font-weight: 600;
+}
+
+/* ── Verdict ─────────────────────────────────────────── */
+
+.verdict {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 4px 20px 20px;
+}
+
+.verdict .sectionHeading {
+  margin-top: 20px;
+}
+
+.verdictList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.verdictRow {
+  display: grid;
+  grid-template-columns: 90px 1fr 56px;
+  align-items: center;
+  gap: 12px;
+}
+
+.verdictTeam {
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wonTag {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-green);
+  border: 1px solid var(--accent-green);
+  border-radius: 4px;
+  padding: 1px 4px;
+  font-weight: 700;
+}
+
+.barTrack {
+  background: var(--bg-tertiary);
+  border-radius: 999px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.barFill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+}
+
+.verdictScore {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 14px;
+  text-align: right;
+  color: var(--text-secondary);
+}
+
+.verdictNote {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 16px 0 0;
+  line-height: 1.5;
+}
+
+/* ── Assets ──────────────────────────────────────────── */
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 720px) {
+  .columns {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+.column {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.columnHeading {
+  font-size: 15px;
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.assetList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.assetItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 8px;
+}
+
+.assetItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.assetName {
+  font-size: 15px;
+}
+
+.assetType {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.emptyAssets {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── CTA + related ───────────────────────────────────── */
+
+.cta {
+  margin: 40px 0 8px;
+  text-align: center;
+}
+
+.primaryCta {
+  display: inline-block;
+  background: var(--accent-orange);
+  color: #0a0a0f;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  min-height: 44px;
+}
+
+.primaryCta:hover {
+  filter: brightness(1.08);
+}
+
+.ctaNote {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 12px 0 0;
+}
+
+.relatedList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
