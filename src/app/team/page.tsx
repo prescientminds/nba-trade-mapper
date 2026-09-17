@@ -88,8 +88,21 @@ export default function TeamPage() {
           OUR TEAM
         </h1>
 
-        <p style={{ marginBottom: 40, color: 'var(--text-muted)', fontSize: 14 }}>
+        <p style={{ marginBottom: 12, color: 'var(--text-muted)', fontSize: 14 }}>
           Basketball fans, writers, analysts, podcasters, and one former player.
+        </p>
+
+        <p
+          style={{
+            marginBottom: 40,
+            color: 'var(--text-tertiary)',
+            fontSize: 12,
+            fontFamily: 'var(--font-mono)',
+            fontStyle: 'italic',
+          }}
+        >
+          Every person on this page is invented. NBA Trade Mapper is a one-person
+          project; the staff below is a running bit.
         </p>
 
         <Divider />

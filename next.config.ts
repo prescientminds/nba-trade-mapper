@@ -26,7 +26,9 @@ const nextConfig: NextConfig = {
               "font-src 'self' https://fonts.gstatic.com",
               // Supabase HTTP + WebSocket (Supabase Realtime uses wss://). GA4 collect endpoints use regional subdomains.
               "connect-src 'self' https://izvnmsrjygshtperrwqk.supabase.co wss://izvnmsrjygshtperrwqk.supabase.co https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com",
-              "img-src 'self' data: blob: https://www.google-analytics.com",
+              // gtag.js beacons to googletagmanager.com/td as well as the
+              // google-analytics.com collect endpoints; both are pixel loads.
+              "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com",
               // ELK.js layout engine runs in a Web Worker
               "worker-src 'self' blob:",
               "frame-ancestors 'none'",
