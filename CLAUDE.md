@@ -55,7 +55,7 @@ Covers signings, waivers, extensions, two-way, exhibit 10, 10-day, waiver claims
 - **Output:** `public/data/transactions/by-season/{season}.json` + `public/data/transactions/index.json`
 - **Coverage:** 1999-00 through 2026-27 (28 seasons; 2026-27 = offseason page, grows through the season)
 - **Cache gotcha:** `data/bbref-cache/transactions/NBA_{YYYY}_transactions.html` is never expired — delete the current season's file before re-scraping or you re-parse a stale page. Same for the daily trade pages `data/bbref-cache/{M}-{D}.html` (keyed by month-day only, no year) — delete the date range before a backfill.
-- **Draft rollover:** `scrape-wiki-draft-ownership.ts` (through 2026) feeds `export-draft-data.ts`, which back-fills any draft year Kaggle hasn't published yet from `draft-ownership.json`. Then re-run `enrich-picks.ts`, `parse-pick-protections.ts`, `build-pick-ownership.ts` (year windows in those two scripts + `CURRENT_YEAR` in `src/lib/trade-builder.ts` / `src/app/assets/scorers.ts` advance one year after each June draft).
+- **Draft rollover:** `scrape-wiki-draft-ownership.ts` (through 2026) feeds `export-draft-data.ts`, which back-fills any draft year Kaggle hasn't published yet from `draft-ownership.json`. Then re-run `enrich-picks.ts`, `parse-pick-protections.ts`, `build-pick-ownership.ts` (year windows in those two scripts + `CURRENT_YEAR` in `src/lib/trade-builder.ts` advance one year after each June draft). `src/app/assets/scorers.ts` re-exports the season constants from `trade-builder` — do not give it a second copy.
 - **DB table:** `player_transactions` (migration: `017-player-transactions.sql` — needs manual run in SQL Editor)
 - **Options:** `--season 2025-26` (single season), `--from 2020` (range), `--dry-run`, `--no-db`
 
