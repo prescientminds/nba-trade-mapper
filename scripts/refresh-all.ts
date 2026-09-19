@@ -277,6 +277,7 @@ async function main() {
     const will = shouldRun(s, args);
     console.log(`    ${will ? '▸' : '·'} ${s.name.padEnd(30)} [${s.league}]${will ? '' : ' SKIP'}`);
   }
+  console.log(`  Phase 2b — build-trade-profiles (needs trade_scores from Phase 2)`);
   console.log(`  Phase 3 — verify-playoff-data`);
 
   if (args.dryRun) {
@@ -321,6 +322,18 @@ async function main() {
     console.log(`\n▸ Phase 2  Supabase compute (${computeToRun.length} in parallel)`);
     const computeResults = await runParallel(computeToRun);
     phases.push(...computeResults);
+  }
+
+  // ── Phase 2b ───────────────────────────────────────────────────
+  // Sequential, not parallel: reads trade_scores, which Phase 2 has just rewritten.
+  if (!args.only || args.only.has('build-trade-profiles')) {
+    console.log(`\n▸ Phase 2b  build-trade-profiles`);
+    const profilesRes = runScript('build-trade-profiles', []);
+    profilesRes.league = 'NBA';
+    phases.push(profilesRes);
+    if (!profilesRes.ok) {
+      console.error(`  ✗ build-trade-profiles failed (${profilesRes.detail}); comparables will serve stale data.`);
+    }
   }
 
   // ── Phase 3 ────────────────────────────────────────────────────
