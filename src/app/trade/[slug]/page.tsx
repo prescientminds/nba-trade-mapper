@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
-import { allTradeSlugs, resolveTradeSlug } from '@/lib/trade-slugs';
+import { recentTradeSlugs, resolveTradeSlug } from '@/lib/trade-slugs';
 import { loadTradeFromDisk } from '@/lib/trade-data-server';
 import { loadTradeVerdict, topAssets, type TradeVerdict } from '@/lib/trade-scores-server';
 import { getAnyTeamDisplayInfo } from '@/lib/teams';
@@ -15,8 +15,22 @@ interface PageProps {
 
 export const dynamicParams = true;
 
+/**
+ * Prerender cutoff. Trades on or after this date are built at deploy time;
+ * everything older renders on demand and is then cached by the CDN.
+ *
+ * Building all 1,963 cost 151 MB per deployment. From 2020 it is 383 trades
+ * and about 30 MB, which covers the window that actually gets linked and
+ * shared. The sitemap is deliberately NOT narrowed — it still lists every
+ * trade, so nothing leaves the index.
+ *
+ * Raise or lower this freely; it is the only thing controlling the trade-off
+ * between deployment size and first-hit latency on an old page.
+ */
+const PRERENDER_TRADES_SINCE = '2020-01-01';
+
 export async function generateStaticParams() {
-  const slugs = await allTradeSlugs('NBA');
+  const slugs = await recentTradeSlugs(PRERENDER_TRADES_SINCE, 'NBA');
   return slugs.map((slug) => ({ slug }));
 }
 
