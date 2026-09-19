@@ -21,6 +21,10 @@ const TRADES_DIR = path.join(__dirname, '..', 'public', 'data', 'trades', 'by-se
 const OUT_FILE   = path.join(__dirname, '..', 'public', 'data', 'trade-profiles.json');
 const MOTIVATIONS_FILE = path.join(__dirname, '..', 'public', 'data', 'trade-motivations.json');
 
+/** Longest contract the CBA has ever permitted; the ceiling for the inferred
+ *  years-remaining run. See the note in indexContracts(). */
+const MAX_CONTRACT_YEARS = 6;
+
 // ── Types matching the public static JSON + src/lib/comparables.ts ──
 
 interface StaticTradeAsset {
@@ -75,34 +79,15 @@ interface TradeScoreRow {
   team_scores: Record<string, { score: number; assets: { name: string; score: number }[] }> | null;
 }
 
-// Shape mirrors src/lib/comparables.ts — kept inline to avoid cross-importing app code into a script.
-interface PlayerProfile {
-  name: string;
-  age: number;
-  bpm: number | null;
-  contractYearsRemaining: number | null;
-  capPct: number | null;
-}
-
-interface TeamSide {
-  teamId: string;
-  players: PlayerProfile[];
-  pickCount: number;
-}
-
-interface TradeProfile {
-  id: string;
-  year: number;
-  sides: TeamSide[];
-  motivation?: string;
-  motivationSource?: 'hand' | 'auto';
-  outcomeSummary?: string;
-  headline?: string;
-}
+// Types come from the engine that consumes this file rather than being mirrored
+// here. The mirrored copies drifted once already — this script kept emitting a
+// bare `pickCount` after the engine had grown a round split — and a type-only
+// import pulls in no runtime app code.
+import type { PlayerProfile, TeamSide, TradeProfile, MotivationFlag } from '../src/lib/comparables/types';
 
 interface MotivationEntry {
   trade_id: string;
-  motivation: string;
+  motivation: MotivationFlag;
   source: 'hand' | 'auto';
   reasoning?: string;
 }
@@ -211,12 +196,36 @@ function indexContracts(rows: ContractRow[]): {
       byPlayer.get(n)!.push(r);
     }
   }
+  // Contract years remaining = the run of CONSECUTIVE paid seasons after this
+  // one, not every paid season the player ever had again.
+  //
+  // Counting all later seasons measured career length, not contract length:
+  // Kyle Lowry in 2012 came out as 14 years remaining, Bill Cartwright in 1988
+  // as 15. That made `expiringShare` meaningless (almost nothing was ever
+  // expiring) and silently inflated every contract-horizon feature. A gap in
+  // the run means the player signed again rather than continuing a deal, so
+  // the run stops there.
+  //
+  // This still cannot tell a guaranteed year from an option year —
+  // `player_contracts.guaranteed` and `.contract_years` are 0% populated — so
+  // it reads as the outer bound of the commitment.
   const futureCount = new Map<string, number>();
   for (const [player, list] of byPlayer) {
     list.sort((a, b) => a.season.localeCompare(b.season));
+    const paidStartYears = new Set(
+      list.filter((x) => (x.salary ?? 0) > 0).map((x) => parseInt(x.season.slice(0, 4), 10))
+    );
     for (const r of list) {
-      const later = list.filter((x) => x.season > r.season && (x.salary ?? 0) > 0).length;
-      futureCount.set(`${player}|${r.season}`, later);
+      const startYear = parseInt(r.season.slice(0, 4), 10);
+      let run = 0;
+      while (paidStartYears.has(startYear + run + 1)) run++;
+      // A re-signing with the same team leaves no gap, so a long tenure still
+      // reads as one long deal. Clamp to the longest contract the CBA has ever
+      // allowed, which also keeps this on the same scale as the live builder,
+      // where the number comes from actual future contract rows. An asymmetry
+      // between the historical and proposed sides of a comparison would be
+      // worse than the truncation.
+      futureCount.set(`${player}|${r.season}`, Math.min(run, MAX_CONTRACT_YEARS));
     }
   }
   return { byKey, futureCount };
@@ -311,7 +320,7 @@ async function main() {
   console.log(`Loaded ${staticById.size} static trades across ${seasonFiles.length} season files.`);
 
   // 1b. Load hand-tagged motivations (unblocks Stage 1 gate for canonical analogs).
-  const motivationByTrade = new Map<string, { motivation: string; source: 'hand' | 'auto' }>();
+  const motivationByTrade = new Map<string, { motivation: MotivationFlag; source: 'hand' | 'auto' }>();
   if (fs.existsSync(MOTIVATIONS_FILE)) {
     const raw = fs.readFileSync(MOTIVATIONS_FILE, 'utf-8');
     const entries: MotivationEntry[] = JSON.parse(raw);
@@ -369,10 +378,29 @@ async function main() {
         );
         if (p) players.push(p);
       }
-      const pickCount = trade.assets.filter(
+      // Pick round matters — a first and a second are not the same asset, and
+      // v1's bare `pickCount` conflated them. `swap` is counted apart again:
+      // a swap right is an option on a selection, not the selection.
+      const outgoingPicks = trade.assets.filter(
         (a) => a.type === 'pick' && a.from_team_id === teamId
+      );
+      const swapCount = trade.assets.filter(
+        (a) => a.type === 'swap' && a.from_team_id === teamId
       ).length;
-      sides.push({ teamId, players, pickCount });
+      const firstRoundPicks = outgoingPicks.filter((a) => a.pick_round === 1).length;
+      const secondRoundPicks = outgoingPicks.filter((a) => a.pick_round === 2).length;
+      sides.push({
+        teamId,
+        players,
+        // Unchanged meaning, so pre-v2 consumers keep working.
+        pickCount: outgoingPicks.length,
+        firstRoundPicks,
+        // Picks with no parsed round fall to the second-round bucket: the
+        // corpus skews heavily to seconds, so that is the conservative guess
+        // and it never inflates a package into looking first-round heavy.
+        secondRoundPicks: secondRoundPicks + (outgoingPicks.length - firstRoundPicks - secondRoundPicks),
+        swapCount,
+      });
     }
 
     // Drop trades where no side has any resolvable player (pick-only trades, data gaps).
@@ -383,6 +411,10 @@ async function main() {
     profiles.push({
       id: trade.id,
       year: seasonEndYear(trade.season),
+      // Drives the CBA-regime feature and the deadline-window flag. The season
+      // end-year alone puts a July trade and the following February's deadline
+      // in the same bucket, which are opposite populations.
+      date: trade.date,
       sides,
       motivation: tag?.motivation,
       motivationSource: tag?.source,

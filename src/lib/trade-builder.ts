@@ -359,11 +359,18 @@ export function buildProposedProfileForSlots(
     if (side.players.length + side.pickCount === 0) return null;
     sides.push(side);
   }
+  const today = new Date().toISOString().slice(0, 10);
   return {
     id: `proposed-${Date.now()}`,
+    // The season this trade would happen in, not a constant. v1 hardcoded a
+    // year here and multiplied every candidate's distance by how far it sat
+    // from it, which was a blanket recency bias rather than an era comparison.
     year: CURRENT_YEAR,
+    // Real date, so the CBA-regime and deadline-window features see the same
+    // kind of input on the proposed side as on the historical side.
+    date: today,
     sides,
-    // motivation undefined on purpose — user-built trades aren't hand-tagged
+    // motivation undefined on purpose — v2 derives the archetype instead.
   };
 }
 
@@ -386,9 +393,18 @@ export function toSide(state: BuilderState, salaryCap: number | null): TeamSide 
     contractYearsRemaining: p.contractYearsRemaining,
     capPct: p.salary != null && salaryCap ? p.salary / salaryCap : null,
   }));
+  // Split by round so the engine sees what the historical profiles carry. A
+  // first and a second are different assets, and `pickCount` alone conflates
+  // them. Swap rights are counted apart again: a swap is an option on a
+  // selection, not the selection.
+  const outright = state.picks.filter((p) => p.asset_class !== 'swap');
+  const swaps = state.picks.filter((p) => p.asset_class === 'swap');
   return {
     teamId: state.teamId,
     players,
-    pickCount: state.picks.length,
+    pickCount: outright.length,
+    firstRoundPicks: outright.filter((p) => p.round === 1).length,
+    secondRoundPicks: outright.filter((p) => p.round === 2).length,
+    swapCount: swaps.length,
   };
 }
