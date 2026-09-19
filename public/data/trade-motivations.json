@@ -1,0 +1,602 @@
+[
+  {
+    "trade_id": "9adc6d8c-f640-4953-9e7f-06a14c60a2c4",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1980 Parish+#3-pick for GSW #1 swap. Both teams wanted an upgrade at the pick they preferred; BOS got McHale with #3 and Parish as a bonus. Draft-night same-tier swap, neither team in distress."
+  },
+  {
+    "trade_id": "838dff7a-7071-4ce4-a9a5-451312008548",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1998 draft-night swap of #6 (Traylor) for #9 (Dirk) + Pat Garrity. Both picked who they preferred; classic same-tier draft-day exchange that became lopsided only because of Dirk outcome."
+  },
+  {
+    "trade_id": "ee1b1cd5-7267-4f01-9aa7-1f3243aaeb96",
+    "motivation": "teardown",
+    "source": "hand",
+    "reasoning": "Kobe/Divac 1996. Charlotte was rebuilding, shipped #13 pick rights (Kobe) for veteran Vlade Divac. Picking assets over a vet from the Hornets' side is the driver."
+  },
+  {
+    "trade_id": "bda8f3e0-3f23-4c92-b25e-db9c5bfe4c84",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "SEA sent 1990 #1 pick (Payton) to GSW for Alton Lister; pick swap + vet role player. Neither side distressed — Seattle was adding a frontcourt piece on a pick bet that paid out massively."
+  },
+  {
+    "trade_id": "f696d8e9-4d51-4130-908e-4d028dc820ae",
+    "motivation": "teardown",
+    "source": "hand",
+    "reasoning": "Harden→HOU 2012. OKC refused to pay luxury tax on a 4th max extension. Cap-driven sale of an ascending young star; canonical teardown per signature doc."
+  },
+  {
+    "trade_id": "fec16875-dbef-42bf-886c-d3bc1edf37cb",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1987 Pippen/Polynice draft-night swap. SEA took Pippen at #5 for CHI, CHI took Polynice at #8. Both teams got the player they wanted pre-arranged; picks went at the same draft."
+  },
+  {
+    "trade_id": "ca73d478-c0de-4f10-b95b-2cb5bf924ac2",
+    "motivation": "forced_exit",
+    "source": "hand",
+    "reasoning": "Carmelo Anthony formally requested out of Denver for months; trade happened at Feb 2011 deadline when he would not sign an extension with DEN. Classic disgruntled-star exit."
+  },
+  {
+    "trade_id": "21959ad8-e8a2-40c9-b823-54dc4eb9dbaa",
+    "motivation": "forced_exit",
+    "source": "hand",
+    "reasoning": "LeBron 2010 Decision sign-and-trade. LeBron as a free agent demanded the move; CLE cooperated only to get trade compensation (cash + picks). Driver = LeBron leaving CLE."
+  },
+  {
+    "trade_id": "a8be2e2b-1d71-4536-bfd2-f70bf1b24893",
+    "motivation": "forced_exit",
+    "source": "hand",
+    "reasoning": "T-Mac 2000 sign-and-trade to Orlando. McGrady signed with ORL as RFA-adjacent; TOR received compensation only because McGrady was leaving. Player-driven departure."
+  },
+  {
+    "trade_id": "a18295cd-21f8-4aac-88ec-181055c80659",
+    "motivation": "rental",
+    "source": "hand",
+    "reasoning": "Feb 2012 deadline rental: NJ acquires Gerald Wallace to push for playoffs, gives up a lottery-protected pick that became Damian Lillard. Classic deadline win-now move gone wrong."
+  },
+  {
+    "trade_id": "c7c4095a-69e4-4ddb-8347-37949a342bdb",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1982 Wilkins draft rights to ATL for John Drew + Freeman Williams + cash. Jazz took veteran production over unproven #3 pick; same-tier swap in the moment."
+  },
+  {
+    "trade_id": "d30d830a-c75a-43a9-88a5-61024c781472",
+    "motivation": "rental",
+    "source": "hand",
+    "reasoning": "Feb 1980 deadline: LAL sent vet Don Ford + 1982 pick (became Worthy) to CLE for Butch Lee. Cleveland took a rental / vet flip; pick became lottery-winning Worthy selection."
+  },
+  {
+    "trade_id": "73a663ea-bc89-440d-bcd5-9558137cfc2c",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1979 draft-pick swap #4 for #5 + cash. Both teams got the player they preferred (Moncrief vs Kelser); same-tier exchange."
+  },
+  {
+    "trade_id": "ef25652b-d249-4b74-a0eb-21f3db8f50a7",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1976 minor pick-swap deal. Second-round picks + vet Fred Carter exchanged. No distress on either side; picks-for-a-vet role-player swap."
+  },
+  {
+    "trade_id": "37678ad0-18f1-4b9c-ab4f-5a2e4e4fc222",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2013 Gobert/Erick Green pure draft-night pick swap. Neither team under pressure; different positional preferences."
+  },
+  {
+    "trade_id": "056936fa-7c9d-42a6-972c-92378ea47ef6",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1980 POR-DEN pick-swap rights trade. Future 1983 pick became Drexler. Standard same-era pick exchange, not distressed."
+  },
+  {
+    "trade_id": "460d0846-1de3-4506-9bce-32d7d980b270",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1984 Cummings/Pierce/Hodges for Marques Johnson package. Two-way star swap, both teams thought they won. Same-tier vet exchange."
+  },
+  {
+    "trade_id": "bbref-2019-07-10-8993a5ee",
+    "motivation": "star_acquisition",
+    "source": "hand",
+    "reasoning": "Paul George trade 2019. LAC contending, bought PG to pair with Kawhi (who conditioned his signing on PG). OKC's return (SGA + historic pick haul) shows contender-buys-star dynamic even as OKC kept the assets for later teardown."
+  },
+  {
+    "trade_id": "aa8a60fb-424f-4252-9e90-bb038ed17e9f",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "Tim Hardaway Sr. to MIA 1996 for Kevin Willis + Bimbo Coles. Big-name-for-big-name vet swap, both teams trying to improve; neither distressed."
+  },
+  {
+    "trade_id": "3a5ebd3d-2d78-4eaa-a237-4d0b751c41cf",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2004 draft-night pick swap between ORL and DEN; #20 rights for future lottery-protected pick. Standard pre-draft agreement."
+  },
+  {
+    "trade_id": "85b14c04-604c-4574-acc4-97e4aaff9c04",
+    "motivation": "salary_dump",
+    "source": "hand",
+    "reasoning": "Feb 2011 NJ wanted to shed Troy Murphy's expiring for future flexibility/pick. GSW took on Murphy, sent Brandan Wright + Dan Gadzuric + 2012 R2 (Draymond) — small salary-ballast flip."
+  },
+  {
+    "trade_id": "d7e95476-6a30-42bc-b1dd-9776a00c4236",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "Tatum/Fultz 2017 #1-for-#3 draft-night pick swap + future pick. Both front offices thought they won; textbook same-tier pick reshuffle that resolved lopsidedly."
+  },
+  {
+    "trade_id": "3b678ac7-5e9f-4c51-aaf8-d1a2df5aee99",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "Marcus Camby/McDyess 2002. NYK wanted to pair McDyess with their core; DEN added Camby + Nene. Big-vet-for-big-vet swap, both sides active."
+  },
+  {
+    "trade_id": "52931a2c-4dd4-415e-8414-069213743808",
+    "motivation": "forced_exit",
+    "source": "hand",
+    "reasoning": "Grant Hill 2000 sign-and-trade to ORL. Hill signed as FA with ORL; DET received compensation because Hill was leaving. Player-driven departure."
+  },
+  {
+    "trade_id": "878b605e-3383-41bb-833b-51553d9574f3",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "Feb 1980 Alex English to DEN for George McGinnis + pick. Big-name vet swap; IND wanted McGinnis back (previous star), DEN got younger English. Same-tier exchange."
+  },
+  {
+    "trade_id": "8b60fabf-bdbc-4afa-9666-723f9f8c53bf",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "Feb 1982 Laimbeer/Kenny Carr for Phil Hubbard/Mokeski + picks. Mid-season role-player swap with future picks attached; no distress signal."
+  },
+  {
+    "trade_id": "99685b35-dc90-4c52-ade1-c972edf78d0f",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1978 PHI/LAC World B. Free trade + future 1984 pick (Barkley). Standard role-swap with a pick attached; neither team in distress."
+  },
+  {
+    "trade_id": "3f773174-ab3a-486d-bc9d-f467effaf04f",
+    "motivation": "salary_dump",
+    "source": "hand",
+    "reasoning": "Kyle Lowry to TOR 2012. HOU wanted cap flexibility for Asik/Lin/their Dwight pursuit; shipped Lowry (under contract, clashing with coach) for expiring + a lottery-protected pick. Clearing money with asset attached."
+  },
+  {
+    "trade_id": "16d7f3e8-2d30-4d74-9c86-763982de365f",
+    "motivation": "forced_exit",
+    "source": "hand",
+    "reasoning": "CP3 to LAC Dec 2011. Paul demanded out of NOH after the league-vetoed Lakers trade. Player-driven forced exit; the Hornets (NBA-owned at time) salvaged what they could."
+  },
+  {
+    "trade_id": "0fb0ccab-36e5-484c-acf0-985500b50846",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1979 Dantley-for-Haywood vet swap. Both teams swapping problem vets / new starts. Same-tier exchange, no clear distress."
+  },
+  {
+    "trade_id": "333b650d-cf08-4cf6-87e4-a6d3b78b17af",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1986 SEA-PHI future pick swap (became Kemp). PHI traded #1 future pick for vet center Clemon Johnson; role-player-for-future-pick."
+  },
+  {
+    "trade_id": "6704ba59-a51e-42e3-8a4a-8e7a016a3d08",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "Feb 1988 PHX/CLE Larry Nance blockbuster. Both teams dealing established players (Nance/Majerle pick/West vs KJ/Corbin). Star-for-star vet swap, no forced exit."
+  },
+  {
+    "trade_id": "359cc6a1-a706-4334-909e-3ea03eaddc72",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1986 CLE/DAL Mark Price draft-night rights trade. Low-stakes pick exchange — DAL passed on Price's rights for a future R2. Standard draft-night."
+  },
+  {
+    "trade_id": "bfba80c3-5f29-432a-b23c-dc37db5086ee",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "Webber/Penny 1993 draft-night swap + 3 future picks. Both teams got their preferred player; GSW wanted Webber, ORL wanted Penny with picks. Classic pre-arranged draft swap."
+  },
+  {
+    "trade_id": "390e1a59-933d-456f-ba97-6c5c0fc96da7",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1983 Norm Nixon to LAC for Byron Scott + Swen Nater. Vet PG for young guard + center; both teams saw positional fit upgrade. Same-tier swap."
+  },
+  {
+    "trade_id": "aa83fecb-c8f1-4690-b99c-be395367ef7a",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2001 draft-night pick exchange (Jefferson/Griffin + Collins). Pre-arranged pick swap, both teams took the player they targeted."
+  },
+  {
+    "trade_id": "02c9d56c-fa0f-4c39-bbb1-21e73daec8c0",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1984 Kiki Vandeweghe to POR for Lever/Natt/Cooper + picks. Big multi-player vet swap, no distress signal."
+  },
+  {
+    "trade_id": "85d07b9a-5049-4cde-9a55-c36748d07cd0",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2004 Jason Terry for Antoine Walker + Delk + pick. Same-tier vet swap after Walker's uneven Dallas stint; both teams reshaping."
+  },
+  {
+    "trade_id": "31d17e6f-6da6-495b-9725-c0ae79074a17",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1996 Felton Spencer for Brooks Thompson + future pick that became Kirilenko. Routine role-player + future pick swap."
+  },
+  {
+    "trade_id": "fdb3c506-1f42-412a-b1a9-8b7a7d349ab4",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1987 Artis Gilmore return to CHI. Second-round pick for a vet center. Low-stakes role swap; Gilmore was near retirement."
+  },
+  {
+    "trade_id": "bbref-2019-07-06-12a6b5a4",
+    "motivation": "star_acquisition",
+    "source": "hand",
+    "reasoning": "Jimmy Butler sign-and-trade to MIA 2019. Heat (contender-adjacent) acquired the star; Butler signed willing — this was the destination he wanted. MIA-as-buyer is the driver."
+  },
+  {
+    "trade_id": "efecc03a-98f7-4312-8a6e-3e6d39438671",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1986 Brad Daugherty #1 pick for Roy Hinson. Both teams thought they won (PHI got a proven big, CLE got #1). Same-tier swap."
+  },
+  {
+    "trade_id": "d833bc09-a672-41f6-a722-c10685d41920",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1982 Steve Hayes for a distant 1986 R2 pick (Rodman). Low-stakes vet-for-future-pick; no distress."
+  },
+  {
+    "trade_id": "fe020cff-d497-404d-8ef1-d472cf12df84",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "Feb 1994 Hornacek for Jeff Malone + pick. Two in-prime vets swap homes; both teams were active, not distressed."
+  },
+  {
+    "trade_id": "564a1713-1b08-4003-bb10-766410b10e1e",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1980 Jeff Ruland draft rights. Second-round pick swap, minor pre-draft deal."
+  },
+  {
+    "trade_id": "d3ebb4d7-8e7d-40c1-93eb-aceb13478857",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2013 Brandon Jennings for Brandon Knight + Middleton + Kravtsov. Both teams trying to upgrade PG; same-tier swap."
+  },
+  {
+    "trade_id": "87c2a26f-4314-40a5-b285-4496732d6c29",
+    "motivation": "forced_exit",
+    "source": "hand",
+    "reasoning": "Dwight Howard 4-team trade to LAL Aug 2012. Howard demanded out of ORL after a year-long saga (Dwightmare). Classic superstar forced exit; ORL accepted multi-team return."
+  },
+  {
+    "trade_id": "9e6a92af-5177-4bc8-94f5-739713c475d6",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1980 POR/LAL swap with Brewer + future Kersey pick. Minor role-player / future-pick trade."
+  },
+  {
+    "trade_id": "9db7c066-58ea-4ade-9aec-91ac9428bfd5",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2002 Stackhouse/Hamilton swap. Both teams swapping volume-scoring guards who didn't fit; same-tier vet exchange."
+  },
+  {
+    "trade_id": "99d69e1a-79b9-47a7-82c7-7d7d708c0d39",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2004 Deng/Vroman draft-night pick swap + cash. Pre-arranged pick exchange, both got preferred player."
+  },
+  {
+    "trade_id": "83bdc81e-de5b-4293-ae80-f9b055c7d868",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2006 Aldridge/Tyrus Thomas draft-night swap + R2 pick. Both teams got their target."
+  },
+  {
+    "trade_id": "c86fa4c1-d8da-4078-bdea-0b97197206d4",
+    "motivation": "salary_dump",
+    "source": "hand",
+    "reasoning": "Eddy Curry to NYK 2005. CHI wanted out of a heart-condition contract with Curry; shipped him for Tim Thomas expiring + 4 picks (became Noah + Aldridge path). Cap/risk-clearing with asset attached."
+  },
+  {
+    "trade_id": "93a81ff5-027a-45c0-bb53-5adaf3a43add",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2006 Rajon Rondo #21 pick for Brian Grant + future protected pick. Draft-night rights move; BOS was pre-KG era, PHX trading a late R1."
+  },
+  {
+    "trade_id": "7070f260-4a31-4e55-8074-b582d23772e6",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2007 Kurt Thomas + 2 future picks (Ibaka + Pondexter) for a R2. SEA/OKC absorbed Thomas' contract as a pick-banking play — early rebuild asset-accumulation, closer to teardown but PHX wasn't distressed either. Same-tier pick harvest."
+  },
+  {
+    "trade_id": "5bd67e4e-5bc0-4a37-9133-0b7dc628c4f0",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "Jan 1977 Truck Robinson/Tom Henderson vet swap + pick swap. Mid-season role-player exchange, both sides active."
+  },
+  {
+    "trade_id": "53fb1654-6be8-4c58-a2fe-4d4f5df1a084",
+    "motivation": "teardown",
+    "source": "hand",
+    "reasoning": "Pierce/KG to BKN 2013. Boston hit reset — Rondo was on his own, ownership wanted picks for a rebuild. Canonical teardown by BOS, BKN was the win-now buyer. Driver = Boston selling."
+  },
+  {
+    "trade_id": "565784fb-6f5a-4427-a4e0-21c4663af2c9",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1992 Mookie Blaylock + Roy Hinson for Rumeal Robinson. Mid-tier vet-for-vet; ATL took upside, NJ took a known guard."
+  },
+  {
+    "trade_id": "1601f691-b074-42ee-8bf5-32365e344921",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1997 Bobby Jackson + James Cotton + R2 (Rashard Lewis). Low-stakes draft-night rights / pick move; no team in distress."
+  },
+  {
+    "trade_id": "bbref-2019-07-06-482f6ace",
+    "motivation": "forced_exit",
+    "source": "hand",
+    "reasoning": "AD to LAL 2019. Davis formally requested via Rich Paul months prior; NOP extracted max package. Canonical forced_exit per signature doc."
+  },
+  {
+    "trade_id": "5e0cbc00-8400-4997-912d-3fe1132249c7",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1994 Steve Smith + Grant Long for Kevin Willis + future pick. Same-tier vet exchange, both active teams."
+  },
+  {
+    "trade_id": "8647c7cf-9020-4b2b-863c-74056691a1a8",
+    "motivation": "forced_exit",
+    "source": "hand",
+    "reasoning": "Chris Bosh to MIA 2010 sign-and-trade. Bosh chose MIA as FA to form Big 3 with LeBron/Wade; TOR got compensation only because Bosh was leaving. Player-driven departure."
+  },
+  {
+    "trade_id": "c93d41bd-640e-488a-b6a1-771b1e9f847b",
+    "motivation": "star_acquisition",
+    "source": "hand",
+    "reasoning": "Ray Allen to BOS 2007 draft night. Ainge's contender-build move (followed by KG weeks later). BOS-as-buyer, SEA in rebuild mode selling the vet."
+  },
+  {
+    "trade_id": "a58d3c9c-3101-4ea2-8d07-3de31cbf9d3c",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1998 Steve Nash #15 pick to PHX for 1999 R1 (became Marion). Minor pre-draft deal; DAL hadn't seen Nash rise yet."
+  },
+  {
+    "trade_id": "a58a7b89-cac6-45e7-bc60-ebda5c547c7d",
+    "motivation": "salary_dump",
+    "source": "hand",
+    "reasoning": "Feb 1979 Bob McAdoo to BOS for 1979 #3 pick (Cartwright). NYK was clearing McAdoo's big contract in a cost-motivated move; Boston paid with a high pick. Salary-plus-asset dump."
+  },
+  {
+    "trade_id": "10e82e1e-e515-4775-bf21-d74c42969c93",
+    "motivation": "salary_dump",
+    "source": "hand",
+    "reasoning": "Zach Randolph to MEM 2009 for Quentin Richardson. Pure salary swap — LAC wanted out of Z-Bo's contract, MEM took a chance. Classic salary-driven with modest return."
+  },
+  {
+    "trade_id": "eb3ec98b-91d3-4977-a048-19c210f8b30a",
+    "motivation": "salary_dump",
+    "source": "hand",
+    "reasoning": "Feb 2019 Zubac to LAC. LAL offloaded Zubac + Beasley for Muscala's expiring to open cap space for 2019 FA (AD/Kawhi pursuit). Salary/flexibility clearing."
+  },
+  {
+    "trade_id": "bbref-2021-01-16-5559381c",
+    "motivation": "forced_exit",
+    "source": "hand",
+    "reasoning": "Harden to BKN Jan 2021. Harden publicly demanded out of HOU; Rockets extracted a historic pick haul. Classic superstar forced exit per signature doc."
+  },
+  {
+    "trade_id": "9dc42314-eb49-462e-b19a-5f237f6cc43d",
+    "motivation": "forced_exit",
+    "source": "hand",
+    "reasoning": "Jason Kidd to NJ 2001 for Marbury. Kidd requested out of PHX after off-court issues; Marbury had soured in NJ. Two forced exits rolled into one swap — dominant driver was Kidd's PHX departure."
+  },
+  {
+    "trade_id": "ee4f2c3a-9a69-4efd-8bfe-0118957aaac2",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2003 Barbosa draft rights for a future protected pick (became David Lee). Minor draft-night pick swap, low-stakes."
+  },
+  {
+    "trade_id": "3043b9c6-1108-4b59-b4db-8ea7103066be",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1978 Bobby Jones + Ralph Simpson to PHI for George McGinnis + future pick. Big-vet-for-big-vet swap, no distress. (PHI had acquired McGinnis two years earlier; this was a mutual reset.)"
+  },
+  {
+    "trade_id": "9ef13bab-62c5-4997-93d2-492a559593fb",
+    "motivation": "forced_exit",
+    "source": "hand",
+    "reasoning": "Shaq to MIA 2004. Shaq demanded out of LAL after the post-Finals Kobe/Shaq feud; Kupchak picked Kobe. Player-driven departure, LAL got Odom/Butler/Grant + pick as compensation."
+  },
+  {
+    "trade_id": "89525030-69f7-4152-b0ca-71f0fa9b69f5",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2004 Gary Payton/Rick Fox to BOS for Chris Mihm + Chucky Atkins + future pick (Rondo). Vet swap between active rosters."
+  },
+  {
+    "trade_id": "30e16c4c-0a2e-47d6-aa55-e11faca07ac5",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1996 Ray Allen/Marbury draft-night swap #4-for-#5 + future pick. Both teams drafted their preferred player pre-arranged."
+  },
+  {
+    "trade_id": "b3020727-7107-4214-9298-a1cb576020e0",
+    "motivation": "forced_exit",
+    "source": "hand",
+    "reasoning": "Barkley to PHX 1992. Barkley requested a trade out of Philly; PHI got Hornacek + Lang + Perry. Player-driven exit."
+  },
+  {
+    "trade_id": "65355fae-f067-475e-a366-5764f5ca5021",
+    "motivation": "salary_dump",
+    "source": "hand",
+    "reasoning": "Feb 2011 Mo Williams for Baron Davis + 2011 #1 pick (Kyrie). LAC wanted out of Baron Davis' remaining contract; CLE took the money + pick for a point-guard downgrade. Cap-clearing with asset attached."
+  },
+  {
+    "trade_id": "ffe2c77b-698c-4110-8824-fc5475ec0767",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1983 Billy Knight for Vince Taylor + future R1 (Vern Fleming). Minor vet-for-pick role swap."
+  },
+  {
+    "trade_id": "6417c29d-3206-467b-9bec-9c9c1f19647d",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1988 Otis Thorpe for Rodney McCray + Petersen. Same-tier frontcourt vet swap between active teams."
+  },
+  {
+    "trade_id": "c3eef1ea-998c-465f-be4a-6fbbe433bb1f",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2004 Kenyon Martin sign-and-trade to DEN for 3 future first-rounders. Mixed signals — could be read as NJ moving on from K-Mart (salary) but pick-for-vet structure is closer to a reshuffle/FA-departure than a salary dump. Treating as reshuffle since it was a sign-and-trade for a fair contract."
+  },
+  {
+    "trade_id": "18064ad7-dc3a-42c9-8dbd-5e8cdcdc978f",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2001 Elton Brand to LAC for Tyson Chandler #2 rights + Brian Skinner. CHI swapped established star for high-upside pick. Young rebuild signal but not a fire sale; closer to a reset swap."
+  },
+  {
+    "trade_id": "bf1cd7c2-d008-4137-9930-2cf91aa6f8ba",
+    "motivation": "star_acquisition",
+    "source": "hand",
+    "reasoning": "Kevin Love to CLE Aug 2014 (Wiggins + Bennett + future pick). CLE was all-in with LeBron returned; bought a star to contend. Young-for-star contender move."
+  },
+  {
+    "trade_id": "22737723-c2e5-4eb6-9bcf-259cc4c00c93",
+    "motivation": "star_acquisition",
+    "source": "hand",
+    "reasoning": "Feb 2004 Rasheed Wallace to DET (3-team). DET was a playoff team that bought Sheed as the final championship piece; won title months later. Contender-buys-star at deadline."
+  },
+  {
+    "trade_id": "638c53f8-32a7-44bd-aff3-8eaaa345b863",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2001 Pau Gasol #3 pick/rights + Brevin Knight + Lorenzen Wright for Shareef Abdur-Rahim + Tinsley. Draft-night trade converting Shareef into prospects; VAN was mid-tier selling a good-but-not-great vet for upside — reshuffle rather than teardown."
+  },
+  {
+    "trade_id": "adf185bc-b62e-4fa8-a656-7e09adef49ff",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1986 Sabonis pick rights swap. Draft pick exchange between non-distressed teams."
+  },
+  {
+    "trade_id": "ebde7ef3-28b1-4f95-819e-49c0c4977493",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1988 Oakley/Cartwright draft-night swap + picks. Big-for-big vet exchange; both teams active trying to fit roster."
+  },
+  {
+    "trade_id": "e22ccc02-2fba-4973-9cad-c338afcde420",
+    "motivation": "star_acquisition",
+    "source": "hand",
+    "reasoning": "Moses Malone to PHI 1982. Reigning MVP acquired by the Sixers, who went on to win title. Classic contender buys a star."
+  },
+  {
+    "trade_id": "db641ce6-56d5-4fc1-b16d-20dc8d29d811",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2000 Maggette/Dooling/Strong for a package of picks ORL had accumulated. Multi-pick / multi-vet role-swap; no single distress signal."
+  },
+  {
+    "trade_id": "e9013144-f786-4e33-8f01-39f45741cf9b",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1983 David Thirdkill + future R2 (Hornacek) for R1 and a future R2. Minor pick-swap, no distress."
+  },
+  {
+    "trade_id": "5def6e36-90ea-4508-a0d2-c56d132ea417",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1986 Dale Ellis for Al Wood. Straight vet-for-vet swap, both teams trying positional fit."
+  },
+  {
+    "trade_id": "48044b57-5341-4020-a830-f70e435e7f0d",
+    "motivation": "forced_exit",
+    "source": "hand",
+    "reasoning": "Dec 2004 Vince Carter to NJ. VC had publicly loafed in Toronto and forced the trade; TOR received Mourning (who refused to report), Eric Williams, Aaron Williams + 2 R1s. Player-driven exit."
+  },
+  {
+    "trade_id": "df005e30-13e5-4753-8659-fcea1bf4a4c7",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2005 Deron Williams/Martell Webster #3-for-#6 draft-night swap + future pick. Pre-arranged swap, both took their preferred player."
+  },
+  {
+    "trade_id": "5f0db2cb-0ba7-4d20-a181-56a156d5a983",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1981 Vinnie Johnson for Greg Kelser. Straight vet swap, no distress signal."
+  },
+  {
+    "trade_id": "a1f27dc4-7b81-467e-8c02-ffb0e392a039",
+    "motivation": "star_acquisition",
+    "source": "hand",
+    "reasoning": "Dennis Johnson to BOS 1983. BOS had just lost to 76ers in playoffs; Red Auerbach acquired DJ to pair with Bird/Parish/McHale. Contender-buys-vet-star."
+  },
+  {
+    "trade_id": "267b62b2-763b-49ce-93dc-0db110b99c4f",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2011 Kawhi draft-night rights to SAS for George Hill. IND wanted a starting PG; SAS took a chance on the #15 pick. Pre-arranged pick swap, not distressed."
+  },
+  {
+    "trade_id": "c4829649-f508-445c-9ee2-e7c2e314f690",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1984 Dan Roundfield for Cliff Levingston + Antoine Carr + 2 R2 picks. Vet-for-youth swap; ATL liked the depth, DET wanted the established vet."
+  },
+  {
+    "trade_id": "fca09b92-827b-434f-b408-4dc4b47db82b",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1997 Jim Jackson/Montross/Thomas/Parker for Cage/MacLean/Harris/Van Horn. Big multi-player vet/rookie swap, both active teams retooling."
+  },
+  {
+    "trade_id": "41119b15-d391-4fe5-990e-aa2ab5c401c5",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1998 Chris Webber for Mitch Richmond + Otis Thorpe. Star-for-star vet swap; Webber had clashed in WAS but wasn't demanding out publicly, and Richmond was a comparable name. Same-tier exchange."
+  },
+  {
+    "trade_id": "d0a65c49-4ae5-490b-ab10-1881bd363dee",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1990 Kenny Smith for John Lucas + McCormick + future pick. Mid-tier vet PG swap, both teams retooling."
+  },
+  {
+    "trade_id": "21805731-4ff3-4af7-8008-4f06aeb1d7d1",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "Sept 1990 Kenny Smith swap (paired/duplicate of June entry; same content). Same reasoning as the June Kenny Smith trade — mid-tier vet PG swap between active teams."
+  },
+  {
+    "trade_id": "cdcbf1d2-8321-4aa0-a991-2cf4790dcaad",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "2008 Jermaine O'Neal for T.J. Ford + Rasho + Hibbert. Big vet-for-package swap; IND was shedding an aging star for youth + pick, but not in full teardown — closer to a reset."
+  },
+  {
+    "trade_id": "ad2e292d-4dad-49ed-b222-a77ea472e958",
+    "motivation": "reshuffle",
+    "source": "hand",
+    "reasoning": "1980 Vandeweghe/Blackman draft pick swap. Future R1s exchanged both ways; standard pre-draft arrangement."
+  }
+]
