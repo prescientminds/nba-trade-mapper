@@ -50,12 +50,14 @@ const edgeTypes = {
   proposedAsset: ProposedAssetEdge,
 };
 
+// Scores here are absolute, so unlike the old fixture the top one is NOT 1.0 —
+// that shape only ever came out of v1's within-set normalization.
 const SAMPLE_COMPARABLES: Comparable[] = [
-  { id: 'bbref-2023-07-06-3c56d540', matchScore: 1.0, headline: 'Sample comparable #1' },
-  { id: 'bbref-2023-07-06-1c4ea9b0', matchScore: 0.92, headline: 'Sample comparable #2' },
-  { id: 'bbref-2023-07-06-9eb5a3e6', matchScore: 0.78, headline: 'Sample comparable #3' },
-  { id: 'bbref-2023-07-06-500239d4', matchScore: 0.65, headline: 'Sample comparable #4' },
-  { id: 'bbref-2023-07-06-b7788d55', matchScore: 0.41, headline: 'Sample comparable #5' },
+  { id: 'bbref-2023-07-06-3c56d540', matchScore: 0.88, band: 'strong', structural: true, matchedOn: ['star-led package'], headline: 'Sample comparable #1' },
+  { id: 'bbref-2023-07-06-1c4ea9b0', matchScore: 0.74, band: 'strong', structural: true, matchedOn: ['same CBA era'], headline: 'Sample comparable #2' },
+  { id: 'bbref-2023-07-06-9eb5a3e6', matchScore: 0.61, band: 'loose', structural: true, matchedOn: [], headline: 'Sample comparable #3' },
+  { id: 'bbref-2023-07-06-500239d4', matchScore: 0.52, band: 'loose', structural: true, matchedOn: [], headline: 'Sample comparable #4' },
+  { id: 'bbref-2023-07-06-b7788d55', matchScore: 0.33, band: 'weak', structural: true, matchedOn: [], headline: 'Sample comparable #5' },
 ];
 
 function CanvasInner() {

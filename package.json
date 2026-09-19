@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "update": "npx tsx scripts/scrape-today.ts",
-    "update:full": "npx tsx scripts/scrape-bbref-trades.ts && npx tsx scripts/enrich-picks.ts"
+    "update:full": "npx tsx scripts/scrape-bbref-trades.ts && npx tsx scripts/enrich-picks.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.95.3",
@@ -40,6 +42,7 @@
     "sharp": "^0.34.5",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.2.7"
   }
 }

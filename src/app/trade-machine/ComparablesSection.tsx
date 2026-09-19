@@ -12,11 +12,31 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import {
-  findComparables,
+  findComparablesDetailed,
+  BAND_LABELS,
   type Comparable,
   type TradeProfile,
+  type CalibrationArtifact,
 } from '@/lib/comparables';
 import { buildProposedProfileForSlots, type BuilderState } from '@/lib/trade-builder';
+
+// Module-level cache, same pattern as loadOwnership() in trade-builder: the
+// calibration is a static 12 KB artifact and only needs fetching once per page
+// load, not once per mount. Both the standalone page and the canvas side panel
+// render this component, and without the cache they would each fetch it.
+let calibrationCache: CalibrationArtifact | null = null;
+let calibrationPromise: Promise<CalibrationArtifact> | null = null;
+function loadCalibration(): Promise<CalibrationArtifact> {
+  if (calibrationCache) return Promise.resolve(calibrationCache);
+  if (calibrationPromise) return calibrationPromise;
+  calibrationPromise = fetch('/data/comparables-calibration.json')
+    .then((r) => r.json())
+    .then((j: CalibrationArtifact) => {
+      calibrationCache = j;
+      return j;
+    });
+  return calibrationPromise;
+}
 
 export default function ComparablesSection({
   slots,
@@ -43,10 +63,29 @@ export default function ComparablesSection({
     return m;
   }, [candidates]);
 
-  const results: Comparable[] = useMemo(() => {
-    if (!proposed || !candidates) return [];
-    return findComparables(proposed, candidates, { topN: 5 });
-  }, [proposed, candidates]);
+  const [calibration, setCalibration] = useState<CalibrationArtifact | null>(null);
+  useEffect(() => {
+    let live = true;
+    loadCalibration()
+      .then((c) => {
+        if (live) setCalibration(c);
+      })
+      .catch(() => {
+        // Without the calibration there is no absolute scale. Showing a
+        // rank-within-the-five instead is exactly the bug v2 replaces, so the
+        // section stays empty and says so rather than showing a fake number.
+      });
+    return () => {
+      live = false;
+    };
+  }, []);
+
+  const detailed = useMemo(() => {
+    if (!proposed || !candidates || !calibration) return null;
+    return findComparablesDetailed(proposed, candidates, { topN: 5, calibration });
+  }, [proposed, candidates, calibration]);
+
+  const results: Comparable[] = useMemo(() => detailed?.comparables ?? [], [detailed]);
 
   useEffect(() => {
     onResultsChange?.(results);
@@ -65,19 +104,52 @@ export default function ComparablesSection({
       >
         Historical Comparables
       </h2>
-      {!candidates && (
+      {(!candidates || !calibration) && (
         <div style={{ fontSize: 13, color: 'var(--text-tertiary)' }}>
           Loading historical trades…
         </div>
       )}
-      {candidates && !proposed && (
+      {candidates && calibration && !proposed && (
         <div style={{ fontSize: 13, color: 'var(--text-tertiary)' }}>
           Build a trade on both sides to see its five closest historical matches.
         </div>
       )}
-      {candidates && proposed && results.length === 0 && (
+      {candidates && calibration && proposed && results.length === 0 && (
         <div style={{ fontSize: 13, color: 'var(--text-tertiary)' }}>
           No comparables — try adjusting the players involved.
+        </div>
+      )}
+
+      {/* Say plainly when nothing in 1,570 trades is structurally like this,
+          rather than presenting the five least-bad options as precedents. */}
+      {detailed?.noStructuralPrecedent && results.length > 0 && (
+        <div
+          style={{
+            fontSize: 12,
+            color: 'var(--text-secondary)',
+            background: 'rgba(249,199,79,0.08)',
+            border: '1px solid rgba(249,199,79,0.25)',
+            borderRadius: 'var(--radius-md)',
+            padding: '8px 10px',
+            marginBottom: 12,
+            lineHeight: 1.45,
+          }}
+        >
+          No historical trade is structurally like this one. The closest matches
+          below are the nearest available, not precedents.
+        </div>
+      )}
+
+      {detailed && !detailed.noStructuralPrecedent && results.length > 0 && (
+        <div
+          style={{
+            fontSize: 11,
+            color: 'var(--text-muted)',
+            fontFamily: 'var(--font-mono)',
+            marginBottom: 10,
+          }}
+        >
+          {detailed.proposedArchetype.replace(/_/g, ' ')} · {detailed.gatedCandidateCount} structurally similar trades considered
         </div>
       )}
       <div
@@ -98,6 +170,13 @@ export default function ComparablesSection({
     </section>
   );
 }
+
+const BAND_COLOR: Record<Comparable['band'], string> = {
+  'near-identical': 'var(--accent-teal)',
+  strong: 'var(--accent-teal)',
+  loose: 'var(--accent-blue)',
+  weak: 'var(--text-muted)',
+};
 
 function ComparableCard({ comparable, year }: { comparable: Comparable; year: number | null }) {
   const [expanded, setExpanded] = useState(false);
@@ -135,11 +214,19 @@ function ComparableCard({ comparable, year }: { comparable: Comparable; year: nu
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 12,
-            color: 'var(--accent-blue)',
+            color: BAND_COLOR[comparable.band],
             whiteSpace: 'nowrap',
+            textAlign: 'right',
+            lineHeight: 1.35,
           }}
         >
-          {pct}% match
+          {/* The band leads. The number is detail: "87%" reads as more
+              precision than the model has, "Strong precedent" says what it
+              means. Both are absolute — see calibration.ts. */}
+          <div style={{ fontSize: 10, letterSpacing: '0.04em' }}>
+            {BAND_LABELS[comparable.band]}
+          </div>
+          <div style={{ opacity: 0.75 }}>{pct}%</div>
         </div>
       </div>
 
@@ -149,10 +236,13 @@ function ComparableCard({ comparable, year }: { comparable: Comparable; year: nu
         </div>
       )}
 
-      {/* Always-on factor chips */}
-      {factors && <FactorChips factors={factors} />}
+      {/* Why this matched, in the engine's own terms. The raw ΔBPM / Δage
+          chips moved into the expanded rationale — they describe two players,
+          while the match is made on seventeen features. */}
+      {comparable.matchedOn.length > 0 && <MatchedOnChips reasons={comparable.matchedOn} />}
 
       {/* Click-to-expand rationale */}
+      {expanded && factors && <FactorChips factors={factors} />}
       {expanded && factors && (
         <ExpandedRationale
           factors={factors}
@@ -174,6 +264,30 @@ function ComparableCard({ comparable, year }: { comparable: Comparable; year: nu
           click for details
         </div>
       )}
+    </div>
+  );
+}
+
+function MatchedOnChips({ reasons }: { reasons: string[] }) {
+  return (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
+      {reasons.map((r) => (
+        <span
+          key={r}
+          style={{
+            fontSize: 10,
+            fontFamily: 'var(--font-mono)',
+            color: 'var(--text-secondary)',
+            background: 'rgba(255,255,255,0.04)',
+            padding: '2px 7px',
+            borderRadius: 999,
+            border: '1px solid var(--border-subtle)',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {r}
+        </span>
+      ))}
     </div>
   );
 }
