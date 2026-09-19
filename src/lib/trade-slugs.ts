@@ -146,8 +146,35 @@ export async function resolveTradeSlug(
   return null;
 }
 
-/** Every canonical slug, for `generateStaticParams` and the sitemap. */
+/** Every canonical slug. Used by the sitemap, which lists the full corpus. */
 export async function allTradeSlugs(league: League = 'NBA'): Promise<string[]> {
   const { idToSlug } = await getSlugMaps(league);
   return [...idToSlug.values()];
+}
+
+/**
+ * Slugs for trades on or after `sinceDate`, for `generateStaticParams`.
+ *
+ * Prerendering all 1,963 trades produced 151 MB of HTML and RSC payloads in
+ * every deployment — on its own, roughly as much as every image the site
+ * serves. Deployment Storage is billed as output size x retained deployments
+ * x retention days, so that figure was multiplied by every build kept.
+ *
+ * Nothing is lost by narrowing it. `dynamicParams` is true, so an older trade
+ * still renders on demand and is then held by the CDN; the sitemap still
+ * lists every slug, so none of them drop out of the index. The only cost is
+ * one cold render the first time an old page is requested.
+ */
+export async function recentTradeSlugs(
+  sinceDate: string,
+  league: League = 'NBA',
+): Promise<string[]> {
+  const { idToSlug, entries } = await getSlugMaps(league);
+  const out: string[] = [];
+  for (const entry of entries) {
+    if (entry.date < sinceDate) continue;
+    const slug = idToSlug.get(entry.id);
+    if (slug) out.push(slug);
+  }
+  return out;
 }
