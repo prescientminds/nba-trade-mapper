@@ -1,0 +1,36 @@
+# Keep out of the Vercel deployment upload.
+#
+# Deployment Storage is billed as (output size x retained deployments x retention
+# days), so every megabyte here is multiplied by every build we keep. Nothing
+# listed below is imported by src/ or read at build time -- verified with:
+#   grep -rn -E "(content|card-prototypes|brand|data|docs|prompts|kalshi)/" src/
+# which returns one comment line and no imports.
+#
+# EVERY pattern is anchored with a leading slash. An unanchored `data/` would
+# also match `public/data/` and strip the app's entire JSON layer.
+
+# Design experiments, referenced nowhere in src/ (~161 MiB)
+/card-prototypes/
+
+# Scraper source + caches; public/data/ holds everything the app reads (~79 MiB)
+/data/
+
+# Master art for the favicon/watermark generator, a manual devDependency script (~13 MiB)
+/brand/
+
+# Screenshots parked in the repo root (~11 MiB)
+/nba-jam-*.png
+
+# Docs, notes, SQL, specs, tests -- none ship
+/docs/
+/prompts/
+/kalshi/
+/database/
+/tests/
+/test-results/
+/logo-explorations/
+/supabase/
+
+# Local-only
+/.claude/
+/.env.local
