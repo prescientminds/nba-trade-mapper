@@ -278,6 +278,7 @@ async function main() {
     console.log(`    ${will ? '▸' : '·'} ${s.name.padEnd(30)} [${s.league}]${will ? '' : ' SKIP'}`);
   }
   console.log(`  Phase 2b — build-trade-profiles (needs trade_scores from Phase 2)`);
+  console.log(`  Phase 2c — build-comparables-calibration (needs profiles from 2b)`);
   console.log(`  Phase 3 — verify-playoff-data`);
 
   if (args.dryRun) {
@@ -333,6 +334,21 @@ async function main() {
     phases.push(profilesRes);
     if (!profilesRes.ok) {
       console.error(`  ✗ build-trade-profiles failed (${profilesRes.detail}); comparables will serve stale data.`);
+    }
+  }
+
+  // ── Phase 2c ───────────────────────────────────────────────────
+  // The calibration is computed FROM the profiles, so it must follow 2b. A
+  // calibration built against an older corpus still scores, but it scores
+  // against the wrong distribution, which is silent — hence running it every
+  // time the profiles are rebuilt rather than on demand.
+  if (!args.only || args.only.has('build-comparables-calibration')) {
+    console.log(`\n▸ Phase 2c  build-comparables-calibration`);
+    const calRes = runScript('build-comparables-calibration', []);
+    calRes.league = 'NBA';
+    phases.push(calRes);
+    if (!calRes.ok) {
+      console.error(`  ✗ build-comparables-calibration failed (${calRes.detail}); comparables will score against a stale distribution.`);
     }
   }
 
