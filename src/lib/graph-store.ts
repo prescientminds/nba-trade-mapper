@@ -12,7 +12,7 @@ import { getAnyTeam, getAnyTeamDisplayInfo } from './teams';
 import { layoutGraph, layoutPlayerTimeline, resolveNodeOverlaps } from './graph-layout';
 import { searchStaticTrades, staticTradeToTradeWithDetails, loadSeason, loadTrade, loadSearchIndex } from './trade-data';
 import { type League, leagueForTeam } from './league';
-import type { OutgoingPick } from './trade-builder';
+import type { OutgoingPick, LegalityVerdict } from './trade-builder';
 import type { Comparable, TradeProfile } from './comparables';
 import type { VisualSkin } from './skins';
 import { getDraftInfo } from './draft-data';
@@ -403,6 +403,10 @@ export interface HypotheticalTradeNodeData {
   assetCounts: { players: number; picks: number };
   /** Local hint that this node is the active edit target. The canonical writing-node ID lives on the store. */
   isWriting?: boolean;
+  /** CBA verdict published by the side panel once rosters load (the node
+   *  itself holds names only, so it can't compute salaries). Team labels in
+   *  `reason` are already resolved to team names. Undefined = not yet known. */
+  verdict?: LegalityVerdict;
   [key: string]: unknown;
 }
 
@@ -437,6 +441,8 @@ export type SeedInfo =
       hypotheticalNodeId: string;
       sides: HypotheticalSide[];
       comparables: Comparable[];
+      /** Optional — shares created before the verdict landed on the card lack it. */
+      verdict?: LegalityVerdict;
     };
 
 // ── Store shape ──────────────────────────────────────────────────────
@@ -541,6 +547,8 @@ interface GraphState {
    * are recomputed from `sides` so the collapsed card stays in sync.
    */
   updateHypotheticalTrade: (nodeId: string, sides: HypotheticalSide[]) => void;
+  /** Stamp the side panel's legality verdict onto a hypothetical node. */
+  setHypotheticalVerdict: (nodeId: string, verdict: LegalityVerdict | undefined) => void;
   seedChampionshipRoster: (teamId: string, season: string) => Promise<void>;
   expandChampionshipPlayer: (playerName: string) => Promise<void>;
   expandAllChampionshipPlayers: () => Promise<void>;
@@ -1330,6 +1338,19 @@ export const useGraphStore = create<GraphState>((set, get) => ({
         : n,
     );
     set({ nodes });
+  },
+
+  setHypotheticalVerdict: (nodeId: string, verdict: LegalityVerdict | undefined) => {
+    const state = get();
+    const target = state.nodes.find((n) => n.id === nodeId && n.type === 'hypotheticalTrade');
+    if (!target) return;
+    const prev = (target.data as HypotheticalTradeNodeData).verdict;
+    if (prev?.status === verdict?.status && prev?.reason === verdict?.reason) return;
+    set({
+      nodes: state.nodes.map((n) =>
+        n === target ? { ...n, data: { ...(n.data as HypotheticalTradeNodeData), verdict } } : n,
+      ),
+    });
   },
 
   setSelectedLeague: (league: League) => {

@@ -42,7 +42,9 @@ export default function LegalitySection({
         marginTop: 16,
         padding: '12px 16px',
         borderRadius: 'var(--radius-md)',
-        background: bg,
+        // Sticky mode paints the tint over an opaque panel color so rows
+        // scrolling underneath don't show through the banner.
+        background: sticky ? `linear-gradient(${bg}, ${bg}), #0e0e14` : bg,
         border: `1px solid ${border}`,
         display: 'flex',
         alignItems: 'center',
@@ -50,10 +52,9 @@ export default function LegalitySection({
         ...(sticky
           ? {
               position: 'sticky',
-              top: 12,
+              top: 0,
               zIndex: 5,
-              backdropFilter: 'blur(10px)',
-              WebkitBackdropFilter: 'blur(10px)',
+              boxShadow: '0 8px 16px rgba(0,0,0,0.45)',
             }
           : {}),
       }}

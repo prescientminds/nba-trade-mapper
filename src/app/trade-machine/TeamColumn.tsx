@@ -166,13 +166,10 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
         display: 'flex',
         flexDirection: 'column',
         gap: 12,
-        minHeight: 320,
-        // Cap each column at ~40vh so both teams fit in the panel viewport
-        // simultaneously and Team B's picker is always visible without
-        // having to scroll through all of Team A's roster + picks.
-        maxHeight: '40vh',
-        overflowY: 'auto',
-        overscrollBehavior: 'contain',
+        // No inner scroll box. The column grows to its natural height and the
+        // enclosing panel/page is the one scroller — nested scroll areas
+        // trapped the wheel and hid the picks list below the fold.
+        minWidth: 0,
       }}
     >
       <div
@@ -250,9 +247,6 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 2,
-                maxHeight: 280,
-                overflowY: 'auto',
-                paddingRight: 4,
               }}
             >
               {state.roster.map((p) => {
@@ -272,7 +266,7 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
                         gridTemplateColumns: '18px 1fr 30px 44px 56px',
                         alignItems: 'center',
                         gap: 6,
-                        padding: '6px 8px',
+                        padding: '4px 8px',
                         borderRadius: 'var(--radius-sm)',
                         background: selected ? 'rgba(255, 107, 53, 0.1)' : 'transparent',
                         cursor: 'pointer',
@@ -350,7 +344,7 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
           <EmptyHint>No tradeable picks for this team.</EmptyHint>
         )}
         {state.teamId && ownedPicks && ownedPicks.length > 0 && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 2, maxHeight: 240, overflowY: 'auto', paddingRight: 4 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             {ownedPicks.map((p) => {
               const selected = state.picks.some((x) => x.pick_key === p.pick_key);
               const isOwn = p.original_team_id === state.teamId;
@@ -374,7 +368,7 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
                       gridTemplateColumns: '18px 58px 1fr auto',
                       alignItems: 'center',
                       gap: 8,
-                      padding: '5px 8px',
+                      padding: '3px 8px',
                       borderRadius: 'var(--radius-sm)',
                       background: selected ? 'rgba(255, 107, 53, 0.1)' : 'transparent',
                       cursor: 'pointer',

@@ -36,6 +36,7 @@ import {
   MAX_TEAMS_PER_TRADE,
   loadOwnership,
   emptyState,
+  evaluateLegalityForSlots,
   type BuilderState,
   type OwnedPick,
 } from '@/lib/trade-builder';
@@ -88,6 +89,26 @@ function toSide(state: BuilderState, allTeamIds: Array<string | null>, selfIdx: 
 
 const SLOT_LABELS = ['Team A', 'Team B', 'Team C', 'Team D'];
 
+/** Desktop viewports at least this wide get the two-column panel. */
+export const WIDE_PANEL_MIN_VIEWPORT = 1200;
+/** Width of the right-docked panel on desktop for a given viewport width. */
+export function desktopPanelWidth(viewportWidth: number): number {
+  return viewportWidth >= WIDE_PANEL_MIN_VIEWPORT
+    ? Math.min(780, Math.round(viewportWidth * 0.55))
+    : 420;
+}
+
+function useViewportWidth(): number {
+  const [w, setW] = useState(1440);
+  useEffect(() => {
+    const read = () => setW(window.innerWidth);
+    read();
+    window.addEventListener('resize', read);
+    return () => window.removeEventListener('resize', read);
+  }, []);
+  return w;
+}
+
 export default function TradeMachineSidePanel() {
   const writingNodeId = useGraphStore((s) => s.hypotheticalWritingNodeId);
   const node = useGraphStore((s) =>
@@ -96,7 +117,9 @@ export default function TradeMachineSidePanel() {
   const setWritingNode = useGraphStore((s) => s.setHypotheticalWritingNode);
   const updateHypotheticalTrade = useGraphStore((s) => s.updateHypotheticalTrade);
   const setLatestComparables = useGraphStore((s) => s.setLatestComparables);
+  const setHypotheticalVerdict = useGraphStore((s) => s.setHypotheticalVerdict);
   const isMobile = useMobile();
+  const viewportWidth = useViewportWidth();
   const [collapsed, setCollapsed] = useState(false);
 
   const [ownership, setOwnership] = useState<Record<string, OwnedPick[]> | null>(null);
@@ -183,6 +206,27 @@ export default function TradeMachineSidePanel() {
     [writingNodeId, setLatestComparables],
   );
 
+  // Stamp the legality verdict onto the canvas node so the card (and the
+  // shared image) shows LEGAL / ILLEGAL. Held back until every picked team's
+  // roster has loaded — salaries come from the roster, and a verdict computed
+  // mid-fetch would briefly read "legal" on a trade that isn't.
+  const rostersReady = slots.every((s) => !s.teamId || s.roster.length > 0);
+  useEffect(() => {
+    if (!writingNodeId || !rostersReady) return;
+    const v = evaluateLegalityForSlots(slots, ownership);
+    // The panel labels columns "Team A/B"; the card and image don't, so
+    // resolve those labels to team names before publishing.
+    const reason = slots.reduce((r, slot, i) => {
+      const name = slot.teamId
+        ? getAnyTeamDisplayInfo(slot.teamId)?.name.split(' ').pop() ?? slot.teamId
+        : null;
+      return name
+        ? r.replaceAll(`${SLOT_LABELS[i]} sends`, `${name} send`).replaceAll(SLOT_LABELS[i], name)
+        : r;
+    }, v.reason);
+    setHypotheticalVerdict(writingNodeId, { status: v.status, reason });
+  }, [writingNodeId, rostersReady, slots, ownership, setHypotheticalVerdict]);
+
   const onSlotChange = (idx: number) => (next: BuilderState) => {
     const updated = slots.map((s, i) => (i === idx ? next : s));
     setSlots(updated);
@@ -215,12 +259,17 @@ export default function TradeMachineSidePanel() {
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const wide = !isMobile && viewportWidth >= WIDE_PANEL_MIN_VIEWPORT;
+  const panelWidth = desktopPanelWidth(viewportWidth);
+
   const shellMobile: React.CSSProperties = {
     position: 'absolute',
     left: 0,
     right: 0,
     bottom: 0,
-    maxHeight: collapsed ? 'auto' : '70vh',
+    // Fixed height while open (not max-height) so the body always has a
+    // definite box to scroll in; the top 30% keeps the card visible.
+    height: collapsed ? 'auto' : '70dvh',
     borderTop: `2px solid ${primaryColor}`,
     borderTopLeftRadius: 12,
     borderTopRightRadius: 12,
@@ -231,10 +280,12 @@ export default function TradeMachineSidePanel() {
     // at top:62 is centered so it doesn't cross the right-docked panel, but
     // the search bar's right edge does on viewports narrower than ~1360px.
     // Pushing the panel to top:68 clears the search bar's full height.
-    top: 68,
+    // The wide panel reaches left far enough to cross the canvas toolbar
+    // (top 62, ~36px tall), so it starts below it.
+    top: wide ? 106 : 68,
     right: 0,
     bottom: 0,
-    width: 420,
+    width: panelWidth,
     borderLeft: `2px solid ${primaryColor}`,
   };
 
@@ -285,7 +336,18 @@ export default function TradeMachineSidePanel() {
             ✕ removes it. Filled chips scroll the body to that column.
             "Add Team N" labels are gated sequentially: can't activate slot
             4 before slot 3 (the data model is positional). */}
-        <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', flex: 1, minWidth: 0 }}>
+        <div
+          style={{
+            display: 'flex',
+            gap: 5,
+            flex: 1,
+            minWidth: 0,
+            // Phones: one swipeable row instead of wrapping to two lines.
+            ...(isMobile
+              ? { flexWrap: 'nowrap', overflowX: 'auto', scrollbarWidth: 'none' }
+              : { flexWrap: 'wrap' }),
+          }}
+        >
           {[0, 1, 2, 3].map((i) => {
             const active = i < slots.length;
             const slot = active ? slots[i] : null;
@@ -311,6 +373,7 @@ export default function TradeMachineSidePanel() {
                     ? `Add a ${i === 2 ? 'third' : 'fourth'} team`
                     : 'Pick the first two teams before adding more'}
                   style={{
+                    flexShrink: 0,
                     fontFamily: 'var(--font-display)',
                     fontSize: 12,
                     letterSpacing: '0.4px',
@@ -350,6 +413,7 @@ export default function TradeMachineSidePanel() {
                   onClick={() => scrollToSlot(i)}
                   title="Scroll to this team's picker"
                   style={{
+                    flexShrink: 0,
                     fontFamily: 'var(--font-display)',
                     fontSize: 12,
                     letterSpacing: '0.4px',
@@ -377,6 +441,7 @@ export default function TradeMachineSidePanel() {
               <span
                 key={i}
                 style={{
+                  flexShrink: 0,
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: 4,
@@ -492,14 +557,27 @@ export default function TradeMachineSidePanel() {
         <div
           style={{
             flex: 1,
+            minHeight: 0,
             overflowY: 'auto',
+            overscrollBehavior: 'contain',
+            WebkitOverflowScrolling: 'touch',
             padding: '0 16px 28px',
           }}
         >
           <LegalitySection slots={slots} ownership={ownership} sticky />
 
+          {/* Wide desktop: teams side by side (2×2 for 3–4 teams), which
+              halves the scroll. Narrow panel and phones stack them. */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: wide ? 'repeat(2, minmax(0, 1fr))' : 'minmax(0, 1fr)',
+              columnGap: 12,
+              alignItems: 'start',
+            }}
+          >
           {slots.map((slot, idx) => (
-            <div key={idx} data-trade-slot={idx} style={{ marginTop: 14, scrollMarginTop: 12 }}>
+            <div key={idx} data-trade-slot={idx} style={{ marginTop: 14, scrollMarginTop: 90, minWidth: 0 }}>
               <TeamColumn
                 label={SLOT_LABELS[idx] ?? `Team ${idx + 1}`}
                 state={slot}
@@ -514,6 +592,7 @@ export default function TradeMachineSidePanel() {
               />
             </div>
           ))}
+          </div>
           {/* "+ Add team" affordance moved up to the header chip row. */}
 
           <SalaryLedger slots={slots} />
