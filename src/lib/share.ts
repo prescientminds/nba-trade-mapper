@@ -113,11 +113,13 @@ export async function createHypotheticalShareLink(
     (c) => ({ ...c }),
   );
 
+  const verdict = (node.data as HypotheticalTradeNodeData).verdict;
   const seed: SeedInfo = {
     type: 'hypothetical',
     hypotheticalNodeId,
     sides,
     comparables,
+    ...(verdict ? { verdict: { ...verdict } } : {}),
   };
   const shareState: ShareState = {
     seed,

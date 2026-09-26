@@ -188,6 +188,7 @@ async function replayShareState(shareState: ShareState) {
         .filter((t): t is string => !!t);
       const nodeId = store.addHypotheticalTrade(teamIds);
       store.updateHypotheticalTrade(nodeId, liftedSides);
+      if (seed.verdict) store.setHypotheticalVerdict(nodeId, seed.verdict);
       store.setHypotheticalWritingNode(null);
 
       // If the sharer had Visualize'd, replay the comparable spawn using

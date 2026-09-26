@@ -23,9 +23,10 @@ const nextConfig: NextConfig = {
               // Next.js requires unsafe-inline + unsafe-eval for hydration scripts
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "font-src 'self' https://fonts.gstatic.com",
+              "font-src 'self' data: https://fonts.gstatic.com",
               // Supabase HTTP + WebSocket (Supabase Realtime uses wss://). GA4 collect endpoints use regional subdomains.
-              "connect-src 'self' https://izvnmsrjygshtperrwqk.supabase.co wss://izvnmsrjygshtperrwqk.supabase.co https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com",
+              // Google Fonts: html-to-image fetches the font CSS + files to embed them in shared trade images.
+              "connect-src 'self' https://izvnmsrjygshtperrwqk.supabase.co wss://izvnmsrjygshtperrwqk.supabase.co https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://fonts.googleapis.com https://fonts.gstatic.com",
               // gtag.js beacons to googletagmanager.com/td as well as the
               // google-analytics.com collect endpoints; both are pixel loads.
               "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com",

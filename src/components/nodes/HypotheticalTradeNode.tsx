@@ -1,17 +1,16 @@
 'use client';
 
-import { memo, useCallback, useMemo, useState } from 'react';
+import { memo, useMemo, useRef, useState } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
 import { getAnyTeamDisplayInfo } from '@/lib/teams';
 import { useGraphStore, HypotheticalTradeNodeData, liftHypotheticalSide } from '@/lib/graph-store';
-import { createHypotheticalShareLink } from '@/lib/share';
-import { useMobile } from '@/lib/use-mobile';
-import { track } from '@/lib/analytics';
+import HypotheticalShareSheet from '@/components/HypotheticalShareSheet';
 
 const DRAFT_ACCENT = '#ff6b35';
 
 function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
-  const { teamIds, teamColors, sides, assetCounts, isWriting } = data as HypotheticalTradeNodeData;
+  const { teamIds, teamColors, sides, assetCounts, isWriting, verdict } = data as HypotheticalTradeNodeData;
+  const cardRef = useRef<HTMLDivElement>(null);
   const setWritingNode = useGraphStore((s) => s.setHypotheticalWritingNode);
   const writingNodeId = useGraphStore((s) => s.hypotheticalWritingNodeId);
   const removeNode = useGraphStore((s) => s.removeNode);
@@ -98,6 +97,7 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
 
   return (
     <div
+      ref={cardRef}
       data-hypothetical-trade-node
       className="hypothetical-trade-card"
       onClick={handleEditToggle}
@@ -155,6 +155,7 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
       {/* Close (X) — top-right */}
       <div
         className="nopan nodrag"
+        data-capture-hide
         onClick={(e) => { e.stopPropagation(); removeNode(id); }}
         style={{
           position: 'absolute',
@@ -194,6 +195,10 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
       >
         {heading}
       </div>
+
+      {/* CBA verdict — stamped by the side panel once rosters load. Part of
+          the card so it travels with the shared image. */}
+      {hasAnyAssets && verdict && <VerdictRow status={verdict.status} reason={verdict.reason} />}
 
       {/* Live ledger — per-side receive list. Auto-grows with assets. */}
       {ledgerRows.length > 0 && hasAnyAssets && (
@@ -286,6 +291,7 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
           setLatestComparables). Share gates on whether any assets have been
           added — sharing an empty draft is meaningless. */}
       <div
+        data-capture-hide
         style={{
           marginTop: 4,
           display: 'flex',
@@ -301,9 +307,10 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
             accent={primaryColor}
             onVisualize={() => visualizeHypothetical(id)}
           />
-          <ShareNodeButton
+          <HypotheticalShareSheet
             nodeId={id}
-            hasAnyAssets={hasAnyAssets}
+            cardRef={cardRef}
+            enabled={hasAnyAssets}
             comparableCount={comparableCount}
             accent={primaryColor}
           />
@@ -320,7 +327,62 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
         </span>
       </div>
 
+      <div
+        data-capture-only
+        style={{
+          display: 'none',
+          marginTop: 6,
+          paddingTop: 4,
+          borderTop: '1px solid var(--border-subtle)',
+          fontFamily: 'var(--font-mono)',
+          fontSize: 8,
+          letterSpacing: '0.5px',
+          color: 'var(--text-muted)',
+          textAlign: 'right',
+        }}
+      >
+        nbatrademapper.com
+      </div>
+
       <Handle type="source" position={Position.Bottom} style={{ opacity: 0 }} />
+    </div>
+  );
+}
+
+const VERDICT_STYLE = {
+  legal: { label: 'LEGAL', color: 'var(--accent-green)', bg: 'rgba(6, 214, 160, 0.14)', border: 'rgba(6, 214, 160, 0.4)' },
+  illegal: { label: 'ILLEGAL', color: 'var(--accent-red)', bg: 'rgba(239, 71, 111, 0.16)', border: 'rgba(239, 71, 111, 0.5)' },
+  incomplete: { label: 'INCOMPLETE', color: 'var(--text-tertiary)', bg: 'rgba(255, 255, 255, 0.04)', border: 'var(--border-subtle)' },
+} as const;
+
+function VerdictRow({ status, reason }: { status: 'legal' | 'illegal' | 'incomplete'; reason: string }) {
+  const v = VERDICT_STYLE[status];
+  return (
+    <div
+      data-verdict={status}
+      style={{
+        marginTop: 5,
+        padding: '4px 6px',
+        borderRadius: 4,
+        background: v.bg,
+        border: `1px solid ${v.border}`,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 2,
+      }}
+    >
+      <span
+        style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: 12,
+          letterSpacing: '0.08em',
+          color: v.color,
+          lineHeight: 1,
+        }}
+      >
+        {v.label}
+      </span>
+      <span style={{ fontSize: 9, color: 'var(--text-secondary)', lineHeight: 1.3 }}>{reason}</span>
     </div>
   );
 }
@@ -372,119 +434,6 @@ function VisualizeButton({
       }}
     >
       Visualize{enabled ? ` (${comparableCount})` : ''}
-    </button>
-  );
-}
-
-type ShareUiState = 'idle' | 'loading' | 'copied' | 'error';
-
-function ShareNodeButton({
-  nodeId,
-  hasAnyAssets,
-  comparableCount,
-  accent,
-}: {
-  nodeId: string;
-  hasAnyAssets: boolean;
-  comparableCount: number;
-  accent: string;
-}) {
-  const [ui, setUi] = useState<ShareUiState>('idle');
-  const isMobile = useMobile();
-  const enabled = hasAnyAssets;
-
-  const handleShare = useCallback(
-    async (e: React.MouseEvent) => {
-      e.stopPropagation();
-      if (!enabled || ui === 'loading' || ui === 'copied') return;
-      setUi('loading');
-      try {
-        const url = await createHypotheticalShareLink(nodeId);
-        if (!url) {
-          track('share_link_failed', { stage: 'create', source: 'hypothetical_node' });
-          setUi('error');
-          setTimeout(() => setUi('idle'), 2000);
-          return;
-        }
-        track('share_link_created', {
-          source: 'hypothetical_node',
-          comparable_count: comparableCount,
-          surface: isMobile ? 'mobile' : 'desktop',
-        });
-        // Mobile gets the native share sheet; desktop copies to clipboard.
-        if (isMobile && typeof navigator !== 'undefined' && navigator.share) {
-          try {
-            await navigator.share({ url });
-            setUi('copied');
-          } catch {
-            setUi('idle');
-            return;
-          }
-        } else {
-          try {
-            await navigator.clipboard.writeText(url);
-          } catch {
-            window.prompt('Copy this link:', url);
-          }
-          setUi('copied');
-        }
-        setTimeout(() => setUi('idle'), 2500);
-      } catch (err) {
-        console.error('[ShareNodeButton] Failed:', err);
-        track('share_link_failed', { stage: 'exception', source: 'hypothetical_node' });
-        setUi('error');
-        setTimeout(() => setUi('idle'), 2000);
-      }
-    },
-    [enabled, ui, nodeId, comparableCount, isMobile],
-  );
-
-  const label =
-    ui === 'loading' ? 'Sharing…' :
-    ui === 'copied' ? 'Copied!' :
-    ui === 'error' ? 'Failed' :
-    'Share';
-  const color = ui === 'copied' ? '#4ecdc4' : ui === 'error' ? '#ff4444' : (enabled ? accent : 'var(--text-muted)');
-  const borderColor = ui === 'copied' ? '#4ecdc4' : ui === 'error' ? '#ff4444' : (enabled ? accent : 'var(--border-subtle)');
-  const bg = ui === 'copied' ? `#4ecdc41a` : enabled ? `${accent}1a` : 'transparent';
-
-  return (
-    <button
-      type="button"
-      className="nopan nodrag"
-      data-share-button
-      data-node-id={nodeId}
-      disabled={!enabled || ui === 'loading'}
-      onClick={handleShare}
-      title={
-        enabled
-          ? 'Copy a shareable link to this proposed trade'
-          : 'Add players or picks to share'
-      }
-      style={{
-        fontFamily: 'var(--font-mono)',
-        fontSize: 9,
-        fontWeight: 700,
-        letterSpacing: '0.4px',
-        textTransform: 'uppercase',
-        padding: '3px 7px',
-        borderRadius: 3,
-        border: `1px solid ${borderColor}`,
-        background: bg,
-        color,
-        cursor: enabled && ui !== 'loading' ? 'pointer' : 'not-allowed',
-        transition: 'background 160ms ease, border-color 160ms ease, color 160ms ease',
-        lineHeight: 1,
-        whiteSpace: 'nowrap',
-      }}
-      onMouseEnter={(e) => {
-        if (enabled && ui === 'idle') e.currentTarget.style.background = `${accent}33`;
-      }}
-      onMouseLeave={(e) => {
-        if (enabled && ui === 'idle') e.currentTarget.style.background = `${accent}1a`;
-      }}
-    >
-      {label}
     </button>
   );
 }
