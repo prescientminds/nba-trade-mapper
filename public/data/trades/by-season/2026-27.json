@@ -1524,5 +1524,69 @@
         "notes": null
       }
     ]
+  },
+  {
+    "id": "bbref-2026-09-22-777021e7",
+    "date": "2026-09-22",
+    "season": "2026-27",
+    "title": "Dorian Finney-Smith, Buddy Hield, Ryan Nembhard Trade",
+    "description": "The Charlotte Hornets traded Dorian Finney-Smith to the Atlanta Hawks for cash, Buddy Hield and Ryan Nembhard. Atlanta received a trade exception Charlotte received a trade exception",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHA",
+        "role": "participant"
+      },
+      {
+        "team_id": "ATL",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Dorian Finney-Smith",
+        "from_team_id": "CHA",
+        "to_team_id": "ATL",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "ATL",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Buddy Hield",
+        "from_team_id": "ATL",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Ryan Nembhard",
+        "from_team_id": "ATL",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
   }
 ]
