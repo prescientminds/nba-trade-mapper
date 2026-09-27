@@ -24,13 +24,14 @@ const WNBA_BBREF_TO_TEAM_ID: Record<string, string> = {
   PHO: 'W-PHO',   // Phoenix Mercury (1997-)
   SEA: 'W-SEA',   // Seattle Storm (2000-)
   WAS: 'W-WAS',   // Washington Mystics (1998-)
+  TOR: 'W-TOR',   // Toronto Tempo (2026-)
+  POR: 'W-POR',   // Portland Fire (2000-2002, revived 2026-) — BBRef treats as one franchise
 
   // ── Defunct teams ──────────────────────────────────────────────────
   CHA: 'W-CHA',   // Charlotte Sting (1997-2006) — folded
   CLE: 'W-CLE',   // Cleveland Rockers (1997-2003) — folded
   HOU: 'W-HOU',   // Houston Comets (1997-2008) — folded
   MIA: 'W-MIA',   // Miami Sol (2000-2002) — folded
-  POR: 'W-POR',   // Portland Fire (2000-2002) — folded
   SAC: 'W-SAC',   // Sacramento Monarchs (1997-2009) — folded
 
   // ── Historical relocations (map to current franchise ID) ───────────
@@ -74,13 +75,14 @@ const WNBA_FULL_NAME_TO_TEAM_ID: Record<string, string> = {
   'Phoenix Mercury': 'W-PHO',
   'Seattle Storm': 'W-SEA',
   'Washington Mystics': 'W-WAS',
+  'Toronto Tempo': 'W-TOR',
+  'Portland Fire': 'W-POR',
 
   // Defunct teams
   'Charlotte Sting': 'W-CHA',
   'Cleveland Rockers': 'W-CLE',
   'Houston Comets': 'W-HOU',
   'Miami Sol': 'W-MIA',
-  'Portland Fire': 'W-POR',
   'Sacramento Monarchs': 'W-SAC',
 
   // Historical / relocated identities

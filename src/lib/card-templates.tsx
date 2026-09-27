@@ -24,9 +24,9 @@ export const CARD_TEAM_COLORS: Record<string, string> = {
   KCK: '#C8102E', BUF: '#003DA5',
   'W-LVA': '#000000', 'W-NYL': '#6ECEB2', 'W-SEA': '#2C5234',
   'W-MIN': '#236192', 'W-CHI': '#418FDE', 'W-IND': '#002D62',
-  'W-PHX': '#CB6015', 'W-LAX': '#552583', 'W-CON': '#002D62',
+  'W-PHO': '#CB6015', 'W-LAS': '#552583', 'W-CON': '#002D62',
   'W-ATL': '#C8102E', 'W-DAL': '#C4D600', 'W-WAS': '#C8102E',
-  'W-GSV': '#00A94F',
+  'W-GSV': '#00A94F', 'W-TOR': '#441E36', 'W-POR': '#C8102E',
 };
 
 export const CARD_TEAM_SECONDARY: Record<string, string> = {
@@ -43,9 +43,9 @@ export const CARD_TEAM_SECONDARY: Record<string, string> = {
   KCK: '#1D428A', BUF: '#E31837',
   'W-LVA': '#C4CED4', 'W-NYL': '#000000', 'W-SEA': '#FFC200',
   'W-MIN': '#78BE20', 'W-CHI': '#FFCD00', 'W-IND': '#E03A3E',
-  'W-PHX': '#1D1160', 'W-LAX': '#FDB927', 'W-CON': '#C8102E',
+  'W-PHO': '#1D1160', 'W-LAS': '#FDB927', 'W-CON': '#C8102E',
   'W-ATL': '#418FDE', 'W-DAL': '#002B5C', 'W-WAS': '#002B5C',
-  'W-GSV': '#1D428A',
+  'W-GSV': '#1D428A', 'W-TOR': '#B3C7E7', 'W-POR': '#3F3735',
 };
 
 const TEAM_NICK: Record<string, string> = {
@@ -62,9 +62,9 @@ const TEAM_NICK: Record<string, string> = {
   KCK: 'Kings', BUF: 'Braves',
   'W-LVA': 'Aces', 'W-NYL': 'Liberty', 'W-SEA': 'Storm',
   'W-MIN': 'Lynx', 'W-CHI': 'Sky', 'W-IND': 'Fever',
-  'W-PHX': 'Mercury', 'W-LAX': 'Sparks', 'W-CON': 'Sun',
+  'W-PHO': 'Mercury', 'W-LAS': 'Sparks', 'W-CON': 'Sun',
   'W-ATL': 'Dream', 'W-DAL': 'Wings', 'W-WAS': 'Mystics',
-  'W-GSV': 'Valkyries',
+  'W-GSV': 'Valkyries', 'W-TOR': 'Tempo', 'W-POR': 'Fire',
 };
 
 const TEAM_CITY: Record<string, string> = {
@@ -81,9 +81,9 @@ const TEAM_CITY: Record<string, string> = {
   KCK: 'Kansas City', BUF: 'Buffalo',
   'W-LVA': 'Las Vegas', 'W-NYL': 'New York', 'W-SEA': 'Seattle',
   'W-MIN': 'Minnesota', 'W-CHI': 'Chicago', 'W-IND': 'Indiana',
-  'W-PHX': 'Phoenix', 'W-LAX': 'Los Angeles', 'W-CON': 'Connecticut',
+  'W-PHO': 'Phoenix', 'W-LAS': 'Los Angeles', 'W-CON': 'Connecticut',
   'W-ATL': 'Atlanta', 'W-DAL': 'Dallas', 'W-WAS': 'Washington',
-  'W-GSV': 'Bay Area',
+  'W-GSV': 'Bay Area', 'W-TOR': 'Toronto', 'W-POR': 'Portland',
 };
 
 // ── Helpers ─────────────────────────────────────────────────────

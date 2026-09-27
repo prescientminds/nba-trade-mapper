@@ -1,117 +1,86 @@
 {
-  "timestamp": "2026-09-16T20:58:57.924Z",
+  "timestamp": "2026-09-27T20:45:11.861Z",
   "year": 2026,
-  "league": "all",
-  "durationSec": 3420,
+  "league": "WNBA",
+  "durationSec": 75,
   "phases": [
-    {
-      "phase": "scrape-today",
-      "league": "NBA",
-      "ok": true,
-      "durationSec": 1
-    },
-    {
-      "phase": "scrape-bbref-transactions",
-      "league": "NBA",
-      "ok": true,
-      "durationSec": 1
-    },
-    {
-      "phase": "refresh-playoff-data",
-      "league": "NBA",
-      "ok": true,
-      "durationSec": 1005
-    },
-    {
-      "phase": "scrape-cap-history",
-      "league": "NBA",
-      "ok": true,
-      "durationSec": 1
-    },
-    {
-      "phase": "scrape-salaries",
-      "league": "NBA",
-      "ok": true,
-      "durationSec": 1
-    },
-    {
-      "phase": "scrape-salaries",
-      "league": "NBA",
-      "ok": true,
-      "durationSec": 2393
-    },
     {
       "phase": "scrape-wnba-team-seasons",
       "league": "WNBA",
       "ok": true,
-      "durationSec": 1
+      "durationSec": 4
     },
     {
       "phase": "scrape-wnba-trades",
       "league": "WNBA",
       "ok": true,
-      "durationSec": 0
+      "durationSec": 4
     },
     {
       "phase": "scrape-wnba-player-stats",
       "league": "WNBA",
       "ok": true,
-      "durationSec": 1
+      "durationSec": 8
     },
     {
       "phase": "scrape-wnba-playoffs",
       "league": "WNBA",
       "ok": true,
-      "durationSec": 1
+      "durationSec": 4
     },
     {
       "phase": "scrape-wnba-playoff-stats",
       "league": "WNBA",
       "ok": true,
-      "durationSec": 0
+      "durationSec": 7
     },
     {
       "phase": "scrape-wnba-accolades",
       "league": "WNBA",
       "ok": true,
-      "durationSec": 1
+      "durationSec": 27
     },
     {
       "phase": "scrape-wnba-draft",
       "league": "WNBA",
       "ok": true,
-      "durationSec": 0
-    },
-    {
-      "phase": "update-kaggle-stats",
-      "league": "shared",
-      "ok": true,
-      "durationSec": 3407,
-      "detail": "log: data/kaggle-refresh.log"
+      "durationSec": 4
     },
     {
       "phase": "score-trades",
       "league": "shared",
       "ok": true,
-      "durationSec": 8
+      "durationSec": 7
     },
     {
       "phase": "score-transactions",
       "league": "shared",
       "ok": true,
-      "durationSec": 12
+      "durationSec": 11
     },
     {
       "phase": "compute-dynasty-ingredients",
       "league": "shared",
       "ok": true,
-      "durationSec": 7
+      "durationSec": 6
     },
     {
       "phase": "update-cap-thresholds",
       "league": "shared",
       "ok": true,
       "durationSec": 3
+    },
+    {
+      "phase": "build-trade-profiles",
+      "league": "NBA",
+      "ok": true,
+      "durationSec": 4
+    },
+    {
+      "phase": "build-comparables-calibration",
+      "league": "NBA",
+      "ok": true,
+      "durationSec": 1
     },
     {
       "phase": "verify-playoff-data",

@@ -29,9 +29,9 @@ const TEAM_NICK: Record<string, string> = {
   KCK: 'Kings', BUF: 'Braves',
   'W-LVA': 'Aces', 'W-NYL': 'Liberty', 'W-SEA': 'Storm',
   'W-MIN': 'Lynx', 'W-CHI': 'Sky', 'W-IND': 'Fever',
-  'W-PHX': 'Mercury', 'W-LAX': 'Sparks', 'W-CON': 'Sun',
+  'W-PHO': 'Mercury', 'W-LAS': 'Sparks', 'W-CON': 'Sun',
   'W-ATL': 'Dream', 'W-DAL': 'Wings', 'W-WAS': 'Mystics',
-  'W-GSV': 'Valkyries',
+  'W-GSV': 'Valkyries', 'W-TOR': 'Tempo', 'W-POR': 'Fire',
 };
 
 // ── Helpers ─────────────────────────────────────────────────
