@@ -54,8 +54,8 @@ export default function SalaryLedger({ slots }: { slots: BuilderState[] }) {
           );
         })}
         <div style={{ fontSize: 11, color: 'var(--text-muted)', paddingTop: 4 }}>
-          3-team CBA salary matching requires per-asset routing (v2). Stepien
-          + 7-year cap still apply per team.
+          Salary matching isn&apos;t checked yet for trades with 3+ teams. The
+          Stepien rule and 7-year pick limit still apply to each team.
         </div>
       </section>
     );

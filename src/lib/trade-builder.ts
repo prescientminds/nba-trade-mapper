@@ -254,7 +254,7 @@ export function evaluateLegalityForSlots(
   // 3+ teams: pick rules cleared. CBA salary matching deferred.
   return {
     status: 'legal',
-    reason: 'Pick rules clear for all teams · 3-team salary matching requires per-asset routing (v2)',
+    reason: 'Pick rules clear for every team · salary matching is not yet checked for 3+ team trades',
   };
 }
 
