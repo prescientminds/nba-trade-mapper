@@ -17,7 +17,6 @@
 
 import { useCallback, useEffect, useRef, useState, type RefObject } from 'react';
 import { createPortal } from 'react-dom';
-import { createHypotheticalShareLink } from '@/lib/share';
 import { useMobile } from '@/lib/use-mobile';
 import { track } from '@/lib/analytics';
 
@@ -58,17 +57,27 @@ async function renderCardPng(card: HTMLElement): Promise<Blob> {
 type Status = { kind: 'idle' } | { kind: 'busy'; label: string } | { kind: 'done'; label: string } | { kind: 'error'; label: string };
 
 export default function HypotheticalShareSheet({
-  nodeId,
+  fileStem,
   cardRef,
   enabled,
   comparableCount,
   accent,
+  createLink,
+  source,
+  variant = 'chip',
 }: {
-  nodeId: string;
+  /** Used for the downloaded file name. */
+  fileStem: string;
   cardRef: RefObject<HTMLDivElement | null>;
   enabled: boolean;
   comparableCount: number;
   accent: string;
+  /** Creates the /s/{id} replay link. */
+  createLink: () => Promise<string | null>;
+  /** Analytics source tag. */
+  source: string;
+  /** 'chip' = small mono button on the canvas card; 'button' = page toolbar. */
+  variant?: 'chip' | 'button';
 }) {
   const isMobile = useMobile();
   const [open, setOpen] = useState(false);
@@ -79,7 +88,7 @@ export default function HypotheticalShareSheet({
   const linkRef = useRef<string | null>(null);
 
   const surface = isMobile ? 'mobile' : 'desktop';
-  const fileName = `trade-${nodeId.slice(-6)}.png`;
+  const fileName = `trade-${fileStem.slice(-6)}.png`;
   const file = blob ? new File([blob], fileName, { type: 'image/png' }) : null;
   const canSendFile =
     !!file && typeof navigator !== 'undefined' && !!navigator.canShare?.({ files: [file] });
@@ -109,14 +118,14 @@ export default function HypotheticalShareSheet({
         const png = await renderCardPng(cardRef.current);
         setBlob(png);
         replacePreview(URL.createObjectURL(png));
-        track('share_image_rendered', { source: 'hypothetical_node', surface });
+        track('share_image_rendered', { source, surface });
       } catch (err) {
         console.error('[HypotheticalShareSheet] render failed:', err);
         setRenderError(true);
-        track('share_link_failed', { stage: 'image_render', source: 'hypothetical_node' });
+        track('share_link_failed', { stage: 'image_render', source });
       }
     },
-    [enabled, cardRef, surface, replacePreview],
+    [enabled, cardRef, surface, replacePreview, source],
   );
 
 
@@ -129,7 +138,7 @@ export default function HypotheticalShareSheet({
     if (!file) return;
     try {
       await navigator.share({ files: [file] });
-      track('share_image_sent', { source: 'hypothetical_node', surface });
+      track('share_image_sent', { source, surface });
     } catch {
       /* user dismissed the sheet */
     }
@@ -141,7 +150,7 @@ export default function HypotheticalShareSheet({
     a.href = previewUrl;
     a.download = fileName;
     a.click();
-    track('share_image_saved', { source: 'hypothetical_node', surface });
+    track('share_image_saved', { source, surface });
     flash({ kind: 'done', label: 'Saved' });
   };
 
@@ -149,7 +158,7 @@ export default function HypotheticalShareSheet({
     if (!blob) return;
     try {
       await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
-      track('share_image_copied', { source: 'hypothetical_node', surface });
+      track('share_image_copied', { source, surface });
       flash({ kind: 'done', label: 'Image copied' });
     } catch {
       flash({ kind: 'error', label: 'Copy failed — use Save' });
@@ -159,14 +168,14 @@ export default function HypotheticalShareSheet({
   const copyLink = async () => {
     setStatus({ kind: 'busy', label: 'Making link…' });
     try {
-      const url = linkRef.current ?? (await createHypotheticalShareLink(nodeId));
+      const url = linkRef.current ?? (await createLink());
       if (!url) {
-        track('share_link_failed', { stage: 'create', source: 'hypothetical_node' });
+        track('share_link_failed', { stage: 'create', source });
         flash({ kind: 'error', label: 'Link failed' });
         return;
       }
       linkRef.current = url;
-      track('share_link_created', { source: 'hypothetical_node', comparable_count: comparableCount, surface });
+      track('share_link_created', { source, comparable_count: comparableCount, surface });
       try {
         await navigator.clipboard.writeText(url);
         flash({ kind: 'done', label: 'Link copied' });
@@ -176,7 +185,7 @@ export default function HypotheticalShareSheet({
       }
     } catch (err) {
       console.error('[HypotheticalShareSheet] link failed:', err);
-      track('share_link_failed', { stage: 'exception', source: 'hypothetical_node' });
+      track('share_link_failed', { stage: 'exception', source });
       flash({ kind: 'error', label: 'Link failed' });
     }
   };
@@ -187,11 +196,10 @@ export default function HypotheticalShareSheet({
         type="button"
         className="nopan nodrag"
         data-share-button
-        data-node-id={nodeId}
         disabled={!enabled}
         onClick={openSheet}
         title={enabled ? 'Share this trade as an image' : 'Add players or picks to share'}
-        style={{
+        style={variant === 'chip' ? {
           fontFamily: 'var(--font-mono)',
           fontSize: 9,
           fontWeight: 700,
@@ -204,6 +212,17 @@ export default function HypotheticalShareSheet({
           color: enabled ? accent : 'var(--text-muted)',
           cursor: enabled ? 'pointer' : 'not-allowed',
           lineHeight: 1,
+          whiteSpace: 'nowrap',
+        } : {
+          padding: '8px 14px',
+          borderRadius: 8,
+          border: '1px solid var(--accent-orange)',
+          background: enabled ? 'var(--accent-orange)' : 'transparent',
+          color: enabled ? '#fff' : 'var(--text-muted)',
+          fontSize: 13,
+          fontWeight: 700,
+          cursor: enabled ? 'pointer' : 'not-allowed',
+          opacity: enabled ? 1 : 0.5,
           whiteSpace: 'nowrap',
         }}
       >

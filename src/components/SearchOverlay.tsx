@@ -39,7 +39,6 @@ export default function SearchOverlay() {
   const seedFromPlayer = useGraphStore((s) => s.seedFromPlayer);
   const seedChampionshipRoster = useGraphStore((s) => s.seedChampionshipRoster);
   const clearGraph = useGraphStore((s) => s.clearGraph);
-  const addHypotheticalTrade = useGraphStore((s) => s.addHypotheticalTrade);
   const nodes = useGraphStore((s) => s.nodes);
   const selectedLeague = useGraphStore((s) => s.selectedLeague);
   const setSelectedLeague = useGraphStore((s) => s.setSelectedLeague);
@@ -604,12 +603,10 @@ export default function SearchOverlay() {
           <TeamSeasonPicker />
         </div>
 
-        {/* Build a Trade — canvas-native Trade Machine entry (Phase B).
-            Spawns an empty hypothetical-trade node and opens the side panel.
-            Team + asset selection lands in the panel in Step 2b; the
-            dedicated /trade-machine?from= deep-link route is Step 4. */}
-        <button
-          onClick={() => addHypotheticalTrade([])}
+        {/* Build a Trade — opens the full-page builder. "View on canvas"
+            there brings the finished trade back onto this graph. */}
+        <Link
+          href="/trade-machine"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -627,6 +624,7 @@ export default function SearchOverlay() {
             letterSpacing: 0.8,
             textTransform: 'uppercase',
             cursor: 'pointer',
+            textDecoration: 'none',
             transition: 'opacity 0.15s',
           }}
           onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.85'; }}
@@ -637,7 +635,7 @@ export default function SearchOverlay() {
             <line x1="5" y1="12" x2="19" y2="12" />
           </svg>
           Build a Trade
-        </button>
+        </Link>
 
         <Link
           href="/methodology"

@@ -8,7 +8,6 @@ import {
   MiniMap,
   BackgroundVariant,
   useReactFlow,
-  type FitViewOptions,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
@@ -25,7 +24,6 @@ import HighlightableEdge from '@/components/edges/HighlightableEdge';
 import ComparableToEdge from '@/components/edges/ComparableToEdge';
 import ProposedAssetEdge from '@/components/edges/ProposedAssetEdge';
 import SearchOverlay from '@/components/SearchOverlay';
-import TradeMachineSidePanel, { desktopPanelWidth } from '@/components/TradeMachineSidePanel';
 import ShareButton from '@/components/ShareButton';
 import CardPreviewModal from '@/components/CardPreviewModal';
 import { SKINS } from '@/lib/skins';
@@ -476,25 +474,16 @@ export default function MainGraphCanvas() {
   useEffect(() => {
     if (!pendingFitTarget) return;
     const timer = setTimeout(() => {
-      // A freshly spawned trade draft opens the side panel with it. Fit the
-      // card into the canvas area the panel leaves uncovered, or it lands
-      // underneath the panel.
-      const panelOpen = useGraphStore.getState().hypotheticalWritingNodeId === pendingFitTarget;
-      const padding: FitViewOptions['padding'] = !panelOpen
-        ? 0.5
-        : isMobile
-          ? { top: '90px', bottom: '72%', left: '24px', right: '24px' }
-          : { top: '130px', bottom: '60px', left: '60px', right: `${desktopPanelWidth(window.innerWidth) + 60}px` };
       fitView({
         nodes: [{ id: pendingFitTarget }],
-        padding,
+        padding: 0.5,
         duration: 500,
         maxZoom: 1.2,
       });
       clearPendingFitTarget();
     }, 120);
     return () => clearTimeout(timer);
-  }, [pendingFitTarget, fitView, clearPendingFitTarget, isMobile]);
+  }, [pendingFitTarget, fitView, clearPendingFitTarget]);
 
   useEffect(() => {
     if (!isMobile) {
@@ -606,7 +595,6 @@ export default function MainGraphCanvas() {
           />
         </div>
       )}
-      <TradeMachineSidePanel />
     </div>
   );
 }

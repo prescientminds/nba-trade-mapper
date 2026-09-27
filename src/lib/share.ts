@@ -3,6 +3,7 @@ import { getSupabase } from './supabase';
 import { useGraphStore } from './graph-store';
 import type { SeedInfo, HypotheticalTradeNodeData, HypotheticalSide } from './graph-store';
 import type { Comparable } from './comparables';
+import type { LegalityVerdict } from './trade-builder';
 import { getAnyTeamDisplayInfo } from './teams';
 import type { League } from './league';
 import type { VisualSkin } from './skins';
@@ -89,9 +90,7 @@ export async function createShareLink(): Promise<string | null> {
 export async function createHypotheticalShareLink(
   hypotheticalNodeId: string,
 ): Promise<string | null> {
-  const state = useGraphStore.getState();
-  const { nodes, selectedLeague, visualSkin, latestComparablesByNodeId } = state;
-
+  const { nodes, latestComparablesByNodeId } = useGraphStore.getState();
   const node = nodes.find(
     (n) => n.id === hypotheticalNodeId && n.type === 'hypotheticalTrade',
   );
@@ -99,21 +98,36 @@ export async function createHypotheticalShareLink(
     console.error('Hypothetical share failed: node not found', { hypotheticalNodeId });
     return null;
   }
+  const data = node.data as HypotheticalTradeNodeData;
+  return createHypotheticalShareLinkFromSides(
+    data.sides ?? [],
+    latestComparablesByNodeId.get(hypotheticalNodeId) ?? [],
+    data.verdict,
+    hypotheticalNodeId,
+  );
+}
+
+/**
+ * Share a hypothetical from its durable intent directly — used by the
+ * full-page builder, which has no canvas node to read from.
+ */
+export async function createHypotheticalShareLinkFromSides(
+  rawSides: HypotheticalSide[],
+  rawComparables: Comparable[],
+  verdict: LegalityVerdict | undefined,
+  hypotheticalNodeId = `hypo-page-${nanoid(6)}`,
+): Promise<string | null> {
+  const { nodes, selectedLeague, visualSkin } = useGraphStore.getState();
 
   // Defensive copies — the share payload must be JSON-serializable and
-  // detached from the store (which keeps mutating after the user keeps editing).
-  const sides: HypotheticalSide[] = ((node.data as HypotheticalTradeNodeData).sides ?? []).map(
-    (s) => ({
-      teamId: s.teamId,
-      playerNames: [...(s.playerNames ?? [])],
-      picks: [...(s.picks ?? [])],
-    }),
-  );
-  const comparables: Comparable[] = (latestComparablesByNodeId.get(hypotheticalNodeId) ?? []).map(
-    (c) => ({ ...c }),
-  );
+  // detached from live state that keeps mutating while the user edits.
+  const sides: HypotheticalSide[] = rawSides.map((s) => ({
+    teamId: s.teamId,
+    playerNames: [...(s.playerNames ?? [])],
+    picks: [...(s.picks ?? [])],
+  }));
+  const comparables: Comparable[] = rawComparables.map((c) => ({ ...c }));
 
-  const verdict = (node.data as HypotheticalTradeNodeData).verdict;
   const seed: SeedInfo = {
     type: 'hypothetical',
     hypotheticalNodeId,

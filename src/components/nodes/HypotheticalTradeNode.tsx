@@ -1,18 +1,23 @@
 'use client';
 
-import { memo, useMemo, useRef, useState } from 'react';
+import { memo, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
-import { getAnyTeamDisplayInfo } from '@/lib/teams';
-import { useGraphStore, HypotheticalTradeNodeData, liftHypotheticalSide } from '@/lib/graph-store';
+import { useGraphStore, HypotheticalTradeNodeData } from '@/lib/graph-store';
+import { createHypotheticalShareLink } from '@/lib/share';
+import { encodeSides } from '@/lib/hypothetical-sides';
 import HypotheticalShareSheet from '@/components/HypotheticalShareSheet';
+import TradeCard, { DRAFT_ACCENT } from '@/components/TradeCard';
 
-const DRAFT_ACCENT = '#ff6b35';
-
+/**
+ * Canvas node for a proposed trade. Editing happens on the full-page
+ * builder: clicking the card opens /trade-machine with this node's trade
+ * loaded, and "View on canvas" there writes the edits back to this node.
+ */
 function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
-  const { teamIds, teamColors, sides, assetCounts, isWriting, verdict } = data as HypotheticalTradeNodeData;
+  const { teamIds, teamColors, sides, assetCounts, verdict } = data as HypotheticalTradeNodeData;
   const cardRef = useRef<HTMLDivElement>(null);
-  const setWritingNode = useGraphStore((s) => s.setHypotheticalWritingNode);
-  const writingNodeId = useGraphStore((s) => s.hypotheticalWritingNodeId);
+  const router = useRouter();
   const removeNode = useGraphStore((s) => s.removeNode);
   const visualizeHypothetical = useGraphStore((s) => s.visualizeHypothetical);
   const comparableCount = useGraphStore(
@@ -20,370 +25,55 @@ function HypotheticalTradeNodeComponent({ id, data }: NodeProps) {
   );
 
   const [hovered, setHovered] = useState(false);
-  const selected = writingNodeId === id || isWriting;
   const primaryColor = teamColors[0] || DRAFT_ACCENT;
-  const sideColor = selected
-    ? primaryColor
-    : hovered
-      ? primaryColor + '88'
-      : 'var(--border-medium)';
-
-  const heading = useMemo(() => {
-    if (teamIds.length === 0) return 'New Trade';
-    const names = teamIds.map(
-      (tid) => getAnyTeamDisplayInfo(tid)?.name.split(' ').pop() || tid,
-    );
-    if (names.length === 1) return `${names[0]} & ?`;
-    if (names.length === 2) return `${names[0]} & ${names[1]}`;
-    // N≥3: Oxford-style — "CELTICS, SUNS & WIZARDS". Already uppercased
-    // by the parent style, so we lean on standard comma + ampersand join.
-    const head = names.slice(0, -1).join(', ');
-    const tail = names[names.length - 1];
-    return `${head} & ${tail}`;
-  }, [teamIds]);
-
-  /**
-   * Per-side ledger rows for the live card body.
-   *
-   * Semantics: each side's row shows what that team RECEIVES — assets from
-   * the OTHER sides whose `toTeamId` matches this side's `teamId`. For 2-team
-   * trades the panel's toSide() auto-fills toTeamId with the other side, so
-   * the filter is naturally a clean swap. For 3+/4-team trades only the
-   * assets routed to this team appear here — unrouted assets (toTeamId
-   * still null) don't show until the user sets a destination via the
-   * per-asset dropdown in the side panel.
-   *
-   * Defensive lift: legacy shares (PR #38) may carry `playerNames: string[]`;
-   * normalize to the routed shape on read so the renderer never throws.
-   */
-  const ledgerRows = useMemo(() => {
-    const safeSides = (sides ?? []).map((s) => liftHypotheticalSide(s));
-    const isTwoTeam = safeSides.filter((s) => !!s.teamId).length === 2;
-    const rowsWithTeam = safeSides
-      .map((side, idx) => {
-        if (!side.teamId) return null;
-        const teamName =
-          getAnyTeamDisplayInfo(side.teamId)?.name.split(' ').pop() || side.teamId;
-        const incomingPlayers: string[] = [];
-        const incomingPicks: typeof side.picks = [];
-        safeSides.forEach((other, otherIdx) => {
-          if (otherIdx === idx) return;
-          for (const p of other.playerNames) {
-            // 2-team mode: unrouted toTeamId is treated as "the other side"
-            // (matches the panel's persist-time default). N≥3: only show
-            // assets explicitly routed to this team.
-            if (p.toTeamId === side.teamId || (isTwoTeam && p.toTeamId == null)) {
-              incomingPlayers.push(p.name);
-            }
-          }
-          for (const pk of other.picks) {
-            if (pk.toTeamId === side.teamId || (isTwoTeam && pk.toTeamId == null)) {
-              incomingPicks.push(pk);
-            }
-          }
-        });
-        return { teamId: side.teamId, teamName, players: incomingPlayers, picks: incomingPicks };
-      })
-      .filter((r): r is NonNullable<typeof r> => r !== null);
-    return rowsWithTeam;
-  }, [sides]);
-
   const hasAnyAssets = assetCounts.players > 0 || assetCounts.picks > 0;
 
-  const handleEditToggle = (e: React.MouseEvent) => {
+  const openBuilder = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setWritingNode(selected ? null : id);
+    router.push(`/trade-machine?node=${encodeURIComponent(id)}&t=${encodeSides(sides ?? [])}`);
   };
 
   return (
-    <div
-      ref={cardRef}
-      data-hypothetical-trade-node
-      className="hypothetical-trade-card"
-      onClick={handleEditToggle}
-      style={{
-        width: 220,
-        minHeight: 44,
-        background: 'var(--bg-card)',
-        borderRadius: 'var(--radius-md)',
-        borderStyle: 'dashed',
-        borderTopColor: primaryColor,
-        borderRightColor: sideColor,
-        borderBottomColor: sideColor,
-        borderLeftColor: sideColor,
-        borderTopWidth: '2px',
-        borderRightWidth: '1.5px',
-        borderBottomWidth: '1.5px',
-        borderLeftWidth: '1.5px',
-        cursor: 'pointer',
-        transition: 'var(--transition-base)',
-        boxShadow: selected
-          ? `0 0 18px ${primaryColor}55`
-          : hovered
-            ? `0 0 22px ${primaryColor}33`
-            : '0 2px 12px rgba(0,0,0,0.3)',
-        padding: '4px 6px',
-        fontFamily: 'var(--font-body)',
-        position: 'relative',
-      }}
+    <TradeCard
+      cardRef={cardRef}
+      teamIds={teamIds}
+      teamColors={teamColors}
+      sides={sides}
+      verdict={verdict}
+      borderColor={hovered ? primaryColor + '88' : 'var(--border-medium)'}
+      glow={hovered ? `0 0 22px ${primaryColor}33` : undefined}
+      onClick={openBuilder}
+      onClose={() => removeNode(id)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      footer={
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+            <VisualizeButton
+              nodeId={id}
+              comparableCount={comparableCount}
+              accent={primaryColor}
+              onVisualize={() => visualizeHypothetical(id)}
+            />
+            <HypotheticalShareSheet
+              fileStem={id}
+              cardRef={cardRef}
+              enabled={hasAnyAssets}
+              comparableCount={comparableCount}
+              accent={primaryColor}
+              createLink={() => createHypotheticalShareLink(id)}
+              source="hypothetical_node"
+            />
+          </div>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--text-muted)', letterSpacing: '0.3px' }}>
+            click to edit
+          </span>
+        </div>
+      }
     >
       <Handle type="target" position={Position.Top} style={{ opacity: 0 }} />
-
-      {/* DRAFT badge — top-left */}
-      <div
-        style={{
-          position: 'absolute',
-          top: -8,
-          left: 6,
-          fontFamily: 'var(--font-mono)',
-          fontSize: 8,
-          fontWeight: 700,
-          letterSpacing: '1px',
-          color: '#0a0a0f',
-          background: primaryColor,
-          padding: '2px 6px',
-          borderRadius: 3,
-          zIndex: 2,
-          lineHeight: 1,
-        }}
-      >
-        DRAFT
-      </div>
-
-      {/* Close (X) — top-right */}
-      <div
-        className="nopan nodrag"
-        data-capture-hide
-        onClick={(e) => { e.stopPropagation(); removeNode(id); }}
-        style={{
-          position: 'absolute',
-          top: 4,
-          right: 4,
-          width: 16,
-          height: 16,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderRadius: 3,
-          background: 'rgba(255,255,255,0.08)',
-          color: 'var(--text-secondary)',
-          fontSize: 11,
-          lineHeight: 1,
-          cursor: 'pointer',
-          zIndex: 2,
-        }}
-        onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.18)'; }}
-        onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; }}
-      >
-        ✕
-      </div>
-
-      {/* Heading */}
-      <div
-        style={{
-          marginTop: 4,
-          fontFamily: 'var(--font-display)',
-          fontSize: 12,
-          letterSpacing: '0.4px',
-          color: 'var(--text-primary)',
-          textTransform: 'uppercase',
-          lineHeight: 1.1,
-          paddingRight: 22,
-        }}
-      >
-        {heading}
-      </div>
-
-      {/* CBA verdict — stamped by the side panel once rosters load. Part of
-          the card so it travels with the shared image. */}
-      {hasAnyAssets && verdict && <VerdictRow status={verdict.status} reason={verdict.reason} />}
-
-      {/* Live ledger — per-side receive list. Auto-grows with assets. */}
-      {ledgerRows.length > 0 && hasAnyAssets && (
-        <div style={{ marginTop: 4, display: 'flex', flexDirection: 'column', gap: 4 }}>
-          {ledgerRows.map((row) => {
-            const isEmpty = row.players.length === 0 && row.picks.length === 0;
-            return (
-              <div key={row.teamId} style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                <div
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 8,
-                    color: 'var(--text-secondary)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                    lineHeight: 1.2,
-                  }}
-                >
-                  {row.teamName} receives
-                </div>
-                {isEmpty ? (
-                  <div
-                    style={{
-                      fontFamily: 'var(--font-body)',
-                      fontSize: 9,
-                      color: 'var(--text-muted)',
-                      fontStyle: 'italic',
-                      paddingLeft: 6,
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    nothing yet
-                  </div>
-                ) : (
-                  <>
-                    {row.players.map((name) => (
-                      <div
-                        key={`p-${name}`}
-                        style={{
-                          fontFamily: 'var(--font-body)',
-                          fontSize: 10,
-                          color: 'var(--text-primary)',
-                          lineHeight: 1.3,
-                          paddingLeft: 6,
-                          whiteSpace: 'nowrap',
-                          overflow: 'hidden',
-                          textOverflow: 'ellipsis',
-                        }}
-                        title={name}
-                      >
-                        • {name}
-                      </div>
-                    ))}
-                    {row.picks.map((pick) => {
-                      const roundLabel = pick.round === 1 ? '1st' : '2nd';
-                      const tags: string[] = [];
-                      if (pick.asset_class === 'swap') tags.push('swap');
-                      else if (pick.conditional) tags.push('cond.');
-                      const suffix = tags.length ? ` (${tags.join(', ')})` : '';
-                      return (
-                        <div
-                          key={`pk-${pick.pick_key}`}
-                          style={{
-                            fontFamily: 'var(--font-mono)',
-                            fontSize: 9,
-                            color: 'var(--text-secondary)',
-                            lineHeight: 1.3,
-                            paddingLeft: 6,
-                            whiteSpace: 'nowrap',
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis',
-                          }}
-                          title={`${pick.year} ${pick.original_team_id} ${roundLabel}${suffix}`}
-                        >
-                          • {pick.year} {pick.original_team_id} {roundLabel}{suffix}
-                        </div>
-                      );
-                    })}
-                  </>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      )}
-
-      {/* Footer — edit hint + Visualize/Share buttons. Sits below ledger or
-          directly under heading when empty. The Visualize button gates on
-          whether the side panel has computed comparables (published via
-          setLatestComparables). Share gates on whether any assets have been
-          added — sharing an empty draft is meaningless. */}
-      <div
-        data-capture-hide
-        style={{
-          marginTop: 4,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: 6,
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-          <VisualizeButton
-            nodeId={id}
-            comparableCount={comparableCount}
-            accent={primaryColor}
-            onVisualize={() => visualizeHypothetical(id)}
-          />
-          <HypotheticalShareSheet
-            nodeId={id}
-            cardRef={cardRef}
-            enabled={hasAnyAssets}
-            comparableCount={comparableCount}
-            accent={primaryColor}
-          />
-        </div>
-        <span
-          style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: 9,
-            color: selected ? primaryColor : 'var(--text-muted)',
-            letterSpacing: '0.3px',
-          }}
-        >
-          {selected ? '● editing' : 'click to edit'}
-        </span>
-      </div>
-
-      <div
-        data-capture-only
-        style={{
-          display: 'none',
-          marginTop: 6,
-          paddingTop: 4,
-          borderTop: '1px solid var(--border-subtle)',
-          fontFamily: 'var(--font-mono)',
-          fontSize: 8,
-          letterSpacing: '0.5px',
-          color: 'var(--text-muted)',
-          textAlign: 'right',
-        }}
-      >
-        nbatrademapper.com
-      </div>
-
       <Handle type="source" position={Position.Bottom} style={{ opacity: 0 }} />
-    </div>
-  );
-}
-
-const VERDICT_STYLE = {
-  legal: { label: 'LEGAL', color: 'var(--accent-green)', bg: 'rgba(6, 214, 160, 0.14)', border: 'rgba(6, 214, 160, 0.4)' },
-  illegal: { label: 'ILLEGAL', color: 'var(--accent-red)', bg: 'rgba(239, 71, 111, 0.16)', border: 'rgba(239, 71, 111, 0.5)' },
-  incomplete: { label: 'INCOMPLETE', color: 'var(--text-tertiary)', bg: 'rgba(255, 255, 255, 0.04)', border: 'var(--border-subtle)' },
-} as const;
-
-function VerdictRow({ status, reason }: { status: 'legal' | 'illegal' | 'incomplete'; reason: string }) {
-  const v = VERDICT_STYLE[status];
-  return (
-    <div
-      data-verdict={status}
-      style={{
-        marginTop: 5,
-        padding: '4px 6px',
-        borderRadius: 4,
-        background: v.bg,
-        border: `1px solid ${v.border}`,
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 2,
-      }}
-    >
-      <span
-        style={{
-          fontFamily: 'var(--font-display)',
-          fontSize: 12,
-          letterSpacing: '0.08em',
-          color: v.color,
-          lineHeight: 1,
-        }}
-      >
-        {v.label}
-      </span>
-      <span style={{ fontSize: 9, color: 'var(--text-secondary)', lineHeight: 1.3 }}>{reason}</span>
-    </div>
+    </TradeCard>
   );
 }
 

@@ -31,9 +31,13 @@ interface Props {
   onChange: (next: BuilderState) => void;
   /** Optional remove-this-slot affordance (only shown for slots ≥ 3). */
   onRemove?: () => void;
+  /** The builder page renders the team picker in its own pinned header row. */
+  hideHeader?: boolean;
+  /** Phone width: rows show name + salary only (age/BPM dropped). */
+  compact?: boolean;
 }
 
-export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onChange, onRemove }: Props) {
+export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onChange, onRemove, hideHeader = false, compact = false }: Props) {
   const [loadingRoster, setLoadingRoster] = useState(false);
   const [ownedPicks, setOwnedPicks] = useState<OwnedPick[] | null>(null);
   const [hoveredPickKey, setHoveredPickKey] = useState<string | null>(null);
@@ -48,6 +52,12 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
     });
     return () => { cancelled = true; };
   }, []);
+
+  // Latest state for async callbacks. The roster fetch resolves after other
+  // edits may have landed (a pick restored from the URL, a quick click), so
+  // it must merge into the current state rather than the one it started with.
+  const latestState = useRef(state);
+  useEffect(() => { latestState.current = state; });
 
   // Fetch roster whenever teamId changes.
   useEffect(() => {
@@ -65,11 +75,13 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
       if (cancelled) return;
       setLoadingRoster(false);
       // Preserve selections that still exist on the new roster.
+      const current = latestState.current;
+      if (current.teamId !== state.teamId) return;
       const rosterNames = new Set(roster.map((r) => r.player_name));
       const prunedSelections = new Set(
-        [...state.selectedPlayerNames].filter((n) => rosterNames.has(n)),
+        [...current.selectedPlayerNames].filter((n) => rosterNames.has(n)),
       );
-      onChange({ ...state, roster, selectedPlayerNames: prunedSelections });
+      onChange({ ...current, roster, selectedPlayerNames: prunedSelections });
     })();
     return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -162,7 +174,7 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
         background: 'var(--bg-card)',
         border: `1px solid ${team ? hexToRgba(team.color, 0.35) : 'var(--border-subtle)'}`,
         borderRadius: 'var(--radius-lg)',
-        padding: 16,
+        padding: compact ? '10px 6px' : 16,
         display: 'flex',
         flexDirection: 'column',
         gap: 12,
@@ -172,6 +184,7 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
         minWidth: 0,
       }}
     >
+      {!hideHeader && (
       <div
         style={{
           display: 'flex',
@@ -226,10 +239,11 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
           </button>
         )}
       </div>
+      )}
 
       {/* Roster */}
       <div>
-        <SectionLabel>Outgoing players</SectionLabel>
+        <SectionLabel>{compact ? 'Players' : 'Outgoing players'}</SectionLabel>
         {!state.teamId && (
           <EmptyHint>Pick a team to see its {CURRENT_SEASON} roster.</EmptyHint>
         )}
@@ -241,7 +255,7 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
         )}
         {state.roster.length > 0 && (
           <div>
-            <RosterHeader />
+            <RosterHeader compact={compact} routing={showRouting} />
             <div
               style={{
                 display: 'flex',
@@ -263,10 +277,10 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
                     <label
                       style={{
                         display: 'grid',
-                        gridTemplateColumns: '18px 1fr 30px 44px 56px',
+                        gridTemplateColumns: (compact ? '16px 1fr 44px' : '18px 1fr 30px 44px 56px') + (showRouting ? ` ${DEST_COL}` : ''),
                         alignItems: 'center',
-                        gap: 6,
-                        padding: '4px 8px',
+                        gap: compact ? 4 : 6,
+                        padding: compact ? '5px 4px' : '4px 8px',
                         borderRadius: 'var(--radius-sm)',
                         background: selected ? 'rgba(255, 107, 53, 0.1)' : 'transparent',
                         cursor: 'pointer',
@@ -281,7 +295,7 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
                       />
                       <span
                         style={{
-                          fontSize: 13,
+                          fontSize: compact ? 12 : 13,
                           color: selected ? 'var(--text-primary)' : 'var(--text-secondary)',
                           overflow: 'hidden',
                           textOverflow: 'ellipsis',
@@ -290,6 +304,7 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
                       >
                         {p.player_name}
                       </span>
+                      {!compact && (<>
                       <span style={statCellStyle}>
                         {p.age != null ? p.age : '—'}
                       </span>
@@ -311,18 +326,18 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
                       >
                         {p.bpm != null ? (p.bpm > 0 ? `+${p.bpm.toFixed(1)}` : p.bpm.toFixed(1)) : '—'}
                       </span>
+                      </>)}
                       <span style={statCellStyle}>
                         {p.salary != null ? `$${(p.salary / 1e6).toFixed(1)}M` : '—'}
                       </span>
+                      {showRouting && (selected ? (
+                        <DestSelect
+                          currentDest={dest}
+                          routeTargets={routeTargets}
+                          onChange={(toTid) => setPlayerDestination(p.player_name, toTid)}
+                        />
+                      ) : <span />)}
                     </label>
-                    {selected && showRouting && (
-                      <DestinationRow
-                        teamId={state.teamId}
-                        currentDest={dest}
-                        routeTargets={routeTargets}
-                        onChange={(toTid) => setPlayerDestination(p.player_name, toTid)}
-                      />
-                    )}
                   </div>
                 );
               })}
@@ -333,7 +348,7 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
 
       {/* Picks — owned pick war chest */}
       <div>
-        <SectionLabel>Outgoing picks · war chest</SectionLabel>
+        <SectionLabel>{compact ? 'Picks' : 'Outgoing picks · war chest'}</SectionLabel>
         {!state.teamId && (
           <EmptyHint>Pick a team to see their draft picks.</EmptyHint>
         )}
@@ -365,9 +380,9 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
                   <label
                     style={{
                       display: 'grid',
-                      gridTemplateColumns: '18px 58px 1fr auto',
+                      gridTemplateColumns: (compact ? '16px max-content minmax(0, 1fr) auto' : '18px 58px 1fr auto') + (showRouting ? ` ${DEST_COL}` : ''),
                       alignItems: 'center',
-                      gap: 8,
+                      gap: compact ? 4 : 8,
                       padding: '3px 8px',
                       borderRadius: 'var(--radius-sm)',
                       background: selected ? 'rgba(255, 107, 53, 0.1)' : 'transparent',
@@ -384,14 +399,16 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
                     <span
                       style={{
                         fontFamily: 'var(--font-mono)',
-                        fontSize: 12,
+                        fontSize: compact ? 11 : 12,
+                        whiteSpace: 'nowrap',
                         color: isSwap ? 'var(--accent-purple)' : 'var(--pick-yellow, #f9c74f)',
                       }}
                     >
                       {p.year} R{p.round}
                     </span>
-                    <span style={{ fontSize: 11, color: isOwn ? 'var(--text-muted)' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: 6 }}>
-                      {isSwap && (
+                    <span style={{ fontSize: compact ? 10 : 11, color: isOwn ? 'var(--text-muted)' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: 6, minWidth: 0, whiteSpace: 'nowrap', overflow: 'hidden' }}>
+                      {/* Phones: the purple year already marks a swap; skip the pill. */}
+                      {isSwap && !compact && (
                         <span
                           style={{
                             fontSize: 8,
@@ -436,11 +453,20 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
                           border: '1px solid rgba(155, 93, 229, 0.3)',
                           cursor: 'pointer',
                           fontFamily: 'inherit',
+                          whiteSpace: 'nowrap',
                         }}
                       >
-                        cond.
+                        {compact ? 'c' : 'cond.'}
                       </button>
                     )}
+                    {!p.conditional && showRouting && <span />}
+                    {showRouting && (selected ? (
+                      <DestSelect
+                        currentDest={state.pickDestinations.get(p.pick_key) ?? null}
+                        routeTargets={routeTargets}
+                        onChange={(toTid) => setPickDestination(p.pick_key, toTid)}
+                      />
+                    ) : <span />)}
                   </label>
                   {openProtectionKey === p.pick_key && (
                     <PickProtectionPopover
@@ -449,7 +475,7 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
                       onClose={() => setOpenProtectionKey(null)}
                     />
                   )}
-                  {hovered && openProtectionKey !== p.pick_key && p.lineage.length > 0 && (
+                  {hovered && !compact && openProtectionKey !== p.pick_key && p.lineage.length > 0 && (
                     <div
                       style={{
                         position: 'absolute',
@@ -480,14 +506,6 @@ export default function TeamColumn({ label, state, otherTeamIds, allTeamIds, onC
                         </div>
                       ))}
                     </div>
-                  )}
-                  {selected && showRouting && (
-                    <DestinationRow
-                      teamId={state.teamId}
-                      currentDest={state.pickDestinations.get(p.pick_key) ?? null}
-                      routeTargets={routeTargets}
-                      onChange={(toTid) => setPickDestination(p.pick_key, toTid)}
-                    />
                   )}
                 </div>
               );
@@ -688,67 +706,54 @@ function EmptyHint({ children }: { children: React.ReactNode }) {
   );
 }
 
+/** Width of the inline "to" column in 3+ team trades. */
+const DEST_COL = '52px';
+
 /**
- * Per-asset destination dropdown. Renders beneath a selected player or pick
- * row when the trade involves 3+ teams. In 2-team trades the destination is
- * implicit (the other side) — the panel's persist-time toSide() fills it
- * automatically and this row is hidden.
- *
- * The arrow + native `<select>` is intentionally compact — this is a
- * frequently-displayed control and a custom popover would overweight the
- * row. Native select honors macOS/Windows/iOS conventions for the picker.
+ * Per-asset destination, inline at the end of a selected row in 3+ team
+ * trades (2-team trades route to the other side implicitly). Native
+ * <select> so phones get the OS picker; shows the 3-letter team code.
  */
-function DestinationRow({
-  teamId,
+function DestSelect({
   currentDest,
   routeTargets,
   onChange,
 }: {
-  teamId: string | null;
   currentDest: string | null;
   routeTargets: string[];
   onChange: (toTeamId: string) => void;
 }) {
-  if (!teamId || routeTargets.length === 0) return null;
+  if (routeTargets.length === 0) return <span />;
   const currentTeam = currentDest ? TEAMS[currentDest] : null;
   return (
-    <div
+    <select
+      value={currentDest ?? ''}
+      onChange={(e) => onChange(e.target.value)}
+      onClick={(e) => e.stopPropagation()}
+      aria-label="Send to team"
+      title="Which team receives this"
       style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 6,
-        padding: '2px 8px 4px 32px',
-        fontSize: 10,
-        color: 'var(--text-muted)',
+        width: '100%',
         fontFamily: 'var(--font-mono)',
+        fontSize: 10,
+        padding: '3px 2px',
+        borderRadius: 3,
+        // No native chevron: the team code needs every pixel at phone width.
+        appearance: 'none',
+        WebkitAppearance: 'none',
+        textAlign: 'center',
+        textAlignLast: 'center',
+        border: `1px solid ${currentTeam ? hexToRgba(currentTeam.color, 0.6) : 'var(--accent-orange)'}`,
+        background: currentTeam ? hexToRgba(currentTeam.color, 0.2) : 'rgba(255, 107, 53, 0.12)',
+        color: 'var(--text-primary)',
+        cursor: 'pointer',
       }}
     >
-      <span style={{ fontSize: 11 }}>→</span>
-      <span style={{ textTransform: 'uppercase', letterSpacing: '0.06em' }}>to</span>
-      <select
-        value={currentDest ?? ''}
-        onChange={(e) => onChange(e.target.value)}
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: 10,
-          padding: '2px 6px',
-          borderRadius: 3,
-          border: `1px solid ${currentTeam ? hexToRgba(currentTeam.color, 0.5) : 'var(--border-medium)'}`,
-          background: currentTeam ? hexToRgba(currentTeam.color, 0.15) : 'var(--bg-elevated)',
-          color: 'var(--text-primary)',
-          textTransform: 'uppercase',
-          letterSpacing: '0.06em',
-          cursor: 'pointer',
-        }}
-      >
-        {!currentDest && <option value="">— pick team —</option>}
-        {routeTargets.map((tid) => (
-          <option key={tid} value={tid}>
-            {TEAMS[tid]?.name.split(' ').pop() || tid}
-          </option>
-        ))}
-      </select>
-    </div>
+      {!currentDest && <option value="">to ?</option>}
+      {routeTargets.map((tid) => (
+        <option key={tid} value={tid}>→{tid} ▾</option>
+      ))}
+    </select>
   );
 }
 
@@ -760,7 +765,7 @@ const statCellStyle: React.CSSProperties = {
   textAlign: 'right',
 };
 
-function RosterHeader() {
+function RosterHeader({ compact = false, routing = false }: { compact?: boolean; routing?: boolean }) {
   const [explainerOpen, setExplainerOpen] = useState(false);
   const headerStyle: React.CSSProperties = {
     fontFamily: 'var(--font-body)',
@@ -776,15 +781,16 @@ function RosterHeader() {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: '18px 1fr 30px 44px 56px',
-          gap: 6,
-          padding: '4px 8px',
+          gridTemplateColumns: (compact ? '16px 1fr 44px' : '18px 1fr 30px 44px 56px') + (routing ? ` ${DEST_COL}` : ''),
+          gap: compact ? 4 : 6,
+          padding: compact ? '4px' : '4px 8px',
           borderBottom: '1px solid var(--border-subtle)',
           marginBottom: 4,
         }}
       >
         <span />
         <span style={{ ...headerStyle, textAlign: 'left' }}>Player</span>
+        {!compact && (<>
         <span style={headerStyle}>Age</span>
         <span
           style={{ ...headerStyle, cursor: 'pointer', color: 'var(--text-secondary)' }}
@@ -793,7 +799,9 @@ function RosterHeader() {
         >
           BPM <span style={{ color: 'var(--accent-orange)', marginLeft: 1 }}>ⓘ</span>
         </span>
+        </>)}
         <span style={headerStyle}>Salary</span>
+        {routing && <span style={headerStyle}>To</span>}
       </div>
       {explainerOpen && <BPMExplainer onClose={() => setExplainerOpen(false)} />}
     </>
@@ -820,7 +828,7 @@ interface TeamPickerProps {
   onChange: (next: string | null) => void;
 }
 
-function TeamPicker({ value, otherTeamIds, onChange }: TeamPickerProps) {
+export function TeamPicker({ value, otherTeamIds, onChange }: TeamPickerProps) {
   const otherTeamSet = new Set(otherTeamIds);
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
