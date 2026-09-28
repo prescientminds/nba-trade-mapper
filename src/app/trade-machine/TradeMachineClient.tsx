@@ -388,8 +388,10 @@ export default function TradeMachineClient() {
             />
           </div>
 
-          {/* Team header row — clipped track, translated to follow the columns */}
-          <div style={{ overflow: 'hidden', marginTop: 10 }}>
+          {/* Team header row — clipped track, translated to follow the columns.
+              Clip x only: `clip` (unlike `hidden`) leaves y visible so the
+              TeamPicker dropdown can drop below the pinned header. */}
+          <div style={{ overflowX: 'clip', overflowY: 'visible', marginTop: 10 }}>
             <div
               ref={headerTrackRef}
               style={{ display: 'grid', gridTemplateColumns, gap, willChange: 'transform' }}
