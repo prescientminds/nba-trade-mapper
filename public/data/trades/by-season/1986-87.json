@@ -1922,8 +1922,8 @@
         "pick_year": 1989,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Kenny Payne",
-        "notes": null
+        "became_player_name": null,
+        "notes": "[no-draftee] Kenny Payne (drafted by PHI)"
       },
       {
         "type": "player",
@@ -1944,8 +1944,8 @@
         "pick_year": 1989,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "B. J. Armstrong",
-        "notes": "1989 pick swap right — SEA exercised swap (#20→#18) then traded #18 back to CHI for Brad Sellers; CHI used #18 to draft B.J. Armstrong"
+        "became_player_name": null,
+        "notes": "[no-draftee] B. J. Armstrong (drafted by CHI)"
       },
       {
         "type": "pick",

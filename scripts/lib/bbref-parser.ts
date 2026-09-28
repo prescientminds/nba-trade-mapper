@@ -127,6 +127,9 @@ const SWAP_NOTE_PATTERNS: RegExp[] = [
 /** Text fragments from those notes that must never be read as a player name. */
 const NOTE_FRAGMENT = /\b(?:convey|conveyed|protected|swap|exception|favorable|own|exercised|option|deferred?|renegotiated|\d{4})\b|-rd\b/i;
 
+/** Marks a pick whose draftee was removed as not this team's (issue #45); enrich-picks must not refill it. */
+export const NO_DRAFTEE_NOTE = '[no-draftee]';
+
 export const isNoteFragment = (s: string) => NOTE_FRAGMENT.test(s);
 
 /**

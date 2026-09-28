@@ -262,8 +262,8 @@
         "pick_year": 1998,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Michael Doleac",
-        "notes": null
+        "became_player_name": null,
+        "notes": "[no-draftee] Michael Doleac (drafted by ORL)"
       },
       {
         "type": "pick",

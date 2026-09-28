@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-09-28T08:19:21.313Z",
+  "timestamp": "2026-09-28T08:30:21.629Z",
   "year": 2026,
   "league": "all",
-  "durationSec": 15,
+  "durationSec": 16,
   "phases": [
     {
       "phase": "score-trades",
       "league": "shared",
       "ok": true,
-      "durationSec": 6
+      "durationSec": 7
     },
     {
       "phase": "score-transactions",
@@ -26,7 +26,7 @@
       "phase": "update-cap-thresholds",
       "league": "shared",
       "ok": true,
-      "durationSec": 2
+      "durationSec": 3
     },
     {
       "phase": "build-trade-profiles",

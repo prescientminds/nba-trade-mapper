@@ -1777,8 +1777,8 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Herbert Jones",
-        "notes": null
+        "became_player_name": null,
+        "notes": "[no-draftee] Herbert Jones (drafted by NOP)"
       },
       {
         "type": "player",
@@ -1799,8 +1799,8 @@
         "pick_year": 2021,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Sandro Mamukelashvili",
-        "notes": null
+        "became_player_name": null,
+        "notes": "[no-draftee] Sandro Mamukelashvili (drafted by IND)"
       },
       {
         "type": "pick",

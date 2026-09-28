@@ -1581,8 +1581,8 @@
         "pick_year": 2022,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Isaiah Mobley",
-        "notes": null
+        "became_player_name": null,
+        "notes": "[no-draftee] Isaiah Mobley (drafted by CLE)"
       },
       {
         "type": "pick",
@@ -1592,8 +1592,8 @@
         "pick_year": 2022,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Christian Koloko",
-        "notes": null
+        "became_player_name": null,
+        "notes": "[no-draftee] Christian Koloko (drafted by TOR)"
       }
     ],
     "topAssets": [
