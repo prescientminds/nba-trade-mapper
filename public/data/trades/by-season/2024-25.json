@@ -168,7 +168,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "DAL",
         "to_team_id": "PHI",
@@ -176,7 +176,7 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2031 2nd-rd pick is a right to swap"
       },
       {
         "type": "player",
@@ -245,7 +245,7 @@
         "notes": "Cash considerations"
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "GSW",
         "to_team_id": "MIN",
@@ -253,7 +253,7 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2031 2nd-rd pick is a right to swap"
       },
       {
         "type": "player",
@@ -462,7 +462,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "NYK",
         "to_team_id": "BKN",
@@ -470,7 +470,7 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2028 1st-rd pick is a swap"
       },
       {
         "type": "pick",
@@ -983,6 +983,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Harrison Barnes",
+        "from_team_id": "SAC",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "swap",
+        "player_name": null,
+        "from_team_id": "SAC",
+        "to_team_id": "SAS",
+        "pick_year": 2031,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "2031 1st-rd pick is a swap"
       }
     ],
     "topAssets": [
@@ -1054,7 +1076,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "LAC",
         "to_team_id": "UTA",
@@ -1062,7 +1084,7 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2030 2nd-rd pick is a right to swap"
       }
     ],
     "topAssets": [
@@ -1555,7 +1577,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "IND",
         "to_team_id": "MIA",
@@ -1563,7 +1585,7 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2031 2nd-rd pick is a right to swap"
       }
     ],
     "topAssets": [
@@ -1893,7 +1915,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "UTA",
         "to_team_id": "LAC",
@@ -1901,7 +1923,7 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2030 2nd-rd pick is a right to swap"
       }
     ],
     "topAssets": [
@@ -2009,15 +2031,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "LAL",
         "to_team_id": "UTA",
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "John Tonje",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2025 2nd-rd pick is a right to swap"
       },
       {
         "type": "cash",
@@ -2031,15 +2053,15 @@
         "notes": "Cash considerations"
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "UTA",
         "to_team_id": "DAL",
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Rasheer Fleming",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2025 2nd-rd pick is a right to swap"
       },
       {
         "type": "cash",
@@ -2419,7 +2441,7 @@
         "notes": "Cash considerations"
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "OKC",
         "to_team_id": "NOP",
@@ -2427,7 +2449,7 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2031 2nd-rd pick is a right to swap"
       }
     ],
     "topAssets": [
@@ -3599,15 +3621,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "MEM",
         "to_team_id": "ORL",
         "pick_year": 2026,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Cameron Boozer",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2026 1st-rd pick is a right to swap"
       },
       {
         "type": "player",
@@ -3654,7 +3676,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "ORL",
         "to_team_id": "MEM",
@@ -3662,7 +3684,7 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2029 1st-rd pick is a right to swap"
       },
       {
         "type": "pick",

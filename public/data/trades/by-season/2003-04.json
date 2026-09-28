@@ -811,17 +811,6 @@
       },
       {
         "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "UTA",
-        "to_team_id": "HOU",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
         "player_name": "Glen Rice",
         "from_team_id": "HOU",
         "to_team_id": "UTA",
@@ -1307,17 +1296,6 @@
       }
     ],
     "assets": [
-      {
-        "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "ORL",
-        "to_team_id": "PHI",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
       {
         "type": "cash",
         "player_name": null,

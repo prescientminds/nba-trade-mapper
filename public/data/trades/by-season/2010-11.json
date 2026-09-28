@@ -30,17 +30,6 @@
       },
       {
         "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "WAS",
-        "to_team_id": "CHI",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
         "player_name": "Kirk Hinrich",
         "from_team_id": "CHI",
         "to_team_id": "WAS",
@@ -234,17 +223,6 @@
       },
       {
         "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "CHI",
-        "to_team_id": "UTA",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
         "player_name": "Mario Austin",
         "from_team_id": "CHI",
         "to_team_id": "UTA",
@@ -290,17 +268,6 @@
         "notes": null
       },
       {
-        "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "NYK",
-        "to_team_id": "PHX",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
         "type": "pick",
         "player_name": null,
         "from_team_id": "NYK",
@@ -309,17 +276,6 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Kostas Papanikolaou",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Phoenix received a trade exception",
-        "from_team_id": "NYK",
-        "to_team_id": "PHX",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],
@@ -366,17 +322,6 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "İlkan Karaman",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "MIA",
-        "to_team_id": "CLE",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       },
       {
@@ -527,17 +472,6 @@
         "notes": "Cash considerations"
       },
       {
-        "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "MIA",
-        "to_team_id": "TOR",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
         "type": "pick",
         "player_name": null,
         "from_team_id": "MIA",
@@ -546,17 +480,6 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Norris Cole",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "2009.",
-        "from_team_id": "MIA",
-        "to_team_id": "TOR",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],
@@ -671,17 +594,6 @@
         "pick_round": 2,
         "original_team_id": "PHX",
         "became_player_name": "Mike Scott",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "PHX",
-        "to_team_id": "ATL",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       },
       {
@@ -1022,17 +934,6 @@
         "pick_round": 2,
         "original_team_id": "PHX",
         "became_player_name": "Charles Jenkins",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "CHI",
-        "to_team_id": "GSW",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],

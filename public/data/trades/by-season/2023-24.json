@@ -988,18 +988,18 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "PHX",
         "to_team_id": "MEM",
         "pick_year": 2024,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "DaRon Holmes II",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2024 1st-rd pick was a right to swap"
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "PHX",
         "to_team_id": "MEM",
@@ -1007,7 +1007,7 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2030 1st-rd pick is a right to swap"
       },
       {
         "type": "pick",
@@ -1082,15 +1082,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "DAL",
         "to_team_id": "BOS",
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Chaz Lanier",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2025 2nd-rd pick is a right to swap"
       },
       {
         "type": "pick",
@@ -1115,7 +1115,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "DAL",
         "to_team_id": "SAS",
@@ -1123,7 +1123,7 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2030 1st-rd pick is a right to swap"
       },
       {
         "type": "pick",
@@ -1137,15 +1137,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "SAS",
         "to_team_id": "DAL",
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Kam Jones",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2025 2nd-rd pick is a right to swap"
       },
       {
         "type": "pick",
@@ -1357,7 +1357,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "MIL",
         "to_team_id": "POR",
@@ -1365,7 +1365,7 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2028 1st-rd pick is a swap"
       },
       {
         "type": "pick",
@@ -1379,7 +1379,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "MIL",
         "to_team_id": "POR",
@@ -1387,7 +1387,7 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2030 1st-rd pick is a swap"
       },
       {
         "type": "player",
@@ -1700,7 +1700,7 @@
     ],
     "assets": [
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "LAC",
         "to_team_id": "OKC",
@@ -1708,7 +1708,7 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2027 1st-rd pick is a right to swap"
       },
       {
         "type": "player",
@@ -1788,7 +1788,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "LAC",
         "to_team_id": "PHI",
@@ -1796,7 +1796,7 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2029 1st-rd pick is a swap"
       },
       {
         "type": "pick",
@@ -3101,15 +3101,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "PHX",
         "to_team_id": "MEM",
         "pick_year": 2026,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Bennett Stirtz",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2026 1st-rd pick is a right to swap"
       }
     ],
     "topAssets": [
@@ -3569,7 +3569,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "DAL",
         "to_team_id": "OKC",
@@ -3577,7 +3577,7 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "right to swap 2028 1st-rd"
       }
     ],
     "topAssets": [
@@ -3846,7 +3846,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "MIN",
         "to_team_id": "SAS",
@@ -3854,7 +3854,7 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2030 1st-rd pick is a right to swap"
       },
       {
         "type": "pick",
@@ -4039,15 +4039,15 @@
     ],
     "assets": [
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "HOU",
         "to_team_id": "BKN",
         "pick_year": 2025,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Danny Wolf",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2025 1st-rd pick swap"
       },
       {
         "type": "pick",
@@ -4072,15 +4072,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "BKN",
         "to_team_id": "HOU",
         "pick_year": 2025,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Khaman Maluach",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2025 1st-rd pick swap"
       },
       {
         "type": "pick",
@@ -4425,7 +4425,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "NOP",
         "to_team_id": "ORL",
@@ -4433,10 +4433,10 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2030 2nd round pick is a right to swap"
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "NOP",
         "to_team_id": "ORL",
@@ -4444,7 +4444,7 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2031 2nd round pick is a right to swap"
       }
     ],
     "topAssets": [

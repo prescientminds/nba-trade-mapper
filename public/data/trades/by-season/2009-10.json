@@ -668,17 +668,6 @@
         "notes": null
       },
       {
-        "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "MEM",
-        "to_team_id": "DEN",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
         "type": "cash",
         "player_name": null,
         "from_team_id": "DEN",

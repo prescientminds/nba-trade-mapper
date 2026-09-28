@@ -261,17 +261,6 @@
       },
       {
         "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "PHX",
-        "to_team_id": "SAC",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
         "player_name": "Isaiah Thomas",
         "from_team_id": "SAC",
         "to_team_id": "PHX",
@@ -755,17 +744,6 @@
     "assets": [
       {
         "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "WAS",
-        "to_team_id": "BOS",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
         "player_name": "Kris Humphries",
         "from_team_id": "BOS",
         "to_team_id": "WAS",
@@ -1097,17 +1075,6 @@
         "notes": null
       },
       {
-        "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "PHI",
-        "to_team_id": "OKC",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
         "type": "pick",
         "player_name": null,
         "from_team_id": "PHI",
@@ -1256,17 +1223,6 @@
       },
       {
         "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "HOU",
-        "to_team_id": "SAC",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
         "player_name": "Jason Terry",
         "from_team_id": "SAC",
         "to_team_id": "HOU",
@@ -1397,17 +1353,6 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Kadeem Allen",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "CLE",
-        "to_team_id": "BOS",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       },
       {
@@ -1781,17 +1726,6 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "A. J. Hammons",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "DAL",
-        "to_team_id": "BOS",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       },
       {
@@ -2185,28 +2119,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "which is top-18 protected in 2015 & top-15 protected afterwards. The other pick is from MEM & is conveyed if between 6-14 in 2015 or 2016 &",
-        "from_team_id": "CLE",
-        "to_team_id": "DEN",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "is top-5 protected in 2017 & 2018).",
-        "from_team_id": "CLE",
-        "to_team_id": "DEN",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -2342,17 +2254,6 @@
         "pick_round": 2,
         "original_team_id": "MIN",
         "became_player_name": "Rade Zagorac",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "2016. If the pick is still held in 2016 it will become two 2nd-round picks.)",
-        "from_team_id": "PHX",
-        "to_team_id": "BOS",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],
@@ -4593,17 +4494,6 @@
       {
         "type": "player",
         "player_name": "Tomislav Zubcic",
-        "from_team_id": "TOR",
-        "to_team_id": "OKC",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "trade exception",
         "from_team_id": "TOR",
         "to_team_id": "OKC",
         "pick_year": null,

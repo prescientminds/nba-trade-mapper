@@ -804,17 +804,6 @@
       },
       {
         "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "BOS",
-        "to_team_id": "CLE",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
         "player_name": "Luke Jackson (b)",
         "from_team_id": "CLE",
         "to_team_id": "BOS",

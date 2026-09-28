@@ -435,39 +435,6 @@
         "original_team_id": null,
         "became_player_name": "Dillon Mitchell",
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "could have been either 2022",
-        "from_team_id": "MIL",
-        "to_team_id": "ORL",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "2023",
-        "from_team_id": "MIL",
-        "to_team_id": "ORL",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "or 2024",
-        "from_team_id": "MIL",
-        "to_team_id": "ORL",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -695,17 +662,6 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Bobi Klintman",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Washington also received a trade exception from Oklahoma City.",
-        "from_team_id": "OKC",
-        "to_team_id": "WAS",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],
@@ -1003,6 +959,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Rodney McGruder",
+        "from_team_id": "LAC",
+        "to_team_id": "DET",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ],
     "topAssets": [
@@ -1210,6 +1177,17 @@
         "player_name": "Ricky Rubio",
         "from_team_id": "OKC",
         "to_team_id": "MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Immanuel Quickley",
+        "from_team_id": "OKC",
+        "to_team_id": "NYK",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1455,28 +1433,6 @@
         "original_team_id": null,
         "became_player_name": "Miles McBride",
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Oklahoma City also received a trade exception Conditional 2020 1st-rd pick (GSW own) did not convey",
-        "from_team_id": "GSW",
-        "to_team_id": "OKC",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "become 2021 2nd-rd pick (MIN own)",
-        "from_team_id": "GSW",
-        "to_team_id": "OKC",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -1551,6 +1507,28 @@
         "player_name": null,
         "from_team_id": "NYK",
         "to_team_id": "UTA",
+        "pick_year": 2024,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Ajay Mitchell",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "NYK",
+        "pick_year": 2023,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Mouhamed Gueye",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "UTA",
+        "to_team_id": "NYK",
         "pick_year": 2024,
         "pick_round": 2,
         "original_team_id": null,
@@ -1794,15 +1772,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "MIL",
         "to_team_id": "NOP",
         "pick_year": 2024,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Yves Missi",
-        "notes": null
+        "became_player_name": null,
+        "notes": "right to swap 2024 1st-rd"
       },
       {
         "type": "pick",
@@ -1816,15 +1794,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "MIL",
         "to_team_id": "NOP",
         "pick_year": 2026,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Brayden Burries",
-        "notes": null
+        "became_player_name": null,
+        "notes": "right to swap 2026 1st-rd"
       },
       {
         "type": "pick",
@@ -1935,6 +1913,17 @@
         "original_team_id": null,
         "became_player_name": "Tyler Kolek",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Steven Adams",
+        "from_team_id": "OKC",
+        "to_team_id": "NOP",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ],
     "topAssets": [
@@ -2035,28 +2024,6 @@
         "to_team_id": "DET",
         "pick_year": 2027,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "remains protected in 2023",
-        "from_team_id": "HOU",
-        "to_team_id": "DET",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "2024 2021 2nd-rd pick is LAL own 2027 2nd-rd pick is HOU own",
-        "from_team_id": "HOU",
-        "to_team_id": "DET",
-        "pick_year": null,
-        "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
@@ -2185,17 +2152,6 @@
         "original_team_id": null,
         "became_player_name": "Brooks Barnhizer",
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Oklahoma City also received a trade exception",
-        "from_team_id": "ATL",
-        "to_team_id": "OKC",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -2307,17 +2263,6 @@
         "to_team_id": "OKC",
         "pick_year": 2027,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Oklahoma City also received a trade exception",
-        "from_team_id": "IND",
-        "to_team_id": "OKC",
-        "pick_year": null,
-        "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
@@ -2609,17 +2554,6 @@
         "original_team_id": null,
         "became_player_name": "Josh Minott",
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Boston also received a trade exception",
-        "from_team_id": "CHA",
-        "to_team_id": "BOS",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -2676,17 +2610,6 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Jarace Walker",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Houston also received a trade exception",
-        "from_team_id": "WAS",
-        "to_team_id": "HOU",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],
@@ -2789,17 +2712,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "did not convey Philadelphia also received a trade exception from Oklahoma City.",
-        "from_team_id": "OKC",
-        "to_team_id": "PHI",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -2867,15 +2779,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "BKN",
         "to_team_id": "HOU",
         "pick_year": 2021,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Cam Thomas",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2021 1st-rd pick was a right to swap"
       },
       {
         "type": "pick",
@@ -2889,15 +2801,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "BKN",
         "to_team_id": "HOU",
         "pick_year": 2023,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Dariq Whitehead",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2023 1st-rd pick was a right to swap"
       },
       {
         "type": "pick",
@@ -2911,15 +2823,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "BKN",
         "to_team_id": "HOU",
         "pick_year": 2025,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Egor Dëmin",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2025 1st-rd pick is a right to swap"
       },
       {
         "type": "pick",
@@ -2933,7 +2845,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "BKN",
         "to_team_id": "HOU",
@@ -2941,7 +2853,7 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2027 1st-rd pick is a right to swap"
       },
       {
         "type": "player",
@@ -3019,6 +2931,17 @@
         "original_team_id": null,
         "became_player_name": "Jalen Pickett",
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Victor Oladipo",
+        "from_team_id": "IND",
+        "to_team_id": "HOU",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ],
     "topAssets": [
@@ -3066,17 +2989,6 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "KJ Simpson",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Cleveland also received a trade exception. Did not convey.",
-        "from_team_id": "HOU",
-        "to_team_id": "CLE",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],
@@ -3134,17 +3046,6 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Isaiah Livers",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "DET also receives trade exception",
-        "from_team_id": "NYK",
-        "to_team_id": "DET",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],
@@ -3418,28 +3319,6 @@
         "original_team_id": null,
         "became_player_name": "Kobe Brown",
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Milwaukee also receives a trade exception Conditional 2021 1st-rd pick is MIL own 2023 1st-rd pick was MIL own",
-        "from_team_id": "MIL",
-        "to_team_id": "HOU",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Houston also receives a trade exception",
-        "from_team_id": "MIL",
-        "to_team_id": "HOU",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -3507,17 +3386,6 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Jaden Hardy",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Los Angeles also receives a trade exception",
-        "from_team_id": "SAC",
-        "to_team_id": "LAC",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],
@@ -3634,6 +3502,39 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Adem Bona",
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Tony Bradley",
+        "from_team_id": "PHI",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "OKC",
+        "pick_year": 2025,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Johni Broome",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "PHI",
+        "to_team_id": "OKC",
+        "pick_year": 2026,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
         "notes": null
       }
     ],
@@ -3888,6 +3789,17 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Troy Brown Jr.",
+        "from_team_id": "WAS",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ],
     "topAssets": [
@@ -4060,17 +3972,6 @@
         "original_team_id": null,
         "became_player_name": "Dalano Banton",
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Toronto also received a trade exception",
-        "from_team_id": "SAC",
-        "to_team_id": "TOR",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -4130,26 +4031,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "MIA",
         "to_team_id": "HOU",
         "pick_year": 2022,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Luke Travers",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Houston also receives a trade exception",
-        "from_team_id": "MIA",
-        "to_team_id": "HOU",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2022 2nd-rd pick is an opportunity to swap"
       }
     ],
     "topAssets": [
@@ -4217,39 +4107,6 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Sion James",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "did not convey 2025 2nd-rd pick (CHO own) is top-55 protected",
-        "from_team_id": "CHA",
-        "to_team_id": "GSW",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Golden State also received a trade exception",
-        "from_team_id": "CHA",
-        "to_team_id": "GSW",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "did not convey",
-        "from_team_id": "CHA",
-        "to_team_id": "GSW",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],
@@ -4387,28 +4244,6 @@
         "original_team_id": null,
         "became_player_name": "Jase Richardson",
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "conveys to 2026",
-        "from_team_id": "DEN",
-        "to_team_id": "ORL",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "2027 with the same protection",
-        "from_team_id": "DEN",
-        "to_team_id": "ORL",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -4459,17 +4294,6 @@
       {
         "type": "player",
         "player_name": "Evan Fournier",
-        "from_team_id": "ORL",
-        "to_team_id": "BOS",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "MEM picks) 2027 2nd-rd pick",
         "from_team_id": "ORL",
         "to_team_id": "BOS",
         "pick_year": null,
@@ -4545,17 +4369,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "never used 2027 2nd-rd pick is DEN own",
-        "from_team_id": "DEN",
-        "to_team_id": "CLE",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -4623,17 +4436,6 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Jamal Shead",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "did not convey.",
-        "from_team_id": "SAC",
-        "to_team_id": "DET",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],
@@ -4770,17 +4572,6 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "David Johnson",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Toronto also received a trade exception",
-        "from_team_id": "UTA",
-        "to_team_id": "TOR",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],

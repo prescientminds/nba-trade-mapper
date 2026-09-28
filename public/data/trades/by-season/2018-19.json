@@ -473,17 +473,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "did not convey 2023 2nd-rd pick was a right to swap"
-      },
-      {
-        "type": "player",
-        "player_name": "did not convey 2025 2nd-rd pick is BRK own",
-        "from_team_id": "BKN",
-        "to_team_id": "ATL",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -1312,17 +1301,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "951 2020 2nd-rd pick is right to swap GSW's pick for HOU's pick"
-      },
-      {
-        "type": "player",
-        "player_name": "did not convey",
-        "from_team_id": "DAL",
-        "to_team_id": "HOU",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -2183,17 +2161,6 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Kyshawn George",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "became 2024 1st-rd pick",
-        "from_team_id": "DAL",
-        "to_team_id": "NYK",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],
@@ -3297,17 +3264,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "but expected to be CLE's 2019 pick.)",
-        "from_team_id": "ORL",
-        "to_team_id": "PHI",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -3364,17 +3320,6 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Nikola Đurišić",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "did not convey) $1.88MM",
-        "from_team_id": "MIA",
-        "to_team_id": "ATL",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],
@@ -4160,17 +4105,6 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Tristen Newton",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "top-55 protected. Did not convey) $5MM",
-        "from_team_id": "CLE",
-        "to_team_id": "DET",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],

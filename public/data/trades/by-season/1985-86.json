@@ -408,17 +408,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "was not exercised.",
-        "from_team_id": "IND",
-        "to_team_id": "PHI",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [

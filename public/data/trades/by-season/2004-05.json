@@ -1149,17 +1149,6 @@
       },
       {
         "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "DAL",
-        "to_team_id": "GSW",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
         "player_name": "Christian Laettner",
         "from_team_id": "DAL",
         "to_team_id": "GSW",
