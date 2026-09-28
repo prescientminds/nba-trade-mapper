@@ -1,9 +1,39 @@
 {
-  "timestamp": "2026-09-27T20:45:11.861Z",
+  "timestamp": "2026-09-28T06:01:13.819Z",
   "year": 2026,
-  "league": "WNBA",
-  "durationSec": 75,
+  "league": "all",
+  "durationSec": 136,
   "phases": [
+    {
+      "phase": "scrape-bbref-trades",
+      "league": "NBA",
+      "ok": true,
+      "durationSec": 42
+    },
+    {
+      "phase": "scrape-bbref-transactions",
+      "league": "NBA",
+      "ok": true,
+      "durationSec": 4
+    },
+    {
+      "phase": "refresh-playoff-data",
+      "league": "NBA",
+      "ok": true,
+      "durationSec": 12
+    },
+    {
+      "phase": "scrape-cap-history",
+      "league": "NBA",
+      "ok": true,
+      "durationSec": 1
+    },
+    {
+      "phase": "scrape-salaries",
+      "league": "NBA",
+      "ok": true,
+      "durationSec": 1
+    },
     {
       "phase": "scrape-wnba-team-seasons",
       "league": "WNBA",
@@ -20,7 +50,7 @@
       "phase": "scrape-wnba-player-stats",
       "league": "WNBA",
       "ok": true,
-      "durationSec": 8
+      "durationSec": 7
     },
     {
       "phase": "scrape-wnba-playoffs",
@@ -38,7 +68,7 @@
       "phase": "scrape-wnba-accolades",
       "league": "WNBA",
       "ok": true,
-      "durationSec": 27
+      "durationSec": 28
     },
     {
       "phase": "scrape-wnba-draft",
@@ -50,19 +80,19 @@
       "phase": "score-trades",
       "league": "shared",
       "ok": true,
-      "durationSec": 7
+      "durationSec": 8
     },
     {
       "phase": "score-transactions",
       "league": "shared",
       "ok": true,
-      "durationSec": 11
+      "durationSec": 12
     },
     {
       "phase": "compute-dynasty-ingredients",
       "league": "shared",
       "ok": true,
-      "durationSec": 6
+      "durationSec": 7
     },
     {
       "phase": "update-cap-thresholds",

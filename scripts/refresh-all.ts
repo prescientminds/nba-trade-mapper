@@ -5,7 +5,8 @@
  * Sequential BBRef pipeline (rate-limit safe) + parallel Kaggle/Supabase work.
  *
  * Phase 1 — BBRef + Kaggle (Kaggle runs in background during Phase 1 BBRef work):
- *   NBA:  scrape-today → scrape-bbref-transactions → refresh-playoff-data
+ *   NBA:  scrape-bbref-trades (10-day look-back) → scrape-bbref-transactions
+ *         (CURRENT_SEASON) → refresh-playoff-data
  *         → scrape-salaries → scrape-cap-history
  *   WNBA: scrape-wnba-team-seasons → scrape-wnba-trades → scrape-wnba-player-stats
  *         → scrape-wnba-playoffs → scrape-wnba-playoff-stats
@@ -17,6 +18,11 @@
  *
  * Phase 3 — Verify:
  *   verify-playoff-data
+ *
+ * Current-season scraper caches are deleted before Phase 1 so a re-run always
+ * re-fetches live pages (the caches never expire on their own).
+ *
+ * Scheduled weekly by .github/workflows/refresh-leagues.yml.
  *
  * Manifest at data/last-refresh.json captures per-phase status, timings, errors.
  * Partial failures are logged but do not abort subsequent phases.
@@ -36,10 +42,16 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { spawn, spawnSync, type ChildProcess } from 'child_process';
+import { CURRENT_SEASON } from '../src/lib/trade-builder';
 
 const REPO_ROOT = path.join(__dirname, '..');
 const MANIFEST_PATH = path.join(REPO_ROOT, 'data', 'last-refresh.json');
 const KAGGLE_LOG = path.join(REPO_ROOT, 'data', 'kaggle-refresh.log');
+
+/** Days of trade pages re-checked each run. > 7 so weekly runs overlap. */
+const TRADE_LOOKBACK_DAYS = 10;
+
+const isoDay = (d: Date) => d.toISOString().split('T')[0];
 
 type League = 'NBA' | 'WNBA' | 'all';
 
@@ -171,15 +183,23 @@ interface PhaseSpec {
 function buildBbrefSequence(year: number, league: League, skipSlow: boolean): PhaseSpec[] {
   const out: PhaseSpec[] = [];
   if (league === 'NBA' || league === 'all') {
-    out.push({ name: 'scrape-today', league: 'NBA', args: [] });
-    out.push({ name: 'scrape-bbref-transactions', league: 'NBA', args: ['--season', `${year - 1}-${String(year).slice(2)}`] });
+    const now = Date.now();
+    out.push({
+      name: 'scrape-bbref-trades',
+      league: 'NBA',
+      args: [
+        '--from', isoDay(new Date(now - TRADE_LOOKBACK_DAYS * 86_400_000)),
+        '--to', isoDay(new Date(now + 86_400_000)), // --to is exclusive of today in UTC-midnight terms
+      ],
+    });
+    out.push({ name: 'scrape-bbref-transactions', league: 'NBA', args: ['--season', CURRENT_SEASON] });
     out.push({
       name: 'refresh-playoff-data',
       league: 'NBA',
       args: skipSlow ? ['--year', String(year), '--skip-game-logs'] : ['--year', String(year)],
     });
-    out.push({ name: 'scrape-cap-history', league: 'NBA', args: [] });
-    out.push({ name: 'scrape-salaries', league: 'NBA', args: [], slow: false });
+    out.push({ name: 'scrape-cap-history', league: 'NBA', args: ['--refresh'] });
+    out.push({ name: 'scrape-salaries', league: 'NBA', args: ['--refresh'], slow: false });
     if (!skipSlow) {
       out.push({ name: 'scrape-salaries', league: 'NBA', args: ['--historical'], slow: true });
     }
@@ -206,6 +226,37 @@ function buildComputeParallel(league: League): PhaseSpec[] {
     { name: 'compute-dynasty-ingredients', league: 'shared', args: [] },
     { name: 'update-cap-thresholds', league: 'shared', args: [] },
   ];
+}
+
+/**
+ * Delete the cached HTML for anything still changing: the trade day pages in
+ * the look-back window, the current NBA transactions page, and every WNBA
+ * page for the current year. Historical pages stay cached.
+ */
+function bustCurrentCaches(year: number, league: League) {
+  const rm = (p: string) => { if (fs.existsSync(p)) fs.rmSync(p); };
+  const bbref = path.join(REPO_ROOT, 'data', 'bbref-cache');
+  if (league === 'NBA' || league === 'all') {
+    for (let i = -1; i <= TRADE_LOOKBACK_DAYS; i++) {
+      const d = new Date(Date.now() - i * 86_400_000);
+      rm(path.join(bbref, `${d.getMonth() + 1}-${d.getDate()}.html`));
+    }
+    const endYear = 2000 + parseInt(CURRENT_SEASON.slice(-2), 10);
+    rm(path.join(bbref, 'transactions', `NBA_${endYear}_transactions.html`));
+  }
+  if (league === 'WNBA' || league === 'all') {
+    const wnba = path.join(REPO_ROOT, 'data', 'wnba-bbref-cache');
+    if (fs.existsSync(wnba)) {
+      for (const dir of fs.readdirSync(wnba)) {
+        const full = path.join(wnba, dir);
+        if (!fs.statSync(full).isDirectory()) continue;
+        for (const f of fs.readdirSync(full)) {
+          // Current-year pages, plus the undated awards pages (they gain a row each year).
+          if (f.startsWith(String(year)) || dir === 'awards') rm(path.join(full, f));
+        }
+      }
+    }
+  }
 }
 
 function shouldRun(spec: PhaseSpec, args: Args): boolean {
@@ -287,6 +338,7 @@ async function main() {
   }
 
   // ── Phase 1 ────────────────────────────────────────────────────
+  if (!args.noBbref) bustCurrentCaches(args.year, args.league);
   const kaggleBg = runKaggle ? startKaggleBackground() : null;
   if (kaggleBg) console.log(`\n▸ Kaggle refresh started in background (log: ${path.relative(REPO_ROOT, KAGGLE_LOG)})`);
 

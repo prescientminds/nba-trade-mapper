@@ -1,0 +1,71 @@
+name: Weekly League Refresh
+
+# One schedule for every league: trades (10-day look-back), transactions,
+# contracts, standings, stats, playoffs, awards, then rescoring. Data lands
+# on main through a pull request (main is PR-only), which Vercel deploys.
+on:
+  schedule:
+    # Mondays 7am ET (11am UTC)
+    - cron: '0 11 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: refresh-leagues
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Refresh NBA + WNBA
+        id: refresh
+        continue-on-error: true
+        run: npx tsx scripts/refresh-all.ts --skip-slow --no-kaggle
+
+      - name: Freshness checks
+        id: fresh
+        continue-on-error: true
+        run: npx tsx scripts/check-freshness.ts
+
+      # Commit whatever refreshed, even if a phase failed — partial fresh data
+      # beats none, and the job still fails below so the failure is seen.
+      - name: Open and merge data PR
+        if: always()
+        run: |
+          git add public/data data/last-refresh.json data/wnba-draft-data.json
+          if git diff --cached --quiet; then
+            echo "No data changes."
+            exit 0
+          fi
+          branch="data/weekly-refresh-$(date -u +%Y-%m-%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git commit -m "chore: weekly league refresh $(date -u +%Y-%m-%d)"
+          git push -u origin "$branch"
+          gh pr create --title "Weekly league refresh $(date -u +%Y-%m-%d)" \
+            --body "Automated by \`.github/workflows/refresh-leagues.yml\`. Refresh: ${{ steps.refresh.outcome }}. Freshness: ${{ steps.fresh.outcome }}."
+          gh pr merge "$branch" --squash --delete-branch
+
+      - name: Fail if refresh or freshness failed
+        if: steps.refresh.outcome == 'failure' || steps.fresh.outcome == 'failure'
+        run: |
+          echo "refresh=${{ steps.refresh.outcome }} freshness=${{ steps.fresh.outcome }}"
+          exit 1
