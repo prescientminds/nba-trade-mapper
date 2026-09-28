@@ -559,8 +559,8 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Isaiah Evans",
-        "notes": null
+        "became_player_name": null,
+        "notes": "[no-draftee] Isaiah Evans (drafted by MIN)"
       },
       {
         "type": "player",
@@ -625,8 +625,8 @@
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Ugonna Onyenso",
-        "notes": null
+        "became_player_name": null,
+        "notes": "[no-draftee] Ugonna Onyenso (drafted by DET)"
       },
       {
         "type": "pick",

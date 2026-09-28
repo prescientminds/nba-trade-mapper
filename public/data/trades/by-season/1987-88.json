@@ -1422,8 +1422,8 @@
         "pick_year": 1988,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Tim Perry",
-        "notes": null
+        "became_player_name": null,
+        "notes": "[no-draftee] Tim Perry (drafted by PHX)"
       },
       {
         "type": "player",

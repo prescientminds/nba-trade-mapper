@@ -1545,8 +1545,8 @@
         "pick_year": 2018,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Ray Spalding",
-        "notes": null
+        "became_player_name": null,
+        "notes": "[no-draftee] Ray Spalding (drafted by PHI)"
       },
       {
         "type": "pick",
@@ -1646,8 +1646,8 @@
         "pick_year": 2018,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Ray Spalding",
-        "notes": null
+        "became_player_name": null,
+        "notes": "[no-draftee] Ray Spalding (drafted by PHI)"
       }
     ],
     "topAssets": [

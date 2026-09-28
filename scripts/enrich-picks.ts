@@ -23,6 +23,7 @@ import { parse } from 'csv-parse/sync';
 import * as fs from 'fs';
 import * as path from 'path';
 import { resolveTeamId, resolveFullTeamName } from './lib/team-resolver';
+import { NO_DRAFTEE_NOTE } from './lib/bbref-parser';
 
 // BBRef descriptions use nicknames ("Celtics", "76ers") not full names.
 const NICKNAME_TO_TEAM: Record<string, string> = {
@@ -317,6 +318,7 @@ async function main() {
         for (const asset of trade.assets) {
           // Swaps convey no player of their own (issue #45) — never resolve a draftee onto one.
           if (asset.type !== 'pick') continue;
+          if (asset.notes?.startsWith(NO_DRAFTEE_NOTE)) continue; // draftee ruled out by hand
           if (asset.became_player_name) continue; // already set
 
           // If we know the acquiring team, match to the correct to_team_id
@@ -359,6 +361,7 @@ async function main() {
       for (const asset of trade.assets) {
         // Swaps convey no player of their own (issue #45) — never resolve a draftee onto one.
         if (asset.type !== 'pick') continue;
+        if (asset.notes?.startsWith(NO_DRAFTEE_NOTE)) continue; // draftee ruled out by hand
         if (!asset.pick_year || !asset.pick_round) { noPick++; continue; }
         if (asset.became_player_name) { alreadyHad++; continue; }
 
