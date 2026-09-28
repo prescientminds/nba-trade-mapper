@@ -263,7 +263,7 @@ export function parseTradeText($: cheerio.CheerioAPI, el: Parameters<typeof $>[0
       const pickYear = parseInt(m[1]);
       const pickRound = /1st|first/i.test(m[2]) ? 1 : 2;
       const afterPick = text.slice(text.indexOf(m[0]) + m[0].length);
-      const becameMatch = afterPick.match(/\((.+?)\s+was\s+later\s+selected\)/i);
+      const becameMatch = afterPick.match(/^\s*\((.+?)\s+was\s+later\s+selected\)/i);
       assets.push({
         type: 'pick', player_name: null,
         from_team_id: null, to_team_id: null,
@@ -336,7 +336,9 @@ export function parseAssetsFromText(
       const afterText = becameInTrimmed
         ? ''
         : fullText.slice(fullText.indexOf(trimmed) + trimmed.length);
-      const becameMatch = becameInTrimmed ?? afterText.match(/\((.+?)\s+was\s+later\s+selected\)/i);
+      // Only the note directly after this pick belongs to it; an unanchored
+      // match stole a later pick's draftee (even "cash").
+      const becameMatch = becameInTrimmed ?? afterText.match(/^\s*\((.+?)\s+was\s+later\s+selected\)/i);
 
       const origMatch = trimmed.match(/\((.+?)'s\s+pick\)/i);
       const origTeam = origMatch ? resolveFullTeamName(origMatch[1]) : null;

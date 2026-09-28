@@ -51,17 +51,6 @@
         "notes": null
       },
       {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "POR",
-        "to_team_id": "DEN",
-        "pick_year": 1983,
-        "pick_round": 1,
-        "original_team_id": "POR",
-        "became_player_name": "Clyde Drexler",
-        "notes": null
-      },
-      {
         "type": "player",
         "player_name": "T.R. Dunn",
         "from_team_id": "POR",

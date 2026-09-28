@@ -1931,17 +1931,6 @@
         "notes": null
       },
       {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "BOS",
-        "to_team_id": "DAL",
-        "pick_year": 1996,
-        "pick_round": 1,
-        "original_team_id": "DAL",
-        "became_player_name": "Antoine Walker",
-        "notes": null
-      },
-      {
         "type": "player",
         "player_name": "Eric Montross",
         "from_team_id": "BOS",

@@ -2172,17 +2172,6 @@
         "original_team_id": null,
         "became_player_name": "Shaedon Sharpe",
         "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "POR",
-        "to_team_id": "IND",
-        "pick_year": 1978,
-        "pick_round": 1,
-        "original_team_id": "IND",
-        "became_player_name": "Mychal Thompson",
-        "notes": null
       }
     ],
     "topAssets": [

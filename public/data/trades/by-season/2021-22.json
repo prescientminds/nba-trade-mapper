@@ -1215,17 +1215,6 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "MEM",
-        "to_team_id": "MIL",
-        "pick_year": 2024,
-        "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": "Cam Christie",
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
         "from_team_id": "MIL",
         "to_team_id": "MEM",
         "pick_year": 2024,

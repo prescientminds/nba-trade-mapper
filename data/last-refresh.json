@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-09-28T07:08:20.418Z",
+  "timestamp": "2026-09-28T08:19:21.313Z",
   "year": 2026,
   "league": "all",
-  "durationSec": 16,
+  "durationSec": 15,
   "phases": [
     {
       "phase": "score-trades",
@@ -14,7 +14,7 @@
       "phase": "score-transactions",
       "league": "shared",
       "ok": true,
-      "durationSec": 11
+      "durationSec": 10
     },
     {
       "phase": "compute-dynasty-ingredients",
@@ -26,13 +26,13 @@
       "phase": "update-cap-thresholds",
       "league": "shared",
       "ok": true,
-      "durationSec": 3
+      "durationSec": 2
     },
     {
       "phase": "build-trade-profiles",
       "league": "NBA",
       "ok": true,
-      "durationSec": 4
+      "durationSec": 3
     },
     {
       "phase": "build-comparables-calibration",
