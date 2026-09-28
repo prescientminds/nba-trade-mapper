@@ -1132,17 +1132,6 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "OKC",
-        "to_team_id": "NYK",
-        "pick_year": 1987,
-        "pick_round": 1,
-        "original_team_id": "NYK",
-        "became_player_name": "Scottie Pippen",
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
         "from_team_id": "NYK",
         "to_team_id": "OKC",
         "pick_year": 1987,

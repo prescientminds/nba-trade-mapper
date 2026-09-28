@@ -404,17 +404,6 @@
       {
         "type": "pick",
         "player_name": null,
-        "from_team_id": "HOU",
-        "to_team_id": "LAC",
-        "pick_year": 2011,
-        "pick_round": 2,
-        "original_team_id": "LAC",
-        "became_player_name": "Chandler Parsons",
-        "notes": null
-      },
-      {
-        "type": "pick",
-        "player_name": null,
         "from_team_id": "LAC",
         "to_team_id": "HOU",
         "pick_year": 2011,
@@ -2483,17 +2472,6 @@
       }
     ],
     "assets": [
-      {
-        "type": "pick",
-        "player_name": null,
-        "from_team_id": "DAL",
-        "to_team_id": "POR",
-        "pick_year": 2009,
-        "pick_round": 1,
-        "original_team_id": "POR",
-        "became_player_name": "Byron Mullens",
-        "notes": null
-      },
       {
         "type": "pick",
         "player_name": null,

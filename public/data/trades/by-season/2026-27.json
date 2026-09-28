@@ -36,7 +36,7 @@
         "pick_year": 2027,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "cash",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -47,7 +47,7 @@
         "pick_year": 2028,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "cash",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -58,7 +58,7 @@
         "pick_year": 2033,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "cash",
+        "became_player_name": null,
         "notes": null
       },
       {
@@ -69,7 +69,7 @@
         "pick_year": 2033,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "cash",
+        "became_player_name": null,
         "notes": null
       }
     ]
