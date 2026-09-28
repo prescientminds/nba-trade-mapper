@@ -46,7 +46,7 @@ Run these scripts in order if rebuilding trade data from scratch:
 4. `npx tsx scripts/scrape-bbref-trades.ts` — BBRef scrape Feb 2019–present (~2hrs first run, cached after)
 5. `npx tsx scripts/enrich-picks.ts` — Add drafted player names from Kaggle CSV (~5s)
 
-Daily updates: `scripts/scrape-today.ts` (used by `.github/workflows/update-trades.yml`)
+Scheduled updates: `.github/workflows/refresh-leagues.yml` runs `scripts/refresh-all.ts --skip-slow --no-kaggle` every Monday (NBA + WNBA; trades re-checked over a 10-day look-back), then `scripts/check-freshness.ts`, and lands the data on main through an auto-merged PR. Manual: `npm run update`.
 
 ### Non-Trade Transaction Pipeline
 Covers signings, waivers, extensions, two-way, exhibit 10, 10-day, waiver claims, conversions, retirements, suspensions.
@@ -117,7 +117,8 @@ nba-trade-mapper/
 │   ├── export-existing-trades.ts     # Supabase → static JSON (Step 1 of data pipeline)
 │   ├── scrape-bbref-trades.ts        # BBRef scrape Feb 2019–present (Step 2, cached in data/bbref-cache/)
 │   ├── enrich-picks.ts               # Add became_player_name from Kaggle CSV (Step 3)
-│   ├── scrape-today.ts               # Daily scraper (used by GitHub Action)
+│   ├── refresh-all.ts                # Full NBA + WNBA refresh (weekly GitHub Action)
+│   ├── check-freshness.ts            # Staleness alarm run after the refresh
 │   ├── freeze-season.ts              # End-of-season minification utility
 │   ├── import-trades.ts              # CSV → transactions (ALREADY RUN, 1541 trades)
 │   ├── import-player-stats.ts        # Kaggle → player_seasons (ALREADY RUN, 23567 rows)
