@@ -1185,17 +1185,6 @@
       },
       {
         "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "PHI",
-        "to_team_id": "MEM",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
         "player_name": "Tony Wroten",
         "from_team_id": "MEM",
         "to_team_id": "PHI",
@@ -1583,28 +1572,6 @@
         "player_name": "Luol Deng",
         "from_team_id": "CHI",
         "to_team_id": "CLE",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "is top-12 protected in 2014",
-        "from_team_id": "CLE",
-        "to_team_id": "CHI",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "top-10 protected from 2015-17",
-        "from_team_id": "CLE",
-        "to_team_id": "CHI",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,

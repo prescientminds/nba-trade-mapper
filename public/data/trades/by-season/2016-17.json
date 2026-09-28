@@ -102,17 +102,6 @@
       },
       {
         "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "UTA",
-        "to_team_id": "ATL",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
         "player_name": "Jeff Teague",
         "from_team_id": "ATL",
         "to_team_id": "UTA",
@@ -236,17 +225,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "UTA",
-        "to_team_id": "SAS",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -284,17 +262,6 @@
         "notes": null
       },
       {
-        "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "DAL",
-        "to_team_id": "GSW",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
         "type": "pick",
         "player_name": null,
         "from_team_id": "GSW",
@@ -314,17 +281,6 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": "Deividas Sirvydis",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "did not convey",
-        "from_team_id": "DAL",
-        "to_team_id": "GSW",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],
@@ -451,17 +407,6 @@
         "original_team_id": null,
         "became_player_name": "Kessler Edwards",
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "conveyed 2021",
-        "from_team_id": "BKN",
-        "to_team_id": "IND",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -501,17 +446,6 @@
       {
         "type": "player",
         "player_name": "Albert Miralles",
-        "from_team_id": "MIL",
-        "to_team_id": "CLE",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "$200K. Cleveland create $4.8M trade exception with this deal",
         "from_team_id": "MIL",
         "to_team_id": "CLE",
         "pick_year": null,
@@ -690,17 +624,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
-      },
-      {
-        "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "MEM",
-        "to_team_id": "CHA",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -1247,28 +1170,6 @@
         "original_team_id": null,
         "became_player_name": "Vince Williams Jr.",
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "became 2nd-rd picks in 2021",
-        "from_team_id": "CLE",
-        "to_team_id": "ATL",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "2022",
-        "from_team_id": "CLE",
-        "to_team_id": "ATL",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -1307,17 +1208,6 @@
       },
       {
         "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "DEN",
-        "to_team_id": "ATL",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
         "player_name": "Mo Williams",
         "from_team_id": "ATL",
         "to_team_id": "DEN",
@@ -1337,17 +1227,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
-      },
-      {
-        "type": "player",
-        "player_name": "$2.2M trade exception.",
-        "from_team_id": "DEN",
-        "to_team_id": "ATL",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -1890,17 +1769,6 @@
         "original_team_id": null,
         "became_player_name": "Nico Mannion",
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "will turn into 2 2nd-rd picks if it does not convey)",
-        "from_team_id": "DAL",
-        "to_team_id": "PHI",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -2205,17 +2073,6 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Ty Jerome",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "or the better of PHI & SAC's 2019 picks",
-        "from_team_id": "PHI",
-        "to_team_id": "BOS",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       },
       {

@@ -1502,17 +1502,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "Cash considerations"
-      },
-      {
-        "type": "player",
-        "player_name": "2001 in lieu of the future 1st round draft pick.",
-        "from_team_id": "DEN",
-        "to_team_id": "ORL",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [

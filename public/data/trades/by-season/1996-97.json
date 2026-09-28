@@ -60,17 +60,6 @@
         "original_team_id": null,
         "became_player_name": "Dirk Nowitzki",
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "1996.",
-        "from_team_id": "MIL",
-        "to_team_id": "MIN",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -1768,17 +1757,6 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Anthony Parker",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "was not exercised.",
-        "from_team_id": "LAL",
-        "to_team_id": "BKN",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],

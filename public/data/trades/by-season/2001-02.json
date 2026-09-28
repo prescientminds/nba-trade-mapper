@@ -212,17 +212,6 @@
       },
       {
         "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "DET",
-        "to_team_id": "PHX",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
         "player_name": "Clifford Robinson",
         "from_team_id": "PHX",
         "to_team_id": "DET",
@@ -836,17 +825,6 @@
         "pick_round": 2,
         "original_team_id": "DAL",
         "became_player_name": "Matt Freije",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "DAL",
-        "to_team_id": "MIA",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       },
       {

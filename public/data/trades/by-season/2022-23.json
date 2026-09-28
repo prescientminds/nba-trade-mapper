@@ -106,15 +106,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "MIN",
         "to_team_id": "UTA",
         "pick_year": 2026,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Karim López",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2026 1st-rd pick is a right to swap"
       },
       {
         "type": "pick",
@@ -852,15 +852,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "CLE",
         "to_team_id": "UTA",
         "pick_year": 2026,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Zuby Ejiofor",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2026 1st-rd pick is a right to swap"
       },
       {
         "type": "pick",
@@ -874,7 +874,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "CLE",
         "to_team_id": "UTA",
@@ -882,7 +882,7 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2028 1st-rd pick is a right to swap"
       },
       {
         "type": "pick",
@@ -1757,15 +1757,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "HOU",
         "to_team_id": "LAC",
         "pick_year": 2023,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Kobe Brown",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2023 1st-rd pick was a right to swap"
       },
       {
         "type": "player",
@@ -1779,15 +1779,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "LAC",
         "to_team_id": "HOU",
         "pick_year": 2023,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Cam Whitmore",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2023 1st-rd pick was a right to swap"
       },
       {
         "type": "player",
@@ -1801,15 +1801,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "LAC",
         "to_team_id": "MEM",
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Tyler Bilodeau",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2026 2nd-rd pick is a right to swap"
       },
       {
         "type": "player",
@@ -2525,7 +2525,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "PHX",
         "to_team_id": "BKN",
@@ -2533,7 +2533,7 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2028 1st-rd pick is a right to swap"
       },
       {
         "type": "pick",
@@ -3426,15 +3426,15 @@
         "notes": "Cash considerations"
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "PHX",
         "to_team_id": "WAS",
         "pick_year": 2024,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "DaRon Holmes II",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2024 1st-rd pick was a right to swap"
       },
       {
         "type": "pick",
@@ -3459,15 +3459,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "PHX",
         "to_team_id": "WAS",
         "pick_year": 2026,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Bennett Stirtz",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2026 1st-rd pick is a right to swap"
       },
       {
         "type": "pick",
@@ -3492,7 +3492,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "PHX",
         "to_team_id": "WAS",
@@ -3500,10 +3500,10 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2028 1st-rd pick is a right to swap"
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "PHX",
         "to_team_id": "WAS",
@@ -3511,7 +3511,7 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2030 1st-rd pick is a right to swap"
       },
       {
         "type": "pick",

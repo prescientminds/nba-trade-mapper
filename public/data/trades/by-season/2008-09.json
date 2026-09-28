@@ -1635,17 +1635,6 @@
       },
       {
         "type": "player",
-        "player_name": "trade exception",
-        "from_team_id": "TOR",
-        "to_team_id": "MIA",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
         "player_name": "Shawn Marion",
         "from_team_id": "MIA",
         "to_team_id": "TOR",

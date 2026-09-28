@@ -203,7 +203,9 @@ function main() {
 
   for (const t of trades) {
     for (const a of t.assets) {
-      if (a.type !== 'pick') continue;
+      // Swap rights are stored as their own asset type (issue #45); they still
+      // move along the same pick chain, so walk them too.
+      if (a.type !== 'pick' && a.type !== 'swap') continue;
       if (!a.pick_year || !a.pick_round) continue;
       if (a.pick_round !== 1 && a.pick_round !== 2) continue;
 
@@ -268,6 +270,7 @@ function main() {
         // out intermediaries and miscategorized rows without double-counting.
         type Step = LineageStep & { _date: string; _desc: string };
         const chain: Step[] = [];
+        let chainHasSwap = false;
         let head = originalTeam as string;
         const unused = new Set(assets.map((_, i) => i));
         while (true) {
@@ -278,6 +281,7 @@ function main() {
           if (matchIdx === -1) break;
           unused.delete(matchIdx);
           const a = assets[matchIdx];
+          if (a.type === 'swap') chainHasSwap = true;
           chain.push({
             trade_id: a.trade_id,
             date: a.trade_date,
@@ -308,8 +312,9 @@ function main() {
         // === original_team, our chain didn't reach the holder (a known
         // data gap); leave it as 'pick' to avoid a false positive on the
         // original team's own pick.
+        const isSwap = swapPickKeys.has(pickKey) || chainHasSwap;
         const assetClass: 'pick' | 'swap' =
-          swapPickKeys.has(pickKey) && currentOwner !== originalTeam ? 'swap' : 'pick';
+          isSwap && currentOwner !== originalTeam ? 'swap' : 'pick';
 
         const pick: OwnedPick = {
           pick_key: pickKey,

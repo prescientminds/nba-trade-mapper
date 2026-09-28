@@ -60,7 +60,7 @@ export const DIACRITICS_MAP: Record<string, string> = {
   'Tadija Dragicevic': 'Tadija Dragičević',
   'Nemanja Dangubic': 'Nemanja Dangubić',
   'Luka Mitrovic': 'Luka Mitrović',
-  'Bojan Dubljevic': 'Bojan Dubljivić',
+  'Bojan Dubljevic': 'Bojan Dubljević',
 };
 
 // Build reverse map for normalization (Unicode → ASCII)
@@ -96,6 +96,64 @@ export function extractPlayerFromLink(href: string, text: string): { name: strin
 }
 
 // ── Trade Parser ──────────────────────────────────────────────────────
+
+/**
+ * Cut the notes BBRef appends after the trade sentence: the first ". " that
+ * follows a lowercase letter or digit (so "R.J." and "Jr." survive) and
+ * precedes a year or a capitalized word.
+ */
+export function stripTradeNotes(text: string): string {
+  const m = text.match(/(?<=[a-z0-9)])(?<!\b(?:Jr|Sr|St))\.\s+(?=\d{4}\s|[A-Z])/);
+  return m && m.index !== undefined ? text.slice(0, m.index) : text;
+}
+
+/**
+ * Pick notes BBRef appends after the trade sentence, e.g.
+ *   "2023 2nd-rd pick was a protected right to swap, did not convey"
+ *   "2026 1st-rd pick is a swap" / "2022 2nd-rd pick is an opportunity to swap"
+ *   "New Orleans acquires right to swap 2024 1st-rd pick with Milwaukee"
+ * The pick matcher reads the listed pick as an outright pick, and enrich-picks
+ * then attaches the draftee — a player who never moved (GitHub issue #45).
+ */
+const SWAP_NOTE_PATTERNS: RegExp[] = [
+  /(\d{4})\s+(1st|2nd|first|second)[- ](?:rd|round)\s+(?:draft\s+)?pick\s+(?:is|was)\s+(?:a\s+|an\s+)?(?:protected\s+)?(?:right|opportunity|option)?\s*(?:to\s+)?swap/gi,
+  /(\d{4})\s+(1st|2nd|first|second)[- ](?:rd|round)\s+(?:draft\s+)?pick\s+swap/gi,
+  // "acquires right to swap 2024 1st-rd pick with X" / "optioned to swap 2025 …".
+  // Not after "a"/"an": "…pick is a right to swap 2027 1st-rd pick is ATL own"
+  // is two notes, and 2027 there is an outright pick.
+  /(?<!\ban?\s)(?:right|option|optioned|opportunity)\s+to\s+swap\s+(\d{4})\s+(1st|2nd|first|second)[- ](?:rd|round)/gi,
+];
+
+/** Text fragments from those notes that must never be read as a player name. */
+const NOTE_FRAGMENT = /\b(?:convey|conveyed|protected|swap|exception|favorable|own|exercised|option|deferred?|renegotiated|\d{4})\b|-rd\b/i;
+
+export const isNoteFragment = (s: string) => NOTE_FRAGMENT.test(s);
+
+/**
+ * Turn picks that the trade notes mark as swaps into `swap` assets with no
+ * conveyed player. Matching is by (year, round) within this one trade.
+ */
+export function applySwapNotes(assets: StaticTradeAsset[], fullText: string): number {
+  const swapKeys = new Map<string, string>();
+  for (const re of SWAP_NOTE_PATTERNS) {
+    for (const m of fullText.matchAll(re)) {
+      const round = /1st|first/i.test(m[2]) ? 1 : 2;
+      const key = `${m[1]}-${round}`;
+      if (!swapKeys.has(key)) swapKeys.set(key, m[0].trim());
+    }
+  }
+  let changed = 0;
+  for (const a of assets) {
+    if (a.type !== 'pick' || !a.pick_year || !a.pick_round) continue;
+    const note = swapKeys.get(`${a.pick_year}-${a.pick_round}`);
+    if (!note) continue;
+    a.type = 'swap';
+    a.became_player_name = null;
+    a.notes = note;
+    changed++;
+  }
+  return changed;
+}
 
 export function parseTradeText($: cheerio.CheerioAPI, el: Parameters<typeof $>[0], year: number): StaticTrade[] {
   const $el = $(el);
@@ -136,7 +194,10 @@ export function parseTradeText($: cheerio.CheerioAPI, el: Parameters<typeof $>[0
   const trades: StaticTrade[] = [];
   const assets: StaticTradeAsset[] = [];
 
-  const segments = text.split(/;\s*/);
+  // Parse only the trade sentence; the pick notes BBRef appends after it
+  // otherwise glue onto the last team name ("Pelicans. New Orleans acquires…")
+  // and that whole clause fails to resolve.
+  const segments = stripTradeNotes(text).split(/;\s*/);
 
   for (let segment of segments) {
     segment = segment
@@ -215,6 +276,8 @@ export function parseTradeText($: cheerio.CheerioAPI, el: Parameters<typeof $>[0
   }
 
   if (assets.length === 0) return [];
+
+  applySwapNotes(assets, text);
 
   const teamArr = [...teamsInTrade];
   const dateStr = dateMatch
@@ -328,7 +391,12 @@ export function parseAssetsFromText(
         pick_year: null, pick_round: null,
         original_team_id: null, became_player_name: null, notes: null,
       });
-    } else if (trimmed.length > 2 && !trimmed.startsWith('a ') && !/^the\s/i.test(trimmed)) {
+    } else if (
+      trimmed.length > 2 &&
+      !trimmed.startsWith('a ') &&
+      !/^the\s/i.test(trimmed) &&
+      !NOTE_FRAGMENT.test(trimmed)
+    ) {
       assets.push({
         type: 'player',
         player_name: fixDiacritics(trimmed.replace(/^the\s+/i, '')),

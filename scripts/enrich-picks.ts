@@ -315,7 +315,8 @@ async function main() {
       for (const ann of annotations) {
         // Match annotation to a pick asset in this trade
         for (const asset of trade.assets) {
-          if (asset.type !== 'pick' && asset.type !== 'swap') continue;
+          // Swaps convey no player of their own (issue #45) — never resolve a draftee onto one.
+          if (asset.type !== 'pick') continue;
           if (asset.became_player_name) continue; // already set
 
           // If we know the acquiring team, match to the correct to_team_id
@@ -356,7 +357,8 @@ async function main() {
 
     for (const trade of trades) {
       for (const asset of trade.assets) {
-        if (asset.type !== 'pick' && asset.type !== 'swap') continue;
+        // Swaps convey no player of their own (issue #45) — never resolve a draftee onto one.
+        if (asset.type !== 'pick') continue;
         if (!asset.pick_year || !asset.pick_round) { noPick++; continue; }
         if (asset.became_player_name) { alreadyHad++; continue; }
 

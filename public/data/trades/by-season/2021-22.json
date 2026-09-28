@@ -117,17 +117,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "did not convey 2027 2nd-rd pick is least favorable",
-        "from_team_id": "OKC",
-        "to_team_id": "UTA",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -252,17 +241,6 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Jalen Duren",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "did not convey",
-        "from_team_id": "CHA",
-        "to_team_id": "NYK",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],
@@ -434,17 +412,6 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": "Joan Beringer",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "did not convey",
-        "from_team_id": "HOU",
-        "to_team_id": "OKC",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
         "notes": null
       }
     ],
@@ -712,15 +679,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "BKN",
         "to_team_id": "WAS",
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Javon Small",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2025 2nd-rd pick is a swap"
       },
       {
         "type": "player",
@@ -811,15 +778,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "WAS",
         "to_team_id": "BKN",
         "pick_year": 2025,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Noah Penda",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2025 2nd-rd pick is a swap"
       },
       {
         "type": "player",
@@ -863,6 +830,28 @@
         "pick_round": 2,
         "original_team_id": null,
         "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Chandler Hutchison",
+        "from_team_id": "WAS",
+        "to_team_id": "SAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "WAS",
+        "to_team_id": "SAS",
+        "pick_year": 2022,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Christian Koloko",
         "notes": null
       }
     ],
@@ -1187,17 +1176,6 @@
         "original_team_id": null,
         "became_player_name": "Moussa Diabaté",
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "did not convey",
-        "from_team_id": "LAC",
-        "to_team_id": "NOP",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -1239,6 +1217,17 @@
         "player_name": null,
         "from_team_id": "MEM",
         "to_team_id": "MIL",
+        "pick_year": 2024,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": "Cam Christie",
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "MIL",
+        "to_team_id": "MEM",
         "pick_year": 2024,
         "pick_round": 2,
         "original_team_id": null,
@@ -1311,6 +1300,17 @@
         "player_name": "Tristan Thompson",
         "from_team_id": "BOS",
         "to_team_id": "SAC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Delon Wright",
+        "from_team_id": "SAC",
+        "to_team_id": "ATL",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -1482,15 +1482,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "IND",
         "to_team_id": "SAS",
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Richie Saunders",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2026 2nd-rd pick is a right to swap"
       },
       {
         "type": "pick",
@@ -1513,17 +1513,6 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": "did not convey 2026 2nd-rd pick is a right to swap 2023 conditional 2nd-rd pick is SAS own"
-      },
-      {
-        "type": "player",
-        "player_name": "did not convey",
-        "from_team_id": "SAS",
-        "to_team_id": "IND",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -1662,15 +1651,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "CHI",
         "to_team_id": "SAS",
         "pick_year": 2022,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Kennedy Chandler",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2022 2nd-rd pick is an opportunity to swap"
       },
       {
         "type": "pick",
@@ -1936,6 +1925,28 @@
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Derrick Jones Jr.",
+        "from_team_id": "POR",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "POR",
+        "to_team_id": "CHI",
+        "pick_year": 2022,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
       }
     ],
     "topAssets": [
@@ -2176,26 +2187,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "BOS",
         "to_team_id": "MEM",
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Narcisse Ngoy",
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "Memphis also received a trade exception",
-        "from_team_id": "BOS",
-        "to_team_id": "MEM",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2026 2nd-rd pick is a right to swap"
       }
     ],
     "topAssets": [
@@ -2377,6 +2377,17 @@
         "player_name": "Wang Zhelin",
         "from_team_id": "LAL",
         "to_team_id": "NYK",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Louis Labeyrie",
+        "from_team_id": "NYK",
+        "to_team_id": "LAL",
         "pick_year": null,
         "pick_round": null,
         "original_team_id": null,
@@ -2565,17 +2576,6 @@
         "original_team_id": null,
         "became_player_name": "Adou Thiero",
         "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "did not convey New York also received a trade exception 2025 2nd-rd pick is BRK own",
-        "from_team_id": "ATL",
-        "to_team_id": "NYK",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
       }
     ],
     "topAssets": [
@@ -2667,6 +2667,17 @@
         "to_team_id": "SAS",
         "pick_year": 2028,
         "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Bryn Forbes",
+        "from_team_id": "SAS",
+        "to_team_id": "DEN",
+        "pick_year": null,
+        "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
@@ -2848,28 +2859,6 @@
         "to_team_id": "IND",
         "pick_year": 2027,
         "pick_round": 2,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "was originally 2022",
-        "from_team_id": "CLE",
-        "to_team_id": "IND",
-        "pick_year": null,
-        "pick_round": null,
-        "original_team_id": null,
-        "became_player_name": null,
-        "notes": null
-      },
-      {
-        "type": "player",
-        "player_name": "did not convey 2022 2nd-rd pick is HOU own 2027 2nd-rd pick is UTA own",
-        "from_team_id": "CLE",
-        "to_team_id": "IND",
-        "pick_year": null,
-        "pick_round": null,
         "original_team_id": null,
         "became_player_name": null,
         "notes": null
@@ -3352,7 +3341,7 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "BOS",
         "to_team_id": "SAS",
@@ -3360,7 +3349,7 @@
         "pick_round": 1,
         "original_team_id": null,
         "became_player_name": null,
-        "notes": null
+        "notes": "2028 1st-rd pick is a right to swap"
       },
       {
         "type": "swap",
@@ -4845,15 +4834,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "MIN",
         "to_team_id": "IND",
         "pick_year": 2026,
         "pick_round": 2,
         "original_team_id": null,
-        "became_player_name": "Izaiyah Nelson",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2026 2nd-rd pick is a right to swap"
       },
       {
         "type": "cash",
@@ -5163,15 +5152,15 @@
         "notes": null
       },
       {
-        "type": "pick",
+        "type": "swap",
         "player_name": null,
         "from_team_id": "ATL",
         "to_team_id": "SAS",
         "pick_year": 2026,
         "pick_round": 1,
         "original_team_id": null,
-        "became_player_name": "Jayden Quaintance",
-        "notes": null
+        "became_player_name": null,
+        "notes": "2026 1st-rd pick is a right to swap"
       },
       {
         "type": "pick",
