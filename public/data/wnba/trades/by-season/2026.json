@@ -241,5 +241,259 @@
         "notes": null
       }
     ]
+  },
+  {
+    "id": "wnba-2026-04-13-ee169a97",
+    "date": "2026-04-13",
+    "season": "2026",
+    "title": "Serah Williams, Taylor Bigby Trade",
+    "description": "The Connecticut Sun traded Serah Williams to the Portland Fire for Taylor Bigby and a 2027 3rd round pick ( later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-POR",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Serah Williams",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Taylor Bigby",
+        "from_team_id": "W-POR",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-POR",
+        "to_team_id": "W-CON",
+        "pick_year": 2027,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2026-05-05-544b1042",
+    "date": "2026-05-05",
+    "season": "2026",
+    "title": "Chloe Bibby, Julia Ayrault Trade",
+    "description": "The Portland Fire traded Chloe Bibby to the Phoenix Mercury for Julia Ayrault.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-POR",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Chloe Bibby",
+        "from_team_id": "W-POR",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Julia Ayrault",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-POR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2026-05-06-35a61c46",
+    "date": "2026-05-06",
+    "season": "2026",
+    "title": "Maya Caldwell Trade",
+    "description": "The Portland Fire traded Maya Caldwell to the Minnesota Lynx for a 2028 3rd round pick ( later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-POR",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-MIN",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Maya Caldwell",
+        "from_team_id": "W-POR",
+        "to_team_id": "W-MIN",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-MIN",
+        "to_team_id": "W-POR",
+        "pick_year": 2028,
+        "pick_round": 3,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2026-07-31-3d672c8d",
+    "date": "2026-07-31",
+    "season": "2026",
+    "title": "Aneesah Morrow, Maria Kliundikova Trade",
+    "description": "The Connecticut Sun traded Aneesah Morrow to the Toronto Tempo for Maria Kliundikova and a 2028 2nd round pick ( later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CON",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-TOR",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Aneesah Morrow",
+        "from_team_id": "W-CON",
+        "to_team_id": "W-TOR",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Maria Kliundikova",
+        "from_team_id": "W-TOR",
+        "to_team_id": "W-CON",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-TOR",
+        "to_team_id": "W-CON",
+        "pick_year": 2028,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2026-08-02-9b21bca7",
+    "date": "2026-08-02",
+    "season": "2026",
+    "title": "Kelsey Plum, Monique Akoa-Makani Trade",
+    "description": "The Los Angeles Sparks traded Kelsey Plum to the Phoenix Mercury for Monique Akoa-Makani, a 2027 1st round pick ( later selected), and a 2028 2nd round pick ( later selected).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-LAS",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-PHO",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Kelsey Plum",
+        "from_team_id": "W-LAS",
+        "to_team_id": "W-PHO",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Monique Akoa-Makani",
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-LAS",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-LAS",
+        "pick_year": 2027,
+        "pick_round": 1,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-PHO",
+        "to_team_id": "W-LAS",
+        "pick_year": 2028,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
   }
 ]

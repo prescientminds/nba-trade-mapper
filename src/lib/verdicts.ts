@@ -15,9 +15,9 @@ const NICK: Record<string, string> = {
   KCK: 'KINGS', BUF: 'BRAVES',
   'W-LVA': 'ACES', 'W-NYL': 'LIBERTY', 'W-SEA': 'STORM',
   'W-MIN': 'LYNX', 'W-CHI': 'SKY', 'W-IND': 'FEVER',
-  'W-PHX': 'MERCURY', 'W-LAX': 'SPARKS', 'W-CON': 'SUN',
+  'W-PHO': 'MERCURY', 'W-LAS': 'SPARKS', 'W-CON': 'SUN',
   'W-ATL': 'DREAM', 'W-DAL': 'WINGS', 'W-WAS': 'MYSTICS',
-  'W-GSV': 'VALKYRIES',
+  'W-GSV': 'VALKYRIES', 'W-TOR': 'TEMPO', 'W-POR': 'FIRE',
 };
 
 function hash(s: string): number {

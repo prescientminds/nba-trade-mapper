@@ -9,7 +9,7 @@
 
 import type { TeamInfo, TeamDisplayInfo } from './teams';
 
-// ── Current WNBA Teams (2025 season) ─────────────────────────────────
+// ── Current WNBA Teams (2026 season) ─────────────────────────────────
 
 export const WNBA_TEAMS: Record<string, TeamInfo> = {
   'W-ATL': { id: 'W-ATL', name: 'Atlanta Dream', city: 'Atlanta', color: '#E31837', secondaryColor: '#0C2340', conference: 'East', division: 'Eastern' },
@@ -24,6 +24,9 @@ export const WNBA_TEAMS: Record<string, TeamInfo> = {
   'W-NYL': { id: 'W-NYL', name: 'New York Liberty', city: 'Brooklyn', color: '#86CEBC', secondaryColor: '#000000', conference: 'East', division: 'Eastern' },
   'W-PHO': { id: 'W-PHO', name: 'Phoenix Mercury', city: 'Phoenix', color: '#CB6015', secondaryColor: '#1D1160', conference: 'West', division: 'Western' },
   'W-SEA': { id: 'W-SEA', name: 'Seattle Storm', city: 'Seattle', color: '#2C5234', secondaryColor: '#FEE11A', conference: 'West', division: 'Western' },
+  // 2026 expansion. Colors: Wikipedia Module:Sports color/basketball (Tempo Bordeaux / Borealis Blue; Fire red / brown).
+  'W-TOR': { id: 'W-TOR', name: 'Toronto Tempo', city: 'Toronto', color: '#441E36', secondaryColor: '#B3C7E7', conference: 'East', division: 'Eastern' },
+  'W-POR': { id: 'W-POR', name: 'Portland Fire', city: 'Portland', color: '#C8102E', secondaryColor: '#3F3735', conference: 'West', division: 'Western' },
   'W-WAS': { id: 'W-WAS', name: 'Washington Mystics', city: 'Washington', color: '#E03A3E', secondaryColor: '#002B5C', conference: 'East', division: 'Eastern' },
 };
 
@@ -36,7 +39,6 @@ export const WNBA_DEFUNCT_TEAMS: Record<string, TeamInfo> = {
   'W-CLE': { id: 'W-CLE', name: 'Cleveland Rockers', city: 'Cleveland', color: '#002D62', secondaryColor: '#E03A3E', conference: 'East', division: 'Eastern' },
   'W-HOU': { id: 'W-HOU', name: 'Houston Comets', city: 'Houston', color: '#BA0C2F', secondaryColor: '#00338D', conference: 'West', division: 'Western' },
   'W-MIA': { id: 'W-MIA', name: 'Miami Sol', city: 'Miami', color: '#F47B20', secondaryColor: '#00529B', conference: 'East', division: 'Eastern' },
-  'W-POR': { id: 'W-POR', name: 'Portland Fire', city: 'Portland', color: '#CE1141', secondaryColor: '#000000', conference: 'West', division: 'Western' },
   'W-SAC': { id: 'W-SAC', name: 'Sacramento Monarchs', city: 'Sacramento', color: '#5A2D81', secondaryColor: '#63727A', conference: 'West', division: 'Western' },
 };
 
@@ -114,6 +116,16 @@ const WNBA_TEAM_RELOCATIONS: WnbaTeamRelocation[] = [
     historicalAbbreviation: 'DET',
     historicalColor: '#C8102E',
     historicalSecondaryColor: '#1D42BA',
+  },
+  // Portland Fire 2000–02 (folded) → revived 2026 under the same franchise on BBRef;
+  // trades before the revival keep the original identity's colors.
+  {
+    teamId: 'W-POR',
+    cutoffDate: '2026-01-01',
+    historicalName: 'Portland Fire',
+    historicalAbbreviation: 'POR',
+    historicalColor: '#CE1141',
+    historicalSecondaryColor: '#000000',
   },
   // Tulsa Shock → Dallas Wings (2016)
   {
