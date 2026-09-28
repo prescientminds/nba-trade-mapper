@@ -37,8 +37,6 @@ async function main() {
     season: string;
     wins: number | null;
     losses: number | null;
-    playoff_result: string | null;
-    championship: boolean;
   }> = [];
 
   let skipped = 0;
@@ -66,23 +64,16 @@ async function main() {
     const wins = parseInt(row.w) || null;
     const losses = parseInt(row.l) || null;
 
-    // Determine playoff result from the 'playoffs' column
-    // This dataset only has TRUE/FALSE for playoffs
-    let playoffResult: string | null = null;
-    let championship = false;
-    const playoffCol = (row.playoffs || '').trim().toUpperCase();
-
-    if (playoffCol === 'TRUE') {
-      playoffResult = 'R1'; // We only know they made playoffs; sample_data.sql has specific results
-    }
-
+    // W/L only. playoff_result + championship are owned by
+    // scrape-playoff-results.ts (real rounds from BBRef brackets). This CSV
+    // only has a TRUE/FALSE playoffs flag, and writing it flattened every
+    // season to R1 with no champion (see 2026-06-24 repair). Upsert updates
+    // only the columns sent, so omitting them leaves the bracket data intact.
     upsertRows.push({
       team_id: teamId,
       season,
       wins,
       losses,
-      playoff_result: playoffResult,
-      championship,
     });
   }
 

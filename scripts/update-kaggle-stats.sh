@@ -26,7 +26,7 @@ if [ -z "${KAGGLE_API_TOKEN:-}" ] && [ -f ~/.kaggle/access_token ]; then
   KAGGLE_API_TOKEN="$(cat ~/.kaggle/access_token)"
 fi
 
-command -v kaggle >/dev/null || { echo "Error: kaggle CLI not installed (brew install kaggle)"; exit 1; }
+command -v kaggle >/dev/null || { echo "Error: kaggle CLI not installed (brew install kaggle / pip install kaggle)"; exit 1; }
 
 # Download
 echo "Downloading latest dataset..."
@@ -34,9 +34,11 @@ rm -rf "$TMP_DIR"
 kaggle datasets download sumitrodatta/nba-aba-baa-stats -p "$TMP_DIR" --unzip
 
 # Compare row counts
-OLD_COUNT=$(grep -c "^2026," "$KAGGLE_DIR/Player Per Game.csv" 2>/dev/null || echo "0")
-NEW_COUNT=$(grep -c "^2026," "$TMP_DIR/Player Per Game.csv" 2>/dev/null || echo "0")
-echo "2025-26 rows: $OLD_COUNT (old) → $NEW_COUNT (new)"
+# Total rows, so the check works in any season (CI has no previous copy → 0 → always imports).
+OLD_COUNT=$(wc -l < "$KAGGLE_DIR/Player Per Game.csv" 2>/dev/null | tr -d ' ' || echo "0")
+NEW_COUNT=$(wc -l < "$TMP_DIR/Player Per Game.csv" 2>/dev/null | tr -d ' ' || echo "0")
+OLD_COUNT=${OLD_COUNT:-0}
+echo "Player Per Game rows: $OLD_COUNT (old) → $NEW_COUNT (new)"
 
 if [ "$NEW_COUNT" -le "$OLD_COUNT" ]; then
   echo "No new data. Cleaning up."
@@ -47,7 +49,7 @@ fi
 # Swap
 echo "Swapping data..."
 rm -rf "$BACKUP_DIR"
-mv "$KAGGLE_DIR" "$BACKUP_DIR"
+[ -d "$KAGGLE_DIR" ] && mv "$KAGGLE_DIR" "$BACKUP_DIR"
 mv "$TMP_DIR" "$KAGGLE_DIR"
 
 # Import
