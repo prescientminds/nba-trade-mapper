@@ -1588,5 +1588,58 @@
         "notes": null
       }
     ]
+  },
+  {
+    "id": "bbref-2026-09-27-16331076",
+    "date": "2026-09-27",
+    "season": "2026-27",
+    "title": "Rob Dillingham, Buddy Hield Trade",
+    "description": "The Chicago Bulls traded Rob Dillingham to the Charlotte Hornets for cash and Buddy Hield. Charlotte received a trade exception",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "CHA",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Rob Dillingham",
+        "from_team_id": "CHI",
+        "to_team_id": "CHA",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "cash",
+        "player_name": null,
+        "from_team_id": "CHA",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": "Cash considerations"
+      },
+      {
+        "type": "player",
+        "player_name": "Buddy Hield",
+        "from_team_id": "CHA",
+        "to_team_id": "CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
   }
 ]
