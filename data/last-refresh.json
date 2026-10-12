@@ -1,14 +1,14 @@
 {
-  "timestamp": "2026-10-05T19:29:44.414Z",
+  "timestamp": "2026-10-12T20:06:20.917Z",
   "year": 2026,
   "league": "all",
-  "durationSec": 149,
+  "durationSec": 161,
   "phases": [
     {
       "phase": "scrape-bbref-trades",
       "league": "NBA",
       "ok": true,
-      "durationSec": 46
+      "durationSec": 45
     },
     {
       "phase": "scrape-bbref-transactions",
@@ -20,7 +20,7 @@
       "phase": "refresh-playoff-data",
       "league": "NBA",
       "ok": true,
-      "durationSec": 18
+      "durationSec": 16
     },
     {
       "phase": "scrape-cap-history",
@@ -38,7 +38,7 @@
       "phase": "scrape-wnba-team-seasons",
       "league": "WNBA",
       "ok": true,
-      "durationSec": 4
+      "durationSec": 5
     },
     {
       "phase": "scrape-wnba-trades",
@@ -68,7 +68,7 @@
       "phase": "scrape-wnba-accolades",
       "league": "WNBA",
       "ok": true,
-      "durationSec": 28
+      "durationSec": 27
     },
     {
       "phase": "scrape-wnba-draft",
@@ -80,38 +80,38 @@
       "phase": "update-kaggle-stats",
       "league": "shared",
       "ok": true,
-      "durationSec": 133,
+      "durationSec": 130,
       "detail": "log: data/kaggle-refresh.log"
     },
     {
       "phase": "score-trades",
       "league": "shared",
       "ok": true,
-      "durationSec": 7
+      "durationSec": 11
     },
     {
       "phase": "score-transactions",
       "league": "shared",
       "ok": true,
-      "durationSec": 9
+      "durationSec": 20
     },
     {
       "phase": "compute-dynasty-ingredients",
       "league": "shared",
       "ok": true,
-      "durationSec": 7
+      "durationSec": 12
     },
     {
       "phase": "update-cap-thresholds",
       "league": "shared",
       "ok": true,
-      "durationSec": 4
+      "durationSec": 7
     },
     {
       "phase": "build-trade-profiles",
       "league": "NBA",
       "ok": true,
-      "durationSec": 3
+      "durationSec": 7
     },
     {
       "phase": "build-comparables-calibration",
@@ -123,7 +123,7 @@
       "phase": "verify-playoff-data",
       "league": "NBA",
       "ok": true,
-      "durationSec": 1
+      "durationSec": 2
     }
   ],
   "allOk": true
