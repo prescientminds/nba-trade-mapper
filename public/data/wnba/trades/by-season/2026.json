@@ -1,5 +1,89 @@
 [
   {
+    "id": "wnba-2026-04-01-39146d1a",
+    "date": "2026-04-01",
+    "season": "2026",
+    "title": "Agreement not to take unprotected players in 2026 Expansion Draft. Trade",
+    "description": "The Chicago Sky traded a 2026 2nd round pick (Saffron Shiels later selected) to the Toronto Tempo for Agreement not to take unprotected players in 2026 Expansion Draft.",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-TOR",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-TOR",
+        "pick_year": 2026,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "player",
+        "player_name": "Agreement not to take unprotected players in 2026 Expansion Draft.",
+        "from_team_id": "W-TOR",
+        "to_team_id": "W-CHI",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
+    "id": "wnba-2026-04-01-72ccbf69",
+    "date": "2026-04-01",
+    "season": "2026",
+    "title": "CHI / POR Trade",
+    "description": "The Chicago Sky traded a 2026 2nd round pick (Frieda Bühner later selected) to the Portland Fire for a 2026 2nd round pick (Latasha Lattimore later selected) (Portland also agreed not to take unprotected players in 2026 Expansion Draft).",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "W-CHI",
+        "role": "participant"
+      },
+      {
+        "team_id": "W-POR",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-CHI",
+        "to_team_id": "W-POR",
+        "pick_year": 2026,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "W-POR",
+        "to_team_id": "W-CHI",
+        "pick_year": 2026,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
+  },
+  {
     "id": "wnba-2026-04-06-54359bfb",
     "date": "2026-04-06",
     "season": "2026",
