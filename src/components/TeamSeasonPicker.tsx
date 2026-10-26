@@ -3,9 +3,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { TEAM_LIST } from '@/lib/teams';
+import { CURRENT_SEASON } from '@/lib/trade-builder';
 
 const FIRST_SEASON_START_YEAR = 1999;
-const LAST_SEASON_START_YEAR = 2025;
+const LAST_SEASON_START_YEAR = Number(CURRENT_SEASON.slice(0, 4));
 
 function buildSeasons(): string[] {
   const seasons: string[] = [];
