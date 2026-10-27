@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect, useCallback, type CSSProperties } from 'react';
 import { TradeWithDetails } from '@/lib/supabase';
 import { getAnyTeam } from '@/lib/teams';
 import { contrastText } from '@/lib/colors';
@@ -13,10 +13,24 @@ import { loadTrade, staticTradeToTradeWithDetails } from '@/lib/trade-data';
 import { useHints } from '@/lib/use-hints';
 import { HintLabel } from '@/components/HintLabel';
 import type { League } from '@/lib/league';
-import { SKINS, type VisualSkin } from '@/lib/skins';
 import Link from 'next/link';
 import TeamSeasonPicker from '@/components/TeamSeasonPicker';
 import { track } from '@/lib/analytics';
+
+// Text-link shortcuts under the search bar — deliberately quiet so the
+// search stays the one obvious way in.
+function shortcutStyle(active: boolean): CSSProperties {
+  return {
+    padding: 0,
+    background: 'none',
+    border: 'none',
+    borderBottom: `1px solid ${active ? 'var(--accent-orange)' : 'var(--border-subtle)'}`,
+    color: active ? 'var(--accent-orange)' : 'var(--text-secondary)',
+    font: 'inherit',
+    textDecoration: 'none',
+    cursor: 'pointer',
+  };
+}
 
 export default function SearchOverlay() {
   const [query, setQuery] = useState('');
@@ -42,9 +56,8 @@ export default function SearchOverlay() {
   const nodes = useGraphStore((s) => s.nodes);
   const selectedLeague = useGraphStore((s) => s.selectedLeague);
   const setSelectedLeague = useGraphStore((s) => s.setSelectedLeague);
-  const visualSkin = useGraphStore((s) => s.visualSkin);
-  const setVisualSkin = useGraphStore((s) => s.setVisualSkin);
   const isMobile = useMobile();
+  const [rosterOpen, setRosterOpen] = useState(false);
   const hintStep = useHints((s) => s.step);
   const dismissHint = useHints((s) => s.dismiss);
   const startTour = useTourStore((s) => s.startTour);
@@ -498,111 +511,63 @@ export default function SearchOverlay() {
         scrollbarColor: 'var(--bg-tertiary) transparent',
       }}
     >
-      {/* ── Hero section: search bar in upper portion, discovery visible below ── */}
+      {/* ── Top bar: brand, league switch, and the one primary action ── */}
       <div
         style={{
+          position: 'sticky',
+          top: 0,
+          zIndex: 5,
           display: 'flex',
-          flexDirection: 'column',
           alignItems: 'center',
-          paddingTop: '6vh',
-          paddingBottom: 56,
-          paddingLeft: 24,
-          paddingRight: 24,
-          position: 'relative',
+          gap: isMobile ? 8 : 16,
+          padding: isMobile ? '12px 12px' : '14px 28px',
+          background: 'var(--bg-primary)',
+          borderBottom: '1px solid var(--border-subtle)',
         }}
       >
-        <div style={{ textAlign: 'center', marginBottom: 28 }}>
-          <h1
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 52,
-              letterSpacing: 2,
-              color: 'var(--text-primary)',
-              lineHeight: 1.1,
-            }}
-          >
-            {selectedLeague} TRADE MAPPER
-          </h1>
-          <div
-            data-tour="league-toggle"
-            style={{
-              display: 'flex',
-              gap: 6,
-              justifyContent: 'center',
-              marginTop: 16,
-            }}
-          >
-            {(['NBA', 'WNBA'] as const).map((league) => (
-              <button
-                key={league}
-                onClick={() => handleLeagueSwitch(league)}
-                style={{
-                  padding: '6px 18px',
-                  borderRadius: 999,
-                  border: selectedLeague === league
-                    ? '2px solid var(--accent-orange)'
-                    : '1px solid var(--border-medium)',
-                  background: selectedLeague === league ? 'var(--accent-orange)11' : 'transparent',
-                  color: selectedLeague === league ? 'var(--accent-orange)' : 'var(--text-muted)',
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-display)',
-                  fontSize: 14,
-                  fontWeight: selectedLeague === league ? 700 : 400,
-                  letterSpacing: 1,
-                  transition: 'var(--transition-fast)',
-                }}
-              >
-                {league}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Search bar + dropdown */}
+        <h1
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: isMobile ? 18 : 24,
+            letterSpacing: isMobile ? 1 : 1.5,
+            color: 'var(--text-primary)',
+            lineHeight: 1,
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {selectedLeague} TRADE MAPPER
+        </h1>
         <div
-          data-tour="search-bar"
+          data-tour="league-toggle"
           style={{
-            width: 'min(88vw, 680px)',
-            position: 'relative',
+            display: 'flex',
+            padding: 2,
+            borderRadius: 999,
+            border: '1px solid var(--border-medium)',
           }}
         >
-          {searchInput}
-          {resultsDropdown}
+          {(['NBA', 'WNBA'] as const).map((league) => (
+            <button
+              key={league}
+              onClick={() => handleLeagueSwitch(league)}
+              style={{
+                padding: isMobile ? '3px 10px' : '4px 14px',
+                borderRadius: 999,
+                border: 'none',
+                background: selectedLeague === league ? 'var(--bg-tertiary)' : 'transparent',
+                color: selectedLeague === league ? 'var(--text-primary)' : 'var(--text-muted)',
+                cursor: 'pointer',
+                fontFamily: 'var(--font-display)',
+                fontSize: 13,
+                letterSpacing: 1,
+                transition: 'var(--transition-fast)',
+              }}
+            >
+              {league}
+            </button>
+          ))}
         </div>
-
-        <p
-          style={{
-            fontFamily: 'var(--font-body)',
-            fontSize: 15,
-            color: 'var(--text-tertiary)',
-            marginTop: 16,
-            textAlign: 'center',
-          }}
-        >
-          Search for any player or trade to begin
-        </p>
-
-        {/* Secondary entry — browse any team's roster composition */}
-        <div style={{ marginTop: 28, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 10,
-              fontFamily: 'var(--font-body)',
-              fontSize: 11,
-              letterSpacing: 1.2,
-              textTransform: 'uppercase',
-              color: 'var(--text-muted)',
-            }}
-          >
-            <span style={{ width: 40, height: 1, background: 'var(--border-subtle)' }} />
-            <span>or browse a roster</span>
-            <span style={{ width: 40, height: 1, background: 'var(--border-subtle)' }} />
-          </div>
-          <TeamSeasonPicker />
-        </div>
-
+        <div style={{ flex: 1 }} />
         {/* Build a Trade — opens the full-page builder. "View on canvas"
             there brings the finished trade back onto this graph. */}
         <Link
@@ -610,148 +575,99 @@ export default function SearchOverlay() {
           style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            gap: 8,
-            marginTop: 22,
-            padding: isMobile ? '11px 20px' : '12px 26px',
+            gap: 6,
+            padding: isMobile ? '7px 12px' : '8px 18px',
             background: 'var(--accent-orange)',
-            border: '1px solid var(--accent-orange)',
-            borderRadius: 10,
+            borderRadius: 8,
             color: '#fff',
-            fontSize: isMobile ? 13 : 14,
+            fontSize: 13,
             fontWeight: 700,
             fontFamily: 'var(--font-display)',
             letterSpacing: 0.8,
             textTransform: 'uppercase',
-            cursor: 'pointer',
             textDecoration: 'none',
+            whiteSpace: 'nowrap',
             transition: 'opacity 0.15s',
           }}
           onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.85'; }}
           onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; }}
         >
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="12" y1="5" x2="12" y2="19" />
             <line x1="5" y1="12" x2="19" y2="12" />
           </svg>
-          Build a Trade
+          {isMobile ? 'Trade' : 'Build a Trade'}
         </Link>
+      </div>
 
-        <Link
-          href="/methodology"
-          data-tour="methodology-link"
-          style={{
-            display: 'inline-block',
-            marginTop: 10,
-            fontSize: 12,
-            color: 'var(--text-muted)',
-            textDecoration: 'none',
-            borderBottom: '1px solid var(--border-subtle)',
-            transition: 'var(--transition-fast)',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = 'var(--accent-orange)';
-            e.currentTarget.style.borderBottomColor = 'var(--accent-orange)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = 'var(--text-muted)';
-            e.currentTarget.style.borderBottomColor = 'var(--border-subtle)';
-          }}
-        >
-          How we score trades &rarr;
-        </Link>
-        {hintStep === 1 && (
-          <HintLabel text="Search a player or team" style={{ marginTop: 12 }} />
-        )}
-
-        {/* "Try It" CTA — above skins so it's visible on mobile */}
-        {!tourCompleted && (
-          <button
-            onClick={startGuidedTour}
-            style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              gap: isMobile ? 8 : 10,
-              width: '100%',
-              maxWidth: isMobile ? 320 : 420,
-              margin: '20px auto 0',
-              padding: isMobile ? '12px 16px' : '14px 28px',
-              background: 'transparent',
-              border: '1px solid var(--accent-orange)',
-              borderRadius: 10,
-              color: 'var(--accent-orange)',
-              fontSize: isMobile ? 12 : 14,
-              fontWeight: 700,
-              fontFamily: 'var(--font-display)',
-              letterSpacing: 0.8,
-              cursor: 'pointer',
-              transition: 'background 0.15s, color 0.15s',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'var(--accent-orange)';
-              e.currentTarget.style.color = '#fff';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'transparent';
-              e.currentTarget.style.color = 'var(--accent-orange)';
-            }}
-          >
-            <svg width={isMobile ? 14 : 16} height={isMobile ? 14 : 16} viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="5,3 19,12 5,21" />
-            </svg>
-            {isMobile ? 'Try It: OKC–HOU Harden Trade' : 'Try It: Map the OKC–HOU James Harden Trade'}
-          </button>
-        )}
-
+      {/* ── Hero: the search bar, with quiet shortcuts beneath it ── */}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          paddingTop: isMobile ? 36 : '11vh',
+          paddingBottom: isMobile ? 36 : 64,
+          paddingLeft: 16,
+          paddingRight: 16,
+          position: 'relative',
+        }}
+      >
+        {/* Search bar + dropdown */}
         <div
-          data-tour="skin-picker"
+          data-tour="search-bar"
           style={{
-            display: 'flex',
-            gap: 6,
-            justifyContent: 'center',
-            marginTop: 16,
+            width: 'min(100%, 680px)',
+            position: 'relative',
           }}
         >
-          {SKINS.map((skin) => (
-            <button
-              key={skin.id}
-              onClick={() => setVisualSkin(skin.id)}
-              style={{
-                padding: '6px 18px',
-                borderRadius: 999,
-                border: visualSkin === skin.id
-                  ? `2px solid ${
-                      skin.id === 'insideStuff' ? '#f5a623'
-                      : skin.id === 'nbaJam' ? '#00CCCC'
-                      : 'var(--accent-purple)'
-                    }`
-                  : '1px solid var(--border-medium)',
-                background: visualSkin === skin.id
-                  ? (skin.id === 'holographic'
-                      ? 'linear-gradient(135deg, rgba(255,107,53,0.1), rgba(155,93,229,0.1))'
-                      : skin.id === 'insideStuff'
-                        ? 'rgba(245, 166, 35, 0.1)'
-                        : skin.id === 'nbaJam'
-                          ? 'rgba(0, 204, 204, 0.1)'
-                          : 'var(--accent-purple)11')
-                  : 'transparent',
-                color: visualSkin === skin.id
-                  ? (skin.id === 'insideStuff' ? '#f5a623'
-                    : skin.id === 'nbaJam' ? '#00FFFF'
-                    : 'var(--accent-purple)')
-                  : 'var(--text-muted)',
-                cursor: 'pointer',
-                fontFamily: 'var(--font-display)',
-                fontSize: 14,
-                fontWeight: visualSkin === skin.id ? 700 : 400,
-                letterSpacing: 1,
-                transition: 'var(--transition-fast)',
-              }}
-            >
-              {skin.label}
-            </button>
-          ))}
+          {searchInput}
+          {resultsDropdown}
         </div>
 
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '6px 12px',
+            marginTop: 18,
+            fontFamily: 'var(--font-body)',
+            fontSize: 13,
+            color: 'var(--text-muted)',
+          }}
+        >
+          <button
+            onClick={() => setRosterOpen((o) => !o)}
+            aria-expanded={rosterOpen}
+            style={shortcutStyle(rosterOpen)}
+          >
+            Browse a roster {rosterOpen ? '\u25B4' : '\u25BE'}
+          </button>
+          {!tourCompleted && (
+            <>
+              {!isMobile && <span aria-hidden>&middot;</span>}
+              <button onClick={startGuidedTour} style={shortcutStyle(false)}>
+                Try the Harden trade
+              </button>
+            </>
+          )}
+          {!isMobile && <span aria-hidden>&middot;</span>}
+          <Link href="/methodology" data-tour="methodology-link" style={shortcutStyle(false)}>
+            How we score trades
+          </Link>
+        </div>
+
+        {rosterOpen && (
+          <div style={{ marginTop: 18 }}>
+            <TeamSeasonPicker compact />
+          </div>
+        )}
+
+        {hintStep === 1 && (
+          <HintLabel text="Search a player or team" style={{ marginTop: 14 }} />
+        )}
       </div>
 
       {/* ── Discovery section: scrolls in below the fold ── */}
@@ -759,7 +675,7 @@ export default function SearchOverlay() {
         style={{
           maxWidth: 800,
           margin: '0 auto',
-          padding: '0 24px 120px',
+          padding: isMobile ? '0 16px 120px' : '0 24px 120px',
         }}
       >
         {hintStep === 6 && (
