@@ -606,13 +606,24 @@ export default function SearchOverlay() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          paddingTop: isMobile ? 36 : '11vh',
+          paddingTop: isMobile ? 28 : '6vh',
           paddingBottom: isMobile ? 36 : 64,
           paddingLeft: 16,
           paddingRight: 16,
           position: 'relative',
         }}
       >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/logo-mark.webp"
+          alt=""
+          aria-hidden
+          width={isMobile ? 88 : 120}
+          height={isMobile ? 88 : 120}
+          fetchPriority="high"
+          style={{ display: 'block', marginBottom: isMobile ? 20 : 28 }}
+        />
+
         {/* Search bar + dropdown */}
         <div
           data-tour="search-bar"
