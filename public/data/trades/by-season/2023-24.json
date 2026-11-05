@@ -962,7 +962,7 @@
     "id": "bbref-2023-07-11-a4fa3653",
     "date": "2023-07-11",
     "season": "2023-24",
-    "title": "Zach Edey, Isaiah Todd, Ryan Kalkbrenner Trade",
+    "title": "Isaiah Todd, Ryan Kalkbrenner Trade",
     "description": "The Phoenix Suns traded Isaiah Todd, a 2024 1st round draft pick and a 2030 1st round draft pick to the Memphis Grizzlies for a 2025 2nd round draft pick (Ryan Kalkbrenner was later selected), a 2028 2nd round draft pick and a 2029 2nd round draft pick. 2024 1st-rd pick was a right to swap, did not convey 2030 1st-rd pick is a right to swap 2028 2nd-rd pick is MEM own 2029 2nd-rd pick is MEM own 2025 2nd-rd pick is NOP own",
     "is_multi_team": false,
     "teams": [
@@ -1044,7 +1044,7 @@
       }
     ],
     "topAssets": [
-      "Zach Edey",
+      "Isaiah Todd",
       "Ryan Kalkbrenner"
     ]
   },
@@ -1052,7 +1052,7 @@
     "id": "bbref-2023-07-12-36d6a4b7",
     "date": "2023-07-12",
     "season": "2023-24",
-    "title": "Grant Williams, Noah Penda, Adem Bona Trade",
+    "title": "Grant Williams, Adem Bona, Reggie Bullock Trade",
     "description": "In a 3-team trade, the Boston Celtics traded Grant Williams to the Dallas Mavericks; the Dallas Mavericks traded a 2025 2nd round draft pick and a 2030 2nd round draft pick to the Boston Celtics; the Dallas Mavericks traded Reggie Bullock and a 2030 1st round draft pick to the San Antonio Spurs; the San Antonio Spurs traded a 2024 2nd round draft pick (Adem Bona was later selected) to the Boston Celtics; and the San Antonio Spurs traded a 2025 2nd round draft pick (Chaz Lanier was later selected) and a 2028 2nd round draft pick to the Dallas Mavericks. 2030 1st-rd pick is a right to swap 2025 2nd-rd pick is TOR own 2028 2nd-rd pick is MIA own 2024 2nd-rd pick is more favorable 2025 2nd-rd pick is a right to swap, did not convey 2030 2nd-rd pick is DAL own",
     "is_multi_team": true,
     "teams": [
@@ -1162,7 +1162,7 @@
     "topAssets": [
       "Grant Williams",
       "Grant Williams",
-      "Noah Penda"
+      "Adem Bona"
     ]
   },
   {
@@ -4024,7 +4024,7 @@
     "id": "bbref-2024-06-26-304b4d2a",
     "date": "2024-06-26",
     "season": "2023-24",
-    "title": "Danny Wolf, Khaman Maluach Trade",
+    "title": "Mikel Brown Jr. Trade",
     "description": "The Houston Rockets traded a 2025 1st round draft pick (Danny Wolf was later selected), a 2026 1st round draft pick and a 2029 1st round draft pick to the Brooklyn Nets for a 2025 1st round draft pick (Khaman Maluach was later selected), a 2027 1st round draft pick and a 2029 1st round draft pick. 2026 1st-rd draft pick BRK own 2025 1st-rd pick swap; became PHO pick 2027 1st-rd pick is PHO own 2029 1st-rd two most favorable of DAL, PHO, HOU 2029 1st-rd least favorable of DAL, PHO, HOU HOU optioned to swap 2025 1st-rd picks",
     "is_multi_team": false,
     "teams": [
@@ -4056,9 +4056,9 @@
         "to_team_id": "BKN",
         "pick_year": 2026,
         "pick_round": 1,
-        "original_team_id": null,
-        "became_player_name": "Labaron Philon Jr.",
-        "notes": null
+        "original_team_id": "BKN",
+        "became_player_name": "Mikel Brown Jr.",
+        "notes": "2026 1st-rd draft pick BRK own"
       },
       {
         "type": "pick",
@@ -4106,8 +4106,8 @@
       }
     ],
     "topAssets": [
-      "Danny Wolf",
-      "Khaman Maluach"
+      "Mikel Brown Jr.",
+      ""
     ]
   },
   {

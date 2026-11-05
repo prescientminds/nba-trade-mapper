@@ -1434,7 +1434,7 @@
     "id": "bbref-2021-08-07-0b78848e",
     "date": "2021-08-07",
     "season": "2021-22",
-    "title": "Doug McDermott, Jalen Pickett, Leonard Miller Trade",
+    "title": "Doug McDermott Trade",
     "description": "The Indiana Pacers traded Doug McDermott, a 2023 2nd round draft pick and a 2026 2nd round draft pick to the San Antonio Spurs for a 2023 2nd round draft pick. 2023 conditional 2nd-rd pick is IND own, did not convey 2026 2nd-rd pick is a right to swap 2023 conditional 2nd-rd pick is SAS own, did not convey",
     "is_multi_team": false,
     "teams": [
@@ -1506,7 +1506,7 @@
     ],
     "topAssets": [
       "Doug McDermott",
-      "Jalen Pickett"
+      ""
     ]
   },
   {
@@ -5071,7 +5071,7 @@
     "id": "bbref-2022-06-30-9b3ab778",
     "date": "2022-06-30",
     "season": "2021-22",
-    "title": "Victor Wembanyama, Dejounte Murray, Jock Landale Trade",
+    "title": "Dejounte Murray, Jock Landale, Carter Bryant Trade",
     "description": "The San Antonio Spurs traded Jock Landale and Dejounte Murray to the Atlanta Hawks for Danilo Gallinari, a 2023 1st round draft pick, a 2025 1st round draft pick (Carter Bryant was later selected), a 2026 1st round draft pick and a 2027 1st round draft pick. Conditional 2023 1st-rd pick was CHO own, did not convey 2025 1st-rd pick is ATL own 2026 1st-rd pick is a right to swap 2027 1st-rd pick is ATL own",
     "is_multi_team": false,
     "teams": [
@@ -5164,8 +5164,8 @@
       }
     ],
     "topAssets": [
-      "Victor Wembanyama",
-      "Dejounte Murray"
+      "Dejounte Murray",
+      "Carter Bryant"
     ]
   }
 ]
