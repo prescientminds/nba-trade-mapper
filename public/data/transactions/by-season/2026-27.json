@@ -1,5 +1,47 @@
 [
   {
+    "id": "tx-2026-11-05-7fb4c68b",
+    "date": "2026-11-05",
+    "season": "2026-27",
+    "transaction_type": "waiver",
+    "player_name": "Riley Minix",
+    "player_bbref_id": "minixri01",
+    "team_id": "CLE",
+    "from_team_id": null,
+    "contract_type": null,
+    "description": "The Cleveland Cavaliers waived Riley Minix.",
+    "notes": null,
+    "source_url": "https://www.basketball-reference.com/leagues/NBA_2027_transactions.html"
+  },
+  {
+    "id": "tx-2026-11-04-f7e64b7c",
+    "date": "2026-11-04",
+    "season": "2026-27",
+    "transaction_type": "signing",
+    "player_name": "Dalen Terry",
+    "player_bbref_id": "terryda01",
+    "team_id": "OKC",
+    "from_team_id": null,
+    "contract_type": "multi_year",
+    "description": "The Oklahoma City Thunder signed Dalen Terry to a multi-year contract.",
+    "notes": null,
+    "source_url": "https://www.basketball-reference.com/leagues/NBA_2027_transactions.html"
+  },
+  {
+    "id": "tx-2026-11-03-76882b97",
+    "date": "2026-11-03",
+    "season": "2026-27",
+    "transaction_type": "waiver",
+    "player_name": "Enrique Freeman",
+    "player_bbref_id": "freemen01",
+    "team_id": "MIN",
+    "from_team_id": null,
+    "contract_type": null,
+    "description": "The Minnesota Timberwolves waived Enrique Freeman.",
+    "notes": null,
+    "source_url": "https://www.basketball-reference.com/leagues/NBA_2027_transactions.html"
+  },
+  {
     "id": "tx-2026-10-29-a71da8c8",
     "date": "2026-10-29",
     "season": "2026-27",
