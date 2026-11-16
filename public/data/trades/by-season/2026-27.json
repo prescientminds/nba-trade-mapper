@@ -1641,5 +1641,58 @@
         "notes": null
       }
     ]
+  },
+  {
+    "id": "bbref-2026-11-08-8834bcb1",
+    "date": "2026-11-08",
+    "season": "2026-27",
+    "title": "Nique Clifford Trade",
+    "description": "The Sacramento Kings traded Nique Clifford to the Oklahoma City Thunder for a 2028 2nd round draft pick and a 2030 2nd round draft pick. Sacramento received a trade exception 2028 2nd-rd pick is UTA own 2030 2nd-rd pick is MIN own",
+    "is_multi_team": false,
+    "teams": [
+      {
+        "team_id": "SAC",
+        "role": "participant"
+      },
+      {
+        "team_id": "OKC",
+        "role": "participant"
+      }
+    ],
+    "assets": [
+      {
+        "type": "player",
+        "player_name": "Nique Clifford",
+        "from_team_id": "SAC",
+        "to_team_id": "OKC",
+        "pick_year": null,
+        "pick_round": null,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "SAC",
+        "pick_year": 2028,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      },
+      {
+        "type": "pick",
+        "player_name": null,
+        "from_team_id": "OKC",
+        "to_team_id": "SAC",
+        "pick_year": 2030,
+        "pick_round": 2,
+        "original_team_id": null,
+        "became_player_name": null,
+        "notes": null
+      }
+    ]
   }
 ]
