@@ -1,26 +1,26 @@
 {
-  "timestamp": "2026-11-16T20:46:40.210Z",
+  "timestamp": "2026-11-23T22:21:42.936Z",
   "year": 2027,
   "league": "all",
-  "durationSec": 99,
+  "durationSec": 121,
   "phases": [
     {
       "phase": "scrape-bbref-trades",
       "league": "NBA",
       "ok": true,
-      "durationSec": 43
+      "durationSec": 42
     },
     {
       "phase": "scrape-bbref-transactions",
       "league": "NBA",
       "ok": true,
-      "durationSec": 5
+      "durationSec": 6
     },
     {
       "phase": "refresh-playoff-data",
       "league": "NBA",
       "ok": true,
-      "durationSec": 3
+      "durationSec": 5
     },
     {
       "phase": "scrape-cap-history",
@@ -80,44 +80,44 @@
       "phase": "update-kaggle-stats",
       "league": "shared",
       "ok": true,
-      "durationSec": 85,
+      "durationSec": 90,
       "detail": "log: data/kaggle-refresh.log"
     },
     {
       "phase": "score-trades",
       "league": "shared",
       "ok": true,
-      "durationSec": 7
+      "durationSec": 14
     },
     {
       "phase": "score-transactions",
       "league": "shared",
       "ok": true,
-      "durationSec": 9
+      "durationSec": 20
     },
     {
       "phase": "compute-dynasty-ingredients",
       "league": "shared",
       "ok": true,
-      "durationSec": 6
+      "durationSec": 10
     },
     {
       "phase": "update-cap-thresholds",
       "league": "shared",
       "ok": true,
-      "durationSec": 3
+      "durationSec": 6
     },
     {
       "phase": "build-trade-profiles",
       "league": "NBA",
       "ok": true,
-      "durationSec": 4
+      "durationSec": 7
     },
     {
       "phase": "build-comparables-calibration",
       "league": "NBA",
       "ok": true,
-      "durationSec": 1
+      "durationSec": 2
     },
     {
       "phase": "verify-playoff-data",
